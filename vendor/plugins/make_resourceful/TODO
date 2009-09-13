@@ -1,0 +1,17 @@
+== Specs
+* 25 failures 
+  10 urls_spec - FIXED
+  15 integration_spec
+    Seems to be failing to mock the view rendering in the integration tests. - change of rails/rspec version?
+
+== Function
+* Accumulate responders, rather than overwriting, ie.
+  response_for(:edit) do |format|
+    format.js
+  end
+  response_for(:new, :edit)
+    format.html
+    # keeps format.js
+  end
+  - DONE based on work by http://github.com/adzap
+* Resourceful::Default::Accessors.current_object_name

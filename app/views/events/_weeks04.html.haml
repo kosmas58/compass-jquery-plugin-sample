@@ -1,0 +1,73 @@
+-@jquery_partial = 'weeks04.js.haml'
+
+%center
+  %h3
+    jQuery Week Calendar (full demo)
+  #about_button_container
+    %button#about_button{ :type => "button" }
+      About this demo
+  #calendar
+  #event_edit_container
+    %form
+      %input{ :type => "hidden" }
+      %ul
+        %li
+          %span
+            Date:
+          %span.date_holder
+        %li
+          %label{ :for => "start" }
+            Start Time:
+          %select{ :name => "start" }
+            %option{ :value => "" }
+              Select Start Time
+        %li
+          %label{ :for => "end" }
+            End Time:
+          %select{ :name => "end" }
+            %option{ :value => "" }
+              Select End Time
+        %li
+          %label{ :for => "title" }
+            Title:
+          %input{ :name => "title", :type => "text" }
+        %li
+          %label{ :for => "body" }
+            Body:
+          %textarea{ :name => "body" }
+  #about
+    %h2
+      Summary
+    %p
+      This calendar implementation demonstrates further usage of the calendar with editing and deleting of events.
+      It stops short however of implementing a server-side back-end which is out of the scope of this plugin. It
+      should be reasonably evident by viewing the demo source code, where the points for adding ajax should be.
+      Note also that this is **just a demo** and some of the demo code itself is rough. It could certainly be
+      optimised.
+    %p
+      ***Note: This demo is straight out of SVN trunk so may show unreleased features from time to time.
+    %h2
+      Demonstrated Features
+    %p
+      This calendar implementation demonstrates the following features:
+    %ul.formatted
+      %li
+        Adding, updating and deleting of calendar events using jquery-ui dialog. Also includes
+        additional calEvent data (body field) not defined by the calEvent data structure to show the storage
+        of the data within the calEvent
+      %li
+        Dragging and resizing of calendar events
+      %li
+        Restricted timeslot rendering based on business hours
+      %li
+        Week starts on Monday instead of the default of Sunday
+      %li
+        Allowing calEvent overlap with staggered rendering of overlapping events
+      %li
+        Use of the 'getTimeslotTimes' method to retrieve valid times for a given event day. This is used to populate
+        select fields for adding, updating events.
+      %li
+        Use of the 'eventRender' callback to add a different css class to calEvents in the past
+      %li
+        Use of additional calEvent data to enforce readonly behaviour for a calendar event. See the event
+        titled "i'm read-only"

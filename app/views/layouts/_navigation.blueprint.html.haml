@@ -1,0 +1,63 @@
+#navigation  
+  .tree
+    %ul
+      %li.folder{:data => "icon: '../dynatree.custom/grid.png'" } 
+        jqGrid
+        %ul
+          %li.folder{:data => "icon: '../dynatree.custom/grid.png'" }  
+            2dc jqGrid
+            %ul
+              %li.folder{:data => "icon: '../dynatree.custom/grid.png'" } 
+                Simple Data Grids
+                %ul
+                  %li{:data => "url: '/users?example=01', icon: '../dynatree.custom/grid.png'" }
+                    default
+                  %li{:data => "url: '/users?example=02', icon: '../dynatree.custom/grid.png'" }
+                    with selection link and autowidth
+                  %li{:data => "url: '/users?example=03', icon: '../dynatree.custom/grid.png'" }
+                    with direct selection
+                  %li{:data => "url: '/users?example=04', icon: '../dynatree.custom/grid.png'" }
+                    with multiple selections
+                  %li{:data => "url: '/users?example=05', icon: '../dynatree.custom/grid.png'" }
+                    with master details
+              %li.folder{:data => "icon: '../dynatree.custom/grid.png'" } 
+                Data manipulation
+                %ul 
+                  %li{:data => "url: '/users?example=06', icon: '../dynatree.custom/grid.png'" }
+                    with inline editing
+                  %li{:data => "url: '/users?example=07', icon: '../dynatree.custom/grid.png'" }
+                    with modal editing
+                  %li{:data => "url: '/users?example=08', icon: '../dynatree.custom/grid.png'" }
+                    witth various input types
+                  %li{:data => "url: '/users?example=09', icon: '../dynatree.custom/grid.png'" }
+                    with various input types and datepicker for lastname
+              %li.folder{:data => "icon: '../dynatree.custom/grid.png'" } 
+                Subgrids
+                %ul
+                  %li{:data => "url: '/users?example=10', icon: '../dynatree.custom/grid.png'" }                   
+                    default
+                  %li{:data => "url: '/users?example=11', icon: '../dynatree.custom/grid.png'" }
+                    with CRUD operations
+                  %li{:data => "url: '/users?example=12', icon: '../dynatree.custom/grid.png'" }
+                    with selection
+            %li{:data => "url: '/people', icon: '../dynatree.custom/grid.png'" }
+              jqGrid for Rails
+            %li{:data => "url: '/widgets', icon: '../dynatree.custom/grid.png'" }                   
+              Secret Sauce jqGrid
+      %li.folder{:data => "icon: '../dynatree.custom/view_calendar.png'" }
+        Calendar
+        %ul
+          %li{:data => "url: '/events/months', icon: '../dynatree.custom/view_calendar_month.png'" }
+            Month view
+          %li.folder{:data => "icon: '../dynatree.custom/view_calendar_week.png'" }
+            Week view
+            %ul
+              %li{:data => "url: '/events/weeks?example=01', icon: '../dynatree.custom/view_calendar_week.png'" }
+                Week view 1
+              %li{:data => "url: '/events/weeks?example=02', icon: '../dynatree.custom/view_calendar_week.png'" }
+                Week view 2
+              %li{:data => "url: '/events/weeks?example=03', icon: '../dynatree.custom/view_calendar_week.png'" }
+                Week view 3
+              %li{:data => "url: '/events/weeks?example=04', icon: '../dynatree.custom/view_calendar_week.png'" }
+                Week view 4
+     

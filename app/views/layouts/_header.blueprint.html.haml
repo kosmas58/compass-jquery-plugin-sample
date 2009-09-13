@@ -1,0 +1,18 @@
+#header.ui-widget-header.ui-corner-all   
+  #headline
+    .span-6 
+      = link_to image_tag('logos/logo.png', :border => 0, :title => "compass"), "http://wiki.github.com/kosmas58/compass-jquery-plugin", :popup => true  
+    .span-8
+      %h2
+        Adding jQuery to compass 
+          
+  #language   
+    #site-actions
+      %ul
+        %li
+          = t('txt.layout.language')
+        %li
+          - form_tag('', :method => :get) do
+            %div
+              = select_tag("locale", options_for_select(LOCALES_AVAILABLE, I18n.locale.to_s))  
+  

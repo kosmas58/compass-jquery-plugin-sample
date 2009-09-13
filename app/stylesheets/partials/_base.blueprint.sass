@@ -1,0 +1,56 @@
+@import blueprint/screen.sass
+@import blueprint/modules/scaffolding.sass
+@import blueprint/modules/liquid.sass
+@import compass/reset.sass
+@import compass/utilities.sass
++blueprint-liquid-grid
+@import partials/j_week_calendar
+@import partials/j_month_calendar
+@import partials/formrow
+
+=site-actions
+#site-actions
+  :float right
+  +horizontal-list
+  select
+    :margin-top 0
+
+=header
+#header
+  :height 4.5em
+  #headline
+    +column(20)
+    img
+      :padding 0em 0em 0em 0.5em
+      :width 18em
+    h2
+      :padding 0.5em
+  #language
+    +column(3)
+    +site-actions
+    :padding 1em 0em 0em 0em
+
+=navigation
+#navigation
+  :padding 0.5em 0em 0em 0em
+
+=footer
+#footer
+  #legalese
+    +column(20)
+  #footer-links
+    +column(3,true)
+
+=content
+#content
+
+=two-column(!header, !left, !center, !footer)
+  #{!header}, #{!footer}
+    +column(24)
+  #{!left}
+    +column(5)
+    +navigation
+  #{!center}
+    +column(18)
+    +content
+    +footer

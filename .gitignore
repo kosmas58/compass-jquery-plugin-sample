@@ -1,0 +1,11 @@
+*~
+.DS_Store
+app/stylesheets/.sass-cache/*
+db/schema.rb
+db/*.sqlite*
+log/*
+public/javascripts/common.js
+public/javascripts/locales.js
+public/stylesheets/*.sass
+tmp/*
+

@@ -1,0 +1,170 @@
+--- 
+en: 
+  activerecord: 
+    errors: 
+      messages: 
+        taken: has already been taken
+        accepted: must be accepted
+        not_a_number: is not a number
+        greater_than_or_equal_to: must be greater than or equal to {{count}}
+        blank: can't be blank
+        less_than_or_equal_to: must be less than or equal to {{count}}
+        exclusion: is reserved
+        confirmation: doesn't match confirmation
+        odd: must be odd
+        invalid: is invalid
+        wrong_length: is the wrong length (should be {{count}} characters)
+        empty: can't be empty
+        too_short: is too short (minimum is {{count}} characters)
+        less_than: must be less than {{count}}
+        too_long: is too long (maximum is {{count}} characters)
+        even: must be even
+        equal_to: must be equal to {{count}}
+        inclusion: is not included in the list
+        greater_than: must be greater than {{count}}
+      template: 
+        body: "There were problems with the following fields:"
+        header: 
+          one: 1 error prohibited this {{model}} from being saved
+          other: "{{count}} errors prohibited this {{model}} from being saved"
+  time: 
+    am: am
+    formats: 
+      default: "%a, %d %b %Y %H:%M:%S %z"
+      long: "%B %d, %Y %H:%M"
+      short: "%d %b %H:%M"
+    pm: pm
+  number: 
+    format: 
+      separator: .
+      delimiter: ","
+      precision: 3
+    human: 
+      format: 
+        delimiter: ""
+        precision: 1
+      storage_units: 
+        format: "%n %u"
+        units: 
+          kb: KB
+          tb: TB
+          gb: GB
+          byte: 
+            one: Byte
+            other: Bytes
+          mb: MB
+    precision: 
+      format: 
+        delimiter: ""
+    percentage: 
+      format: 
+        delimiter: ""
+    currency: 
+      format: 
+        format: "%u%n"
+        unit: $
+        separator: .
+        delimiter: ","
+        precision: 2
+  date: 
+    order: 
+    - :year
+    - :month
+    - :day
+    abbr_day_names: 
+    - Sun
+    - Mon
+    - Tue
+    - Wed
+    - Thu
+    - Fri
+    - Sat
+    formats: 
+      default: "%Y-%m-%d"
+      long: "%B %d, %Y"
+      short: "%b %d"
+    month_names: 
+    - 
+    - January
+    - February
+    - March
+    - April
+    - May
+    - June
+    - July
+    - August
+    - September
+    - October
+    - November
+    - December
+    day_names: 
+    - Sunday
+    - Monday
+    - Tuesday
+    - Wednesday
+    - Thursday
+    - Friday
+    - Saturday
+    abbr_month_names: 
+    - 
+    - Jan
+    - Feb
+    - Mar
+    - Apr
+    - May
+    - Jun
+    - Jul
+    - Aug
+    - Sep
+    - Oct
+    - Nov
+    - Dec
+  txt: 
+    hello: Hello world
+    layout: 
+      language: Language
+  support: 
+    array: 
+      words_connector: ", "
+      last_word_connector: ", and "
+      two_words_connector: " and "
+  datetime: 
+    distance_in_words: 
+      less_than_x_minutes: 
+        one: less than a minute
+        other: less than {{count}} minutes
+      x_days: 
+        one: 1 day
+        other: "{{count}} days"
+      x_minutes: 
+        one: 1 minute
+        other: "{{count}} minutes"
+      x_seconds: 
+        one: 1 second
+        other: "{{count}} seconds"
+      less_than_x_seconds: 
+        one: less than 1 second
+        other: less than {{count}} seconds
+      x_months: 
+        one: 1 month
+        other: "{{count}} months"
+      about_x_hours: 
+        one: about 1 hour
+        other: about {{count}} hours
+      about_x_months: 
+        one: about 1 month
+        other: about {{count}} months
+      about_x_years: 
+        one: about 1 year
+        other: about {{count}} years
+      over_x_years: 
+        one: over 1 year
+        other: over {{count}} years
+      half_a_minute: half a minute
+    prompts: 
+      month: Month
+      minute: Minute
+      second: Seconds
+      hour: Hour
+      day: Day
+      year: Year
