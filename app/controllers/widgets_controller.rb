@@ -21,7 +21,9 @@ class WidgetsController < ApplicationController
   def create
     @widget = Widget.new(params[:widget])
     if @widget.save
-      return render(:nothing => true)
+      return render(:nothing => true)      
+      #redirect_to widgets_url
+      red
     else
       return render(:partial => "form")
     end
