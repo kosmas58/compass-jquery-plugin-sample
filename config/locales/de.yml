@@ -6,22 +6,22 @@ de:
         taken: wird bereits verwendet
         accepted: muss akzeptiert werden
         not_a_number: ist nicht numerisch
-        greater_than_or_equal_to: "muss gr\xC3\xB6\xC3\x9Fer als oder gleich {{count}} sein"
         blank: darf nicht leer sein
+        greater_than_or_equal_to: "muss gr\xC3\xB6\xC3\x9Fer als oder gleich {{count}} sein"
+        confirmation: "stimmt nicht mit der Best\xC3\xA4tigung \xC3\xBCberein"
         less_than_or_equal_to: muss kleiner als oder gleich {{count}} sein
         exclusion: " ist reserviert"
-        confirmation: "stimmt nicht mit der Best\xC3\xA4tigung \xC3\xBCberein"
         odd: muss ungerade sein
         invalid: "ist ung\xC3\xBCltig"
+        too_short: ist zu kurz (Minimum {{count}} Zeichen)
         wrong_length: "ist die falsche L\xC3\xA4nge (sollten {{count}} Zeichen sein)"
         empty: darf nicht leer sein
-        too_short: ist zu kurz (Minimum {{count}} Zeichen)
-        less_than: muss weniger als {{count}} sein
         too_long: ist zu lang (Maximum ist {{count}} Zeichen)
+        less_than: muss weniger als {{count}} sein
         even: muss gerade sein
+        greater_than: "muss gr\xC3\xB6\xC3\x9Fer als {{count}} sein"
         equal_to: muss gleich {{count}} sein
         inclusion: ist nicht in der Liste
-        greater_than: "muss gr\xC3\xB6\xC3\x9Fer als {{count}} sein"
       template: 
         body: "Es gab Probleme mit den folgenden Feldern:"
         header: 
@@ -31,8 +31,8 @@ de:
     am: ""
     formats: 
       default: ""
-      long: "%B %d %Y %H:%M"
       short: "% d% b% H.% M"
+      long: "%B %d %Y %H:%M"
     pm: pm
   number: 
     format: 
@@ -58,16 +58,16 @@ de:
   date: 
     formats: 
       default: "%d.%m.%Y"
-      long: "%B %d  %Y"
       short: "%b %d"
+      long: "%B %d  %Y"
   txt: 
     hello: Hallo Welt
     layout: 
       language: Sprache
   support: 
     array: 
-      words_connector: ""
       last_word_connector: ", und"
+      words_connector: ""
       two_words_connector: und
   datetime: 
     distance_in_words: 
@@ -83,15 +83,15 @@ de:
       x_seconds: 
         one: 1 Sekunde
         other: "{{count}} Sekunden"
+      about_x_hours: 
+        one: ca. 1 Stunde
+        other: ca. {{count}} Stunden
       less_than_x_seconds: 
         one: weniger als 1 Sekunde
         other: weniger als {{count}} Sekunden
       x_months: 
         one: 1 Monat
         other: "{{count}} Monate"
-      about_x_hours: 
-        one: ca. 1 Stunde
-        other: ca. {{count}} Stunden
       about_x_months: 
         one: ca. 1 Monat
         other: ca. {{count}} Monate
