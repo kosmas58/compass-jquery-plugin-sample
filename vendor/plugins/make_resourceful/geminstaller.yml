@@ -5,16 +5,16 @@ defaults: # defaults apply to all gems in the 'gems:' section, but can be overri
   # install_options: --include-dependencies
 gems:
 - name: geminstaller
-  version: >= 0.5.2
+  version: >= 0.5.3
 <% if RUBY_PLATFORM =~ /mswin32/ %>
 - name: rcov
   version: >= 0.8.1.2.0
 <% else %>
 - name: relevance-rcov
-  version: >= 0.8.3.8
+  version: >= 0.9.2.1
 <% end %> 
 - name: rails
-  version: >= 2.3.3
+  version: >= 2.3.4
 - name: rspec
   version: >= 1.2.8
 - name: rspec-rails
