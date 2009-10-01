@@ -14,7 +14,7 @@
 .ui-th-column { overflow: hidden; white-space: nowrap; text-align: center; border-top: 0px none; border-left: 0px none; border-bottom: 0px none; }
 
 .ui-jqgrid .ui-jqgrid-htable th.ui-th-column { overflow: hidden; white-space: nowrap; text-align: center; border-top: 0px none; border-left: 0px none; border-bottom: 0px none; }
-.ui-jqgrid .ui-th-div-ie { float: left; width: 97%; white-space: nowrap; }
+.ui-jqgrid .ui-th-div-ie { white-space: nowrap; zoom: 1; height: 17px; }
 .ui-jqgrid .ui-jqgrid-resize { height: 20px !important; position: relative; cursor: e-resize; cursor: col-resize; float: right; display: inline; margin: -2px -2px -2px 0px; overflow: hidden; }
 .ui-jqgrid .ui-grid-ico-sort { float: right; overflow: hidden; position: absolute; display: inline; cursor: pointer !important; }
 .ui-jqgrid .ui-icon-asc { margin-top: -3px; height: 12px; }
@@ -81,8 +81,8 @@ tr.ui-search-toolbar input, tr.ui-search-toolbar select { margin: 1px 0px 0px 0p
 .EditTable td input, .EditTable td select { margin: 0em; }
 .EditTable td textarea { margin: 0em; width: auto; height: auto; }
 
-.ui-jqdialog-content td.EditButton { text-align: right; border-top: 0px none; border-left: 0px none; border-right: 0px none; padding-bottom: 5px; padding-top: 5px; }
-.ui-jqdialog-content td.navButton { text-align: center; border-left: 0px none; border-top: 0px none; border-right: 0px none; padding-bottom: 5px; padding-top: 5px; }
+.ui-jqdialog-content td.EditButton { text-align: right; border-width: 1px 0 0 0; background-image: none; padding-bottom: 5px; padding-top: 5px; }
+.ui-jqdialog-content td.navButton { text-align: center; border-width: 1px 0 0 0; background-image: none; padding-bottom: 5px; padding-top: 5px; }
 .ui-jqdialog-content .CaptionTD { text-align: left; vertical-align: top; border-left: 0px none; border-right: 0px none; border-bottom: 0px none; padding: 1px; white-space: nowrap; }
 .ui-jqdialog-content .DataTD { padding: 1px; border-left: 0px none; border-right: 0px none; border-bottom: 0px none; vertical-align: top; }
 
