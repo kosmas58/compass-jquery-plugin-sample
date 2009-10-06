@@ -16,7 +16,7 @@ gems:
 - name: rails
   version: >= 2.3.4
 - name: rspec
-  version: >= 1.2.8
+  version: >= 1.2.9
 - name: rspec-rails
-  version: >= 1.2.7.1
+  version: >= 1.2.9
   
