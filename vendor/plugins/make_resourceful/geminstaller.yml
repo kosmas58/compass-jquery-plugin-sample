@@ -10,13 +10,13 @@ gems:
 - name: rcov
   version: >= 0.8.1.2.0
 <% else %>
-- name: relevance-rcov
-  version: >= 0.9.2.1
+- name: rcov
+  version: >= 0.9.3
 <% end %> 
 - name: rails
   version: >= 2.3.4
 - name: rspec
-  version: >= 1.2.8
+  version: >= 1.2.9
 - name: rspec-rails
-  version: >= 1.2.7.1
+  version: >= 1.2.9
   
