@@ -20,8 +20,8 @@ Rails::Initializer.run do |config|
   # config.gem "sqlite3-ruby", :lib => "sqlite3"
   # config.gem "aws-s3", :lib => "aws/s3"
   #config.gem 'json', :version => '>= 1.1.9'
-  config.gem 'haml', :version => '>= 2.2.9'
-  config.gem 'chriseppstein-compass', :version => '>= 0.8.17',  :lib => 'compass'
+  config.gem 'haml', :version => '>= 2.2.13'
+  config.gem 'compass', :version => '>= 0.8.17', :source => "http://gemcutter.org"
   config.gem 'compass-jquery-plugin', :version => '>= 0.2.2.4', :lib => 'jquery', :source => "http://gemcutter.org"
 
   # Only load the plugins named here, in the order given (default is alphabetical).

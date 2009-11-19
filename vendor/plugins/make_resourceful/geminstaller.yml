@@ -11,7 +11,7 @@ gems:
   version: >= 0.8.1.2.0
 <% else %>
 - name: rcov
-  version: >= 0.9.5
+  version: >= 0.9.6
 <% end %> 
 - name: rails
   version: >= 2.3.4
