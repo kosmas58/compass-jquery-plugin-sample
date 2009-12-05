@@ -1,80 +1,31 @@
-/* line 19, c:/ruby/lib/ruby/gems/1.8/gems/compass-0.8.17/frameworks/blueprint/stylesheets/./blueprint/_ie.sass */
-body {
-  text-align: center; }
-  /* line 32, c:/ruby/lib/ruby/gems/1.8/gems/compass-0.8.17/frameworks/blueprint/stylesheets/./blueprint/_ie.sass */
-  * html body legend {
-    margin: 0px -8px 16px 0;
-    padding: 0; }
-  /* line 36, c:/ruby/lib/ruby/gems/1.8/gems/compass-0.8.17/frameworks/blueprint/stylesheets/./blueprint/_ie.sass */
-  html>body p code {
-    *white-space: normal; }
+body { text-align: center; }
+* html body legend { margin: 0px -8px 16px 0; padding: 0; }
+html>body p code { *white-space: normal; }
 
-/* line 51, c:/ruby/lib/ruby/gems/1.8/gems/compass-0.8.17/frameworks/blueprint/stylesheets/./blueprint/_ie.sass */
-.container {
-  text-align: left; }
+.container { text-align: left; }
 
-/* line 53, c:/ruby/lib/ruby/gems/1.8/gems/compass-0.8.17/frameworks/blueprint/stylesheets/./blueprint/_ie.sass */
-ol {
-  margin-left: 2em; }
+ol { margin-left: 2em; }
 
-/* line 55, c:/ruby/lib/ruby/gems/1.8/gems/compass-0.8.17/frameworks/blueprint/stylesheets/./blueprint/_ie.sass */
-sup {
-  vertical-align: text-top; }
+sup { vertical-align: text-top; }
 
-/* line 57, c:/ruby/lib/ruby/gems/1.8/gems/compass-0.8.17/frameworks/blueprint/stylesheets/./blueprint/_ie.sass */
-sub {
-  vertical-align: text-bottom; }
+sub { vertical-align: text-bottom; }
 
-/* line 59, c:/ruby/lib/ruby/gems/1.8/gems/compass-0.8.17/frameworks/blueprint/stylesheets/./blueprint/_ie.sass */
-hr {
-  margin: -8px auto 11px; }
+hr { margin: -8px auto 11px; }
 
-/* line 61, c:/ruby/lib/ruby/gems/1.8/gems/compass-0.8.17/frameworks/blueprint/stylesheets/./blueprint/_ie.sass */
-img {
-  -ms-interpolation-mode: bicubic; }
+img { -ms-interpolation-mode: bicubic; }
 
-/* line 63, c:/ruby/lib/ruby/gems/1.8/gems/compass-0.8.17/frameworks/blueprint/stylesheets/./blueprint/_ie.sass */
-fieldset {
-  padding-top: 0; }
+fieldset { padding-top: 0; }
 
-/* line 66, c:/ruby/lib/ruby/gems/1.8/gems/compass-0.8.17/frameworks/blueprint/stylesheets/./blueprint/_ie.sass */
-input.text {
-  margin: 0.5em 0;
-  background-color: #fff;
-  border: 1px solid #bbb; }
-  /* line 70, c:/ruby/lib/ruby/gems/1.8/gems/compass-0.8.17/frameworks/blueprint/stylesheets/./blueprint/_ie.sass */
-  input.text:focus {
-    border: 1px solid #666; }
-/* line 72, c:/ruby/lib/ruby/gems/1.8/gems/compass-0.8.17/frameworks/blueprint/stylesheets/./blueprint/_ie.sass */
-input.title {
-  margin: 0.5em 0;
-  background-color: #fff;
-  border: 1px solid #bbb; }
-  /* line 76, c:/ruby/lib/ruby/gems/1.8/gems/compass-0.8.17/frameworks/blueprint/stylesheets/./blueprint/_ie.sass */
-  input.title:focus {
-    border: 1px solid #666; }
-/* line 78, c:/ruby/lib/ruby/gems/1.8/gems/compass-0.8.17/frameworks/blueprint/stylesheets/./blueprint/_ie.sass */
-input.checkbox {
-  position: relative;
-  top: 0.25em; }
-/* line 81, c:/ruby/lib/ruby/gems/1.8/gems/compass-0.8.17/frameworks/blueprint/stylesheets/./blueprint/_ie.sass */
-input.radio {
-  position: relative;
-  top: 0.25em; }
-/* line 84, c:/ruby/lib/ruby/gems/1.8/gems/compass-0.8.17/frameworks/blueprint/stylesheets/./blueprint/_ie.sass */
-input.button {
-  position: relative;
-  top: 0.25em; }
+input.text { margin: 0.5em 0; background-color: #fff; border: 1px solid #bbb; }
+input.text:focus { border: 1px solid #666; }
+input.title { margin: 0.5em 0; background-color: #fff; border: 1px solid #bbb; }
+input.title:focus { border: 1px solid #666; }
+input.checkbox { position: relative; top: 0.25em; }
+input.radio { position: relative; top: 0.25em; }
+input.button { position: relative; top: 0.25em; }
 
-/* line 87, c:/ruby/lib/ruby/gems/1.8/gems/compass-0.8.17/frameworks/blueprint/stylesheets/./blueprint/_ie.sass */
-textarea {
-  margin: 0.5em 0; }
+textarea { margin: 0.5em 0; }
 
-/* line 89, c:/ruby/lib/ruby/gems/1.8/gems/compass-0.8.17/frameworks/blueprint/stylesheets/./blueprint/_ie.sass */
-select {
-  margin: 0.5em 0; }
+select { margin: 0.5em 0; }
 
-/* line 91, c:/ruby/lib/ruby/gems/1.8/gems/compass-0.8.17/frameworks/blueprint/stylesheets/./blueprint/_ie.sass */
-button {
-  position: relative;
-  top: 0.25em; }
+button { position: relative; top: 0.25em; }

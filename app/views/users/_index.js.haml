@@ -18,14 +18,20 @@
   function pickDates(id) {
     jQuery("#"+id+"_lastname","#players_with_datepicker").datepicker({dateFormat:"yy-mm-dd"});
   }
+  
+  function handleSubSelection(id) {
+    alert('ID selected : ' + id);
+  }
+ 
+</script>
 
 = jqgrid("Football Players", "players", "/users", [ { :field => "id", :label => "ID", :width => 35, :resizable => false }, { :field => "pseudo", :label => "Pseudo" }, { :field => "firstname", :label => "Firstname" }, { :field => "lastname", :label => "Lastname" }, { :field => "email", :label => "Email" }, { :field => "role", :label => "Role" } ], { :hidegrid => false, :height => "480" }, "", "", "", "" )
   
 = jqgrid("Football Players", "players_2", "/users", [ { :field => "id", :label => "ID" }, { :field => "pseudo", :label => "Pseudo" }, { :field => "firstname", :label => "Firstname" }, { :field => "lastname", :label => "Lastname" }, { :field => "email", :label => "Email" }, { :field => "role", :label => "Role" } ], { :autowidth => true, :height => "480", :selection_handler => "handleSelection" } )
 
-= jqgrid("Football Players", "players_3", "/users", [ { :field => "id", :label => "ID", :width => 35, :resizable => false }, { :field => "pseudo", :label => "Pseudo" }, { :field => "firstname", :label => "Firstname" }, { :field => "lastname", :label => "Lastname" }, { :field => "email", :label => "Email" }, { :field => "role", :label => "Role" } ], { :height => "480", :selection_handler => "handleSelection", :direct_selection => true } )
+= jqgrid("Football Players", "players_3", "/users", [ { :field => "id", :label => "ID", :width => 35, :resizable => false }, { :field => "pseudo", :label => "Pseudo" }, { :field => "firstname", :label => "Firstname" }, { :field => "lastname", :label => "Lastname" }, { :field => "email", :label => "Email" }, { :field => "role", :label => "Role" } ], { :height => "480", :selection_handler => "handleSelection", :direct_selection => true, :autowidth => true  } )
 
-= jqgrid("Football Players", "players_4", "/users", [ { :field => "id", :label => "ID", :width => 35, :resizable => false }, { :field => "pseudo", :label => "Pseudo" }, { :field => "firstname", :label => "Firstname" }, { :field => "lastname", :label => "Lastname" }, { :field => "email", :label => "Email" }, { :field => "role", :label => "Role" } ], { :height => "480", :selection_handler => "handleSelection", :multi_selection => true } )
+= jqgrid("Football Players", "players_4", "/users", [ { :field => "id", :label => "ID", :width => 35, :resizable => false }, { :field => "pseudo", :label => "Pseudo" }, { :field => "firstname", :label => "Firstname" }, { :field => "lastname", :label => "Lastname" }, { :field => "email", :label => "Email" }, { :field => "role", :label => "Role" } ], { :height => "480", :selection_handler => "handleSelection", :multi_selection => true, :rownumbers => true } )
 
 = jqgrid("Football Players", "players_5", "/users", [ { :field => "id", :label => "ID", :width => 35, :resizable => false }, { :field => "pseudo", :label => "Pseudo" }, { :field => "firstname", :label => "Firstname" }, { :field => "lastname", :label => "Lastname" }, { :field => "email", :label => "Email" }, { :field => "role", :label => "Role" } ], { :height => "480", :master_details => true, :details_url => "/users/pets", :details_caption => "Pets" } )
 
@@ -44,3 +50,6 @@
 = jqgrid("Football Players", "players_10", "/users", [ { :field => "id", :label => "ID", :width => 35, :resizable => false }, { :field => "pseudo", :label => "Pseudo" }, { :field => "firstname", :label => "Firstname" }, { :field => "lastname", :label => "Lastname" }, { :field => "email", :label => "Email" }, { :field => "role", :label => "Role" } ], { :height => "480",  :subgrid => { :url => "/users/pets", :edit_url => "/users/post_pets_data", :add => true, :inline_edit => true, :delete => true, :columns => [ { :field => "id", :label => "ID", :width => 35, :resizable => false, :editable => true }, { :field => "name", :label => "Name", :editable => true } ] } } )
 
 = jqgrid("Football Players", "players_11", "/users", [ { :field => "id", :label => "ID", :width => 35, :resizable => false }, { :field => "pseudo", :label => "Pseudo" }, { :field => "firstname", :label => "Firstname" }, { :field => "lastname", :label => "Lastname" }, { :field => "email", :label => "Email" }, { :field => "role", :label => "Role" } ], { :height => "480",  :subgrid => { :url => "/users/pets", :direct_selection => true, :selection_handler => "handleSubSelection", :columns => [ { :field => "id", :label => "ID", :width => 35, :resizable => false, :editable => true }, { :field => "name", :label => "Name", :editable => true } ] } } )
+
+= jqgrid("Football Players", "players_13", "/users", [ { :field => "id", :label => "ID", :width => 35, :resizable => false }, { :field => "pseudo", :label => "Pseudo", :editable => true, :formoptions => { :rowpos => 1, :elmprefix => "(*)&nbsp;&nbsp" }, :editoptions => { :size => 22 }, :editrules => { :required => true } }, { :field => "firstname", :label => "Firstname", :editable => true,  :formoptions => { :rowpos => 4, :label => "A label" }, :editoptions => { :size => 22 } }, { :field => "lastname", :label => "Lastname", :editable => true, :formoptions => { :rowpos => 5 }, :editoptions => { :size => 22 } }, { :field => "email", :label => "Email", :editable => true, :formoptions => { :rowpos => 3 }, :editoptions => { :size => 22 } },	{ :field => "role", :label => "Role", :editable => true, :stype => "select", :edittype => "select", :formoptions => { :rowpos => 2 }, :editoptions => { :value => [["admin","admin"], ["player", "player"], ["defender","defender"]], :size => 22 } } ], { :add => true, :edit => true, :inline_edit => true, :delete => true, :edit_url => "/users/post_data" }) 
+		
