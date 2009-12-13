@@ -1,4 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :iphone
+
+  map.resources :clocks
 
   map.resources :users, :collection => { :pets => :get, :post_data => :post }
   

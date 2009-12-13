@@ -10,6 +10,7 @@ task :erb2haml do
   path = File.join(RAILS_ROOT, 'public', 'stylesheets')
   puts path
   Dir["#{path}/**/*.css"].each do |file|
+    next unless /\/compiled\/$/ =~ file
     system "css2sass #{file} #{file.gsub(/\.css$/, '.sass')}"
     puts "Converted: #{file}"
   end
