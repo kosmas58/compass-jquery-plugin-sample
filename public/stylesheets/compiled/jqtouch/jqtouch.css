@@ -1,0 +1,17 @@
+@-webkit-keyframes slideinfromright { from { -webkit-transform: translateX(100%); }
+  to { -webkit-transform: translateX(0); } }
+
+.jqt * { margin: 0; padding: 0; }
+.jqt a { -webkit-tap-highlight-color: rgba(0,0,0,0); }
+.jqt body { overflow-x: hidden; -webkit-user-select: none; -webkit-text-size-adjust: none; font-family: Helvetica; -webkit-perspective: 800; -webkit-transform-style: preserve-3d; }
+.jqt.selectable, .jqt input, .jqt textarea { -webkit-user-select: auto; }
+.jqt body > * { -webkit-backface-visibility: hidden; -webkit-box-sizing: border-box; display: none; position: absolute; left: 0; width: 100%; -webkit-transform: translate3d(0,0,0) rotate(0) scale(1); min-height: 420px !important; }
+.jqt body.fullscreen > * { min-height: 460px !important; }
+.jqt body.fullscreen.black-translucent > * { min-height: 480px !important; }
+.jqt body.landscape > * { min-height: 320px; }
+.jqt body > .current { display: block !important; }
+.jqt.in, .jqt.out { -webkit-animation-timing-function: ease-in-out; -webkit-animation-duration: 350ms; }
+.jqt.slide.in { -webkit-animation-name: slideinfromright; }
+.jqt.slide.out { -webkit-animation-name: slideouttoleft; }
+.jqt.slide.in.reverse { -webkit-animation-name: slideinfromleft; }
+.jqt.slide.out.reverse { -webkit-animation-name: slideouttoright; }
