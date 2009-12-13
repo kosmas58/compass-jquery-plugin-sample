@@ -1,7 +1,15 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :iphone
-
-  map.resources :clocks
+  map.resources :iphone, :collection => { :main     => :get,
+                                          :original => :get }
+  
+  map.resources :demo, :collection => { :autotitles       => :get,
+                                        :clock            => :get,
+                                        :customanimation  => :get,
+                                        :customanimation2 => :get,
+                                        :floaty           => :get,
+                                        :location         => :get,
+                                        :offline          => :get,
+                                        :todo             => :get }
 
   map.resources :users, :collection => { :pets => :get, :post_data => :post }
   

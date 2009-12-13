@@ -1,2 +1,0 @@
-module Jqtouch::ClocksHelper
-end

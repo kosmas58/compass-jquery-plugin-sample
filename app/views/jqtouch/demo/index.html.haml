@@ -1,0 +1,421 @@
+-@browser_title = 'jQTouch &beta'
+-@jqtouch_partial_1 = 'index.js.haml'
+-@jqtouch_partial_2 = 'index.html.haml'
+
+#about.selectable
+  %p
+    %img{ :src => "/images/jqtouch/jqtouch.png" }
+  %p
+    %strong
+      jQTouch
+    %br
+    Version 1.0 beta
+    %br
+    %a{ :href => "http://www.davidkaneda.com" }
+      By David Kaneda
+  %p
+    %em
+      Create powerful mobile apps with
+      %br
+      just HTML, CSS, and jQuery.
+  %p
+    %a{ :href => "http://twitter.com/jqtouch", :target => "_blank" }
+      @jQTouch on Twitter
+  %p
+    %br
+    %br
+    %a.grayButton.goback{ :href => "#" }
+      Close
+#ajax
+  .toolbar
+    %h1
+      AJAX
+    %a.back{ :href => "#home" }
+      Home
+  %ul.rounded
+    %li.arrow
+      %a{ :href => "#ajax_post" }
+        POST Form Example
+    %li.arrow
+      %a{ :href => "ajax.html" }
+        GET Example
+    %li.arrow
+      %a{ :href => "#callback" }
+        With Callback
+#animations
+  .toolbar
+    %h1
+      Animations
+    %a.back{ :href => "#" }
+      Home
+  %ul.rounded
+    %li
+      %a{ :href => "#animdemo" }
+        Slide
+    %li
+      %a.slideup{ :href => "#animdemo" }
+        Slide Up
+    %li
+      %a.dissolve{ :href => "#animdemo" }
+        Dissolve
+    %li
+      %a.fade{ :href => "#animdemo" }
+        Fade
+    %li
+      %a.flip{ :href => "#animdemo" }
+        Flip
+    %li
+      %a.pop{ :href => "#animdemo" }
+        Pop
+    %li
+      %a.swap{ :href => "#animdemo" }
+        Swap
+    %li
+      %a.cube{ :href => "#animdemo" }
+        Cube
+  .info
+    Custom animations are also
+    %a{ :href => "http://code.google.com/p/jqtouch/wiki/Animations", :target => "_blank" }
+      easy to write
+    \.
+    %br
+    View the source in
+    %code
+      demos/customanimation
+    to see how.
+#animdemo
+  %div{ :style => "font-size: 1.5em; text-align: center; margin: 160px 0 160px; font-family: Marker felt;" }
+    Pretty smooth, eh?
+  %a.whiteButton.goback{ :href => "#", :style => "margin:0 10px;color:rgba(0,0,0,.9)" }
+    Go back
+#callback
+  .toolbar
+    %h1
+      AJAX w/Callback
+    %a.back{ :href => "#" }
+      Ajax
+#callbacks
+  .toolbar
+    %h1
+      Events
+    %a.back{ :href => "#home" }
+      Home
+  %ul.rounded
+    %li
+      %a{ :href => "#pageevents" }
+        Page events
+    %li#swipeme
+      Swipe me!
+    %li#orient
+      Orientation:
+      %strong
+        profile
+#demos
+  .toolbar
+    %h1
+      Demos
+    %a.back{ :href => "#home" }
+      Home
+  .info
+    These apps open in a new window. Don’t forget to save them to your home screen to enable full-screen mode.
+  %ul.rounded
+    %li.forward
+      %a{ :href => "../todo/", :target => "_webapp" }
+        To-Do app
+    %li.forward
+      %a{ :href => "../clock/", :target => "_webapp" }
+        Clock app
+#edge
+  .toolbar
+    %h1
+      Edge to Edge
+    %a.back{ :href => "#" }
+      Back
+  %ul.edgetoedge
+    %li.sep
+      F
+    %li
+      %a{ :href => "#" }
+        Flintstone,
+        %em
+          Fred
+    %li
+      %a{ :href => "#" }
+        Flintstone,
+        %em
+          Pebble
+    %li
+      %a{ :href => "#" }
+        Flintstone,
+        %em
+          Wilma
+    %li.sep
+      J
+    %li
+      %a{ :href => "#" }
+        Jetson,
+        %em
+          Elroy
+    %li
+      %a{ :href => "#" }
+        Jetson,
+        %em
+          George
+    %li
+      %a{ :href => "#" }
+        Jetson,
+        %em
+          Jane
+    %li
+      %a{ :href => "#" }
+        Jetson,
+        %em
+          Judy
+    %li.sep
+      R
+    %li
+      %a{ :href => "#" }
+        Rubble,
+        %em
+          Bambam
+    %li
+      %a{ :href => "#" }
+        Rubble,
+        %em
+          Barney
+    %li
+      %a{ :href => "#" }
+        Rubble,
+        %em
+          Betty
+#extensions
+  .toolbar
+    %h1
+      Extensions
+    %a.back{ :href => "#home" }
+      Home
+  .info
+    These apps open in a new window. Don’t forget to save them to your home screen to enable full-screen mode.
+  %ul.rounded
+    %li.forward
+      %a{ :href => "../ext_location/", :target => "_webapp" }
+        Geo Location
+    %li.forward
+      %a{ :href => "../ext_offline/", :target => "_webapp" }
+        Offline Utility
+    %li.forward
+      %a{ :href => "../ext_floaty/", :target => "_webapp" }
+        Floaty Bar
+    %li.forward
+      %a{ :href => "../ext_autotitles/", :target => "_webapp" }
+        Auto Titles
+#forms
+  .toolbar
+    %h1
+      Forms
+    %a.back{ :href => "#" }
+      Back
+  %form
+    %ul.edit.rounded
+      %li
+        %input#some_name{ :name => "name", :placeholder => "Text", :type => "text" }
+      %li
+        %input#some_name{ :name => "search", :placeholder => "Search", :type => "text" }
+      %li
+        %input#some_name{ :name => "phone", :placeholder => "Phone", :type => "text" }
+      %li
+        %input#some_name{ :name => "zip", :placeholder => "Numbers", :type => "text" }
+      %li
+        %textarea{ :placeholder => "Textarea" }
+      %li
+        Sample Toggle
+        %span.toggle
+          %input{ :type => "checkbox" }
+      %li
+        %select#lol
+          %optgroup{ :label => "Swedish Cars" }
+            %option{ :value => "volvo" }
+              Volvo
+            %option{ :value => "saab" }
+              Saab
+          %optgroup{ :label => "German Cars" }
+            %option{ :value => "mercedes" }
+              Mercedes
+            %option{ :value => "audi" }
+              Audi
+      %li
+        %input#some_name{ :name => "some_name", :type => "password", :value => "iphonedelcopon" }
+      %li
+        %input#some_name{ :name => "some_name", :title => "V8 Engine Type", :type => "checkbox", :value => "Hello" }
+      %li
+        %input#some_name{ :name => "some_name", :checked => "checked", :title => "V12 Engine Type", :type => "checkbox", :value => "Hello" }
+      %li
+        %input#some_name{ :name => "some_name", :title => "Only cars", :type => "radio", :value => "Hello" }
+      %li
+        %input#some_name{ :name => "some_name", :title => "Only motorbikes", :type => "radio", :value => "Hello" }
+#home.current
+  .toolbar
+    %h1
+      jQTouch
+    %a#infoButton.button.slideup{ :href => "#about" }
+      About
+  %ul.rounded
+    %li.arrow
+      %a{ :href => "#ui" }
+        User Interface
+      %small.counter
+        4
+    %li.arrow
+      %a{ :href => "#animations" }
+        Animations
+      %small.counter
+        8
+    %li.arrow
+      %a{ :href => "#ajax" }
+        AJAX
+      %small.counter
+        3
+    %li.arrow
+      %a{ :href => "#callbacks" }
+        Callback Events
+      %small.counter
+        3
+    %li.arrow
+      %a{ :href => "#extensions" }
+        Extensions
+      %small.counter
+        4
+    %li.arrow
+      %a{ :href => "#demos" }
+        Demos
+      %small.counter
+        2
+  %h2
+    External Links
+  %ul.rounded
+    %li.forward
+      %a{ :href => "http://www.jqtouch.com/", :target => "_blank" }
+        Homepage
+    %li.forward
+      %a{ :href => "http://www.twitter.com/jqtouch", :target => "_blank" }
+        Twitter
+    %li.forward
+      %a{ :href => "http://code.google.com/p/jqtouch/w/list", :target => "_blank" }
+        Google Code
+  %ul.individual
+    %li
+      %a{ :href => "mailto:dk@morfunk.com", :target => "_blank" }
+        Email
+    %li
+      %a{ :href => "http://tinyurl.com/support-jqt", :target => "_blank" }
+        Donate
+  .info
+    %p
+      Add this page to your home screen to view the custom icon, startup screen, and full screen mode.
+#metal
+  .toolbar
+    %h1
+      Metal Lists
+    %a.back{ :href => "#" }
+      Back
+  %ul.metal
+    %li.arrow
+      %a{ :href => "#" }
+        %small
+          AM
+        9:40
+        %em
+          Buenos Aires
+    %li.arrow
+      %a{ :href => "#" }
+        %small
+          PM
+        19:40
+        %em
+          Singapur
+    %li.arrow
+      %a{ :href => "#" }
+        %small
+          PM
+        22:40
+        %em
+          Japan
+    %li.arrow
+      %a{ :href => "#" }
+        %small
+          PM
+        11:40
+        %em
+          New York
+    %li.arrow
+      %a{ :href => "#" }
+        %small
+          PM
+        9:40
+        %em
+          Ontario
+#pageevents
+  .toolbar
+    %h1
+      Page Events
+    %a.back{ :href => "#" }
+      Events
+  .info{ :style => "font-weight: normal;" }
+#plastic
+  .toolbar
+    %h1
+      Plastic Lists
+    %a.back{ :href => "#" }
+      Back
+  %ul.plastic
+    %li.arrow
+      %a{ :href => "#" }
+        Simple list
+    %li.arrow
+      %a{ :href => "#" }
+        Contact list
+    %li.arrow
+      %a{ :href => "#" }
+        Content List
+    %li.arrow
+      %a{ :href => "#" }
+        Metal list
+  .info
+    %p
+      %strong
+        Best enjoyed on a real iPhone
+#ui
+  .toolbar
+    %h1
+      UI Demos
+    %a.back{ :href => "#" }
+      Home
+  %h2
+    Lists
+  %ul.rounded
+    %li.arrow
+      %a{ :href => "#edge" }
+        Edge to Edge
+    %li.arrow
+      %a{ :href => "#plastic" }
+        Plastic
+    %li.arrow
+      %a{ :href => "#metal" }
+        Metal
+  %h2
+    Forms
+  %ul.rounded
+    %li.arrow
+      %a{ :href => "#forms" }
+        Forms
+%form#ajax_post.form{ :action => "ajax_post.php", :method => "POST" }
+  .toolbar
+    %h1
+      Post Demo
+    %a.back{ :href => "#" }
+      Ajax
+  %ul.rounded
+    %li
+      %input{ :name => "zip", :placeholder => "Zip Code", :type => "text", :value => "" }
+  %a.submit.whiteButton{ :href => "#", :style => "margin:0 10px;color:rgba(0,0,0,.9)" }
+    Submit
