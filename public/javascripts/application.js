@@ -9,8 +9,7 @@ jQuery.fn.submitWithAjax = function() {
   })
 }
 
-jQuery().ready(function() {
-	
+jQuery(document).ready(function() {	
 	$(".tree").dynatree({
     // using default options
     title: I18n.t('txt.layout.navi.basics.master'),
