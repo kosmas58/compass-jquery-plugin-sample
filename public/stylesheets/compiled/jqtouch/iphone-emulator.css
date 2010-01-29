@@ -1,16 +1,3 @@
-/* line 3, ../../../../app/stylesheets/jqtouch/iphone-emulator.sass */
-.iphone .emulator {
-  background: url("/images/jqtouch/iphone_fullsize.png") no-repeat;
-  width: 416px;
-  height: 754px; }
-  /* line 8, ../../../../app/stylesheets/jqtouch/iphone-emulator.sass */
-  .iphone .emulator .display-area {
-    position: relative;
-    top: 152px;
-    width: 320px;
-    height: 460px;
-    max-height: 460px;
-    color: #ffffff; }
-    /* line 16, ../../../../app/stylesheets/jqtouch/iphone-emulator.sass */
-    .iphone .emulator .display-area a {
-      color: #ff5500; }
+.iphone .emulator { background: url("/images/jqtouch/iphone_fullsize.png") no-repeat; width: 416px; height: 754px; }
+.iphone .emulator .display-area { position: relative; top: 152px; width: 320px; height: 460px; max-height: 460px; color: #ffffff; }
+.iphone .emulator .display-area a { color: #ff5500; }
