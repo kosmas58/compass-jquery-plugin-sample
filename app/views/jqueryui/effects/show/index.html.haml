@@ -1,0 +1,48 @@
+-@browser_title = 'jQuery UI Effects - Show Demo'
+-@jquery_partial = 'index.js.haml'
+
+.demo
+  .toggler
+    #effect.ui-widget-content.ui-corner-all
+      %h3.ui-widget-header.ui-corner-all
+        Show
+      %p
+        Etiam libero neque, luctus a, eleifend nec, semper at, lorem. Sed pede. Nulla lorem metus, adipiscing ut, luctus sed, hendrerit vitae, mi.
+  %select#effectTypes{ :name => "effects" }
+    %option{ :value => "blind" }
+      Blind
+    %option{ :value => "bounce" }
+      Bounce
+    %option{ :value => "clip" }
+      Clip
+    %option{ :value => "drop" }
+      Drop
+    %option{ :value => "explode" }
+      Explode
+    %option{ :value => "fold" }
+      Fold
+    %option{ :value => "highlight" }
+      Highlight
+    %option{ :value => "puff" }
+      Puff
+    %option{ :value => "pulsate" }
+      Pulsate
+    %option{ :value => "scale" }
+      Scale
+    %option{ :value => "shake" }
+      Shake
+    %option{ :value => "size" }
+      Size
+    %option{ :value => "slide" }
+      Slide
+    %option{ :value => "transfer" }
+      Transfer
+  %a#button.ui-state-default.ui-corner-all{ :href => "#" }
+    Run Effect
+/
+  End demo
+.demo-description
+  %p
+    Click the button above to preview the effect.
+/
+  End demo-description

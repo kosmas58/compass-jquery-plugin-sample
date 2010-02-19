@@ -1,0 +1,35 @@
+<!doctype html>
+%html{ :lang => "en" }
+  %head
+    %title
+      jQuery UI Datepicker - Display month &amp; year menus
+    %link{ :href => "../../themes/base/ui.all.css", :rel => "stylesheet", :type => "text/css" }
+    %script{ :type => "text/javascript", :src => "../../js/jquery-1.3.2.js" }
+    %script{ :type => "text/javascript", :src => "../../ui/ui.core.js" }
+    %script{ :type => "text/javascript", :src => "../../ui/ui.datepicker.js" }
+    %link{ :href => "../demos.css", :rel => "stylesheet", :type => "text/css" }
+    %script{ :type => "text/javascript" }
+      $(function() {
+      $('#datepicker').datepicker({
+      changeMonth: true,
+      changeYear: true
+      });
+      });
+  %body
+    .demo
+      %p
+        Date:
+        %input#datepicker{ :type => "text" }
+    /
+      End demo
+    .demo-description
+      %p
+        Show month and year dropdowns in place of the static month/year header to facilitate navigation through large timeframes.  Add the boolean
+        %code
+          changeMonth
+        and
+        %code
+          changeYear
+        options.
+    /
+      End demo-description

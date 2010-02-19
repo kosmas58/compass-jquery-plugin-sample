@@ -1,28 +1,22 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :iphone, :collection => { :main     => :get,
-                                          :original => :get }
-  
-  map.resources :demo, :collection => { :autotitles       => :get,
-                                        :clock            => :get,
-                                        :customanimation  => :get,
-                                        :customanimation2 => :get,
-                                        :floaty           => :get,
-                                        :location         => :get,
-                                        :offline          => :get,
-                                        :todo             => :get }
+
+#  map.namespace :jqueryui do |jqueryui|
+#    jqueryui.namespace :effects do |effects|
+#      effects.resources :add_class
+#    end
+#    jqueryui.namespace :interactions do |interactions|
+#      interactions.resources :draggable
+#    end
+#    jqueryui.namespace :widgets do |widgets|
+#      widgets.resources :accordion
+#    end
+#  end
 
   map.resources :users, :collection => { :pets => :get, :post_data => :post }
-  
-  map.resources :people, :collection => {:grid_data => :get}
-
-  map.resources :widgets
-  
-  map.resources :events, :collection => { :weeks  => :get, 
-                                          :months => :get }
 
   Translate::Routes.translation_ui(map) if RAILS_ENV != "production "
 
-  map.root :controller => "users"
+  map.root :controller => "jqueryui/interactions/draggable"
 
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'

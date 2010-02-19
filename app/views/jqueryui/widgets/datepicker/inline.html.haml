@@ -1,0 +1,25 @@
+<!doctype html>
+%html{ :lang => "en" }
+  %head
+    %title
+      jQuery UI Datepicker - Display inline
+    %link{ :href => "../../themes/base/ui.all.css", :rel => "stylesheet", :type => "text/css" }
+    %script{ :type => "text/javascript", :src => "../../js/jquery-1.3.2.js" }
+    %script{ :type => "text/javascript", :src => "../../ui/ui.core.js" }
+    %script{ :type => "text/javascript", :src => "../../ui/ui.datepicker.js" }
+    %link{ :href => "../demos.css", :rel => "stylesheet", :type => "text/css" }
+    %script{ :type => "text/javascript" }
+      $(function() {
+      $("#datepicker").datepicker();
+      });
+  %body
+    .demo
+      Date:
+      #datepicker
+    /
+      End demo
+    .demo-description
+      %p
+        Display the datepicker embedded in the page instead of in an overlay.  Simply call .datepicker() on a div instead of an input.
+    /
+      End demo-description

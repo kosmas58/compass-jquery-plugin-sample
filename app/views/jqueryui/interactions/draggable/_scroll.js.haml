@@ -1,0 +1,10 @@
+%style{:type => "text/css", :media => "screen"}
+  :plain
+    #draggable, #draggable2, #draggable3 { width: 100px; height: 100px; padding: 0.5em; float: left; margin: 0 10px 10px 0; }
+    
+:javascript
+  $(function() {
+    $("#draggable").draggable({ scroll: true });
+    $("#draggable2").draggable({ scroll: true, scrollSensitivity: 100 });
+    $("#draggable3").draggable({ scroll: true, scrollSpeed: 100 });
+  });

@@ -1,0 +1,30 @@
+-@browser_title = 'jQuery UI Draggable - Auto-scroll'
+-@jquery_partial = 'scroll.js.haml'      
+
+.demo
+  #draggable.ui-widget-content
+    %p
+      Scroll set to true, default settings
+  #draggable2.ui-widget-content
+    %p
+      scrollSensitivity set to 100
+  #draggable3.ui-widget-content
+    %p
+      scrollSpeed set to 100
+  %div{ :style => "height: 5000px; width: 1px;" }
+/
+  End demo
+.demo-description
+  %p
+    Automatically scroll the document when the draggable is moved beyond the viewport. Set the
+    %code
+      scroll
+    option to true to enable auto-scrolling, and fine-tune when scrolling is triggered and its speed with the
+    %code
+      scrollSensitivity
+    and
+    %code
+      scrollSpeed
+    options.
+/
+  End demo-description

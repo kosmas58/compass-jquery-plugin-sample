@@ -14,12 +14,13 @@ ActionView::Helpers::PrototypeHelper::JQUERY_VAR = 'jQuery'
 # ActionView::Helpers::PrototypeHelper::DISABLE_JQUERY_FORGERY_PROTECTION = true
 # ====
 
-ActionView::Helpers::AssetTagHelper::JAVASCRIPT_DEFAULT_SOURCES = ['jquery.min', 'jquery-ui.min', 'jrails.min']
+ActionView::Helpers::AssetTagHelper::JAVASCRIPT_DEFAULT_SOURCES = ['jquery-1.3.2.min', 'jquery-ui-1.7.2.min', 'jrails.min']
 ActionView::Helpers::AssetTagHelper::reset_javascript_include_default
 
-ActionView::Helpers::AssetTagHelper.register_javascript_expansion :jquery => ['jquery.min', 'jquery-ui.min']
+ActionView::Helpers::AssetTagHelper.register_javascript_expansion :jquery => ['jquery-1.3.2.min', 'jquery-ui-1.7.2.min']
 
 #ActionView::Helpers::AssetTagHelper.register_stylesheet_expansion :jrails => ['compiled/jquery.ui/ui.theme.css']
 #ActionView::Helpers::AssetTagHelper.register_stylesheet_expansion :jquery => ['compiled/jquery.ui/ui.theme.css']
 
 require 'jquery/jrails'
+require 'jquery/jquery_selector_assertions' if RAILS_ENV == 'test'

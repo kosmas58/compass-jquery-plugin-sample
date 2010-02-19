@@ -1,0 +1,75 @@
+<!doctype html>
+%html{ :lang => "en" }
+  %head
+    %title
+      jQuery UI Sortable - Connect lists with Tabs
+    %link{ :href => "../../themes/base/ui.all.css", :rel => "stylesheet", :type => "text/css" }
+    %script{ :type => "text/javascript", :src => "../../js/jquery-1.3.2.js" }
+    %script{ :type => "text/javascript", :src => "../../ui/ui.core.js" }
+    %script{ :type => "text/javascript", :src => "../../ui/ui.sortable.js" }
+    %script{ :type => "text/javascript", :src => "../../ui/ui.droppable.js" }
+    %script{ :type => "text/javascript", :src => "../../ui/ui.tabs.js" }
+    %link{ :href => "../demos.css", :rel => "stylesheet", :type => "text/css" }
+    %style{ :type => "text/css" }
+      \#sortable1 li, #sortable2 li { margin: 0 5px 5px 5px; padding: 5px; font-size: 1.2em; width: 120px; }
+    %script{ :type => "text/javascript" }
+      $(function() {
+      $("#sortable1, #sortable2").sortable().disableSelection();
+      
+      var $tabs = $("#tabs").tabs();
+      
+      var $tab_items = $("ul:first li",$tabs).droppable({
+      accept: ".connectedSortable li",
+      hoverClass: "ui-state-hover",
+      drop: function(ev, ui) {
+      var $item = $(this);
+      var $list = $($item.find('a').attr('href')).find('.connectedSortable');
+      
+      ui.draggable.hide('slow', function() {
+      $tabs.tabs('select', $tab_items.index($item));
+      $(this).appendTo($list).show('slow');
+      });
+      }
+      });
+      });
+  %body
+    .demo
+      #tabs
+        %ul
+          %li
+            %a{ :href => "#tabs-1" }
+              Nunc tincidunt
+          %li
+            %a{ :href => "#tabs-2" }
+              Proin dolor
+        #tabs-1
+          %ul#sortable1.connectedSortable.ui-helper-reset
+            %li.ui-state-default
+              Item 1
+            %li.ui-state-default
+              Item 2
+            %li.ui-state-default
+              Item 3
+            %li.ui-state-default
+              Item 4
+            %li.ui-state-default
+              Item 5
+        #tabs-2
+          %ul#sortable2.connectedSortable.ui-helper-reset
+            %li.ui-state-highlight
+              Item 1
+            %li.ui-state-highlight
+              Item 2
+            %li.ui-state-highlight
+              Item 3
+            %li.ui-state-highlight
+              Item 4
+            %li.ui-state-highlight
+              Item 5
+    /
+      End demo
+    .demo-description
+      %p
+        Sort items from one list into another and vice versa, by dropping the list item on the appropriate tab above.
+    /
+      End demo-description

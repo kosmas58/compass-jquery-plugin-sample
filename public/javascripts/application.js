@@ -10,9 +10,20 @@ jQuery.fn.submitWithAjax = function() {
 }
 
 jQuery(document).ready(function() {	
+  $('.accordion').accordion({/*
+    active: false,
+    fillSpace: true,
+    navigation: true,
+    header: '.accordionMenuItem'
+  });
+
+  $(".accordionMenuItem").click(function(event){
+    window.location.hash=this.hash;
+  */});
+
 	$(".tree").dynatree({
     // using default options
-    title: I18n.t('txt.layout.navi.basics.master'),
+    title: "Title",
     rootVisible: false,
     persist: true,
     selectMode: 2,
@@ -32,4 +43,8 @@ jQuery(document).ready(function() {
 		this.form.submit();
 	});
 	
+
+	$("#theme").change(function(){
+		this.form.submit();
+	});
 });

@@ -1,0 +1,53 @@
+<!doctype html>
+%html{ :lang => "en" }
+  %head
+    %title
+      jQuery UI Sortable - Display as grid
+    %link{ :href => "../../themes/base/ui.all.css", :rel => "stylesheet", :type => "text/css" }
+    %script{ :type => "text/javascript", :src => "../../js/jquery-1.3.2.js" }
+    %script{ :type => "text/javascript", :src => "../../ui/ui.core.js" }
+    %script{ :type => "text/javascript", :src => "../../ui/ui.sortable.js" }
+    %link{ :href => "../demos.css", :rel => "stylesheet", :type => "text/css" }
+    %style{ :type => "text/css" }
+      \#sortable { list-style-type: none; margin: 0; padding: 0; }
+      \#sortable li { margin: 3px 3px 3px 0; padding: 1px; float: left; width: 100px; height: 90px; font-size: 4em; text-align: center; }
+    %script{ :type => "text/javascript" }
+      $(function() {
+      $("#sortable").sortable();
+      $("#sortable").disableSelection();
+      });
+  %body
+    .demo
+      %ul#sortable
+        %li.ui-state-default
+          1
+        %li.ui-state-default
+          2
+        %li.ui-state-default
+          3
+        %li.ui-state-default
+          4
+        %li.ui-state-default
+          5
+        %li.ui-state-default
+          6
+        %li.ui-state-default
+          7
+        %li.ui-state-default
+          8
+        %li.ui-state-default
+          9
+        %li.ui-state-default
+          10
+        %li.ui-state-default
+          11
+        %li.ui-state-default
+          12
+    /
+      End demo
+    .demo-description
+      %p
+        To arrange sortable items as a grid, give them identical dimensions and
+        float them using CSS.
+    /
+      End demo-description

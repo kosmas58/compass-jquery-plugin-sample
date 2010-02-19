@@ -1,0 +1,76 @@
+<!doctype html>
+%html{ :lang => "en" }
+  %head
+    %title
+      jQuery UI Dialog - Modal message
+    %link{ :href => "../../themes/base/ui.all.css", :rel => "stylesheet", :type => "text/css" }
+    %script{ :type => "text/javascript", :src => "../../js/jquery-1.3.2.js" }
+    %script{ :type => "text/javascript", :src => "../../ui/ui.core.js" }
+    %script{ :type => "text/javascript", :src => "../../ui/ui.draggable.js" }
+    %script{ :type => "text/javascript", :src => "../../ui/ui.resizable.js" }
+    %script{ :type => "text/javascript", :src => "../../ui/ui.dialog.js" }
+    %script{ :type => "text/javascript", :src => "../../js/external/bgiframe/jquery.bgiframe.js" }
+    %link{ :href => "../demos.css", :rel => "stylesheet", :type => "text/css" }
+    %script{ :type => "text/javascript" }
+      $(function() {
+      $("#dialog").dialog({
+      bgiframe: true,
+      modal: true,
+      buttons: {
+      Ok: function() {
+      $(this).dialog('close');
+      }
+      }
+      });
+      });
+  %body
+    .demo
+      #dialog{ :title => "Download complete" }
+        %p
+          %span.ui-icon.ui-icon-circle-check{ :style => "float:left; margin:0 7px 50px 0;" }
+          Your files have downloaded successfully into the My Downloads folder.
+        %p
+          Currently using
+          %b
+            36% of your storage space
+          \.
+      /
+        Sample page content to illustrate the layering of the dialog
+      .hiddenInViewSource{ :style => "padding:20px;" }
+        %p
+          Sed vel diam id libero
+          %a{ :href => "http://example.com" }
+            rutrum convallis
+          \. Donec aliquet leo vel magna. Phasellus rhoncus faucibus ante. Etiam bibendum, enim faucibus aliquet rhoncus, arcu felis ultricies neque, sit amet auctor elit eros a lectus.
+        %form
+          %input{ :value => "text input" }
+          %br
+          %input{ :type => "checkbox" }
+          checkbox
+          %br
+          %input{ :type => "radio" }
+          radio
+          %br
+          %select
+            %option
+              select
+          %br
+          %br
+          %textarea
+            textarea
+          %br
+      /
+        End sample page content
+    /
+      End demo
+    .demo-description
+      %p
+        Use a modal dialog to explicitly acknowledge information or an action before continuing their work.  Set the
+        %code
+          modal
+        option to true, and specify a primary action (Ok) with the
+        %code
+          buttons
+        option.
+    /
+      End demo-description

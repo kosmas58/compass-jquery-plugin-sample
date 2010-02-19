@@ -1,5 +1,40 @@
 --- 
-jquery: 
-  jqgrid: 
-    search: Search
-    toogle_search: Toogle Search
+activerecord: 
+  errors: 
+    messages: 
+      record_invalid: "Validation failed: {{errors}}"
+    full_messages: 
+      format: "{{attribute}} {{message}}"
+number: 
+  format: 
+    separator: .
+    delimiter: ","
+  human: 
+    storage_units: 
+      format: "%n %u"
+  currency: 
+    format: 
+      format: "%u%n"
+      unit: $
+      separator: .
+      delimiter: ","
+time: 
+  am: am
+  formats: 
+    default: "%a, %d %b %Y %H:%M:%S %z"
+txt: 
+  ui: 
+    widgets: 
+      progressbar: 
+        resizable: Resizable progressbar
+        animated: Animated
+support: 
+  array: 
+    words_connector: ", "
+  select: 
+    prompt: Please select
+datetime: 
+  distance_in_words: 
+    almost_x_years: 
+      one: almost 1 year
+      other: almost {{count}} years

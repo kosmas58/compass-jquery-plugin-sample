@@ -1,15 +1,4 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-
 one:
-  pseudo: MyString
-  firstname: MyString
-  lastname: MyString
-  email: MyString
-  role: MyString
-
+  id: 1
 two:
-  pseudo: MyString
-  firstname: MyString
-  lastname: MyString
-  email: MyString
-  role: MyString
+  id: 2

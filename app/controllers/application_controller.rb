@@ -2,13 +2,17 @@
 # Likewise, all the methods added will be available for all controllers.
 
 class ApplicationController < ActionController::Base
+  include Theme
+  
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
+  
 
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
   
   before_filter :set_locale
+  before_filter :set_theme
 
   def set_locale
     # update session if passed
@@ -16,5 +20,13 @@ class ApplicationController < ActionController::Base
 
     # set locale based on session or default 
     I18n.locale = session[:locale] || I18n.default_locale
+  end
+  
+  def set_theme
+    # update session if passed
+    session[:theme] = params[:theme] if params[:theme]
+
+    # set locale based on session or default 
+    Theme.current = session[:theme] || Theme.current
   end
 end

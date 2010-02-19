@@ -1,0 +1,48 @@
+-@browser_title = 'jQuery UI Draggable - Visual feedback'
+-@jquery_partial = 'visual_feedback.js.haml'
+
+.demo
+  %h3.docs
+    With helpers:
+  #draggable.ui-widget-content
+    %p
+      Original
+  #draggable2.ui-widget-content
+    %p
+      Semi-transparent clone
+  #draggable3.ui-widget-content
+    %p
+      Custom helper (in combination with cursorAt)
+  %h3.docs
+    Stacked:
+  #set
+    .ui-widget-content
+      %p
+        We are draggables..
+    .ui-widget-content
+      %p
+        \..whose z-indexes are controlled automatically..
+    .ui-widget-content
+      %p
+        \..with the stack option.
+/
+  End demo
+.demo-description
+  %p
+    Provide feedback to users as they drag an object in the form of a helper. The
+    %code
+      helper
+    option accepts the values 'original' (the draggable object moves with the cursor), 'clone' (a duplicate of the draggable moves with the cursor), or a function that returns a DOM element (that element is shown near the cursor during drag). Control the helper's transparency with the
+    %code
+      opacity
+    option.
+  %p
+    To clarify which draggable is in play, bring the draggable in motion to front. Use the
+    %code
+      zIndex
+    option to set a higher z-index for the helper, if in play, or use the
+    %code
+      stack
+    option to ensure that the last item dragged will appear on top of others in the same group on drag stop.
+/
+  End demo-description

@@ -1,0 +1,10 @@
+%style{:type => "text/css", :media => "screen"}
+  :plain
+    #draggable, #draggable2, #draggable3 { width: 100px; height: 100px; padding: 0.5em; float: left; margin: 0 10px 10px 0; }
+ 
+:javascript
+  $(function() {
+    $("#draggable").draggable({ cursorAt: { cursor: 'move', top: 56, left: 56 } });
+    $("#draggable2").draggable({ cursorAt: { cursor: 'crosshair', top: -5, left: -5 } });
+    $("#draggable3").draggable({ cursorAt: { bottom: 0 } });
+  });

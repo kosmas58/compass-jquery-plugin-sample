@@ -19,10 +19,10 @@ Rails::Initializer.run do |config|
   # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
   # config.gem "sqlite3-ruby", :lib => "sqlite3"
   # config.gem "aws-s3", :lib => "aws/s3"
-  
-  config.gem 'haml', :version => '>= 2.2.19'
+
+  config.gem 'haml', :version => '>= 2.2.20'
   config.gem 'compass', :version => '>= 0.8.17'
-  config.gem 'compass-jquery-plugin', :version => '>= 0.2.5.4', :lib => 'jquery'
+  config.gem 'compass-jquery-plugin', :version => '>= 0.2.9.100', :lib => 'jquery'
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
@@ -40,6 +40,6 @@ Rails::Initializer.run do |config|
   config.time_zone = 'UTC'
 
   # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
-  config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]  
+  config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
   config.i18n.default_locale = :en
 end

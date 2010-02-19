@@ -123,6 +123,69 @@ en:
     hello: Hello world
     layout: 
       language: Language
+      theme: Theme
+    dt:
+      jqt: jQTouch (needs a browser with WebKit engine)
+    ui:
+      default: Default functionality
+      interactions:
+        default: Interactions
+        draggable: 
+          default: Draggable      
+          events: Events
+          constrain-movement: Constrain movement
+          delay-start: Delay start
+          snap-to: Snap to element or grid
+          scroll: Auto-scroll
+          revert: Revert position
+          visual-feedback: Visual feedback
+          handle: Drag handle
+          cursor-style: Cursor style
+          sortable: Draggable + Sortable   
+        droppable: 
+          default: Droppable
+        resizeable: 
+          default: Resizable
+        selectable: 
+          default: Selectable
+        sortable: 
+          default:  Sortable
+      widgets:
+        default: Widgets
+        accordion: 
+          default: Accordion
+        datepicker: 
+          default: Datepicker
+        dialog: 
+          default: Dialog
+        progressbar: 
+          default: Progressbar
+          resizable: Resizable progressbar
+          animated: Animated
+        slider: 
+          default: Slider
+        tabs: 
+          default: Tabs
+      effects:
+        default: Effects
+        add_class: 
+          default: Add Class
+        remove_class: 
+          default: Remove Class
+        switch_class: 
+          default: Switch Class
+        toggle_class: 
+          default: Toggle Class
+        show: 
+          default: Show
+        hide: 
+          default: Hide
+        toggle: 
+          default: Toggle
+        animate: 
+          default: Animate
+        effect: 
+          default: Effect 
   support: 
     array: 
       words_connector: ", "

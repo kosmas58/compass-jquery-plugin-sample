@@ -1,0 +1,40 @@
+<!doctype html>
+%html{ :lang => "en" }
+  %head
+    %title
+      jQuery UI Resizable - Synchronous resize
+    %link{ :href => "../../themes/base/ui.all.css", :rel => "stylesheet", :type => "text/css" }
+    %script{ :type => "text/javascript", :src => "../../js/jquery-1.3.2.js" }
+    %script{ :type => "text/javascript", :src => "../../ui/ui.core.js" }
+    %script{ :type => "text/javascript", :src => "../../ui/ui.resizable.js" }
+    %link{ :href => "../demos.css", :rel => "stylesheet", :type => "text/css" }
+    %style{ :type => "text/css" }
+      \#resizable { background-position: top left; }
+      \#resizable, #also { width: 150px; height: 120px; padding: 0.5em; }
+      \#resizable h3, #also h3 { text-align: center; margin: 0; }
+      \#also { margin-top: 1em; }
+    %script{ :type => "text/javascript" }
+      $(function() {
+      $("#resizable").resizable({
+      alsoResize: '#also'
+      });
+      $("#also").resizable();
+      });
+  %body
+    .demo
+      #resizable.ui-widget-header
+        %h3.ui-state-active
+          Resize
+      #also.ui-widget-content
+        %h3.ui-widget-header
+          will also resize
+    /
+      End demo
+    .demo-description
+      %p
+        Resize multiple elements simultaneously by clicking and dragging the sides of one.  Pass a shared selector into the
+        %code
+          alsoResize
+        option.
+    /
+      End demo-description

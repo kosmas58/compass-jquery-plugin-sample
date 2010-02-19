@@ -1,0 +1,42 @@
+-@browser_title = 'jQuery UI Draggable - Events'
+-@jquery_partial = 'events.js.haml'
+
+.demo
+  #draggable.ui-widget.ui-widget-content
+    %p
+      Drag me to trigger the chain of events.
+    %ul.ui-helper-reset
+      %li#event-start.ui-state-default.ui-corner-all
+        %span.ui-icon.ui-icon-play
+        "start" invoked
+        %span.count
+          0
+        x
+      %li#event-drag.ui-state-default.ui-corner-all
+        %span.ui-icon.ui-icon-arrow-4
+        "drag" invoked
+        %span.count
+          0
+        x
+      %li#event-stop.ui-state-default.ui-corner-all
+        %span.ui-icon.ui-icon-stop
+        "stop" invoked
+        %span.count
+          0
+        x
+/
+  End demo
+.demo-description
+  %p
+    Layer functionality onto the draggable using the
+    %code
+      start
+    ,
+    %code
+      drag
+    , and
+    %code
+      stop
+    events.  Start is fired at the start of the drag; drag during the drag; and stop when dragging stops.
+/
+  End demo-description

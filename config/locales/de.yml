@@ -7,6 +7,7 @@ de:
         accepted: muss akzeptiert werden
         not_a_number: ist nicht numerisch
         blank: darf nicht leer sein
+        record_invalid: ""
         greater_than_or_equal_to: "muss gr\xC3\xB6\xC3\x9Fer als oder gleich {{count}} sein"
         confirmation: "stimmt nicht mit der Best\xC3\xA4tigung \xC3\xBCberein"
         less_than_or_equal_to: muss kleiner als oder gleich {{count}} sein
@@ -27,13 +28,8 @@ de:
         header: 
           one: 1 Fehler verhinderte, dass {{model}} gespeichert wurde
           other: "{{count}} Fehler verhinderte, dass {{model}} gespeichert wurde"
-  time: 
-    am: ""
-    formats: 
-      default: ""
-      short: "% d% b% H.% M"
-      long: "%B %d %Y %H:%M"
-    pm: pm
+      full_messages: 
+        format: ""
   number: 
     format: 
       separator: ""
@@ -55,20 +51,92 @@ de:
         unit: ""
         separator: ""
         delimiter: ""
+  time: 
+    am: ""
+    formats: 
+      default: ""
+      short: "% d% b% H.% M"
+      long: "%B %d %Y %H:%M"
+    pm: pm
   date: 
     formats: 
       default: "%d.%m.%Y"
       short: "%b %d"
       long: "%B %d  %Y"
   txt: 
+    dt: 
+      jqt: "jQTouch (ben\xC3\xB6tigt einen Browser mit WebKit)"
     hello: Hallo Welt
+    ui: 
+      default: "Standardfunktionalit\xC3\xA4t"
+      widgets: 
+        default: Widgets
+        slider: 
+          default: Schieberegler
+        datepicker: 
+          default: Datumsauswahl
+        accordion: 
+          default: Akkordeon
+        tabs: 
+          default: Reiter
+        dialog: 
+          default: Dialog
+        progressbar: 
+          default: Fortschrittsbalken
+          resizable: "Vergr\xC3\xB6\xC3\x9Ferbarer Fortschrittsbalken"
+          animated: Animiert
+      interactions: 
+        selectable: 
+          default: "W\xC3\xA4hlbar"
+        default: Interaktionen
+        draggable: 
+          visual-feedback: Visuelles Feedback
+          default: Ziehbar
+          snap-to: In Element oder Gitter einrasten
+          handle: Position des Griffs
+          scroll: Autoscrollen
+          revert: "Zur Position zur\xC3\xBCckkehren"
+          constrain-movement: "Einschr\xC3\xA4nken der Bewegung"
+          sortable: Zieh- und sortierbar
+          delay-start: "Start verz\xC3\xB6gern"
+          events: Ereignisse
+          cursor-style: Cursorstil
+        droppable: 
+          default: Abwerfbar
+        sortable: 
+          default: Sortierbar
+        resizeable: 
+          default: "Vergr\xC3\xB6\xC3\x9Ferbar"
+      effects: 
+        default: Effekte
+        switch_class: 
+          default: Klasse wechseln
+        hide: 
+          default: Verstecken
+        toggle_class: 
+          default: Klasse umschalten
+        animate: 
+          default: Animieren
+        show: 
+          default: Zeigen
+        remove_class: 
+          default: Klasse entfernen
+        add_class: 
+          default: "Klasse hinzuf\xC3\xBCgen"
+        toggle: 
+          default: Umschalten
+        effect: 
+          default: Effekt
     layout: 
+      theme: Thema
       language: Sprache
   support: 
     array: 
-      last_word_connector: ", und"
       words_connector: ""
+      last_word_connector: ", und"
       two_words_connector: und
+    select: 
+      prompt: ""
   datetime: 
     distance_in_words: 
       less_than_x_minutes: 
@@ -77,12 +145,15 @@ de:
       x_days: 
         one: 1 Tag
         other: "{{count}} Tage"
-      x_minutes: 
-        one: 1 Minute
-        other: "{{count}} Minuten"
+      almost_x_years: 
+        one: ""
+        other: ""
       x_seconds: 
         one: 1 Sekunde
         other: "{{count}} Sekunden"
+      x_minutes: 
+        one: 1 Minute
+        other: "{{count}} Minuten"
       about_x_hours: 
         one: ca. 1 Stunde
         other: ca. {{count}} Stunden
@@ -104,8 +175,8 @@ de:
       half_a_minute: eine halbe Minute lang
     prompts: 
       month: Monat
-      minute: Minute
       second: Sekunden
+      minute: Minute
       hour: Stunde
       day: Tag
       year: Jahr

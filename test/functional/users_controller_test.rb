@@ -1,44 +1,56 @@
-require 'test_helper'
+require File.dirname(__FILE__) + '/../test_helper'
+require 'users_controller'
 
-class UsersControllerTest < ActionController::TestCase
-  test "should get index" do
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:users)
+# Re-raise errors caught by the controller.
+class UsersController; def rescue_action(e) raise e end; end
+
+class UsersControllerTest < Test::Unit::TestCase
+  fixtures :users
+
+  def setup
+    @controller = UsersController.new
+    @request    = ActionController::TestRequest.new
+    @response   = ActionController::TestResponse.new
   end
 
-  test "should get new" do
+  def test_should_get_index
+    get :index
+    assert_response :success
+    assert assigns(:users)
+  end
+
+  def test_should_get_new
     get :new
     assert_response :success
   end
 
-  test "should create user" do
-    assert_difference('User.count') do
-      post :create, :user => { }
-    end
+  def test_should_create_user
+    old_count = User.count
+    post :create, :user => { }
+    assert_equal old_count + 1, User.count
 
     assert_redirected_to user_path(assigns(:user))
   end
 
-  test "should show user" do
-    get :show, :id => users(:one).to_param
+  def test_should_show_user
+    get :show, :id => 1
     assert_response :success
   end
 
-  test "should get edit" do
-    get :edit, :id => users(:one).to_param
+  def test_should_get_edit
+    get :edit, :id => 1
     assert_response :success
   end
 
-  test "should update user" do
-    put :update, :id => users(:one).to_param, :user => { }
+  def test_should_update_user
+    put :update, :id => 1, :user => { }
     assert_redirected_to user_path(assigns(:user))
   end
 
-  test "should destroy user" do
-    assert_difference('User.count', -1) do
-      delete :destroy, :id => users(:one).to_param
-    end
+  def test_should_destroy_user
+    old_count = User.count
+    delete :destroy, :id => 1
+    assert_equal old_count-1, User.count
 
     assert_redirected_to users_path
   end

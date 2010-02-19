@@ -1,10 +1,102 @@
-#navigation  
-  .tree
-    %ul
-      %li#jqgrid{:data => "icon: '../dynatree.custom/grid.png'" }
-        jqGrid
+#navigation
+  .accordion
+    %h3
+      %a.accordionMenuItem{ :href => "#jqueryui" }
+        jQuery UI
+    %div
+      .tree
         %ul
-          %li#jqgrid1{:data => "icon: '../dynatree.custom/grid.png'" } 
+          %li#jqueryui1{:data => "icon: '../dynatree.custom/jquery-ui_16x16.png'" }
+            = t('txt.ui.interactions.default')
+            %ul
+              %li#jqueryui11{:data => "icon: '../dynatree.custom/jquery-ui_16x16.png'" }
+                = t('txt.ui.interactions.draggable.default')
+                %ul
+                  %li#jqueryui1101{:data => "url: '/jqueryui/interactions/draggable', icon: '../dynatree.custom/jquery-ui_16x16.png'" }
+                    = t('txt.ui.default')
+                  %li#jqueryui1102{:data => "url: '/jqueryui/interactions/draggable/events', icon: '../dynatree.custom/jquery-ui_16x16.png'" }
+                    = t('txt.ui.interactions.draggable.events')
+                  %li#jqueryui1103{:data => "url: '/jqueryui/interactions/draggable/constrain_movement', icon: '../dynatree.custom/jquery-ui_16x16.png'" }
+                    = t('txt.ui.interactions.draggable.constrain-movement')
+                  %li#jqueryui1104{:data => "url: '/jqueryui/interactions/draggable/delay_start', icon: '../dynatree.custom/jquery-ui_16x16.png'" }
+                    = t('txt.ui.interactions.draggable.delay-start')
+                  %li#jqueryui1105{:data => "url: '/jqueryui/interactions/draggable/snap_to', icon: '../dynatree.custom/jquery-ui_16x16.png'" }
+                    = t('txt.ui.interactions.draggable.snap-to')
+                  %li#jqueryui1106{:data => "url: '/jqueryui/interactions/draggable/scroll', icon: '../dynatree.custom/jquery-ui_16x16.png'" }
+                    = t('txt.ui.interactions.draggable.scroll')
+                  %li#jqueryui1107{:data => "url: '/jqueryui/interactions/draggable/revert', icon: '../dynatree.custom/jquery-ui_16x16.png'" }
+                    = t('txt.ui.interactions.draggable.revert')
+                  %li#jqueryui1108{:data => "url: '/jqueryui/interactions/draggable/visual_feedback', icon: '../dynatree.custom/jquery-ui_16x16.png'" }
+                    = t('txt.ui.interactions.draggable.visual-feedback')
+                  %li#jqueryui1109{:data => "url: '/jqueryui/interactions/draggable/handle', icon: '../dynatree.custom/jquery-ui_16x16.png'" }
+                    = t('txt.ui.interactions.draggable.handle')
+                  %li#jqueryui1110{:data => "url: '/jqueryui/interactions/draggable/cursor_style', icon: '../dynatree.custom/jquery-ui_16x16.png'" }
+                    = t('txt.ui.interactions.draggable.cursor-style')
+                  %li#jqueryui1111{:data => "url: '/jqueryui/interactions/draggable/sortable', icon: '../dynatree.custom/jquery-ui_16x16.png'" }
+                    = t('txt.ui.interactions.draggable.sortable')
+              %li#jqueryui12{:data => "url: '/jqueryui/interactions/droppable', icon: '../dynatree.custom/jquery-ui_16x16.png'" }
+                = t('txt.ui.interactions.droppable.default')
+              %li#jqueryui13{:data => "url: '/jqueryui/interactions/resizable', icon: '../dynatree.custom/jquery-ui_16x16.png'" }
+                = t('txt.ui.interactions.resizeable.default')
+              %li#jqueryui14{:data => "url: '/jqueryui/interactions/selectable', icon: '../dynatree.custom/jquery-ui_16x16.png'" }
+                = t('txt.ui.interactions.selectable.default')
+              %li#jqueryui15{:data => "url: '/jqueryui/interactions/sortable', icon: '../dynatree.custom/jquery-ui_16x16.png'" }
+                = t('txt.ui.interactions.sortable.default')
+          %li#jqueryui2{:data => "icon: '../dynatree.custom/jquery-ui_16x16.png'" }
+            = t('txt.ui.widgets.default')
+            %ul
+              %li#jqueryui21{:data => "url: '/jqueryui/widgets/accordion', icon: '../dynatree.custom/jquery-ui_16x16.png'" }
+                = t('txt.ui.widgets.accordion.default')
+              %li#jqueryui22{:data => "url: '/jqueryui/widgets/datepicker', icon: '../dynatree.custom/jquery-ui_16x16.png'" }
+                = t('txt.ui.widgets.datepicker.default')
+              %li#jqueryui23{:data => "url: '/jqueryui/widgets/dialog', icon: '../dynatree.custom/jquery-ui_16x16.png'" }
+                = t('txt.ui.widgets.dialog.default')
+              %li#jqueryui24{:data => "url: '/jqueryui/widgets/progressbar', icon: '../dynatree.custom/jquery-ui_16x16.png'" }
+                = t('txt.ui.widgets.progressbar.default')
+                %ul
+                  %li#jqueryui241{:data => "url: '/jqueryui/widgets/progressbar', icon: '../dynatree.custom/jquery-ui_16x16.png'" }
+                    = t('txt.ui.default')
+                  %li#jqueryui242{:data => "url: '/jqueryui/widgets/progressbar/animated', icon: '../dynatree.custom/jquery-ui_16x16.png'" }
+                    = t('txt.ui.widgets.progressbar.animated')
+                  %li#jqueryui243{:data => "url: '/jqueryui/widgets/progressbar/resize', icon: '../dynatree.custom/jquery-ui_16x16.png'" }
+                    = t('txt.ui.widgets.progressbar.resizable')       
+              %li#jqueryui25{:data => "url: '/jqueryui/widgets/slider', icon: '../dynatree.custom/jquery-ui_16x16.png'" }
+                = t('txt.ui.vslider.default')
+              %li#jqueryui26{:data => "url: '/jqueryui/widgets/tabs', icon: '../dynatree.custom/jquery-ui_16x16.png'" }
+                = t('txt.ui.widgets.tabs.default')
+          %li#jqueryui3{:data => "icon: '../dynatree.custom/jquery-ui_16x16.png'" }
+            = t('txt.ui.effects.default')
+            %ul
+              %li#jqueryui31{:data => "url: '/jqueryui/effects/add_class', icon: '../dynatree.custom/jquery-ui_16x16.png'" }
+                = t('txt.ui.effects.add_class.default')
+              %li#jqueryui32{:data => "url: '/jqueryui/effects/remove_class', icon: '../dynatree.custom/jquery-ui_16x16.png'" }
+                = t('txt.ui.effects.remove_class.default')
+              %li#jqueryui33{:data => "url: '/jqueryui/effects/switch_class', icon: '../dynatree.custom/jquery-ui_16x16.png'" }
+                = t('txt.ui.effects.switch_class.default')
+              %li#jqueryui34{:data => "url: '/jqueryui/effects/toggle_class', icon: '../dynatree.custom/jquery-ui_16x16.png'" }
+                = t('txt.ui.effects.toggle_class.default')
+              %li#jqueryui35{:data => "url: '/jqueryui/effects/show', icon: '../dynatree.custom/jquery-ui_16x16.png'" }
+                = t('txt.ui.effects.show.default')
+              %li#jqueryui36{:data => "url: '/jqueryui/effects/hide', icon: '../dynatree.custom/jquery-ui_16x16.png'" }
+                = t('txt.ui.effects.hide.default')
+              %li#jqueryui37{:data => "url: '/jqueryui/effects/toggle', icon: '../dynatree.custom/jquery-ui_16x16.png'" }
+                = t('txt.ui.effects.toggle.default')
+              %li#jqueryui38{:data => "url: '/jqueryui/effects/animate', icon: '../dynatree.custom/jquery-ui_16x16.png'" }
+                = t('txt.ui.effects.animate.default')
+              %li#jqueryui39{:data => "url: '/jqueryui/effects/effect', icon: '../dynatree.custom/jquery-ui_16x16.png'" }
+                = t('txt.ui.effects.effect.default')
+
+    %h3
+      %a.accordionMenuItem{ :href => "#dynatree" }
+        Dynatree
+    %div
+    %h3
+      %a.accordionMenuItem{ :href => "#jqgrid" }
+        jqGrid
+    %div
+      .tree
+        %ul
+          %li#jqgrid1{:data => "icon: '../dynatree.custom/grid.png'" }
             2dc jqGrid
             %ul
               %li#jqgrid11{:data => "icon: '../dynatree.custom/grid.png'" }
@@ -20,9 +112,9 @@
                     with multiple selections + row numbers
                   %li#jqgrid115{:data => "url: '/users?example=05', icon: '../dynatree.custom/grid.png'" }
                     with master details
-              %li#jqgrid12{:data => "icon: '../dynatree.custom/grid.png'" } 
+              %li#jqgrid12{:data => "icon: '../dynatree.custom/grid.png'" }
                 Data manipulation
-                %ul 
+                %ul
                   %li#jqgrid121{:data => "url: '/users?example=06', icon: '../dynatree.custom/grid.png'" }
                     with inline editing
                   %li#jqgrid122{:data => "url: '/users?example=07', icon: '../dynatree.custom/grid.png'" }
@@ -31,10 +123,10 @@
                     witth various input types
                   %li#jqgrid124{:data => "url: '/users?example=09', icon: '../dynatree.custom/grid.png'" }
                     with various input types and datepicker for lastname
-              %li#jqgrid13{:data => "icon: '../dynatree.custom/grid.png'" } 
+              %li#jqgrid13{:data => "icon: '../dynatree.custom/grid.png'" }
                 Subgrids
                 %ul
-                  %li#jqgrid131{:data => "url: '/users?example=10', icon: '../dynatree.custom/grid.png'" }                   
+                  %li#jqgrid131{:data => "url: '/users?example=10', icon: '../dynatree.custom/grid.png'" }
                     default
                   %li#jqgrid132{:data => "url: '/users?example=11', icon: '../dynatree.custom/grid.png'" }
                     with CRUD operations
@@ -44,10 +136,13 @@
                 Form improvements
           %li#jqgrid2{:data => "url: '/people', icon: '../dynatree.custom/grid.png'" }
             jqGrid for Rails
-          %li#jqgrid3{:data => "url: '/widgets', icon: '../dynatree.custom/grid.png'" }                   
+          %li#jqgrid3{:data => "url: '/widgets', icon: '../dynatree.custom/grid.png'" }
             Secret Sauce jqGrid
-      %li#cal{:data => "icon: '../dynatree.custom/view_calendar.png'" }
+    %h3
+      %a.accordionMenuItem{ :href => "#calendar" }
         Calendar
+    %div
+      .tree
         %ul
           %li#cal1{:data => "url: '/events/months', icon: '../dynatree.custom/view_calendar_month.png'" }
             Month view
@@ -62,8 +157,11 @@
                 Week view 3
               %li#cal24{:data => "url: '/events/weeks?example=04', icon: '../dynatree.custom/view_calendar_week.png'" }
                 Week view 4
-      %li#iphone{:data => "icon: '../dynatree.custom/iphone_16x16.png'" }
-        jQTouch (needs a browser with WebKit engine)
+    %h3
+      %a.accordionMenuItem{ :href => "#jqtouch" }
+        = t('txt.dt.jqt')
+    %div
+      .tree
         %ul
           %li#iphone1{:data => "url: '/iphone/main', icon: '../dynatree.custom/iphone_16x16.png'" }
             Compass jQTouch Demo

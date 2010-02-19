@@ -1,0 +1,12 @@
+%style{:type => "text/css", :media => "screen"}
+  :plain
+    #draggable, #draggable2 { width: 100px; height: 100px; padding: 0.5em; float: left; margin: 0 10px 10px 0; }
+    #draggable p { cursor: move; }
+      
+:javascript
+  $(function() {
+    $("#draggable").draggable({ handle: 'p' });
+    $("#draggable2").draggable({ cancel: "p.ui-widget-header" });
+    $("div, p").disableSelection();
+  });
+     
