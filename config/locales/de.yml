@@ -77,6 +77,11 @@ de:
           default: Datumsauswahl
         accordion: 
           default: Akkordeon
+          no-auto-height: "Ohne automatische H\xC3\xB6he"
+          mouseover: "\xC3\x96ffnen, wenn die Maus dar\xC3\xBCberf\xC3\xA4hrt"
+          fillspace: "Freien Platz f\xC3\xBCllen"
+          custom-icons: Symbole anpassen
+          collapsible: Inhalt einklappen
         tabs: 
           default: Reiter
         dialog: 
@@ -91,8 +96,8 @@ de:
         default: Interaktionen
         draggable: 
           visual-feedback: Visuelles Feedback
-          default: Ziehbar
           snap-to: In Element oder Gitter einrasten
+          default: Ziehbar
           handle: Position des Griffs
           scroll: Autoscrollen
           revert: "Zur Position zur\xC3\xBCckkehren"
@@ -109,12 +114,12 @@ de:
           default: "Vergr\xC3\xB6\xC3\x9Ferbar"
       effects: 
         default: Effekte
-        switch_class: 
-          default: Klasse wechseln
-        hide: 
-          default: Verstecken
         toggle_class: 
           default: Klasse umschalten
+        hide: 
+          default: Verstecken
+        switch_class: 
+          default: Klasse wechseln
         animate: 
           default: Animieren
         show: 
@@ -128,8 +133,8 @@ de:
         effect: 
           default: Effekt
     layout: 
-      theme: Thema
       language: Sprache
+      theme: Thema
   support: 
     array: 
       words_connector: ""

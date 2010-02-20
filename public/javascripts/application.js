@@ -10,7 +10,7 @@ jQuery.fn.submitWithAjax = function() {
 }
 
 jQuery(document).ready(function() {	
-  $('.accordion').accordion({/*
+  $("#accordion").accordion({/*
     active: false,
     fillSpace: true,
     navigation: true,
@@ -21,7 +21,7 @@ jQuery(document).ready(function() {
     window.location.hash=this.hash;
   */});
 
-	$(".tree").dynatree({
+	$("#tree").dynatree({
     // using default options
     title: "Title",
     rootVisible: false,

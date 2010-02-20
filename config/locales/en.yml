@@ -154,6 +154,11 @@ en:
         default: Widgets
         accordion: 
           default: Accordion
+          fillspace: Fill space
+          no-auto-height: No auto height
+          collapsible: Collapse content
+          mouseover: Open on mouseover
+          custom-icons: Customize icons          
         datepicker: 
           default: Datepicker
         dialog: 

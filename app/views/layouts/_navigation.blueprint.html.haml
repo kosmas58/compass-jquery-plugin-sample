@@ -1,10 +1,10 @@
 #navigation
-  .accordion
+  #accordion
     %h3
       %a.accordionMenuItem{ :href => "#jqueryui" }
         jQuery UI
     %div
-      .tree
+      #tree
         %ul
           %li#jqueryui1{:data => "icon: '../dynatree.custom/jquery-ui_16x16.png'" }
             = t('txt.ui.interactions.default')
@@ -45,8 +45,21 @@
           %li#jqueryui2{:data => "icon: '../dynatree.custom/jquery-ui_16x16.png'" }
             = t('txt.ui.widgets.default')
             %ul
-              %li#jqueryui21{:data => "url: '/jqueryui/widgets/accordion', icon: '../dynatree.custom/jquery-ui_16x16.png'" }
+              %li#jqueryui21{:data => "icon: '../dynatree.custom/jquery-ui_16x16.png'" }
                 = t('txt.ui.widgets.accordion.default')
+                %ul
+                  %li#jqueryui211{:data => "url: '/jqueryui/widgets/accordion', icon: '../dynatree.custom/jquery-ui_16x16.png'" }
+                    = t('txt.ui.default')
+                  %li#jqueryui212{:data => "url: '/jqueryui/widgets/accordion/fillspace', icon: '../dynatree.custom/jquery-ui_16x16.png'" }
+                    = t('txt.ui.widgets.accordion.fillspace')
+                  %li#jqueryui213{:data => "url: '/jqueryui/widgets/accordion/no_auto_height', icon: '../dynatree.custom/jquery-ui_16x16.png'" }
+                    = t('txt.ui.widgets.accordion.no-auto-height')
+                  %li#jqueryui214{:data => "url: '/jqueryui/widgets/accordion/collapsible', icon: '../dynatree.custom/jquery-ui_16x16.png'" }
+                    = t('txt.ui.widgets.accordion.collapsible')
+                  %li#jqueryui215{:data => "url: '/jqueryui/widgets/accordion/mouseover', icon: '../dynatree.custom/jquery-ui_16x16.png'" }
+                    = t('txt.ui.widgets.accordion.mouseover')
+                  %li#jqueryui216{:data => "url: '/jqueryui/widgets/accordion/custom_icons', icon: '../dynatree.custom/jquery-ui_16x16.png'" }
+                    = t('txt.ui.widgets.accordion.custom-icons')               
               %li#jqueryui22{:data => "url: '/jqueryui/widgets/datepicker', icon: '../dynatree.custom/jquery-ui_16x16.png'" }
                 = t('txt.ui.widgets.datepicker.default')
               %li#jqueryui23{:data => "url: '/jqueryui/widgets/dialog', icon: '../dynatree.custom/jquery-ui_16x16.png'" }

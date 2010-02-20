@@ -1,0 +1,15 @@
+:javascript
+  $(function() {
+    $("#accordionDemo").accordion({
+      fillSpace: true
+    });
+  });
+  
+  $(function() {
+    $("#accordionDemoResizer").resizable({
+      resize: function() {
+        $("#accordionDemo").accordion("resize");
+      },
+      minHeight: 140
+    });
+  });
