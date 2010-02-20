@@ -144,12 +144,19 @@ en:
           sortable: Draggable + Sortable   
         droppable: 
           default: Droppable
+          accepted-elements: Accepted elements
+          propagation: Prevent propagation
+          visual-feedback: Visual feedback
+          revert: Revert draggable position
+          photo-manager: Simple photo manager
         resizeable: 
           default: Resizable
         selectable: 
           default: Selectable
+          serialize: Serialize
+          display-grid: Display as grid
         sortable: 
-          default:  Sortable
+          default: Sortable
       widgets:
         default: Widgets
         accordion: 
