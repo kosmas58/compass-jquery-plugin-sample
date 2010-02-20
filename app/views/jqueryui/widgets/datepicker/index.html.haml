@@ -1,15 +1,15 @@
-<!doctype html>
-%html{ :lang => "en" }
-  %head
-    %title
-      jQuery UI Datepicker Demos
-    %link{ :href => "../demos.css", :rel => "stylesheet", :type => "text/css" }
-  %body
-    .demos-nav
-      %h4
-        Examples
-      %ul
-        %li.demo-config-on
-          %a{ :href => "default.html" }
-            Default functionality
+-@browser_title = "jQuery UI #{t('txt.ui.widgets.datepicker.default')} - #{t('txt.ui.default')}"
+-@jquery_partial = 'index.js.haml'
       
+.demo
+  %h3
+    =@browser_title
+  %p
+    Date:
+    %input#datepicker{ :type => "text" }
+/ End demo
+.demo-description
+  %p
+    The datepicker is tied to a standard form input field.  Focus on the input (click, or use the tab key) to open an interactive calendar in a small overlay.  Choose a date, click elsewhere on the page (blur the input), or hit the Esc key to close. If a date is chosen, feedback is shown as the input's value.
+/ End demo-description
+    

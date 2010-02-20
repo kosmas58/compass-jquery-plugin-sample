@@ -1,0 +1,9 @@
+:javascript
+  $(function() {
+    $.datepicker.setDefaults($.extend({showMonthAfterYear: false}, $.datepicker.regional['']));
+      $("#datepicker").datepicker($.datepicker.regional['fr']);
+      $("#locale").change(function() {
+      $('#datepicker').datepicker('option', $.extend({showMonthAfterYear: false},
+      $.datepicker.regional[$(this).val()]));
+    });
+  });

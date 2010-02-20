@@ -1,0 +1,51 @@
+    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-ar.js" }
+    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-bg.js" }
+    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-ca.js" }
+    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-cs.js" }
+    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-da.js" }
+    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-de.js" }
+    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-el.js" }
+    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-eo.js" }
+    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-es.js" }
+    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-fa.js" }
+    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-fi.js" }
+    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-fr.js" }
+    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-he.js" }
+    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-hr.js" }
+    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-hu.js" }
+    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-hy.js" }
+    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-id.js" }
+    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-is.js" }
+    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-it.js" }
+    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-ja.js" }
+    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-ko.js" }
+    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-lt.js" }
+    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-lv.js" }
+    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-ms.js" }
+    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-nl.js" }
+    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-no.js" }
+    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-pl.js" }
+    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-pt-BR.js" }
+    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-ro.js" }
+    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-ru.js" }
+    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-sk.js" }
+    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-sl.js" }
+    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-sq.js" }
+    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-sr.js" }
+    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-sr-SR.js" }
+    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-sv.js" }
+    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-th.js" }
+    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-tr.js" }
+    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-uk.js" }
+    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-zh-CN.js" }
+    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-zh-TW.js" }
+    %link{ :href => "../demos.css", :rel => "stylesheet", :type => "text/css" }
+:javascript
+  $(function() {
+    $.datepicker.setDefaults($.extend({showMonthAfterYear: false}, $.datepicker.regional['']));
+      $("#datepicker").datepicker($.datepicker.regional['fr']);
+      $("#locale").change(function() {
+      $('#datepicker').datepicker('option', $.extend({showMonthAfterYear: false},
+      $.datepicker.regional[$(this).val()]));
+    });
+  });

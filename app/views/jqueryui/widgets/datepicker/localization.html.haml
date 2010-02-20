@@ -1,156 +1,98 @@
-<!doctype html>
-%html{ :lang => "en" }
-  %head
-    %title
-      jQuery UI Datepicker - Localize calendar
-    %link{ :href => "../../themes/base/ui.all.css", :rel => "stylesheet", :type => "text/css" }
-    %script{ :type => "text/javascript", :src => "../../js/jquery-1.3.2.js" }
-    %script{ :type => "text/javascript", :src => "../../ui/ui.core.js" }
-    %script{ :type => "text/javascript", :src => "../../ui/ui.datepicker.js" }
-    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-ar.js" }
-    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-bg.js" }
-    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-ca.js" }
-    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-cs.js" }
-    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-da.js" }
-    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-de.js" }
-    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-el.js" }
-    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-eo.js" }
-    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-es.js" }
-    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-fa.js" }
-    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-fi.js" }
-    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-fr.js" }
-    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-he.js" }
-    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-hr.js" }
-    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-hu.js" }
-    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-hy.js" }
-    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-id.js" }
-    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-is.js" }
-    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-it.js" }
-    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-ja.js" }
-    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-ko.js" }
-    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-lt.js" }
-    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-lv.js" }
-    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-ms.js" }
-    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-nl.js" }
-    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-no.js" }
-    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-pl.js" }
-    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-pt-BR.js" }
-    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-ro.js" }
-    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-ru.js" }
-    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-sk.js" }
-    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-sl.js" }
-    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-sq.js" }
-    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-sr.js" }
-    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-sr-SR.js" }
-    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-sv.js" }
-    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-th.js" }
-    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-tr.js" }
-    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-uk.js" }
-    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-zh-CN.js" }
-    %script{ :type => "text/javascript", :src => "../../ui/i18n/ui.datepicker-zh-TW.js" }
-    %link{ :href => "../demos.css", :rel => "stylesheet", :type => "text/css" }
-    %script{ :type => "text/javascript" }
-      $(function() {
-      $.datepicker.setDefaults($.extend({showMonthAfterYear: false}, $.datepicker.regional['']));
-      $("#datepicker").datepicker($.datepicker.regional['fr']);
-      $("#locale").change(function() {
-      $('#datepicker').datepicker('option', $.extend({showMonthAfterYear: false},
-      $.datepicker.regional[$(this).val()]));
-      });
-      });
-  %body
-    .demo
-      %p
-        Date:
-        %input#datepicker{ :type => "text" }
-        \&nbsp;
-        %select#locale
-          %option{ :value => "sq" }
-            Albanian (Gjuha shqipe)
-          %option{ :value => "ar" }
-            Arabic (‫(لعربي
-          %option{ :value => "hy" }
-            Armenian (Հայերեն)
-          %option{ :value => "bg" }
-            Bulgarian (български език)
-          %option{ :value => "ca" }
-            Catalan (Catal&agrave;)
-          %option{ :value => "zh-CN" }
-            Chinese Simplified (简体中文)
-          %option{ :value => "zh-TW" }
-            Chinese Traditional (繁體中文)
-          %option{ :value => "hr" }
-            Croatian (Hrvatski jezik)
-          %option{ :value => "cs" }
-            Czech (Ce&ouml;tina)
-          %option{ :value => "da" }
-            Danish (Dansk)
-          %option{ :value => "nl" }
-            Dutch (Nederlands)
-          %option{ :value => "eo" }
-            Esperanto
-          %option{ :value => "fa" }
-            Farsi/Persian (‫(فارسی
-          %option{ :value => "fi" }
-            Finnish (suomi)
-          %option{ :selected => "selected", :value => "fr" }
-            French (Fran&ccedil;ais)
-          %option{ :value => "de" }
-            German (Deutsch)
-          %option{ :value => "el" }
-            Greek (Ελληνικά)
-          %option{ :value => "he" }
-            Hebrew (‫(עברית
-          %option{ :value => "hu" }
-            Hungarian (Magyar)
-          %option{ :value => "is" }
-            Icelandic (&Otilde;slenska)
-          %option{ :value => "id" }
-            Indonesian (Bahasa Indonesia)
-          %option{ :value => "it" }
-            Italian (Italiano)
-          %option{ :value => "ja" }
-            Japanese (日本語)
-          %option{ :value => "ko" }
-            Korean (한국어)
-          %option{ :value => "lv" }
-            Latvian (Latvie&ouml;u Valoda)
-          %option{ :value => "lt" }
-            Lithuanian (lietuviu kalba)
-          %option{ :value => "ms" }
-            Malaysian (Bahasa Malaysia)
-          %option{ :value => "no" }
-            Norwegian (Norsk)
-          %option{ :value => "pl" }
-            Polish (Polski)
-          %option{ :value => "pt-BR" }
-            Portuguese/Brazilian (Portugu&ecirc;s)
-          %option{ :value => "ro" }
-            Romanian (Rom&acirc;nă)
-          %option{ :value => "ru" }
-            Russian (Русский)
-          %option{ :value => "sr" }
-            Serbian (српски језик)
-          %option{ :value => "sr-SR" }
-            Serbian (srpski jezik)
-          %option{ :value => "sk" }
-            Slovak (Slovencina)
-          %option{ :value => "sl" }
-            Slovenian (Slovenski Jezik)
-          %option{ :value => "es" }
-            Spanish (Espa&ntilde;ol)
-          %option{ :value => "sv" }
-            Swedish (Svenska)
-          %option{ :value => "th" }
-            Thai (ภาษาไทย)
-          %option{ :value => "tr" }
-            Turkish (T&uuml;rk&ccedil;e)
-          %option{ :value => "uk" }
-            Ukranian (Українська)
-    /
-      End demo
-    .demo-description
-      %p
-        Localize the datepicker calendar language and format (English / Western formatting is the default).  The datepicker includes built-in support for languages that read right-to-left, such as Arabic and Hebrew.
-    /
-      End demo-description
+-@browser_title = "jQuery UI #{t('txt.ui.widgets.datepicker.default')} - #{t('txt.ui.widgets.datepicker.localization')}"
+-@jquery_partial = 'localization.js.haml'
+      
+.demo
+  %h3
+    =@browser_title
+  %p
+    Date:
+    %input#datepicker{ :type => "text" }
+    \&nbsp;
+    %select#locale
+      %option{ :value => "sq" }
+        Albanian (Gjuha shqipe)
+      %option{ :value => "ar" }
+        Arabic (‫(لعربي
+      %option{ :value => "hy" }
+        Armenian (Հայերեն)
+      %option{ :value => "bg" }
+        Bulgarian (български език)
+      %option{ :value => "ca" }
+        Catalan (Catal&agrave;)
+      %option{ :value => "zh-CN" }
+        Chinese Simplified (简体中文)
+      %option{ :value => "zh-TW" }
+        Chinese Traditional (繁體中文)
+      %option{ :value => "hr" }
+        Croatian (Hrvatski jezik)
+      %option{ :value => "cs" }
+        Czech (Ce&ouml;tina)
+      %option{ :value => "da" }
+        Danish (Dansk)
+      %option{ :value => "nl" }
+        Dutch (Nederlands)
+      %option{ :value => "eo" }
+        Esperanto
+      %option{ :value => "fa" }
+        Farsi/Persian (‫(فارسی
+      %option{ :value => "fi" }
+        Finnish (suomi)
+      %option{ :selected => "selected", :value => "fr" }
+        French (Fran&ccedil;ais)
+      %option{ :value => "de" }
+        German (Deutsch)
+      %option{ :value => "el" }
+        Greek (Ελληνικά)
+      %option{ :value => "he" }
+        Hebrew (‫(עברית
+      %option{ :value => "hu" }
+        Hungarian (Magyar)
+      %option{ :value => "is" }
+        Icelandic (&Otilde;slenska)
+      %option{ :value => "id" }
+        Indonesian (Bahasa Indonesia)
+      %option{ :value => "it" }
+        Italian (Italiano)
+      %option{ :value => "ja" }
+        Japanese (日本語)
+      %option{ :value => "ko" }
+        Korean (한국어)
+      %option{ :value => "lv" }
+        Latvian (Latvie&ouml;u Valoda)
+      %option{ :value => "lt" }
+        Lithuanian (lietuviu kalba)
+      %option{ :value => "ms" }
+        Malaysian (Bahasa Malaysia)
+      %option{ :value => "no" }
+        Norwegian (Norsk)
+      %option{ :value => "pl" }
+        Polish (Polski)
+      %option{ :value => "pt-BR" }
+        Portuguese/Brazilian (Portugu&ecirc;s)
+      %option{ :value => "ro" }
+        Romanian (Rom&acirc;nă)
+      %option{ :value => "ru" }
+        Russian (Русский)
+      %option{ :value => "sr" }
+        Serbian (српски језик)
+      %option{ :value => "sr-SR" }
+        Serbian (srpski jezik)
+      %option{ :value => "sk" }
+        Slovak (Slovencina)
+      %option{ :value => "sl" }
+        Slovenian (Slovenski Jezik)
+      %option{ :value => "es" }
+        Spanish (Espa&ntilde;ol)
+      %option{ :value => "sv" }
+        Swedish (Svenska)
+      %option{ :value => "th" }
+        Thai (ภาษาไทย)
+      %option{ :value => "tr" }
+        Turkish (T&uuml;rk&ccedil;e)
+      %option{ :value => "uk" }
+        Ukranian (Українська)
+/ End demo
+.demo-description
+  %p
+    Localize the datepicker calendar language and format (English / Western formatting is the default).  The datepicker includes built-in support for languages that read right-to-left, such as Arabic and Hebrew.
+/ End demo-description
