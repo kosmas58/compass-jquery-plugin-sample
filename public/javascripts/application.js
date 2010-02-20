@@ -13,15 +13,7 @@ jQuery(document).ready(function() {
   $("#accordion").accordion({
 		autoHeight: false,
 		collapsible: true
-    /*active: false,
-    fillSpace: true,
-    navigation: true,
-    header: '.accordionMenuItem'*/
   });
-
-  /*$(".accordionMenuItem").click(function(event){
-    window.location.hash=this.hash;
-  });*/
 
 	$(".tree").dynatree({
     // using default options
