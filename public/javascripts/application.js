@@ -10,18 +10,20 @@ jQuery.fn.submitWithAjax = function() {
 }
 
 jQuery(document).ready(function() {	
-  $("#accordion").accordion({/*
-    active: false,
+  $("#accordion").accordion({
+		autoHeight: false,
+		collapsible: true
+    /*active: false,
     fillSpace: true,
     navigation: true,
-    header: '.accordionMenuItem'
+    header: '.accordionMenuItem'*/
   });
 
-  $(".accordionMenuItem").click(function(event){
+  /*$(".accordionMenuItem").click(function(event){
     window.location.hash=this.hash;
-  */});
+  });*/
 
-	$("#tree").dynatree({
+	$(".tree").dynatree({
     // using default options
     title: "Title",
     rootVisible: false,
