@@ -1,12 +1,18 @@
--@browser_title = "jQuery UI #{t('txt.ui.widgets.dialog.default')} - #{t('txt.ui.widgets.dialog.modal')}"
--@jquery_partial = 'modal.js.haml'
+-@browser_title = "jQuery UI #{t('txt.ui.widgets.dialog.default')} - #{t('txt.ui.widgets.dialog.modal-message')}"
+-@jquery_partial = 'modal_message.js.haml'
       
 .demo
   %h3
     =@browser_title
-  #dialog{ :title => "Basic modal dialog" }
+  #dialog{ :title => "Download complete" }
     %p
-      Adding the modal overlay screen makes the dialog look more prominent because it dims out the page content.
+      %span.ui-icon.ui-icon-circle-check{ :style => "float:left; margin:0 7px 50px 0;" }
+      Your files have downloaded successfully into the My Downloads folder.
+    %p
+      Currently using
+      %b
+        36% of your storage space
+      \.
   / Sample page content to illustrate the layering of the dialog
   .hiddenInViewSource{ :style => "padding:20px;" }
     %p
@@ -35,8 +41,11 @@
 / End demo
 .demo-description
   %p
-    A modal dialog prevents the user from interacting with the rest of the page until it is closed.  To add a semi-transparent layer that dims out the page content behind the dialog, set the background color and opacity of the
+    Use a modal dialog to explicitly acknowledge information or an action before continuing their work.  Set the
     %code
-      overlay
+      modal
+    option to true, and specify a primary action (Ok) with the
+    %code
+      buttons
     option.
 / End demo-description

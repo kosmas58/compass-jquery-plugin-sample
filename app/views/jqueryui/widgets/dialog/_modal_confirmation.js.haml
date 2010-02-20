@@ -1,0 +1,21 @@
+:javascript
+  $(function() {
+    $("#dialog").dialog({
+      bgiframe: true,
+      resizable: false,
+      height:140,
+      modal: true,
+      overlay: {
+        backgroundColor: '#000',
+        opacity: 0.5
+      },
+      buttons: {
+        'Delete all items in recycle bin': function() {
+          $(this).dialog('close');
+        },
+        Cancel: function() {
+          $(this).dialog('close');
+        }
+      }
+    });
+  });

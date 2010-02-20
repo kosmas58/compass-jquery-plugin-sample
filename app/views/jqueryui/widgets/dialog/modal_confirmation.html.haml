@@ -1,12 +1,13 @@
--@browser_title = "jQuery UI #{t('txt.ui.widgets.dialog.default')} - #{t('txt.ui.widgets.dialog.modal')}"
--@jquery_partial = 'modal.js.haml'
+-@browser_title = "jQuery UI #{t('txt.ui.widgets.dialog.default')} - #{t('txt.ui.widgets.dialog.modal-confirmation')}"
+-@jquery_partial = 'modal_confirmation.js.haml'
       
 .demo
   %h3
     =@browser_title
-  #dialog{ :title => "Basic modal dialog" }
+  #dialog{ :title => "Empty the recycle bin?" }
     %p
-      Adding the modal overlay screen makes the dialog look more prominent because it dims out the page content.
+      %span.ui-icon.ui-icon-alert{ :style => "float:left; margin:0 7px 20px 0;" }
+      These items will be permanently deleted and cannot be recovered. Are you sure?
   / Sample page content to illustrate the layering of the dialog
   .hiddenInViewSource{ :style => "padding:20px;" }
     %p
@@ -35,8 +36,11 @@
 / End demo
 .demo-description
   %p
-    A modal dialog prevents the user from interacting with the rest of the page until it is closed.  To add a semi-transparent layer that dims out the page content behind the dialog, set the background color and opacity of the
+    Confirm an action that may be destructive or important.  Set the
     %code
-      overlay
+      modal
+    option to true, and specify primary and secondary user actions with the
+    %code
+      buttons
     option.
 / End demo-description

@@ -1,0 +1,53 @@
+-@browser_title = "jQuery UI #{t('txt.ui.widgets.dialog.default')} - #{t('txt.ui.widgets.dialog.modal-form')}"
+-@jquery_partial = 'modal_form.js.haml'
+      
+.demo
+  %h3
+    =@browser_title
+  #dialog{ :title => "Create new user" }
+    %p#validateTips
+      All form fields are required.
+    %form
+      %fieldset
+        %label{ :for => "name" }
+          Name
+        %input#name.text.ui-widget-content.ui-corner-all{ :name => "name", :type => "text" }
+        %label{ :for => "email" }
+          Email
+        %input#email.text.ui-widget-content.ui-corner-all{ :name => "email", :type => "text", :value => "" }
+        %label{ :for => "password" }
+          Password
+        %input#password.text.ui-widget-content.ui-corner-all{ :name => "password", :type => "password", :value => "" }
+  #users-contain.ui-widget
+    %h1
+      Existing Users:
+    %table#users.ui-widget.ui-widget-content
+      %thead
+        %tr.ui-widget-header
+          %th
+            Name
+          %th
+            Email
+          %th
+            Password
+      %tbody
+        %tr
+          %td
+            John Doe
+          %td
+            john.doe@example.com
+          %td
+            johndoe1
+  %button#create-user.ui-button.ui-state-default.ui-corner-all
+    Create new user
+/ End demo
+.demo-description
+  %p
+    Use a modal dialog to require that the user enter data during a multi-step process.  Embed form markup in the content area, set the
+    %code
+      modal
+    option to true, and specify primary and secondary user actions with the
+    %code
+      buttons
+    option.
+/ End demo-description
