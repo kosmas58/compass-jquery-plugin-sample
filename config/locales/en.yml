@@ -149,14 +149,30 @@ en:
           visual-feedback: Visual feedback
           revert: Revert draggable position
           photo-manager: Simple photo manager
-        resizeable: 
+        resizable: 
           default: Resizable
+          aspect-ratio: Preserve aspect ratio
+          max-min: Maximum / minimum size
+          constrain-area: Constrain resize area
+          delay-start: Delay start
+          snap-to-grid: Snap to grid
+          visual-feedback: Visual feedback
+          synchronous-resize: Synchronous resize
+          animate: Animate
         selectable: 
           default: Selectable
           serialize: Serialize
           display-grid: Display as grid
         sortable: 
           default: Sortable
+          placeholder: Drop placeholder
+          connect-lists: Connect lists
+          connect-lists-through-tabs: Connect lists through tabs
+          empty-lists: Handle empty lists
+          items: Include / exclude items
+          delay-start: Delay start
+          display-grid: Display as grid
+          portlets: Portlets
       widgets:
         default: Widgets
         accordion: 

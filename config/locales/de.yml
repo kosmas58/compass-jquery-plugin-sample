@@ -75,9 +75,9 @@ de:
           steps: Mit festen Schritten einrasten
           default: Schieberegler
           multiple-vertical: Mehrere Regler
-          colorpicker: Einfacher Farbauswahl
           slider-vertical: Vertikaler Regler
           range-vertical: Vertikaler Regler mit Bereich
+          colorpicker: Einfacher Farbauswahl
           range: Regler mit Bereich
           rangemax: Bereich mit festgesetzten Maximum
           rangemin: Bereich mit festgesetztem Mininum
@@ -90,21 +90,21 @@ de:
           icon-trigger: "\xC3\x9Cber Symbol aktivieren"
           multiple-calendars: Mehrerer Monate anzeigen
           dropdown-month-year: "Monat- & Jahresmen\xC3\xBCs anzeigen"
-          localization: " Kalender lokalisieren"
           date-formats: Datum formatieren
-        accordion: 
-          default: Akkordeon
-          no-auto-height: "Ohne automatische H\xC3\xB6he"
-          mouseover: "\xC3\x96ffnen, wenn die Maus dar\xC3\xBCberf\xC3\xA4hrt"
-          fillspace: "Freien Platz f\xC3\xBCllen"
-          custom-icons: Symbole anpassen
-          collapsible: Inhalt einklappen
+          localization: " Kalender lokalisieren"
         tabs: 
           default: Reiter
           ajax: "Inhalt \xC3\xBCber Ajax"
           sortable: Sortierbar
           mouseover: "\xC3\x96ffnen, wenn die Maus dar\xC3\xBCberf\xC3\xA4hrt"
           collapsible: Inhalt wegklappen
+        accordion: 
+          default: Akkordeon
+          no-auto-height: "Ohne automatische H\xC3\xB6he"
+          fillspace: "Freien Platz f\xC3\xBCllen"
+          mouseover: "\xC3\x96ffnen, wenn die Maus dar\xC3\xBCberf\xC3\xA4hrt"
+          custom-icons: Symbole anpassen
+          collapsible: Inhalt einklappen
         dialog: 
           default: Dialog
           modal: Modaler Dialog
@@ -117,12 +117,14 @@ de:
           animated: Animiert
       interactions: 
         selectable: 
+          serialize: "Mehrere ausw\xC3\xA4hlen"
           default: "W\xC3\xA4hlbar"
+          display-grid: Als Gitter anzeigen
         default: Interaktionen
         draggable: 
           visual-feedback: Visuelles Feedback
-          snap-to: In Element oder Gitter einrasten
           default: Ziehbar
+          snap-to: In Element oder Gitter einrasten
           handle: Position des Griffs
           scroll: Autoscrollen
           revert: "Zur Position zur\xC3\xBCckkehren"
@@ -132,11 +134,32 @@ de:
           events: Ereignisse
           cursor-style: Cursorstil
         droppable: 
+          visual-feedback: Visuelles Feedback
           default: Abwerfbar
+          revert: "R\xC3\xBCckkehr zur  Position"
+          propagation: Weitergabe verhindern
+          accepted-elements: Akzeptierte Elemente
+          photo-manager: Einfacher Photomanager
         sortable: 
+          items: "Elemente ein- / ausschlie\xC3\x9Fen"
+          placeholder: "Platzhalter f\xC3\xBCr den Abwurf"
           default: Sortierbar
-        resizeable: 
+          connect-lists-through-tabs: "Listen \xC3\xBCber Reiter verbinden"
+          delay-start: "Start verz\xC3\xB6gern"
+          connect-lists: Listen verbinden
+          portlets: Portlets
+          display-grid: Als Gitter anzeigen
+          empty-lists: Leere Listen handhaben
+        resizable: 
+          visual-feedback: Visuelles Feedback
+          aspect-ratio: "Seitenverh\xC3\xA4ltnis beibehalten"
           default: "Vergr\xC3\xB6\xC3\x9Ferbar"
+          max-min: "Maximal-  / Minimalgr\xC3\xB6\xC3\x9Fe"
+          snap-to-grid: Im Gitter einrasten
+          animate: Animieren
+          delay-start: "Start verz\xC3\xB6gern"
+          synchronous-resize: "Synchrones Vergr\xC3\xB6\xC3\x9Fern"
+          constrain-area: "Vergr\xC3\xB6\xC3\x9Ferungsfl\xC3\xA4che einschr\xC3\xA4nken"
       effects: 
         default: Effekte
         hide: 

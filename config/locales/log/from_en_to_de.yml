@@ -24,12 +24,9 @@ time:
     default: "%a, %d %b %Y %H:%M:%S %z"
 txt: 
   ui: 
-    widgets: 
-      dialog: 
-        modal: Modal dialog
-        modal-confirmation: Modal confirmation
-        modal-message: Modal message
-        modal-form: Modal form
+    interactions: 
+      droppable: 
+        revert: Revert draggable position
 support: 
   array: 
     words_connector: ", "
