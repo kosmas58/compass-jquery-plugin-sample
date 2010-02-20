@@ -161,6 +161,15 @@ en:
           custom-icons: Customize icons          
         datepicker: 
           default: Datepicker
+          date-formats: Format date
+          min-max: Restrict date range
+          localization: Localize calendar
+          alt-field: Populate alternate field
+          inline: Display inline
+          buttonbar: Display button bar
+          dropdown-month-year: Display month &amp; year menus
+          multiple-calendars: Display multiple months
+          icon-trigger: Icon trigger
         dialog: 
           default: Dialog
         progressbar: 

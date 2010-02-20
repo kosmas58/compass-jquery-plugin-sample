@@ -25,12 +25,13 @@ time:
 txt: 
   ui: 
     widgets: 
-      accordion: 
-        no-auto-height: No auto height
-        fillspace: Fill space
-        mouseover: Open on mouseover
-        custom-icons: Customize icons
-        collapsible: Collapse content
+      datepicker: 
+        alt-field: Populate alternate field
+        buttonbar: Display button bar
+        inline: Display inline
+        icon-trigger: Icon trigger
+        dropdown-month-year: Display month &amp; year menus
+        date-formats: Format date
 support: 
   array: 
     words_connector: ", "

@@ -74,7 +74,20 @@ de:
         slider: 
           default: Schieberegler
         datepicker: 
+          alt-field: "Alternatives Feld f\xC3\xBCllen"
           default: Datumsauswahl
+          buttonbar: "Schaltfl\xC3\xA4chen anzeigen"
+          min-max: "Datumsbereich einschr\xC3\xA4nken "
+          inline: Eingebettet anzeigen
+          icon-trigger: "\xC3\x9Cber Symbol aktivieren"
+          dropdown-month-year: "Monat- & Jahresmen\xC3\xBCs anzeigen"
+          multiple-calendars: Mehrerer Monate anzeigen
+          date-formats: Datum formatieren
+          localization: " Kalender lokalisieren"
+        tabs: 
+          default: Reiter
+        dialog: 
+          default: Dialog
         accordion: 
           default: Akkordeon
           no-auto-height: "Ohne automatische H\xC3\xB6he"
@@ -82,10 +95,6 @@ de:
           fillspace: "Freien Platz f\xC3\xBCllen"
           custom-icons: Symbole anpassen
           collapsible: Inhalt einklappen
-        tabs: 
-          default: Reiter
-        dialog: 
-          default: Dialog
         progressbar: 
           default: Fortschrittsbalken
           resize: "Vergr\xC3\xB6\xC3\x9Ferbarer Fortschrittsbalken"
@@ -133,8 +142,8 @@ de:
         effect: 
           default: Effekt
     layout: 
-      language: Sprache
       theme: Thema
+      language: Sprache
   support: 
     array: 
       words_connector: ""
