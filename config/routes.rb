@@ -16,7 +16,7 @@ ActionController::Routing::Routes.draw do |map|
 
   Translate::Routes.translation_ui(map) if RAILS_ENV != "production "
 
-  map.root :controller => "jqueryui/interactions/draggable"
+  map.root :controller => "welcome"
 
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
