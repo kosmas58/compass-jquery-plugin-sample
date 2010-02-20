@@ -72,22 +72,26 @@ de:
       widgets: 
         default: Widgets
         slider: 
+          steps: Mit festen Schritten einrasten
           default: Schieberegler
+          multiple-vertical: Mehrere Regler
+          colorpicker: Einfacher Farbauswahl
+          slider-vertical: Vertikaler Regler
+          range-vertical: Vertikaler Regler mit Bereich
+          range: Regler mit Bereich
+          rangemax: Bereich mit festgesetzten Maximum
+          rangemin: Bereich mit festgesetztem Mininum
         datepicker: 
           alt-field: "Alternatives Feld f\xC3\xBCllen"
-          default: Datumsauswahl
           buttonbar: "Schaltfl\xC3\xA4chen anzeigen"
+          default: Datumsauswahl
           min-max: "Datumsbereich einschr\xC3\xA4nken "
           inline: Eingebettet anzeigen
           icon-trigger: "\xC3\x9Cber Symbol aktivieren"
-          dropdown-month-year: "Monat- & Jahresmen\xC3\xBCs anzeigen"
           multiple-calendars: Mehrerer Monate anzeigen
-          date-formats: Datum formatieren
+          dropdown-month-year: "Monat- & Jahresmen\xC3\xBCs anzeigen"
           localization: " Kalender lokalisieren"
-        tabs: 
-          default: Reiter
-        dialog: 
-          default: Dialog
+          date-formats: Datum formatieren
         accordion: 
           default: Akkordeon
           no-auto-height: "Ohne automatische H\xC3\xB6he"
@@ -95,6 +99,18 @@ de:
           fillspace: "Freien Platz f\xC3\xBCllen"
           custom-icons: Symbole anpassen
           collapsible: Inhalt einklappen
+        tabs: 
+          default: Reiter
+          ajax: "Inhalt \xC3\xBCber Ajax"
+          sortable: Sortierbar
+          mouseover: "\xC3\x96ffnen, wenn die Maus dar\xC3\xBCberf\xC3\xA4hrt"
+          collapsible: Inhalt wegklappen
+        dialog: 
+          default: Dialog
+          modal: Modaler Dialog
+          modal-confirmation: "Modale Best\xC3\xA4tigung"
+          modal-message: Modale Nachricht
+          modal-form: Modale Form
         progressbar: 
           default: Fortschrittsbalken
           resize: "Vergr\xC3\xB6\xC3\x9Ferbarer Fortschrittsbalken"
@@ -123,10 +139,10 @@ de:
           default: "Vergr\xC3\xB6\xC3\x9Ferbar"
       effects: 
         default: Effekte
-        toggle_class: 
-          default: Klasse umschalten
         hide: 
           default: Verstecken
+        toggle_class: 
+          default: Klasse umschalten
         switch_class: 
           default: Klasse wechseln
         animate: 
@@ -142,8 +158,8 @@ de:
         effect: 
           default: Effekt
     layout: 
-      theme: Thema
       language: Sprache
+      theme: Thema
   support: 
     array: 
       words_connector: ""

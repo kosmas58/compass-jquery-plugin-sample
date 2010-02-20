@@ -25,13 +25,11 @@ time:
 txt: 
   ui: 
     widgets: 
-      datepicker: 
-        alt-field: Populate alternate field
-        buttonbar: Display button bar
-        inline: Display inline
-        icon-trigger: Icon trigger
-        dropdown-month-year: Display month &amp; year menus
-        date-formats: Format date
+      dialog: 
+        modal: Modal dialog
+        modal-confirmation: Modal confirmation
+        modal-message: Modal message
+        modal-form: Modal form
 support: 
   array: 
     words_connector: ", "

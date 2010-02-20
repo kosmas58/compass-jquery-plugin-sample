@@ -172,14 +172,30 @@ en:
           icon-trigger: Icon trigger
         dialog: 
           default: Dialog
+          modal: Modal dialog
+          modal-message: Modal message
+          modal-confirmation: Modal confirmation
+          modal-form: Modal form
         progressbar: 
           default: Progressbar
           resize: Resizable progressbar
           animated: Animated
         slider: 
           default: Slider
+          steps: Snap to increments
+          range: Range slider
+          rangemin: Range with fixed minimum
+          rangemax: Range with fixed maximum
+          slider-vertical: Vertical slider
+          range-vertical: Vertical range slider
+          multiple-vertical: Multiple sliders
+          colorpicker: Simple colorpicker
         tabs: 
           default: Tabs
+          ajax: Content via Ajax
+          mouseover: Open on mouseover
+          collapsible: Collapse content
+          sortable: Sortable
       effects:
         default: Effects
         add_class: 
