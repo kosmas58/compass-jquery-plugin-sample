@@ -1,7 +1,9 @@
--@browser_title = 'jQuery UI Progressbar - Resizable'
+-@browser_title = "jQuery UI #{t('txt.ui.widgets.progressbar.default')} - #{t('txt.ui.widgets.progressbar.resize')}"
 -@jquery_partial = 'resize.js.haml'
       
 .demo
+  %h3
+    =@browser_title
   #progressbarWrapper.ui-widget-default{ :style => "height:30px; " }
     #progressbar{ :style => "height:100%;" }
 /

@@ -83,7 +83,7 @@ de:
           default: Dialog
         progressbar: 
           default: Fortschrittsbalken
-          resizable: "Vergr\xC3\xB6\xC3\x9Ferbarer Fortschrittsbalken"
+          resize: "Vergr\xC3\xB6\xC3\x9Ferbarer Fortschrittsbalken"
           animated: Animiert
       interactions: 
         selectable: 

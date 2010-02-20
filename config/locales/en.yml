@@ -160,7 +160,7 @@ en:
           default: Dialog
         progressbar: 
           default: Progressbar
-          resizable: Resizable progressbar
+          resize: Resizable progressbar
           animated: Animated
         slider: 
           default: Slider
