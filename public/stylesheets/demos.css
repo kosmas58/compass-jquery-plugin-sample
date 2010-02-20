@@ -138,12 +138,12 @@ eventually we should convert the font sizes to ems -- using px for now to minimi
 #demo-config-menu li a:hover,
 #demo-config-menu li a:active { background-color:#f6f6f6; }
 
-#demo-config-menu li.demo-config-on { background: url(images/demo-config-on-tile.gif) repeat-x left center; }
+#demo-config-menu li.demo-config-on { background: url(images/demo-config-on-tile.png) repeat-x left center; }
 
 #demo-config-menu li.demo-config-on a:link,
 #demo-config-menu li.demo-config-on a:visited,
 #demo-config-menu li.demo-config-on a:hover,
-#demo-config-menu li.demo-config-on a:active { background: url(images/demo-config-on.gif) no-repeat left; padding-left:18px; color:#fff; border:0; margin-left:-10px; margin-top: 0px; margin-bottom: 0px; }
+#demo-config-menu li.demo-config-on a:active { background: url(images/demo-config-on.png) no-repeat left; padding-left:18px; color:#fff; border:0; margin-left:-10px; margin-top: 0px; margin-bottom: 0px; }
 
 #demo-source, #demo-notes {
 	clear: both;
@@ -164,12 +164,12 @@ code, pre { padding:8px 0 8px 20px ; font-size: 1.2em; line-height:130%;  }
 #demo-source a.source-open:link,
 #demo-source a.source-open:visited,
 #demo-source a.source-open:hover,
-#demo-source a.source-open:active { background-image: url(images/demo-spindown-open.gif); }
+#demo-source a.source-open:active { background-image: url(images/demo-spindown-open.png); }
 
 #demo-source a.source-closed:link,
 #demo-source a.source-closed:visited,
 #demo-source a.source-closed:hover,
-#demo-source a.source-closed:active { background-image: url(images/demo-spindown-closed.gif); }
+#demo-source a.source-closed:active { background-image: url(images/demo-spindown-closed.png); }
 
 div.demo {
 	padding:12px;
