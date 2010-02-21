@@ -1,20 +1,26 @@
-<!doctype html>
-%html{ :lang => "en" }
-  %head
-    %title
-      jQuery UI Selectable Demos
-    %link{ :href => "../demos.css", :rel => "stylesheet", :type => "text/css" }
-  %body
-    .demos-nav
-      %h4
-        Examples
-      %ul
-        %li.demo-config-on
-          %a{ :href => "default.html" }
-            Default functionality
-        %li
-          %a{ :href => "serialize.html" }
-            Serialize
-        %li
-          %a{ :href => "display-grid.html" }
-            Display as grid
+-@browser_title = "jQuery UI #{t('txt.ui.interactions.selectable.default')} - #{t('txt.ui.default')}"
+-@jquery_partial = 'index.js.haml'
+
+.demo
+  %h3
+    =@browser_title
+  %ol#selectable
+    %li.ui-widget-content
+      Item 1
+    %li.ui-widget-content
+      Item 2
+    %li.ui-widget-content
+      Item 3
+    %li.ui-widget-content
+      Item 4
+    %li.ui-widget-content
+      Item 5
+    %li.ui-widget-content
+      Item 6
+    %li.ui-widget-content
+      Item 7
+/ End demo
+.demo-description
+  %p
+    Enable a DOM element (or group of elements) to be selectable. Draw a box with your cursor to select items. Hold down the Ctrl key to make multiple non-adjacent selections.
+/ End demo-description
