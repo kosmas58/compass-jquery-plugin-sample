@@ -1,0 +1,17 @@
+-@browser_title = "jQuery UI #{t('txt.ui.interactions.resizable.default')} - #{t('txt.ui.interactions.resizable.visual-feedback')}"
+-@jquery_partial = 'visual_feedback.js.haml'
+
+.demo
+  %h3
+    =@browser_title
+  #resizable.ui-widget-content
+    %h3.ui-widget-header
+      Ghost
+/ End demo
+.demo-description
+  %p
+    Instead of showing the actual element during resize, set the
+    %code
+      ghost
+    option to true to show a semi-transparent part of the element.
+/ End demo-description

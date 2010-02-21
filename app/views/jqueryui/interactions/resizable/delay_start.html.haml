@@ -1,0 +1,28 @@
+-@browser_title = "jQuery UI #{t('txt.ui.interactions.resizable.default')} - #{t('txt.ui.interactions.resizable.delay-start')}"
+-@jquery_partial = 'delay_start.js.haml'
+
+.demo
+  %h3
+    =@browser_title
+  %h3.docs
+    Time delay (ms):
+  #resizable.ui-widget-content
+    %h3.ui-widget-header
+      Time
+  %h3.docs
+    Distance delay (px):
+  #resizable2.ui-widget-content
+    %h3.ui-widget-header
+      Distance
+  / ADD DISTANCE DEMO
+/ End demo
+.demo-description
+  %p
+    Delay the start of resizng for a number of milliseconds with the
+    %code
+      delay
+    option; prevent resizing until the cursor is held down and dragged a specifed number of pixels with the
+    %code
+      distance
+    option.
+/ End demo-description

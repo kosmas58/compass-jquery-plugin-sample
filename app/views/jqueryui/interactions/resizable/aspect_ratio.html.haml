@@ -1,0 +1,17 @@
+-@browser_title = "jQuery UI #{t('txt.ui.interactions.resizable.default')} - #{t('txt.ui.interactions.resizable.aspect-ratio')}"
+-@jquery_partial = 'aspect_ratio.js.haml'
+
+.demo
+  %h3
+    =@browser_title
+  #resizable.ui-widget-content
+    %h3.ui-widget-header
+      Preserve aspect ratio
+/ End demo
+.demo-description
+  %p
+    Maintain the existing aspect ratio or set a new one to constrain the proportions on resize. Set the
+    %code
+      aspectRatio
+    option to true, and optionally pass in a new ratio (i.e., 4/3)
+/ End demo-description

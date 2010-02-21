@@ -1,0 +1,26 @@
+-@browser_title = "jQuery UI #{t('txt.ui.interactions.resizable.default')} - #{t('txt.ui.interactions.resizable.max-min')}"
+-@jquery_partial = 'max_min.js.haml'
+
+.demo
+  %h3
+    =@browser_title
+  #resizable.ui-widget-content
+    %h3.ui-widget-header
+      Resize larger / smaller
+/ End demo
+.demo-description
+  %p
+    Limit the resizable element to a maximum or minimum height or width using the
+    %code
+      maxHeight
+    ,
+    %code
+      maxWidth
+    ,
+    %code
+      minHeight
+    , and
+    %code
+      minWidth
+    options.
+/ End demo-description

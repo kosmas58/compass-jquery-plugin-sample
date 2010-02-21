@@ -1,0 +1,20 @@
+-@browser_title = "jQuery UI #{t('txt.ui.interactions.resizable.default')} - #{t('txt.ui.interactions.resizable.synchronous-resize')}"
+-@jquery_partial = 'synchronous_resize.js.haml'
+
+.demo
+  %h3
+    =@browser_title
+  #resizable.ui-widget-header
+    %h3.ui-state-active
+      Resize
+  #also.ui-widget-content
+    %h3.ui-widget-header
+      will also resize
+/ End demo
+.demo-description
+  %p
+    Resize multiple elements simultaneously by clicking and dragging the sides of one.  Pass a shared selector into the
+    %code
+      alsoResize
+    option.
+/ End demo-description

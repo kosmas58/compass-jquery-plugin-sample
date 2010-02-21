@@ -1,0 +1,15 @@
+%style{:type => "text/css", :media => "screen"}
+  :plain
+    #resizable, #resizable2 { width: 150px; height: 150px; padding: 0.5em; }
+    #resizable h3, #resizable2 h3 { text-align: center; margin: 0; }
+      
+:javascript
+  $(function() {
+    $("#resizable").resizable({
+      delay: 1000
+    });
+      
+    $("#resizable2").resizable({
+      distance: 40
+    });
+  });

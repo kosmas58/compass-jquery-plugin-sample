@@ -1,0 +1,14 @@
+%style{:type => "text/css", :media => "screen"}
+  :plain
+    #resizable { background-position: top left; }
+    #resizable, #also { width: 150px; height: 120px; padding: 0.5em; }
+    #resizable h3, #also h3 { text-align: center; margin: 0; }
+    #also { margin-top: 1em; }
+    
+:javascript
+  $(function() {
+    $("#resizable").resizable({
+      alsoResize: '#also'
+    });
+    $("#also").resizable();
+  });
