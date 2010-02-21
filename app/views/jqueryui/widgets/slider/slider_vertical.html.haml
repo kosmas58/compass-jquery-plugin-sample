@@ -1,0 +1,22 @@
+-@browser_title = "jQuery UI #{t('txt.ui.widgets.slider.default')} - #{t('txt.ui.widgets.slider.slider-vertical')}"
+-@jquery_partial = 'slider_vertical.js.haml'
+
+.demo
+  %h3
+    =@browser_title
+  %p
+    %label{ :for => "amount" }
+      Volume:
+    %input#amount{ :type => "text", :style => "border:0; color:#f6931f; font-weight:bold;" }
+  #slider-vertical{ :style => "height:200px;" }
+/ End demo
+.demo-description
+  %p
+    Change the orientation of the slider to vertical.  Assign a height value via
+    %code
+      \.height()
+    or by setting the height through CSS, and set the
+    %code
+      orientation
+    option to "vertical."
+/ End demo-description

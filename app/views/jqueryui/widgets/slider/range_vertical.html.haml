@@ -1,0 +1,22 @@
+-@browser_title = "jQuery UI #{t('txt.ui.widgets.slider.default')} - #{t('txt.ui.widgets.slider.range-vertical')}"
+-@jquery_partial = 'range_vertical.js.haml'
+
+.demo
+  %h3
+    =@browser_title
+  %p
+    %label{ :for => "amount" }
+      Target sales goal (Millions):
+    %input#amount{ :type => "text", :style => "border:0; color:#f6931f; font-weight:bold;" }
+  #slider-range{ :style => "height:250px;" }
+/ End demo
+.demo-description
+  %p
+    Change the orientation of the range slider to vertical.  Assign a height value via
+    %code
+      \.height()
+    or by setting the height through CSS, and set the
+    %code
+      orientation
+    option to "vertical."
+/ End demo-description

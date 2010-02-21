@@ -30,7 +30,7 @@
       = render :partial => "layouts/header.blueprint"
       = render :partial => "layouts/navigation.blueprint"
       #content
-        .ui-widget-content.ui-corner-all{ :style => "background: none" }
+        .ui-state-default.ui-corner-all{ :style => "background: none" }
           %p{ :style => "color: green" }
             = flash[:notice]
           = yield

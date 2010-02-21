@@ -1,38 +1,12 @@
-<!doctype html>
-%html{ :lang => "en" }
-  %head
-    %title
-      jQuery UI Slider Demos
-    %link{ :href => "../demos.css", :rel => "stylesheet", :type => "text/css" }
-  %body
-    .demos-nav
-      %h4
-        Examples
-      %ul
-        %li.demo-config-on
-          %a{ :href => "default.html" }
-            Default functionality
-        %li
-          %a{ :href => "steps.html" }
-            Snap to increments
-        %li
-          %a{ :href => "range.html" }
-            Range slider
-        %li
-          %a{ :href => "rangemin.html" }
-            Range with fixed minimum
-        %li
-          %a{ :href => "rangemax.html" }
-            Range with fixed maximum
-        %li
-          %a{ :href => "slider-vertical.html" }
-            Vertical slider
-        %li
-          %a{ :href => "range-vertical.html" }
-            Vertical range slider
-        %li
-          %a{ :href => "multiple-vertical.html" }
-            Multiple sliders
-        %li
-          %a{ :href => "colorpicker.html" }
-            Simple colorpicker
+-@browser_title = "jQuery UI #{t('txt.ui.widgets.slider.default')} - #{t('txt.ui.default')}"
+-@jquery_partial = 'index.js.haml'
+
+.demo
+  %h3
+    =@browser_title
+  #slider
+/ End demo
+.demo-description
+  %p
+    The basic slider is horizontal and has a single handle that can be moved with the mouse or by using the arrow keys.
+/ End demo-description

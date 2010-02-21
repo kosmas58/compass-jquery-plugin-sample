@@ -1,0 +1,30 @@
+%style{:type => "text/css", :media => "screen"}
+  :plain
+    #demo-frame > div.demo { padding: 10px !important; }
+    #eq span {
+      height:120px; float:left; margin:15px
+    }
+    
+:javascript
+  $(function() {
+    // change defaults for range, animate and orientation
+    $.extend($.ui.slider.defaults, {
+      range: "min",
+      animate: true,
+      orientation: "vertical"
+    });
+    // setup master volume
+    $("#master").slider({
+      value: 60,
+      orientation: "horizontal"
+    });
+    // setup graphic EQ
+    $("#eq > span").each(function() {
+      // read initial values from markup and remove that
+      var value = parseInt($(this).text());
+      $(this).empty();
+      $(this).slider({
+        value: value
+      })
+    });
+  });
