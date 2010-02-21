@@ -1,29 +1,17 @@
-<!doctype html>
-%html{ :lang => "en" }
-  %head
-    %title
-      jQuery UI Droppable Demos
-    %link{ :href => "../demos.css", :rel => "stylesheet", :type => "text/css" }
-  %body
-    .demos-nav
-      %h4
-        Examples
-      %ul
-        %li.demo-config-on
-          %a{ :href => "default.html" }
-            Default functionality
-        %li
-          %a{ :href => "accepted-elements.html" }
-            Accepted elements
-        %li
-          %a{ :href => "propagation.html" }
-            Prevent propagation
-        %li
-          %a{ :href => "visual-feedback.html" }
-            Visual feedback
-        %li
-          %a{ :href => "revert.html" }
-            Revert draggable position
-        %li
-          %a{ :href => "photo-manager.html" }
-            Simple photo manager
+-@browser_title = "jQuery UI #{t('txt.ui.interactions.droppable.default')} - #{t('txt.ui.default')}"
+-@jquery_partial = 'index.js.haml'
+
+.demo
+  %h3
+    =@browser_title
+  #draggable.ui-widget-content
+    %p
+      Drag me to my target
+  #droppable.ui-widget-header
+    %p
+      Drop here
+/ End demo
+.demo-description
+  %p
+    Enable any DOM element to be droppable, a target for draggable elements.
+/ End demo-description

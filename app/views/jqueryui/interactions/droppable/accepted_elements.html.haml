@@ -1,0 +1,24 @@
+-@browser_title = "jQuery UI #{t('txt.ui.interactions.droppable.default')} - #{t('txt.ui.interactions.droppable.accepted-elements')}"
+-@jquery_partial = 'accepted_elements.js.haml'
+
+.demo
+  %h3
+    =@browser_title
+  #draggable-nonvalid.ui-widget-content
+    %p
+      I'm draggable but can't be dropped
+  #draggable.ui-widget-content
+    %p
+      Drag me to my target
+  #droppable.ui-widget-header
+    %p
+      accept: '#draggable'
+/ End demo
+
+.demo-description
+  %p
+    Specify using the
+    %code
+      accept
+    option which element (or group of elements) is accepted by the target droppable\.
+/ End demo-description

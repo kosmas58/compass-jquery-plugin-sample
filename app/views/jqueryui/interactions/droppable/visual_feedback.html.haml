@@ -1,0 +1,34 @@
+-@browser_title = "jQuery UI #{t('txt.ui.interactions.droppable.default')} - #{t('txt.ui.interactions.droppable.visual_feedback')}"
+-@jquery_partial = 'visual_feedback.js.haml'
+
+.demo
+  %h3
+    =@browser_title
+  %h3.docs
+    Feedback on hover:
+  #draggable.ui-widget-content
+    %p
+      Drag me to my target
+  #droppable.ui-widget-header
+    %p
+      Drop here
+  %h3.docs
+    Feedback on activating draggable:
+  #draggable2.ui-widget-content
+    %p
+      Drag me to my target
+  #droppable2.ui-widget-header
+    %p
+      Drop here
+  / add active class demo
+/ End demo
+.demo-description
+  %p
+    Change the droppable's appearance on hover, or when the droppable is active (an acceptable draggable is dropped on it).  Use the
+    %code
+      hoverClass
+    or
+    %code
+      activeClass
+    options to specify respective classes.
+/ End demo-description
