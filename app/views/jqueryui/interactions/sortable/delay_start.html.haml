@@ -1,0 +1,42 @@
+-@browser_title = "jQuery UI #{t('txt.ui.interactions.sortable.default')} - #{t('txt.ui.interactions.sortable.delay-start')}"
+-@jquery_partial = 'delay_start.js.haml'
+
+.demo
+  %h3
+    =@browser_title
+  %h3.docs
+    Time delay of 300ms:
+  %ul#sortable1
+    %li.ui-state-default
+      Item 1
+    %li.ui-state-default
+      Item 2
+    %li.ui-state-default
+      Item 3
+    %li.ui-state-default
+      Item 4
+  %h3.docs
+    Distance delay of 15px:
+  %ul#sortable2
+    %li.ui-state-default
+      Item 1
+    %li.ui-state-default
+      Item 2
+    %li.ui-state-default
+      Item 3
+    %li.ui-state-default
+      Item 4
+/ End demo
+.demo-description
+  %p
+    Prevent accidental sorting either by delay (time) or distance. Set a number of
+    milliseconds the element needs to be dragged before sorting starts
+    with the
+    %code
+      delay
+    option. Set a distance in pixels the element
+    needs to be dragged before sorting starts with the
+    %code
+      distance
+    option.
+/ End demo-description

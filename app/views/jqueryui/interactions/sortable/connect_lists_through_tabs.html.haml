@@ -1,0 +1,43 @@
+-@browser_title = "jQuery UI #{t('txt.ui.interactions.sortable.default')} - #{t('txt.ui.interactions.sortable.connect-lists-through-tabs')}"
+-@jquery_partial = 'connect_lists_through_tabs.js.haml'
+
+.demo
+  %h3
+    =@browser_title
+  #tabs
+    %ul
+      %li
+        %a{ :href => "#tabs-1" }
+          Nunc tincidunt
+      %li
+        %a{ :href => "#tabs-2" }
+          Proin dolor
+    #tabs-1
+      %ul#sortable1.connectedSortable.ui-helper-reset
+        %li.ui-state-default
+          Item 1
+        %li.ui-state-default
+          Item 2
+        %li.ui-state-default
+          Item 3
+        %li.ui-state-default
+          Item 4
+        %li.ui-state-default
+          Item 5
+    #tabs-2
+      %ul#sortable2.connectedSortable.ui-helper-reset
+        %li.ui-state-highlight
+          Item 1
+        %li.ui-state-highlight
+          Item 2
+        %li.ui-state-highlight
+          Item 3
+        %li.ui-state-highlight
+          Item 4
+        %li.ui-state-highlight
+          Item 5
+/ End demo
+.demo-description
+  %p
+    Sort items from one list into another and vice versa, by dropping the list item on the appropriate tab above.
+/ End demo-description

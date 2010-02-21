@@ -1,0 +1,43 @@
+-@browser_title = "jQuery UI #{t('txt.ui.interactions.sortable.default')} - #{t('txt.ui.interactions.sortable.empty-lists')}"
+-@jquery_partial = 'empty_lists.js.haml'
+
+.demo
+  %h3
+    =@browser_title
+  %ul#sortable1.droptrue
+    %li.ui-state-default
+      Can be dropped..
+    %li.ui-state-default
+      \..on an empty list
+    %li.ui-state-default
+      Item 3
+    %li.ui-state-default
+      Item 4
+    %li.ui-state-default
+      Item 5
+  %ul#sortable2.dropfalse
+    %li.ui-state-highlight
+      Cannot be dropped..
+    %li.ui-state-highlight
+      \..on an empty list
+    %li.ui-state-highlight
+      Item 3
+    %li.ui-state-highlight
+      Item 4
+    %li.ui-state-highlight
+      Item 5
+  %ul#sortable3.droptrue
+  %br{ :clear => "both" }
+/ End demo
+.demo-description
+  %p
+    Prevent all items in a list from being dropped into a separate, empty list
+    using the
+    %code
+      dropOnEmpty
+    option set to
+    %code
+      false
+    \.  By default,
+    sortable items can be dropped on empty lists.
+/ End demo-description
