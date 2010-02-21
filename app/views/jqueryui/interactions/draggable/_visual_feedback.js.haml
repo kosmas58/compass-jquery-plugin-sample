@@ -9,6 +9,12 @@
   $(function() {
     $("#draggable").draggable({ helper: 'original' });
     $("#draggable2").draggable({ opacity: 0.7, helper: 'clone' });
-    $("#draggable3").draggable({ cursor: 'move', cursorAt: { top: -12, left: -20 }, helper: function(event) { return $('.ui-widget-header I\'m a custom helper'); }});
+    $("#draggable3").draggable({
+      cursor: 'move',
+      cursorAt: { top: -12, left: -20 },
+      helper: function(event) {
+        return $('<div class="ui-widget-header">I\'m a custom helper</div>');
+      }
+    });
     $("#set div").draggable({ stack: { group: '#set div', min: 1 } });
   });
