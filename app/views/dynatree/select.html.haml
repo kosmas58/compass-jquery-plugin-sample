@@ -1,0 +1,113 @@
+-@browser_title = "#{t('txt.dt.name')} - #{t('txt.dt.select')}"
+-@jquery_partial = 'select.js.haml'
+
+.demo
+  %h3
+    =@browser_title
+  #tree1
+  %div
+    Active node:
+    %span#echoActive1
+      -
+  %div
+    Selection:
+    %span#echoSelection1
+      -
+.demo-description
+  %p
+    This tree has
+    %b
+      checkoxes and selectMode 1 (single-selection) enabled.
+    %br
+    A double-click handler selects a
+    %i
+      document
+    node (not folders).
+    %br
+    A keydown handler selects on [space].
+    %br
+    The
+    %code
+      checkbox
+    class name was customized, to display radio buttons.
+    %br
+    Note: the initialization data contains multiple selected nodes. This is considered bad input data and
+    %b
+      not
+    fixed automatically (only on the first click).
+/ End demo-description
+
+.demo
+  %p
+    %a#btnSelectAll{ :href => "#" }
+      Select all
+    -
+    %a#btnDeselectAll{ :href => "#" }
+      Deselect all
+    -
+    %a#btnToggleSelect{ :href => "#" }
+      Toggle select
+    #tree2
+    %div
+      Selected keys:
+      %span#echoSelection2
+        -
+.demo-description
+  %p
+    This tree has
+    %b
+      selectMode 2 (multi-selection)
+    enabled.
+    %br
+    A single-click handler selects the node.
+    %br
+    A keydown handler selects on [space].
+/ End demo-description
+
+.demo
+  #tree3
+  %div
+    Selected keys:
+    %span#echoSelection3
+      -
+  %div
+    Selected root keys:
+    %span#echoSelectionRootKeys3
+      -
+  %div
+    Selected root nodes:
+    %span#echoSelectionRoots3
+      -
+
+.demo-description
+  This tree has
+  %b
+    checkoxes and selectMode 3 (hierarchical multi-selection)
+  enabled.
+  %br
+  A double-click handler selects the node.
+  %br
+  A keydown handler selects on [space].
+/ End demo-description
+
+.demo
+  #tree4
+  %div
+    Selected keys:
+    %span#echoSelection4
+      -
+
+.demo-description
+  %p
+    This tree has selectMode 2 (multi-selection) enabled, but
+    %b
+      no checkboxes.   
+    %br
+    A single-click handler selects the node.
+    %br
+    A keydown handler selects on [space].
+    %br
+    A double-click handler expands documents.
+    %br
+    A onQuerySelect handler prevents selection of folders.
+/ End demo-description
