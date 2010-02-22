@@ -64,7 +64,8 @@ de:
       short: "%b %d"
       long: "%B %d  %Y"
   txt: 
-    jqt: "jQTouch (ben\xC3\xB6tigt einen Browser mit WebKit)"
+    jqt:
+      name: "jQTouch (ben\xC3\xB6tigt einen Browser mit WebKit)"
     dt: 
       name: Dynatree
       default: Standardeinstellungen

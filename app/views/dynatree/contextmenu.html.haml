@@ -1,0 +1,81 @@
+-@browser_title = "#{t('txt.dt.name')} - #{t('txt.dt.contextmenu')}"
+-@jquery_partial = 'contextmenu.js.haml'
+
+.demo
+  %h3
+    =@browser_title
+  %ul#myMenu.contextMenu
+    %li.edit
+      %a{ :href => "#edit" }
+        Edit
+    %li.cut.separator
+      %a{ :href => "#cut" }
+        Cut
+    %li.copy
+      %a{ :href => "#copy" }
+        Copy
+    %li.paste
+      %a{ :href => "#paste" }
+        Paste
+    %li.delete
+      %a{ :href => "#delete" }
+        Delete
+    %li.quit.separator
+      %a{ :href => "#quit" }
+        Quit
+        
+  / Definition tree structure
+  #tree
+    %ul
+      %li#id1{ :title => "Look, a tool tip!" }
+        item1 with key and tooltip
+      %li#id2.activate
+        item2: activated on init
+      %li#id3.folder
+        Folder with some children
+        %ul
+          %li#id3.1
+            Sub-item 3.1
+          %li#id3.2
+            Sub-item 3.2
+      %li#id4.expanded
+        Document with some children (expanded on init)
+        %ul
+          %li#id4.1
+            Sub-item 4.1
+          %li#id4.2
+            Sub-item 4.2
+      %li#id5.lazy.folder
+        Lazy folder
+  %br
+  %div
+    Selected node:
+    %span#echoActivated
+      
+/ End demo
+.demo-description
+  %p
+    Implementation of a context menu. Right-click a node and see what happens.
+    %br
+    Also [space] key is supported to open the menu.
+    %br
+    %br
+    This example also demonstrates, how to copy or move branches and how
+    to implement clipboard functionality.
+    %br
+    A keyboard handler implements Cut, Copy, and Paste with
+    %code
+      Ctrl-X
+    ,
+    %code
+      Ctrl-C
+    ,
+    %code
+      Ctrl-V.
+  %p
+    This sample uses the jQuery Context Menu Plugin by Cory S.N. LaViska.
+    %br
+    Visit
+    %a{ :href => "http://abeautifulsite.net/" }
+      A Beautiful Site
+    for usage and more information.

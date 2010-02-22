@@ -254,7 +254,8 @@ en:
           default: Animate
         effect: 
           default: Effect
-    jqt: jQTouch (needs a browser with WebKit engine)
+    jqt: 
+      name: jQTouch (needs a browser with WebKit engine)
   support: 
     array: 
       words_connector: ", "
