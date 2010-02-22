@@ -1,0 +1,56 @@
+-@browser_title = "#{t('txt.dt.name')} - #{t('txt.dt.dnd')}"
+-@jquery_partial = 'dnd.js.haml'
+
+.demo
+  %h3
+    =@browser_title
+  #tree
+    %ul{ :style => "display:none" }
+      %li#key1{ :title => "Look, a tool tip!" }
+        item1 with key and tooltip
+      %li#key2.selected
+        item2: selected on init
+      %li#key3.folder
+        Folder with some children
+        %ul
+          %li#key3.1
+            Sub-item 3.1
+          %li#key3.2
+            Sub-item 3.2
+      %li#key4.expanded
+        Document with some children (expanded on init)
+        %ul
+          %li#key4.1
+            Sub-item 4.1
+          %li#key4.2
+            Sub-item 4.2
+  %br
+  %div
+    Active node:
+    %span#echoActive
+      -
+/ End demo
+
+.demo-description
+  %p
+    This sample uses the
+    %a{ :href => "http://docs.jquery.com/UI/Draggable" }
+      Draggable
+    and
+    %a{ :href => "http://docs.jquery.com/UI/Droppable" }
+      Droppable
+    plugins to enable copying nodes using drag-and-drop.
+    %br
+    %ul
+      %li
+        Folders and docs can be dragged and dropped over other nodes
+      %li
+        Events are logged to the console (Firefox)
+      %li
+        On drop, a copy is appended as child
+    %br
+    Drawbacks:
+    %ul
+      %li
+        This does not use event delegation, so it may be slow for big trees.
+/ End demo-description

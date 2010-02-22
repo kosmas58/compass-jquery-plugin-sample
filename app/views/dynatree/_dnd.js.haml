@@ -1,0 +1,77 @@
+%style{:type => "text/css", :media => "screen"}
+  :plain
+    .drophover{ border: 1px solid blue; }
+    
+:javascript
+  // --- (Re)Bind event handlers ---------------------------------------------
+  function _bindDragDrop() {
+      // Enable document and folder nodes as drag source
+      $("#tree span.ui-dynatree-document, span.ui-dynatree-folder").draggable({
+        delay: 0,
+        distance: 4,
+        helper: 'clone',
+        opacity: 0.5,
+        addClasses: false,
+        appendTo: 'body',
+        //			cursor: 'crosshair',
+        revert: 'invalid', 
+        revertDuration: 400,
+        start: function(event, ui) {
+          logMsg("draggable.start, %o, %o", event, ui);
+        },
+        drag: function(event, ui) {
+        //				logMsg("draggable.drag, %o, %o", event, ui);
+        },
+        stop: function(event, ui) {
+          logMsg("draggable.stop, %o, %o", event, ui);
+        },
+        _last: null
+      });
+      // Enable document and folder nodes as drop target
+      $("#tree span.ui-dynatree-document, span.ui-dynatree-folder").droppable({
+        accept: '.ui-dynatree-document, .ui-dynatree-folder',
+        addClasses: false,
+        //			activeClass: '.ui-state-highlight',
+        hoverClass: 'drophover',
+        tolerance: 'intersect',			
+        activate: function(event, ui) {
+        //				logMsg("droppable.activate, %o, %o", event, ui);
+        },
+        deactivate: function(event, ui) {
+        //				logMsg("droppable.deactivate, %o, %o", event, ui);
+        },
+        over: function(event, ui) {
+          logMsg("droppable.over, %o, %o", event, ui);
+        },
+        out: function(event, ui) {
+          logMsg("droppable.out, %o, %o", event, ui);
+        },
+        drop: function(event, ui) {
+          var srcnode = ui.draggable[0].dtnode;
+          var destnode = event.target.dtnode;
+          logMsg("droppable.drop, %o, %o", event, ui);
+          logMsg("drop source: %o", srcnode);
+          logMsg("drop target: %o", destnode);
+          var copynode = srcnode.toDict(true, function(dict){
+            dict.title = "Copy of " + dict.title;
+            delete dict.key; // Remove key, so a new one will be created
+          });
+          destnode.addChild(copynode);
+          // Must re-binnd, so new nodes become draggable too
+          _bindDragDrop();
+        },
+        _last: null
+      });
+    }
+  // --- Initialize Dynatree -------------------------------------------------
+  $(function(){
+    $("#tree").dynatree({
+      onActivate: function(dtnode) {
+        $("#echoActive").text(dtnode.data.title + "(" + dtnode.data.key + ")");
+      },
+      onDeactivate: function(dtnode) {
+        $("#echoActive").text("-");
+      }
+    });
+    _bindDragDrop();
+  });
