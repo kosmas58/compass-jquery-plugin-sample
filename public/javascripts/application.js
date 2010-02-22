@@ -12,8 +12,15 @@ jQuery.fn.submitWithAjax = function() {
 jQuery(document).ready(function() {	
   $("#accordion").accordion({
 		autoHeight: false,
-		collapsible: true
-  });
+		collapsible: true,
+		navigation: true,
+		//header: '.accordionMenuItem'
+	});
+
+	/*$(".accordionMenuItem").click(function(event){
+	  window.location.hash=this.hash;
+	});*/	
+
 
 	$(".tree").dynatree({
     // using default options
