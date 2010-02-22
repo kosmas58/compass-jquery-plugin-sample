@@ -1,0 +1,90 @@
+-@browser_title = "#{t('txt.dt.name')} - #{t('txt.dt.api')}"
+-@jquery_partial = 'api.js.haml'
+
+.demo
+  %h3
+    =@browser_title
+  #tree
+    %ul
+      %li
+        This simple node (and the following) have been created from html.
+      %li#id1{ :title => "This is item #1" }
+        item1 with key and tooltip
+      %li#id2
+        item2 with key 'id2'
+      %li#id3.folder
+        Standard Folder with some children
+        %ul
+          %li#id3.1
+            Sub-item 3.1
+          %li#id3.2
+            Sub-item 3.2
+      %li#id4
+        item 4. Note that also non-folders (i.e. 'documents') may have child nodes
+        %ul
+          %li#id4.1
+            Sub-item 4.1
+          %li#id4.2
+            Sub-item 4.2
+          %li#id4.3
+            Sub-item 4.3
+            %ul
+              %li#id4.3.1
+                Sub-item 4.3.1
+              %li#id4.3.2
+                Sub-item 4.3.2
+                %ul
+                  %li#id4.3.2.1
+                    Sub-item 4.3.2.1
+                  %li#id4.3.2.2
+                    Sub-item 4.3.2.2
+          %li#id4.4
+            Sub-item 4.4
+      %li#id5.expanded.folder
+        Advanced examples
+        %ul
+          %li{ :data => "key: 'node5.1'" }
+            item5.1: Using data attribute as an alternative way to specify a key.
+          %li{ :data => "key: 'node5.3', isFolder: true" }
+            item5.1: Using data attribute as an alternative way to specify a folder.
+          %li#id5.2
+            Sub-item 5.2
+          %li
+            Item without a key. Keys are optional (generated automatically), but may be used in the callbacks
+  %br
+  %div
+    Active node:
+    %span#echoActive
+      -
+  %div
+    Focused node:
+    %span#echoFocused
+      -
+  %p
+    %button#btnAddCode
+      Add nodes programmatically
+    %button#btnAddObject
+      Add nodes using arrays
+    %button#btnActiveNode
+      Activate item id4.3.2
+    %button#btnShowActive
+      Show active node...
+/ End demo
+
+.demo-description
+  %p
+    This example demonstrates the usage of some DynaTree and DynaTreeNode
+    API functions.
+    %p
+      %a#btnExpandAll{ :href => "#" }
+        Expand all
+        -
+      %a#btnCollapseAll{ :href => "#" }
+        Collapse all
+        -
+      %a#btnToggleExpand{ :href => "#" }
+        Toggle expand
+      %br
+        %a#btnDisable{ :href => "#" }
+          Disable
+/ End demo-description

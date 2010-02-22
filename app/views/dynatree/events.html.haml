@@ -1,0 +1,57 @@
+-@browser_title = "#{t('txt.dt.name')} - #{t('txt.dt.events')}"
+-@jquery_partial = 'events.js.haml'
+
+.demo
+  %h3
+    =@browser_title
+  #tree
+    %ul
+      %li.folder
+        jQuery links
+        %ul
+          %li{ :data => "url: 'http://jquery.com'" }
+            jQuery home
+            %li{ :data => "url: 'http://docs.jquery.com'" }
+              jQuery docs
+        %li.folder
+          Other links
+          %ul
+            %li{ :data => "url: 'http://code.google.com'" }
+              Google Code
+          %li.folder
+            Lazy loading
+            %ul
+              %li#k123.lazy
+                This is a lazy loading document with key k123.
+                %li#k234.lazy.folder
+                  This is a lazy loading folder with key k234.
+  %br
+  %div
+    Active node:
+    %span#echoActive
+      -
+  %div
+    Selected node list:
+    %span#echoSelected
+      -
+  %div
+    Focused node:
+    %span#echoFocused
+      -
+
+/ End demo
+.demo-description
+  %p 
+    Implements all callbacks.
+    %br
+    Use the Firebug plugin in Firefox to see the event log.
+    %br
+    The 'links' folders contain nodes with an custom data.url option.
+    This is used to open the URL in the onActivate event.
+    %br
+    Note: the lazy reading is not implemented in this example.
+/ End demo-description
+
+     
+ 
+   
