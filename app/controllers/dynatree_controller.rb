@@ -1,5 +1,5 @@
 class DynatreeController < ApplicationController
-  layout 'blueprint'
+  layout 'dynatree'
   
   protect_from_forgery
 end
