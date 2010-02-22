@@ -1,0 +1,2 @@
+class DynatreeController < ApplicationController
+end

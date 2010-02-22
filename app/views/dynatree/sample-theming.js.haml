@@ -1,0 +1,95 @@
+!!! Strict
+%html
+  %head
+    %meta{ :content => "text/html; charset=ISO-8859-1", "http-equiv" => "content-type" }
+      %title
+        Dynatree - Example
+      %script{ :src => "../lib/jquery/jquery.js", :type => "text/javascript" }
+      %script{ :src => "../lib/jquery/ui.core.js", :type => "text/javascript" }
+      %script{ :src => "../lib/jquery/jquery.cookie.js", :type => "text/javascript" }
+      /
+        Include a customized stylesheet:
+      %link{ :href => "skin-vista/ui.dynatree.css", :rel => "stylesheet", :type => "text/css" }
+        %script{ :src => "../src/jquery.dynatree.js", :type => "text/javascript" }
+        /
+          Start_Exclude: This block is not part of the sample code
+        %link{ :href => "prettify.css", :rel => "stylesheet" }
+          %script{ :src => "prettify.js", :type => "text/javascript" }
+          %link{ :href => "sample.css", :rel => "stylesheet", :type => "text/css" }
+            %script{ :src => "sample.js", :type => "text/javascript" }
+            /
+              End_Exclude
+            %script{ :type => "text/javascript" }
+              $(function(){
+              $("#tree").dynatree({
+              title: "Sample Theming",
+              rootVisible: true,
+              imagePath: "skin-vista/", // Image folder used for data.icon attribute.
+              onSelect: function(dtnode) {
+              alert ("You selected " + dtnode);
+              }
+              });
+              });
+  %body.example
+    %h1
+      Example: Theming
+    %p.description
+      Includes a custom CSS for a new theming (inspired by Windows Vista).
+      %br
+        Some nodes have their
+        %code
+          data.addClass
+        attribute set.
+        %br
+          Finally, the last two nodes use the
+          %code
+            data.icon
+          attribute.
+    #tree
+      %ul
+        %li
+          Document with some children
+          %ul
+            %li
+              Sub-item 4.1
+              %li
+                Sub-item 4.2
+          %li.folder
+            A folder
+            %ul
+              %li
+                Node 2.1
+                %li
+                  Node 2.2
+            %li{ :data => "addClass:'custom1'" }
+              Node with custom class 1
+              %li{ :data => "isFolder: true, addClass:'custom2'" }
+                Folder with custom class 2
+                %ul
+                  %li{ :data => "addClass:'custom1'" }
+                    Node 4.1 (using custom class 1)
+                    %li
+                      Node 4.2
+                %li{ :data => "icon: 'customDoc1.gif'" }
+                  Node with standard CSS, but custom icon
+                  %li{ :data => "isFolder: true, icon: 'folder_docs.gif'" }
+                    Folder with standard CSS but custom icon
+                    %ul
+                      %li
+                        Node 4.1
+                        %li
+                          Node 4.2
+    /
+      Start_Exclude: This block is not part of the sample code
+    %hr
+      %p.sample-links.no_code
+        %a.hideInsideFS{ :href => "http://dynatree.googlecode.com" }
+          jquery.dynatree.js project home
+        %a.hideOutsideFS{ :href => "#" }
+          Link to this page
+        %a.hideInsideFS{ :href => "samples.html" }
+          Example Browser
+        %a.codeExample{ :href => "#" }
+          View source code
+      /
+        End_Exclude

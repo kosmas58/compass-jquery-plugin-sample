@@ -1,0 +1,75 @@
+!!! Strict
+%html
+  %head
+    %meta{ :content => "text/html; charset=ISO-8859-1", "http-equiv" => "content-type" }
+      %title
+        Dynatree - Example
+      %script{ :src => "../lib/jquery/jquery.js", :type => "text/javascript" }
+      %script{ :src => "../lib/jquery/ui.core.js", :type => "text/javascript" }
+      %script{ :src => "../lib/jquery/jquery.cookie.js", :type => "text/javascript" }
+      %link{ :href => "../src/skin/ui.dynatree.css", :rel => "stylesheet", :type => "text/css" }
+        %script{ :src => "../src/jquery.dynatree.js", :type => "text/javascript" }
+        /
+          Start_Exclude: This block is not part of the sample code
+        %link{ :href => "prettify.css", :rel => "stylesheet" }
+          %script{ :src => "prettify.js", :type => "text/javascript" }
+          %link{ :href => "sample.css", :rel => "stylesheet", :type => "text/css" }
+            %script{ :src => "sample.js", :type => "text/javascript" }
+            /
+              End_Exclude
+            %script{ :type => "text/javascript" }
+              $(function(){
+              $("#tree").dynatree({
+              onActivate: function(dtnode) {
+              $("#echoActive").text(dtnode.data.title);
+              },
+              onDeactivate: function(dtnode) {
+              $("#echoActive").text("-");
+              }
+              });
+              });
+  %body.example
+    %h1
+      Example: Init from &lt;ul> element
+    %p.description
+      This sample initializes the tree from a &lt;ul> element.
+    #tree
+      %ul{ :style => "display:none" }
+        %li#key1{ :title => "Look, a tool tip!" }
+          item1 with key and tooltip
+          %li#key2.selected
+            item2: selected on init
+            %li#key3.folder
+              Folder with some children
+              %ul
+                %li#key3.1
+                  Sub-item 3.1
+                  %li#key3.2
+                    Sub-item 3.2
+              %li#key4.expanded
+                Document with some children (expanded on init)
+                %ul
+                  %li#key4.1
+                    Sub-item 4.1
+                    %li#key4.2
+                      Sub-item 4.2
+                %li#key5.lazy.folder
+                  Lazy folder
+    %div
+      Active node:
+      %span#echoActive
+        \-
+    /
+      Start_Exclude: This block is not part of the sample code
+    %hr
+      %p.sample-links.no_code
+        %a.hideInsideFS{ :href => "http://dynatree.googlecode.com" }
+          jquery.dynatree.js project home
+        %a.hideOutsideFS{ :href => "#" }
+          Link to this page
+        %a.hideInsideFS{ :href => "samples.html" }
+          Example Browser
+        %a.codeExample{ :href => "#" }
+          View source code
+      /
+        End_Exclude

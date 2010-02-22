@@ -1,8 +1,6 @@
 --- 
 activerecord: 
   errors: 
-    messages: 
-      record_invalid: "Validation failed: {{errors}}"
     full_messages: 
       format: "{{attribute}} {{message}}"
 number: 
@@ -19,14 +17,28 @@ number:
       separator: .
       delimiter: ","
 time: 
-  am: am
   formats: 
     default: "%a, %d %b %Y %H:%M:%S %z"
+date: 
+  formats: 
+    default: "%Y-%m-%d"
 txt: 
-  ui: 
-    interactions: 
-      droppable: 
-        revert: Revert draggable position
+  dt: 
+    name: Dynatree
+    ul: Init from <ul> element
+    default: Default options
+    lazy: Lazy loading
+    persist: Persistence
+    quick: Init from JS object
+    iframe: <iframe> and url navigation
+    dnd: Drag'n'drop
+    api: Programming API
+    minexpand: Fixed expand level
+    effects: Effects
+    contextmenu: Context menu, Copy/paste
+    events: Event handling
+    theming: Theming
+    select: Checkbox & select
 support: 
   array: 
     words_connector: ", "

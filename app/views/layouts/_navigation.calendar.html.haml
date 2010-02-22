@@ -1,0 +1,20 @@
+%h3
+  %a.accordionMenuItem{ :href => "#calendar" }
+    Calendar
+%div
+  .tree
+    %ul
+      %li#cal1{:data => "url: '/events/months', icon: '../dynatree.custom/view_calendar_month.png'" }
+        Month view
+      %li#cal2{:data => "icon: '../dynatree.custom/view_calendar_week.png'" }
+        Week view
+        %ul
+          %li#cal21{:data => "url: '/events/weeks?example=01', icon: '../dynatree.custom/view_calendar_week.png'" }
+            Week view 1
+          %li#cal22{:data => "url: '/events/weeks?example=02', icon: '../dynatree.custom/view_calendar_week.png'" }
+            Week view 2
+          %li#cal23{:data => "url: '/events/weeks?example=03', icon: '../dynatree.custom/view_calendar_week.png'" }
+            Week view 3
+          %li#cal24{:data => "url: '/events/weeks?example=04', icon: '../dynatree.custom/view_calendar_week.png'" }
+            Week view 4
+                

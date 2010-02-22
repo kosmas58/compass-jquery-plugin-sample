@@ -125,8 +125,23 @@ en:
       language: Language
       theme: Theme
     dt:
-      jqt: jQTouch (needs a browser with WebKit engine)
+      name: Dynatree
+      quick: Init from JS object
+      ul: Init from ul element
+      default: Default options
+      api: Programming API
+      select: Checkbox & select
+      theming: Theming
+      persist: Persistence
+      events: Event handling
+      effects: Effects
+      dnd: Drag'n'drop
+      contextmenu: Context menu, Copy/paste
+      minexpand: Fixed expand level
+      lazy: Lazy loading
+      iframe: iframe and url navigation    
     ui:
+      name: jQuery UI
       default: Default functionality
       interactions:
         default: Interactions
@@ -238,7 +253,8 @@ en:
         animate: 
           default: Animate
         effect: 
-          default: Effect 
+          default: Effect
+    jqt: jQTouch (needs a browser with WebKit engine)
   support: 
     array: 
       words_connector: ", "

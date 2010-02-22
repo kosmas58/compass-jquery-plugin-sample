@@ -1,0 +1,156 @@
+!!! Strict
+%html
+  %head
+    %meta{ :content => "text/html; charset=ISO-8859-1", "http-equiv" => "content-type" }
+      %title
+        Dynatree - Example
+      %script{ :src => "../lib/jquery/jquery.js", :type => "text/javascript" }
+      %script{ :src => "../lib/jquery/ui.core.js", :type => "text/javascript" }
+      %script{ :src => "../lib/jquery/jquery.cookie.js", :type => "text/javascript" }
+      %script{ :type => "text/javascript", :src => "http://jqueryui.com/latest/ui/ui.draggable.js" }
+      %script{ :type => "text/javascript", :src => "http://jqueryui.com/latest/ui/ui.droppable.js" }
+      %style{ :type => "text/css" }
+        \.drophover{ border: 1px solid blue; }
+      %link{ :href => "../src/skin/ui.dynatree.css", :rel => "stylesheet", :type => "text/css" }
+        %script{ :src => "../src/jquery.dynatree.js", :type => "text/javascript" }
+        /
+          Start_Exclude: This block is not part of the sample code
+        %link{ :href => "prettify.css", :rel => "stylesheet" }
+          %script{ :src => "prettify.js", :type => "text/javascript" }
+          %link{ :href => "sample.css", :rel => "stylesheet", :type => "text/css" }
+            %script{ :src => "sample.js", :type => "text/javascript" }
+            /
+              End_Exclude
+            %script{ :type => "text/javascript" }
+              \// --- (Re)Bind event handlers ---------------------------------------------
+              function _bindDragDrop() {
+              \// Enable document and folder nodes as drag source
+              $("#tree span.ui-dynatree-document, span.ui-dynatree-folder").draggable({
+              delay: 0,
+              distance: 4,
+              helper: 'clone',
+              opacity: 0.5,
+              addClasses: false,
+              appendTo: 'body',
+              \//			cursor: 'crosshair',
+              revert: 'invalid',
+              revertDuration: 400,
+              start: function(event, ui) {
+              logMsg("draggable.start, %o, %o", event, ui);
+              },
+              drag: function(event, ui) {
+              \//				logMsg("draggable.drag, %o, %o", event, ui);
+              },
+              stop: function(event, ui) {
+              logMsg("draggable.stop, %o, %o", event, ui);
+              },
+              _last: null
+              });
+              \// Enable document and folder nodes as drop target
+              $("#tree span.ui-dynatree-document, span.ui-dynatree-folder").droppable({
+              accept: '.ui-dynatree-document, .ui-dynatree-folder',
+              addClasses: false,
+              \//			activeClass: '.ui-state-highlight',
+              hoverClass: 'drophover',
+              tolerance: 'intersect',
+              activate: function(event, ui) {
+              \//				logMsg("droppable.activate, %o, %o", event, ui);
+              },
+              deactivate: function(event, ui) {
+              \//				logMsg("droppable.deactivate, %o, %o", event, ui);
+              },
+              over: function(event, ui) {
+              logMsg("droppable.over, %o, %o", event, ui);
+              },
+              out: function(event, ui) {
+              logMsg("droppable.out, %o, %o", event, ui);
+              },
+              drop: function(event, ui) {
+              var srcnode = ui.draggable[0].dtnode;
+              var destnode = event.target.dtnode;
+              logMsg("droppable.drop, %o, %o", event, ui);
+              logMsg("drop source: %o", srcnode);
+              logMsg("drop target: %o", destnode);
+              var copynode = srcnode.toDict(true, function(dict){
+              dict.title = "Copy of " + dict.title;
+              delete dict.key; // Remove key, so a new one will be created
+              });
+              destnode.addChild(copynode);
+              \// Must re-binnd, so new nodes become draggable too
+              _bindDragDrop();
+              },
+              _last: null
+              });
+              }
+              \// --- Initialize Dynatree -------------------------------------------------
+              $(function(){
+              $("#tree").dynatree({
+              onActivate: function(dtnode) {
+              $("#echoActive").text(dtnode.data.title + "(" + dtnode.data.key + ")");
+              },
+              onDeactivate: function(dtnode) {
+              $("#echoActive").text("-");
+              }
+              });
+              _bindDragDrop();
+              });
+  %body.example
+    %h1
+      Example: Simple drag-and-drop
+    %p.description
+      This sample uses the
+      %a{ :href => "http://docs.jquery.com/UI/Draggable" }
+        Draggable
+      and
+      %a{ :href => "http://docs.jquery.com/UI/Droppable" }
+        Droppable
+      plugins to enable copying nodes using drag-and-drop.
+      %br
+        \- Folders and docs can be dragged and dropped over other nodes
+        %br
+          \- Events are logged to the console (Firefox)
+          %br
+            \- On drop, a copy is appended as child
+            %br
+              Drawbacks:
+              %br
+                \- This does not use event delegation, so it may be slow for big trees.
+                %br
+    #tree
+      %ul{ :style => "display:none" }
+        %li#key1{ :title => "Look, a tool tip!" }
+          item1 with key and tooltip
+          %li#key2.selected
+            item2: selected on init
+            %li#key3.folder
+              Folder with some children
+              %ul
+                %li#key3.1
+                  Sub-item 3.1
+                  %li#key3.2
+                    Sub-item 3.2
+              %li#key4.expanded
+                Document with some children (expanded on init)
+                %ul
+                  %li#key4.1
+                    Sub-item 4.1
+                    %li#key4.2
+                      Sub-item 4.2
+    %div
+      Active node:
+      %span#echoActive
+        \-
+    /
+      Start_Exclude: This block is not part of the sample code
+    %hr
+      %p.sample-links.no_code
+        %a.hideInsideFS{ :href => "http://dynatree.googlecode.com" }
+          jquery.dynatree.js project home
+        %a.hideOutsideFS{ :href => "#" }
+          Link to this page
+        %a.hideInsideFS{ :href => "samples.html" }
+          Example Browser
+        %a.codeExample{ :href => "#" }
+          View source code
+      /
+        End_Exclude

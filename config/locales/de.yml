@@ -7,22 +7,22 @@ de:
         accepted: muss akzeptiert werden
         not_a_number: ist nicht numerisch
         blank: darf nicht leer sein
-        record_invalid: ""
+        record_invalid: "Validierung gescheitert: {{errors}}"
         greater_than_or_equal_to: "muss gr\xC3\xB6\xC3\x9Fer als oder gleich {{count}} sein"
-        confirmation: "stimmt nicht mit der Best\xC3\xA4tigung \xC3\xBCberein"
         less_than_or_equal_to: muss kleiner als oder gleich {{count}} sein
         exclusion: " ist reserviert"
+        confirmation: "stimmt nicht mit der Best\xC3\xA4tigung \xC3\xBCberein"
         odd: muss ungerade sein
         invalid: "ist ung\xC3\xBCltig"
         too_short: ist zu kurz (Minimum {{count}} Zeichen)
         wrong_length: "ist die falsche L\xC3\xA4nge (sollten {{count}} Zeichen sein)"
         empty: darf nicht leer sein
-        too_long: ist zu lang (Maximum ist {{count}} Zeichen)
         less_than: muss weniger als {{count}} sein
+        too_long: ist zu lang (Maximum ist {{count}} Zeichen)
         even: muss gerade sein
-        greater_than: "muss gr\xC3\xB6\xC3\x9Fer als {{count}} sein"
         equal_to: muss gleich {{count}} sein
         inclusion: ist nicht in der Liste
+        greater_than: "muss gr\xC3\xB6\xC3\x9Fer als {{count}} sein"
       template: 
         body: "Es gab Probleme mit den folgenden Feldern:"
         header: 
@@ -30,6 +30,13 @@ de:
           other: "{{count}} Fehler verhinderte, dass {{model}} gespeichert wurde"
       full_messages: 
         format: ""
+  time: 
+    am: ""
+    formats: 
+      default: ""
+      short: "% d% b% H.% M"
+      long: "%B %d %Y %H:%M"
+    pm: pm
   number: 
     format: 
       separator: ""
@@ -51,53 +58,56 @@ de:
         unit: ""
         separator: ""
         delimiter: ""
-  time: 
-    am: ""
-    formats: 
-      default: ""
-      short: "% d% b% H.% M"
-      long: "%B %d %Y %H:%M"
-    pm: pm
   date: 
     formats: 
       default: "%d.%m.%Y"
       short: "%b %d"
       long: "%B %d  %Y"
   txt: 
+    jqt: "jQTouch (ben\xC3\xB6tigt einen Browser mit WebKit)"
     dt: 
-      jqt: "jQTouch (ben\xC3\xB6tigt einen Browser mit WebKit)"
+      name: Dynatree
+      default: Standardeinstellungen
+      ul: Aus ul-Element initialisieren
+      quick: JS-Objekt initialisieren
+      persist: Persistenz
+      lazy: Lazy
+      api: Programmier-API
+      dnd: Ziehen und Abwerfen
+      iframe: iframe und URL-Navigation
+      minexpand: Feste Expansionsebene
+      effects: Effekte
+      events: Ergeignisverarbeitung
+      contextmenu: "Kontextmen\xC3\xBC,  Kopieren / Einf\xC3\xBCgen"
+      select: "K\xC3\xA4stchen & Auswahl"
+      theming: Themen
     hello: Hallo Welt
     ui: 
+      name: jQquery UI
       default: "Standardfunktionalit\xC3\xA4t"
       widgets: 
         default: Widgets
         slider: 
           steps: Mit festen Schritten einrasten
-          default: Schieberegler
           multiple-vertical: Mehrere Regler
-          slider-vertical: Vertikaler Regler
+          default: Schieberegler
           range-vertical: Vertikaler Regler mit Bereich
           colorpicker: Einfacher Farbauswahl
-          range: Regler mit Bereich
+          slider-vertical: Vertikaler Regler
           rangemax: Bereich mit festgesetzten Maximum
+          range: Regler mit Bereich
           rangemin: Bereich mit festgesetztem Mininum
         datepicker: 
           alt-field: "Alternatives Feld f\xC3\xBCllen"
-          buttonbar: "Schaltfl\xC3\xA4chen anzeigen"
           default: Datumsauswahl
+          buttonbar: "Schaltfl\xC3\xA4chen anzeigen"
           min-max: "Datumsbereich einschr\xC3\xA4nken "
           inline: Eingebettet anzeigen
           icon-trigger: "\xC3\x9Cber Symbol aktivieren"
           multiple-calendars: Mehrerer Monate anzeigen
           dropdown-month-year: "Monat- & Jahresmen\xC3\xBCs anzeigen"
-          date-formats: Datum formatieren
           localization: " Kalender lokalisieren"
-        tabs: 
-          default: Reiter
-          ajax: "Inhalt \xC3\xBCber Ajax"
-          sortable: Sortierbar
-          mouseover: "\xC3\x96ffnen, wenn die Maus dar\xC3\xBCberf\xC3\xA4hrt"
-          collapsible: Inhalt wegklappen
+          date-formats: Datum formatieren
         accordion: 
           default: Akkordeon
           no-auto-height: "Ohne automatische H\xC3\xB6he"
@@ -111,6 +121,12 @@ de:
           modal-confirmation: "Modale Best\xC3\xA4tigung"
           modal-message: Modale Nachricht
           modal-form: Modale Form
+        tabs: 
+          default: Reiter
+          ajax: "Inhalt \xC3\xBCber Ajax"
+          sortable: Sortierbar
+          mouseover: "\xC3\x96ffnen, wenn die Maus dar\xC3\xBCberf\xC3\xA4hrt"
+          collapsible: Inhalt wegklappen
         progressbar: 
           default: Fortschrittsbalken
           resize: "Vergr\xC3\xB6\xC3\x9Ferbarer Fortschrittsbalken"
@@ -123,9 +139,9 @@ de:
         default: Interaktionen
         draggable: 
           visual-feedback: Visuelles Feedback
-          default: Ziehbar
           snap-to: In Element oder Gitter einrasten
           handle: Position des Griffs
+          default: Ziehbar
           scroll: Autoscrollen
           revert: "Zur Position zur\xC3\xBCckkehren"
           constrain-movement: "Einschr\xC3\xA4nken der Bewegung"
@@ -133,13 +149,23 @@ de:
           delay-start: "Start verz\xC3\xB6gern"
           events: Ereignisse
           cursor-style: Cursorstil
+        resizable: 
+          aspect-ratio: "Seitenverh\xC3\xA4ltnis beibehalten"
+          visual-feedback: Visuelles Feedback
+          default: "Vergr\xC3\xB6\xC3\x9Ferbar"
+          max-min: "Maximal-  / Minimalgr\xC3\xB6\xC3\x9Fe"
+          snap-to-grid: Im Gitter einrasten
+          animate: Animieren
+          synchronous-resize: "Synchrones Vergr\xC3\xB6\xC3\x9Fern"
+          delay-start: "Start verz\xC3\xB6gern"
+          constrain-area: "Vergr\xC3\xB6\xC3\x9Ferungsfl\xC3\xA4che einschr\xC3\xA4nken"
         droppable: 
           visual-feedback: Visuelles Feedback
           default: Abwerfbar
           revert: "R\xC3\xBCckkehr zur  Position"
           propagation: Weitergabe verhindern
-          accepted-elements: Akzeptierte Elemente
           photo-manager: Einfacher Photomanager
+          accepted-elements: Akzeptierte Elemente
         sortable: 
           items: "Elemente ein- / ausschlie\xC3\x9Fen"
           placeholder: "Platzhalter f\xC3\xBCr den Abwurf"
@@ -148,18 +174,8 @@ de:
           delay-start: "Start verz\xC3\xB6gern"
           connect-lists: Listen verbinden
           portlets: Portlets
-          display-grid: Als Gitter anzeigen
           empty-lists: Leere Listen handhaben
-        resizable: 
-          visual-feedback: Visuelles Feedback
-          aspect-ratio: "Seitenverh\xC3\xA4ltnis beibehalten"
-          default: "Vergr\xC3\xB6\xC3\x9Ferbar"
-          max-min: "Maximal-  / Minimalgr\xC3\xB6\xC3\x9Fe"
-          snap-to-grid: Im Gitter einrasten
-          animate: Animieren
-          delay-start: "Start verz\xC3\xB6gern"
-          synchronous-resize: "Synchrones Vergr\xC3\xB6\xC3\x9Fern"
-          constrain-area: "Vergr\xC3\xB6\xC3\x9Ferungsfl\xC3\xA4che einschr\xC3\xA4nken"
+          display-grid: Als Gitter anzeigen
       effects: 
         default: Effekte
         hide: 
@@ -170,10 +186,10 @@ de:
           default: Klasse wechseln
         animate: 
           default: Animieren
-        show: 
-          default: Zeigen
         remove_class: 
           default: Klasse entfernen
+        show: 
+          default: Zeigen
         add_class: 
           default: "Klasse hinzuf\xC3\xBCgen"
         toggle: 
@@ -181,41 +197,41 @@ de:
         effect: 
           default: Effekt
     layout: 
-      language: Sprache
       theme: Thema
+      language: Sprache
   support: 
     array: 
       words_connector: ""
       last_word_connector: ", und"
       two_words_connector: und
     select: 
-      prompt: ""
+      prompt: "Bitte ausw\xC3\xA4hlen"
   datetime: 
     distance_in_words: 
       less_than_x_minutes: 
         one: weniger als einer Minute
         other: weniger als {{count}} Minuten
-      x_days: 
-        one: 1 Tag
-        other: "{{count}} Tage"
       almost_x_years: 
         one: ""
         other: ""
-      x_seconds: 
-        one: 1 Sekunde
-        other: "{{count}} Sekunden"
+      x_days: 
+        one: 1 Tag
+        other: "{{count}} Tage"
       x_minutes: 
         one: 1 Minute
         other: "{{count}} Minuten"
+      x_seconds: 
+        one: 1 Sekunde
+        other: "{{count}} Sekunden"
+      x_months: 
+        one: 1 Monat
+        other: "{{count}} Monate"
       about_x_hours: 
         one: ca. 1 Stunde
         other: ca. {{count}} Stunden
       less_than_x_seconds: 
         one: weniger als 1 Sekunde
         other: weniger als {{count}} Sekunden
-      x_months: 
-        one: 1 Monat
-        other: "{{count}} Monate"
       about_x_months: 
         one: ca. 1 Monat
         other: ca. {{count}} Monate
@@ -228,8 +244,8 @@ de:
       half_a_minute: eine halbe Minute lang
     prompts: 
       month: Monat
-      second: Sekunden
       minute: Minute
+      second: Sekunden
       hour: Stunde
       day: Tag
       year: Jahr

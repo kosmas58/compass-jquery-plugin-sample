@@ -1,0 +1,2 @@
+class JqgridController < ApplicationController
+end
