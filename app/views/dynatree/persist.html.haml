@@ -1,0 +1,67 @@
+-@browser_title = "#{t('txt.dt.name')} - #{t('txt.dt.persist')}"
+-@jquery_partial = 'persist.js.haml'
+
+.demo
+  %h3
+    =@browser_title
+  #tree
+    %ul
+      %li#id1{ :title => "Look, a tool tip!" }
+        item1 with key and tooltip
+      %li#id2
+        item2
+      %li#id3.folder
+        Folder with some children
+        %ul
+          %li#id3.1
+            Sub-item 3.1
+            %ul
+              %li#id3.1.1
+                Sub-item 3.1.1
+              %li#id3.1.2
+                Sub-item 3.1.2
+          %li#id3.2
+            Sub-item 3.2
+            %ul
+              %li#id3.2.1
+                Sub-item 3.2.1
+              %li#id3.2.2
+                Sub-item 3.2.2
+      %li#id4.expanded
+        Document with some children (expanded on init)
+        %ul
+          %li#id4.1.active.focused
+            Sub-item 4.1 (active and focus on init)
+            %ul
+              %li#id4.1.1
+                Sub-item 4.1.1
+              %li#id4.1.2
+                Sub-item 4.1.2
+          %li#id4.2
+            Sub-item 4.2
+            %ul
+              %li#id4.2.1
+                Sub-item 4.2.1
+              %li#id4.2.2
+                Sub-item 4.2.2
+  %div
+    Active node:
+    %span#echoActive
+      -
+/ End demo
+.demo-description
+  %p
+    Cookie persistence is enabled here.
+    %br
+    Also, double-click handler expands document nodes.
+    %br
+    Select a node and hit [F5] to refresh, to see how the active node and
+    expansion and selection states are restored.
+    %br
+    %br
+    NOTE: if this doesn't seem to work, it's probably because the frame
+    content is cached by the browser.
+    %br
+    Try this example as an
+    %a{ :href => "#", :target => "_blank" }
+      unframed page
