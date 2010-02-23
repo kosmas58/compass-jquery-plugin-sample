@@ -1,0 +1,53 @@
+:javascript
+  var _activeKey = null;
+
+  $(function(){
+    $("#tree").ajaxComplete(function(event, XMLHttpRequest, ajaxOptions) {
+      _log("debug", "ajaxComplete: %o", this); // dom element listening
+    });
+                
+    // --- Initialize sample trees
+    $("#tree").dynatree({
+      title: "Lazy loading sample",
+      rootVisible: true,
+      minExpandLevel: 0, // 1: root node is not collapsible
+      persist: true,
+      checkbox: true,
+      selectMode: 3,
+      onPostInit: function(isReloading, isError) {
+        // alert("reloading: "+isReloading+", error:"+isError);
+        logMsg("onPostInit(%o, %o) - %o", isReloading, isError, this);
+        // Re-fire onActivate, so the text is updated
+        this.reactivate();
+      }, 
+      fx: { height: "toggle", duration: 200 },
+      // initAjax is hard to fake, so we pass the children as object array:
+      initAjax: { url: "data1?format=json",
+                  dataType: "json",
+                  data: { mode: "funnyMode" } // Send list of expanded keys, so the webservice can deliver these children also
+      },
+      onLazyRead: function(dtnode){
+        dtnode.appendAjax(
+          { url: "data2?format=json", 
+            dataType: "json",
+            data: { key: dtnode.data.key,
+                    mode: "funnyMode" }
+        });
+      },
+      onActivate: function(dtnode) {
+        $("#echoActive").text(dtnode.data.tooltip + ", key=" + dtnode.data.key);
+        _activeKey = dtnode.data.key;
+      }
+    });
+
+    $("#btnReload").click(function(){
+      $("#tree").dynatree("getTree").reload();
+      return false;
+    });
+    
+    $("#btnReloadNode").click(function(){
+      $("#tree").dynatree("getTree").getNodeByKey(_activeKey).reload();
+      return false;
+    });
+  });
+  

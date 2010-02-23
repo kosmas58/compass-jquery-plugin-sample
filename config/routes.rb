@@ -12,6 +12,9 @@ ActionController::Routing::Routes.draw do |map|
 #    end
 #  end
 
+  #map.resources :dynatree, :collection => { :data1 => :get, 
+  #                                          :data2 => :get }
+
   map.resources :users, :collection => { :pets => :get, :post_data => :post }
 
   Translate::Routes.translation_ui(map) if RAILS_ENV != "production "

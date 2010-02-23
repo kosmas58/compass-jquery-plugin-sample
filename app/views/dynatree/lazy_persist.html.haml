@@ -1,0 +1,70 @@
+-@browser_title = "#{t('txt.dt.name')} - #{t('txt.dt.lazy')}"
+-@jquery_partial = 'lazy_persist.js.haml'
+
+.demo
+  %h3
+    =@browser_title
+  
+  #tree
+    / When using initAjax, it may be nice to put a throbber here, that spins until the initial content is loaded:
+    Loading...
+  %br
+  %div
+    Active node:
+    %span#echoActive
+      -
+  %p
+    %button#btnReload
+      Reload tree
+    %button#btnReloadNode
+      Reload active node
+
+/ End demo
+.demo-description
+  %p
+    Using
+    %code
+      initAjax
+    option to initialize the tree using Ajax.
+    %br
+    The folders have the
+    %code
+      isLazy
+    option set, so that they are also
+    loaded 'on demand', when expanded.
+    %br
+    %br
+    Using
+    %code
+      persist: true
+    and
+    %code
+      initAjax: { addExpandedKeyList: true }
+    we also support 'lazy persistence' (which has to be supported by the
+    web service, of course).
+    %br
+    %br
+    Note:
+    %br
+    This sample assumes that a Dynatree Web Service is running at http://127.0.0.1:8001.
+    %br
+    See
+    %a{ :href => "dynatree_server.py" }
+      dynatree_server.py
+    for a sample
+    server implementation.
+    %br
+    %br
+    Note also:
+    %br
+    We have to enable JSONP using the option
+    %code
+      initAjax: { dataType: 'jsonp' }
+    ,
+    because Ajax calls will fail, if the originating HTML page and the web
+    service do not reside on the same host.
+    %br
+    In our case may have this sample page on the local file system and the
+    web service runs on 127.0.0.1.
+/ End demo-description
+
