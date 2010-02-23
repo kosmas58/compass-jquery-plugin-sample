@@ -1,0 +1,52 @@
+:javascript
+	$(function(){
+		var children = [
+					{title: "Item 1"},
+					{title: "Folder 2", isFolder: true, key: "folder2",
+						children: [
+							{title: "Sub-item 2.1"},
+							{title: "Sub-item 2.2"}
+						]
+					},
+					{title: "Folder 3", isFolder: true, key: "folder3",
+						children: [
+							{title: "Sub-item 3.1"},
+							{title: "Sub-item 3.2"}
+						]
+					},
+					{title: "Item 4"}
+				];
+
+		$("#tree1").dynatree({
+			onActivate: function(dtnode) {
+				logMsg("Activated %o", dtnode);
+			},
+			rootVisible: true,
+			minExpandLevel: 0,
+			children: children
+		});
+		$("#tree2").dynatree({
+			onActivate: function(dtnode) {
+				logMsg("Activated %o", dtnode);
+			},
+			rootVisible: true,
+			minExpandLevel: 1,
+			children: children
+		});
+		$("#tree3").dynatree({
+			onActivate: function(dtnode) {
+				logMsg("Activated %o", dtnode);
+			},
+			rootVisible: false,
+			minExpandLevel: 1,
+			children: children
+		});
+		$("#tree4").dynatree({
+			onActivate: function(dtnode) {
+				logMsg("Activated %o", dtnode);
+			},
+			rootVisible: false,
+			minExpandLevel: 2,
+			children: children
+		});
+	});
