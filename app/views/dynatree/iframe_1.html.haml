@@ -1,0 +1,19 @@
+-@jquery_partial = 'iframe_1.js.haml'
+
+.demo
+  %h3
+    =@browser_title
+  %p
+    This page lives inside an iframe
+    %br
+    Click a link in the tree to load some content here.
+    %br
+    This button demonstrates, ho to access a tree in another frame:
+    %button#btnExpand
+      Toggle tree
+    %br
+    View the source of
+    %a{ :href => "sample-iframe-1.html", :target => "_blank" }
+      this iframe content
+    , to see how it can be done.
+/ End demo

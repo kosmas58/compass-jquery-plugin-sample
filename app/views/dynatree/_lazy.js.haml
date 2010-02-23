@@ -1,0 +1,36 @@
+:javascript
+	$(function(){        
+		// --- Initialize sample trees
+		$("#tree").dynatree({
+			title: "Lazy loading sample",
+			rootVisible: true,
+			fx: { height: "toggle", duration: 200 },
+				// In real life we would call a URL on the server like this:
+				// initAjax: {
+				// url: "/getTopLevelNodesAsJson",
+				// data: { mode: "funnyMode" }
+				// },
+				// .. but here we use a local file instead:
+				initAjax: { 
+				  url: "sample-data1.json" 
+				},
+			
+			onActivate: function(dtnode) {
+				$("#echoActive").text(dtnode.data.title);
+			},
+
+			onLazyRead: function(dtnode){
+				// In real life we would call something like this:
+				//            	dtnode.appendAjax({
+				//            	    url: "/getChildrenAsJson",
+				//		            data: {key: dtnode.data.key,
+				//            		       mode: "funnyMode"
+				//                         }
+				//              });
+				// .. but here we use a local file instead:
+				dtnode.appendAjax({
+					url: "sample-data2.json" 
+				});
+			}			
+		});
+	});

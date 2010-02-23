@@ -1,0 +1,33 @@
+-@browser_title = "#{t('txt.dt.name')} - #{t('txt.dt.lazy')}"
+-@jquery_partial = 'lazy.js.haml'
+
+.demo
+  %h3
+    =@browser_title
+  #tree
+    / When using initAjax, it may be nice to put a throbber here, that spins until the initial content is loaded:
+    %br
+    %div
+      Active node:
+      %span#echoActive
+        -
+
+/ End demo
+.demo-description
+  %p
+    Using 'lazy' option to load the tree and to load the branches.
+    %br
+    %br
+    Note: the AJAX call is only simulated. Also, the
+    %br
+    %code
+      initAjax
+    %br
+    option is not used.
+    %br
+    %br
+    You may want to try this
+    %a{ :href => "sample-lazy-persist.html" }
+      live example
+    of a lazy tree that uses a simple test server.
+/ End demo-description

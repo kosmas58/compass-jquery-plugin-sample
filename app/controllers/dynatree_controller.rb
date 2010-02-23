@@ -1,5 +1,5 @@
 class DynatreeController < ApplicationController
-  layout 'dynatree'
+  layout 'dynatree', :except => [:iframe_1] 
   
   protect_from_forgery
 end
