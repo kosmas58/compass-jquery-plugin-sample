@@ -1,5 +1,5 @@
 class Jqueryui::Interactions::DroppableController < ApplicationController
-  layout 'blueprint'
+  layout 'jqueryui'
   
   protect_from_forgery
 end

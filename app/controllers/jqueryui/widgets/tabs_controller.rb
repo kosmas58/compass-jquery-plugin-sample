@@ -1,5 +1,5 @@
 class Jqueryui::Widgets::TabsController < ApplicationController
-  layout 'blueprint'
+  layout 'jqueryui'
   
   protect_from_forgery
   

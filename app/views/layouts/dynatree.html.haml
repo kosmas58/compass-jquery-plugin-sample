@@ -18,7 +18,7 @@
     = javascript_include_tag :defaults
     = jrails_javascripts I18n.locale
     = javascript_include_tag :dynatree
-    = javascript_include_tag 'jquery.contextMenu.min'
+    = javascript_include_tag :contextMenu
 
     = javascript_include_tag 'locales'
     = javascript_include_tag 'common'
@@ -32,7 +32,7 @@
       = render :partial => "layouts/header.blueprint"
       = render :partial => "layouts/navigation.blueprint"
       #content
-        .ui-state-default.ui-corner-all{ :style => "background: none" }
+        .ui-widget-content.ui-corner-all{ :style => "background: none" }
           %p{ :style => "color: green" }
             = flash[:notice]
           = yield

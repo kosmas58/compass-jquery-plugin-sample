@@ -1,5 +1,5 @@
 class WelcomeController < ApplicationController
-  layout 'blueprint'
+  layout 'welcome'
   
   protect_from_forgery
 end

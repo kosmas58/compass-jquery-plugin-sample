@@ -1,5 +1,5 @@
 class Jqueryui::Effects::ToggleClassController < ApplicationController
-  layout 'blueprint'
+  layout 'jqueryui'
   
   protect_from_forgery
 end

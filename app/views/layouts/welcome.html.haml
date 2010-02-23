@@ -23,16 +23,13 @@
     = javascript_include_tag 'application'
     = javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery?
 
-    = render :partial => "layouts/datepicker_i18n"
     = render(:partial => @jquery_partial, :format => :js) if @jquery_partial
 
   %body{body_attributes}
     .container
       = render :partial => "layouts/header.blueprint"
       = render :partial => "layouts/navigation.blueprint"
-      #content
+      #content{ :style => "padding: 0.5em" }
         .ui-widget-content.ui-corner-all{ :style => "background: none" }
-          %p{ :style => "color: green" }
-            = flash[:notice]
           = yield
       = render :partial => "layouts/footer.blueprint"

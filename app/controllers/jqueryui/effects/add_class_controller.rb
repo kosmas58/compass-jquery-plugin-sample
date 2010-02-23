@@ -1,5 +1,5 @@
 class Jqueryui::Effects::AddClassController < ApplicationController
-  layout 'blueprint'
+  layout 'jqueryui'
   
   protect_from_forgery
 end
