@@ -3,6 +3,12 @@ class DynatreeController < ApplicationController
   
   protect_from_forgery
   
+  def iframe_1
+    respond_to do |format|
+      format.html { render :layout => 'dynatree_iframe' }
+    end
+  end
+  
   def data1
     json1 = 
     '[ { title: "Item 1" },

@@ -23,9 +23,13 @@
       fx: { height: "toggle", duration: 200 },
       // initAjax is hard to fake, so we pass the children as object array:
       initAjax: { url: "data1?format=json",
-                  dataType: "json"//,
-                  //data: { mode: "funnyMode" } // Send list of expanded keys, so the webservice can deliver these children also
-      },
+                  dataType: "json", // Enable JSONP, so this sample can be run from the local file system against a localhost server
+                  data: { key: "",
+                          sleep: 1,
+                          mode: "baseFolders"
+                  },
+                  addExpandedKeyList: true // Send list of expanded keys, so the webservice can deliver these children also
+                },
       onLazyRead: function(dtnode){
         dtnode.appendAjax(
           { url: "data2?format=json", 
