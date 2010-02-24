@@ -1,7 +1,8 @@
-%center
+-@browser_title = "#{t('txt.jqgrid.name')} - #{t('txt.jqgrid.simple.name')} #{t('txt.jqgrid.simple.selection')}"
+.demo
   %h3
-    2) Simple DataGrid with selection link/button + search disabled
-  %table#players_2.scroll{ :cellspacing => "0", :cellpadding => "0" }
-  #players_2_pager.scroll{ :style => "text-align:center;" }
-  %a#players_2_select_button{ :href => "#" }
-    Get ID of selected row
+    =@browser_title
+  //%table#players_2.scroll{ :cellspacing => "0", :cellpadding => "0" }
+  //#players_2_pager.scroll{ :style => "text-align:center;" }
+  //%a#players_2_select_button{ :href => "#" }
+  //  Get ID of selected row
