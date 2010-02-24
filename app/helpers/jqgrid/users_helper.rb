@@ -1,0 +1,2 @@
+module Jqgrid::UsersHelper
+end

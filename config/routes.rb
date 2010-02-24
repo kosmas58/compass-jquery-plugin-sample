@@ -15,8 +15,10 @@ ActionController::Routing::Routes.draw do |map|
   #map.resources :dynatree, :collection => { :data1 => :get, 
   #                                          :data2 => :get }
 
-  map.resources :users, :collection => { :pets => :get, :post_data => :post }
-
+  map.namespace :jqgrid do |jqgrid|
+    jqgrid.resources :users, :collection => { :pets => :get, :post_data => :post }    
+  end
+  
   Translate::Routes.translation_ui(map) if RAILS_ENV != "production "
 
   map.root :controller => "welcome"

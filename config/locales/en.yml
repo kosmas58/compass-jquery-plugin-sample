@@ -254,6 +254,28 @@ en:
           default: Animate
         effect: 
           default: Effect
+    jqgrid:
+      name: jqGrid
+      simple:
+        name: Simple Data Grids
+        default: default functionality
+        selection: with selection link and search disabled
+        direct: with direct selection and autowidth
+        multiple: with multiple selections + row numbers
+        master: with master details
+      manipulation:
+        name: Data manipulation
+        inline: with inline editing
+        modal: with modal editing
+        input: with various input types
+        datepicker: with datepicker for lastname
+      subgrids:
+        name: Subgrids
+        default: default functionality
+        crud: with CRUD operations
+        selection: with selection
+      improvements:
+        name: Form improvements
     jqt: 
       name: jQTouch (needs a browser with WebKit engine)
   support: 

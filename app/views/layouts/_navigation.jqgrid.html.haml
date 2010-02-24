@@ -1,47 +1,47 @@
 %h3
   %a.accordionMenuItem{ :href => "#jqgrid" }
-    jqGrid
+    = t('txt.jqgrid.name')
 %div
   .tree
     %ul
       %li#jqgrid1{:data => "icon: '../dynatree.custom/grid.png'" }
-        2dc jqGrid
+        = t('txt.jqgrid.name')
         %ul
           %li#jqgrid11{:data => "icon: '../dynatree.custom/grid.png'" }
-            Simple Data Grids
+            = t('txt.jqgrid.simple.name')
             %ul
-              %li#jqgrid111{:data => "url: '/users?example=01', icon: '../dynatree.custom/grid.png'" }
-                default
-              %li#jqgrid112{:data => "url: '/users?example=02', icon: '../dynatree.custom/grid.png'" }
-                with selection link and search disabled
-              %li#jqgrid113{:data => "url: '/users?example=03', icon: '../dynatree.custom/grid.png'" }
-                with direct selection and autowidth
-              %li#jqgrid114{:data => "url: '/users?example=04', icon: '../dynatree.custom/grid.png'" }
-                with multiple selections + row numbers
-              %li#jqgrid115{:data => "url: '/users?example=05', icon: '../dynatree.custom/grid.png'" }
-                with master details
+              %li#jqgrid111{:data => "url: '/jqgrid/users?example=01', icon: '../dynatree.custom/grid.png'" }
+                = t('txt.jqgrid.simple.default')
+              %li#jqgrid112{:data => "url: '/jqgrid/users?example=02', icon: '../dynatree.custom/grid.png'" }
+                = t('txt.jqgrid.simple.selection')
+              %li#jqgrid113{:data => "url: '/jqgrid/users?example=03', icon: '../dynatree.custom/grid.png'" }
+                = t('txt.jqgrid.simple.direct')
+              %li#jqgrid114{:data => "url: '/jqgrid/users?example=04', icon: '../dynatree.custom/grid.png'" }
+                = t('txt.jqgrid.simple.multiple')
+              %li#jqgrid115{:data => "url: '/jqgrid/users?example=05', icon: '../dynatree.custom/grid.png'" }
+                = t('txt.jqgrid.simple.master')
           %li#jqgrid12{:data => "icon: '../dynatree.custom/grid.png'" }
-            Data manipulation
+            = t('txt.jqgrid.manipulation.name')
             %ul
-              %li#jqgrid121{:data => "url: '/users?example=06', icon: '../dynatree.custom/grid.png'" }
-                with inline editing
-              %li#jqgrid122{:data => "url: '/users?example=07', icon: '../dynatree.custom/grid.png'" }
-                with modal editing
-              %li#jqgrid123{:data => "url: '/users?example=08', icon: '../dynatree.custom/grid.png'" }
-                witth various input types
-              %li#jqgrid124{:data => "url: '/users?example=09', icon: '../dynatree.custom/grid.png'" }
-                with various input types and datepicker for lastname
+              %li#jqgrid121{:data => "url: '/jqgrid/users?example=06', icon: '../dynatree.custom/grid.png'" }
+                = t('txt.jqgrid.manipulation.inline')
+              %li#jqgrid122{:data => "url: '/jqgrid/users?example=07', icon: '../dynatree.custom/grid.png'" }
+                = t('txt.jqgrid.manipulation.modal')
+              %li#jqgrid123{:data => "url: '/jqgrid/users?example=08', icon: '../dynatree.custom/grid.png'" }
+                = t('txt.jqgrid.manipulation.input')
+              %li#jqgrid124{:data => "url: '/jqgrid/users?example=09', icon: '../dynatree.custom/grid.png'" }
+                = t('txt.jqgrid.manipulation.datepicker')
           %li#jqgrid13{:data => "icon: '../dynatree.custom/grid.png'" }
-            Subgrids
+            = t('txt.jqgrid.subgrids.name')
             %ul
-              %li#jqgrid131{:data => "url: '/users?example=10', icon: '../dynatree.custom/grid.png'" }
-                default
-              %li#jqgrid132{:data => "url: '/users?example=11', icon: '../dynatree.custom/grid.png'" }
-                with CRUD operations
-              %li#jqgrid133{:data => "url: '/users?example=12', icon: '../dynatree.custom/grid.png'" }
-                with selection
-          %li#jqgrid14{:data => "url: '/users?example=13', icon: '../dynatree.custom/grid.png'" }
-            Form improvements
+              %li#jqgrid131{:data => "url: '/jqgrid/users?example=10', icon: '../dynatree.custom/grid.png'" }
+                = t('txt.jqgrid.subgrids.default')
+              %li#jqgrid132{:data => "url: '/jqgrid/users?example=11', icon: '../dynatree.custom/grid.png'" }
+                = t('txt.jqgrid.subgrids.crud')
+              %li#jqgrid133{:data => "url: '/jqgrid/users?example=12', icon: '../dynatree.custom/grid.png'" }
+                = t('txt.jqgrid.subgrids.selection')
+          %li#jqgrid14{:data => "url: '/jqgrid/users?example=13', icon: '../dynatree.custom/grid.png'" }
+            = t('txt.jqgrid.improvements.name')
       %li#jqgrid2{:data => "url: '/people', icon: '../dynatree.custom/grid.png'" }
         jqGrid for Rails
       %li#jqgrid3{:data => "url: '/widgets', icon: '../dynatree.custom/grid.png'" }

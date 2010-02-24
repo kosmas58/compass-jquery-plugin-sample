@@ -17,33 +17,21 @@ number:
       separator: .
       delimiter: ","
 time: 
+  am: am
   formats: 
     default: "%a, %d %b %Y %H:%M:%S %z"
 date: 
   formats: 
     default: "%Y-%m-%d"
 txt: 
-  dt: 
-    name: Dynatree
-    ul: Init from <ul> element
-    default: Default options
-    lazy: Lazy loading
-    persist: Persistence
-    quick: Init from JS object
-    iframe: <iframe> and url navigation
-    dnd: Drag'n'drop
-    api: Programming API
-    minexpand: Fixed expand level
-    effects: Effects
-    contextmenu: Context menu, Copy/paste
-    events: Event handling
-    theming: Theming
-    select: Checkbox & select
+  jqgrid: 
+    simple: 
+      name: Simple Data Grids
+    improvevemts: 
+      name: Form improvements
 support: 
   array: 
     words_connector: ", "
-  select: 
-    prompt: Please select
 datetime: 
   distance_in_words: 
     almost_x_years: 

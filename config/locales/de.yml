@@ -64,22 +64,44 @@ de:
       short: "%b %d"
       long: "%B %d  %Y"
   txt: 
-    jqt:
+    jqgrid: 
+      manipulation: 
+        name: Datenmanipulation
+        modal: "mit modaler \xC3\x84nderung"
+        inline: "mit Inline-\xC3\x84nderung"
+        datepicker: mit Datumsauswahl (Nachname)
+        input: mit verschiedenen Eingabetypen
+      name: jqGrid
+      simple: 
+        name: Einfache Datengitter
+        default: "Standardfunktionalit\xC3\xA4t"
+        master: mit Haupt- und Detailsicht
+        selection: mit Auswahllink und Suche deaktiviert
+        multiple: mit Mehrfachauswahl + Zeilennummern
+        direct: mit direkter Auswahl und automatischer Weite
+      subgrids: 
+        name: Untergitter
+        default: "Standardfunktionalit\xC3\xA4t"
+        selection: mit Auswahl
+        crud: mit CRUD-Operationen
+      improvements: 
+        name: Formverbesserungen
+    jqt: 
       name: "jQTouch (ben\xC3\xB6tigt einen Browser mit WebKit)"
     dt: 
       name: Dynatree
       default: Standardeinstellungen
       ul: Aus ul-Element initialisieren
-      quick: JS-Objekt initialisieren
-      persist: Persistenz
       lazy: Lazy
+      persist: Persistenz
+      quick: JS-Objekt initialisieren
       api: Programmier-API
       dnd: Ziehen und Abwerfen
       iframe: iframe und URL-Navigation
       minexpand: Feste Expansionsebene
       effects: Effekte
-      events: Ergeignisverarbeitung
       contextmenu: "Kontextmen\xC3\xBC,  Kopieren / Einf\xC3\xBCgen"
+      events: Ergeignisverarbeitung
       select: "K\xC3\xA4stchen & Auswahl"
       theming: Themen
     hello: Hallo Welt
@@ -92,9 +114,9 @@ de:
           steps: Mit festen Schritten einrasten
           multiple-vertical: Mehrere Regler
           default: Schieberegler
-          range-vertical: Vertikaler Regler mit Bereich
-          colorpicker: Einfache Farbauswahl
           slider-vertical: Vertikaler Regler
+          colorpicker: Einfache Farbauswahl
+          range-vertical: Vertikaler Regler mit Bereich
           rangemax: Bereich mit festgesetzten Maximum
           range: Regler mit Bereich
           rangemin: Bereich mit festgesetztem Mininum
@@ -116,18 +138,18 @@ de:
           mouseover: "\xC3\x96ffnen, wenn die Maus dar\xC3\xBCberf\xC3\xA4hrt"
           custom-icons: Symbole anpassen
           collapsible: Inhalt einklappen
-        dialog: 
-          default: Dialog
-          modal: Modaler Dialog
-          modal-confirmation: "Modale Best\xC3\xA4tigung"
-          modal-message: Modale Nachricht
-          modal-form: Modale Form
         tabs: 
           default: Reiter
           ajax: "Inhalt \xC3\xBCber Ajax"
           sortable: Sortierbar
           mouseover: "\xC3\x96ffnen, wenn die Maus dar\xC3\xBCberf\xC3\xA4hrt"
           collapsible: Inhalt wegklappen
+        dialog: 
+          default: Dialog
+          modal: Modaler Dialog
+          modal-confirmation: "Modale Best\xC3\xA4tigung"
+          modal-message: Modale Nachricht
+          modal-form: Modale Form
         progressbar: 
           default: Fortschrittsbalken
           resize: "Vergr\xC3\xB6\xC3\x9Ferbarer Fortschrittsbalken"
@@ -173,8 +195,8 @@ de:
           default: Sortierbar
           connect-lists-through-tabs: "Listen \xC3\xBCber Reiter verbinden"
           delay-start: "Start verz\xC3\xB6gern"
-          connect-lists: Listen verbinden
           portlets: Portlets
+          connect-lists: Listen verbinden
           empty-lists: Leere Listen handhaben
           display-grid: Als Gitter anzeigen
       effects: 
