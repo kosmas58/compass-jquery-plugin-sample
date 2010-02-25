@@ -14,14 +14,15 @@ jQuery(document).ready(function() {
 		autoHeight: false,
 		collapsible: true,
 		navigation: true,
-		//header: '.accordionMenuItem'
+		navigationFilter: function() {
+      return "jqgrid" //$.cookie("accordion-active");
+    } 
 	});
 
-	/*$(".accordionMenuItem").click(function(event){
-	  window.location.hash=this.hash;
-	});*/	
-
-
+	$(".accordionMenuItem").click(function(event){
+		$.cookie("accordion-active", this.href);
+	});
+		
 	$(".tree").dynatree({
     // using default options
     title: "Title",
@@ -31,8 +32,8 @@ jQuery(document).ready(function() {
     imagePath: "/images/jquery.ui/dynatree.vista/", // Image folder used for data.icon attribute.
     onClick: function(dtnode) {
       if( dtnode.data.url )
-        //window.open(dtnode.data.url);
         window.location.href=(dtnode.data.url);
+        //window.open(dtnode.data.url);
     },
     onDblClick: function(dtnode, event){
       logMsg("onDblClick(%o, %o)", dtnode, event);
