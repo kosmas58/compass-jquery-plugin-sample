@@ -1,2 +1,7 @@
-//= jqgrid("Football Players", "players", "/jqgrid/users", [ { :field => "id", :label => "ID", :width => 35, :resizable => false }, { :field => "pseudo", :label => "Pseudo" }, { :field => "firstname", :label => "Firstname" }, { :field => "lastname", :label => "Lastname" }, { :field => "email", :label => "Email" }, { :field => "role", :label => "Role" } ], { :hidegrid => false, :height => "480" } )
-		
+:javascript  
+  function pickDates(id) {
+    jQuery("#"+id+"_lastname","#players_with_datepicker").datepicker({dateFormat:"yy-mm-dd"});
+  }
+  
+= jqgrid("Football Players", "players_with_datepicker", "/jqgrid/users", [ { :field => "id", :label => "ID", :width => 35, :resizable => false }, { :field => "pseudo", :label => "Pseudo", :editable => true }, { :field => "firstname", :label => "Firstname", :editable => true, :edittype => "checkbox", :editoptions => { :value => "Yes:No" } }, { :field => "lastname", :label => "Lastname", :editable => true }, { :field => "email", :label => "Email", :editable => true, :edittype => "textarea", :editoptions => { :rows => 3, :cols => 30 } }, { :field => "role", :label => "Role", :editable => true, :edittype => "select", :editoptions => { :value => [["admin","admin"], ["player", "player"], ["defender","defender"]] } } ], { :height => "480", :add => true, :edit => true, :inline_edit => true, :delete => true, :edit_url => "/jqgrid/users/post_data", :inline_edit_handler => "pickDates" } )
+	

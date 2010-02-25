@@ -1,2 +1,7 @@
-//= jqgrid("Football Players", "players", "/jqgrid/users", [ { :field => "id", :label => "ID", :width => 35, :resizable => false }, { :field => "pseudo", :label => "Pseudo" }, { :field => "firstname", :label => "Firstname" }, { :field => "lastname", :label => "Lastname" }, { :field => "email", :label => "Email" }, { :field => "role", :label => "Role" } ], { :hidegrid => false, :height => "480" } )
+:javascript  
+  function handleSelection(id) {
+    alert('ID selected : ' + id);
+  }
+    
+= jqgrid("Football Players", "players_2", "/jqgrid/users", [ { :field => "id", :label => "ID" }, { :field => "pseudo", :label => "Pseudo" }, { :field => "firstname", :label => "Firstname" }, { :field => "lastname", :label => "Lastname" }, { :field => "email", :label => "Email" }, { :field => "role", :label => "Role" } ], { :height => "300", :selection_handler => "handleSelection", :search => false } )
 		
