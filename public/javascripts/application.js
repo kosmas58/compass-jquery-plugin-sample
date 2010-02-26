@@ -10,18 +10,30 @@ jQuery.fn.submitWithAjax = function() {
 }
 
 jQuery(document).ready(function() {	
-  $("#accordion").accordion({
+  // From http://dev.jqueryui.com/ticket/3613
+	// Cookie persistence missing
+	// Start
+  var accordion = $("#accordion");
+	var index = $.cookie("accordion-active");
+	var active;
+	
+	if (index !== null) {
+		active = accordion.find("h3:eq(" + index + ")");
+	} else {
+		active = 0
+	}
+	
+	accordion.accordion({
 		autoHeight: false,
 		collapsible: true,
-		navigation: true,
-		navigationFilter: function() {
-      return "jqgrid" //$.cookie("accordion-active");
-    } 
+		active: active
 	});
-
-	$(".accordionMenuItem").click(function(event){
-		$.cookie("accordion-active", this.href);
+	
+	accordion.bind('accordionchange', function(event, ui) {
+		var index = $(this).find("h3").index ( ui.newHeader[0] ); 
+		$.cookie("accordion-active", index, { path: "/" }); 
 	});
+  // End
 		
 	$(".tree").dynatree({
     // using default options
