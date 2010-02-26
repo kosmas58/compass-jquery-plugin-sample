@@ -4,22 +4,21 @@
     #droppable, #droppable2 { width: 120px; height: 120px; padding: 0.5em; float: left; margin: 10px; }
 
 :javascript 
-	$(function() {
-		$("#draggable").draggable();
-		$("#droppable").droppable({
-			hoverClass: 'ui-state-active',
-			drop: function(event, ui) {
-				$(this).addClass('ui-state-highlight').find('p').html('Dropped!');
-			}
-		});
-		
-		$("#draggable2").draggable();
-		$("#droppable2").droppable({
-			accept: "#draggable2",
-			activeClass: 'ui-state-hover',
-			drop: function(event, ui) {
-				$(this).addClass('ui-state-highlight').find('p').html('Dropped!');
-			}
-		});
-
-	});
+  $(function() {
+    $("#draggable").draggable();
+    $("#droppable").droppable({
+      hoverClass: 'ui-state-active',
+      drop: function(event, ui) {
+        $(this).addClass('ui-state-highlight').find('p').html('Dropped!');
+      }
+    });
+    		
+    $("#draggable2").draggable();
+      $("#droppable2").droppable({
+      accept: "#draggable2",
+      activeClass: 'ui-state-hover',
+      drop: function(event, ui) {
+        $(this).addClass('ui-state-highlight').find('p').html('Dropped!');
+      }
+    });
+  });

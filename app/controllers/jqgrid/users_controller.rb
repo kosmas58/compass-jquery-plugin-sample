@@ -62,11 +62,29 @@ class Jqgrid::UsersController < ApplicationController
 
     users = User.find(:all) do
       if params[:_search] == "true"
-        pseudo    =~ "%#{params[:pseudo]}%" if params[:pseudo].present?
-        firstname =~ "%#{params[:firstname]}%" if params[:firstname].present?
-        lastname  =~ "%#{params[:lastname]}%" if params[:lastname].present?                
-        email     =~ "%#{params[:email]}%" if params[:email].present?
-        role      =~ "%#{params[:role]}%" if params[:role].present?        
+        
+        #{params[:serchField]} #{params[:searchOper]}  #{params[:searchString]}
+        
+        # 'eq'    equal
+        # 'ne'    not equal
+        # 'lt'    less than
+        # 'le'    less equal
+        # 'gt'    greater than
+        # 'ge'    greater equal
+        # 'bw'    beginns with
+        # 'bn'    not begins with
+        # 'in'    in
+        # 'ni'    not in
+        # 'ew'    ends with 
+        # 'en'    not ends with
+        # 'cn'    contains
+        # 'nc'    not contains        
+        
+        #pseudo    =~ "%#{params[:pseudo]}%" if params[:pseudo].present?
+        #firstname =~ "%#{params[:firstname]}%" if params[:firstname].present?
+        #lastname  =~ "%#{params[:lastname]}%" if params[:lastname].present?                
+        #email     =~ "%#{params[:email]}%" if params[:email].present?
+        #role      =~ "%#{params[:role]}%" if params[:role].present?        
       end
       paginate :page => params[:page], :per_page => params[:rows]      
       order_by "#{params[:sidx]} #{params[:sord]}"
