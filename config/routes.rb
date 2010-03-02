@@ -16,6 +16,7 @@ ActionController::Routing::Routes.draw do |map|
   #                                          :data2 => :get }
 
   map.namespace :jqgrid do |jqgrid|
+    jqgrid.resources :players
     jqgrid.resources :users, :collection => { :pets => :get, :post_data => :post }    
   end
   

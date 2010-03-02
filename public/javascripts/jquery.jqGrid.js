@@ -1100,7 +1100,7 @@ $.fn.jqGrid = function( pin ) {
 				ts.p.page = 1;
 			}
 			if(sor) {
-				if(ts.p.lastsort == idxcol && ts.p.sortorder == sor) return;
+				if(ts.p.lastsort == idxcol && ts.p.sortorder == sor && !reload) return;
 				else ts.p.sortorder = sor;
 			}
 			var thd= $("thead:first",ts.grid.hDiv).get(0);
@@ -1928,7 +1928,7 @@ $.jgrid.extend({
 					if(pos==='first' || (pos==='before' && sind <= 1) ||  t.rows.length === 1 ){
 						t.updateColumns();
 					}
-					if(air) t.p.afterInsertRow(t,rowid,data);
+					if(air) t.p.afterInsertRow.call(t,rowid,data,data);
 					k++;
 				}
 				if( t.p.altRows === true && !aradd) {
@@ -3130,13 +3130,13 @@ function createEl(eltype,options,vl,autowidth, ajaxso) {
 								ovm = vl.split(",");
 								ovm = jQuery.map(ovm,function(n){return jQuery.trim(n)});
 							} else {
-								ovm[0] = vl;
+								ovm[0] = jQuery.trim(vl);
 							}
 							jQuery(elem).attr(options);
 							setTimeout(function(){
 								jQuery("option",elem).each(function(i){
 									if(i==0) this.selected = "";
-									if(jQuery.inArray(jQuery(this).text(),ovm) > -1 || jQuery.inArray(jQuery(this).val(),ovm)>-1) {
+									if(jQuery.inArray(jQuery.trim(jQuery(this).text()),ovm) > -1 || jQuery.inArray(jQuery.trim(jQuery(this).val(),ovm)) > -1 ) {
 										this.selected= "selected";
 										if(!msl) return false;
 									}
@@ -3164,8 +3164,8 @@ function createEl(eltype,options,vl,autowidth, ajaxso) {
 						}
 						ov = document.createElement("option");
 						ov.value = sv[0]; ov.innerHTML = sv[1];
-						if (!msl &&  (sv[0] == vl || sv[1]==vl)) ov.selected ="selected";
-						if (msl && (jQuery.inArray(sv[1], ovm)>-1 || jQuery.inArray(sv[0], ovm)>-1)) {ov.selected ="selected";}
+						if (!msl &&  (jQuery.trim(sv[0]) == jQuery.trim(vl) || jQuery.trim(sv[1]) == jQuery.trim(vl))) ov.selected ="selected";
+						if (msl && (jQuery.inArray(jQuery.trim(sv[1]), ovm)>-1 || jQuery.inArray(jQuery.trim(sv[0]), ovm)>-1)) {ov.selected ="selected";}
 						elem.appendChild(ov);
 					}
 				} else if (typeof options.value === 'object') {
@@ -3173,8 +3173,8 @@ function createEl(eltype,options,vl,autowidth, ajaxso) {
 					for ( var key in oSv) {
 						ov = document.createElement("option");
 						ov.value = key; ov.innerHTML = oSv[key];
-						if (!msl &&  (key == vl ||oSv[key]==vl) ) ov.selected ="selected";
-						if (msl && (jQuery.inArray(oSv[key],ovm)>-1 || jQuery.inArray(key,ovm)>-1)) ov.selected ="selected";
+						if (!msl &&  ( jQuery.trim(key) == jQuery.trim(vl) || jQuery.trim(oSv[key]) == jQuery.trim(vl)) ) ov.selected ="selected";
+						if (msl && (jQuery.inArray(jQuery.trim(oSv[key]),ovm)>-1 || jQuery.inArray(jQuery.trim(key),ovm)>-1)) ov.selected ="selected";
 						elem.appendChild(ov);
 					}
 				}
@@ -4966,10 +4966,10 @@ $.jgrid.extend({
 								var opv = tmp.split(",");
 								opv = $.map(opv,function(n){return $.trim(n)});
 								$("#"+nm+" option","#"+fmid).each(function(j){
-									if (!cm[i].editoptions.multiple && (opv[0] == $(this).text() || opv[0] == $(this).val()) ){
+									if (!cm[i].editoptions.multiple && (opv[0] == $.trim($(this).text()) || opv[0] == $.trim($(this).val())) ){
 										this.selected= true;
 									} else if (cm[i].editoptions.multiple){
-										if(  $.inArray($(this).text(), opv ) > -1 || $.inArray($(this).val(), opv ) > -1  ){
+										if(  $.inArray($.trim($(this).text()), opv ) > -1 || $.inArray($.trim($(this).val()), opv ) > -1  ){
 											this.selected = true;
 										}else{
 											this.selected = false;
@@ -4981,13 +4981,24 @@ $.jgrid.extend({
 								break;
 							case "checkbox":
 								tmp = tmp+"";
-								tmp = tmp.toLowerCase();
-								if(tmp.search(/(false|0|no|off|undefined)/i)<0 && tmp!=="") {
-									$("#"+nm,"#"+fmid).attr("checked",true);
-									$("#"+nm,"#"+fmid).attr("defaultChecked",true); //ie
+								if(cm[i].editoptions && cm[i].editoptions.value) {
+									var cb = cm[i].editoptions.value.split(":");
+									if(cb[0] == tmp) {
+										$("#"+nm,"#"+fmid).attr("checked",true);
+										$("#"+nm,"#"+fmid).attr("defaultChecked",true); //ie
+									} else {
+										$("#"+nm,"#"+fmid).attr("checked",false);
+										$("#"+nm,"#"+fmid).attr("defaultChecked",""); //ie
+									}
 								} else {
-									$("#"+nm,"#"+fmid).attr("checked",false);
-									$("#"+nm,"#"+fmid).attr("defaultChecked",""); //ie
+									tmp = tmp.toLowerCase();
+									if(tmp.search(/(false|0|no|off|undefined)/i)<0 && tmp!=="") {
+										$("#"+nm,"#"+fmid).attr("checked",true);
+										$("#"+nm,"#"+fmid).attr("defaultChecked",true); //ie
+									} else {
+										$("#"+nm,"#"+fmid).attr("checked",false);
+										$("#"+nm,"#"+fmid).attr("defaultChecked",""); //ie
+									}
 								}
 								break;
 							case 'custom' :

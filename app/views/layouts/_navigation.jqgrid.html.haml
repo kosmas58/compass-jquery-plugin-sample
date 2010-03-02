@@ -42,7 +42,16 @@
                 = t('txt.jqgrid.subgrids.selection')
           %li#jqgrid14{:data => "url: '/jqgrid/users?example=13', icon: '../dynatree.custom/grid.png'" }
             = t('txt.jqgrid.improvements.name')
-      %li#jqgrid2{:data => "url: '/people', icon: '../dynatree.custom/grid.png'" }
+    %ul
+      %li#jqgrid2{:data => "icon: '../dynatree.custom/grid.png'" }
+        gridify
+        %ul
+          %li#jqgrid21{:data => "icon: '../dynatree.custom/grid.png'" }
+            = t('txt.jqgrid.simple.name')
+            %ul
+              %li#jqgrid211{:data => "url: '/jqgrid/players?example=01', icon: '../dynatree.custom/grid.png'" }
+                = t('txt.jqgrid.simple.default')
+      %li#jqgrid3{:data => "url: '/people', icon: '../dynatree.custom/grid.png'" }
         jqGrid for Rails
-      %li#jqgrid3{:data => "url: '/widgets', icon: '../dynatree.custom/grid.png'" }
+      %li#jqgrid4{:data => "url: '/widgets', icon: '../dynatree.custom/grid.png'" }
         Secret Sauce jqGrid

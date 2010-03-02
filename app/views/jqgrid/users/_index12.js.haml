@@ -3,5 +3,5 @@
     alert('ID selected : ' + id);
   }
   
-= jqgrid("Football Players", "players_12", "/jqgrid/users", [ { :field => "id", :label => "ID", :width => 35, :resizable => false }, { :field => "pseudo", :label => "Pseudo" }, { :field => "firstname", :label => "Firstname" }, { :field => "lastname", :label => "Lastname" }, { :field => "email", :label => "Email" }, { :field => "role", :label => "Role" } ], { :height => "480",  :subgrid => { :url => "/jqgrid/users/pets", :direct_selection => true, :selection_handler => "handleSubSelection", :columns => [ { :field => "id", :label => "ID", :width => 35, :resizable => false, :editable => true }, { :field => "name", :label => "Name", :editable => true } ] } } )
+= jqgrid("Football users", "users_12", "/jqgrid/users", [ { :field => "id", :label => "ID", :width => 35, :resizable => false }, { :field => "pseudo", :label => "Pseudo" }, { :field => "firstname", :label => "Firstname" }, { :field => "lastname", :label => "Lastname" }, { :field => "email", :label => "Email" }, { :field => "role", :label => "Role" } ], { :height => "480",  :subgrid => { :url => "/jqgrid/users/pets", :direct_selection => true, :selection_handler => "handleSubSelection", :columns => [ { :field => "id", :label => "ID", :width => 35, :resizable => false, :editable => true }, { :field => "name", :label => "Name", :editable => true } ] } } )
   
