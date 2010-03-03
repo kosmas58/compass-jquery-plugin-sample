@@ -3,14 +3,19 @@ class Player < ActiveRecord::Base
     :title          => "Football players",
     :url            => "/jqgrid/players",
     :only           => [:id, :pseudo, :firstname, :lastname, :email, :role],
-    :width_fit      => :scroll,
+    :width_fit      => :fluid,
     :search_button  => true,  
     :refresh_button => true,
     :pager          => true
     
   gridify :example02,
-    :url   => "/jqgrid/players",
-    :pager => true
+    :title          => "Football players",
+    :url            => "/jqgrid/players",
+    :only           => [:id, :pseudo, :firstname, :lastname, :email, :role],
+    :width_fit      => :fluid,
+    :select_rows    => true,   
+    :search_button  => true,  
+    :pager          => true
     
   gridify :example03,
     :url   => "/jqgrid/players",
