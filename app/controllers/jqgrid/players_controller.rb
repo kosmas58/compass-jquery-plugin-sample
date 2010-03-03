@@ -5,11 +5,12 @@ class Jqgrid::PlayersController < ApplicationController
   
    def index
     @example = (params[:example] || "01")
+    mylist = "example#{@example}".to_sym
     if request.xhr?
-      records = Player.find_for_grid :grid, params
-      render :xml => Player.grid.encode_records(records)
+      records = Player.find_for_grid(mylist, params)
+      render :xml => Player.grid(mylist).encode_records(records)
     else
-      @grid = Player.grid :grid
+      @grid = Player.grid(mylist)
     end    
   end
 end

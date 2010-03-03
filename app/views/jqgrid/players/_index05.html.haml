@@ -1,0 +1,10 @@
+-@browser_title = "#{t('txt.jqgrid.name')} - #{t('txt.jqgrid.simple.name')} #{t('txt.jqgrid.simple.master')}"
+.demo
+  %h3
+    =@browser_title
+  %center
+    %table#players_example05.scroll{ :cellspacing => "0", :cellpadding => "0" }
+    #players_example05_pager.scroll{ :style => "text-align:center;" }
+    %br
+    %table#players_example05_details.scroll{ :cellspacing => "0", :cellpadding => "0" }
+    #players_example05_details_pager.scroll{ :style => "text-align:center;" }
