@@ -4,12 +4,12 @@ class Jqgrid::PlayersController < ApplicationController
   protect_from_forgery
   
    def index
+    @example = (params[:example] || "01")
     if request.xhr?
       records = Player.find_for_grid :grid, params
       render :xml => Player.grid.encode_records(records)
     else
-      @example = (params[:example] || "01")
-      @grid = Player.grid
+      @grid = Player.grid :grid
     end    
   end
 end
