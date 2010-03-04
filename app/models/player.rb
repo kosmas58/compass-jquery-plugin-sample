@@ -9,13 +9,14 @@ class Player < ActiveRecord::Base
     :pager          => true
     
   gridify :example02,
-    :title          => "Football players",
-    :url            => "/jqgrid/players",
-    :only           => [:id, :pseudo, :firstname, :lastname, :email, :role],
-    :width_fit      => :fluid,
-    :select_rows    => true,   
-    :search_button  => true,  
-    :pager          => true
+    :title             => "Football players",
+    :url               => "/jqgrid/players",
+    :only              => [:id, :pseudo, :firstname, :lastname, :email, :role],
+    :width_fit         => :fluid,
+    :select_rows       => true, 
+    #:selection_handler => "handleSelection",
+    :search_button     => true,  
+    :pager             => true
     
   gridify :example03,
     :url   => "/jqgrid/players",

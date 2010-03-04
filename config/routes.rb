@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :accounts
+
 
 #  map.namespace :jqueryui do |jqueryui|
 #    jqueryui.namespace :effects do |effects|

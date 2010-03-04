@@ -1,0 +1,11 @@
+%h1 Editing account
+
+= error_messages_for :account
+
+- form_for(:account, :url => object_url, :html => { :method => :put }) do |f|
+  = render :partial => "form", :locals => {:f => f}
+  %p= submit_tag "Update"
+
+= link_to 'Show', object_path
+|
+= link_to 'Back', objects_path

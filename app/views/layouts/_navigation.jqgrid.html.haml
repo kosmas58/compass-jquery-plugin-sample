@@ -5,61 +5,263 @@
   .tree
     %ul
       %li#jqgrid1{:data => "icon: '../dynatree.custom/grid.png'" }
-        = t('txt.jqgrid.name')
+        jqGrid Demo
         %ul
-          %li#jqgrid11{:data => "icon: '../dynatree.custom/grid.png'" }
-            = t('txt.jqgrid.simple.name')
+          %li#jqgrid101{:data => "icon: '../dynatree.custom/grid.png'" }
+            Loading Data
             %ul
-              %li#jqgrid111{:data => "url: '/jqgrid/users?example=01', icon: '../dynatree.custom/grid.png'" }
-                = t('txt.jqgrid.simple.default')
-              %li#jqgrid112{:data => "url: '/jqgrid/users?example=02', icon: '../dynatree.custom/grid.png'" }
-                = t('txt.jqgrid.simple.selection')
-              %li#jqgrid113{:data => "url: '/jqgrid/users?example=03', icon: '../dynatree.custom/grid.png'" }
-                = t('txt.jqgrid.simple.direct')
-              %li#jqgrid114{:data => "url: '/jqgrid/users?example=04', icon: '../dynatree.custom/grid.png'" }
-                = t('txt.jqgrid.simple.multiple')
-              %li#jqgrid115{:data => "url: '/jqgrid/users?example=05', icon: '../dynatree.custom/grid.png'" }
-                = t('txt.jqgrid.simple.master')
-          %li#jqgrid12{:data => "icon: '../dynatree.custom/grid.png'" }
-            = t('txt.jqgrid.manipulation.name')
+              %li#jqgrid1011{:data => "icon: '../dynatree.custom/grid.png'" }                
+                XML Data
+              %li#jqgrid1012{:data => "icon: '../dynatree.custom/grid.png'" }      
+                JSON Data
+              %li#jqgrid1013{:data => "icon: '../dynatree.custom/grid.png'" }      
+                Load once
+              %li#jqgrid1014{:data => "icon: '../dynatree.custom/grid.png'" }      
+                Array Data
+          %li#jqgrid102{:data => "icon: '../dynatree.custom/grid.png'" }
+            Manipulating
             %ul
-              %li#jqgrid121{:data => "url: '/jqgrid/users?example=06', icon: '../dynatree.custom/grid.png'" }
-                = t('txt.jqgrid.manipulation.inline')
-              %li#jqgrid122{:data => "url: '/jqgrid/users?example=07', icon: '../dynatree.custom/grid.png'" }
-                = t('txt.jqgrid.manipulation.modal')
-              %li#jqgrid123{:data => "url: '/jqgrid/users?example=08', icon: '../dynatree.custom/grid.png'" }
-                = t('txt.jqgrid.manipulation.input')
-              %li#jqgrid124{:data => "url: '/jqgrid/users?example=09', icon: '../dynatree.custom/grid.png'" }
-                = t('txt.jqgrid.manipulation.datepicker')
-          %li#jqgrid13{:data => "icon: '../dynatree.custom/grid.png'" }
-            = t('txt.jqgrid.subgrids.name')
+              %li#jqgrid1021{:data => "icon: '../dynatree.custom/grid.png'" }      
+                Grid Data
+              %li#jqgrid1022{:data => "icon: '../dynatree.custom/grid.png'" }   
+                Get Methods
+              %li#jqgrid1023{:data => "icon: '../dynatree.custom/grid.png'" }   
+                Set Methods
+          %li#jqgrid103{:data => "icon: '../dynatree.custom/grid.png'" }
+            Advanced
             %ul
-              %li#jqgrid131{:data => "url: '/jqgrid/users?example=10', icon: '../dynatree.custom/grid.png'" }
-                = t('txt.jqgrid.subgrids.default')
-              %li#jqgrid132{:data => "url: '/jqgrid/users?example=11', icon: '../dynatree.custom/grid.png'" }
-                = t('txt.jqgrid.subgrids.crud')
-              %li#jqgrid133{:data => "url: '/jqgrid/users?example=12', icon: '../dynatree.custom/grid.png'" }
-                = t('txt.jqgrid.subgrids.selection')
-          %li#jqgrid14{:data => "url: '/jqgrid/users?example=13', icon: '../dynatree.custom/grid.png'" }
-            = t('txt.jqgrid.improvements.name')
+              %li#jqgrid1031{:data => "icon: '../dynatree.custom/grid.png'" }   
+                Multi Select
+              %li#jqgrid1032{:data => "icon: '../dynatree.custom/grid.png'" }   
+                Master Detail
+              %li#jqgrid1033{:data => "icon: '../dynatree.custom/grid.png'" }   
+                Subgrid
+              %li#jqgrid1034{:data => "icon: '../dynatree.custom/grid.png'" }   
+                Grid as Subgrid
+              %li#jqgrid1035{:data => "icon: '../dynatree.custom/grid.png'" }   
+                Resizing
+              %li#jqgrid1036{:data => "icon: '../dynatree.custom/grid.png'" }   
+                Search Big Sets
+          %li#jqgrid104{:data => "icon: '../dynatree.custom/grid.png'" }
+            New since beta 3.0
+            %ul
+              %li#jqgrid1041{:data => "icon: '../dynatree.custom/grid.png'" }   
+                Custom Multi Select
+              %li#jqgrid1042{:data => "icon: '../dynatree.custom/grid.png'" }   
+                Subgrid with JSON
+              %li#jqgrid1043{:data => "icon: '../dynatree.custom/grid.png'" }   
+                After Load Callback
+              %li#jqgrid1044{:data => "icon: '../dynatree.custom/grid.png'" }   
+                Resizable Columns
+              %li#jqgrid1045{:data => "icon: '../dynatree.custom/grid.png'" }   
+                Hide/Show Columns
+          %li#jqgrid105{:data => "icon: '../dynatree.custom/grid.png'" }
+            Row Editing
+            %ul
+              %li#jqgrid1051{:data => "icon: '../dynatree.custom/grid.png'" }   
+                Basic Example
+              %li#jqgrid1052{:data => "icon: '../dynatree.custom/grid.png'" }   
+                Custom Edit
+              %li#jqgrid1053{:data => "icon: '../dynatree.custom/grid.png'" }   
+                Using Events
+              %li#jqgrid1054{:data => "icon: '../dynatree.custom/grid.png'" }   
+                Full Control
+              %li#jqgrid1055{:data => "icon: '../dynatree.custom/grid.png'" }   
+                Input types
+          %li#jqgrid106{:data => "icon: '../dynatree.custom/grid.png'" }
+            Data Mapping
+            %ul
+              %li#jqgrid1061{:data => "icon: '../dynatree.custom/grid.png'" }   
+                XML Mapping
+              %li#jqgrid1062{:data => "icon: '../dynatree.custom/grid.png'" }   
+                JSON Mapping
+              %li#jqgrid1063{:data => "icon: '../dynatree.custom/grid.png'" }   
+                Data Optimization
+          %li#jqgrid107{:data => "icon: '../dynatree.custom/grid.png'" }
+            Integrations
+            %ul
+              %li#jqgrid1071{:data => "icon: '../dynatree.custom/grid.png'" }   
+                UI Datepicker
+          %li#jqgrid108{:data => "icon: '../dynatree.custom/grid.png'" }
+            Live Data Manipulation
+            %ul
+              %li#jqgrid1081{:data => "icon: '../dynatree.custom/grid.png'" }   
+                Searching Data
+              %li#jqgrid1082{:data => "icon: '../dynatree.custom/grid.png'" }   
+                Edit row
+              %li#jqgrid1083{:data => "icon: '../dynatree.custom/grid.png'" }   
+                Add row
+              %li#jqgrid1084{:data => "icon: '../dynatree.custom/grid.png'" }   
+                Delete row
+              %li#jqgrid1085{:data => "icon: '../dynatree.custom/grid.png'" }   
+                Navigator
+          %li#jqgrid109{:data => "icon: '../dynatree.custom/grid.png'" }
+            New in version 3.1
+            %ul
+              %li#jqgrid1091{:data => "icon: '../dynatree.custom/grid.png'" }   
+                Toolbars and userdata
+              %li#jqgrid1092{:data => "icon: '../dynatree.custom/grid.png'" }  
+                New Methods
+              %li#jqgrid1093{:data => "icon: '../dynatree.custom/grid.png'" }  
+                Post Data
+              %li#jqgrid1094{:data => "icon: '../dynatree.custom/grid.png'" }  
+                Common Params
+          %li#jqgrid110{:data => "icon: '../dynatree.custom/grid.png'" }
+            New in version 3.2
+            %ul
+              %li#jqgrid1101{:data => "icon: '../dynatree.custom/grid.png'" }  
+                New Methods 3.2
+              %li#jqgrid1102{:data => "icon: '../dynatree.custom/grid.png'" }  
+                Initial hidden grid
+              %li#jqgrid1103{:data => "icon: '../dynatree.custom/grid.png'" }  
+                After Insert Row event
+              %li#jqgrid1104{:data => "icon: '../dynatree.custom/grid.png'" }  
+                Controling server errors
+              %li#jqgrid1105{:data => "icon: '../dynatree.custom/grid.png'" }  
+                Hide/Show columns
+              %li#jqgrid1106{:data => "icon: '../dynatree.custom/grid.png'" }  
+                Custom Button and Forms
+              %li#jqgrid1107{:data => "icon: '../dynatree.custom/grid.png'" }  
+                Client Validation
+          %li#jqgrid111{:data => "icon: '../dynatree.custom/grid.png'" }
+            New in version 3.3
+            %ul
+              %li#jqgrid1111{:data => "icon: '../dynatree.custom/grid.png'" }  
+                Dynamic height and width
+              %li#jqgrid1112{:data => "icon: '../dynatree.custom/grid.png'" } 
+                Tree Grid
+              %li#jqgrid1113{:data => "icon: '../dynatree.custom/grid.png'" } 
+                Cell Editing
+              %li#jqgrid1114{:data => "icon: '../dynatree.custom/grid.png'" } 
+                Visible Columns
+              %li#jqgrid1115{:data => "icon: '../dynatree.custom/grid.png'" } 
+                HTML Table to Grid
+              %li#jqgrid1116{:data => "icon: '../dynatree.custom/grid.png'" } 
+                Multiple Toolbar Search
+              %li#jqgrid1117{:data => "icon: '../dynatree.custom/grid.png'" } 
+                Multiple Form Search
+              %li#jqgrid1118{:data => "icon: '../dynatree.custom/grid.png'" } 
+                Data type as function
+              %li#jqgrid1119{:data => "icon: '../dynatree.custom/grid.png'" } 
+                Row Drag and Drop
+          %li#jqgrid112{:data => "icon: '../dynatree.custom/grid.png'" }
+            New in version 3.4
+            %ul
+              %li#jqgrid1121{:data => "icon: '../dynatree.custom/grid.png'" } 
+                Formater
+              %li#jqgrid1122{:data => "icon: '../dynatree.custom/grid.png'" } 
+                Custom Formater
+              %li#jqgrid1123{:data => "icon: '../dynatree.custom/grid.png'" } 
+                Import Configuration from XML
+              %li#jqgrid1124{:data => "icon: '../dynatree.custom/grid.png'" } 
+                Autoloading data when scroll
+              %li#jqgrid1125{:data => "icon: '../dynatree.custom/grid.png'" } 
+                Scroll with dynamic row select
+              %li#jqgrid1126{:data => "icon: '../dynatree.custom/grid.png'" } 
+                Tree Grid Adjacency model
+          %li#jqgrid113{:data => "icon: '../dynatree.custom/grid.png'" }
+            New in version 3.5
+            %ul
+              %li#jqgrid1131{:data => "icon: '../dynatree.custom/grid.png'" } 
+                Autowidth and row numbering
+              %li#jqgrid1132{:data => "icon: '../dynatree.custom/grid.png'" } 
+                Grid view mode
+              %li#jqgrid1133{:data => "icon: '../dynatree.custom/grid.png'" } 
+                Integrated Search Toolbar
+              %li#jqgrid1134{:data => "icon: '../dynatree.custom/grid.png'" } 
+                Advanced Searching
+              %li#jqgrid1135{:data => "icon: '../dynatree.custom/grid.png'" } 
+                Form Improvements
+              %li#jqgrid1136{:data => "icon: '../dynatree.custom/grid.png'" } 
+                TreeGrid real world example
+              %li#jqgrid1137{:data => "icon: '../dynatree.custom/grid.png'" } 
+                Form Navigation
+              %li#jqgrid1138{:data => "icon: '../dynatree.custom/grid.png'" } 
+                Summary Footer Row
+              %li#jqgrid1139{:data => "icon: '../dynatree.custom/grid.png'" } 
+                View sortable columns
+          %li#jqgrid114{:data => "icon: '../dynatree.custom/grid.png'" }
+            New in version 3.6
+            %ul
+              %li#jqgrid11401{:data => "icon: '../dynatree.custom/grid.png'" } 
+                New API
+              %li#jqgrid11402{:data => "icon: '../dynatree.custom/grid.png'" } 
+                RTL Support
+              %li#jqgrid11403{:data => "icon: '../dynatree.custom/grid.png'" } 
+                Column Reordering
+              %li#jqgrid11404{:data => "icon: '../dynatree.custom/grid.png'" } 
+                Column Chooser
+              %li#jqgrid11405{:data => "icon: '../dynatree.custom/grid.png'" } 
+                Custom Validation
+              %li#jqgrid11406{:data => "icon: '../dynatree.custom/grid.png'" } 
+                Create Custom input element
+              %li#jqgrid11407{:data => "icon: '../dynatree.custom/grid.png'" } 
+                Ajax Improvements
+              %li#jqgrid11408{:data => "icon: '../dynatree.custom/grid.png'" } 
+                True scrolling Rows
+              %li#jqgrid11409{:data => "icon: '../dynatree.custom/grid.png'" } 
+                Sortable Rows
+              %li#jqgrid11410{:data => "icon: '../dynatree.custom/grid.png'" } 
+                Drag and Drop Rows
+              %li#jqgrid11411{:data => "icon: '../dynatree.custom/grid.png'" } 
+                Resizing Grid
     %ul
       %li#jqgrid2{:data => "icon: '../dynatree.custom/grid.png'" }
-        gridify
+        = t('txt.jqgrid.name')
         %ul
           %li#jqgrid21{:data => "icon: '../dynatree.custom/grid.png'" }
             = t('txt.jqgrid.simple.name')
             %ul
-              %li#jqgrid211{:data => "url: '/jqgrid/players?example=01', icon: '../dynatree.custom/grid.png'" }
+              %li#jqgrid211{:data => "url: '/jqgrid/users?example=01', icon: '../dynatree.custom/grid.png'" }
                 = t('txt.jqgrid.simple.default')
-              %li#jqgrid212{:data => "url: '/jqgrid/players?example=02', icon: '../dynatree.custom/grid.png'" }
+              %li#jqgrid212{:data => "url: '/jqgrid/users?example=02', icon: '../dynatree.custom/grid.png'" }
                 = t('txt.jqgrid.simple.selection')
-              %li#jqgrid213{:data => "url: '/jqgrid/players?example=03', icon: '../dynatree.custom/grid.png'" }
+              %li#jqgrid213{:data => "url: '/jqgrid/users?example=03', icon: '../dynatree.custom/grid.png'" }
                 = t('txt.jqgrid.simple.direct')
-              %li#jqgrid214{:data => "url: '/jqgrid/players?example=04', icon: '../dynatree.custom/grid.png'" }
+              %li#jqgrid214{:data => "url: '/jqgrid/users?example=04', icon: '../dynatree.custom/grid.png'" }
                 = t('txt.jqgrid.simple.multiple')
-              %li#jqgrid215{:data => "url: '/jqgrid/players?example=05', icon: '../dynatree.custom/grid.png'" }
+              %li#jqgrid215{:data => "url: '/jqgrid/users?example=05', icon: '../dynatree.custom/grid.png'" }
                 = t('txt.jqgrid.simple.master')
-      %li#jqgrid3{:data => "url: '/people', icon: '../dynatree.custom/grid.png'" }
+          %li#jqgrid22{:data => "icon: '../dynatree.custom/grid.png'" }
+            = t('txt.jqgrid.manipulation.name')
+            %ul
+              %li#jqgrid221{:data => "url: '/jqgrid/users?example=06', icon: '../dynatree.custom/grid.png'" }
+                = t('txt.jqgrid.manipulation.inline')
+              %li#jqgrid222{:data => "url: '/jqgrid/users?example=07', icon: '../dynatree.custom/grid.png'" }
+                = t('txt.jqgrid.manipulation.modal')
+              %li#jqgrid223{:data => "url: '/jqgrid/users?example=08', icon: '../dynatree.custom/grid.png'" }
+                = t('txt.jqgrid.manipulation.input')
+              %li#jqgrid224{:data => "url: '/jqgrid/users?example=09', icon: '../dynatree.custom/grid.png'" }
+                = t('txt.jqgrid.manipulation.datepicker')
+          %li#jqgrid23{:data => "icon: '../dynatree.custom/grid.png'" }
+            = t('txt.jqgrid.subgrids.name')
+            %ul
+              %li#jqgrid231{:data => "url: '/jqgrid/users?example=10', icon: '../dynatree.custom/grid.png'" }
+                = t('txt.jqgrid.subgrids.default')
+              %li#jqgrid232{:data => "url: '/jqgrid/users?example=11', icon: '../dynatree.custom/grid.png'" }
+                = t('txt.jqgrid.subgrids.crud')
+              %li#jqgrid233{:data => "url: '/jqgrid/users?example=12', icon: '../dynatree.custom/grid.png'" }
+                = t('txt.jqgrid.subgrids.selection')
+          %li#jqgrid24{:data => "url: '/jqgrid/users?example=13', icon: '../dynatree.custom/grid.png'" }
+            = t('txt.jqgrid.improvements.name')
+    %ul
+      %li#jqgrid3{:data => "icon: '../dynatree.custom/grid.png'" }
+        gridify
+        %ul
+          %li#jqgrid31{:data => "icon: '../dynatree.custom/grid.png'" }
+            = t('txt.jqgrid.simple.name')
+            %ul
+              %li#jqgrid311{:data => "url: '/jqgrid/players?example=01', icon: '../dynatree.custom/grid.png'" }
+                = t('txt.jqgrid.simple.default')
+              %li#jqgrid312{:data => "url: '/jqgrid/players?example=02', icon: '../dynatree.custom/grid.png'" }
+                = t('txt.jqgrid.simple.selection')
+              %li#jqgrid313{:data => "url: '/jqgrid/players?example=03', icon: '../dynatree.custom/grid.png'" }
+                = t('txt.jqgrid.simple.direct')
+              %li#jqgrid314{:data => "url: '/jqgrid/players?example=04', icon: '../dynatree.custom/grid.png'" }
+                = t('txt.jqgrid.simple.multiple')
+              %li#jqgrid315{:data => "url: '/jqgrid/players?example=05', icon: '../dynatree.custom/grid.png'" }
+                = t('txt.jqgrid.simple.master')
+      %li#jqgrid4{:data => "url: '/people', icon: '../dynatree.custom/grid.png'" }
         jqGrid for Rails
-      %li#jqgrid4{:data => "url: '/widgets', icon: '../dynatree.custom/grid.png'" }
+      %li#jqgrid5{:data => "url: '/widgets', icon: '../dynatree.custom/grid.png'" }
         Secret Sauce jqGrid

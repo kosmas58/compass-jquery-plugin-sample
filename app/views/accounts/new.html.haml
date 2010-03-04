@@ -1,0 +1,9 @@
+%h1 Creating account
+
+= error_messages_for :account
+
+- form_for(:account, :url => objects_url) do |f|
+  = render :partial => "form", :locals => {:f => f}
+  %p= submit_tag "Create"
+
+= link_to 'Back', objects_path
