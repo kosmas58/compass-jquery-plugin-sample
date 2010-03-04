@@ -2,5 +2,16 @@
   function handleSelection(id) {
     alert('ID selected : ' + id);
   }
-  
+
 = @grid
+
+:javascript  
+  jQuery("#players_example02_select_button").click( function(){ 
+    var id = jQuery("#players_example02").jqGrid('getGridParam', 'selrow'); 
+    if (id) { 
+      handleSelection(id); 
+    } else { 
+      alert("Please select a row");
+    }
+    return false; 
+  });

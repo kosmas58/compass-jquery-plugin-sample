@@ -3,7 +3,7 @@ class Player < ActiveRecord::Base
     :title          => "Football players",
     :url            => "/jqgrid/players",
     :only           => [:id, :pseudo, :firstname, :lastname, :email, :role],
-    :width_fit      => :fluid,
+    :height         => :auto,
     :search_button  => true,  
     :refresh_button => true,
     :pager          => true
@@ -12,6 +12,7 @@ class Player < ActiveRecord::Base
     :title          => "Football players",
     :url            => "/jqgrid/players",
     :only           => [:id, :pseudo, :firstname, :lastname, :email, :role],
+    :height         => :auto,
     :width_fit      => :fluid,
     :select_rows    => true,   
     :search_button  => true,  
