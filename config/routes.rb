@@ -1,6 +1,4 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :accounts
-
 
 #  map.namespace :jqueryui do |jqueryui|
 #    jqueryui.namespace :effects do |effects|
@@ -18,6 +16,7 @@ ActionController::Routing::Routes.draw do |map|
   #                                          :data2 => :get }
 
   map.namespace :jqgrid do |jqgrid|
+    jqgrid.resources :demo
     jqgrid.resources :players
     jqgrid.resources :users, :collection => { :pets => :get, :post_data => :post }    
   end
