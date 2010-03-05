@@ -256,6 +256,96 @@ en:
           default: Effect
     jqgrid:
       name: jqGrid
+      demo:
+        name: Demo
+        loading: Loading Data
+        xml_data: XML Data
+        json_data: JSON Data
+        once: Load once
+        array: Array Data
+        manipulating: Manipulating
+        data: Grid Data
+        get: Get Methods
+        set: Set Methods
+        advanced: Advanced
+        multi: Multi Select
+        master: Master Detail
+        subgrid: Subgrid
+        as_subgrid: Grid as Subgrid
+        resizing: Resizing Grid
+        big_sets: Search Big Sets
+        b30: New since beta 3.0
+        cmulti: Custom Multi Select
+        json_subgrid: Subgrid with JSON
+        after_load: After Load Callback
+        resizable: Resizable Columns
+        hide: Hide/Show Columns
+        row: Row Editing
+        basic: Basic Example
+        cedit: Custom Edit
+        events: Using Events
+        full: Full Control
+        types: Input types
+        mapping: Data Mapping
+        xml_map: XML Mapping
+        json_map: JSON Mapping
+        optimize: Data Optimization
+        integrations: Integrations
+        datepicker: UI Datepicker
+        live: Live Data Manipulation
+        searching: Searching Data
+        edit_row: Edit row
+        add_row: Add row
+        delete_row: Delete row
+        navigator: Navigator
+        v31: New in version 3.1
+        toolbar: Toolbars and userdata
+        new_methods: New Methods
+        post_data: Post Data
+        cparams: Common Params
+        v32: New in version 3.2
+        initial: Initial hidden grid
+        insert: After Insert Row event
+        server_errors: Controlling server errors
+        cbutton: Custom Button and Forms
+        client: Client Validation
+        v33: New in version 3.3
+        dynamic: Dynamic height and width
+        tree: Tree Grid
+        cell: Cell Editing
+        visible: Visible Columns
+        html: HTML Table to Grid
+        mtoolbar: Multiple Toolbar Search
+        mform: Multiple Form Search
+        function: Data type as function
+        rdnd:  Drag and Drop Rows
+        v34: New in version 3.4
+        format: Formatter
+        cformat: Custom Formatter
+        import: Import Configuration from XML
+        autoscroll: Autoloading data when scroll
+        scroll: Scroll with dynamic row select
+        adjacency: Tree Grid Adjacency model
+        v35: New in version 3.5
+        number: Autowidth and row numbering
+        view: Grid view mode
+        stoolbar: Integrated Search Toolbar
+        asearch: Advanced Searching
+        improvements: Form Improvements
+        real: TreeGrid real world example
+        navigation: Form Navigation
+        summary: Summary Footer Row
+        sortable: View sortable columns
+        v36: New in version 3.6
+        api: New API
+        rtl: RTL Support
+        reordering: Column Reordering
+        chooser: Column Chooser
+        validation: Custom Validation
+        cinput: Create Custom input element
+        ajax: Ajax Improvements
+        tscroll: True scrolling Rows
+        srows: Sortable Rows
       simple:
         name: Simple Data Grids
         default: default functionality
