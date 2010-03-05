@@ -25,10 +25,10 @@ date:
     default: "%Y-%m-%d"
 txt: 
   jqgrid: 
-    simple: 
-      name: Simple Data Grids
-    improvevemts: 
-      name: Form improvements
+    demo: 
+      tscroll: True scrolling Rows
+      types: Input types
+      tree: Tree Grid
 support: 
   array: 
     words_connector: ", "

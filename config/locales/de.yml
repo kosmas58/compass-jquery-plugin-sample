@@ -6,17 +6,17 @@ de:
         taken: wird bereits verwendet
         accepted: muss akzeptiert werden
         not_a_number: ist nicht numerisch
-        blank: darf nicht leer sein
         record_invalid: "Validierung gescheitert: {{errors}}"
         greater_than_or_equal_to: "muss gr\xC3\xB6\xC3\x9Fer als oder gleich {{count}} sein"
+        blank: darf nicht leer sein
         less_than_or_equal_to: muss kleiner als oder gleich {{count}} sein
         exclusion: " ist reserviert"
         confirmation: "stimmt nicht mit der Best\xC3\xA4tigung \xC3\xBCberein"
         odd: muss ungerade sein
         invalid: "ist ung\xC3\xBCltig"
-        too_short: ist zu kurz (Minimum {{count}} Zeichen)
         wrong_length: "ist die falsche L\xC3\xA4nge (sollten {{count}} Zeichen sein)"
         empty: darf nicht leer sein
+        too_short: ist zu kurz (Minimum {{count}} Zeichen)
         less_than: muss weniger als {{count}} sein
         too_long: ist zu lang (Maximum ist {{count}} Zeichen)
         even: muss gerade sein
@@ -64,14 +64,9 @@ de:
       short: "%b %d"
       long: "%B %d  %Y"
   txt: 
+    jqt: 
+      name: "jQTouch (ben\xC3\xB6tigt einen Browser mit WebKit)"
     jqgrid: 
-      manipulation: 
-        name: Datenmanipulation
-        modal: "mit modaler \xC3\x84nderung"
-        inline: "mit Inline-\xC3\x84nderung"
-        datepicker: mit Datumsauswahl (Nachname)
-        input: mit verschiedenen Eingabetypen
-      name: jqGrid
       simple: 
         name: Einfache Datengitter
         default: "Standardfunktionalit\xC3\xA4t"
@@ -79,6 +74,103 @@ de:
         selection: mit Auswahllink und Suche deaktiviert
         multiple: mit Mehrfachauswahl + Zeilennummern
         direct: mit direkter Auswahl und automatischer Weite
+      name: jqGrid
+      manipulation: 
+        name: Datenmanipulation
+        modal: "mit modaler \xC3\x84nderung"
+        inline: "mit Inline-\xC3\x84nderung"
+        datepicker: mit Datumsauswahl (Nachname)
+        input: mit verschiedenen Eingabetypen
+      demo: 
+        sortable: Sortierbare Spalten anzeigen
+        big_sets: "Gro\xC3\x9Fe Datenmengen durchsuchen"
+        events: Ereignisse nutzen
+        row: "Zeilen \xC3\xA4ndern"
+        multi: Mehrfachauswahl
+        chooser: Spaltenauswahl
+        integrations: Integrationen
+        post_data: Post Data
+        hide: Spalten anzeigen/verbergen
+        v31: Neu in Version 3.1
+        delete_row: "Zeile l\xC3\xB6schen"
+        ajax: Ajax-Verbesserungen
+        tscroll: Echte scrollende Zeilen
+        initial: "Zun\xC3\xA4chst verstecktes Gitter"
+        v32: Neu in Version 3.2
+        json_subgrid: Untergitter mit JSON
+        basic: Einfaches Beispiel
+        after_load: Callback nach dem Laden
+        v33: Neu in Version 3.3
+        xml_map: XML-Mapping
+        toolbar: Symbolleisten und Benutzerdaten
+        tree: Baumgitter
+        set: Set-Methoden
+        master: Haupt- und Detailsicht
+        srows: Sortierbare Zeilen
+        loading: Laden von Daten
+        mapping: Daten-Mapping
+        cbutton: "Angepasste Schaltfl\xC3\xA4chen und Formulare"
+        format: Formatierer
+        v34: Neu in Version 3.4
+        html: Gitter aus HTML-Tabelle
+        json_data: JSON-Daten
+        v35: Neu in Version 3.5
+        stoolbar: Integrierte Suchleiste
+        v36: Neu in Version 3.6
+        mtoolbar: Mehrfache Symbolleistensuche
+        rdnd: Drag and Drop von Zeilen
+        reordering: Neuanordnung von Spalten
+        cinput: Benutzerdefiniertes Eingabeelement erstellen
+        autoscroll: Das automatische Laden von Daten beim Scrollen
+        view: Modus Gitteransicht
+        function: Datentyp als Funktion
+        scroll: Scrollen mit dynamischen Zeilenauswahl
+        as_subgrid: Gitter als Untergitter
+        validation: Angepasste Validierung
+        cedit: "Angepasstes \xC3\x84ndern"
+        name: Demo
+        visible: Sichtbare Spalten
+        get: Get-Methoden
+        navigation: Formularnavigation
+        import: Konfiguration aus XML importieren
+        full: Vollzugriff
+        edit_row: "Zeile \xC3\xA4ndern"
+        client: Clientseitige Validierung
+        number: Automatische Breite und Reihennummerierung
+        xml_data: XML-Daten
+        mform: Mehrfache Formularsuche
+        summary: "Zusammenfassung in der Fu\xC3\x9Fzeile"
+        resizing: "Gitter vergr\xC3\xB6\xC3\x9Fern"
+        cmulti: Angepasste Mehrfachauswahl
+        adjacency: Baumgitter mit Adjazenzliste
+        real: "Reales Beispiel eines Baumgitters "
+        new_methods: Neue Methoden
+        cformat: Angepasster Formatierer
+        searching: Daten suchen
+        advanced: Fortgeschritten
+        datepicker: Datumsauswahl
+        cell: "Zellen \xC3\xA4ndern"
+        dynamic: "Dynamische H\xC3\xB6he und Breite"
+        rtl: "RNL-Unterst\xC3\xBCtzung"
+        api: Neues API
+        insert: "Ereignis nach Einf\xC3\xBCgen einer Zeile"
+        once: Einmaliges Laden
+        live: Live Datenmanipulation
+        array: Daten aus einer Matrix
+        json_map: JSON-Mapping
+        manipulating: Manipulation
+        server_errors: "Server-Fehler kontrollieren"
+        add_row: "Zeile hinzuf\xC3\xBCgen"
+        improvements: Formverbesserungen
+        resizable: "Vergr\xC3\xB6\xC3\x9Ferbare Spalten"
+        cparams: "Gebr\xC3\xA4uchliche Parameter"
+        types: Eingabetypen
+        optimize: Datenoptimierung
+        data: Gitterdaten
+        b30: Neu seit Beta 3.0
+        subgrid: Untergitter
+        asearch: Erweiterte Suche
+        navigator: Navigator
       subgrids: 
         name: Untergitter
         default: "Standardfunktionalit\xC3\xA4t"
@@ -86,17 +178,15 @@ de:
         crud: mit CRUD-Operationen
       improvements: 
         name: Formverbesserungen
-    jqt: 
-      name: "jQTouch (ben\xC3\xB6tigt einen Browser mit WebKit)"
     dt: 
       name: Dynatree
-      default: Standardeinstellungen
       ul: Aus ul-Element initialisieren
+      default: Standardeinstellungen
       lazy: Lazy
       persist: Persistenz
       quick: JS-Objekt initialisieren
-      api: Programmier-API
       dnd: Ziehen und Abwerfen
+      api: Programmier-API
       iframe: iframe und URL-Navigation
       minexpand: Feste Expansionsebene
       effects: Effekte
@@ -114,28 +204,28 @@ de:
           steps: Mit festen Schritten einrasten
           multiple-vertical: Mehrere Regler
           default: Schieberegler
-          slider-vertical: Vertikaler Regler
           colorpicker: Einfache Farbauswahl
+          slider-vertical: Vertikaler Regler
           range-vertical: Vertikaler Regler mit Bereich
           rangemax: Bereich mit festgesetzten Maximum
           range: Regler mit Bereich
           rangemin: Bereich mit festgesetztem Mininum
         datepicker: 
           alt-field: "Alternatives Feld f\xC3\xBCllen"
-          default: Datumsauswahl
           buttonbar: "Schaltfl\xC3\xA4chen anzeigen"
+          default: Datumsauswahl
           min-max: "Datumsbereich einschr\xC3\xA4nken "
           inline: Eingebettet anzeigen
           icon-trigger: "\xC3\x9Cber Symbol aktivieren"
-          multiple-calendars: Mehrerer Monate anzeigen
           dropdown-month-year: "Monat- & Jahresmen\xC3\xBCs anzeigen"
+          multiple-calendars: Mehrerer Monate anzeigen
           localization: " Kalender lokalisieren"
           date-formats: Datum formatieren
         accordion: 
           default: Akkordeon
           no-auto-height: "Ohne automatische H\xC3\xB6he"
-          fillspace: "Freien Platz f\xC3\xBCllen"
           mouseover: "\xC3\x96ffnen, wenn die Maus dar\xC3\xBCberf\xC3\xA4hrt"
+          fillspace: "Freien Platz f\xC3\xBCllen"
           custom-icons: Symbole anpassen
           collapsible: Inhalt einklappen
         tabs: 
@@ -162,8 +252,8 @@ de:
         default: Interaktionen
         draggable: 
           visual-feedback: Visuelles Feedback
-          snap-to: In Element oder Gitter einrasten
           handle: Position des Griffs
+          snap-to: In Element oder Gitter einrasten
           default: Ziehbar
           scroll: Autoscrollen
           revert: "Zur Position zur\xC3\xBCckkehren"
@@ -191,8 +281,8 @@ de:
           accepted-elements: Akzeptierte Elemente
         sortable: 
           items: "Elemente ein- / ausschlie\xC3\x9Fen"
-          placeholder: "Platzhalter f\xC3\xBCr den Abwurf"
           default: Sortierbar
+          placeholder: "Platzhalter f\xC3\xBCr den Abwurf"
           connect-lists-through-tabs: "Listen \xC3\xBCber Reiter verbinden"
           delay-start: "Start verz\xC3\xB6gern"
           portlets: Portlets
@@ -209,10 +299,10 @@ de:
           default: Klasse wechseln
         animate: 
           default: Animieren
-        remove_class: 
-          default: Klasse entfernen
         show: 
           default: Zeigen
+        remove_class: 
+          default: Klasse entfernen
         add_class: 
           default: "Klasse hinzuf\xC3\xBCgen"
         toggle: 
@@ -234,27 +324,27 @@ de:
       less_than_x_minutes: 
         one: weniger als einer Minute
         other: weniger als {{count}} Minuten
-      almost_x_years: 
-        one: ""
-        other: ""
       x_days: 
         one: 1 Tag
         other: "{{count}} Tage"
-      x_minutes: 
-        one: 1 Minute
-        other: "{{count}} Minuten"
+      almost_x_years: 
+        one: ""
+        other: ""
       x_seconds: 
         one: 1 Sekunde
         other: "{{count}} Sekunden"
-      x_months: 
-        one: 1 Monat
-        other: "{{count}} Monate"
+      x_minutes: 
+        one: 1 Minute
+        other: "{{count}} Minuten"
       about_x_hours: 
         one: ca. 1 Stunde
         other: ca. {{count}} Stunden
       less_than_x_seconds: 
         one: weniger als 1 Sekunde
         other: weniger als {{count}} Sekunden
+      x_months: 
+        one: 1 Monat
+        other: "{{count}} Monate"
       about_x_months: 
         one: ca. 1 Monat
         other: ca. {{count}} Monate
