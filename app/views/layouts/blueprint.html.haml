@@ -5,8 +5,6 @@
     %link{:rel=>"shortcut icon", :href=>"/favicon.ico", :type=>"image/ico"}
     %link{:rel=>"shortcut icon", :href=>"/favicon.ico"}
     %meta{ :content => "text/html;charset=UTF-8", "http-equiv" => "content-type" }
-    %title
-      = @browser_title || 'Default Browser Title'
 
     = stylesheet_link_tag 'compiled/screen.blueprint.css', :media => 'screen, projection'
     = stylesheet_link_tag 'compiled/print.css', :media => 'print'
@@ -15,11 +13,10 @@
 
     = stylesheet_link_tag "compiled/jquery.ui/#{Theme.current}.css", :media => 'screen, projection'
     = stylesheet_link_tag 'compiled/jquery.ui/dynatree.vista.css', :media => 'screen, projection'
-    = stylesheet_link_tag 'demos.css', :media => 'screen, projection'
 
     = javascript_include_tag :jquery_132
     = javascript_include_tag :jrails
-    = raw jrails_javascripts I18n.locale
+    = raw jrails_javascripts(I18n.locale)
     = javascript_include_tag :dynatree
 
     = javascript_include_tag 'locales'
@@ -27,15 +24,13 @@
     = javascript_include_tag 'application'
     = javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery?
 
-    = render(:partial => @jquery_partial, :format => :js) if @jquery_partial
-
   %body{body_attributes}
     .container
       = render :partial => "layouts/header.blueprint"
-      = render :partial => "layouts/navigation.blueprint"
+      = render :partial => "layouts/navigation.blueprint"  
       #content
-        .ui-widget-content.ui-corner-all{ :style => "background: none" }
-          %p{ :style => "color: green" }
-            = flash[:notice]
-          = yield
-      = render :partial => "layouts/footer.blueprint"
+        .ui-widget-content.ui-corner-all{ :style => "background: none" }       
+          %iframe{ :name => "contentFrame", :src => "welcome/hello", :marginwidth => "0", :frameborder => "0", :height => 700, :width => "100%", :marginheight => "0" }
+            %p
+              Your browser does not support iframes
+        = render :partial => "layouts/footer.blueprint"

@@ -37,22 +37,21 @@
 
 =footer
 #footer
+  :padding 0.5em
   #legalese
-    +column(20)
-  #footer-links
-    +column(3,true)
 
 =content
 #content
   :padding 0.6em 0em 0em 0em
 
 =two-column(!header, !left, !center, !footer)
-  #{!header}, #{!footer}
+  #{!header}
     +column(24)
   #{!left}
-    +column(6)
+    +column(5)
     +navigation
   #{!center}
-    +column(17)
+    +column(18)
     +content
-    +footer
+    #{!footer}
+      +footer

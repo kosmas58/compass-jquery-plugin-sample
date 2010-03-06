@@ -42,11 +42,11 @@ jQuery(document).ready(function() {
     persist: true,
     selectMode: 2,
     imagePath: "/images/jquery.ui/dynatree.vista/", // Image folder used for data.icon attribute.
-    onClick: function(dtnode) {
+    onActivate: function(dtnode) {
+      // Use our custom attribute to load the new target content:
       if( dtnode.data.url )
-        window.location.href=(dtnode.data.url);
-        //window.open(dtnode.data.url);
-    },
+        $("[name=contentFrame]").attr("src", dtnode.data.url);
+    },		
     onDblClick: function(dtnode, event){
       logMsg("onDblClick(%o, %o)", dtnode, event);
       dtnode.toggleExpand();

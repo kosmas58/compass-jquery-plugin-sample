@@ -124,6 +124,8 @@ en:
     layout: 
       language: Language
       theme: Theme
+      footer:
+        legalese: Copyright &copy 2009-2010 Kosmas Schuetz. See LICENSE for details.
     dt:
       name: Dynatree
       quick: Init from JS object

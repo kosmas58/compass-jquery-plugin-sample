@@ -312,6 +312,8 @@ de:
     layout: 
       theme: Thema
       language: Sprache
+      footer:
+        legalese: Copyright &copy; 2009-2010 Kosmas Schütz. Näheres finden Sie unter LICENSE.
   support: 
     array: 
       words_connector: ""
