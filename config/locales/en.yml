@@ -6,6 +6,7 @@ en:
         taken: has already been taken
         accepted: must be accepted
         not_a_number: is not a number
+        record_invalid: "Validation failed: {{errors}}"
         greater_than_or_equal_to: must be greater than or equal to {{count}}
         blank: can't be blank
         less_than_or_equal_to: must be less than or equal to {{count}}
@@ -27,12 +28,59 @@ en:
         header: 
           one: 1 error prohibited this {{model}} from being saved
           other: "{{count}} errors prohibited this {{model}} from being saved"
+      full_messages: 
+        format: "{{attribute}} {{message}}"
+    attributes: 
+      user: 
+        pseudo: Pseudonym
+        role: Role
+        firstname: First name
+        lastname: Last name
+        email: Email
+      invheader: 
+        tax: Tax
+        total: Total
+        client_id: Client ID
+        ship_via: Ship via
+        closed: Closed
+        amount: Amount
+        note: Note
+        invdate: Date
+      player: 
+        pseudo: Pseudonym
+        role: Role
+        firstname: First name
+        lastname: Last name
+        email: Email
+      account: 
+        name: Name
+        debit: debit
+        credit: Credit
+        lft: lft
+        level: Level
+        acc_num: Account No.
+        rgt: rgt
+        parent_id: Parent ID
+        balance: Balance
+      client: 
+        name: Name
+      item: 
+        cd: CD
+        item: Item
+      pet: 
+        name: Name
+      invline: 
+        qty: Quantity
+        unit: Unit
+        id: ID
+        num: Number
+        item: Item
   time: 
     am: am
     formats: 
       default: "%a, %d %b %Y %H:%M:%S %z"
-      long: "%B %d, %Y %H:%M"
       short: "%d %b %H:%M"
+      long: "%B %d, %Y %H:%M"
     pm: pm
   number: 
     format: 
@@ -81,8 +129,8 @@ en:
     - Sat
     formats: 
       default: "%Y-%m-%d"
-      long: "%B %d, %Y"
       short: "%b %d"
+      long: "%B %d, %Y"
     month_names: 
     - 
     - January
@@ -120,261 +168,263 @@ en:
     - Nov
     - Dec
   txt: 
-    hello: Hello world
-    layout: 
-      language: Language
-      theme: Theme
-      footer:
-        legalese: Copyright &copy 2009-2010 Kosmas Schuetz. See LICENSE for details.
-    dt:
+    jqt: 
+      name: jQTouch (needs a browser with WebKit engine)
+    jqgrid: 
+      simple: 
+        name: Simple Data Grids
+        default: default functionality
+        master: with master details
+        selection: with selection link and search disabled
+        direct: with direct selection and autowidth
+        multiple: with multiple selections + row numbers
+      name: jqGrid
+      manipulation: 
+        name: Data manipulation
+        modal: with modal editing
+        inline: with inline editing
+        datepicker: with datepicker for lastname
+        input: with various input types
+      demo: 
+        sortable: View sortable columns
+        big_sets: Search Big Sets
+        events: Using Events
+        row: Row Editing
+        multi: Multi Select
+        post_data: Post Data
+        chooser: Column Chooser
+        integrations: Integrations
+        hide: Hide/Show Columns
+        v31: New in version 3.1
+        delete_row: Delete row
+        ajax: Ajax Improvements
+        json_subgrid: Subgrid with JSON
+        initial: Initial hidden grid
+        v32: New in version 3.2
+        basic: Basic Example
+        after_load: After Load Callback
+        tscroll: True scrolling Rows
+        srows: Sortable Rows
+        master: Master Detail
+        toolbar: Toolbars and userdata
+        tree: Tree Grid
+        xml_map: XML Mapping
+        set: Set Methods
+        v33: New in version 3.3
+        loading: Loading Data
+        mapping: Data Mapping
+        cbutton: Custom Button and Forms
+        v34: New in version 3.4
+        format: Formatter
+        html: HTML Table to Grid
+        v35: New in version 3.5
+        json_data: JSON Data
+        rdnd: Drag and Drop Rows
+        stoolbar: Integrated Search Toolbar
+        mtoolbar: Multiple Toolbar Search
+        v36: New in version 3.6
+        cinput: Create Custom input element
+        reordering: Column Reordering
+        autoscroll: Autoloading data when scroll
+        view: Grid view mode
+        function: Data type as function
+        scroll: Scroll with dynamic row select
+        validation: Custom Validation
+        as_subgrid: Grid as Subgrid
+        cedit: Custom Edit
+        name: Demo
+        visible: Visible Columns
+        get: Get Methods
+        xml_data: XML Data
+        navigation: Form Navigation
+        import: Import Configuration from XML
+        full: Full Control
+        edit_row: Edit row
+        client: Client Validation
+        number: Autowidth and row numbering
+        summary: Summary Footer Row
+        mform: Multiple Form Search
+        resizing: Resizing Grid
+        cmulti: Custom Multi Select
+        adjacency: Tree Grid Adjacency model
+        real: TreeGrid real world example
+        new_methods: New Methods
+        cell: Cell Editing
+        searching: Searching Data
+        datepicker: UI Datepicker
+        advanced: Advanced
+        cformat: Custom Formatter
+        dynamic: Dynamic height and width
+        rtl: RTL Support
+        api: New API
+        insert: After Insert Row event
+        once: Load once
+        server_errors: Controlling server errors
+        array: Array Data
+        live: Live Data Manipulation
+        json_map: JSON Mapping
+        manipulating: Manipulating
+        resizable: Resizable Columns
+        add_row: Add row
+        improvements: Form Improvements
+        types: Input types
+        subgrid: Subgrid
+        data: Grid Data
+        cparams: Common Params
+        b30: New since beta 3.0
+        optimize: Data Optimization
+        asearch: Advanced Searching
+        navigator: Navigator
+      subgrids: 
+        name: Subgrids
+        default: default functionality
+        selection: with selection
+        crud: with CRUD operations
+      improvements: 
+        name: Form improvements
+    dt: 
       name: Dynatree
-      quick: Init from JS object
       ul: Init from ul element
       default: Default options
-      api: Programming API
-      select: Checkbox & select
-      theming: Theming
-      persist: Persistence
-      events: Event handling
-      effects: Effects
-      dnd: Drag'n'drop
-      contextmenu: Context menu, Copy/paste
-      minexpand: Fixed expand level
       lazy: Lazy loading
-      iframe: iframe and url navigation    
-    ui:
+      quick: Init from JS object
+      persist: Persistence
+      dnd: Drag'n'drop
+      iframe: iframe and url navigation
+      api: Programming API
+      minexpand: Fixed expand level
+      effects: Effects
+      contextmenu: Context menu, Copy/paste
+      events: Event handling
+      theming: Theming
+      select: Checkbox & select
+    hello: Hello world
+    ui: 
       name: jQuery UI
       default: Default functionality
-      interactions:
-        default: Interactions
-        draggable: 
-          default: Draggable      
-          events: Events
-          constrain-movement: Constrain movement
-          delay-start: Delay start
-          snap-to: Snap to element or grid
-          scroll: Auto-scroll
-          revert: Revert position
-          visual-feedback: Visual feedback
-          handle: Drag handle
-          cursor-style: Cursor style
-          sortable: Draggable + Sortable   
-        droppable: 
-          default: Droppable
-          accepted-elements: Accepted elements
-          propagation: Prevent propagation
-          visual-feedback: Visual feedback
-          revert: Revert draggable position
-          photo-manager: Simple photo manager
-        resizable: 
-          default: Resizable
-          aspect-ratio: Preserve aspect ratio
-          max-min: Maximum / minimum size
-          constrain-area: Constrain resize area
-          delay-start: Delay start
-          snap-to-grid: Snap to grid
-          visual-feedback: Visual feedback
-          synchronous-resize: Synchronous resize
-          animate: Animate
-        selectable: 
-          default: Selectable
-          serialize: Serialize
-          display-grid: Display as grid
-        sortable: 
-          default: Sortable
-          placeholder: Drop placeholder
-          connect-lists: Connect lists
-          connect-lists-through-tabs: Connect lists through tabs
-          empty-lists: Handle empty lists
-          items: Include / exclude items
-          delay-start: Delay start
-          display-grid: Display as grid
-          portlets: Portlets
-      widgets:
+      widgets: 
         default: Widgets
-        accordion: 
-          default: Accordion
-          fillspace: Fill space
-          no-auto-height: No auto height
-          collapsible: Collapse content
-          mouseover: Open on mouseover
-          custom-icons: Customize icons          
+        slider: 
+          steps: Snap to increments
+          default: Slider
+          multiple-vertical: Multiple sliders
+          colorpicker: Simple colorpicker
+          slider-vertical: Vertical slider
+          range-vertical: Vertical range slider
+          range: Range slider
+          rangemax: Range with fixed maximum
+          rangemin: Range with fixed minimum
         datepicker: 
-          default: Datepicker
-          date-formats: Format date
-          min-max: Restrict date range
-          localization: Localize calendar
           alt-field: Populate alternate field
-          inline: Display inline
           buttonbar: Display button bar
+          default: Datepicker
+          min-max: Restrict date range
+          inline: Display inline
+          icon-trigger: Icon trigger
           dropdown-month-year: Display month &amp; year menus
           multiple-calendars: Display multiple months
-          icon-trigger: Icon trigger
+          localization: Localize calendar
+          date-formats: Format date
         dialog: 
           default: Dialog
           modal: Modal dialog
-          modal-message: Modal message
           modal-confirmation: Modal confirmation
+          modal-message: Modal message
           modal-form: Modal form
+        accordion: 
+          default: Accordion
+          no-auto-height: No auto height
+          mouseover: Open on mouseover
+          fillspace: Fill space
+          custom-icons: Customize icons
+          collapsible: Collapse content
+        tabs: 
+          default: Tabs
+          ajax: Content via Ajax
+          sortable: Sortable
+          mouseover: Open on mouseover
+          collapsible: Collapse content
         progressbar: 
           default: Progressbar
           resize: Resizable progressbar
           animated: Animated
-        slider: 
-          default: Slider
-          steps: Snap to increments
-          range: Range slider
-          rangemin: Range with fixed minimum
-          rangemax: Range with fixed maximum
-          slider-vertical: Vertical slider
-          range-vertical: Vertical range slider
-          multiple-vertical: Multiple sliders
-          colorpicker: Simple colorpicker
-        tabs: 
-          default: Tabs
-          ajax: Content via Ajax
-          mouseover: Open on mouseover
-          collapsible: Collapse content
-          sortable: Sortable
-      effects:
+      interactions: 
+        selectable: 
+          serialize: Serialize
+          default: Selectable
+          display-grid: Display as grid
+        default: Interactions
+        draggable: 
+          visual-feedback: Visual feedback
+          handle: Drag handle
+          snap-to: "Snap to element or\xC2\xA0grid"
+          default: Draggable
+          scroll: Auto-scroll
+          revert: Revert position
+          constrain-movement: Constrain movement
+          sortable: Draggable + Sortable
+          delay-start: Delay start
+          events: Events
+          cursor-style: Cursor style
+        resizable: 
+          aspect-ratio: Preserve aspect ratio
+          visual-feedback: Visual feedback
+          default: Resizable
+          max-min: Maximum / minimum size
+          snap-to-grid: Snap to grid
+          animate: Animate
+          synchronous-resize: Synchronous resize
+          delay-start: Delay start
+          constrain-area: Constrain resize area
+        droppable: 
+          visual-feedback: Visual feedback
+          default: Droppable
+          revert: Revert draggable position
+          propagation: Prevent propagation
+          accepted-elements: Accepted elements
+          photo-manager: Simple photo manager
+        sortable: 
+          items: Include / exclude items
+          placeholder: Drop placeholder
+          default: Sortable
+          connect-lists-through-tabs: Connect lists through tabs
+          delay-start: Delay start
+          connect-lists: Connect lists
+          portlets: Portlets
+          empty-lists: Handle empty lists
+          display-grid: Display as grid
+      effects: 
         default: Effects
-        add_class: 
-          default: Add Class
-        remove_class: 
-          default: Remove Class
-        switch_class: 
-          default: Switch Class
-        toggle_class: 
-          default: Toggle Class
-        show: 
-          default: Show
         hide: 
           default: Hide
-        toggle: 
-          default: Toggle
+        toggle_class: 
+          default: Toggle Class
+        switch_class: 
+          default: Switch Class
         animate: 
           default: Animate
+        show: 
+          default: Show
+        remove_class: 
+          default: Remove Class
+        add_class: 
+          default: Add Class
+        toggle: 
+          default: Toggle
         effect: 
           default: Effect
-    jqgrid:
-      name: jqGrid
-      demo:
-        name: Demo
-        loading: Loading Data
-        xml_data: XML Data
-        json_data: JSON Data
-        once: Load once
-        array: Array Data
-        manipulating: Manipulating
-        data: Grid Data
-        get: Get Methods
-        set: Set Methods
-        advanced: Advanced
-        multi: Multi Select
-        master: Master Detail
-        subgrid: Subgrid
-        as_subgrid: Grid as Subgrid
-        resizing: Resizing Grid
-        big_sets: Search Big Sets
-        b30: New since beta 3.0
-        cmulti: Custom Multi Select
-        json_subgrid: Subgrid with JSON
-        after_load: After Load Callback
-        resizable: Resizable Columns
-        hide: Hide/Show Columns
-        row: Row Editing
-        basic: Basic Example
-        cedit: Custom Edit
-        events: Using Events
-        full: Full Control
-        types: Input types
-        mapping: Data Mapping
-        xml_map: XML Mapping
-        json_map: JSON Mapping
-        optimize: Data Optimization
-        integrations: Integrations
-        datepicker: UI Datepicker
-        live: Live Data Manipulation
-        searching: Searching Data
-        edit_row: Edit row
-        add_row: Add row
-        delete_row: Delete row
-        navigator: Navigator
-        v31: New in version 3.1
-        toolbar: Toolbars and userdata
-        new_methods: New Methods
-        post_data: Post Data
-        cparams: Common Params
-        v32: New in version 3.2
-        initial: Initial hidden grid
-        insert: After Insert Row event
-        server_errors: Controlling server errors
-        cbutton: Custom Button and Forms
-        client: Client Validation
-        v33: New in version 3.3
-        dynamic: Dynamic height and width
-        tree: Tree Grid
-        cell: Cell Editing
-        visible: Visible Columns
-        html: HTML Table to Grid
-        mtoolbar: Multiple Toolbar Search
-        mform: Multiple Form Search
-        function: Data type as function
-        rdnd:  Drag and Drop Rows
-        v34: New in version 3.4
-        format: Formatter
-        cformat: Custom Formatter
-        import: Import Configuration from XML
-        autoscroll: Autoloading data when scroll
-        scroll: Scroll with dynamic row select
-        adjacency: Tree Grid Adjacency model
-        v35: New in version 3.5
-        number: Autowidth and row numbering
-        view: Grid view mode
-        stoolbar: Integrated Search Toolbar
-        asearch: Advanced Searching
-        improvements: Form Improvements
-        real: TreeGrid real world example
-        navigation: Form Navigation
-        summary: Summary Footer Row
-        sortable: View sortable columns
-        v36: New in version 3.6
-        api: New API
-        rtl: RTL Support
-        reordering: Column Reordering
-        chooser: Column Chooser
-        validation: Custom Validation
-        cinput: Create Custom input element
-        ajax: Ajax Improvements
-        tscroll: True scrolling Rows
-        srows: Sortable Rows
-      simple:
-        name: Simple Data Grids
-        default: default functionality
-        selection: with selection link and search disabled
-        direct: with direct selection and autowidth
-        multiple: with multiple selections + row numbers
-        master: with master details
-      manipulation:
-        name: Data manipulation
-        inline: with inline editing
-        modal: with modal editing
-        input: with various input types
-        datepicker: with datepicker for lastname
-      subgrids:
-        name: Subgrids
-        default: default functionality
-        crud: with CRUD operations
-        selection: with selection
-      improvements:
-        name: Form improvements
-    jqt: 
-      name: jQTouch (needs a browser with WebKit engine)
+    layout: 
+      theme: Theme
+      language: Language
+      footer: 
+        legalese: Copyright &copy 2009-2010 Kosmas Schuetz. See LICENSE for details.
   support: 
     array: 
       words_connector: ", "
       last_word_connector: ", and "
       two_words_connector: " and "
+    select: 
+      prompt: Please select
   datetime: 
     distance_in_words: 
       less_than_x_minutes: 
@@ -383,21 +433,24 @@ en:
       x_days: 
         one: 1 day
         other: "{{count}} days"
-      x_minutes: 
-        one: 1 minute
-        other: "{{count}} minutes"
+      almost_x_years: 
+        one: almost 1 year
+        other: almost {{count}} years
       x_seconds: 
         one: 1 second
         other: "{{count}} seconds"
+      x_minutes: 
+        one: 1 minute
+        other: "{{count}} minutes"
+      about_x_hours: 
+        one: about 1 hour
+        other: about {{count}} hours
       less_than_x_seconds: 
         one: less than 1 second
         other: less than {{count}} seconds
       x_months: 
         one: 1 month
         other: "{{count}} months"
-      about_x_hours: 
-        one: about 1 hour
-        other: about {{count}} hours
       about_x_months: 
         one: about 1 month
         other: about {{count}} months

@@ -1,8 +1,8 @@
 --- 
 activerecord: 
-  errors: 
-    full_messages: 
-      format: "{{attribute}} {{message}}"
+  attributes: 
+    invheader: 
+      invdate: Invdate
 number: 
   format: 
     separator: .

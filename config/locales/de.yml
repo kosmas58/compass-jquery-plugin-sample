@@ -30,6 +30,51 @@ de:
           other: "{{count}} Fehler verhinderte, dass {{model}} gespeichert wurde"
       full_messages: 
         format: ""
+    attributes: 
+      user: 
+        pseudo: Pseudonym
+        role: Rolle
+        firstname: Vorname
+        lastname: Nachname
+        email: E-Mail
+      invheader: 
+        tax: MwSt.
+        total: Summe
+        client_id: Kundennr.
+        ship_via: "Versenden \xC3\xBCber"
+        closed: Geschlossen
+        amount: Betrag
+        note: Hinweis
+        invdate: Datum
+      player: 
+        pseudo: Pseudonym
+        role: Rolle
+        firstname: Vorname
+        lastname: Nachname
+        email: E-Mail
+      account: 
+        name: Name
+        debit: Soll
+        credit: Haben
+        lft: lft
+        level: Level
+        acc_num: Kontonr.
+        rgt: rgt
+        parent_id: Eltern ID
+        balance: Kontostand
+      client: 
+        name: Name
+      item: 
+        cd: CD
+        item: Element
+      pet: 
+        name: Name
+      invline: 
+        qty: Menge
+        unit: Mengeneinheit
+        id: ID
+        num: Anzahl
+        item: Element
   time: 
     am: ""
     formats: 
@@ -72,8 +117,8 @@ de:
         default: "Standardfunktionalit\xC3\xA4t"
         master: mit Haupt- und Detailsicht
         selection: mit Auswahllink und Suche deaktiviert
-        multiple: mit Mehrfachauswahl + Zeilennummern
         direct: mit direkter Auswahl und automatischer Weite
+        multiple: mit Mehrfachauswahl + Zeilennummern
       name: jqGrid
       manipulation: 
         name: Datenmanipulation
@@ -87,88 +132,88 @@ de:
         events: Ereignisse nutzen
         row: "Zeilen \xC3\xA4ndern"
         multi: Mehrfachauswahl
+        post_data: Post Data
         chooser: Spaltenauswahl
         integrations: Integrationen
-        post_data: Post Data
         hide: Spalten anzeigen/verbergen
         v31: Neu in Version 3.1
         delete_row: "Zeile l\xC3\xB6schen"
         ajax: Ajax-Verbesserungen
-        tscroll: Echte scrollende Zeilen
+        json_subgrid: Untergitter mit JSON
         initial: "Zun\xC3\xA4chst verstecktes Gitter"
         v32: Neu in Version 3.2
-        json_subgrid: Untergitter mit JSON
         basic: Einfaches Beispiel
         after_load: Callback nach dem Laden
-        v33: Neu in Version 3.3
-        xml_map: XML-Mapping
+        tscroll: Echte scrollende Zeilen
+        srows: Sortierbare Zeilen
+        master: Haupt- und Detailsicht
         toolbar: Symbolleisten und Benutzerdaten
         tree: Baumgitter
+        xml_map: XML-Mapping
         set: Set-Methoden
-        master: Haupt- und Detailsicht
-        srows: Sortierbare Zeilen
+        v33: Neu in Version 3.3
         loading: Laden von Daten
         mapping: Daten-Mapping
         cbutton: "Angepasste Schaltfl\xC3\xA4chen und Formulare"
-        format: Formatierer
         v34: Neu in Version 3.4
+        format: Formatierer
         html: Gitter aus HTML-Tabelle
-        json_data: JSON-Daten
         v35: Neu in Version 3.5
-        stoolbar: Integrierte Suchleiste
-        v36: Neu in Version 3.6
-        mtoolbar: Mehrfache Symbolleistensuche
+        json_data: JSON-Daten
         rdnd: Drag and Drop von Zeilen
-        reordering: Neuanordnung von Spalten
+        stoolbar: Integrierte Suchleiste
+        mtoolbar: Mehrfache Symbolleistensuche
+        v36: Neu in Version 3.6
         cinput: Benutzerdefiniertes Eingabeelement erstellen
+        reordering: Neuanordnung von Spalten
         autoscroll: Das automatische Laden von Daten beim Scrollen
         view: Modus Gitteransicht
         function: Datentyp als Funktion
         scroll: Scrollen mit dynamischen Zeilenauswahl
-        as_subgrid: Gitter als Untergitter
         validation: Angepasste Validierung
+        as_subgrid: Gitter als Untergitter
         cedit: "Angepasstes \xC3\x84ndern"
         name: Demo
         visible: Sichtbare Spalten
         get: Get-Methoden
+        xml_data: XML-Daten
         navigation: Formularnavigation
         import: Konfiguration aus XML importieren
         full: Vollzugriff
         edit_row: "Zeile \xC3\xA4ndern"
         client: Clientseitige Validierung
         number: Automatische Breite und Reihennummerierung
-        xml_data: XML-Daten
-        mform: Mehrfache Formularsuche
         summary: "Zusammenfassung in der Fu\xC3\x9Fzeile"
+        mform: Mehrfache Formularsuche
         resizing: "Gitter vergr\xC3\xB6\xC3\x9Fern"
         cmulti: Angepasste Mehrfachauswahl
         adjacency: Baumgitter mit Adjazenzliste
         real: "Reales Beispiel eines Baumgitters "
         new_methods: Neue Methoden
-        cformat: Angepasster Formatierer
-        searching: Daten suchen
-        advanced: Fortgeschritten
-        datepicker: Datumsauswahl
         cell: "Zellen \xC3\xA4ndern"
+        searching: Daten suchen
+        datepicker: Datumsauswahl
+        advanced: Fortgeschritten
+        cformat: Angepasster Formatierer
         dynamic: "Dynamische H\xC3\xB6he und Breite"
         rtl: "RNL-Unterst\xC3\xBCtzung"
         api: Neues API
         insert: "Ereignis nach Einf\xC3\xBCgen einer Zeile"
         once: Einmaliges Laden
-        live: Live Datenmanipulation
+        server_errors: Server-Fehler kontrollieren
         array: Daten aus einer Matrix
+        live: Live Datenmanipulation
         json_map: JSON-Mapping
         manipulating: Manipulation
-        server_errors: "Server-Fehler kontrollieren"
+        resizable: "Vergr\xC3\xB6\xC3\x9Ferbare Spalten"
         add_row: "Zeile hinzuf\xC3\xBCgen"
         improvements: Formverbesserungen
-        resizable: "Vergr\xC3\xB6\xC3\x9Ferbare Spalten"
-        cparams: "Gebr\xC3\xA4uchliche Parameter"
         types: Eingabetypen
-        optimize: Datenoptimierung
-        data: Gitterdaten
-        b30: Neu seit Beta 3.0
         subgrid: Untergitter
+        data: Gitterdaten
+        cparams: "Gebr\xC3\xA4uchliche Parameter"
+        b30: Neu seit Beta 3.0
+        optimize: Datenoptimierung
         asearch: Erweiterte Suche
         navigator: Navigator
       subgrids: 
@@ -183,17 +228,17 @@ de:
       ul: Aus ul-Element initialisieren
       default: Standardeinstellungen
       lazy: Lazy
-      persist: Persistenz
       quick: JS-Objekt initialisieren
+      persist: Persistenz
       dnd: Ziehen und Abwerfen
-      api: Programmier-API
       iframe: iframe und URL-Navigation
+      api: Programmier-API
       minexpand: Feste Expansionsebene
       effects: Effekte
       contextmenu: "Kontextmen\xC3\xBC,  Kopieren / Einf\xC3\xBCgen"
       events: Ergeignisverarbeitung
-      select: "K\xC3\xA4stchen & Auswahl"
       theming: Themen
+      select: "K\xC3\xA4stchen & Auswahl"
     hello: Hallo Welt
     ui: 
       name: jQquery UI
@@ -202,13 +247,13 @@ de:
         default: Widgets
         slider: 
           steps: Mit festen Schritten einrasten
-          multiple-vertical: Mehrere Regler
           default: Schieberegler
+          multiple-vertical: Mehrere Regler
           colorpicker: Einfache Farbauswahl
           slider-vertical: Vertikaler Regler
           range-vertical: Vertikaler Regler mit Bereich
-          rangemax: Bereich mit festgesetzten Maximum
           range: Regler mit Bereich
+          rangemax: Bereich mit festgesetzten Maximum
           rangemin: Bereich mit festgesetztem Mininum
         datepicker: 
           alt-field: "Alternatives Feld f\xC3\xBCllen"
@@ -221,6 +266,12 @@ de:
           multiple-calendars: Mehrerer Monate anzeigen
           localization: " Kalender lokalisieren"
           date-formats: Datum formatieren
+        dialog: 
+          default: Dialog
+          modal: Modaler Dialog
+          modal-confirmation: "Modale Best\xC3\xA4tigung"
+          modal-message: Modale Nachricht
+          modal-form: Modale Form
         accordion: 
           default: Akkordeon
           no-auto-height: "Ohne automatische H\xC3\xB6he"
@@ -234,12 +285,6 @@ de:
           sortable: Sortierbar
           mouseover: "\xC3\x96ffnen, wenn die Maus dar\xC3\xBCberf\xC3\xA4hrt"
           collapsible: Inhalt wegklappen
-        dialog: 
-          default: Dialog
-          modal: Modaler Dialog
-          modal-confirmation: "Modale Best\xC3\xA4tigung"
-          modal-message: Modale Nachricht
-          modal-form: Modale Form
         progressbar: 
           default: Fortschrittsbalken
           resize: "Vergr\xC3\xB6\xC3\x9Ferbarer Fortschrittsbalken"
@@ -277,16 +322,16 @@ de:
           default: Abwerfbar
           revert: "R\xC3\xBCckkehr zur  Position"
           propagation: Weitergabe verhindern
-          photo-manager: Einfacher Photomanager
           accepted-elements: Akzeptierte Elemente
+          photo-manager: Einfacher Photomanager
         sortable: 
           items: "Elemente ein- / ausschlie\xC3\x9Fen"
-          default: Sortierbar
           placeholder: "Platzhalter f\xC3\xBCr den Abwurf"
+          default: Sortierbar
           connect-lists-through-tabs: "Listen \xC3\xBCber Reiter verbinden"
           delay-start: "Start verz\xC3\xB6gern"
-          portlets: Portlets
           connect-lists: Listen verbinden
+          portlets: Portlets
           empty-lists: Leere Listen handhaben
           display-grid: Als Gitter anzeigen
       effects: 
@@ -312,8 +357,8 @@ de:
     layout: 
       theme: Thema
       language: Sprache
-      footer:
-        legalese: Copyright &copy; 2009-2010 Kosmas Schütz. Näheres finden Sie unter LICENSE.
+      footer: 
+        legalese: "Copyright &copy; 2009-2010 Kosmas Sch\xC3\xBCtz. N\xC3\xA4heres finden Sie unter LICENSE."
   support: 
     array: 
       words_connector: ""

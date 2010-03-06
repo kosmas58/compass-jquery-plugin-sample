@@ -42,7 +42,10 @@ jQuery(document).ready(function() {
     persist: true,
     selectMode: 2,
     imagePath: "/images/jquery.ui/dynatree.vista/", // Image folder used for data.icon attribute.
-    onActivate: function(dtnode) {
+    onPostInit: function(isReloading, isError) {
+      this.reactivate();
+    },
+		onActivate: function(dtnode) {
       // Use our custom attribute to load the new target content:
       if( dtnode.data.url )
         $("[name=contentFrame]").attr("src", dtnode.data.url);
