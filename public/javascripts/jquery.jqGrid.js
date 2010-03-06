@@ -150,7 +150,7 @@ $.fn.jqGrid = function( pin ) {
 			treeANode : -1,
 			ExpandColumn: null,
 			tree_root_level : 0,
-			prmNames: {page:"page",rows:"rows", sort: "sidx",order: "sord", search:"_search", nd:"nd", id:"id",oper:"oper",editoper:"edit",addoper:"add",deloper:"del"},
+			prmNames: {page:"page",rows:"rows", sort: "sidx",order: "sord", search:"_search", nd:"nd", id:"id",oper:"oper",editoper:"edit",addoper:"add",deloper:"del", subgridid:"id"},
 			forceFit : false,
 			gridstate : "visible",
 			cellEdit: false,
@@ -3143,7 +3143,7 @@ function createEl(eltype,options,vl,autowidth, ajaxso) {
 							setTimeout(function(){
 								jQuery("option",elem).each(function(i){
 									if(i==0) this.selected = "";
-									if(jQuery.inArray(jQuery.trim(jQuery(this).text()),ovm) > -1 || jQuery.inArray(jQuery.trim(jQuery(this).val(),ovm)) > -1 ) {
+									if(jQuery.inArray(jQuery.trim(jQuery(this).text()),ovm) > -1 || jQuery.inArray(jQuery.trim(jQuery(this).val()),ovm) > -1 ) {
 										this.selected= "selected";
 										if(!msl) return false;
 									}
@@ -3517,6 +3517,7 @@ $.jgrid.extend({
             if(state == 'hidden'){
 				$(".ui-jqgrid-bdiv, .ui-jqgrid-hdiv","#gview_"+$t.p.id).slideUp("fast");
 				if($t.p.pager) {$($t.p.pager).slideUp("fast");}
+				if(ts.p.toppager) {$(ts.p.toppager).slideUp("fast");}
 				if($t.p.toolbar[0]===true) {
 					if( $t.p.toolbar[1]=='both') {
 						$($t.grid.ubDiv).slideUp("fast");
@@ -3529,6 +3530,7 @@ $.jgrid.extend({
             } else if(state=='visible') {
 				$(".ui-jqgrid-hdiv, .ui-jqgrid-bdiv","#gview_"+$t.p.id).slideDown("fast");
 				if($t.p.pager) {$($t.p.pager).slideDown("fast");}
+				if(ts.p.toppager) {$(ts.p.toppager).slideDown("fast");}
 				if($t.p.toolbar[0]===true) {
 					if( $t.p.toolbar[1]=='both') {
 						$($t.grid.ubDiv).slideDown("fast");
@@ -7109,7 +7111,7 @@ addSubGrid : function(t,pos) {
 			var res,sid,dp, i, j;
 			sid = $(rd).attr("id");
 			dp = {nd_: (new Date().getTime())};
-			dp[ts.p.idName]=sid;
+			dp[ts.p.prmNames['subgridid']]=sid;
 			if(!ts.p.subGridModel[0]) { return false; }
 			if(ts.p.subGridModel[0].params) {
 				for(j=0; j < ts.p.subGridModel[0].params.length; j++) {
