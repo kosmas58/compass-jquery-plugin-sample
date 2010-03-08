@@ -14,14 +14,15 @@ ActionView::Helpers::PrototypeHelper::JQUERY_VAR = 'jQuery'
 # ActionView::Helpers::PrototypeHelper::DISABLE_JQUERY_FORGERY_PROTECTION = true
 # ====
 
-#ActionView::Helpers::AssetTagHelper::JAVASCRIPT_DEFAULT_SOURCES = ['jquery-1.3.2.min', 'jquery-ui-1.7.2.min', 'jrails.min']
+ActionView::Helpers::AssetTagHelper::JAVASCRIPT_DEFAULT_SOURCES = ['jquery-1.4.2.min', 'jquery-ui-1.8rc3.min', 'jrails.min']
 ActionView::Helpers::AssetTagHelper::reset_javascript_include_default
 
-ActionView::Helpers::AssetTagHelper.register_javascript_expansion :jquery_132 => ['jquery-1.3.2.min', 'jquery-ui-1.7.2.min']
+ActionView::Helpers::AssetTagHelper.register_javascript_expansion :jquery_142 => ['jquery-1.4.2.min', 'jquery-ui-1.8rc3.min']
 ActionView::Helpers::AssetTagHelper.register_javascript_expansion :jrails => ['jrails.min']
 ActionView::Helpers::AssetTagHelper.register_stylesheet_expansion :contextMenu => ['compiled/jquery.ui/contextMenu.css']
 ActionView::Helpers::AssetTagHelper.register_javascript_expansion :contextMenu => ['jquery.contextMenu.min']
 ActionView::Helpers::AssetTagHelper.register_javascript_expansion :pngFix => ['jquery.pngFix.min']
+
 
 require 'jquery/jrails'
 require 'jquery/jquery_selector_assertions' if RAILS_ENV == 'test'
