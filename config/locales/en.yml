@@ -327,9 +327,13 @@ en:
           inline: Display inline
           icon-trigger: Icon trigger
           dropdown-month-year: Display month &amp; year menus
+          other-months: Dates in other months
+          show-week: Show week of the year
           multiple-calendars: Display multiple months
           localization: Localize calendar
           date-formats: Format date
+          animation: Animations
+          event-search: Event Search
         dialog: 
           default: Dialog
           modal: Modal dialog
@@ -343,6 +347,7 @@ en:
           fillspace: Fill space
           custom-icons: Customize icons
           collapsible: Collapse content
+          sortable: Sortable
         tabs: 
           default: Tabs
           ajax: Content via Ajax
@@ -381,6 +386,8 @@ en:
           synchronous-resize: Synchronous resize
           delay-start: Delay start
           constrain-area: Constrain resize area
+          helper: Resize Helper
+          textarea: Textarea
         droppable: 
           visual-feedback: Visual feedback
           default: Droppable

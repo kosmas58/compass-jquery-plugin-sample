@@ -1,0 +1,17 @@
+-@title = "#{t('txt.ui.name')} #{t('txt.ui.interactions.resizable.default')} - #{t('txt.ui.interactions.resizable.helper')}"
+-@jquery_partial = 'helper.js.haml'
+
+.demo
+  %h3
+    =@title
+  #resizable.ui-widget-content
+    %h3.ui-widget-header
+      Animate
+/ End demo
+.demo-description
+  %p
+    Animate the resize action using the
+    %code
+      animate
+    option (boolean). When this option is set to true, drag the outline to the desired location; the element animates to that size on drag stop.
+/ End demo-description
