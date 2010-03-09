@@ -26,17 +26,9 @@ date:
 txt: 
   ui: 
     widgets: 
-      datepicker: 
-        show-week: Show week of the year
-        animation: Animations
-        event-search: Event Search
-        other-months: Dates in other months
-      accordion: 
-        sortable: Sortable
-    interactions: 
-      resizable: 
-        textarea: Textarea
-        helper: Resize Helper
+      tabs: 
+        simple: Simple manipulation
+        below: Tabs below content
 support: 
   array: 
     words_connector: ", "
