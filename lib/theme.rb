@@ -2,7 +2,7 @@ module Theme
   class << self
     # Returns the current default locale. Defaults to :'en'
     def default_theme
-      'ui-lightness'
+      'start'
     end    
          
     def current
