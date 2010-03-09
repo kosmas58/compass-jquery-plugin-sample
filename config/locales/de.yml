@@ -237,7 +237,12 @@ de:
       effects: Effekte
       contextmenu: "Kontextmen\xC3\xBC,  Kopieren / Einf\xC3\xBCgen"
       events: Ergeignisverarbeitung
-      theming: Themen
+      theming:
+        name: Themen
+        xp: XP
+        aero: Aero
+        aqua: Aqua
+        crystal: Crystal
       select: "K\xC3\xA4stchen & Auswahl"
     hello: Hallo Welt
     ui: 

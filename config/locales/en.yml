@@ -296,7 +296,12 @@ en:
       effects: Effects
       contextmenu: Context menu, Copy/paste
       events: Event handling
-      theming: Theming
+      theming: 
+        name: Theming
+        xp: XP
+        aero: Aero
+        aqua: Aqua
+        crystal: Crystal
       select: Checkbox & select
     hello: Hello world
     ui: 

@@ -1,0 +1,58 @@
+-@title = "#{t('txt.dt.name')} - #{t('txt.dt.theming')}"
+-@jquery_partial = 'theming.js.haml'
+-@dynatree_skin = 'dynatree.crystal.css'
+
+.demo
+  %h3
+    =@title
+
+#tree
+  %ul
+    %li
+      Document with some children
+      %ul
+        %li
+          Sub-item 4.1
+        %li
+          Sub-item 4.2
+    %li.folder
+      A folder
+      %ul
+        %li
+          Node 2.1
+        %li
+          Node 2.2
+    %li{ :data => "addClass:'custom1'" }
+      Node with custom class 1
+    %li{ :data => "isFolder: true, addClass:'custom2'" }
+      Folder with custom class 2
+      %ul
+        %li{ :data => "addClass:'custom1'" }
+          Node 4.1 (using custom class 1)
+          %li
+            Node 4.2
+    %li{ :data => "icon: 'customDoc1.gif'" }
+      Node with standard CSS, but custom icon
+    %li{ :data => "isFolder: true, icon: 'folder_docs.gif'" }
+      Folder with standard CSS but custom icon
+      %ul
+        %li
+          Node 4.1
+        %li
+          Node 4.2
+/ End demo
+
+.demo-description
+  %p
+    Includes a custom CSS for a new theming (inspired by Windows Vista).
+    %br
+    Some nodes have their
+    %code
+      data.addClass
+    attribute set.
+    %br
+    Finally, the last two nodes use the
+    %code
+      data.icon
+    attribute.
+/ End demo-description
