@@ -79,17 +79,22 @@
   .ui-accordion-header-active
     border-bottom: 0 !important
 
-  .ui-accordion-header
-    a
-      display: block
-      font-size: 1em
-      padding: .5em .5em .5em 2.2em
+  .ui-accordion-header a
+    display: block
+    font-size: 1em
+    padding: .5em .5em .5em .7em
 
-    .ui-icon
-      position: absolute
-      left: .5em
-      top: 50%
-      margin-top: -8px
+
+.ui-accordion-icons .ui-accordion-header a
+  padding-left: 2.2em
+
+
+.ui-accordion
+  .ui-accordion-header .ui-icon
+    position: absolute
+    left: .5em
+    top: 50%
+    margin-top: -8px
 
   .ui-accordion-content
     padding: 1em 2.2em
@@ -100,9 +105,134 @@
     margin-bottom: 2px
     overflow: auto
     display: none
+    zoom: 1
 
   .ui-accordion-content-active
     display: block
+
+
+.ui-autocomplete
+  position: absolute
+  cursor: default
+
+
+.ui-autocomplete-loading
+  background: white url('images/ui-anim_basic_16x16.gif') right center no-repeat
+
+
+* html .ui-autocomplete
+  width: 1px
+
+
+.ui-menu
+  list-style: none
+  padding: 2px
+  margin: 0
+  display: block
+
+  .ui-menu
+    margin-top: -3px
+
+  .ui-menu-item
+    margin: 0
+    padding: 0
+    width: 100%
+
+    a
+      text-decoration: none
+      display: block
+      padding: .2em .4em
+      line-height: 1.5
+
+      &.ui-state-hover, &.ui-state-active
+        margin: -1px
+
+
+.ui-button
+  display: inline-block
+  position: relative
+  padding: 0
+  margin-right: .1em
+  text-decoration: none !important
+  cursor: pointer
+  text-align: center
+  zoom: 1
+  overflow: visible
+
+
+.ui-button-icon-only
+  width: 2.2em
+
+
+button.ui-button-icon-only
+  width: 2.4em
+
+
+.ui-button-icons-only
+  width: 3em
+
+
+button.ui-button-icons-only
+  width: 3.2em
+
+
+.ui-button .ui-button-text
+  display: block
+  line-height: 1.4
+
+
+.ui-button-text-only .ui-button-text
+  padding: .4em 1em
+
+
+.ui-button-icon-only .ui-button-text, .ui-button-icons-only .ui-button-text
+  padding: .4em
+  text-indent: -9999999px
+
+
+.ui-button-text-icon .ui-button-text
+  padding: .4em 1em .4em 1.8em
+
+
+.ui-button-text-icons .ui-button-text
+  padding: .4em 1em .4em 1.8em
+  padding-right: 1.8em
+
+
+input.ui-button
+  padding: .4em 1em
+
+
+.ui-button-icon-only .ui-icon, .ui-button-text-icon .ui-icon, .ui-button-text-icons .ui-icon, .ui-button-icons-only .ui-icon
+  position: absolute
+  top: 50%
+  margin-top: -8px
+
+
+.ui-button-icon-only .ui-icon
+  left: 50%
+  margin-left: -8px
+
+
+.ui-button-text-icon .ui-icon-primary, .ui-button-text-icons .ui-icon-primary, .ui-button-icons-only .ui-icon-primary
+  left: .5em
+
+
+.ui-button-text-icons .ui-button-icon-secondary, .ui-button-icons-only .ui-button-icon-secondary
+  right: .5em
+
+
+.ui-button-set
+  margin-right: 7px
+
+  .ui-button
+    margin-left: 0
+    margin-right: -.3em
+
+
+button.ui-button::-moz-focus-inner
+  border: 0
+  padding: 0
 
 
 .ui-datepicker
@@ -148,7 +278,6 @@
     text-align: center
 
     select
-      float: left
       font-size: 1em
       margin: 1px 0
 
@@ -158,9 +287,6 @@
 
     &.ui-datepicker-month, &.ui-datepicker-year
       width: 49%
-
-  .ui-datepicker-title select.ui-datepicker-year
-    float: right
 
   table
     width: 100%
@@ -289,17 +415,18 @@
 
 
 .ui-dialog
-  position: relative
+  position: absolute
   padding: .2em
   width: 300px
+  overflow: hidden
 
   .ui-dialog-titlebar
-    padding: .5em .3em .3em 1em
+    padding: .5em 1em .3em
     position: relative
 
   .ui-dialog-title
     float: left
-    margin: .1em 0 .2em
+    margin: .1em 16px .2em 0
 
   .ui-dialog-titlebar-close
     position: absolute
@@ -318,6 +445,7 @@
       padding: 0
 
   .ui-dialog-content
+    position: relative
     border: 0
     padding: .5em 1em
     background: none
@@ -380,7 +508,7 @@
   height: 7px
   width: 100%
   top: -5px
-  left: 0px
+  left: 0
 
 
 .ui-resizable-s
@@ -388,14 +516,14 @@
   height: 7px
   width: 100%
   bottom: -5px
-  left: 0px
+  left: 0
 
 
 .ui-resizable-e
   cursor: e-resize
   width: 7px
   right: -5px
-  top: 0px
+  top: 0
   height: 100%
 
 
@@ -403,7 +531,7 @@
   cursor: w-resize
   width: 7px
   left: -5px
-  top: 0px
+  top: 0
   height: 100%
 
 
@@ -456,6 +584,7 @@
     font-size: .7em
     display: block
     border: 0
+    background-position: 0 0
 
 
 .ui-slider-horizontal
@@ -497,29 +626,32 @@
 
 
 .ui-tabs
+  position: relative
   padding: .2em
   zoom: 1
 
   .ui-tabs-nav
-    list-style: none
-    position: relative
+    margin: 0
     padding: .2em .2em 0
 
     li
-      position: relative
+      list-style: none
       float: left
-      border-bottom-width: 0 !important
-      margin: 0 .2em -1px 0
+      position: relative
+      top: 1px
+      margin: 0 .2em 1px 0
+      border-bottom: 0 !important
       padding: 0
+      white-space: nowrap
 
       a
         float: left
-        text-decoration: none
         padding: .5em 1em
+        text-decoration: none
 
       &.ui-tabs-selected
+        margin-bottom: 0
         padding-bottom: 1px
-        border-bottom-width: 0
 
         a
           cursor: text
@@ -534,9 +666,9 @@
     cursor: pointer
 
   .ui-tabs-panel
-    padding: 1em 1.4em
     display: block
-    border-width: 0
+    border: 0
+    padding: 1em 1.4em
     background: none
 
   .ui-tabs-hide
@@ -579,18 +711,15 @@
   background= !ui_bgColorDefault !ui_bgImgUrlDefault !ui_bgDefaultXPos !ui_bgDefaultYPos !ui_bgDefaultRepeat
   font-weight= !ui_fwDefault
   color= !ui_fcDefault
-  outline: none
 
 
 .ui-state-default a
   color= !ui_fcDefault
   text-decoration: none
-  outline: none
 
   &:link, &:visited
     color= !ui_fcDefault
     text-decoration: none
-    outline: none
 
 
 .ui-state-hover, .ui-widget-content .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus
@@ -598,18 +727,15 @@
   background= !ui_bgColorHover !ui_bgImgUrlHover !ui_bgHoverXPos !ui_bgHoverYPos !ui_bgHoverRepeat
   font-weight= !ui_fwDefault
   color= !ui_fcHover
-  outline: none
 
 
 .ui-state-hover a
   color= !ui_fcHover
   text-decoration: none
-  outline: none
 
   &:hover
     color= !ui_fcHover
     text-decoration: none
-    outline: none
 
 
 .ui-state-active, .ui-widget-content .ui-state-active
@@ -617,18 +743,19 @@
   background= !ui_bgColorActive !ui_bgImgUrlActive !ui_bgActiveXPos !ui_bgActiveYPos !ui_bgActiveRepeat
   font-weight= !ui_fwDefault
   color= !ui_fcActive
-  outline: none
 
 
 .ui-state-active a
   color= !ui_fcActive
-  outline: none
   text-decoration: none
 
   &:link, &:visited
     color= !ui_fcActive
-    outline: none
     text-decoration: none
+
+
+.ui-widget :active
+  outline: none
 
 
 .ui-state-highlight, .ui-widget-content .ui-state-highlight
@@ -651,12 +778,6 @@
   color= !ui_fcError
 
 
-.ui-state-disabled, .ui-widget-content .ui-state-disabled
-  opacity: .35
-  filter: Alpha(Opacity=35)
-  background-image: none
-
-
 .ui-priority-primary, .ui-widget-content .ui-priority-primary
   font-weight: bold
 
@@ -665,6 +786,12 @@
   opacity: .7
   filter: Alpha(Opacity=70)
   font-weight: normal
+
+
+.ui-state-disabled, .ui-widget-content .ui-state-disabled
+  opacity: .35
+  filter: Alpha(Opacity=35)
+  background-image: none
 
 
 .ui-icon
@@ -1241,7 +1368,7 @@
   background-position: -64px -160px
 
 
-.ui-icon-seek-first
+.ui-icon-seek-start, .ui-icon-seek-first
   background-position: -80px -160px
 
 
@@ -1396,54 +1523,67 @@
 .ui-corner-tl
   -moz-border-radius-topleft= !ui_cornerRadius
   -webkit-border-top-left-radius= !ui_cornerRadius
+  border-top-left-radius= !ui_cornerRadius
 
 
 .ui-corner-tr
   -moz-border-radius-topright= !ui_cornerRadius
   -webkit-border-top-right-radius= !ui_cornerRadius
+  border-top-right-radius= !ui_cornerRadius
 
 
 .ui-corner-bl
   -moz-border-radius-bottomleft= !ui_cornerRadius
   -webkit-border-bottom-left-radius= !ui_cornerRadius
+  border-bottom-left-radius= !ui_cornerRadius
 
 
 .ui-corner-br
   -moz-border-radius-bottomright= !ui_cornerRadius
   -webkit-border-bottom-right-radius= !ui_cornerRadius
+  border-bottom-right-radius= !ui_cornerRadius
 
 
 .ui-corner-top
   -moz-border-radius-topleft= !ui_cornerRadius
   -webkit-border-top-left-radius= !ui_cornerRadius
+  border-top-left-radius= !ui_cornerRadius
   -moz-border-radius-topright= !ui_cornerRadius
   -webkit-border-top-right-radius= !ui_cornerRadius
+  border-top-right-radius= !ui_cornerRadius
 
 
 .ui-corner-bottom
   -moz-border-radius-bottomleft= !ui_cornerRadius
   -webkit-border-bottom-left-radius= !ui_cornerRadius
+  border-bottom-left-radius= !ui_cornerRadius
   -moz-border-radius-bottomright= !ui_cornerRadius
   -webkit-border-bottom-right-radius= !ui_cornerRadius
+  border-bottom-right-radius= !ui_cornerRadius
 
 
 .ui-corner-right
   -moz-border-radius-topright= !ui_cornerRadius
   -webkit-border-top-right-radius= !ui_cornerRadius
+  border-top-right-radius= !ui_cornerRadius
   -moz-border-radius-bottomright= !ui_cornerRadius
   -webkit-border-bottom-right-radius= !ui_cornerRadius
+  border-bottom-right-radius= !ui_cornerRadius
 
 
 .ui-corner-left
   -moz-border-radius-topleft= !ui_cornerRadius
   -webkit-border-top-left-radius= !ui_cornerRadius
+  border-top-left-radius= !ui_cornerRadius
   -moz-border-radius-bottomleft= !ui_cornerRadius
   -webkit-border-bottom-left-radius= !ui_cornerRadius
+  border-bottom-left-radius= !ui_cornerRadius
 
 
 .ui-corner-all
   -moz-border-radius= !ui_cornerRadius
   -webkit-border-radius= !ui_cornerRadius
+  border-radius= !ui_cornerRadius
 
 
 .ui-widget-overlay
@@ -1458,5 +1598,6 @@
   opacity= !ui_opacityShadow
   -moz-border-radius= !ui_cornerRadiusShadow
   -webkit-border-radius= !ui_cornerRadiusShadow
+  border-radius= !ui_cornerRadiusShadow
 // Generated by compass-jquery-plugin/gem-tasks/jrailsxx.rake
 

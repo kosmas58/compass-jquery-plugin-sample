@@ -4,43 +4,43 @@
 -@dynatree_skin = 'dynatree.aqua.css'
 
 .demo
-  %h4.ui-widget-header.ui-corner-all
-    =@title
-
-#tree
-  %ul
-    %li
-      Document with some children
+  .div.ui-widget-content.ui-corner-all
+    %h4.ui-widget-header.ui-corner-all
+      =@title
+    #tree
       %ul
         %li
-          Sub-item 4.1
-        %li
-          Sub-item 4.2
-    %li.folder
-      A folder
-      %ul
-        %li
-          Node 2.1
-        %li
-          Node 2.2
-    %li{ :data => "addClass:'custom1'" }
-      Node with custom class 1
-    %li{ :data => "isFolder: true, addClass:'custom2'" }
-      Folder with custom class 2
-      %ul
+          Document with some children
+          %ul
+            %li
+              Sub-item 4.1
+            %li
+              Sub-item 4.2
+        %li.folder
+          A folder
+          %ul
+            %li
+              Node 2.1
+            %li
+              Node 2.2
         %li{ :data => "addClass:'custom1'" }
-          Node 4.1 (using custom class 1)
-          %li
-            Node 4.2
-    %li{ :data => "icon: '../dynatree.custom/customDoc.png'" }
-      Node with standard CSS, but custom icon
-    %li{ :data => "isFolder: true, icon: '../dynatree.custom/customFolder.png'" }
-      Folder with standard CSS but custom icon
-      %ul
-        %li
-          Node 4.1
-        %li
-          Node 4.2
+          Node with custom class 1
+        %li{ :data => "isFolder: true, addClass:'custom2'" }
+          Folder with custom class 2
+          %ul
+            %li{ :data => "addClass:'custom1'" }
+              Node 4.1 (using custom class 1)
+              %li
+                Node 4.2
+        %li{ :data => "icon: '../dynatree.custom/customDoc.png'" }
+          Node with standard CSS, but custom icon
+        %li{ :data => "isFolder: true, icon: '../dynatree.custom/customFolder.png'" }
+          Folder with standard CSS but custom icon
+          %ul
+            %li
+              Node 4.1
+            %li
+              Node 4.2
 / End demo
 
 .demo-description

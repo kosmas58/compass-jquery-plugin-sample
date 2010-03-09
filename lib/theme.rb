@@ -32,6 +32,7 @@ module Theme
         "redmond",
         "smoothness",
         "south-street",
+        "start",
         "sunny",
         "swanky-purse",
         "trontastic",
