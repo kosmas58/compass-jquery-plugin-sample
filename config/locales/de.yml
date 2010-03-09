@@ -254,6 +254,21 @@ de:
           default: Position
           cycling: Wechselnde Bilder
       widgets: 
+        button: 
+          default: "Schaltfl\xC3\xA4che"
+          icon: Symbole
+          split: Geteilte Taste
+          radio: Umschalttasten
+          checkbox: Auswahltasten
+          toolbar: Werkzeugleiste
+        autocomplete: 
+          combobox: Auswahleiste
+          xml: XML-Daten einmalig geparsed
+          default: "Autovervollst\xC3\xA4ndigung"
+          caching: Entfernt mit Caching
+          jsonp: Entfernte JSONP-Datenquelle
+          remote: Entfernte Datenquelle
+          custom: Angepasste Daten und Anzeige
         default: Widgets
         slider: 
           simple: Einfache Bildlaufleiste

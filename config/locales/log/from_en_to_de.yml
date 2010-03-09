@@ -26,9 +26,12 @@ date:
 txt: 
   ui: 
     widgets: 
-      tabs: 
-        simple: Simple manipulation
-        below: Tabs below content
+      button: 
+        icon: Icons
+        split: Split button
+        radio: Radios
+        checkbox: Checkboxes
+        toolbar: Toolbar
 support: 
   array: 
     words_connector: ", "

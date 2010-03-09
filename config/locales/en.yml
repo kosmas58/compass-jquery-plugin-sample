@@ -308,7 +308,22 @@ en:
       name: jQuery UI
       default: Default functionality
       widgets: 
+        autocomplete:
+          default: Autocomplete
+          remote: Remote datasource
+          caching: Remote with caching
+          jsonp: Remote JSONP datasource
+          combobox: Combobox
+          custom: Custom data and display
+          xml: XML data parsed once
         default: Widgets
+        button:
+          default: Button
+          radio: Radios
+          checkbox: Checkboxes
+          icon: Icons
+          toolbar: Toolbar
+          split: Split button          
         slider: 
           steps: Snap to increments
           default: Slider
