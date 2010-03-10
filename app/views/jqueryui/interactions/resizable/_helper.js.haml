@@ -2,11 +2,12 @@
   :plain
     #resizable { width: 150px; height: 150px; padding: 0.5em; }
     #resizable h3 { text-align: center; margin: 0; }
-    .ui-resizable-helper { border: 1px dotted gray; }
+    .ui-resizable-helper { border: 2px dotted #00F; }
  
-:javascript
+:javascript  
   $(function() {
     $("#resizable").resizable({
-      animate: true
+      helper: 'ui-resizable-helper'
     });
   });
+  
