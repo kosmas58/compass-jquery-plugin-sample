@@ -4,19 +4,15 @@
 .demo
   %h3
     =@title
-  %p
-    Date:
-    %input#datepicker{ :type => "text" }
-      \&nbsp;
-      %input#alternate{ :size => "30", :type => "text" }
-/ End demo
+  %label{ :for => "from" }
+    From
+  %input#from{ :name => "from", :type => "text" }
+  %label{ :for => "to" }
+    to
+  %input#to{ :name => "to", :type => "text" } 
+  / End demo
+
 .demo-description
   %p
-    Populate an alternate field with its own date format whenever a date is selected using the
-    %code
-      altField
-    and
-    %code
-      altFormat
-    options.  This feature could be used to present a human-friendly date for user selection, while passing a more computer-friendly date through for further processing.
+    Select the date range to search for.
 / End demo-description
