@@ -4,36 +4,16 @@
 .demo
   %h3
     =@title
-  #dialog{ :title => "Basic dialog"  }
+  #dialog{ :title => "Basic dialog" }
     %p
-      This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.
-  / Sample page content to illustrate the layering of the dialog
-  .hiddenInViewSource{ :style => "padding:20px;" }
-    %p
-      Sed vel diam id libero
-      %a{ :href => "http://example.com" }
-        rutrum convallis
-      \. Donec aliquet leo vel magna. Phasellus rhoncus faucibus ante. Etiam bibendum, enim faucibus aliquet rhoncus, arcu felis ultricies neque, sit amet auctor elit eros a lectus.
-    %form
-      %input{ :value => "text input" }
-      %br
-      %input{ :type => "checkbox" }
-      checkbox
-      %br
-      %input{ :type => "radio" }
-      radio
-      %br
-      %select
-        %option
-          select
-      %br
-      %br
-      %textarea
-        textarea
-      %br
-  / End sample page content
+      This is an animated dialog which is useful for displaying information.
+      The dialog window can be moved, resized and closed with the 'x' icon.
+  %button#opener
+    Open Dialog
 / End demo
+
 .demo-description
   %p
-    The basic dialog window is an overlay positioned within the viewport and is protected from page content (like select elements) shining through with an iframe.  It has a title bar and a content area, and can be moved, resized and closed with the 'x' icon by default.
+    Dialogs may be animated by specifying an effect for the show and/or hide properties.
+    You must include the individual effects file for any effects you would like to use.
 / End demo-description

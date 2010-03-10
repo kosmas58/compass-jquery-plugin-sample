@@ -1,5 +1,13 @@
 :javascript
-  $.ui.dialog.defaults.bgiframe = true;
+  $.fx.speeds._default = 1000;
   $(function() {
-    $("#dialog").dialog();
+    $('#dialog').dialog({
+      autoOpen: false,
+      show: 'blind',
+      hide: 'explode'
+    });
+    $('#opener').click(function() {
+      $('#dialog').dialog('open');
+      return false;
+    });
   });
