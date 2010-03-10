@@ -1,4 +1,5 @@
 :javascript
   $(function() {
-    $("#datepicker").datepicker({altField: '#alternate', altFormat: 'DD, d MM, yy'});
+    $("#datepicker").datepicker();
+    $("#anim").change(function() { $('#datepicker').datepicker('option', {showAnim: $(this).val()}); });
   });
