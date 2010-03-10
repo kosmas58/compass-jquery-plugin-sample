@@ -299,12 +299,12 @@ de:
           localization: " Kalender lokalisieren"
           other-months: Termine in den anderen Monaten
         tabs: 
-          simple: Einfache Handhabung
+          manipulation: Einfache Handhabung
           default: Reiter
           ajax: "Inhalt \xC3\xBCber Ajax"
           sortable: Sortierbar
           mouseover: "\xC3\x96ffnen, wenn die Maus dar\xC3\xBCberf\xC3\xA4hrt"
-          below: Reiter unterhalb des Inhalts
+          bottom: Reiter unterhalb des Inhalts
           collapsible: Inhalt wegklappen
         dialog: 
           default: Dialog

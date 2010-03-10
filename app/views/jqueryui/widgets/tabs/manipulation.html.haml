@@ -1,0 +1,33 @@
+-@title = "#{t('txt.ui.name')} #{t('txt.ui.widgets.tabs.default')} - #{t('txt.ui.widgets.tabs.manipulation')}"
+-@jquery_partial = 'manipulation.js.haml'
+      
+.demo
+  %h3
+    =@title
+  #dialog{ :title => "Tab data" }
+    %form
+      %fieldset.ui-helper-reset
+        %label{ :for => "tab_title" }
+          Title
+        %input#tab_title.ui-widget-content.ui-corner-all{ :name => "tab_title", :type => "text", :value => "" }
+        %label{ :for => "tab_content" }
+          Content
+        %textarea#tab_content.ui-widget-content.ui-corner-all{ :name => "tab_content" }
+  %button#add_tab
+    Add Tab
+  #tabs
+    %ul
+      %li
+        %a{ :href => "#tabs-1" }
+          Nunc tincidunt
+        %span.ui-icon.ui-icon-close
+          Remove Tab
+    #tabs-1
+      %p
+        Proin elit arcu, rutrum commodo, vehicula tempus, commodo a, risus. Curabitur nec arcu. Donec sollicitudin mi sit amet mauris. Nam elementum quam ullamcorper ante. Etiam aliquet massa et lorem. Mauris dapibus lacus auctor risus. Aenean tempor ullamcorper leo. Vivamus sed magna quis ligula eleifend adipiscing. Duis orci. Aliquam sodales tortor vitae ipsum. Aliquam nulla. Duis aliquam molestie erat. Ut et mauris vel pede varius sollicitudin. Sed ut dolor nec orci tincidunt interdum. Phasellus ipsum. Nunc tristique tempus lectus.
+/ End demo
+
+.demo-description
+  %p
+    Simple tabs adding and removing.
+/ End demo-description

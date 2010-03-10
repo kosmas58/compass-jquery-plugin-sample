@@ -373,8 +373,8 @@ en:
           sortable: Sortable
           mouseover: Open on mouseover
           collapsible: Collapse content
-          simple: Simple manipulation
-          below: Tabs below content
+          manipulation: Simple manipulation
+          bottom: Tabs below content
         progressbar: 
           default: Progressbar
           resize: Resizable progressbar
