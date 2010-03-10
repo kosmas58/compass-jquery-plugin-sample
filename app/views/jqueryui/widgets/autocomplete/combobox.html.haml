@@ -4,60 +4,44 @@
 .demo
   %h3
     =@title
-  #accordionDemo
-    %h3
-      %a{ :href => "#" }
-        Section 1
-    %div
-      %p
-        Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
-        ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
-        amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
-        odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
-    %h3
-      %a{ :href => "#" }
-        Section 2
-    %div
-      %p
-        Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
-        purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor
-        velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In
-        suscipit faucibus urna.
-    %h3
-      %a{ :href => "#" }
-        Section 3
-    %div
-      %p
-        Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis.
-        Phasellus pellentesque purus in massa. Aenean in pede. Phasellus ac libero
-        ac tellus pellentesque semper. Sed ac felis. Sed commodo, magna quis
-        lacinia ornare, quam ante aliquam nisi, eu iaculis leo purus venenatis dui.
-      %ul
-        %li
-          List item one
-        %li
-          List item two
-        %li
-          List item three
-    %h3
-      %a{ :href => "#" }
-        Section 4
-    %div
-      %p
-        Cras dictum. Pellentesque habitant morbi tristique senectus et netus
-        et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in
-        faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia
-        mauris vel est.
-      %p
-        Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus.
-        Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
-        inceptos himenaeos.
-/ End demo
+  .ui-widget
+    %label
+      Your preferred programming language:
+    %select
+      %option{ :value => "a" }
+        asp
+      %option{ :value => "c" }
+        c
+      %option{ :value => "cpp" }
+        c++
+      %option{ :value => "cf" }
+        coldfusion
+      %option{ :value => "g" }
+        groovy
+      %option{ :value => "h" }
+        haskell
+      %option{ :value => "j" }
+        java
+      %option{ :value => "js" }
+        javascript
+      %option{ :value => "p1" }
+        pearl
+      %option{ :value => "p2" }
+        php
+      %option{ :value => "p3" }
+        python
+      %option{ :value => "r" }
+        ruby
+      %option{ :value => "s" }
+        scala
+/End demo
+
 .demo-description
   %p
-    Click headers to expand/collapse content that is broken into logical sections, much like tabs.
-    Optionally, toggle sections open/closed on mouseover.
+    A custom widget built by composition of Autocomplete and Button.
+    You can either type something into the field to get filtered suggestions based on your input,
+    or use the button to get the full list of selections.
   %p
-    The underlying HTML markup is a series of headers (H3 tags) and content divs so the content is
-    usable without JavaScript.
-/ End demo-description
+    The input is read from an existing select-element for progressive enhancement,
+    passed to Autocomplete with a customized source-option.
+/End demo-description

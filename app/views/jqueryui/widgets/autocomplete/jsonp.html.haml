@@ -4,60 +4,24 @@
 .demo
   %h3
     =@title
-  #accordionDemo
-    %h3
-      %a{ :href => "#" }
-        Section 1
-    %div
-      %p
-        Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
-        ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
-        amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
-        odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
-    %h3
-      %a{ :href => "#" }
-        Section 2
-    %div
-      %p
-        Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
-        purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor
-        velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In
-        suscipit faucibus urna.
-    %h3
-      %a{ :href => "#" }
-        Section 3
-    %div
-      %p
-        Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis.
-        Phasellus pellentesque purus in massa. Aenean in pede. Phasellus ac libero
-        ac tellus pellentesque semper. Sed ac felis. Sed commodo, magna quis
-        lacinia ornare, quam ante aliquam nisi, eu iaculis leo purus venenatis dui.
-      %ul
-        %li
-          List item one
-        %li
-          List item two
-        %li
-          List item three
-    %h3
-      %a{ :href => "#" }
-        Section 4
-    %div
-      %p
-        Cras dictum. Pellentesque habitant morbi tristique senectus et netus
-        et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in
-        faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia
-        mauris vel est.
-      %p
-        Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus.
-        Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
-        inceptos himenaeos.
+  .ui-widget
+    %label{ :for => "city" }
+      Your city:
+    %input#city
+      Powered by
+    %a{ :href => "http://geonames.org" }
+      geonames.org
+  .ui-widget{ :style => "margin-top:2em; font-family:Arial" }
+    Result:
+    #log.ui-widget-content{ :style => "height: 200px; width: 300px; overflow: auto;" }
 / End demo
+
 .demo-description
   %p
-    Click headers to expand/collapse content that is broken into logical sections, much like tabs.
-    Optionally, toggle sections open/closed on mouseover.
+    The Autocomplete widgets provides suggestions while you type into the field. Here the suggestions are cities, displayed when at least two characters are entered into the field.
   %p
-    The underlying HTML markup is a series of headers (H3 tags) and content divs so the content is
-    usable without JavaScript.
+    In this case, the datasource is the
+    %a{ :href => "http://geonames.org" }
+      geonames.org webservice
+    \. While only the city name itself ends up in the input after selecting an element, more info is displayed in the suggestions to help find the right entry. That data is also available in callbacks, as illustrated by the Result area below the input.
 / End demo-description

@@ -1,0 +1,30 @@
+<!doctype html>
+%html{ :lang => "en" }
+  %head
+    %title
+      jQuery UI Button - Default demo
+    %link{ :href => "../../themes/base/jquery.ui.all.css", :rel => "stylesheet", :type => "text/css" }
+    %script{ :type => "text/javascript", :src => "../../jquery-1.4.2.js" }
+    %script{ :type => "text/javascript", :src => "../../ui/jquery.ui.core.js" }
+    %script{ :type => "text/javascript", :src => "../../ui/jquery.ui.widget.js" }
+    %script{ :type => "text/javascript", :src => "../../ui/jquery.ui.button.js" }
+    %link{ :href => "../demos.css", :rel => "stylesheet", :type => "text/css" }
+    %script{ :type => "text/javascript" }
+      $(function() {
+      $("button, input:submit, a", ".demo").button();
+      });
+    %style
+  %body
+    .demo
+      %button
+        A button element
+      %input{ :type => "submit", :value => "A submit button" }
+        %a{ :href => "#" }
+          An anchor
+    /
+      End demo
+    .demo-description
+      %p
+        Examples of the markup that can be used for buttons: A button element, an input of type submit and an anchor.
+    /
+      End demo-description

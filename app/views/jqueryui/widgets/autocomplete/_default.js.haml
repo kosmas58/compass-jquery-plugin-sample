@@ -1,5 +1,8 @@
 :javascript
   $(function() {
-    $("#accordionDemo").accordion();
+    var availableTags = ["c++", "java", "php", "coldfusion", "javascript", "asp", "ruby", "python", "c", "scala", "groovy", "haskell", "perl"];
+    $("#tags").autocomplete({
+      source: availableTags
+    });
   });
   

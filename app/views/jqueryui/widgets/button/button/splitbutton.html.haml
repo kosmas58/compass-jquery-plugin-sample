@@ -1,0 +1,45 @@
+<!doctype html>
+%html{ :lang => "en" }
+  %head
+    %title
+      jQuery UI Button - Default demo
+    %link{ :href => "../../themes/base/jquery.ui.all.css", :rel => "stylesheet", :type => "text/css" }
+    %script{ :type => "text/javascript", :src => "../../jquery-1.4.2.js" }
+    %script{ :type => "text/javascript", :src => "../../ui/jquery.ui.core.js" }
+    %script{ :type => "text/javascript", :src => "../../ui/jquery.ui.widget.js" }
+    %script{ :type => "text/javascript", :src => "../../ui/jquery.ui.button.js" }
+    %link{ :href => "../demos.css", :rel => "stylesheet", :type => "text/css" }
+    %script{ :type => "text/javascript" }
+      $(function() {
+      $("#rerun").button().click(function() {
+      alert("Running the last action");
+      })
+      \.next()
+      \.button({
+      text: false,
+      icons: {
+      primary: "ui-icon-triangle-1-s"
+      }
+      })
+      \.click(function() {
+      alert("Could display a menu to select an action");
+      })
+      \.parent()
+      \.buttonset();
+      });
+    %style
+  %body
+    .demo
+      %div
+        %button#rerun
+          Run last action
+        %button#select
+          Select an action
+    /
+      End demo
+    .demo-description
+      %p
+        An example of a split button built with two buttons: A plan button with just text, one with only a primary icon
+        and no text. Both are grouped together in a set.
+    /
+      End demo-description

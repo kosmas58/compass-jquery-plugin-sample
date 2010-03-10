@@ -1,5 +1,16 @@
 :javascript
   $(function() {
-    $("#accordionDemo").accordion();
+    function log(message) {
+      $("<div/>").text(message).prependTo("#log");
+      $("#log").attr("scrollTop", 0);
+    }
+    		
+    $("#birds").autocomplete({
+      // TODO doesn't work when loaded from /demos/#autocomplete|remote
+      source: "search.php",
+      minLength: 2,
+      select: function(event, ui) {
+        log(ui.item ? ("Selected: " + ui.item.value + " aka " + ui.item.id) : "Nothing selected, input was " + this.value);
+      }
+    });
   });
-  

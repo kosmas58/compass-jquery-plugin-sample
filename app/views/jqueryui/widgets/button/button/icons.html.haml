@@ -1,0 +1,53 @@
+<!doctype html>
+%html{ :lang => "en" }
+  %head
+    %title
+      jQuery UI Button - Icons demo
+    %link{ :href => "../../themes/base/jquery.ui.all.css", :rel => "stylesheet", :type => "text/css" }
+    %script{ :type => "text/javascript", :src => "../../jquery-1.4.2.js" }
+    %script{ :type => "text/javascript", :src => "../../ui/jquery.ui.core.js" }
+    %script{ :type => "text/javascript", :src => "../../ui/jquery.ui.widget.js" }
+    %script{ :type => "text/javascript", :src => "../../ui/jquery.ui.button.js" }
+    %link{ :href => "../demos.css", :rel => "stylesheet", :type => "text/css" }
+    %script{ :type => "text/javascript" }
+      $(function() {
+      $(".demo button:first").button({
+      icons: {
+      primary: 'ui-icon-locked'
+      },
+      text: false
+      }).next().button({
+      icons: {
+      primary: 'ui-icon-locked'
+      }
+      }).next().button({
+      icons: {
+      primary: 'ui-icon-gear',
+      secondary: 'ui-icon-triangle-1-s'
+      }
+      }).next().button({
+      icons: {
+      primary: 'ui-icon-gear',
+      secondary: 'ui-icon-triangle-1-s'
+      },
+      text: false
+      });
+      });
+    %style
+  %body
+    .demo
+      %button
+        Button with icon only
+      %button
+        Button with icon on the left
+      %button
+        Button with two icons
+      %button
+        Button with two icons and no text
+    /
+      End demo
+    .demo-description
+      %p
+        Some buttons with various combinations of text and icons, here specified via metadata.
+    /
+      End demo-description
