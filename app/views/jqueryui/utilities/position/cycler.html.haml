@@ -1,0 +1,27 @@
+-@title = "#{t('txt.ui.name')} #{t('txt.ui.utilities.position.default')} - #{t('txt.ui.utilities.position.cycler')}"
+-@jquery_partial = 'cycler.js.haml'
+      
+.demo
+  %h3
+    =@title
+  %img{ :src => "/images/demo/earth.jpg" }
+  %img{ :src => "/images/demo/flight.jpg" }
+  %img{ :src => "/images/demo/rocket.jpg" }
+  %a#previous{ :href => "#" }
+    Previous
+  %a#next{ :href => "#" }
+    Next
+/End Demo
+.demo-description
+  %p
+    A prototype for the
+    %a{ :href => "http://wiki.jqueryui.com/Photoviewer" }
+      Photoviewer
+    using Position to place images at the center, left and right and cycle them.
+  %p
+    Use the links at the top to cycle, or click on the images on the left and right.
+  %p
+    Note how the images are repositioned when resizing the window.
+  %p
+    Warning: Doesn't currently work inside the demo viewer; open in a new window instead!
+/ End demo-description

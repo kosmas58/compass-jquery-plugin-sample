@@ -1,0 +1,152 @@
+<!doctype html>
+%html{ :lang => "en" }
+  %head
+    %title
+      jQuery UI Position - Default functionality
+    %link{ :href => "../../themes/base/jquery.ui.all.css", :rel => "stylesheet", :type => "text/css" }
+    %script{ :type => "text/javascript", :src => "../../jquery-1.4.2.js" }
+    %script{ :type => "text/javascript", :src => "../../ui/jquery.ui.core.js" }
+    %script{ :type => "text/javascript", :src => "../../ui/jquery.ui.widget.js" }
+    %script{ :type => "text/javascript", :src => "../../ui/jquery.ui.mouse.js" }
+    %script{ :type => "text/javascript", :src => "../../ui/jquery.ui.draggable.js" }
+    %script{ :type => "text/javascript", :src => "../../ui/jquery.ui.position.js" }
+    %link{ :href => "../demos.css", :rel => "stylesheet", :type => "text/css" }
+    %style{ :type => "text/css" }
+      div#parent
+      {
+      width: 60%;
+      margin: 10px auto;
+      padding: 5px;
+      
+      border: 1px solid #777;
+      background-color: #fbca93;
+      text-align: center;
+      }
+      
+      div.positionable
+      {
+      width: 75px;
+      height: 75px;
+      position: absolute;
+      display: block;
+      right: 0;
+      bottom: 0;
+      
+      background-color: #bcd5e6;
+      text-align: center;
+      }
+      
+      select, input
+      {
+      margin-left: 15px;
+      }
+    %script{ :type => "text/javascript" }
+      $(function() {
+      
+      function position(using) {
+      $('.positionable').position({
+      of: $('#parent'),
+      my: $('#my_horizontal').val() + ' ' + $('#my_vertical').val(),
+      at: $('#at_horizontal').val() + ' '+ $('#at_vertical').val(),
+      offset: $('#offset').val(),
+      using: using,
+      collision: $("#collision_horizontal").val() + ' ' + $("#collision_vertical").val()
+      });
+      }
+      
+      $('.positionable').css("opacity", 0.5);
+      
+      $(':input').bind('click keyup change', function() { position(); });
+      
+      $("#parent").draggable({
+      drag: function() { position(); }
+      });
+      
+      $('.positionable').draggable({
+      drag: function(event, ui) {
+      \// reset offset before calculating it
+      $("#offset").val("0");
+      position(function(result) {
+      $("#offset").val("" + (ui.offset.left - result.left) + " " + (ui.offset.top - result.top));
+      position();
+      });
+      }
+      });
+      
+      position();
+      });
+  %body
+    .demo
+      #parent
+        %p
+          This is the position parent element.
+      .positionable
+        %p
+          to position
+      .positionable{ :style => "width:120px; height: 40px;" }
+        %p
+          to position 2
+      %div{ :style => "padding: 20px; margin-top: 75px;" }
+        position...
+        %div{ :style => "padding-bottom: 20px;" }
+          %b
+            my:
+          %select#my_horizontal
+            %option{ :value => "left" }
+              left
+            %option{ :value => "center" }
+              center
+            %option{ :value => "right" }
+              right
+          %select#my_vertical
+            %option{ :value => "top" }
+              top
+            %option{ :value => "middle" }
+              center
+            %option{ :value => "bottom" }
+              bottom
+        %div{ :style => "padding-bottom: 20px;" }
+          %b
+            at:
+          %select#at_horizontal
+            %option{ :value => "left" }
+              left
+            %option{ :value => "center" }
+              center
+            %option{ :value => "right" }
+              right
+          %select#at_vertical
+            %option{ :value => "top" }
+              top
+            %option{ :value => "middle" }
+              center
+            %option{ :value => "bottom" }
+              bottom
+        %div{ :style => "padding-bottom: 20px;" }
+          %b
+            offset:
+          %input#offset{ :size => "15", :type => "text" }
+        %div{ :style => "padding-bottom: 20px;" }
+          %b
+            collision:
+          %select#collision_horizontal
+            %option{ :value => "flip" }
+              flip
+            %option{ :value => "fit" }
+              fit
+            %option{ :value => "none" }
+              none
+          %select#collision_vertical
+            %option{ :value => "flip" }
+              flip
+            %option{ :value => "fit" }
+              fit
+            %option{ :value => "none" }
+              none
+      .demo-description
+        %p
+          Use the form controls to configure the positioning, or drag the positioned element to modify its offset.
+          %br
+          Drag around the parent element to see collision detection in action.
+      /
+        End demo-description

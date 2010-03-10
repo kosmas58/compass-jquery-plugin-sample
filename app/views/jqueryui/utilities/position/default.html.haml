@@ -4,60 +4,79 @@
 .demo
   %h3
     =@title
-  #accordionDemo
-    %h3
-      %a{ :href => "#" }
-        Section 1
-    %div
-      %p
-        Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
-        ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
-        amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
-        odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
-    %h3
-      %a{ :href => "#" }
-        Section 2
-    %div
-      %p
-        Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
-        purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor
-        velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In
-        suscipit faucibus urna.
-    %h3
-      %a{ :href => "#" }
-        Section 3
-    %div
-      %p
-        Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis.
-        Phasellus pellentesque purus in massa. Aenean in pede. Phasellus ac libero
-        ac tellus pellentesque semper. Sed ac felis. Sed commodo, magna quis
-        lacinia ornare, quam ante aliquam nisi, eu iaculis leo purus venenatis dui.
-      %ul
-        %li
-          List item one
-        %li
-          List item two
-        %li
-          List item three
-    %h3
-      %a{ :href => "#" }
-        Section 4
-    %div
-      %p
-        Cras dictum. Pellentesque habitant morbi tristique senectus et netus
-        et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in
-        faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia
-        mauris vel est.
-      %p
-        Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus.
-        Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
-        inceptos himenaeos.
-/ End demo
+  #parent
+    %p
+      This is the position parent element.
+  .positionable
+    %p
+      to position
+  .positionable{ :style => "width:120px; height: 40px;" }
+    %p
+      to position 2
+  %div{ :style => "padding: 20px; margin-top: 75px;" }
+    %p
+      position...   
+    %div{ :style => "padding-bottom: 20px;" }
+      %b
+        my:
+      %select#my_horizontal
+        %option{ :value => "left" }
+          left
+        %option{ :value => "center" }
+          center
+        %option{ :value => "right" }
+          right
+      %select#my_vertical
+        %option{ :value => "top" }
+          top
+        %option{ :value => "middle" }
+          center
+        %option{ :value => "bottom" }
+          bottom
+    %div{ :style => "padding-bottom: 20px;" }
+      %b
+        at:
+      %select#at_horizontal
+        %option{ :value => "left" }
+          left
+        %option{ :value => "center" }
+          center
+        %option{ :value => "right" }
+          right
+      %select#at_vertical
+        %option{ :value => "top" }
+          top
+        %option{ :value => "middle" }
+          center
+        %option{ :value => "bottom" }
+          bottom
+    %div{ :style => "padding-bottom: 20px;" }
+      %b
+        offset:
+      %input#offset{ :size => "15", :type => "text" }
+    %div{ :style => "padding-bottom: 20px;" }
+      %b
+        collision:
+      %select#collision_horizontal
+        %option{ :value => "flip" }
+          flip
+        %option{ :value => "fit" }
+          fit
+        %option{ :value => "none" }
+          none
+      %select#collision_vertical
+        %option{ :value => "flip" }
+          flip
+        %option{ :value => "fit" }
+          fit
+        %option{ :value => "none" }
+          none
+/ End Demo
+
 .demo-description
   %p
-    Click headers to expand/collapse content that is broken into logical sections, much like tabs.
-    Optionally, toggle sections open/closed on mouseover.
-  %p
-    The underlying HTML markup is a series of headers (H3 tags) and content divs so the content is
-    usable without JavaScript.
+    Use the form controls to configure the positioning,
+    or drag the positioned element to modify its offset.
+    %br
+    Drag around the parent element to see collision detection in action.    
 / End demo-description

@@ -252,7 +252,7 @@ de:
         default: Hilfsmittel
         position: 
           default: Position
-          cycling: Wechselnde Bilder
+          cycler: Wechselnde Bilder
       widgets: 
         button: 
           default: "Schaltfl\xC3\xA4che"

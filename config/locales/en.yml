@@ -452,7 +452,7 @@ en:
         default: Utilities
         position:
           default: Position
-          cycling: Cycling images
+          cycler: Cycling images
     layout: 
       theme: Theme
       language: Language
