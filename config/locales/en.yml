@@ -334,8 +334,8 @@ en:
           range: Range slider
           rangemax: Range with fixed maximum
           rangemin: Range with fixed minimum
-          reservation: Room reservation
-          simple: Simple scrollbar
+          hotelrooms: Room reservation
+          side-scroll: Simple scrollbar
           tabs: Slider controls tabs
         datepicker: 
           alt-field: Populate alternate field

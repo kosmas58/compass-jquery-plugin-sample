@@ -271,11 +271,11 @@ de:
           custom: Angepasste Daten und Anzeige
         default: Widgets
         slider: 
-          simple: Einfache Bildlaufleiste
+          side-scroll: Einfache Bildlaufleiste
           steps: Mit festen Schritten einrasten
           multiple-vertical: Mehrere Regler
           default: Schieberegler
-          reservation: Zimmerreservierung
+          hotelrooms: Zimmerreservierung
           colorpicker: Einfache Farbauswahl
           slider-vertical: Vertikaler Regler
           range-vertical: Vertikaler Regler mit Bereich

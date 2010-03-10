@@ -1,0 +1,30 @@
+-@title = "#{t('txt.ui.name')} #{t('txt.ui.widgets.slider.default')} - #{t('txt.ui.widgets.slider.hotelrooms')}"
+-@jquery_partial = 'hotelrooms.js.haml'
+
+.demo
+  %h3
+    =@title
+  %form#reservation
+    %label{ :for => "minbeds" }
+      Minimum number of beds
+    %select#minbeds{ :name => "minbeds" }
+      %option
+        1
+      %option
+        2
+      %option
+        3
+      %option
+        4
+      %option
+        5
+      %option
+        6   
+    %br
+/ End demo
+
+.demo-description
+  %p
+    How to bind a slider to an existing select element. The select stays visible to display the change.
+    When the select is changed, the slider is updated, too.
+/ End demo-description

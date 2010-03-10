@@ -4,14 +4,16 @@
     
 :javascript
   $(function() {
-    $("#slider").slider({
-      value:100,
-      min: 0,
-      max: 500,
-      step: 50,
-      slide: function(event, ui) {
-        $("#amount").val('$' + ui.value);
+    $("#tabs").tabs({
+      select: function(event, ui) {
+        $("#slider").slider("value", ui.index);
       }
     });
-    $("#amount").val('$' + $("#slider").slider("value"));
+    $("#slider").slider({
+      min: 0,
+      max: $("#tabs").tabs("length") - 1,
+      slide: function(event, ui) {
+        $("#tabs").tabs("select", ui.value);
+      }
+    });
   });
