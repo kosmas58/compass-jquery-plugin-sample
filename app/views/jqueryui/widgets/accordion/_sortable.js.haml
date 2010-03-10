@@ -1,5 +1,20 @@
 :javascript
   $(function() {
-    $("#accordionDemo").accordion();
+    var stop = false;
+    $("#accordionDemo h3").click(function(event) {
+      if (stop) {
+        event.stopImmediatePropagation();
+        event.preventDefault();
+        stop = false;
+      }
+    });
+    $("#accordionDemo").accordion({
+      header: "> div > h3"
+    }).sortable({
+      axis: "y",
+      handle: "h3",
+      stop: function(event, ui) {
+        stop = true;
+      }
+    });
   });
-  
