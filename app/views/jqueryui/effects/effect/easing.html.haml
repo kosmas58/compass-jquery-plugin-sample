@@ -1,48 +1,16 @@
--@title = "#{t('txt.ui.name')} #{t('txt.ui.effects.default')} - #{t('txt.ui.effects.effect.default')}"
+-@title = "#{t('txt.ui.name')} #{t('txt.ui.effects.default')} - #{t('txt.ui.effects.effect.easing')}"
 -@jquery_partial = 'easing.js.haml'
       
 .demo
   %h3
     =@title
-  .toggler
-    #effect.ui-widget-content.ui-corner-all
-      %h3.ui-widget-header.ui-corner-all
-        Effect
-      %p
-        Etiam libero neque, luctus a, eleifend nec, semper at, lorem. Sed pede. Nulla lorem metus, adipiscing ut, luctus sed, hendrerit vitae, mi.
-  %select#effectTypes{ :name => "effects" }
-    %option{ :value => "blind" }
-      Blind
-    %option{ :value => "bounce" }
-      Bounce
-    %option{ :value => "clip" }
-      Clip
-    %option{ :value => "drop" }
-      Drop
-    %option{ :value => "explode" }
-      Explode
-    %option{ :value => "fold" }
-      Fold
-    %option{ :value => "highlight" }
-      Highlight
-    %option{ :value => "puff" }
-      Puff
-    %option{ :value => "pulsate" }
-      Pulsate
-    %option{ :value => "scale" }
-      Scale
-    %option{ :value => "shake" }
-      Shake
-    %option{ :value => "size" }
-      Size
-    %option{ :value => "slide" }
-      Slide
-    %option{ :value => "transfer" }
-      Transfer
-  %a#button.ui-state-default.ui-corner-all{ :href => "#" }
-    Run Effect
+  #graphs
+  #animted
 / End demo
+
 .demo-description
   %p
-    Click the button above to show the effect.
+    %strong
+      All easings provided by jQuery UI are drawn above, using a HTML canvas element.
+    Click a diagram to see the easing in action.
 / End demo-description
