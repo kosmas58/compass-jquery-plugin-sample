@@ -12,13 +12,11 @@
       = stylesheet_link_tag 'compiled/ie.css', :media => 'screen, projection'
 
     = stylesheet_link_tag "compiled/jquery.ui/#{Theme.current}.css", :media => 'screen, projection'
-    = stylesheet_link_tag 'compiled/jquery.ui/dynatree.aero.css', :media => 'screen, projection'
     = stylesheet_link_tag 'demos.css', :media => 'screen, projection'
 
     = javascript_include_tag :jquery_142
     = javascript_include_tag :jrails
     = raw jrails_javascripts I18n.locale
-    = javascript_include_tag :dynatree
 
     = javascript_include_tag 'locales'
     = javascript_include_tag 'common'
@@ -29,12 +27,7 @@
     = render(:partial => @jquery_partial, :format => :js) if @jquery_partial
 
   %body{body_attributes}
-    .container
-      = render :partial => "layouts/header.blueprint"
-      = render :partial => "layouts/navigation.blueprint"
-      #content
-        .ui-widget-content.ui-corner-all{ :style => "background: none" }
-          %p{ :style => "color: green" }
-            = flash[:notice]
-          = yield
-      = render :partial => "layouts/footer.blueprint"
+    #content
+      %p{ :style => "color: green" }
+        = flash[:notice]
+      = yield
