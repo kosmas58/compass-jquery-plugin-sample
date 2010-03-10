@@ -323,7 +323,7 @@ en:
           checkbox: Checkboxes
           icon: Icons
           toolbar: Toolbar
-          split: Split button          
+          splitbutton: Split button          
         slider: 
           steps: Snap to increments
           default: Slider

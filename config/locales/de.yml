@@ -257,7 +257,7 @@ de:
         button: 
           default: "Schaltfl\xC3\xA4che"
           icon: Symbole
-          split: Geteilte Taste
+          splitbutton: "Geteilte Schaltfl\xC3\xA4che"
           radio: Umschalttasten
           checkbox: Auswahltasten
           toolbar: Werkzeugleiste

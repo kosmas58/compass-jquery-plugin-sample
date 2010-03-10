@@ -4,4 +4,36 @@
 .demo
   %h3
     =@title
+  %span#toolbar.ui-widget-header.ui-corner-all
+    %button#beginning
+      go to beginning
+    %button#rewind
+      rewind
+    %button#play
+      play
+    %button#stop
+      stop
+    %button#forward
+      fast forward
+    %button#end
+      go to end
+    %input#shuffle{ :type => "checkbox" }
+    %label{ :for => "shuffle" }
+      Shuffle
+    %span#repeat
+      %input#repeat0{ :name => "repeat", :checked => "checked", :type => "radio" }
+      %label{ :for => "repeat0" }
+        No Repeat
+      %input#repeat1{ :name => "repeat", :type => "radio" }
+      %label{ :for => "repeat1" }
+        Once
+      %input#repeatall{ :name => "repeat", :type => "radio" }
+      %label{ :for => "repeatall" }
+        All
+/ End demo
+
+.demo-description
+  %p
+    A mediaplayer toolbar. Take a look at the underlying markup: A few button elements,
+    an input of type checkbox for the Shuffle button, and three inputs of type radio for the Repeat options.
 / End demo-description
