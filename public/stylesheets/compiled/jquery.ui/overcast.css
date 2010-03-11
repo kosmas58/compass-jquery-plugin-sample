@@ -32,7 +32,7 @@
 
 .ui-autocomplete { position: absolute; cursor: default; }
 
-.ui-autocomplete-loading { background: white url('images/ui-anim_basic_16x16.gif') right center no-repeat; }
+.ui-autocomplete-loading { background: white url(images/ui-anim_basic_16x16.gif) right center no-repeat; }
 
 * html .ui-autocomplete { width: 1px; }
 
@@ -616,3 +616,5 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; }
 .ui-widget-overlay { background: #eeeeee url('/images/jquery.ui/overcast/ui-bg_flat_0_eeeeee_40x100.png?') 50% 50% repeat-x; opacity: .80;filter:Alpha(Opacity=80); }
 
 .ui-widget-shadow { margin: -4px 0 0 -4px; padding: 4px; background: #aaaaaa url('/images/jquery.ui/overcast/ui-bg_flat_0_aaaaaa_40x100.png?') 50% 50% repeat-x; opacity: .60;filter:Alpha(Opacity=60); -moz-border-radius: 0pxdow=0px; -webkit-border-radius: 0pxdow=0px; border-radius: 0pxdow=0px; }
+
+.ui-autocomplete-loading { background: white url('/images/jquery.ui/overcast/ui-anim_basic_16x16.gif?') right center no-repeat; }

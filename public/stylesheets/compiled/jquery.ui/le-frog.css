@@ -32,7 +32,7 @@
 
 .ui-autocomplete { position: absolute; cursor: default; }
 
-.ui-autocomplete-loading { background: white url('images/ui-anim_basic_16x16.gif') right center no-repeat; }
+.ui-autocomplete-loading { background: white url(images/ui-anim_basic_16x16.gif) right center no-repeat; }
 
 * html .ui-autocomplete { width: 1px; }
 
@@ -616,3 +616,5 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; }
 .ui-widget-overlay { background: #444444 url('/images/jquery.ui/le-frog/ui-bg_diagonals-thick_15_444444_40x40.png?') 50% 50% repeat; opacity: .30;filter:Alpha(Opacity=30); }
 
 .ui-widget-shadow { margin: 4px 0 0 4px; padding: 0px; background: #aaaaaa url('/images/jquery.ui/le-frog/ui-bg_diagonals-small_0_aaaaaa_40x40.png?') 50% 50% repeat; opacity: .30;filter:Alpha(Opacity=30); -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px; }
+
+.ui-autocomplete-loading { background: white url('/images/jquery.ui/le-frog/ui-anim_basic_16x16.gif?') right center no-repeat; }

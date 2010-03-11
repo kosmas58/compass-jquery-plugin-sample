@@ -32,7 +32,7 @@
 
 .ui-autocomplete { position: absolute; cursor: default; }
 
-.ui-autocomplete-loading { background: white url('images/ui-anim_basic_16x16.gif') right center no-repeat; }
+.ui-autocomplete-loading { background: white url(images/ui-anim_basic_16x16.gif) right center no-repeat; }
 
 * html .ui-autocomplete { width: 1px; }
 
@@ -616,3 +616,5 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; }
 .ui-widget-overlay { background: #666666 url('/images/jquery.ui/ui-lightness/ui-bg_diagonals-thick_20_666666_40x40.png?') 50% 50% repeat; opacity: .50;filter:Alpha(Opacity=50); }
 
 .ui-widget-shadow { margin: -5px 0 0 -5px; padding: 5px; background: black url('/images/jquery.ui/ui-lightness/ui-bg_flat_10_000000_40x100.png?') 50% 50% repeat-x; opacity: .20;filter:Alpha(Opacity=20); -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; }
+
+.ui-autocomplete-loading { background: white url('/images/jquery.ui/ui-lightness/ui-anim_basic_16x16.gif?') right center no-repeat; }

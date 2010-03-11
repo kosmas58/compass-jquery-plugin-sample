@@ -32,7 +32,7 @@
 
 .ui-autocomplete { position: absolute; cursor: default; }
 
-.ui-autocomplete-loading { background: white url('images/ui-anim_basic_16x16.gif') right center no-repeat; }
+.ui-autocomplete-loading { background: white url(images/ui-anim_basic_16x16.gif) right center no-repeat; }
 
 * html .ui-autocomplete { width: 1px; }
 
@@ -616,3 +616,5 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; }
 .ui-widget-overlay { background: #f7f7ba url('/images/jquery.ui/hot-sneaks/ui-bg_white-lines_85_f7f7ba_40x100.png?') 50% 50% repeat; opacity: .80;filter:Alpha(Opacity=80); }
 
 .ui-widget-shadow { margin: 8px 0 0 8px; padding: 10px; background: #ba9217 url('/images/jquery.ui/hot-sneaks/ui-bg_flat_75_ba9217_40x100.png?') 50% 50% repeat-x; opacity: .20;filter:Alpha(Opacity=20); -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; }
+
+.ui-autocomplete-loading { background: white url('/images/jquery.ui/hot-sneaks/ui-anim_basic_16x16.gif?') right center no-repeat; }
