@@ -1,2 +1,3 @@
 class Bird < ActiveRecord::Base
-end
+
+end  

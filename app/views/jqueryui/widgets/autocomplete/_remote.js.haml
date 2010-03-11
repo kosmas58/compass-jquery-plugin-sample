@@ -7,7 +7,7 @@
     		
     $("#birds").autocomplete({
       // TODO doesn't work when loaded from /demos/#autocomplete|remote
-      source: "search.php",
+      source: "auto_complete_for_bird_name",
       minLength: 2,
       select: function(event, ui) {
         log(ui.item ? ("Selected: " + ui.item.value + " aka " + ui.item.id) : "Nothing selected, input was " + this.value);
