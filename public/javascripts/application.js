@@ -64,4 +64,17 @@ jQuery(document).ready(function() {
 	$("#theme").change(function(){
 		this.form.submit();
 	});
+	
+  $("#license").dialog({
+    autoOpen: false,
+    bgiframe: true,
+    width: 600,
+    modal: true,
+    show: 'bounce',
+    hide: 'clip'
+  });
+  $('#show_license').click(function() {
+    $('#license').dialog('open');
+    return false;
+  });
 });
