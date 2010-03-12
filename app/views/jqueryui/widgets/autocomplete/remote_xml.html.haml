@@ -1,0 +1,29 @@
+-@title = "#{t('txt.ui.name')} #{t('txt.ui.widgets.autocomplete.default')} - #{t('txt.ui.widgets.autocomplete.remote-xml')}"
+-@jquery_partial = 'remote_xml.js.haml'
+      
+.demo
+  %h3
+    =@title
+  .ui-widget
+    %label{ :for => "city" }
+      London matches:
+    %input#city
+      Powered by
+    %a{ :href => "http://geonames.org" }
+      geonames.org
+  .ui-widget{ :style => "margin-top:2em; font-family:Arial" }
+    Result:
+    #log.ui-widget-content{ :style => "height: 200px; width: 300px; overflow: auto;" }
+  / End demo
+  
+.demo-description
+  %p
+    This demo shows how to retrieve some XML data, parse it using jQuery's methods,
+    then provide it to the autocomplete as the datasource. In this case, the datasource is the
+    %a{ :href => "http://geonames.org" }
+      geonames.org webservice
+  %p
+    This should also serve as a reference on how to parse a remote XML datasource -
+    the parsing would just happen for each request within the source-callback.
+  / End demo-description
+    

@@ -263,7 +263,7 @@ de:
           toolbar: Werkzeugleiste
         autocomplete: 
           combobox: Auswahleiste
-          xml: XML-Daten einmalig geparsed
+          remote-xml: XML-Daten einmalig geparsed
           default: "Autovervollst\xC3\xA4ndigung"
           remote-with-cache: Entfernt mit Caching
           remote-jsonp: Entfernte JSONP-Datenquelle

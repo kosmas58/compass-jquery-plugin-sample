@@ -315,7 +315,7 @@ en:
           remote-jsonp: Remote JSONP datasource
           combobox: Combobox
           custom-data: Custom data and display
-          xml: XML data parsed once
+          remote-xml: XML data parsed once
         default: Widgets
         button:
           default: Button

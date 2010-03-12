@@ -6,8 +6,14 @@
 		}
 		
 		$.ajax({
-			url: "london.xml",
+			url: "http://ws.geonames.org/search",
 			dataType: "xml",
+			data: {
+				featureClass: "P",
+				style: "full",
+				maxRows: 12,
+				name_startsWith: "London"
+			},
 			success: function(xmlResponse) {
 				var data = $("geoname", xmlResponse).map(function() {
 					return {
@@ -15,7 +21,7 @@
 						id: $("geonameId", this).text()
 					};
 				}).get();
-				$("#birds").autocomplete({
+				$("#city").autocomplete({
 					source: data,
 					minLength: 0,
 					select: function(event, ui) {
