@@ -265,8 +265,8 @@ de:
           combobox: Auswahleiste
           xml: XML-Daten einmalig geparsed
           default: "Autovervollst\xC3\xA4ndigung"
-          caching: Entfernt mit Caching
-          jsonp: Entfernte JSONP-Datenquelle
+          remote-with-cache: Entfernt mit Caching
+          remote-jsonp: Entfernte JSONP-Datenquelle
           remote: Entfernte Datenquelle
           custom: Angepasste Daten und Anzeige
         default: Widgets
