@@ -268,7 +268,7 @@ de:
           remote-with-cache: Entfernt mit Caching
           remote-jsonp: Entfernte JSONP-Datenquelle
           remote: Entfernte Datenquelle
-          custom: Angepasste Daten und Anzeige
+          custom-data: Angepasste Daten und Anzeige
         default: Widgets
         slider: 
           side-scroll: Einfache Bildlaufleiste

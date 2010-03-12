@@ -1,0 +1,46 @@
+%style{:type => "text/css", :media => "screen"}
+	:plain
+		#project-label { display: block; font-weight: bold; margin-bottom: 1em; }
+		#project-icon { float: left; height: 32px; width: 32px; }
+		#project-description { margin: 0; padding: 0; }
+	
+:javascript
+	$(function() {
+		var projects = [
+			{
+				value: 'jquery',
+				label: 'jQuery',
+				desc: 'the write less, do more, JavaScript library',
+				icon: 'jquery_32x32.png'
+			},
+			{
+				value: 'jquery-ui',
+				label: 'jQuery UI',
+				desc: 'the official user interface library for jQuery',
+				icon: 'jqueryui_32x32.png'
+			},
+			{
+				value: 'sizzlejs',
+				label: 'Sizzle JS',
+				desc: 'a pure-JavaScript CSS selector engine',
+				icon: 'sizzlejs_32x32.png'
+			}
+		];
+		
+		$('#project').autocomplete({
+			minLength: 0,
+			source: projects,
+			focus: function(event, ui) {
+				$('#project').val(ui.item.label);
+				return false;
+			},
+			select: function(event, ui) {
+				$('#project').val(ui.item.label);
+				$('#project-id').val(ui.item.value);
+				$('#project-description').html(ui.item.desc);
+				$('#project-icon').attr('src', '/images/demo/' + ui.item.icon);				
+				return false;
+			}
+		});
+	});
+	

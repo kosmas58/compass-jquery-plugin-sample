@@ -314,7 +314,7 @@ en:
           remote-with-cache: Remote with caching
           remote-jsonp: Remote JSONP datasource
           combobox: Combobox
-          custom: Custom data and display
+          custom-data: Custom data and display
           xml: XML data parsed once
         default: Widgets
         button:

@@ -4,12 +4,20 @@
 .demo
   %h3
     =@title
+  .ui-widget
+    %label{ :for => "birds" }
+      London matches:
+  %input#birds
+  .ui-widget{ :style => "margin-top:2em; font-family:Arial" }
+    Result:
+    #log.ui-widget-content{ :style => "height: 200px; width: 300px; overflow: auto;" }
 / End demo
+  
 .demo-description
   %p
-    Click headers to expand/collapse content that is broken into logical sections, much like tabs.
-    Optionally, toggle sections open/closed on mouseover.
+    This demo shows how to retrieve some XML data, parse it using jQuery's methods,
+    then provide it to the autocomplete as the datasource.
   %p
-    The underlying HTML markup is a series of headers (H3 tags) and content divs so the content is
-    usable without JavaScript.
+  This should also serve as a reference on how to parse a remote XML datasource -
+  the parsing would just happen for each request within the source-callback.
 / End demo-description

@@ -1,5 +1,28 @@
 :javascript
-  $(function() {
-    $("#accordionDemo").accordion();
-  });
-  
+	$(function() {
+		function log(message) {
+			$("<div/>").text(message).prependTo("#log");
+			$("#log").attr("scrollTop", 0);
+		}
+		
+		$.ajax({
+			url: "london.xml",
+			dataType: "xml",
+			success: function(xmlResponse) {
+				var data = $("geoname", xmlResponse).map(function() {
+					return {
+						value: $("name", this).text() + ", " + ($.trim($("countryName", this).text()) || "(unknown country)"),
+						id: $("geonameId", this).text()
+					};
+				}).get();
+				$("#birds").autocomplete({
+					source: data,
+					minLength: 0,
+					select: function(event, ui) {
+						log(ui.item ? ("Selected: " + ui.item.value + ", geonameId: " + ui.item.id) : "Nothing selected, input was " + this.value);
+					}
+				});
+			}
+		})		
+	});
+	
