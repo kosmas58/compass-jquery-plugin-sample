@@ -2,7 +2,7 @@ module Theme
   class << self
     # Returns the current default locale. Defaults to :'en'
     def default_theme
-      'start'
+      'ui-lightness'
     end    
          
     def current
@@ -32,7 +32,6 @@ module Theme
         "redmond",
         "smoothness",
         "south-street",
-        "start",
         "sunny",
         "swanky-purse",
         "trontastic",
