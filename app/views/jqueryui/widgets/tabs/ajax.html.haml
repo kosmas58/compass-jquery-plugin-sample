@@ -16,10 +16,10 @@
         %a{ :href => "content2" }
           Tab 2
       %li
-        %a{ :href => "ajax/content3-slow.php" }
+        %a{ :href => "content3" }
           Tab 3 (slow)
       %li
-        %a{ :href => "ajax/content4-broken.php" }
+        %a{ :href => "content4" }
           Tab 4 (broken)
     #tabs-1
       %p
@@ -32,5 +32,5 @@
     While the Ajax request is waiting for a response, the tab label changes to say "Loading...", then returns to the normal label once loaded.
   %p
     Tabs 3 and 4 demonstrate slow-loading and broken AJAX tabs, and how to handle serverside errors
-    in those cases. Note: These two require a webserver to interpret PHP. They won't work from the filesystem.
+    in those cases.
 / End demo-description
