@@ -41,7 +41,7 @@ jQuery(document).ready(function() {
     rootVisible: false,
     persist: true,
     selectMode: 2,
-    imagePath: "/images/jquery.ui/dynatree.vista/", // Image folder used for data.icon attribute.
+    imagePath: "/images/jquery.ui/dynatree.aero/", // Image folder used for data.icon attribute.
     onPostInit: function(isReloading, isError) {
       this.reactivate();
     },
