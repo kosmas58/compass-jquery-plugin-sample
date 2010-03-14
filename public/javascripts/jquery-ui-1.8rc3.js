@@ -20542,7 +20542,7 @@ $.widget("ui.tabs", {
 		select: null,
 		show: null,
 		spinner: '<em>Loading&#8230;</em>',
-		tabTemplate: '<li><a href="?{href}"><span>?{label}</span></a></li>'
+		tabTemplate: '<li><a href="#{href}"><span>#{label}</span></a></li>'
 	},
 	_create: function() {
 		this._tabify(true);
