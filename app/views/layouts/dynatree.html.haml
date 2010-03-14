@@ -19,7 +19,9 @@
     = javascript_include_tag :jquery_132
     = javascript_include_tag :jrails
     = raw jrails_javascripts(I18n.locale)
-    = javascript_include_tag :dynatree
+    //= javascript_include_tag :dynatree
+    = javascript_include_tag 'jquery.dynatree'
+    
     = javascript_include_tag :contextMenu
 
     = javascript_include_tag 'locales'
