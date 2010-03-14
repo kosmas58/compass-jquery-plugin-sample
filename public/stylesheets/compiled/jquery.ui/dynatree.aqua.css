@@ -5,7 +5,7 @@ ul.ui-dynatree-container a:hover { text-decoration: underline; }
 ul.ui-dynatree-container a:focus { background-color: #EFEBDE; }
 ul.ui-dynatree-container ul { padding: 0 0 0 16px; }
 ul.ui-dynatree-container li { list-style-image: none; list-style-position: outside; list-style-type: none; -moz-background-clip: border; -moz-background-inline-policy: continuous; -moz-background-origin: padding; background-attachment: scroll; background-color: transparent; background-position: 0 0; background-repeat: repeat-y; margin: 0; padding: 1px 0 0 0; }
-ul.ui-dynatree-container li.vline { background-image: url(vline.gif); }
+ul.ui-dynatree-container li.vline { background-image: url("/images/jquery.ui/dynatree.aqua/empty.png"); }
 
 .ui-dynatree-disabled ul.ui-dynatree-container { opacity: 0.5; background-color: silver; }
 

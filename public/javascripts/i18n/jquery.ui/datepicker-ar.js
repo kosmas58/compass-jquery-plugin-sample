@@ -14,7 +14,11 @@ jQuery(function($){
 		dayNames: ['السبت', 'الأحد', 'الاثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة'],
 		dayNamesShort: ['سبت', 'أحد', 'اثنين', 'ثلاثاء', 'أربعاء', 'خميس', 'جمعة'],
 		dayNamesMin: ['سبت', 'أحد', 'اثنين', 'ثلاثاء', 'أربعاء', 'خميس', 'جمعة'],
-		dateFormat: 'dd/mm/yy', firstDay: 0,
-  isRTL: true};
+		weekHeader: 'أسبوع',
+		dateFormat: 'dd/mm/yy',
+		firstDay: 0,
+  		isRTL: true,
+		showMonthAfterYear: false,
+		yearSuffix: ''};
 	$.datepicker.setDefaults($.datepicker.regional['ar']);
 });

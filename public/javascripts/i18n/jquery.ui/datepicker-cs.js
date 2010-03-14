@@ -13,7 +13,11 @@ jQuery(function($){
 		dayNames: ['neděle', 'pondělí', 'úterý', 'středa', 'čtvrtek', 'pátek', 'sobota'],
 		dayNamesShort: ['ne', 'po', 'út', 'st', 'čt', 'pá', 'so'],
 		dayNamesMin: ['ne','po','út','st','čt','pá','so'],
-		dateFormat: 'dd.mm.yy', firstDay: 1,
-		isRTL: false};
+		weekHeader: 'Týd',
+		dateFormat: 'dd.mm.yy',
+		firstDay: 1,
+		isRTL: false,
+		showMonthAfterYear: false,
+		yearSuffix: ''};
 	$.datepicker.setDefaults($.datepicker.regional['cs']);
 });

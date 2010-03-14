@@ -13,7 +13,11 @@ jQuery(function($){
 		dayNamesShort: ['Søn','Man','Tir','Ons','Tor','Fre','Lør'],
 		dayNames: ['Søndag','Mandag','Tirsdag','Onsdag','Torsdag','Fredag','Lørdag'],
 		dayNamesMin: ['Sø','Ma','Ti','On','To','Fr','Lø'],
-        dateFormat: 'yy-mm-dd', firstDay: 0,
-		isRTL: false};
+		weekHeader: 'Uke',
+        dateFormat: 'yy-mm-dd',
+		firstDay: 0,
+		isRTL: false,
+		showMonthAfterYear: false,
+		yearSuffix: ''};
     $.datepicker.setDefaults($.datepicker.regional['no']);
 });

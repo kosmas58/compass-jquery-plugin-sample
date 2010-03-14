@@ -5,7 +5,7 @@ ul.ui-dynatree-container a:hover { text-decoration: underline; }
 ul.ui-dynatree-container a:focus { background-color: #EFEBDE; }
 ul.ui-dynatree-container ul { padding: 0 0 0 16px; }
 ul.ui-dynatree-container li { list-style-image: none; list-style-position: outside; list-style-type: none; -moz-background-clip: border; -moz-background-inline-policy: continuous; -moz-background-origin: padding; background-attachment: scroll; background-color: transparent; background-position: 0 0; background-repeat: repeat-y; margin: 0; padding: 1px 0 0 0; }
-ul.ui-dynatree-container li.vline { background-image: url(vline.gif); }
+ul.ui-dynatree-container li.vline { background-image: url("/images/jquery.ui/dynatree.aero/empty.png"); }
 
 .ui-dynatree-disabled ul.ui-dynatree-container { opacity: 0.5; background-color: silver; }
 
@@ -41,8 +41,7 @@ span.custom2 span.ui-dynatree-icon { background-image: url("/images/jquery.ui/dy
 .ui-dynatree-selected span.ui-dynatree-radio { background-image: url("/images/jquery.ui/dynatree.aero/rbChecked.png"); }
 .ui-dynatree-selected span.ui-dynatree-radio:hover { background-image: url("/images/jquery.ui/dynatree.aero/rbChecked_hover.png"); }
 
-.ui-dynatree-folder span.ui-dynatree-icon { background-image: url("/images/jquery.ui/dynatree.aero/folder.png"); }
-.ui-dynatree-folder.ui-dynatree-expanded span.ui-dynatree-icon { background-image: url("/images/jquery.ui/dynatree.aero/folder_open.png"); }
+.ui-dynatree-folder span.ui-dynatree-icon, .ui-dynatree-folder.ui-dynatree-expanded span.ui-dynatree-icon { background-image: url("/images/jquery.ui/dynatree.aero/folder.png"); }
 
 .ui-dynatree-statusnode-wait span.ui-dynatree-icon { background-image: url("/images/jquery.ui/dynatree.aero/ltWait.gif"); }
 
