@@ -26,7 +26,7 @@ class Invheader < ActiveRecord::Base
     :pager          => true
     
   gridify :demo02,
-    :title          => I18n.t('txt.jqgrid.demo.xml_data'),
+    :title          => I18n.t('txt.jqgrid.demo.json_data'),
     :url            => "/jqgrid/demo",
     :data_type      => :json,
 #    :colNames       => [
