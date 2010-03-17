@@ -58,12 +58,7 @@ jQuery(document).ready(function() {
 	
 	$("#locale").change(function(){
 		this.form.submit();
-	});
-	
-
-	$("#theme").change(function(){
-		this.form.submit();
-	});
+	});	
 
   $('#switcher').themeswitcher();
 	
@@ -75,6 +70,7 @@ jQuery(document).ready(function() {
     show: 'bounce',
     hide: 'clip'
   });
+	
   $('#show_license').click(function() {
     $('#license').dialog('open');
     return false;
