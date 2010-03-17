@@ -6,8 +6,8 @@ de:
         taken: wird bereits verwendet
         accepted: muss akzeptiert werden
         not_a_number: ist nicht numerisch
-        record_invalid: "Validierung gescheitert: {{errors}}"
         greater_than_or_equal_to: "muss gr\xC3\xB6\xC3\x9Fer als oder gleich {{count}} sein"
+        record_invalid: "Validierung gescheitert: {{errors}}"
         blank: darf nicht leer sein
         confirmation: "stimmt nicht mit der Best\xC3\xA4tigung \xC3\xBCberein"
         less_than_or_equal_to: muss kleiner als oder gleich {{count}} sein
@@ -45,8 +45,8 @@ de:
         email: E-Mail
       invheader: 
         tax: MwSt.
-        total: Summe
         client_id: Kundennr.
+        total: Summe
         ship_via: "Versenden \xC3\xBCber"
         closed: Geschlossen
         amount: Betrag
@@ -109,8 +109,6 @@ de:
       short: "%b %d"
       long: "%B %d  %Y"
   txt: 
-    jqt: 
-      name: "jQTouch (ben\xC3\xB6tigt einen Browser mit WebKit)"
     jqgrid: 
       simple: 
         name: Einfache Datengitter
@@ -128,29 +126,29 @@ de:
         input: mit verschiedenen Eingabetypen
       demo: 
         events: Ereignisse nutzen
-        sortable: Sortierbare Spalten anzeigen
         big_sets: "Gro\xC3\x9Fe Datenmengen durchsuchen"
+        sortable: Sortierbare Spalten anzeigen
         row: "Zeilen \xC3\xA4ndern"
         multi: Mehrfachauswahl
-        hide: Spalten anzeigen/verbergen
-        post_data: Post Data
-        chooser: Spaltenauswahl
         integrations: Integrationen
+        hide: Spalten anzeigen/verbergen
+        chooser: Spaltenauswahl
+        post_data: Post Data
         v31: Neu in Version 3.1
         delete_row: "Zeile l\xC3\xB6schen"
         ajax: Ajax-Verbesserungen
-        v32: Neu in Version 3.2
         json_subgrid: Untergitter mit JSON
+        v32: Neu in Version 3.2
         initial: "Zun\xC3\xA4chst verstecktes Gitter"
         basic: Einfaches Beispiel
         after_load: Callback nach dem Laden
         tscroll: Echte scrollende Zeilen
-        xml_map: XML-Mapping
+        srows: Sortierbare Zeilen
+        master: Haupt- und Detailsicht
         tree: Baumgitter
         toolbar: Symbolleisten und Benutzerdaten
+        xml_map: XML-Mapping
         set: Set-Methoden
-        master: Haupt- und Detailsicht
-        srows: Sortierbare Zeilen
         v33: Neu in Version 3.3
         mapping: Daten-Mapping
         loading: Laden von Daten
@@ -162,27 +160,27 @@ de:
         v35: Neu in Version 3.5
         rdnd: Drag and Drop von Zeilen
         stoolbar: Integrierte Suchleiste
-        mtoolbar: Mehrfache Symbolleistensuche
         v36: Neu in Version 3.6
-        cinput: Benutzerdefiniertes Eingabeelement erstellen
+        mtoolbar: Mehrfache Symbolleistensuche
         reordering: Neuanordnung von Spalten
-        scroll: Scrollen mit dynamischen Zeilenauswahl
+        cinput: Benutzerdefiniertes Eingabeelement erstellen
         view: Modus Gitteransicht
         autoscroll: Das automatische Laden von Daten beim Scrollen
         function: Datentyp als Funktion
+        scroll: Scrollen mit dynamischen Zeilenauswahl
         as_subgrid: Gitter als Untergitter
         cedit: "Angepasstes \xC3\x84ndern"
         validation: Angepasste Validierung
         name: Demo
         visible: Sichtbare Spalten
         get: Get-Methoden
-        edit_row: "Zeile \xC3\xA4ndern"
-        import: Konfiguration aus XML importieren
+        xml_data: XML-Daten
         client: Clientseitige Validierung
         navigation: Formularnavigation
+        import: Konfiguration aus XML importieren
         full: Vollzugriff
+        edit_row: "Zeile \xC3\xA4ndern"
         number: Automatische Breite und Reihennummerierung
-        xml_data: XML-Daten
         adjacency: Baumgitter mit Adjazenzliste
         summary: "Zusammenfassung in der Fu\xC3\x9Fzeile"
         mform: Mehrfache Formularsuche
@@ -200,20 +198,20 @@ de:
         api: Neues API
         insert: "Ereignis nach Einf\xC3\xBCgen einer Zeile"
         once: Einmaliges Laden
-        server_errors: Server-Fehler kontrollieren
         array: Daten aus einer Matrix
         live: Live Datenmanipulation
         json_map: JSON-Mapping
         manipulating: Manipulation
-        resizable: "Vergr\xC3\xB6\xC3\x9Ferbare Spalten"
-        add_row: "Zeile hinzuf\xC3\xBCgen"
+        server_errors: Server-Fehler kontrollieren
         improvements: Formverbesserungen
-        subgrid: Untergitter
+        add_row: "Zeile hinzuf\xC3\xBCgen"
+        resizable: "Vergr\xC3\xB6\xC3\x9Ferbare Spalten"
+        optimize: Datenoptimierung
         data: Gitterdaten
         cparams: "Gebr\xC3\xA4uchliche Parameter"
         b30: Neu seit Beta 3.0
         types: Eingabetypen
-        optimize: Datenoptimierung
+        subgrid: Untergitter
         asearch: Erweiterte Suche
         navigator: Navigator
       subgrids: 
@@ -223,27 +221,29 @@ de:
         crud: mit CRUD-Operationen
       improvements: 
         name: Formverbesserungen
+    jqt: 
+      name: "jQTouch (ben\xC3\xB6tigt einen Browser mit WebKit)"
     dt: 
       name: Dynatree
       ul: Aus ul-Element initialisieren
       default: Standardeinstellungen
+      persist: Persistenz
       lazy: Lazy
       quick: JS-Objekt initialisieren
-      persist: Persistenz
       dnd: Ziehen und Ablegen
-      api: Programmier-API
       iframe: iframe und URL-Navigation
+      api: Programmier-API
       minexpand: Feste Expansionsebene
       effects: Effekte
-      contextmenu: "Kontextmen\xC3\xBC,  Kopieren / Einf\xC3\xBCgen"
       events: Ergeignisverarbeitung
+      contextmenu: "Kontextmen\xC3\xBC,  Kopieren / Einf\xC3\xBCgen"
+      select: "K\xC3\xA4stchen & Auswahl"
       theming: 
         name: Themen
         xp: XP
         crystal: Crystal
         aero: Aero
         aqua: Aqua
-      select: "K\xC3\xA4stchen & Auswahl"
     hello: Hallo Welt
     ui: 
       name: jQquery UI
@@ -256,32 +256,32 @@ de:
       widgets: 
         button: 
           default: "Schaltfl\xC3\xA4che"
-          icon: Symbole
           splitbutton: "Geteilte Schaltfl\xC3\xA4che"
+          icon: Symbole
           radio: Umschalttasten
           checkbox: Auswahltasten
           toolbar: Werkzeugleiste
         autocomplete: 
           combobox: Auswahleiste
-          remote-xml: XML-Daten einmalig geparsed
           default: "Autovervollst\xC3\xA4ndigung"
-          remote-with-cache: Entfernt mit Caching
           remote-jsonp: Entfernte JSONP-Datenquelle
-          remote: Entfernte Datenquelle
           custom-data: Angepasste Daten und Anzeige
+          remote-with-cache: Entfernt mit Caching
+          remote-xml: XML-Daten einmalig geparsed
+          remote: Entfernte Datenquelle
         default: Widgets
         slider: 
-          side-scroll: Einfache Bildlaufleiste
           steps: Mit festen Schritten einrasten
           multiple-vertical: Mehrere Regler
           default: Schieberegler
-          hotelrooms: Zimmerreservierung
+          side-scroll: Einfache Bildlaufleiste
           colorpicker: Einfache Farbauswahl
           slider-vertical: Vertikaler Regler
           range-vertical: Vertikaler Regler mit Bereich
           range: Regler mit Bereich
           rangemax: Bereich mit festgesetzten Maximum
           tabs: Reiter per Schieberegler kontrollieren
+          hotelrooms: Zimmerreservierung
           rangemin: Bereich mit festgesetztem Mininum
         datepicker: 
           alt-field: "Alternatives Feld f\xC3\xBCllen"
@@ -289,23 +289,31 @@ de:
           default: Datumsauswahl
           min-max: "Datumsbereich einschr\xC3\xA4nken "
           inline: Eingebettet anzeigen
-          show-week: Zeige Kalanderwoche
-          animation: Animationen
           icon-trigger: "\xC3\x9Cber Symbol aktivieren"
+          animation: Animationen
+          show-week: Zeige Kalanderwoche
           event-search: Veranstaltungen suchen
           multiple-calendars: Mehrerer Monate anzeigen
           dropdown-month-year: "Monat- & Jahresmen\xC3\xBCs anzeigen"
-          date-formats: Datum formatieren
           localization: " Kalender lokalisieren"
+          date-formats: Datum formatieren
           other-months: Termine in den anderen Monaten
         tabs: 
+          bottom: Reiter unterhalb des Inhalts
           manipulation: Einfache Handhabung
           default: Reiter
           ajax: "Inhalt \xC3\xBCber Ajax"
           sortable: Sortierbar
           mouseover: "\xC3\x96ffnen, wenn die Maus dar\xC3\xBCberf\xC3\xA4hrt"
-          bottom: Reiter unterhalb des Inhalts
           collapsible: Inhalt wegklappen
+        accordion: 
+          default: Akkordeon
+          no-auto-height: "Ohne automatische H\xC3\xB6he"
+          sortable: Sortierbar
+          mouseover: "\xC3\x96ffnen, wenn die Maus dar\xC3\xBCberf\xC3\xA4hrt"
+          fillspace: "Freien Platz f\xC3\xBCllen"
+          custom-icons: Symbole anpassen
+          collapsible: Inhalt einklappen
         dialog: 
           default: Dialog
           modal: Modaler Dialog
@@ -313,14 +321,6 @@ de:
           modal-message: Modale Nachricht
           animated: Animierter Dialog
           modal-form: Modale Form
-        accordion: 
-          default: Akkordeon
-          no-auto-height: "Ohne automatische H\xC3\xB6he"
-          sortable: Sortierbar
-          fillspace: "Freien Platz f\xC3\xBCllen"
-          mouseover: "\xC3\x96ffnen, wenn die Maus dar\xC3\xBCberf\xC3\xA4hrt"
-          custom-icons: Symbole anpassen
-          collapsible: Inhalt einklappen
         progressbar: 
           default: Fortschrittsbalken
           resize: "Vergr\xC3\xB6\xC3\x9Ferbarer Fortschrittsbalken"
@@ -333,8 +333,8 @@ de:
         default: Interaktionen
         draggable: 
           visual-feedback: Visuelles Feedback
-          default: Ziehbar
           snap-to: In Element oder Gitter einrasten
+          default: Ziehbar
           handle: Position des Griffs
           scroll: Autoscrollen
           revert: "Zur Position zur\xC3\xBCckkehren"
@@ -353,33 +353,33 @@ de:
           animate: Animieren
           synchronous-resize: "Synchrones Vergr\xC3\xB6\xC3\x9Fern"
           delay-start: "Start verz\xC3\xB6gern"
-          helper: "Vergr\xC3\xB6\xC3\x9Ferungshelfer"
           constrain-area: "Vergr\xC3\xB6\xC3\x9Ferungsfl\xC3\xA4che einschr\xC3\xA4nken"
+          helper: "Vergr\xC3\xB6\xC3\x9Ferungshelfer"
         droppable: 
           visual-feedback: Visuelles Feedback
           default: Ablegbar
           revert: "R\xC3\xBCckkehr zur  Position"
           propagation: Weitergabe verhindern
-          accepted-elements: Akzeptierte Elemente
           photo-manager: Einfacher Photomanager
+          accepted-elements: Akzeptierte Elemente
         sortable: 
           items: "Elemente ein- / ausschlie\xC3\x9Fen"
           placeholder: "Platzhalter f\xC3\xBCr den Abwurf"
           default: Sortierbar
           connect-lists-through-tabs: "Listen \xC3\xBCber Reiter verbinden"
           delay-start: "Start verz\xC3\xB6gern"
-          connect-lists: Listen verbinden
           portlets: Portlets
+          connect-lists: Listen verbinden
           empty-lists: Leere Listen handhaben
           display-grid: Als Gitter anzeigen
       effects: 
         default: Effekte
+        hide: 
+          default: Verstecken
         switch_class: 
           default: Klasse wechseln
         toggle_class: 
           default: Klasse umschalten
-        hide: 
-          default: Verstecken
         animate: 
           default: Animieren
         show: 
@@ -394,9 +394,12 @@ de:
           default: Effekt
           easing: Easing im Schaufenster
           showcase: Effekte im Schaufenster
+      theme-switcher: 
+        button: "Thema: "
+        initial: Thema wechseln
     layout: 
-      theme: Thema
       language: Sprache
+      theme: Thema
       footer: 
         legalese: "Copyright &copy; 2009-2010 Kosmas Sch\xC3\xBCtz. N\xC3\xA4heres finden Sie unter LICENSE."
   support: 
@@ -417,12 +420,12 @@ de:
       x_days: 
         one: 1 Tag
         other: "{{count}} Tage"
-      x_minutes: 
-        one: 1 Minute
-        other: "{{count}} Minuten"
       x_seconds: 
         one: 1 Sekunde
         other: "{{count}} Sekunden"
+      x_minutes: 
+        one: 1 Minute
+        other: "{{count}} Minuten"
       about_x_hours: 
         one: ca. 1 Stunde
         other: ca. {{count}} Stunden

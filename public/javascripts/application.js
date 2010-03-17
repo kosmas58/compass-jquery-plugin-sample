@@ -60,7 +60,10 @@ jQuery(document).ready(function() {
 		this.form.submit();
 	});	
 
-  $('#switcher').themeswitcher();
+  $('#switcher').themeswitcher({
+		initialText: I18n.t('txt.ui.theme-switcher.initial'),
+    buttonPreText: I18n.t('txt.ui.theme-switcher.button')	
+	});
 	
   $("#license").dialog({
     autoOpen: false,

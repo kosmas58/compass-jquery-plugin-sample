@@ -25,13 +25,9 @@ date:
     default: "%Y-%m-%d"
 txt: 
   ui: 
-    widgets: 
-      button: 
-        icon: Icons
-        split: Split button
-        radio: Radios
-        checkbox: Checkboxes
-        toolbar: Toolbar
+    theme-switcher: 
+      button: "Theme: "
+      initial: Switch theme
 support: 
   array: 
     words_connector: ", "

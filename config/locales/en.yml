@@ -306,6 +306,9 @@ en:
     hello: Hello world
     ui: 
       name: jQuery UI
+      theme-switcher:
+        initial: Switch theme
+        button: "Theme: "
       default: Default functionality
       widgets: 
         autocomplete:
