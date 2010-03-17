@@ -58,9 +58,12 @@ jQuery(document).ready(function() {
 	
 	$("#locale").change(function(){
 		this.form.submit();
+	});  
+
+  $('#switcher').themeswitcher({
+		initialText: I18n.t('txt.ui.theme-switcher.initial'),
+    buttonPreText: I18n.t('txt.ui.theme-switcher.button')	
 	});
-	
-  $('#switcher').themeswitcher();
 	
   $("#license").dialog({
     autoOpen: false,
