@@ -64,6 +64,8 @@ jQuery(document).ready(function() {
 	$("#theme").change(function(){
 		this.form.submit();
 	});
+
+  $('#switcher').themeswitcher();
 	
   $("#license").dialog({
     autoOpen: false,
