@@ -12,7 +12,7 @@ jQuery.fn.submitWithAjax = function() {
 jQuery(document).ready(function() {	
   // From http://dev.jqueryui.com/ticket/3613
 	// Cookie persistence missing
-	// Start
+	// start
   var accordion = $("#accordion");
 	var index = $.cookie("accordion-active");
 	var active;
@@ -58,12 +58,9 @@ jQuery(document).ready(function() {
 	
 	$("#locale").change(function(){
 		this.form.submit();
-	});
-	
+	});	
 
-	$("#theme").change(function(){
-		this.form.submit();
-	});
+  $('#switcher').themeswitcher();
 	
   $("#license").dialog({
     autoOpen: false,
@@ -73,6 +70,7 @@ jQuery(document).ready(function() {
     show: 'bounce',
     hide: 'clip'
   });
+	
   $('#show_license').click(function() {
     $('#license').dialog('open');
     return false;
