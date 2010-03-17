@@ -27,7 +27,7 @@ Subversion
 
 h1. Use it!
 
-The easiest way to 'start' with make_resourceful
+The easiest way to start with make_resourceful
 is to run the resource_scaffold generator.
 It uses the same syntax as the Rails scaffold_resource generator:
 

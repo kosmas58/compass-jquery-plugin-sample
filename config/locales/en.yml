@@ -394,7 +394,7 @@ en:
           revert: Revert position
           constrain-movement: Constrain movement
           sortable: Draggable + Sortable
-          delay-start: Delay 'start'
+          delay-start: Delay start
           events: Events
           cursor-style: Cursor style
         resizable: 
@@ -405,7 +405,7 @@ en:
           snap-to-grid: Snap to grid
           animate: Animate
           synchronous-resize: Synchronous resize
-          delay-start: Delay 'start'
+          delay-start: Delay start
           constrain-area: Constrain resize area
           helper: Resize Helper
           textarea: Textarea
@@ -421,7 +421,7 @@ en:
           placeholder: Drop placeholder
           default: Sortable
           connect-lists-through-tabs: Connect lists through tabs
-          delay-start: Delay 'start'
+          delay-start: Delay start
           connect-lists: Connect lists
           portlets: Portlets
           empty-lists: Handle empty lists

@@ -191,7 +191,7 @@ $.fn.jqGrid = function( pin ) {
 			cols:[],
 			footers: [],
 			dragStart: function(i,x,y) {
-				this.resizing = { idx: i, 'start'X: x.clientX, sOL : y[0]};
+				this.resizing = { idx: i, startX: x.clientX, sOL : y[0]};
 				this.hDiv.style.cursor = "col-resize";
 				this.curGbox = $("#rs_m"+p.id,"#gbox_"+p.id);
 				this.curGbox.css({display:"block",left:y[0],top:y[1],height:y[2]});
@@ -473,7 +473,7 @@ $.fn.jqGrid = function( pin ) {
 			return ret;
 		},
 		addXmlData = function (xml,t, rcnt, more, adjust) {
-			var 'start'Req = new Date();
+			var startReq = new Date();
 			ts.p.reccount = 0;
 			if($.isXMLDoc(xml)) {
 				if(ts.p.treeANode===-1 && !ts.p.scroll) {
@@ -573,7 +573,7 @@ $.fn.jqGrid = function( pin ) {
 			if(ts.p.gridview === true) {
 				$("tbody:first",t).append(rowData.join(''));
 			}
-			ts.p.totaltime = new Date() - 'start'Req;
+			ts.p.totaltime = new Date() - startReq;
 			if(ir>0) {ts.grid.cols = ts.rows[0].cells;if(ts.p.records===0)ts.p.records=gl;}
 			rowData =null;
 			if(!ts.p.treeGrid && !ts.p.scroll) {ts.grid.bDiv.scrollTop = 0;}
@@ -583,7 +583,7 @@ $.fn.jqGrid = function( pin ) {
 			if (!more) updatepager(false,true);
 		},
 		addJSONData = function(data,t, rcnt, more, adjust) {
-			var 'start'Req = new Date();
+			var startReq = new Date();
 			ts.p.reccount = 0;
 			if(data) {
 				if(ts.p.treeANode === -1 && !ts.p.scroll) {
@@ -678,7 +678,7 @@ $.fn.jqGrid = function( pin ) {
 			if(ts.p.gridview === true ) {
 				$("tbody:first",t).append(rowData.join(''));
 			}
-			ts.p.totaltime = new Date() - 'start'Req;
+			ts.p.totaltime = new Date() - startReq;
 			if(ir>0) {ts.grid.cols = ts.rows[0].cells;if(ts.p.records===0)ts.p.records=len;}
 			}
 			if(!ts.p.treeGrid && !ts.p.scroll) {ts.grid.bDiv.scrollTop = 0;}
@@ -6462,7 +6462,7 @@ $.jgrid.extend({
 	{
 		return this.each(function (){
 			var ts = this;
-			function 'start'() {ts.p.disableClick = true;};
+			function start() {ts.p.disableClick = true;};
 			var sortable_opts = {
 				"tolerance" : "pointer",
 				"axis" : "x",
@@ -6513,7 +6513,7 @@ $.jgrid.extend({
 					s.call(this,e,ui);
 				}
 			} else {
-				sortable_opts.start = 'start';
+				sortable_opts.start = start;
 			}
 			if (ts.p.sortable.exclude) {
 				sortable_opts.items += ":not("+ts.p.sortable.exclude+")";
@@ -6770,7 +6770,7 @@ $.jgrid.extend({
 							var ids = $(ui.helper).attr("id");
 							$($t).jqGrid('delRowData',ids );
 						}
-						// if we have a empty row inserted from 'start' event try to delete it
+						// if we have a empty row inserted from start event try to delete it
 						for (var i=0;i<$.data($t,"dnd").connectWith.length;i++){
 							$($.data($t,"dnd").connectWith[i]).jqGrid('delRowData','jqg_empty_row');
 						}
@@ -8774,7 +8774,7 @@ jQuery.fn.searchFilter = function(fields, options) {
 
 
             //---------------------------------------------------------------
-            // CREATION PROCESS 'start'S
+            // CREATION PROCESS STARTS
             //---------------------------------------------------------------
 
             // generate the global ops
@@ -9621,8 +9621,8 @@ var xmlJsonClass = {
  *     and the row that was dropped. You can work out the new order of the rows by using
  *     table.rows.
  * onDragStart
- *     Pass a function that will be called when the user 'start's dragging. The function takes 2 parameters: the
- *     table and the row which the user has 'start'ed to drag.
+ *     Pass a function that will be called when the user starts dragging. The function takes 2 parameters: the
+ *     table and the row which the user has started to drag.
  * onAllowDrop
  *     Pass a function that will be called as a row is over another row. If the function returns true, allow 
  *     dropping on that row, otherwise not. The function takes 2 parameters: the dragged row and the row under

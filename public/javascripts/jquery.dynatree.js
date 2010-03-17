@@ -75,7 +75,7 @@ var DTNodeStatus_Loading = 1;
 var DTNodeStatus_Ok      = 0;
 
 
-// 'start' of local namespace
+// Start of local namespace
 ;(function($) {
 
 /*************************************************************************
@@ -346,7 +346,7 @@ DynaTreeNode.prototype = {
 	prevSibling: function() {
 		if( !this.parent ) return null;
 		var ac = this.parent.childList;
-		for(var i=1; i<ac.length; i++) // 'start' with 1, so prev(first) = null
+		for(var i=1; i<ac.length; i++) // start with 1, so prev(first) = null
 			if( ac[i] === this )
 				return ac[i-1];
 		return null;
@@ -748,12 +748,12 @@ DynaTreeNode.prototype = {
 	_loadContent: function() {
 		try {
 			var opts = this.tree.options;
-			this.tree.logDebug("_loadContent: 'start' - %o", this);
+			this.tree.logDebug("_loadContent: start - %o", this);
 			this.setLazyNodeStatus(DTNodeStatus_Loading);
 			if( true == opts.onLazyRead.call(this.span, this) ) {
 				// If function returns 'true', we assume that the loading is done:
 				this.setLazyNodeStatus(DTNodeStatus_Ok);
-				// Otherwise (i.e. if the loading was 'start'ed as an asynchronous process)
+				// Otherwise (i.e. if the loading was started as an asynchronous process)
 				// the onLazyRead(dtnode) handler is expected to call dtnode.setLazyNodeStatus(DTNodeStatus_Ok/_Error) when done.
 				this.tree.logDebug("_loadContent: succeeded - %o", this);
 			}
@@ -805,7 +805,7 @@ DynaTreeNode.prototype = {
 			this._loadContent();
 			return;
 		}
-//		this.tree.logDebug("_expand: 'start' div toggle - %o", this);
+//		this.tree.logDebug("_expand: start div toggle - %o", this);
 /*
 		if( opts.fx ) {
 			this.render(true);
@@ -813,7 +813,7 @@ DynaTreeNode.prototype = {
 			$(this.ul).animate(opts.fx, duration);
 		} else {
 			this.render();
-			logMsg("_expand: got div, 'start' toggle - %o", this);
+			logMsg("_expand: got div, start toggle - %o", this);
 		}
 */
 		

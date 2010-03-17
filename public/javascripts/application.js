@@ -12,7 +12,7 @@ jQuery.fn.submitWithAjax = function() {
 jQuery(document).ready(function() {	
   // From http://dev.jqueryui.com/ticket/3613
 	// Cookie persistence missing
-	// 'start'
+	// start
   var accordion = $("#accordion");
 	var index = $.cookie("accordion-active");
 	var active;

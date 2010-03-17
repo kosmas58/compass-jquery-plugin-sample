@@ -39,7 +39,7 @@ To mount the plugin, add the following to your config/routes.rb file:
 
 Translate::Routes.translation_ui(map) if RAILS_ENV != "production"
 
-Now visit /translate in your web browser to 'start' translating.
+Now visit /translate in your web browser to start translating.
 
 Dependencies
 =========

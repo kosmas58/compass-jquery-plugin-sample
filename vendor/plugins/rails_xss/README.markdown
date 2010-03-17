@@ -79,7 +79,7 @@ Don't do that.
   
 This is intended functionality and can't be fixed.
 
-Getting 'start'ed
+Getting Started
 ===============
 
 1. Install rails 2.3.5 or higher, or freeze rails from 2-3-stable.

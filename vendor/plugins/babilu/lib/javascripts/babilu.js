@@ -38,7 +38,7 @@
   //Works mostly the same as the Ruby equivalent, except there are
   //no symbols in JavaScript, so keys are always strings. The only time
   //this makes a difference is when differentiating between keys and values
-  //in the defaultValue option. Strings 'start'ing with ":" will be considered
+  //in the defaultValue option. Strings starting with ":" will be considered
   //to be keys and used for lookup, while other strings are returned as-is.
   I18n.translate = function(key, opts){
     if (typeof key != "string") { //Bulk lookup
@@ -64,7 +64,7 @@
   //is the key and any string before that define the scope. The current
   //locale is always prepended and does not need to be provided. The second
   //parameter is an array of strings used as defaults if the key can not be
-  //found. If a key 'start's with ":" it is used as a key for lookup.
+  //found. If a key starts with ":" it is used as a key for lookup.
   //This method does not perform pluralization or interpolation.
   I18n.lookup = function(keys, defaults){
     var i = 0, value = this.translations[locale()];
