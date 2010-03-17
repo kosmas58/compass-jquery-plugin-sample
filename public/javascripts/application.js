@@ -60,10 +60,7 @@ jQuery(document).ready(function() {
 		this.form.submit();
 	});
 	
-
-	$("#theme").change(function(){
-		this.form.submit();
-	});
+  $('#switcher').themeswitcher();
 	
   $("#license").dialog({
     autoOpen: false,

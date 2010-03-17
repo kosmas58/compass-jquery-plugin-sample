@@ -16,9 +16,5 @@
             %div
               = select_tag("locale", options_for_select(LOCALES_AVAILABLE, I18n.locale.to_s))  
         %li
-          = t('txt.layout.theme')
-        %li
-          - form_tag('', :method => :get) do
-            %div
-              = select_tag("theme", options_for_select(Theme.themes,'ui-lightness'))
+          %div#switcher
   
