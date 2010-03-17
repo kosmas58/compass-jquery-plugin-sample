@@ -18,7 +18,7 @@ I18n.t('ponies', {count:5}) // "I have 5 ponies"
 
 The only difference is that because JavaScript doesn't have symbols we can't
 easily differentiate between keys and values in the "defaultValue" option. A workaround
-is used in which strings starting with ":" are considered to be keys and are used for
+is used in which strings 'start'ing with ":" are considered to be keys and are used for
 looking up additional translations:
 
 I18n.t('doesntexist', {defaultValue:'humbaba'}) // "humbaba"

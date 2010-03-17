@@ -1,6 +1,6 @@
 desc "Convert views to haml and stylesheets to sass"
 task :erb2haml do
-  puts "HTML to HAML started"
+  puts "HTML to HAML 'start'ed"
   path = File.join(RAILS_ROOT, 'app', 'views')
   puts path
   Dir["#{path}/**/*.erb"].each do |file|
@@ -19,7 +19,7 @@ end
 
 desc "Convert views to haml and stylesheets to sass"
 task :html2haml do
-  puts "HTML to HAML started"
+  puts "HTML to HAML 'start'ed"
   path = File.join(RAILS_ROOT, 'app', 'views')
   puts path
   Dir["#{path}/**/*.html"].each do |file|
@@ -38,7 +38,7 @@ end
 
 desc "Convert views to haml"
 task :demo2haml do
-  puts "HTML to HAML started"
+  puts "HTML to HAML 'start'ed"
   path = File.join(RAILS_ROOT, 'app', 'views')
   puts path
   Dir["#{path}/**/*.html"].each do |file|

@@ -60,7 +60,7 @@ describe('I18n.lookup', {
     expect(I18n.lookup(['foo', 'bar', 'baz'], ['IM IN UR TRANSLATION'])).should_be('Found me');
   },
 
-  'should use default strings starting with ":" to do another lookup': function(){
+  'should use default strings 'start'ing with ":" to do another lookup': function(){
     expect(I18n.lookup(['humbaba'], [':hello'])).should_be('Hello world');
     expect(I18n.lookup(['humbaba'], ['hello'])).should_be('hello');
     expect(I18n.lookup(['humbaba'], [':jello'])).should_be_null();
@@ -121,7 +121,7 @@ describe('I18n.translate', {
     expect(I18n.t('humbaba', {defaultValue:'I <3 cedars'})).should_be('I <3 cedars');
   },
 
-  'should use defaultValue to do another lookup if it starts with ":"': function(){
+  'should use defaultValue to do another lookup if it 'start's with ":"': function(){
     expect(I18n.t('humbaba', {defaultValue:':hello'})).should_be('Hello world');
     expect(I18n.t('humbaba', {defaultValue:':spoon'})).should_be_null();
   },

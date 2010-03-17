@@ -511,7 +511,7 @@ Object.extend(String.prototype, {
     return this.indexOf(pattern) > -1;
   },
 
-  startsWith: function(pattern) {
+  'start'sWith: function(pattern) {
     return this.indexOf(pattern) === 0;
   },
 
@@ -1093,7 +1093,7 @@ Hash.prototype.toTemplateReplacements = Hash.prototype.toObject;
 Hash.from = $H;
 var ObjectRange = Class.create(Enumerable, {
   initialize: function(start, end, exclusive) {
-    this.start = start;
+    this.start = 'start';
     this.end = end;
     this.exclusive = exclusive;
   },
@@ -1485,7 +1485,7 @@ Ajax.PeriodicalUpdater = Class.create(Ajax.Base, {
     this.start();
   },
 
-  start: function() {
+  'start': function() {
     this.options.onComplete = this.updateComplete.bind(this);
     this.onTimerEvent();
   },

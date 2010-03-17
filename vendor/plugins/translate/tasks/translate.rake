@@ -110,7 +110,7 @@ namespace :translate do
 
     I18n.backend.send(:init_translations)
 
-    start_at = Time.now
+    'start'_at = Time.now
     translations = {}
     Translate::Keys.new.i18n_keys(ENV['FROM']).each do |key|
       from_text = I18n.backend.send(:lookup, ENV['FROM'], key).to_s
@@ -136,7 +136,7 @@ namespace :translate do
       end
     end
 
-    puts "\nTime elapsed: #{(((Time.now - start_at) / 60) * 10).to_i / 10.to_f} minutes"
+    puts "\nTime elapsed: #{(((Time.now - 'start'_at) / 60) * 10).to_i / 10.to_f} minutes"
     Translate::Storage.new(ENV['TO'].to_sym).write_to_file
   end
 

@@ -37,7 +37,7 @@ namespace :cruise do
   desc 'Runs necessary tasks before build'
   task :build do
     task_name = "geminstaller" 
-    puts "\n[CruiseControl] Started rake task #{task_name.inspect}"
+    puts "\n[CruiseControl] 'start'ed rake task #{task_name.inspect}"
     system "#{task_name}"
     puts "[CruiseControl] Finished rake task #{task_name.inspect}\n\n" 
     
@@ -55,7 +55,7 @@ namespace :cruise do
     
     task_name = "coverage" 
     ENV['HOME'] = '/root/'
-    puts "\n[CruiseControl] Started rake task #{task_name.inspect}"
+    puts "\n[CruiseControl] 'start'ed rake task #{task_name.inspect}"
     out = ENV['CC_BUILD_ARTIFACTS']
     mkdir_p out unless File.directory? out if out
     system "rake #{task_name}"
