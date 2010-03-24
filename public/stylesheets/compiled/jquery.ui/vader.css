@@ -32,14 +32,14 @@
 
 .ui-autocomplete { position: absolute; cursor: default; }
 
-.ui-autocomplete-loading { background: white url(images/ui-anim_basic_16x16.gif) right center no-repeat; }
+.ui-autocomplete-loading { background: white url('images/ui-anim_basic_16x16.gif') right center no-repeat; }
 
 * html .ui-autocomplete { width: 1px; }
 
 .ui-menu { list-style: none; padding: 2px; margin: 0; display: block; }
 .ui-menu .ui-menu { margin-top: -3px; }
 .ui-menu .ui-menu-item { margin: 0; padding: 0; width: 100%; }
-.ui-menu .ui-menu-item a { text-decoration: none; display: block; padding: .2em .4em; line-height: 1.5; }
+.ui-menu .ui-menu-item a { text-decoration: none; display: block; padding: .2em .4em; line-height: 1.5; zoom: 1; }
 .ui-menu .ui-menu-item a.ui-state-hover, .ui-menu .ui-menu-item a.ui-state-active { margin: -1px; }
 
 .ui-button { display: inline-block; position: relative; padding: 0; margin-right: .1em; text-decoration: none !important; cursor: pointer; text-align: center; zoom: 1; overflow: visible; }
@@ -48,9 +48,9 @@
 
 button.ui-button-icon-only { width: 2.4em; }
 
-.ui-button-icons-only { width: 3em; }
+.ui-button-icons-only { width: 3.4em; }
 
-button.ui-button-icons-only { width: 3.2em; }
+button.ui-button-icons-only { width: 3.7em; }
 
 .ui-button .ui-button-text { display: block; line-height: 1.4; }
 
@@ -58,9 +58,9 @@ button.ui-button-icons-only { width: 3.2em; }
 
 .ui-button-icon-only .ui-button-text, .ui-button-icons-only .ui-button-text { padding: .4em; text-indent: -9999999px; }
 
-.ui-button-text-icon .ui-button-text { padding: .4em 1em .4em 1.8em; }
+.ui-button-text-icon .ui-button-text { padding: .4em 1em .4em 2.1em; }
 
-.ui-button-text-icons .ui-button-text { padding: .4em 1em .4em 1.8em; padding-right: 1.8em; }
+.ui-button-text-icons .ui-button-text { padding: .4em 1em .4em 2.1em; padding-left: 2.1em; padding-right: 2.1em; }
 
 input.ui-button { padding: .4em 1em; }
 
@@ -68,12 +68,12 @@ input.ui-button { padding: .4em 1em; }
 
 .ui-button-icon-only .ui-icon { left: 50%; margin-left: -8px; }
 
-.ui-button-text-icon .ui-icon-primary, .ui-button-text-icons .ui-icon-primary, .ui-button-icons-only .ui-icon-primary { left: .5em; }
+.ui-button-text-icon .ui-button-icon-primary, .ui-button-text-icons .ui-button-icon-primary, .ui-button-icons-only .ui-button-icon-primary { left: .5em; }
 
 .ui-button-text-icons .ui-button-icon-secondary, .ui-button-icons-only .ui-button-icon-secondary { right: .5em; }
 
-.ui-button-set { margin-right: 7px; }
-.ui-button-set .ui-button { margin-left: 0; margin-right: -.3em; }
+.ui-buttonset { margin-right: 7px; }
+.ui-buttonset .ui-button { margin-left: 0; margin-right: -.3em; }
 
 button.ui-button::-moz-focus-inner { border: 0; padding: 0; }
 
@@ -132,7 +132,7 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; }
 .ui-dialog .ui-dialog-titlebar-close { position: absolute; right: .3em; top: 50%; width: 19px; margin: -10px 0 0 0; padding: 1px; height: 18px; }
 .ui-dialog .ui-dialog-titlebar-close span { display: block; margin: 1px; }
 .ui-dialog .ui-dialog-titlebar-close:hover, .ui-dialog .ui-dialog-titlebar-close:focus { padding: 0; }
-.ui-dialog .ui-dialog-content { position: relative; border: 0; padding: .5em 1em; background: none; overflow: auto; zoom: 1; }
+.ui-dialog .ui-dialog-content { border: 0; padding: .5em 1em; background: none; overflow: auto; zoom: 1; }
 .ui-dialog .ui-dialog-buttonpane { text-align: left; border-width: 1px 0 0 0; background-image: none; margin: .5em 0 0 0; padding: .3em 1em .5em .4em; }
 .ui-dialog .ui-dialog-buttonpane button { float: right; margin: .5em .4em .5em 0; cursor: pointer; padding: .2em .6em .3em .6em; line-height: 1.4em; width: auto; overflow: visible; }
 .ui-dialog .ui-resizable-se { width: 14px; height: 14px; right: 3px; bottom: 3px; }
