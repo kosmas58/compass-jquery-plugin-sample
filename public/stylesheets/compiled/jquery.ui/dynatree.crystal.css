@@ -1,6 +1,6 @@
 /* line 3, ../../../../app/stylesheets/jquery.ui/dynatree.crystal.sass */
-ul.ui-dynatree-container {
-  font-family: verdana, arial, helvetica, sans-serif;
+div.ui-dynatree-container {
+  font-family: segoe ui, tahoma, verdana, arial, helvetica, sans-serif;
   font-size: 0.8em;
   white-space: nowrap;
   padding: 3px;
@@ -11,14 +11,14 @@ ul.ui-dynatree-container {
   border-radius: 4px;
 }
 /* line 14, ../../../../app/stylesheets/jquery.ui/dynatree.crystal.sass */
-ul.ui-dynatree-container img {
+div.ui-dynatree-container img {
   width: 16px;
   height: 16px;
   margin-left: 3px;
   vertical-align: top;
 }
 /* line 20, ../../../../app/stylesheets/jquery.ui/dynatree.crystal.sass */
-ul.ui-dynatree-container a {
+div.ui-dynatree-container a {
   color: black;
   text-decoration: none;
   vertical-align: top;
@@ -27,44 +27,21 @@ ul.ui-dynatree-container a {
   border: 1px solid white;
 }
 /* line 28, ../../../../app/stylesheets/jquery.ui/dynatree.crystal.sass */
-ul.ui-dynatree-container a:hover {
+div.ui-dynatree-container a:hover {
   text-decoration: underline;
 }
 /* line 31, ../../../../app/stylesheets/jquery.ui/dynatree.crystal.sass */
-ul.ui-dynatree-container a:focus {
+div.ui-dynatree-container a:focus {
   background-color: #EFEBDE;
 }
-/* line 34, ../../../../app/stylesheets/jquery.ui/dynatree.crystal.sass */
-ul.ui-dynatree-container ul {
-  padding: 0 0 0 16px;
-}
-/* line 37, ../../../../app/stylesheets/jquery.ui/dynatree.crystal.sass */
-ul.ui-dynatree-container li {
-  list-style-image: none;
-  list-style-position: outside;
-  list-style-type: none;
-  -moz-background-clip: border;
-  -moz-background-inline-policy: continuous;
-  -moz-background-origin: padding;
-  background-attachment: scroll;
-  background-color: transparent;
-  background-position: 0 0;
-  background-repeat: repeat-y;
-  margin: 0;
-  padding: 1px 0 0 0;
-}
-/* line 51, ../../../../app/stylesheets/jquery.ui/dynatree.crystal.sass */
-ul.ui-dynatree-container li.vline {
-  background-image: url("/images/jquery.ui/dynatree.crystal/empty.png");
-}
 
-/* line 55, ../../../../app/stylesheets/jquery.ui/dynatree.crystal.sass */
-.ui-dynatree-disabled ul.ui-dynatree-container {
+/* line 35, ../../../../app/stylesheets/jquery.ui/dynatree.crystal.sass */
+.ui-dynatree-disabled div.ui-dynatree-container {
   opacity: 0.5;
   background-color: silver;
 }
 
-/* line 61, ../../../../app/stylesheets/jquery.ui/dynatree.crystal.sass */
+/* line 41, ../../../../app/stylesheets/jquery.ui/dynatree.crystal.sass */
 span.ui-dynatree-empty, span.ui-dynatree-vline, span.ui-dynatree-connector {
   width: 16px;
   height: 16px;
@@ -74,7 +51,11 @@ span.ui-dynatree-empty, span.ui-dynatree-vline, span.ui-dynatree-connector {
   background-repeat: no-repeat;
   background-position: left;
 }
-/* line 70, ../../../../app/stylesheets/jquery.ui/dynatree.crystal.sass */
+/* line 50, ../../../../app/stylesheets/jquery.ui/dynatree.crystal.sass */
+span.ui-dynatree-vline {
+  background-image: url("/images/jquery.ui/dynatree.aero/empty.png");
+}
+/* line 53, ../../../../app/stylesheets/jquery.ui/dynatree.crystal.sass */
 span.ui-dynatree-expander {
   width: 16px;
   height: 16px;
@@ -85,11 +66,11 @@ span.ui-dynatree-expander {
   background-position: left;
   background-image: url("/images/jquery.ui/dynatree.crystal/collapsed.png");
 }
-/* line 80, ../../../../app/stylesheets/jquery.ui/dynatree.crystal.sass */
+/* line 63, ../../../../app/stylesheets/jquery.ui/dynatree.crystal.sass */
 span.ui-dynatree-expander:hover {
   background-image: url("/images/jquery.ui/dynatree.crystal/collapsed_hover.png");
 }
-/* line 83, ../../../../app/stylesheets/jquery.ui/dynatree.crystal.sass */
+/* line 66, ../../../../app/stylesheets/jquery.ui/dynatree.crystal.sass */
 span.ui-dynatree-icon {
   width: 16px;
   height: 16px;
@@ -101,7 +82,7 @@ span.ui-dynatree-icon {
   margin-left: 3px;
   background-image: url("/images/jquery.ui/dynatree.crystal/document.png");
 }
-/* line 94, ../../../../app/stylesheets/jquery.ui/dynatree.crystal.sass */
+/* line 77, ../../../../app/stylesheets/jquery.ui/dynatree.crystal.sass */
 span.ui-dynatree-checkbox {
   width: 16px;
   height: 16px;
@@ -113,119 +94,119 @@ span.ui-dynatree-checkbox {
   margin-left: 3px;
   background-image: url("/images/jquery.ui/dynatree.crystal/cbUnchecked.png");
 }
-/* line 105, ../../../../app/stylesheets/jquery.ui/dynatree.crystal.sass */
+/* line 88, ../../../../app/stylesheets/jquery.ui/dynatree.crystal.sass */
 span.ui-dynatree-checkbox:hover {
   background-image: url("/images/jquery.ui/dynatree.crystal/cbUnchecked_hover.png");
 }
-/* line 108, ../../../../app/stylesheets/jquery.ui/dynatree.crystal.sass */
+/* line 91, ../../../../app/stylesheets/jquery.ui/dynatree.crystal.sass */
 span.ui-dynatree-radio {
   margin-left: 3px;
   background-image: url("/images/jquery.ui/dynatree.crystal/rbUnchecked.png");
 }
-/* line 112, ../../../../app/stylesheets/jquery.ui/dynatree.crystal.sass */
+/* line 95, ../../../../app/stylesheets/jquery.ui/dynatree.crystal.sass */
 span.ui-dynatree-radio:hover {
   background-image: url("/images/jquery.ui/dynatree.crystal/rbUnchecked_hover.png");
 }
-/* line 115, ../../../../app/stylesheets/jquery.ui/dynatree.crystal.sass */
+/* line 98, ../../../../app/stylesheets/jquery.ui/dynatree.crystal.sass */
 span.ui-dynatree-document a, span.ui-dynatree-folder a {
   display: inline-block;
   padding-left: 3px;
   padding-right: 3px;
 }
-/* line 120, ../../../../app/stylesheets/jquery.ui/dynatree.crystal.sass */
+/* line 103, ../../../../app/stylesheets/jquery.ui/dynatree.crystal.sass */
 span.ui-dynatree-focused a:link {
   background-color: #EFEBDE;
 }
-/* line 123, ../../../../app/stylesheets/jquery.ui/dynatree.crystal.sass */
+/* line 106, ../../../../app/stylesheets/jquery.ui/dynatree.crystal.sass */
 span.ui-dynatree-selected a {
   color: green;
   font-style: italic;
 }
-/* line 127, ../../../../app/stylesheets/jquery.ui/dynatree.crystal.sass */
+/* line 110, ../../../../app/stylesheets/jquery.ui/dynatree.crystal.sass */
 span.ui-dynatree-active a {
   border: 1px solid #99DEFD;
   background-color: #D8F0FA;
 }
-/* line 132, ../../../../app/stylesheets/jquery.ui/dynatree.crystal.sass */
+/* line 115, ../../../../app/stylesheets/jquery.ui/dynatree.crystal.sass */
 span.custom1 a {
   background-color: #ffffbb;
   color: maroon;
 }
-/* line 136, ../../../../app/stylesheets/jquery.ui/dynatree.crystal.sass */
+/* line 119, ../../../../app/stylesheets/jquery.ui/dynatree.crystal.sass */
 span.custom1 span.ui-dynatree-icon {
   background-image: url("/images/jquery.ui/dynatree.crystal/doc_with_children.png");
 }
-/* line 140, ../../../../app/stylesheets/jquery.ui/dynatree.crystal.sass */
+/* line 123, ../../../../app/stylesheets/jquery.ui/dynatree.crystal.sass */
 span.custom2 a {
   font-weight: bold;
   background-color: silver;
   color: navy;
 }
-/* line 145, ../../../../app/stylesheets/jquery.ui/dynatree.crystal.sass */
+/* line 128, ../../../../app/stylesheets/jquery.ui/dynatree.crystal.sass */
 span.custom2 span.ui-dynatree-icon {
   background-image: url("/images/jquery.ui/dynatree.crystal/folder_page.png");
 }
 
-/* line 149, ../../../../app/stylesheets/jquery.ui/dynatree.crystal.sass */
+/* line 132, ../../../../app/stylesheets/jquery.ui/dynatree.crystal.sass */
 .ui-dynatree-expanded span.ui-dynatree-expander {
   background-image: url("/images/jquery.ui/dynatree.crystal/expanded.png");
 }
-/* line 152, ../../../../app/stylesheets/jquery.ui/dynatree.crystal.sass */
+/* line 135, ../../../../app/stylesheets/jquery.ui/dynatree.crystal.sass */
 .ui-dynatree-expanded span.ui-dynatree-expander:hover {
   background-image: url("/images/jquery.ui/dynatree.crystal/expanded_hover.png");
 }
 
-/* line 156, ../../../../app/stylesheets/jquery.ui/dynatree.crystal.sass */
+/* line 139, ../../../../app/stylesheets/jquery.ui/dynatree.crystal.sass */
 .ui-dynatree-partsel span.ui-dynatree-checkbox {
   background-image: url("/images/jquery.ui/dynatree.crystal/cbIntermediate.png");
 }
-/* line 159, ../../../../app/stylesheets/jquery.ui/dynatree.crystal.sass */
+/* line 142, ../../../../app/stylesheets/jquery.ui/dynatree.crystal.sass */
 .ui-dynatree-partsel span.ui-dynatree-checkbox:hover {
   background-image: url("/images/jquery.ui/dynatree.crystal/cbIntermediate_hover.png");
 }
 
-/* line 163, ../../../../app/stylesheets/jquery.ui/dynatree.crystal.sass */
+/* line 146, ../../../../app/stylesheets/jquery.ui/dynatree.crystal.sass */
 .ui-dynatree-selected span.ui-dynatree-checkbox {
   background-image: url("/images/jquery.ui/dynatree.crystal/cbChecked.png");
 }
-/* line 166, ../../../../app/stylesheets/jquery.ui/dynatree.crystal.sass */
+/* line 149, ../../../../app/stylesheets/jquery.ui/dynatree.crystal.sass */
 .ui-dynatree-selected span.ui-dynatree-checkbox:hover {
   background-image: url("/images/jquery.ui/dynatree.crystal/cbChecked_hover.png");
 }
 
-/* line 170, ../../../../app/stylesheets/jquery.ui/dynatree.crystal.sass */
+/* line 153, ../../../../app/stylesheets/jquery.ui/dynatree.crystal.sass */
 .ui-dynatree-partsel span.ui-dynatree-radio {
   background-image: url("/images/jquery.ui/dynatree.crystal/rbIntermediate.png");
 }
-/* line 173, ../../../../app/stylesheets/jquery.ui/dynatree.crystal.sass */
+/* line 156, ../../../../app/stylesheets/jquery.ui/dynatree.crystal.sass */
 .ui-dynatree-partsel span.ui-dynatree-radio:hover {
   background-image: url("/images/jquery.ui/dynatree.crystal/rbIntermediate_hover.png");
 }
 
-/* line 177, ../../../../app/stylesheets/jquery.ui/dynatree.crystal.sass */
+/* line 160, ../../../../app/stylesheets/jquery.ui/dynatree.crystal.sass */
 .ui-dynatree-selected span.ui-dynatree-radio {
   background-image: url("/images/jquery.ui/dynatree.crystal/rbChecked.png");
 }
-/* line 180, ../../../../app/stylesheets/jquery.ui/dynatree.crystal.sass */
+/* line 163, ../../../../app/stylesheets/jquery.ui/dynatree.crystal.sass */
 .ui-dynatree-selected span.ui-dynatree-radio:hover {
   background-image: url("/images/jquery.ui/dynatree.crystal/rbChecked_hover.png");
 }
 
-/* line 185, ../../../../app/stylesheets/jquery.ui/dynatree.crystal.sass */
+/* line 168, ../../../../app/stylesheets/jquery.ui/dynatree.crystal.sass */
 .ui-dynatree-folder span.ui-dynatree-icon {
   background-image: url("/images/jquery.ui/dynatree.crystal/folder.png");
 }
-/* line 188, ../../../../app/stylesheets/jquery.ui/dynatree.crystal.sass */
+/* line 171, ../../../../app/stylesheets/jquery.ui/dynatree.crystal.sass */
 .ui-dynatree-folder.ui-dynatree-expanded span.ui-dynatree-icon {
   background-image: url("/images/jquery.ui/dynatree.crystal/folder_open.png");
 }
 
-/* line 192, ../../../../app/stylesheets/jquery.ui/dynatree.crystal.sass */
+/* line 175, ../../../../app/stylesheets/jquery.ui/dynatree.crystal.sass */
 .ui-dynatree-statusnode-wait span.ui-dynatree-icon {
   background-image: url("/images/jquery.ui/dynatree.crystal/ltWait.gif");
 }
 
-/* line 196, ../../../../app/stylesheets/jquery.ui/dynatree.crystal.sass */
+/* line 179, ../../../../app/stylesheets/jquery.ui/dynatree.crystal.sass */
 .ui-dynatree-statusnode-error span.ui-dynatree-icon {
   background-image: url("/images/jquery.ui/dynatree.crystal/ltError.png");
 }
