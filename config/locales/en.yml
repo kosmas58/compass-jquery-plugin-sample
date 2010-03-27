@@ -303,6 +303,7 @@ en:
         aqua: Aqua
         crystal: Crystal
       select: Checkbox & select
+      benchmark: Benchmark large trees 
     hello: Hello world
     ui: 
       name: jQuery UI
@@ -438,7 +439,7 @@ en:
         switch_class: 
           default: Switch Class
         animate: 
-          default: Animate
+          default: Color animation
         show: 
           default: Show
         remove_class: 

@@ -1,0 +1,31 @@
+-@title = "#{t('txt.dt.name')} - #{t('txt.dt.benchmark')}"
+-@jquery_partial = 'test_bench.js.haml'
+-@dynatree_theme = 'start'
+-@dynatree_skin = 'dynatree.xp.css'
+
+.demo
+  %h3
+    =@title
+  %p
+    Expand a node to start a benchmark, then check the firebug console.
+  #tree
+  %p
+    enableUpdate(false) is used for speedup.
+  %p
+    %button#btnClear
+      remove children
+/ End demo
+
+.demo-description
+  / Start_Exclude: This block is not part of the sample code
+  %hr
+    %p.sample-links.no_code
+      %a.hideInsideFS{ :href => "http://dynatree.googlecode.com" }
+        jquery.dynatree.js project home
+      %a.hideOutsideFS{ :href => "#" }
+        Link to this page
+      %a.hideInsideFS{ :href => "samples.html" }
+        Example Browser
+      %a.codeExample{ :href => "#" }
+        View source code
+    / End_Exclude

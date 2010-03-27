@@ -24,10 +24,8 @@ date:
   formats: 
     default: "%Y-%m-%d"
 txt: 
-  ui: 
-    theme-switcher: 
-      button: "Theme: "
-      initial: Switch theme
+  dt: 
+    benchmartk: Benchmark large trees
 support: 
   array: 
     words_connector: ", "
