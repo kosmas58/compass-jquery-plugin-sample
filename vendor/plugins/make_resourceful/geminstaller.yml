@@ -5,7 +5,7 @@ defaults: # defaults apply to all gems in the 'gems:' section, but can be overri
   # install_options: --include-dependencies
 gems:
 - name: geminstaller
-  version: >= 0.5.4
+  version: >= 0.5.5
 <% if RUBY_PLATFORM =~ /mswin32/ %>
 - name: rcov
   version: >= 0.8.1.2.0
