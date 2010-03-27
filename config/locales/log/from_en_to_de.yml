@@ -24,8 +24,9 @@ date:
   formats: 
     default: "%Y-%m-%d"
 txt: 
-  dt: 
-    benchmartk: Benchmark large trees
+  jqgrid: 
+    demo: 
+      2dc: 2dc_jqGrid Examples
 support: 
   array: 
     words_connector: ", "

@@ -185,7 +185,9 @@ en:
         inline: with inline editing
         datepicker: with datepicker for lastname
         input: with various input types
-      demo: 
+      demo:
+        default: jqGrid Examples 
+        2dc: 2dc_jqGrid Examples
         sortable: View sortable columns
         big_sets: Search Big Sets
         events: Using Events
