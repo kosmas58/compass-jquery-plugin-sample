@@ -1,6 +1,6 @@
 -@title = "#{t('txt.dt.name')} - #{t('txt.dt.contextmenu')}"
 -@jquery_partial = 'contextmenu.js.haml'
--@dynatree_theme ='ui-lightness'
+-@dynatree_theme = 'start'
 -@dynatree_skin = 'dynatree.xp.css'
 
 .demo
@@ -36,16 +36,16 @@
       %li#id3.folder
         Folder with some children
         %ul
-          %li#id3_1
+          %li#id3.1
             Sub-item 3.1
-          %li#id3_2
+          %li#id3.2
             Sub-item 3.2
       %li#id4.expanded
         Document with some children (expanded on init)
         %ul
-          %li#id4_1
+          %li#id4.1
             Sub-item 4.1
-          %li#id4_2
+          %li#id4.2
             Sub-item 4.2
       %li#id5.lazy.folder
         Lazy folder

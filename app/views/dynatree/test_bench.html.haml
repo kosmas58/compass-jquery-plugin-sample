@@ -1,0 +1,17 @@
+-@title = "#{t('txt.dt.name')} - #{t('txt.dt.benchmark')}"
+-@jquery_partial = 'test_bench.js.haml'
+-@dynatree_theme = 'start'
+-@dynatree_skin = 'dynatree.xp.css'
+
+.demo
+  %h3
+    =@title
+  %p
+    Expand a node to start a benchmark, then check the firebug console.
+  #tree
+  %p
+    enableUpdate(false) is used for speedup.
+  %p
+    %button#btnClear
+      remove children
+/ End demo
