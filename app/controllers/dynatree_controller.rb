@@ -39,8 +39,8 @@ class DynatreeController < ApplicationController
   def data2
     json2 = 
     '[
-      {title: "SubItem 1", isLazy: true },
-      {title: "SubFolder 2", isFolder: true, isLazy: true }
+      {"title": "SubItem 1", "isLazy": true },
+      {"title": "SubFolder 2", "isFolder": true, "isLazy": true }
     ]'
     
     respond_to do |format|
