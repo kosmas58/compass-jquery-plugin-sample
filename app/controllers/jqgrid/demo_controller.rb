@@ -4,17 +4,19 @@ class Jqgrid::DemoController < ApplicationController
   protect_from_forgery
   
    def index
-    @demo = (params[:demo] || "01")
     model = (params[:model] || "invheader").capitalize!
-    mylist = "demo#{@demo}".to_sym
     if request.xhr?
+      @demo = (params[:grid] || "demo0101")
+      mylist = "#{@demo}".to_sym
       records = Object.const_get(model).find_for_grid(mylist, params)
-      if @demo == "01"
+      if @demo == "demo0101"
         render :xml => Object.const_get(model).grid(mylist).encode_records(records)
       else
         render :json => Object.const_get(model).grid(mylist).encode_records(records)
       end
     else
+      @demo = (params[:demo] || "0101")
+      mylist = "demo#{@demo}".to_sym
       @grid = Object.const_get(model).grid(mylist)
     end    
   end

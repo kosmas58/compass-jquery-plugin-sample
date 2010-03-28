@@ -1,0 +1,21 @@
+-@title = "#{t('txt.jqgrid.name')} #{t('txt.jqgrid.demo.name')} - #{t('txt.jqgrid.demo.loading')} - #{t('txt.jqgrid.demo.rtl')}"
+.demo
+  %h3
+    =@title
+  %center
+    %table#invheaders_demo1402.scroll{ :cellspacing => "0", :cellpadding => "0" }
+    #invheaders_demo1402_pager.scroll{ :style => "text-align:center;" }
+
+/ End demo 
+.demo-description
+  %p   
+    Another great feature in 3.6 version is supporting of Right To Left languages.
+    This is done just with one option direction in jqGrid options.
+  %p
+    Note that in a page one grid can have direction set to rtl, while another can have direction set to ltr.
+    Support of RTL is provided only in FireFox 3.x, Internet Explorer 7/8 and partially in Opera > 9.x browsers.
+  %p
+    To enjoy the full of this feature we have created a demo page with all the examples
+    = link_to "<b>here</b>", "http://www.trirand.com/blog/jqgrid/jqgrid.html"
+    \.   
+/ End demo-description
