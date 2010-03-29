@@ -17,7 +17,7 @@ class Invheader < ActiveRecord::Base
                         I18n.t('activerecord.attributes.invheader.ship_via')
                        ],
     :colModel       => {
-                         :id       => { :name => 'id',       :width =>  75 },
+                         :id       => { :name => 'id',       :width =>  50, :align => "right"  },
                          :invdate  => { :name => 'invdate',  :width =>  90 },
                          :name     => { :name => 'name',     :width => 100 },
                          :amount   => { :name => 'amount',   :width =>  80, :align => "right" },
