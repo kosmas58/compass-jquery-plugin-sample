@@ -39,7 +39,6 @@ module Gridify
         find_args[:offset] = offset if offset && offset > 0
       end
       cond = rules_to_conditions
-      find_args[:conditions] = cond unless cond.blank?
       find_args
     end
     

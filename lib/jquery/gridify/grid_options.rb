@@ -13,7 +13,6 @@ module Gridify
                   :colModel,              # incoming: hash of presets (native jqGrid); internally: array of GridColumn objects
                                           # { :body => { "title" => {"width" => 98} }} 
                   :colNames,              # Column names
-                  :include,               # Array to handle include for nested models
 
                   #:widths,               # hash of column width (key = data type)
                   :searchable,            # default: true (used in generating columns, changing has no effect on existing cols)

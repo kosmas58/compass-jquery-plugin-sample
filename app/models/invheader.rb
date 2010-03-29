@@ -1,5 +1,5 @@
 class Invheader < ActiveRecord::Base
-  has_one :client
+  belongs_to :client
   
   gridify :demo0101,
     :title          => I18n.t('txt.jqgrid.demo.xml_data'),
@@ -27,7 +27,8 @@ class Invheader < ActiveRecord::Base
                          :closed   => { :name => 'closed',   :width =>  40 },
                          :ship_via => { :name => 'ship_via', :width =>  40 }
                        },
-    :include        => [:client],
+    #:include        => :client,
+    :height         => :auto,
     :sort_by        => :id,
     :sort_order     => :desc,
     :rows_per_page  => 10,     
