@@ -1,26 +1,33 @@
 class Invheader < ActiveRecord::Base
+  has_one :client
+  
   gridify :demo0101,
     :title          => I18n.t('txt.jqgrid.demo.xml_data'),
     :url            => "/jqgrid/demo",
     :data_type      => :xml,
-#    :colNames       => [
-#                        'Inv No',
-#                        I18n.t('activerecord.attributes.invheader.invdate'),
-#                        I18n.t('activerecord.attributes.invheader.client_id'),
-#                        I18n.t('activerecord.attributes.invheader.amount'),
-#                        I18n.t('activerecord.attributes.invheader.tax'),
-#                        I18n.t('activerecord.attributes.invheader.total'),
-#                        I18n.t('activerecord.attributes.invheader.notes')
-#                       ],
-#    :colModel       => [
-#                        { :name => 'id', :index => 'id', :width => 75 },
-#                        { :name => 'invdate', :index => 'invdate', :width => 90 },
-#                        { :name => 'name', :index => 'name', :width => 100 },
-#                        { :name => 'amount', :index => 'amount', :width => 80, :align => "right" },
-#                        { :name => 'tax', :index => 'tax', :width => 80, :align => "right" },    
-#                        { :name => 'total', :index => 'total', :width => 80, :align => "right" },   
-#                        { :name => 'note', :index => 'note', :width => 150, :sortable => false }   
-#                       ],  
+    :colNames       => [
+                        I18n.t('activerecord.attributes.invheader.id'),
+                        I18n.t('activerecord.attributes.invheader.invdate'),
+                        I18n.t('activerecord.attributes.invheader.client'),
+                        I18n.t('activerecord.attributes.invheader.amount'),
+                        I18n.t('activerecord.attributes.invheader.tax'),
+                        I18n.t('activerecord.attributes.invheader.total'),
+                        I18n.t('activerecord.attributes.invheader.note'),
+                        I18n.t('activerecord.attributes.invheader.closed'),
+                        I18n.t('activerecord.attributes.invheader.ship_via')
+                       ],
+    :colModel       => {
+                         :id       => { :name => 'id',       :width =>  75 },
+                         :invdate  => { :name => 'invdate',  :width =>  90 },
+                         :name     => { :name => 'name',     :width => 100 },
+                         :amount   => { :name => 'amount',   :width =>  80, :align => "right" },
+                         :tax      => { :name => 'tax',      :width =>  80, :align => "right" },    
+                         :total    => { :name => 'total',    :width =>  80, :align => "right" },   
+                         :note     => { :name => 'note',     :width => 150, :sortable => false },
+                         :closed   => { :name => 'closed',   :width =>  40 },
+                         :ship_via => { :name => 'ship_via', :width =>  40 }
+                       },
+    :include        => [:client],
     :search_button  => true,  
     :refresh_button => true,
     :pager          => true

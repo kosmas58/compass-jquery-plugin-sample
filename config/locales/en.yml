@@ -37,10 +37,11 @@ en:
         firstname: First name
         lastname: Last name
         email: Email
-      invheader: 
+      invheader:
+        id: Inv No 
         tax: Tax
         total: Total
-        client_id: Client ID
+        client: Client
         ship_via: Ship via
         closed: Closed
         amount: Amount
