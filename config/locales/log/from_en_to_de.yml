@@ -24,9 +24,10 @@ date:
   formats: 
     default: "%Y-%m-%d"
 txt: 
-  jqgrid: 
-    demo: 
-      2dc: 2dc_jqGrid Examples
+  ribbon: 
+    simple: Ribbon with simple theme
+    windows7: Ribbon with Windows7 theme
+    theming: Theming
 support: 
   array: 
     words_connector: ", "

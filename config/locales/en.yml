@@ -1,8 +1,8 @@
---- 
-en: 
-  activerecord: 
-    errors: 
-      messages: 
+---
+en:
+  activerecord:
+    errors:
+      messages:
         taken: has already been taken
         accepted: must be accepted
         not_a_number: is not a number
@@ -23,22 +23,22 @@ en:
         equal_to: must be equal to {{count}}
         inclusion: is not included in the list
         greater_than: must be greater than {{count}}
-      template: 
+      template:
         body: "There were problems with the following fields:"
-        header: 
+        header:
           one: 1 error prohibited this {{model}} from being saved
           other: "{{count}} errors prohibited this {{model}} from being saved"
-      full_messages: 
+      full_messages:
         format: "{{attribute}} {{message}}"
-    attributes: 
-      user: 
+    attributes:
+      user:
         pseudo: Pseudonym
         role: Role
         firstname: First name
         lastname: Last name
         email: Email
       invheader:
-        id: Inv No 
+        id: Inv No
         tax: Tax
         total: Total
         client: Client
@@ -47,13 +47,13 @@ en:
         amount: Amount
         note: Note
         invdate: Date
-      player: 
+      player:
         pseudo: Pseudonym
         role: Role
         firstname: First name
         lastname: Last name
         email: Email
-      account: 
+      account:
         name: Name
         debit: debit
         credit: Credit
@@ -63,64 +63,64 @@ en:
         rgt: rgt
         parent_id: Parent ID
         balance: Balance
-      client: 
+      client:
         name: Name
-      item: 
+      item:
         cd: CD
         item: Item
-      pet: 
+      pet:
         name: Name
-      invline: 
+      invline:
         qty: Quantity
         unit: Unit
         id: ID
         num: Number
         item: Item
-  time: 
+  time:
     am: am
-    formats: 
+    formats:
       default: "%a, %d %b %Y %H:%M:%S %z"
       short: "%d %b %H:%M"
       long: "%B %d, %Y %H:%M"
     pm: pm
-  number: 
-    format: 
+  number:
+    format:
       separator: .
       delimiter: ","
       precision: 3
-    human: 
-      format: 
+    human:
+      format:
         delimiter: ""
         precision: 1
-      storage_units: 
+      storage_units:
         format: "%n %u"
-        units: 
+        units:
           kb: KB
           tb: TB
           gb: GB
-          byte: 
+          byte:
             one: Byte
             other: Bytes
           mb: MB
-    precision: 
-      format: 
+    precision:
+      format:
         delimiter: ""
-    percentage: 
-      format: 
+    percentage:
+      format:
         delimiter: ""
-    currency: 
-      format: 
+    currency:
+      format:
         format: "%u%n"
         unit: $
         separator: .
         delimiter: ","
         precision: 2
-  date: 
-    order: 
+  date:
+    order:
     - :year
     - :month
     - :day
-    abbr_day_names: 
+    abbr_day_names:
     - Sun
     - Mon
     - Tue
@@ -128,12 +128,12 @@ en:
     - Thu
     - Fri
     - Sat
-    formats: 
+    formats:
       default: "%Y-%m-%d"
       short: "%b %d"
       long: "%B %d, %Y"
-    month_names: 
-    - 
+    month_names:
+    -
     - January
     - February
     - March
@@ -146,7 +146,7 @@ en:
     - October
     - November
     - December
-    day_names: 
+    day_names:
     - Sunday
     - Monday
     - Tuesday
@@ -154,8 +154,8 @@ en:
     - Thursday
     - Friday
     - Saturday
-    abbr_month_names: 
-    - 
+    abbr_month_names:
+    -
     - Jan
     - Feb
     - Mar
@@ -168,26 +168,32 @@ en:
     - Oct
     - Nov
     - Dec
-  txt: 
-    jqt: 
+  txt:
+    ribbon:
+      name: Ribbon
+      theming:
+        name: Theming
+        windows7: "Windows 7"
+        simple: Simple theme
+    jqt:
       name: jQTouch (needs a browser with WebKit engine)
-    jqgrid: 
-      simple: 
+    jqgrid:
+      name: jqGrid
+      simple:
         name: Simple Data Grids
         default: default functionality
         master: with master details
         selection: with selection link and search disabled
         direct: with direct selection and autowidth
         multiple: with multiple selections + row numbers
-      name: jqGrid
-      manipulation: 
+      manipulation:
         name: Data manipulation
         modal: with modal editing
         inline: with inline editing
         datepicker: with datepicker for lastname
         input: with various input types
       demo:
-        default: jqGrid Examples 
+        default: jqGrid Examples
         2dc: 2dc_jqGrid Examples
         sortable: View sortable columns
         big_sets: Search Big Sets
@@ -278,14 +284,14 @@ en:
         optimize: Data Optimization
         asearch: Advanced Searching
         navigator: Navigator
-      subgrids: 
+      subgrids:
         name: Subgrids
         default: default functionality
         selection: with selection
         crud: with CRUD operations
-      improvements: 
+      improvements:
         name: Form improvements
-    dt: 
+    dt:
       name: Dynatree
       ul: Init from ul element
       default: Default options
@@ -299,22 +305,22 @@ en:
       effects: Effects
       contextmenu: Context menu, Copy/paste
       events: Event handling
-      theming: 
+      theming:
         name: Theming
         xp: XP
         aero: Aero
         aqua: Aqua
         crystal: Crystal
       select: Checkbox & select
-      benchmark: Benchmark large trees 
+      benchmark: Benchmark large trees
     hello: Hello world
-    ui: 
+    ui:
       name: jQuery UI
       theme-switcher:
         initial: Switch theme
         button: "Theme: "
       default: Default functionality
-      widgets: 
+      widgets:
         autocomplete:
           default: Autocomplete
           remote: Remote datasource
@@ -330,8 +336,8 @@ en:
           checkbox: Checkboxes
           icon: Icons
           toolbar: Toolbar
-          splitbutton: Split button          
-        slider: 
+          splitbutton: Split button
+        slider:
           steps: Snap to increments
           default: Slider
           multiple-vertical: Multiple sliders
@@ -344,7 +350,7 @@ en:
           hotelrooms: Room reservation
           side-scroll: Simple scrollbar
           tabs: Slider controls tabs
-        datepicker: 
+        datepicker:
           alt-field: Populate alternate field
           buttonbar: Display button bar
           default: Datepicker
@@ -359,14 +365,14 @@ en:
           date-formats: Format date
           animation: Animations
           event-search: Event Search
-        dialog: 
+        dialog:
           default: Dialog
           animated: Animated dialog
           modal: Modal dialog
           modal-confirmation: Modal confirmation
           modal-message: Modal message
           modal-form: Modal form
-        accordion: 
+        accordion:
           default: Accordion
           no-auto-height: No auto height
           mouseover: Open on mouseover
@@ -374,7 +380,7 @@ en:
           custom-icons: Customize icons
           collapsible: Collapse content
           sortable: Sortable
-        tabs: 
+        tabs:
           default: Tabs
           ajax: Content via Ajax
           sortable: Sortable
@@ -382,17 +388,17 @@ en:
           collapsible: Collapse content
           manipulation: Simple manipulation
           bottom: Tabs below content
-        progressbar: 
+        progressbar:
           default: Progressbar
           resize: Resizable progressbar
           animated: Animated
-      interactions: 
-        selectable: 
+      interactions:
+        selectable:
           serialize: Serialize
           default: Selectable
           display-grid: Display as grid
         default: Interactions
-        draggable: 
+        draggable:
           visual-feedback: Visual feedback
           handle: Drag handle
           snap-to: "Snap to element or\xC2\xA0grid"
@@ -404,7 +410,7 @@ en:
           delay-start: Delay start
           events: Events
           cursor-style: Cursor style
-        resizable: 
+        resizable:
           aspect-ratio: Preserve aspect ratio
           visual-feedback: Visual feedback
           default: Resizable
@@ -416,14 +422,14 @@ en:
           constrain-area: Constrain resize area
           helper: Resize Helper
           textarea: Textarea
-        droppable: 
+        droppable:
           visual-feedback: Visual feedback
           default: Droppable
           revert: Revert draggable position
           propagation: Prevent propagation
           accepted-elements: Accepted elements
           photo-manager: Simple photo manager
-        sortable: 
+        sortable:
           items: Include / exclude items
           placeholder: Drop placeholder
           default: Sortable
@@ -433,25 +439,25 @@ en:
           portlets: Portlets
           empty-lists: Handle empty lists
           display-grid: Display as grid
-      effects: 
+      effects:
         default: Effects
-        hide: 
+        hide:
           default: Hide
-        toggle_class: 
+        toggle_class:
           default: Toggle Class
-        switch_class: 
+        switch_class:
           default: Switch Class
-        animate: 
+        animate:
           default: Color animation
-        show: 
+        show:
           default: Show
-        remove_class: 
+        remove_class:
           default: Remove Class
-        add_class: 
+        add_class:
           default: Add Class
-        toggle: 
+        toggle:
           default: Toggle
-        effect: 
+        effect:
           default: Effect
           showcase: Effect showcase
           easing: Easing showcase
@@ -460,55 +466,55 @@ en:
         position:
           default: Position
           cycler: Cycling images
-    layout: 
+    layout:
       theme: Theme
       language: Language
-      footer: 
+      footer:
         legalese: Copyright &copy 2009-2010 Kosmas Schuetz. See LICENSE for details.
-  support: 
-    array: 
+  support:
+    array:
       words_connector: ", "
       last_word_connector: ", and "
       two_words_connector: " and "
-    select: 
+    select:
       prompt: Please select
-  datetime: 
-    distance_in_words: 
-      less_than_x_minutes: 
+  datetime:
+    distance_in_words:
+      less_than_x_minutes:
         one: less than a minute
         other: less than {{count}} minutes
-      x_days: 
+      x_days:
         one: 1 day
         other: "{{count}} days"
-      almost_x_years: 
+      almost_x_years:
         one: almost 1 year
         other: almost {{count}} years
-      x_seconds: 
+      x_seconds:
         one: 1 second
         other: "{{count}} seconds"
-      x_minutes: 
+      x_minutes:
         one: 1 minute
         other: "{{count}} minutes"
-      about_x_hours: 
+      about_x_hours:
         one: about 1 hour
         other: about {{count}} hours
-      less_than_x_seconds: 
+      less_than_x_seconds:
         one: less than 1 second
         other: less than {{count}} seconds
-      x_months: 
+      x_months:
         one: 1 month
         other: "{{count}} months"
-      about_x_months: 
+      about_x_months:
         one: about 1 month
         other: about {{count}} months
-      about_x_years: 
+      about_x_years:
         one: about 1 year
         other: about {{count}} years
-      over_x_years: 
+      over_x_years:
         one: over 1 year
         other: over {{count}} years
       half_a_minute: half a minute
-    prompts: 
+    prompts:
       month: Month
       minute: Minute
       second: Seconds
