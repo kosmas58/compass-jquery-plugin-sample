@@ -1289,3 +1289,23 @@ body .quiet {
 body .loud {
   color: #111111;
 }
+/* line 5, ../../../app/stylesheets/screen.ribbon.sass */
+body div.container {
+  min-width: 950px;
+  width: 80%;
+  margin: 0 auto;
+  overflow: hidden;
+  display: inline-block;
+}
+/* line 5, C:/Ruby/lib/ruby/gems/1.8/gems/compass-0.10.0.rc1/frameworks/compass/stylesheets/compass/utilities/general/././_hacks.sass */
+body div.container {
+  display: block;
+}
+/* line 16, ../../../app/stylesheets/partials/_base.ribbon.sass */
+body div.container #ribbon {
+  display: inline;
+  float: left;
+  overflow: hidden;
+  width: 99.974%;
+  margin-right: 1.042%;
+}

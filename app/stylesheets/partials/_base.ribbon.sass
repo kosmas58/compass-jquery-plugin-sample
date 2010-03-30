@@ -5,3 +5,15 @@
 @import compass/utilities.sass
 +blueprint-liquid-grid
 @import partials/ribbon
+
+=ribbon
+#ribbon
+
+=content
+#content
+
+=work-area(!ribbon, !content)
+  #{!ribbon}
+    +column(24)
+  #{!content}
+    +content

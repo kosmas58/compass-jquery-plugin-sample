@@ -228,10 +228,7 @@ de:
         name: Formverbesserungen
     ribbon:
       name: Multifunktionsleiste
-      theming:
-        name: Themen
-        simple: Einfaches Thema
-        windows7: "Windows 7"
+      default: jQuery Ribbon Demo
     dt:
       name: Dynatree
       ul: Aus ul-Element initialisieren
