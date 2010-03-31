@@ -61,17 +61,18 @@ Feel free to use this script as long as you don't remove this comment.
             });
 
             $('.ribbon-list div').parents().click(function(e) {
-                var outsideX = e.pageX < $('.ribbon-list div ul:visible').parent().offset().left || e.pageX > $('.ribbon-list div ul:visible').parent().offset().left + $('.ribbon-list div ul:visible').parent().width();
-                var outsideY = e.pageY < $('.ribbon-list div ul:visible').parent().offset().top || e.pageY > $('.ribbon-list div ul:visible').parent().offset().top + $('.ribbon-list div ul:visible').parent().height();
-
-                if (outsideX || outsideY) {
-                    $('.ribbon-list div ul:visible').each(function() {
-                        $(this).fadeOut('fast');
-                    });
-                    $('.ribbon-list div').css('background-image', '');
-                }
-            });
-
+            	$('.ribbon-list div ul:visible').each(function() {
+            		var outsideX = e.pageX < $('.ribbon-list div ul:visible').parent().offset().left || e.pageX > $('.ribbon-list div ul:visible').parent().offset().left + $('.ribbon-list div ul:visible').parent().width();
+            		var outsideY = e.pageY < $('.ribbon-list div ul:visible').parent().offset().top || e.pageY > $('.ribbon-list div ul:visible').parent().offset().top + $('.ribbon-list div ul:visible').parent().height();
+	                if (outsideX || outsideY) {
+	                    $('.ribbon-list div ul:visible').each(function() {
+	                        $(this).fadeOut('fast');
+	                    });
+	                    $('.ribbon-list div').css('background-image', '');
+	                }
+               	});
+           	});
+			
             $('.orb li li a').mouseover(function() { ShowOrbChildren(this); });
 
             $('.menu li > a').dblclick(function() {
