@@ -65,7 +65,7 @@ class Invheader < ActiveRecord::Base
                          :closed   => { :name => 'closed',   :width =>  40 },
                          :ship_via => { :name => 'ship_via', :width =>  40 }
                        },
-    :include        => [:client],
+    #:include        => [:client],
     :search_button  => true,  
     :refresh_button => true,
     :pager          => true
