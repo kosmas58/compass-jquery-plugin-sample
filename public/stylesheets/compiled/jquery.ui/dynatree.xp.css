@@ -1,5 +1,5 @@
-/* line 4, ../../../../app/stylesheets/jquery.ui/dynatree.xp.sass */
-ul.ui-dynatree-container {
+/* line 3, ../../../../app/stylesheets/jquery.ui/dynatree.xp.sass */
+div.ui-dynatree-container {
   font-family: tahoma, arial, helvetica;
   font-size: 10pt;
   white-space: nowrap;
@@ -7,12 +7,12 @@ ul.ui-dynatree-container {
   background-color: white;
   border: 1px dotted gray;
 }
-/* line 12, ../../../../app/stylesheets/jquery.ui/dynatree.xp.sass */
-ul.ui-dynatree-container ul {
+/* line 11, ../../../../app/stylesheets/jquery.ui/dynatree.xp.sass */
+div.ui-dynatree-container ul {
   padding: 0 0 0 16px;
 }
-/* line 15, ../../../../app/stylesheets/jquery.ui/dynatree.xp.sass */
-ul.ui-dynatree-container li {
+/* line 14, ../../../../app/stylesheets/jquery.ui/dynatree.xp.sass */
+div.ui-dynatree-container li {
   list-style-image: none;
   list-style-position: outside;
   list-style-type: none;
@@ -27,13 +27,14 @@ ul.ui-dynatree-container li {
   margin: 0;
   padding: 1px 0 0 0;
 }
+
 /* line 30, ../../../../app/stylesheets/jquery.ui/dynatree.xp.sass */
-ul.ui-dynatree-no-connector >li, ul.ui-dynatree-container li.ui-dynatree-lastsib {
+ul.ui-dynatree-no-connector >li, div.ui-dynatree-container li.ui-dynatree-lastsib {
   background-image: none;
 }
 
 /* line 34, ../../../../app/stylesheets/jquery.ui/dynatree.xp.sass */
-.ui-dynatree-disabled ul.ui-dynatree-container {
+.ui-dynatree-disabled div.ui-dynatree-container {
   opacity: 0.5;
   background-color: silver;
 }
@@ -172,7 +173,7 @@ span.ui-dynatree-document, span.ui-dynatree-folder {
 }
 
 /* line 148, ../../../../app/stylesheets/jquery.ui/dynatree.xp.sass */
-ul.ui-dynatree-container a {
+div.ui-dynatree-container a {
   color: black;
   text-decoration: none;
   vertical-align: top;
@@ -180,7 +181,7 @@ ul.ui-dynatree-container a {
   margin-left: 3px;
 }
 /* line 155, ../../../../app/stylesheets/jquery.ui/dynatree.xp.sass */
-ul.ui-dynatree-container a:hover {
+div.ui-dynatree-container a:hover {
   text-decoration: underline;
 }
 
@@ -199,7 +200,7 @@ span.ui-dynatree-folder a {
 }
 
 /* line 172, ../../../../app/stylesheets/jquery.ui/dynatree.xp.sass */
-ul.ui-dynatree-container a:focus {
+div.ui-dynatree-container a:focus {
   background-color: #EFEBDE;
 }
 
