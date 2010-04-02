@@ -172,6 +172,7 @@ module Gridify
       if select_rows.present?
         vals['scrollrows']      = true
         vals['onSelectRow']     = select_rows
+        vals['multiselect']     = true if multi_select
       else
         vals['hoverrows']       = false
         vals['beforeSelectRow'] = "javascript: function(){ false; }"

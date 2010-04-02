@@ -50,6 +50,7 @@ module Gridify
                   :alt_rows,              # true for odd/even row classes, or odd row style name string (nil)
                   :row_numbers,           # true to display row numbers in left column; or numeric width in pixels (nil)
                   :select_rows,           # true for rows are selectable (eg for pager buttons); or js function when row is selected, false disables hover (true if pager buttons else false)
+                  :multi_select,
 
     # header layer
                   :title,                 # title string (aka caption), or true for resource.titleize, nil for no title (nil)
@@ -123,8 +124,7 @@ module Gridify
     
     def sortable
       @sortable==false ? false : true
-    end
-        
+    end        
             
     def dom_id
       @dom_id || "#{resource}_#{name}"
