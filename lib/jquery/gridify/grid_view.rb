@@ -166,7 +166,7 @@ module Gridify
       vals['altrows']           = true if alt_rows
       vals['altclass']          = alt_rows if alt_rows.is_a?(String)
       
-      vals['rowNumbers']        = true if row_numbers
+      vals['rownumbers']        = true if row_numbers
       vals['rownumWidth']       = row_numbers if row_numbers.is_a?(Numeric)
       
       if select_rows.present?

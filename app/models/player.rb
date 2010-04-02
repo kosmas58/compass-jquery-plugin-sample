@@ -67,7 +67,7 @@ class Player < ActiveRecord::Base
     :height         => :auto,
     :select_rows    => true,
     :multi_select   => true,
-    #:row_numbers    => true,
+    :row_numbers    => true,
     :search_button  => true,  
     :refresh_button => true,
     :pager          => true
