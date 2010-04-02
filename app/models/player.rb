@@ -2,7 +2,7 @@ class Player < ActiveRecord::Base
   gridify :example01,
     :title          => "Football players",
     :url            => "/jqgrid/players",
-    :only           => [:id, :pseudo, :firstname, :lastname, :email, :role],
+    #:only           => [:id, :pseudo, :firstname, :lastname, :email, :role],
     :height         => :auto,
     :search_button  => true,  
     :refresh_button => true,
@@ -12,10 +12,11 @@ class Player < ActiveRecord::Base
     :title             => "Football players",
     :url               => "/jqgrid/players",
     :only              => [:id, :pseudo, :firstname, :lastname, :email, :role],
+    :height            => :auto,
     :width_fit         => :fluid,
     :select_rows       => true, 
     #:selection_handler => "handleSelection",
-    :search_button     => true,  
+    :search_button     => false,  
     :pager             => true
     
   gridify :example03,

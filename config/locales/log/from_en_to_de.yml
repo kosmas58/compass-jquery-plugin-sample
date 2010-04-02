@@ -24,10 +24,9 @@ date:
   formats: 
     default: "%Y-%m-%d"
 txt: 
-  ribbon: 
-    simple: Ribbon with simple theme
-    windows7: Ribbon with Windows7 theme
-    theming: Theming
+  jqgrid: 
+    demo: 
+      gridify: Gridify examples
 support: 
   array: 
     words_connector: ", "

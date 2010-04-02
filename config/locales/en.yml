@@ -192,6 +192,7 @@ en:
       demo:
         default: jqGrid Examples
         2dc: 2dc_jqGrid Examples
+        gridify: Gridify examples 
         sortable: View sortable columns
         big_sets: Search Big Sets
         events: Using Events

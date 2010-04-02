@@ -39,6 +39,7 @@ module Gridify
         find_args[:offset] = offset if offset && offset > 0
       end
       cond = rules_to_conditions
+      find_args[:conditions] = cond unless cond.blank?
       find_args
     end
     
@@ -99,8 +100,7 @@ module Gridify
     #   
     def member_params( params )
       params.inject({}) {|h, (name, value)| h[name] = value if columns_hash[name]; h }
-    end
-    
+    end    
     
     protected
     
@@ -128,8 +128,7 @@ module Gridify
       'en' => 'NOT LIKE', 
       'cn' => 'LIKE', 
       'nc' => 'NOT LIKE', 
-    }
-    
+    }    
     
     # params[:filters] => {"groupOp"=>"AND", 
     #              "rules"=>[{"data"=>"b", "op"=>"ge", "field"=>"title"}, {"data"=>"f", "op"=>"le", "field"=>"title"}] }    
@@ -148,7 +147,7 @@ module Gridify
           # toolbar search
           self.search_rules = []
           self.search_rules_op = :and
-          colModel.each do |col|  
+          columns.each do |col|  
             name = col.name
             data = params[name.to_sym]        
             self.search_rules << { "field" => name, "op" => "cn", "data" => data } if data
@@ -176,11 +175,8 @@ module Gridify
       end
       cond = [ expr ] + vals      
     end
-
-
   end
 end
-
 
 # # If you need to display error messages
 # err = ""
@@ -192,5 +188,4 @@ end
 # 
 # render :text => "#{err}"
 
-
-#	{ :add => true, :edit => true, :inline_edit => false, :delete => true, :edit_url => "/users/post_data", :error_handler => "after_submit" }
+# { :add => true, :edit => true, :inline_edit => false, :delete => true, :edit_url => "/users/post_data", :error_handler => "after_submit" }
