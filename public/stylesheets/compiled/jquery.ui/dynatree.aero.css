@@ -1,6 +1,6 @@
 /* line 3, ../../../../app/stylesheets/jquery.ui/dynatree.aero.sass */
-div.ui-dynatree-container {
-  font-family: segoe ui, tahoma, verdana, arial, helvetica, sans-serif;
+ul.ui-dynatree-container {
+  font-family: segoe ui, Verdana, Geneva, Arial, Helvetica, sans-serif;
   font-size: 0.8em;
   white-space: nowrap;
   padding: 3px;
@@ -11,14 +11,14 @@ div.ui-dynatree-container {
   border-radius: 4px;
 }
 /* line 14, ../../../../app/stylesheets/jquery.ui/dynatree.aero.sass */
-div.ui-dynatree-container img {
+ul.ui-dynatree-container img {
   width: 16px;
   height: 16px;
   margin-left: 3px;
   vertical-align: top;
 }
 /* line 20, ../../../../app/stylesheets/jquery.ui/dynatree.aero.sass */
-div.ui-dynatree-container a {
+ul.ui-dynatree-container a {
   color: black;
   text-decoration: none;
   vertical-align: top;
@@ -27,16 +27,16 @@ div.ui-dynatree-container a {
   border: 1px solid white;
 }
 /* line 28, ../../../../app/stylesheets/jquery.ui/dynatree.aero.sass */
-div.ui-dynatree-container a:hover {
+ul.ui-dynatree-container a:hover {
   text-decoration: underline;
 }
 /* line 31, ../../../../app/stylesheets/jquery.ui/dynatree.aero.sass */
-div.ui-dynatree-container a:focus {
+ul.ui-dynatree-container a:focus {
   background-color: #EFEBDE;
 }
 
 /* line 35, ../../../../app/stylesheets/jquery.ui/dynatree.aero.sass */
-.ui-dynatree-disabled div.ui-dynatree-container {
+.ui-dynatree-disabled ul.ui-dynatree-container {
   opacity: 0.5;
   background-color: silver;
 }
