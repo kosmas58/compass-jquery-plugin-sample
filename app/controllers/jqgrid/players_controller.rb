@@ -4,8 +4,7 @@ class Jqgrid::PlayersController < ApplicationController
   protect_from_forgery
   
   def index
-    @example = (params[:example] || "01")
-    mylist = "example#{@example}".to_sym
+    mylist = fetch_example();
     if request.xhr?
       records = Player.find_for_grid(mylist, params)
       render :json => Player.grid(mylist).encode_records(records)
@@ -19,7 +18,9 @@ class Jqgrid::PlayersController < ApplicationController
   
   def create
     if request.xhr?
-      player_params = Player.grid.member_params(params)
+      mylist = fetch_example();
+      params[:id] = nil
+      player_params = Player.grid(mylist).member_params(params)
       @player = Player.new( player_params )
       # must return nothing on success (until we setup a format for returning ok vs error)
       msg = ""
@@ -43,7 +44,8 @@ class Jqgrid::PlayersController < ApplicationController
   def update
     @player = Player.find(params[:id])
     if request.xhr?
-      player_params = Player.grid.member_params(params)
+      mylist = fetch_example();
+      player_params = Player.grid(mylist).member_params(params)
       msg = "success"
       unless @player.update_attributes( player_params )
         @player.errors.entries.each do |error|
@@ -71,5 +73,13 @@ class Jqgrid::PlayersController < ApplicationController
       flash[:notice] = "Successfully destroyed player."
       redirect_to players_url       
     end
-  end  
+  end 
+  
+  private
+  
+  def fetch_example
+    @example = (params[:example] || "01")
+    "example#{@example}".to_sym
+  end
+  
 end
