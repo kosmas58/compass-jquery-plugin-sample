@@ -18,7 +18,8 @@ module Gridify
                   :searchable,            # default: true (used in generating columns, changing has no effect on existing cols)
                   :sortable,              # default: true (used in generating columns, changing has no effect on existing cols)
                   :editable,              # default: false (used in generating columns, changing has no effect on existing cols)
-                      
+                  :inline_edit, 
+                  :edit_url,  
     # grid
                   :dom_id,                # defaults to #{resource}_#{name} eg "notes_grid"
                   
@@ -114,6 +115,10 @@ module Gridify
       @restful==false ? false : true
     end
     
+    def inline_edit
+      @inline_edit==true ? true : false  
+    end
+    
     def finder
       @finder || :find
     end
@@ -199,6 +204,10 @@ module Gridify
     # data
     def url
       @url || "/#{resource}"
+    end
+        
+    def edit_url
+      @edit_url || "/#{resource}"
     end
 
     def rows_per_page

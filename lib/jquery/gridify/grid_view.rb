@@ -109,7 +109,9 @@ module Gridify
      
       # data and request options
       vals['url']               = url if url
+      vals['editurl']           = edit_url if edit_url
       vals['restful']           = true if restful
+      vals['inline_edit']       = false if !inline_edit 
       vals['postData']          = { :grid => name } #identify which grid making the request
       vals['colNames']          = colNames if colNames.present?
       vals['colModel']          = column_model if colModel.present?

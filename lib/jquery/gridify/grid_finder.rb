@@ -142,7 +142,7 @@ module Gridify
           self.search_rules_op = filters['groupOp']
         elsif params[:searchField]
           # simple search
-          self.search_rules = [{ "field" => params[:searchField], "op" => params[:searchOper], "data" => params[:searchString]}]
+          self.search_rules = [{ "field" => params[:searchField], "op" => params[:searchOper], "data" => params[:searchString]}]   
         else
           # toolbar search
           self.search_rules = []
