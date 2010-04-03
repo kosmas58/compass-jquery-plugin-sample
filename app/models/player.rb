@@ -53,7 +53,7 @@ class Player < ActiveRecord::Base
                          :role      => { :name => "role",      :label => "Role" }
                        },
     :height         => :auto,
-    :select_rows    => "javascript: function handleSelection(id, status) { alert('Selected row ID ' + id);}",
+    :select_rows    => "javascript: handleSelection",
     :search_button  => true,  
     :refresh_button => true,
     :pager          => true
@@ -95,7 +95,7 @@ class Player < ActiveRecord::Base
     :width          => 600,
     :width_fit      => :fitted,
     :height         => :auto,
-    :select_rows    => "javascript: function handleSelection(id, status) { alert('Selected row ID ' + id);}",
+    :select_rows    => "javascript: handleSelection",
     :search_button  => true,  
     :refresh_button => true,
     :pager          => true
