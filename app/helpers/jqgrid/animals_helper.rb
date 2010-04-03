@@ -1,0 +1,2 @@
+module Jqgrid::AnimalsHelper
+end

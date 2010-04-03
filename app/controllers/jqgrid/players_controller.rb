@@ -8,9 +8,12 @@ class Jqgrid::PlayersController < ApplicationController
     mylist = "example#{@example}".to_sym
     if request.xhr?
       records = Player.find_for_grid(mylist, params)
-      render :xml => Player.grid(mylist).encode_records(records)
+      render :json => Player.grid(mylist).encode_records(records)
     else
-      @grid = Player.grid(mylist)
+      @grid_players = Player.grid(mylist)
+      if @example == "05"
+        @grid_animals = Animal.grid(mylist)
+      end
     end    
   end
 end

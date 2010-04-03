@@ -1,7 +1,11 @@
 class Player < ActiveRecord::Base  
+  has_many :animals
+  validates_presence_of :pseudo
+    
   gridify :example01,
     :title          => "Football players",
     :url            => "/jqgrid/players",
+    :data_type      => :json,
     :only           => [:id, :pseudo, :firstname, :lastname, :email, :role],  
     :colModel       => {
                          :id        => { :name => "id",        :label => "ID", :width => 35, :resizable => false }, 
@@ -19,6 +23,7 @@ class Player < ActiveRecord::Base
   gridify :example02,
     :title          => "Football players",
     :url            => "/jqgrid/players",
+    :data_type      => :json,
     :only           => [:id, :pseudo, :firstname, :lastname, :email, :role], 
     :colModel       => {
                          :id        => { :name => "id",        :label => "ID", :width => 35, :resizable => false }, 
@@ -37,6 +42,7 @@ class Player < ActiveRecord::Base
   gridify :example03,
     :title          => "Football players",
     :url            => "/jqgrid/players",
+    :data_type      => :json,
     :only           => [:id, :pseudo, :firstname, :lastname, :email, :role],  
     :colModel       => {
                          :id        => { :name => "id",        :label => "ID", :width => 35, :resizable => false }, 
@@ -55,6 +61,7 @@ class Player < ActiveRecord::Base
   gridify :example04,
     :title          => "Football players",
     :url            => "/jqgrid/players",
+    :data_type      => :json,
     :only           => [:id, :pseudo, :firstname, :lastname, :email, :role],  
     :colModel       => {
                          :id        => { :name => "id",        :label => "ID", :width => 35, :resizable => false }, 
@@ -75,6 +82,7 @@ class Player < ActiveRecord::Base
   gridify :example05,
     :title          => "Football players",
     :url            => "/jqgrid/players",
+    :data_type      => :json,
     :only           => [:id, :pseudo, :firstname, :lastname, :email, :role],  
     :colModel       => {
                          :id        => { :name => "id",        :label => "ID", :width => 35, :resizable => false }, 
@@ -84,6 +92,8 @@ class Player < ActiveRecord::Base
                          :email     => { :name => "email",     :label => "Email" },
                          :role      => { :name => "role",      :label => "Role" }
                        },
+    :width          => 600,
+    :width_fit      => :fitted,
     :height         => :auto,
     :select_rows    => "javascript: function handleSelection(id, status) { alert('Selected row ID ' + id);}",
     :search_button  => true,  
