@@ -3,7 +3,7 @@
     if(id == null) { 
       id = 0; 
     } 
-    jQuery("#animals_example05").jqGrid('setGridParam', {url: "/jqgrid/animals/?grid=example05&id="+id,page:1})
+    jQuery("#animals_example05").jqGrid('setGridParam', {url: "/jqgrid/animals/?grid=example05&details_for="+id,page:1})
     jQuery("#animals_example05").jqGrid('setCaption', "Footplayer' " +id + " animals")
     jQuery("#animals_example05").trigger('reloadGrid'); 
   };

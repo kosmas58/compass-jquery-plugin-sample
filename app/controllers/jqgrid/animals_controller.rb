@@ -7,8 +7,12 @@ class Jqgrid::AnimalsController < ApplicationController
     @example = (params[:example] || "05")
     mylist = "example#{@example}".to_sym
     if request.xhr?
-      if params[:id].present?
-        records = Player.find(params[:id]).animals.find(:all)
+      if params[:details_for].present?
+        if params[:_search] == "true" 
+          records = Animal.find_for_grid(mylist, params)
+        else
+          records = Player.find(params[:details_for]).animals.find(:all)
+        end
       else
         records = Animal.find_for_grid(mylist, params)
       end
