@@ -109,7 +109,7 @@ module Gridify
      
       # data and request options
       vals['url']               = url if url
-      vals['editurl']           = edit_url if edit_url
+      vals['editurl']           = url if editable
       vals['restful']           = true if restful
       vals['inline_edit']       = false if !inline_edit 
       vals['postData']          = { :grid => name } #identify which grid making the request
