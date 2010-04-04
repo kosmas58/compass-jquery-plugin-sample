@@ -203,6 +203,13 @@ module Gridify
         end
       end
       
+      #subgrid
+      if sub_grid      
+        vals[:subGrid]      = sub_grid
+        vals[:subGridUrl]   = sub_grid_url
+        vals[:subGridModel] = sub_grid_model
+      end
+      
       # allow override of native jqGrid options
       vals.merge(jqgrid_options)
     end

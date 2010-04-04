@@ -175,7 +175,7 @@ en:
       name: Ribbon
       default: jQuery Ribbon demo
     jqt:
-      name: jQTouch (needs a browser with WebKit engine)
+      name: "jQTouch (needs a browser with WebKit engine)"
     jqgrid:
       name: jqGrid
       simple:

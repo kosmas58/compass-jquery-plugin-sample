@@ -25,6 +25,10 @@ module Gridify
                   
                   :jqgrid_options,        # hash of additional jqGrid options that override any other settings
 
+    #subgrid
+                  :sub_grid,
+                  :sub_grid_url,
+                  :sub_grid_model,
 
     # grid layout options
                   :width,                 # in pixels, or nil (nil means calculated based on overflow setting)

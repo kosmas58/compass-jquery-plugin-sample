@@ -304,7 +304,14 @@ class Player < ActiveRecord::Base
     :height         => :auto,
     :search_button  => true,  
     :refresh_button => true,
-    :pager          => true
+    :pager          => true,
+    :sub_grid       => true,
+    :sub_grid_url   => "/jqgrid/animals"#,
+#    :sub_grid_model => {
+#                         :id    => { :name => "id",   :label => "ID",   :width =>  35, :resizable => false }, 
+#                         :name  => { :name => "name", :label => "Name", :width => 365, :align => 'center'  }
+#                       }
+
     
   gridify :example13,
     :title          => "Football players",
