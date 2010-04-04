@@ -1,1 +1,16 @@
+:javascript
+  jQuery(function() {
+    jQuery("#players_example02_select_button").button();
+    
+    jQuery("#players_example02_select_button").click(function() { 
+      var id = jQuery("#players_example02").jqGrid('getGridParam', 'selrow'); 
+      if (id) { 
+        alert('ID selected : ' + id);
+      } else { 
+        alert("Please select a row");
+      }
+    return false; 
+    });    
+  });
+  
 = raw @grid_players

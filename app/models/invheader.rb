@@ -109,6 +109,7 @@ class Invheader < ActiveRecord::Base
     :sortable       => true,
     :rows_per_page  => 10,
     :paging_choices => [10,20,30],
+    :arranger       => :sortable,
     :search_button  => true,  
     :refresh_button => true,
     :pager          => true   

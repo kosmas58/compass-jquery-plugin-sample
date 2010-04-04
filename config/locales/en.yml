@@ -181,7 +181,6 @@ en:
       simple:
         name: Simple Data Grids
         default: default functionality
-        sortable: with sortable columns
         master: with master details
         selection: with selection link and search disabled
         direct: with direct selection and autowidth

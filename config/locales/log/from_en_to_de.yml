@@ -3,9 +3,6 @@ activerecord:
   errors: 
     full_messages: 
       format: "{{attribute}} {{message}}"
-  attributes: 
-    animal: 
-      name: Name
 number: 
   format: 
     separator: .
@@ -29,7 +26,7 @@ date:
 txt: 
   jqgrid: 
     simple: 
-      sortable: with sortable columns
+      reorderable: with reorderable columns
 support: 
   array: 
     words_connector: ", "

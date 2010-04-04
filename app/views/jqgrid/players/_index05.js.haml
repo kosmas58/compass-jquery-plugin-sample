@@ -1,12 +1,12 @@
 :javascript
-  jQuery(function() {
-    jQuery("#players_example05_select_button").button();
-    
-    jQuery("#players_example05_select_button").click(function() { 
-      var id = jQuery("#players_example05").jqGrid('getGridParam', 'selarrrow'); 
-      alert('ID selected : ' + id);
-    return false; 
-    });    
-  });
-  
+  function handleSelection(id, status) { 
+    if(id == null) { 
+      id = 0; 
+    } 
+    jQuery("#animals_example05").jqGrid('setGridParam', {url: "/jqgrid/animals/?grid=example05&details_for="+id,page:1})
+    jQuery("#animals_example05").jqGrid('setCaption', "Footballplayer's " +id + " animals")
+    jQuery("#animals_example05").trigger('reloadGrid'); 
+  };
+
 = raw @grid_players
+= raw @grid_animals
