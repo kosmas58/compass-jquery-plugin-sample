@@ -115,12 +115,6 @@ de:
     jqt: 
       name: "jQTouch (ben\xC3\xB6tigt einen Browser mit WebKit)"
     jqgrid: 
-      manipulation: 
-        name: Datenmanipulation
-        modal: "mit modaler \xC3\x84nderung"
-        inline: "mit Inline-\xC3\x84nderung"
-        datepicker: mit Datumsauswahl (Nachname)
-        input: mit verschiedenen Eingabetypen
       name: jqGrid
       simple: 
         name: Einfache Datengitter
@@ -129,6 +123,19 @@ de:
         selection: mit Auswahllink und Suche deaktiviert
         multiple: mit Mehrfachauswahl + Zeilennummern
         direct: mit direkter Auswahl und automatischer Weite
+      manipulation: 
+        name: Datenmanipulation
+        modal: "mit modaler \xC3\x84nderung"
+        inline: "mit Inline-\xC3\x84nderung"
+        datepicker: mit Datumsauswahl (Nachname)
+        input: mit verschiedenen Eingabetypen
+      subgrids: 
+        name: Untergitter
+        default: "Standardfunktionalit\xC3\xA4t"
+        selection: mit Auswahl
+        crud: mit CRUD-Operationen
+      improvements: 
+        name: mit Verbesserungen der Form
       demo: 
         events: Ereignisse nutzen
         sortable: Sortierbare Spalten anzeigen
@@ -222,13 +229,6 @@ de:
         optimize: Datenoptimierung
         asearch: Erweiterte Suche
         navigator: Navigator
-      subgrids: 
-        name: Untergitter
-        default: "Standardfunktionalit\xC3\xA4t"
-        selection: mit Auswahl
-        crud: mit CRUD-Operationen
-      improvements: 
-        name: Formverbesserungen
     ribbon: 
       name: Multifunktionsleiste
       default: jQuery Ribbon Demo

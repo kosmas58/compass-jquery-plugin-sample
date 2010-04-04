@@ -191,6 +191,13 @@ en:
         inline: with inline editing
         datepicker: with datepicker for lastname
         input: with various input types
+      subgrids:
+        name: Subgrids
+        default: default functionality
+        selection: with selection
+        crud: with CRUD operations
+      improvements:
+        name: with form improvements
       demo:
         default: jqGrid Examples
         2dc: 2dc_jqGrid Examples
@@ -284,13 +291,6 @@ en:
         optimize: Data Optimization
         asearch: Advanced Searching
         navigator: Navigator
-      subgrids:
-        name: Subgrids
-        default: default functionality
-        selection: with selection
-        crud: with CRUD operations
-      improvements:
-        name: Form improvements
     dt:
       name: Dynatree
       ul: Init from ul element

@@ -110,6 +110,7 @@ module Gridify
       vals[:hidden]      = true         if hidden
       vals[:width]       = width        if width
       vals[:edittype]    = edit_type    if editable && edit_type
+      vals[:formoptions] = form_options if editable && form_options
       vals[:editoptions] = edit_options if editable && edit_options
       vals[:editrules]   = validations  if editable && validations
         # and more...

@@ -31,19 +31,30 @@
                 %br
                 %i
                   (Restrict detail search on childs of master)
-          %li#gridify022{:data => "icon: '../../demo/dynatree.custom/grid.png'" }
+          %li#gridify012{:data => "icon: '../../demo/dynatree.custom/grid.png'" }
             = t('txt.jqgrid.manipulation.name')
+            %ul
+              %li#gridify0121{:data => "url: '/jqgrid/players?example=06', icon: '../../demo/dynatree.custom/grid.png'" }
+                = t('txt.jqgrid.manipulation.inline')
+              %li#gridify0122{:data => "url: '/jqgrid/players?example=07', icon: '../../demo/dynatree.custom/grid.png'" }
+                = t('txt.jqgrid.manipulation.modal')
+              %li#gridify0123{:data => "url: '/jqgrid/players?example=08', icon: '../../demo/dynatree.custom/grid.png'" }
+                = t('txt.jqgrid.manipulation.input')
+              %li#gridify0124{:data => "url: '/jqgrid/players?example=09', icon: '../../demo/dynatree.custom/grid.png'" }
+                = t('txt.jqgrid.manipulation.datepicker')
+          %li#gridify013{:data => "icon: '../../demo/dynatree.custom/grid.png'" }
+            = t('txt.jqgrid.subgrids.name')
             %b
               (W.I.P.)
             %ul
-              %li#gridify0221{:data => "url: '/jqgrid/players?example=06', icon: '../../demo/dynatree.custom/grid.png'" }
-                = t('txt.jqgrid.manipulation.inline')
-              %li#gridify0222{:data => "url: '/jqgrid/players?example=07', icon: '../../demo/dynatree.custom/grid.png'" }
-                = t('txt.jqgrid.manipulation.modal')
-              %li#gridify0223{:data => "url: '/jqgrid/players?example=08', icon: '../../demo/dynatree.custom/grid.png'" }
-                = t('txt.jqgrid.manipulation.input')
-              %li#gridify0224{:data => "url: '/jqgrid/players?example=09', icon: '../../demo/dynatree.custom/grid.png'" }
-                = t('txt.jqgrid.manipulation.datepicker')
+              %li#gridify0131{:data => "url: '/jqgrid/users?example=10', icon: '../../demo/dynatree.custom/grid.png'" }
+                = t('txt.jqgrid.subgrids.default')
+              %li#gridify0132{:data => "url: '/jqgrid/users?example=11', icon: '../../demo/dynatree.custom/grid.png'" }
+                = t('txt.jqgrid.subgrids.crud')
+              %li#gridify0133{:data => "url: '/jqgrid/users?example=12', icon: '../../demo/dynatree.custom/grid.png'" }
+                = t('txt.jqgrid.subgrids.selection')
+          %li#gridify014{:data => "url: '/jqgrid/users?example=13', icon: '../../demo/dynatree.custom/grid.png'" }
+            = t('txt.jqgrid.improvements.name')
       %li#jqgrid0{:data => "icon: '../../demo/dynatree.custom/grid.png'" }
         = t('txt.jqgrid.demo.default')
         %b
@@ -278,17 +289,6 @@
       %li#jqgrid15{:data => "icon: '../../demo/dynatree.custom/grid.png'" }
         = t('txt.jqgrid.demo.2dc')
         %ul
-          %li#jqgrid152{:data => "icon: '../../demo/dynatree.custom/grid.png'" }
-            = t('txt.jqgrid.manipulation.name')
-            %ul
-              %li#jqgrid1521{:data => "url: '/jqgrid/users?example=06', icon: '../../demo/dynatree.custom/grid.png'" }
-                = t('txt.jqgrid.manipulation.inline')
-              %li#jqgrid1522{:data => "url: '/jqgrid/users?example=07', icon: '../../demo/dynatree.custom/grid.png'" }
-                = t('txt.jqgrid.manipulation.modal')
-              %li#jqgrid1523{:data => "url: '/jqgrid/users?example=08', icon: '../../demo/dynatree.custom/grid.png'" }
-                = t('txt.jqgrid.manipulation.input')
-              %li#jqgrid1524{:data => "url: '/jqgrid/users?example=09', icon: '../../demo/dynatree.custom/grid.png'" }
-                = t('txt.jqgrid.manipulation.datepicker')
           %li#jqgrid153{:data => "icon: '../../demo/dynatree.custom/grid.png'" }
             = t('txt.jqgrid.subgrids.name')
             %ul
@@ -298,6 +298,4 @@
                 = t('txt.jqgrid.subgrids.crud')
               %li#jqgrid1533{:data => "url: '/jqgrid/users?example=12', icon: '../../demo/dynatree.custom/grid.png'" }
                 = t('txt.jqgrid.subgrids.selection')
-          %li#jqgrid154{:data => "url: '/jqgrid/users?example=13', icon: '../../demo/dynatree.custom/grid.png'" }
-            = t('txt.jqgrid.improvements.name')
      
