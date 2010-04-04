@@ -1,0 +1,22 @@
+#get
+  .toolbar
+    %h1
+      GET Example
+    %a.back{ :href => "#" }
+      AJAX
+  .info
+    This page was loaded via AJAX.
+  %ul.rounded
+    %li
+      %a{ :href => "#livetest" }
+        Test live events
+#livetest
+  .toolbar
+    %h1
+      Events test
+    %a.back{ :href => "#" }
+      AJAX
+    %a.button.goback{ :href => "#home" }
+      Home
+  .info
+    This is a test of live events.

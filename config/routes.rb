@@ -14,6 +14,18 @@ ActionController::Routing::Routes.draw do |map|
 
   #map.resources :dynatree, :collection => { :data1 => :get, 
   #                                          :data2 => :get }
+  
+  map.resources :iphone, :collection => { :main     => :get,
+                                          :original => :get }
+  
+  map.resources :demo, :collection => { :autotitles       => :get,
+                                        :clock            => :get,
+                                        :customanimation  => :get,
+                                        :customanimation2 => :get,
+                                        :floaty           => :get,
+                                        :location         => :get,
+                                        :offline          => :get,
+                                        :todo             => :get }
 
   map.namespace :jqgrid do |jqgrid|
     jqgrid.resources :demo

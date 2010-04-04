@@ -1,0 +1,2 @@
+module Jqtouch::DemoHelper
+end
