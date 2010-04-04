@@ -67,8 +67,8 @@ module Gridify
       
       # note, closeAfterEdit will not close if response returns a non-empty string (even if "success" message)
       merge_options_defaults( edit_button || inline_edit, 
-        'reloadAfterSubmit' => 'true', 
-        'closeAfterEdit' => 'true',
+        'reloadAfterSubmit' => true, 
+        'closeAfterEdit' => true,
         'afterSubmit' => "javascript: function(r,data){return #{error_handler_return_value}(r,data,'edit');}"
       )
     end
@@ -76,8 +76,8 @@ module Gridify
     def add_button_options
       # 'url' => '/notes', 'mtype' => 'POST'
       merge_options_defaults( add_button, 
-        'reloadAfterSubmit' => 'true', 
-        'closeAfterEdit' => 'true',
+        'reloadAfterSubmit' => true, 
+        'closeAfterAdd' => true,
         'afterSubmit' => "javascript: function(r,data){return #{error_handler_return_value}(r,data,'add');}"
       )
     end
@@ -85,7 +85,7 @@ module Gridify
     def delete_button_options
       # 'url' => '/notes/{id}', 'mtype' => 'DELETE'
       merge_options_defaults( delete_button, 
-        'reloadAfterSubmit' => 'true',
+        'reloadAfterSubmit' => true,
         'afterSubmit' => "javascript: function(r,data){return #{error_handler_return_value}(r,data,'delete');}"
       )
     end
@@ -174,10 +174,9 @@ module Gridify
       if inline_edit 
         vals[:scrollrows]      = true
         vals[:multiselect]     = true if multi_select
-        vals[:onSelectRow]     = "javascript: function(id, status) { if(id && id!==lastsel_#{dom_id}) { jQuery('##{dom_id}').jqGrid('restoreRow', lastsel_#{dom_id}); jQuery('##{dom_id}').jqGrid('editRow', id, true); lastsel_#{dom_id}=id}}"
-          
-        # jQuery("##{dom_id}").jqGrid('editRow', id, true, #{options[:inline_edit_handler]}, #{options[:error_handler]});
-      
+        vals[:onSelectRow]     = "javascript: function(id, status) { if(id && id!==lastsel_#{dom_id}) { jQuery('##{dom_id}').jqGrid('restoreRow', lastsel_#{dom_id}); jQuery('##{dom_id}').jqGrid('editRow', id, true); lastsel_#{dom_id}=id}}"      
+        #vals[:onSelectRow]     = "javascript: function(id, status) { if(id && id!==lastsel_#{dom_id}) { jQuery('##{dom_id}').jqGrid('restoreRow', lastsel_#{dom_id}); jQuery('##{dom_id}').jqGrid('editRow', id, true, #{inline_edit_handler}, gridify_action_error_handler(r, data, 'edit')); lastsel_#{dom_id}=id}}"      
+     
       
       elsif select_rows #.present?
         vals[:scrollrows]      = true
