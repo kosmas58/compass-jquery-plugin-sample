@@ -1,7 +1,0 @@
-:javascript  
-  function pickDates(id) {
-    jQuery("#"+id+"_lastname","#users_with_datepicker").datepicker({dateFormat:"yy-mm-dd"});
-  }
-  
-= raw jqgrid("Football users", "users_with_datepicker", "/jqgrid/users", [ { :field => "id", :label => "ID", :width => 35, :resizable => false }, { :field => "pseudo", :label => "Pseudo", :editable => true }, { :field => "firstname", :label => "Firstname", :editable => true, :edittype => "checkbox", :editoptions => { :value => "Yes:No" } }, { :field => "lastname", :label => "Lastname", :editable => true }, { :field => "email", :label => "Email", :editable => true, :edittype => "textarea", :editoptions => { :rows => 3, :cols => 30 } }, { :field => "role", :label => "Role", :editable => true, :edittype => "select", :editoptions => { :value => [["admin","admin"], ["user", "user"], ["defender","defender"]] } } ], { :height => :auto, :add => true, :edit => true, :inline_edit => true, :delete => true, :edit_url => "/jqgrid/users/post_data", :inline_edit_handler => "pickDates" } )
-	

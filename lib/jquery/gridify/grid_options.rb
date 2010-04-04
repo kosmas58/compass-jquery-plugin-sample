@@ -120,7 +120,7 @@ module Gridify
     end
     
     def inline_edit_handler
-      @inline_edit_handler || nil  
+      @inline_edit_handler || 'null'  
     end 
     
     def finder
