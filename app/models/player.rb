@@ -280,6 +280,32 @@ class Player < ActiveRecord::Base
     :add_button     => true, 
     :delete_button  => true
     
+  gridify :example10,
+    :title          => "Football players",
+    :url            => "/jqgrid/players",
+    :data_type      => :json,
+    :only           => [:id, :pseudo, :firstname, :lastname, :email, :role],  
+    :colModel       => {
+                         :id        => { :name      => "id",
+                                         :label     => "ID",
+                                         :width     => 35,
+                                         :resizable => false }, 
+                         :pseudo    => { :name  => "pseudo",
+                                         :label => "Pseudo" }, 
+                         :firstname => { :name  => "firstname",
+                                         :label => "Firstname" },
+                         :lastname  => { :name  => "lastname",
+                                         :label => "Lastname" },
+                         :email     => { :name  => "email",
+                                         :label => "Email" },
+                         :role      => { :name  => "role",
+                                         :label => "Role" }
+                       },
+    :height         => :auto,
+    :search_button  => true,  
+    :refresh_button => true,
+    :pager          => true
+    
   gridify :example13,
     :title          => "Football players",
     :url            => "/jqgrid/players",

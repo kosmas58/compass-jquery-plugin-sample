@@ -180,7 +180,7 @@ en:
       name: jqGrid
       simple:
         name: Simple Data Grids
-        default: default functionality
+        default: with default functionality
         master: with master details
         selection: with selection link and search disabled
         direct: with direct selection and autowidth
@@ -193,7 +193,7 @@ en:
         input: with various input types
       subgrids:
         name: Subgrids
-        default: default functionality
+        default: with default functionality
         selection: with selection
         crud: with CRUD operations
       improvements:

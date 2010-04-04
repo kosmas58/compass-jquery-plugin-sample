@@ -118,7 +118,7 @@ de:
       name: jqGrid
       simple: 
         name: Einfache Datengitter
-        default: "Standardfunktionalit\xC3\xA4t"
+        default: "mit Standardfunktionalit\xC3\xA4t"
         master: mit Haupt- und Detailsicht
         selection: mit Auswahllink und Suche deaktiviert
         multiple: mit Mehrfachauswahl + Zeilennummern
@@ -131,7 +131,7 @@ de:
         input: mit verschiedenen Eingabetypen
       subgrids: 
         name: Untergitter
-        default: "Standardfunktionalit\xC3\xA4t"
+        default: "mit Standardfunktionalit\xC3\xA4t"
         selection: mit Auswahl
         crud: mit CRUD-Operationen
       improvements: 
