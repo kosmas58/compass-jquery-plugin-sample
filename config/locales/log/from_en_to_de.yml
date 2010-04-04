@@ -3,6 +3,9 @@ activerecord:
   errors: 
     full_messages: 
       format: "{{attribute}} {{message}}"
+  attributes: 
+    animal: 
+      name: Name
 number: 
   format: 
     separator: .
@@ -25,8 +28,8 @@ date:
     default: "%Y-%m-%d"
 txt: 
   jqgrid: 
-    demo: 
-      gridify: Gridify examples
+    simple: 
+      sortable: with sortable columns
 support: 
   array: 
     words_connector: ", "

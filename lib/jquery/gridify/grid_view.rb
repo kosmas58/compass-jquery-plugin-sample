@@ -66,7 +66,7 @@ module Gridify
       #         {afterSubmit:function(r,data){return #{options[:error_handler_return_value]}(r,data,'edit');}},
       
       # note, closeAfterEdit will not close if response returns a non-empty string (even if "success" message)
-      merge_options_defaults( edit_button, 
+      merge_options_defaults( edit_button || inline_edit, 
         'reloadAfterSubmit' => 'true', 
         'closeAfterEdit' => 'true',
         'afterSubmit' => "javascript: function(r,data){return #{error_handler_return_value}(r,data,'edit');}"
@@ -177,14 +177,6 @@ module Gridify
         vals[:onSelectRow]     = "javascript: function(id, status) { if(id && id!==lastsel_#{dom_id}) { jQuery('##{dom_id}').jqGrid('restoreRow', lastsel_#{dom_id}); jQuery('##{dom_id}').jqGrid('editRow', id, true); lastsel_#{dom_id}=id}}"
           
         # jQuery("##{dom_id}").jqGrid('editRow', id, true, #{options[:inline_edit_handler]}, #{options[:error_handler]});
-      
-#         onSelectRow: function(id){ 
-#          if(id && id!==lastsel){ 
-#            jQuery('##{dom_id}').jqGrid('restoreRow', lastsel_#{dom_id});
-#            jQuery('##{dom_id}').jqGrid('editRow', id, true, #{inline_edit_handler]}, #{options[:error_handler]});
-#            lastsel=id; 
-#          } 
-#        },/
       
       
       elsif select_rows #.present?
