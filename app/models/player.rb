@@ -100,7 +100,77 @@ class Player < ActiveRecord::Base
     :refresh_button => true,
     :pager          => true
     
+  gridify :example06,
+    :title          => "Football players",
+    :url            => "/jqgrid/players",
+    :restful        => true,
+    :data_type      => :json,
+    :only           => [:id, :pseudo, :firstname, :lastname, :email, :role],  
+    :colModel       => {
+                         :id        => { :name => "id",        :label => "ID", :width => 35, :resizable => false }, 
+                         :pseudo    => { :name => "pseudo",    :label => "Pseudo" }, 
+                         :firstname => { :name => "firstname", :label => "Firstname" },
+                         :lastname  => { :name => "lastname",  :label => "Lastname" },
+                         :email     => { :name => "email",     :label => "Email" },
+                         :role      => { :name => "role",      :label => "Role" }
+                       },                       
+    :height         => :auto,
+    :search_button  => true,  
+    :refresh_button => true,
+    :pager          => true,
+    :arranger       => :sortable,
+    :editable       => true,
+    :inline_edit    => true,
+    :add_button     => true, 
+    :delete_button  => true
+    
   gridify :example07,
+    :title          => "Football players",
+    :url            => "/jqgrid/players",
+    :restful        => true,
+    :data_type      => :json,
+    :only           => [:id, :pseudo, :firstname, :lastname, :email, :role],  
+    :colModel       => {
+                         :id        => { :name => "id",        :label => "ID", :width => 35, :resizable => false }, 
+                         :pseudo    => { :name => "pseudo",    :label => "Pseudo" }, 
+                         :firstname => { :name => "firstname", :label => "Firstname" },
+                         :lastname  => { :name => "lastname",  :label => "Lastname" },
+                         :email     => { :name => "email",     :label => "Email" },
+                         :role      => { :name => "role",      :label => "Role" }
+                       },                       
+    :height         => :auto,
+    :search_button  => true,  
+    :refresh_button => true,
+    :pager          => true,    
+    :editable       => true,
+    :edit_button    => true,
+    :add_button     => true, 
+    :delete_button  => true
+    
+  gridify :example08,
+    :title          => "Football players",
+    :url            => "/jqgrid/players",
+    :restful        => true,
+    :data_type      => :json,
+    :only           => [:id, :pseudo, :firstname, :lastname, :email, :role],  
+    :colModel       => {
+                         :id        => { :name => "id",        :label => "ID", :width => 35, :resizable => false }, 
+                         :pseudo    => { :name => "pseudo",    :label => "Pseudo" }, 
+                         :firstname => { :name => "firstname", :label => "Firstname" },
+                         :lastname  => { :name => "lastname",  :label => "Lastname" },
+                         :email     => { :name => "email",     :label => "Email" },
+                         :role      => { :name => "role",      :label => "Role" }
+                       },                       
+    :height         => :auto,
+    :search_button  => true,  
+    :refresh_button => true,
+    :pager          => true,    
+    :editable       => true,
+    :edit_button    => true,
+    :add_button     => true, 
+    :delete_button  => true
+    
+  gridify :example09,
     :title          => "Football players",
     :url            => "/jqgrid/players",
     :restful        => true,
