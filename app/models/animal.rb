@@ -6,8 +6,14 @@ class Animal < ActiveRecord::Base
     :data_type      => :json,
     :only           => [:id, :name],
     :colModel       => {
-                         :id    => { :name => "id",   :label => "ID",   :width =>  35, :resizable => false }, 
-                         :name  => { :name => "name", :label => "Name", :width => 365, :align => 'center'  }
+                         :id    => { :name      => "id",
+                                     :label     => "ID",
+                                     :width     =>  35,
+                                     :resizable => false }, 
+                         :name  => { :name  => "name",
+                                     :label => "Name",
+                                     :width => 365,
+                                     :align => 'center' }
                        }, 
     :width          => 400,
     :width_fit      => :fitted,
@@ -21,8 +27,14 @@ class Animal < ActiveRecord::Base
     :data_type      => :json,
     :only           => [:id, :name],
     :colModel       => {
-                         :id    => { :name => "id",   :label => "ID",   :width =>  35, :resizable => false }, 
-                         :name  => { :name => "name", :label => "Name", :width => 365, :align => 'center'  }
+                         :id    => { :name      => "id",
+                                     :label     => "ID",
+                                     :width     =>  35,
+                                     :resizable => false }, 
+                         :name  => { :name  => "name",
+                                     :label => "Name",
+                                     :width => 365,
+                                     :align => 'center' }
                        }, 
     :width          => 400,
     :width_fit      => :fitted,

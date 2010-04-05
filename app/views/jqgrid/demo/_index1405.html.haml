@@ -9,6 +9,18 @@
 / End demo 
 .demo-description
   %p    
-    This example shows how we can load XML data from Server. Note that we
-    can use a multiple indexes in col model to sort data.    
+    Since it is not possible to meat every user requirement in the validation when we use editing
+    we have created a possibility to create one defined from the developer.
+    This is done just with two options in colModel
+    %ul
+      %li 
+        %code
+          custom:true 
+        (which initialize this) and
+      %li 
+        %code
+          custom_func
+        which should perform validation.
+  %p
+    In our example the amount value should have values between 200 and 300 when we perform editing and adding.   
 / End demo-description
