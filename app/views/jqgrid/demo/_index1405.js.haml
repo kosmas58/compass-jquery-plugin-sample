@@ -1,1 +1,10 @@
+:javascript
+  function mycheck(value, name) {
+    if(parseFloat(value) >= 200 && parseFloat(value)<=300) {
+      return [true,"",""];
+    } else {
+      return [false,name+": The value should be between 200 and 300!",""];
+    }
+  }
+
 = raw @grid
