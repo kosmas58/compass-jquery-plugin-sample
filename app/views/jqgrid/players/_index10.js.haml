@@ -1,1 +1,12 @@
+:javascript
+  function handleExample10(id, status) { 
+    if(id == null) { 
+      id = 0; 
+    } 
+    jQuery("#animals_example10").jqGrid('setGridParam', {url: "/jqgrid/animals/?details_for="+id,page:1})
+    jQuery("#animals_example10").jqGrid('setCaption', "Footballplayer's " +id + " animals")
+    jQuery("#animals_example10").trigger('reloadGrid'); 
+  };
+
 = raw @grid_players
+= raw @grid_animals

@@ -27,7 +27,7 @@
 
     = render(:partial => @jquery_partial, :format => :js) if @jquery_partial
 
-    %body{body_attributes}
+  %body{body_attributes}
     #content
       %p{ :style => "color: green" }
         = flash[:notice]

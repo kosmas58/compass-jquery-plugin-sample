@@ -77,7 +77,7 @@ class Player < ActiveRecord::Base
                                          :label => "Role" }
                        },
     :height         => :auto,
-    :select_rows    => "javascript: handleSelection",
+    :select_rows    => "javascript: handleExample03",
     :search_button  => true,  
     :refresh_button => true,
     :pager          => true
@@ -135,7 +135,7 @@ class Player < ActiveRecord::Base
     :width          => 600,
     :width_fit      => :fitted,
     :height         => :auto,
-    :select_rows    => "javascript: handleSelection",
+    :select_rows    => "javascript: handleExample05",
     :search_button  => true,  
     :refresh_button => true,
     :pager          => true
@@ -301,12 +301,16 @@ class Player < ActiveRecord::Base
                          :role      => { :name  => "role",
                                          :label => "Role" }
                        },
+    :width          => 600,
+    :width_fit      => :fitted,
     :height         => :auto,
+    :select_rows    => "javascript: handleExample10",
     :search_button  => true,  
     :refresh_button => true,
-    :pager          => true,
-    :sub_grid       => true,
-    :sub_grid_url   => "/jqgrid/animals"#,
+    :pager          => true
+    
+#    :sub_grid       => true,
+#    :sub_grid_url   => "/jqgrid/animals"#,
 #    :sub_grid_model => {
 #                         :id    => { :name => "id",   :label => "ID",   :width =>  35, :resizable => false }, 
 #                         :name  => { :name => "name", :label => "Name", :width => 365, :align => 'center'  }

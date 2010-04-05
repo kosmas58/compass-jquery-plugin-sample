@@ -25,4 +25,5 @@
 
     = render(:partial => @jquery_partial, :format => :js) if @jquery_partial
 
+  %body{body_attributes}
     = yield

@@ -18,6 +18,6 @@
     = render(:partial => @jtouch_partial_1, :format => :js) if @jqtouch_partial_1 
     = render(:partial => @jtouch_partial_2) if @jqtouch_partial_2
 
-  %body
+  %body{body_attributes}
     = yield
  
