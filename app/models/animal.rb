@@ -13,6 +13,5 @@ class Animal < ActiveRecord::Base
     :height         => :auto,
     :search_button  => true,  
     :refresh_button => true,
-    :pager          => true
-  
+    :pager          => true  
 end
