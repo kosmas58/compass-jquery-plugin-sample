@@ -2,6 +2,7 @@ class Animal < ActiveRecord::Base
   belongs_to :player
   
   gridify :example05,
+    :url            => "/jqgrid/animals",
     :data_type      => :json,
     :only           => [:id, :name],
     :colModel       => {

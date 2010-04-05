@@ -13,12 +13,13 @@ class Jqgrid::AnimalsController < ApplicationController
         else
           records = Player.find(params[:details_for]).animals.find(:all)
         end
+        render :json => Animal.grid(mylist).encode_records(records)
       else
-        records = Animal.find_for_grid(mylist, params)
+        #records = Animal.find_for_grid(mylist, params)
+        render :json => Animal.grid(mylist).encode_records(nil)
       end
-      render :json => Animal.grid(mylist).encode_records(records)
     else
-      render :layout => false
+      render :nothing => true, :status => 200
     end    
   end
 end
