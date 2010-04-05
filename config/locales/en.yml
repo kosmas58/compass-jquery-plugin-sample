@@ -199,7 +199,7 @@ en:
       improvements:
         name: with form improvements
       demo:
-        default: jqGrid Examples
+        default: jqGrid Demo
         2dc: 2dc_jqGrid Examples
         gridify: 2dc examples implemented with gridify
         sortable: View sortable columns

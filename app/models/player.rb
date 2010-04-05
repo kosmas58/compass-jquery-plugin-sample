@@ -304,13 +304,11 @@ class Player < ActiveRecord::Base
     :width          => 600,
     :width_fit      => :fitted,
     :height         => :auto,
-    :select_rows    => "javascript: handleExample10",
     :search_button  => true,  
     :refresh_button => true,
-    :pager          => true
-    
-#    :sub_grid       => true,
-#    :sub_grid_url   => "/jqgrid/animals"#,
+    :pager          => true,
+    :sub_grid       => true,
+    :sub_grid_url   => "/jqgrid/animals"#,
 #    :sub_grid_model => {
 #                         :id    => { :name => "id",   :label => "ID",   :width =>  35, :resizable => false }, 
 #                         :name  => { :name => "name", :label => "Name", :width => 365, :align => 'center'  }
