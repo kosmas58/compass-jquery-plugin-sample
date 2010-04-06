@@ -28,10 +28,12 @@ ActionController::Routing::Routes.draw do |map|
                                         :todo             => :get }
 
   map.namespace :jqgrid do |jqgrid|
+    jqgrid.resources :animals
     jqgrid.resources :demo
     jqgrid.resources :players
-    jqgrid.resources :animals
-    jqgrid.resources :users, :collection => { :pets => :get, :post_data => :post }    
+    jqgrid.resources :users, :collection => { :pets      => :get,
+                                              :post_data => :post }  
+    jqgrid.resources :widgets  
   end
   
   Translate::Routes.translation_ui(map) if RAILS_ENV != "production "
