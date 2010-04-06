@@ -1,0 +1,6 @@
+<% ui_grid_for :widgets, :actions => [:create, :update, :destroy] do |grid| %>
+  <%= grid.column :name, :value => proc {|x| "<a href='widgets/#{x.id}'>#{x.name}</a>"} %>
+  <%= grid.column :cogs %>
+  <%= grid.column :sprockets, :value => proc {|x| x.sprockets.count} %>
+  <%= grid.column :associations, :associations => {:sprockets => "Sprockets"} %>
+<% end %>

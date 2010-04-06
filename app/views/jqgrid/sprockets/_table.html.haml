@@ -1,0 +1,5 @@
+- ui_grid_for :sprockets do |grid|
+= grid.column :id
+= grid.column :teeth
+= grid.column :widget, :value => proc {|x| x.widget.name}
+- end

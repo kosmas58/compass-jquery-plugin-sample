@@ -1,0 +1,14 @@
+<% form_for @widget, :style => {:width => 600, :height => 600} do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :cogs %>
+    <%= f.text_field :cogs %>
+  </p>
+  
+  <%= f.submit "Save"%>
+
+<% end %>
