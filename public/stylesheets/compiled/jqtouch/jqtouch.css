@@ -23,6 +23,8 @@ a {
 
 /* line 21, ../../../../app/stylesheets/jqtouch/jqtouch.sass */
 body {
+  height: 480px;
+  width: 320px;
   overflow-x: hidden;
   -webkit-user-select: none;
   -webkit-text-size-adjust: none;
@@ -31,12 +33,12 @@ body {
   -webkit-transform-style: preserve-3d;
 }
 
-/* line 30, ../../../../app/stylesheets/jqtouch/jqtouch.sass */
+/* line 32, ../../../../app/stylesheets/jqtouch/jqtouch.sass */
 .selectable, input, textarea {
   -webkit-user-select: auto;
 }
 
-/* line 35, ../../../../app/stylesheets/jqtouch/jqtouch.sass */
+/* line 37, ../../../../app/stylesheets/jqtouch/jqtouch.sass */
 body > * {
   -webkit-backface-visibility: hidden;
   -webkit-box-sizing: border-box;
@@ -47,42 +49,42 @@ body > * {
   -webkit-transform: translate3d(0,0,0) rotate(0) scale(1);
   min-height: 420px !important;
 }
-/* line 46, ../../../../app/stylesheets/jqtouch/jqtouch.sass */
+/* line 48, ../../../../app/stylesheets/jqtouch/jqtouch.sass */
 body.fullscreen > * {
   min-height: 460px !important;
 }
-/* line 49, ../../../../app/stylesheets/jqtouch/jqtouch.sass */
+/* line 51, ../../../../app/stylesheets/jqtouch/jqtouch.sass */
 body.fullscreen.black-translucent > * {
   min-height: 480px !important;
 }
-/* line 52, ../../../../app/stylesheets/jqtouch/jqtouch.sass */
+/* line 54, ../../../../app/stylesheets/jqtouch/jqtouch.sass */
 body.landscape > * {
   min-height: 320px;
 }
-/* line 55, ../../../../app/stylesheets/jqtouch/jqtouch.sass */
+/* line 57, ../../../../app/stylesheets/jqtouch/jqtouch.sass */
 body > .current {
   display: block !important;
 }
 
-/* line 59, ../../../../app/stylesheets/jqtouch/jqtouch.sass */
+/* line 61, ../../../../app/stylesheets/jqtouch/jqtouch.sass */
 .in, .out {
   -webkit-animation-timing-function: ease-in-out;
   -webkit-animation-duration: 350ms;
 }
 
-/* line 65, ../../../../app/stylesheets/jqtouch/jqtouch.sass */
+/* line 67, ../../../../app/stylesheets/jqtouch/jqtouch.sass */
 .slide.in {
   -webkit-animation-name: slideinfromright;
 }
-/* line 68, ../../../../app/stylesheets/jqtouch/jqtouch.sass */
+/* line 70, ../../../../app/stylesheets/jqtouch/jqtouch.sass */
 .slide.out {
   -webkit-animation-name: slideouttoleft;
 }
-/* line 71, ../../../../app/stylesheets/jqtouch/jqtouch.sass */
+/* line 73, ../../../../app/stylesheets/jqtouch/jqtouch.sass */
 .slide.in.reverse {
   -webkit-animation-name: slideinfromleft;
 }
-/* line 74, ../../../../app/stylesheets/jqtouch/jqtouch.sass */
+/* line 76, ../../../../app/stylesheets/jqtouch/jqtouch.sass */
 .slide.out.reverse {
   -webkit-animation-name: slideouttoright;
 }
