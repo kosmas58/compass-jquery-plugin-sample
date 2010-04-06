@@ -1,7 +1,164 @@
+require 'ruby2ruby'
+require 'parse_tree'
+require 'parse_tree_extensions'
+require 'base64'
+require 'openssl'
+
 module SecretSauce
   module Helpers
+    
+    
     # This module wraps the great jqGrid plugin for jQuery and jQuery UI (http://www.trirand.com/blog).
     module UiGridHelper
+       
+      class UiGridBuilder
+        
+        def initialize(*args)
+          @column_model = []
+          @template = args.shift
+          @collection_name = args.shift.to_s
+          @options = args.extract_options!
+          @model_object = @collection_name.singularize.classify.constantize
+          @column_evaluators = {}
+          @options[:associations] = {} if @options[:associations].nil?
+        end
+        
+        def column(*args)
+          name = args.shift.to_s
+          c_options = args.extract_options!
+          if c_options[:associations]
+            links = []
+            @options[:associations].merge!(c_options[:associations])
+            c_options[:associations].each do |k,v|
+              links << %q{<a id='} + @collection_name.singularize + %q{_#{x.id}_} + k.to_s + %Q{' href='#' class='sauceGridAssociation'>} + v + %Q{</a>}
+            end 
+            @column_evaluators[name] = "proc {|x| \"#{links.join(' | ')}\" }"
+          end
+          if c_options[:value].class == Proc
+            @column_evaluators.merge!({name => c_options[:value].to_ruby})
+          elsif args.length > 0
+            @column_evaluators.merge!({name => args.shift})
+          end
+          @column_model << {:name => name, :index => name, :label => name.titleize, :width => (1024 / @model_object.to_s.singularize.classify.constantize.new.attributes.length)}
+          nil # return nil because we don't really render anything here anyways, but using <%= makes us feel good.
+        end
+        
+        def render(&block)
+          block.call if block_given?
+          @options[:grid] = {} unless @options[:grid]
+          @options[:nav] = {} unless @options[:nav]
+          @options[:actions] = [] unless @options[:actions]
+          unless @column_model.length > 0
+            @column_model = @model_object.new.attributes.keys.collect do |m|
+              {:name => m, :index => m, :label => m.titleize, :width => (1024 / @model_object.new.attributes.length)}
+            end
+            if(@options[:association])
+              @column_model << {:name => "associations", :label => "Associations", :sortable => false, :align => "center"}
+            end
+          end
+          grid_options = {
+            :url => "/#{@collection_name}.json",
+            :alternate_rows => true,
+            :column_model => @column_model,
+            :datatype => "json",
+            :json_reader => {:repeatitems => false},
+            :height => 22 * 30,
+            :row_num => 20,
+            :row_list => [10, 20, 30],
+            :pager => "#{@collection_name}_grid_pager",
+            :hide_grid => false,
+            :view_records =>  true,
+            :width => 1024
+          }
+          grid_options.merge!(:caption => "#{@collection_name}".titleize) unless @template.params["association_model"] && @template.params["association_id"]
+          if @column_evaluators.length > 0
+            aes = OpenSSL::Cipher::Cipher.new("AES-256-CBC")
+            aes.encrypt
+            aes.key = SecretSauce::KEY
+            ce = CGI.escape(aes.update(Base64.encode64(Marshal.dump(@column_evaluators))) + aes.final)
+            grid_options.merge!(:post_data => {:ce => ce, :ces => Digest::SHA256.hexdigest(ce+SecretSauce::KEY)})
+          end
+          if(@template.params["association_model"] && @template.params["association_id"])
+            if(grid_options[:post_data])
+              grid_options[:post_data].merge!(:association_id => @template.params["association_id"], :association_model => @template.params["association_model"])
+            else
+              grid_options.merge!(:post_data => {:association_id => @template.params["association_id"], :association_model => @template.params["association_model"]})
+            end
+          end
+          grid_options.merge!(@options[:grid])
+          @options[:nav].replace({
+            :edit => false,
+            :add => false,
+            :del => false
+          }.merge(@options[:nav]))
+          @template.render :partial => 'ui/ui_grid_for_without_block', :locals => {:options => map_options(grid_options), :name => @collection_name, :nav => @options[:nav], :actions => @options[:actions], :associations => @options[:associations]}
+        end
+        
+        private
+        
+        def map_options(options)
+          option_map = {
+            :alternate_rows => "altRows", # bool
+            :caption => "caption", # string
+            :cell_edit => "cellEdit", # bool
+            :cell_submit => "cellSubmit", # string
+            :cell_url => "cellUrl", # string
+            :column_model => "colModel", # array
+            :column_names => "colNames", # array
+            :datastring => "dataStr", # string
+            :datatype => "datatype", # string
+            :deslect_after_sort => "deselectAfterSort", # bool
+            :edit_url => "editUrl", # string
+            :expand_column => "ExpandColumn", # string
+            :footer_row => "footerrow", # bool TODO: ADD DOCUMENTATION
+            :force_fit => "forceFit", # bool
+            :grid_state => "gridstate", # string
+            :hidden_grid => "hiddengrid", # bool
+            :hide_grid => "hidegrid", # bool
+            :height => "height", # string
+            :image_path => "imgpath", # string
+            :json_reader => "jsonReader", # array
+            :load_complete => "loadComplete", # string TODO: ADD DOCUMENTATION
+            :load_once => "loadonce", # bool
+            :load_text => "load_text", # string
+            :load_ui => "loadui", # string
+            :request_method => "mtype", # string
+            :multikey => "multikey", # string
+            :multibox => "multiboxonly", # bool
+            :multiselect => "multiselect", # bool
+            :pager => "pager", # string TODO: ADD DOCUMENATION
+            :param_keys => "prmnames", # array
+            :post_data => "postData", # array 
+            :resize_class => "resizeclass", # string
+            :row_num => "rowNum", # integer TODO: ADD DOCUMENATION
+            :row_list => "rowList", # array TODO: ADD DOCUMENATION
+            :scroll => "scroll", # bool
+            :scroll_rows => "scrollrows", # bool
+            :sort_class => "sortclass", # string
+            :shrink_to_fit => "shrinkToFit", # bool
+            :sort_asc_image => "sortascimg", # string
+            :sort_desc_image => "sortdescimg", # string
+            :sort_name => "sortname", # string
+            :sort_order => "sortorder", # string
+            :sub_grid => "subGrid", #bool # TODO: ADD DOCUMENTATION
+            :sub_grid_row_expanded => "subGridRowExpanded", #string TODO: ADD DOCUMENTATION
+            :toolbar => "toolbar", # array
+            :tree_grid => "treeGrid", # bool
+            :user_data => "userData", # array
+            :url => "url", # string TODO: ADD DOCUMENATION
+            :view_records => "viewrecords", # bool TODO: ADD DOCUMENTATION
+            :width => "width", # string
+            :xml_reader => "xmlReader", # array
+          }
+          mapped_options = {}
+          options.each do |k,v|
+            mapped_options[option_map[k]] = v
+          end
+          return mapped_options
+        end
+        
+      end
+
       # Renders a table using jqGrid[http://www.trirand.com/blog]. This method can be used for quickly
       # 'scaffolding' a model resource. It accepts arguments similiar to form_for. The first argument
       # must be either Symbol, or an Array. If a Symbol, it should be the name of the resource to build
@@ -126,101 +283,24 @@ module SecretSauce
       #   column is set according to the value of <tt>:shrink_to_fit</tt> option.
       # * <tt>:xml_reader -</tt> Array which describes the structure of the expected xml data. 
       #   For a full description refer to Data Types.
-      def ui_grid_for(*args)
-        name_or_array = args.first
+      def ui_grid_for(*args, &block)
+        name = args.first
         options = args.extract_options!
-        option_map = {
-          :alternate_rows => "altRows", # bool
-          :caption => "caption", # string
-          :cell_edit => "cellEdit", # bool
-          :cell_submit => "cellSubmit", # string
-          :cell_url => "cellUrl", # string
-          :column_model => "colModel", # array
-          :column_names => "colNames", # array
-          :datastring => "dataStr", # string
-          :datatype => "datatype", # string
-          :deslect_after_sort => "deselectAfterSort", # bool
-          :edit_url => "editUrl", # string
-          :expand_column => "ExpandColumn", # string
-          :footer_row => "footerrow", # bool TODO: ADD DOCUMENTATION
-          :force_fit => "forceFit", # bool
-          :grid_state => "gridstate", # string
-          :hidden_grid => "hiddengrid", # bool
-          :hide_grid => "hidegrid", # bool
-          :height => "height", # string
-          :image_path => "imgpath", # string
-          :json_reader => "jsonReader", # array
-          :load_complete => "loadComplete", # string TODO: ADD DOCUMENTATION
-          :load_once => "loadonce", # bool
-          :load_text => "load_text", # string
-          :load_ui => "loadui", # string
-          :request_method => "mtype", # string
-          :multikey => "multikey", # string
-          :multibox => "multiboxonly", # bool
-          :multiselect => "multiselect", # bool
-          :pager => "pager", # string TODO: ADD DOCUMENATION
-          :param_keys => "prmnames", # array
-          :post_data => "postData", # array 
-          :resize_class => "resizeclass", # string
-          :restful => "restful", # bool
-          :row_num => "rowNum", # integer TODO: ADD DOCUMENATION
-          :row_list => "rowList", # array TODO: ADD DOCUMENATION
-          :scroll => "scroll", # bool
-          :scroll_rows => "scrollrows", # bool
-          :sort_class => "sortclass", # string
-          :shrink_to_fit => "shrinkToFit", # bool
-          :sort_asc_image => "sortascimg", # string
-          :sort_desc_image => "sortdescimg", # string
-          :sort_name => "sortname", # string
-          :sort_order => "sortorder", # string
-          :toolbar => "toolbar", # array
-          :tree_grid => "treeGrid", # bool
-          :user_data => "userData", # array
-          :url => "url", # string TODO: ADD DOCUMENATION
-          :view_records => "viewrecords", # bool TODO: ADD DOCUMENTATION
-          :width => "width", # string
-          :xml_reader => "xmlReader", # array
-        }
-        if name_or_array.class == Symbol
-          options[:grid] = {} unless options[:grid]
-          options[:nav] = {} unless options[:nav]
-          options[:actions] = {} unless options[:actions]
-          column_model = name_or_array.to_s.singularize.classify.constantize.new.attributes.keys.collect do |m|
-            {:name => m, :index => m, :label => m.titleize, :width => (1024 / name_or_array.to_s.singularize.classify.constantize.new.attributes.length)}
-          end
-          grid_options = {
-            ##########################################
-            #:url => "/#{name_or_array}.json", 
-            :url => "/jqgrid/#{name_or_array}.json", 
-            ##########################################
-            :alternate_rows => true,
-            :caption => "#{name_or_array}".titleize,
-            :column_model => column_model,
-            :datatype => "json",
-            :restful => true,
-            :json_reader => {:repeatitems => false},
-            #:height => 22 * 30,
-            :height => :auto,
-            :row_num => 20,
-            :row_list => [10, 20, 30],
-            :pager => "#{name_or_array}_pager",
-            :hide_grid => false,
-            :view_records =>  true,
-          } 
-          grid_options.merge!(options[:grid])
-          mapped_options = {}
-          grid_options.each do |k,v|
-            mapped_options[option_map[k]] = v
-          end
-          options[:nav].replace({
-            :edit => false,
-            :add => false,
-            :del => false
-          }.merge(options[:nav]))    
-          #render(:partial => 'ui/ui_grid_for_without_block',  :locals => {:options => mapped_options, :name => name_or_array, :nav => options[:nav], :actions => options[:actions]})
-          render(:file => 'ui_old/_ui_grid_for_without_block.js.haml',  :locals => {:options => mapped_options, :name => name_or_array, :nav => options[:nav], :actions => options[:actions]})
+        unless block_given?
+          builder = UiGridBuilder.new(self, name, options)
+          builder.render
+        else
+          builder = UiGridBuilder.new(self, name, options)
+          yield builder
+          concat(builder.render)
         end
       end
-    end   
+      
+     
+      
+    end
+    
+    
+    
   end
 end

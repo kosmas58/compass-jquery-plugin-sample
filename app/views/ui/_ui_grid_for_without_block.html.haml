@@ -1,0 +1,18 @@
+%table.scroll.sauceGrid{ :gridOptions => options.to_json, :id => "#{name}_grid", :navOptions => nav.to_json }
+.scroll{ :id => "#{name}_grid_pager", :style => "text-align:center;" }
+- if actions
+- if actions.include?(:destroy)
+.sauceGridDialog{ :action => "delete", :authenticity_token => form_authenticity_token, :id => "#{name}_destroy_dialog" }
+- end
+- if actions.include?(:update)
+.sauceGridDialog{ :action => "edit", :id => "#{name}_update_dialog", :style => "display: none;" }
+- end
+- if actions.include?(:create)
+.sauceGridDialog{ :action => "new", :id => "#{name}_create_dialog", :style => "display: none;" }
+- end
+- end
+- if associations
+- associations.each do |k,v|
+%div{ :id => "#{k.to_s}_table_dialog" }
+- end
+- end
