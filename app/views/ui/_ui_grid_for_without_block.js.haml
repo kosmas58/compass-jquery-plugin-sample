@@ -4,7 +4,7 @@
     $('##{name}_table').jqGrid(#{options.to_json});
     $('##{name}_table').jqGrid('navGrid',"##{name}_pager", #{nav.to_json});
   });
-  
+
 - if actions
   - if actions[:destroy]
     :javascript
@@ -14,7 +14,7 @@
           position: "first",
           buttonicon: "ui-icon-trash",
           onClickButton: function() {
-            var rowId = $("#{name}_table").getGridParam("selrow")
+            var rowId = $("#{name}_table").jqGrid('getGridParam', "selrow");
             if(rowId == null) {
               alert("You must first select a row.");
             } else {
@@ -32,16 +32,16 @@
           }
         });
       });
-      
+
   - if actions[:update]
     :javascript
-      $(document).ready(function() {  
+      $(document).ready(function() {
         $("##{name}_table").jqGrid('navButtonAdd',"##{name}_pager", {
           caption: "",
           position: "first",
           buttonicon: "ui-icon-pencil",
           onClickButton: function() {
-            var rowId = $("##{name}_table").getGridParam("selrow")
+            var rowId = $("##{name}_table").jqGrid('getGridParam', "selrow")
             if(rowId == null) {
               alert("You must first select a row.");
             } else {
@@ -89,10 +89,10 @@
           }
         });
       });
-      
+
   - if actions[:create]
     :javascript
-      $(document).ready(function() {  
+      $(document).ready(function() {
         $("##{name}_table").jqGrid('navButtonAdd',"##{name}_pager", {
           caption: "",
           position: "first",
@@ -115,29 +115,29 @@
                         $("##{name}_table").trigger("reloadGrid");
                       } else {
                         $("##{name}_create_dialog").find("form").replaceWith(response);
+                      }
                     }
+                  });
+                  return false;
+                });
+                $("##{name}_create_dialog").dialog({
+                  buttons: {
+                    "Save": function() {$(this).find("form").submit();},
+                    "Cancel": function() {$(this).dialog('close');}
+                  },
+                  title: "New",
+                  width: dWidth,
+                  height: dHeight,
+                  modal: true,
+                  draggable: false,
+                  resizable: false,
+                  close: function() {
+                    $(this).dialog('destroy');
+                    $("##{name}_create_dialog").children().remove();
                   }
                 });
-                return false;
-              });
-              $("##{name}_create_dialog").dialog({
-                buttons: {
-                  "Save": function() {$(this).find("form").submit();},
-                  "Cancel": function() {$(this).dialog('close');}
-                },
-                title: "New",
-                width: dWidth,
-                height: dHeight,
-                modal: true,
-                draggable: false,
-                resizable: false,
-                close: function() {
-                  $(this).dialog('destroy');
-                  $("##{name}_create_dialog").children().remove();
-                }
-              });
-            }
-          });
-        } 
+              }
+            });
+          }
+        });
       });
-  

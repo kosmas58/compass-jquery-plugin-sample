@@ -162,6 +162,7 @@ module SecretSauce
           :param_keys => "prmnames", # array
           :post_data => "postData", # array 
           :resize_class => "resizeclass", # string
+          :restful => "restful", # bool
           :row_num => "rowNum", # integer TODO: ADD DOCUMENATION
           :row_list => "rowList", # array TODO: ADD DOCUMENATION
           :scroll => "scroll", # bool
@@ -196,6 +197,7 @@ module SecretSauce
             :caption => "#{name_or_array}".titleize,
             :column_model => column_model,
             :datatype => "json",
+            :restful => true,
             :json_reader => {:repeatitems => false},
             #:height => 22 * 30,
             :height => :auto,
