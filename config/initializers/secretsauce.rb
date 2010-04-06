@@ -1,6 +1,6 @@
 require 'jquery/secretsauce'
 
-ActionView::Helpers::AssetTagHelper.register_javascript_expansion :secret_sauce => ["secretsauce.min"]
+ActionView::Helpers::AssetTagHelper.register_javascript_expansion :secretsauce => ["secretsauce.min"]
 
 #ActionView::Base.send :include, SecretSauce::Helpers::UiThemeHelper
 #ActionView::Base.send :include, SecretSauce::Helpers::UiGridHelper
