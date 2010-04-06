@@ -13,7 +13,7 @@ module ActiveRecord
       
       # takes params from request and returns records serialized to json. handles the majority of the functionality
       # for searching, sorting, and serializing records to be consumed by jqGrid.
-      def self.find_for_grid(params)
+      def self.find_for_grid_3(params)
         if params[:ce]
           raise SecretSauce::CESignatureInvalid unless params[:ces] && Digest::SHA256.hexdigest(params[:ce]+SecretSauce::KEY) == params[:ces]
           aes = OpenSSL::Cipher::Cipher.new("AES-256-CBC")
@@ -65,7 +65,5 @@ module ActiveRecord
         end
         {:total => (count / params["rows"].to_f).ceil, :page => params["page"], :records => count, :rows => array }.to_json
       end
-    
-  
   end
 end

@@ -31,9 +31,11 @@ ActionController::Routing::Routes.draw do |map|
     jqgrid.resources :animals
     jqgrid.resources :demo
     jqgrid.resources :players
+    jqgrid.resources :sprockets
     jqgrid.resources :users, :collection => { :pets      => :get,
                                               :post_data => :post }  
-    jqgrid.resources :widgets  
+    jqgrid.resources :widgets 
+    jqgrid.resources :widgets2  
   end
   
   Translate::Routes.translation_ui(map) if RAILS_ENV != "production "
