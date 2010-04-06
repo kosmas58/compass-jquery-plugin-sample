@@ -218,7 +218,7 @@ module SecretSauce
             :del => false
           }.merge(options[:nav]))    
           #render(:partial => 'ui/ui_grid_for_without_block',  :locals => {:options => mapped_options, :name => name_or_array, :nav => options[:nav], :actions => options[:actions]})
-          render(:file => 'ui_old/_ui_grid_for_without_block.js.haml',  :locals => {:options => mapped_options, :name => name_or_array, :nav => options[:nav], :actions => options[:actions]})
+          render(:file => 'ui/_ui_grid_for_without_block.js.haml',  :locals => {:options => mapped_options, :name => name_or_array, :nav => options[:nav], :actions => options[:actions]})
         end
       end
     end   
