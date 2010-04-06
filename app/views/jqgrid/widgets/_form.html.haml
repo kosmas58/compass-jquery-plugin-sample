@@ -1,4 +1,4 @@
-- form_for @widget, :style => {:width => 600, :height => 600} do |f|
+- form_for(@widget, :url => jqgrid_widgets_url) do |f|
   = f.error_messages
   %p
     = f.label :name
