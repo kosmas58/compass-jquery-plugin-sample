@@ -1,0 +1,74 @@
+/* line 1, ../../../app/stylesheets/scaffold.sass */
+body {
+  background-color: #fff;
+  color: #333;
+  font-family: segoe ui, verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+/* line 8, ../../../app/stylesheets/scaffold.sass */
+p, ol, ul, td {
+  font-family: segoe ui, verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+/* line 13, ../../../app/stylesheets/scaffold.sass */
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+/* line 18, ../../../app/stylesheets/scaffold.sass */
+a {
+  color: #000;
+}
+/* line 21, ../../../app/stylesheets/scaffold.sass */
+a:visited {
+  color: #666;
+}
+/* line 24, ../../../app/stylesheets/scaffold.sass */
+a:hover {
+  color: #fff;
+  background-color: #000;
+}
+
+/* line 28, ../../../app/stylesheets/scaffold.sass */
+.fieldWithErrors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+/* line 33, ../../../app/stylesheets/scaffold.sass */
+#errorExplanation {
+  width: 400px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+/* line 41, ../../../app/stylesheets/scaffold.sass */
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  background-color: #c00;
+  color: #fff;
+}
+/* line 50, ../../../app/stylesheets/scaffold.sass */
+#errorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 5px;
+}
+/* line 55, ../../../app/stylesheets/scaffold.sass */
+#errorExplanation ul li {
+  font-size: 12px;
+  list-style: square;
+}

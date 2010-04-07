@@ -1,0 +1,74 @@
+/* line 7, ../../../app/stylesheets/print.sass */
+body.bp {
+  line-height: 1.5;
+  font-family: Helvetica Neue, Arial, Helvetica, sans-serif;
+  color: #000;
+  background: none;
+  font-size: 10pt;
+}
+/* line 46, C:/Ruby/lib/ruby/gems/1.8/gems/compass-0.10.0.rc1/frameworks/blueprint/stylesheets/./blueprint/_print.sass */
+body.bp .container {
+  background: none;
+}
+/* line 48, C:/Ruby/lib/ruby/gems/1.8/gems/compass-0.10.0.rc1/frameworks/blueprint/stylesheets/./blueprint/_print.sass */
+body.bp hr {
+  background: #ccc;
+  color: #ccc;
+  width: 100%;
+  height: 2px;
+  margin: 2em 0;
+  padding: 0;
+  border: none;
+}
+/* line 56, C:/Ruby/lib/ruby/gems/1.8/gems/compass-0.10.0.rc1/frameworks/blueprint/stylesheets/./blueprint/_print.sass */
+body.bp hr.space {
+  background: #fff;
+  color: #fff;
+}
+/* line 59, C:/Ruby/lib/ruby/gems/1.8/gems/compass-0.10.0.rc1/frameworks/blueprint/stylesheets/./blueprint/_print.sass */
+body.bp h1, body.bp h2, body.bp h3, body.bp h4, body.bp h5, body.bp h6 {
+  font-family: Helvetica Neue, Arial, Helvetica, sans-serif;
+}
+/* line 61, C:/Ruby/lib/ruby/gems/1.8/gems/compass-0.10.0.rc1/frameworks/blueprint/stylesheets/./blueprint/_print.sass */
+body.bp code {
+  font-size: .9em;
+  font-family: 'andale mono', 'lucida console', monospace;
+}
+/* line 66, C:/Ruby/lib/ruby/gems/1.8/gems/compass-0.10.0.rc1/frameworks/blueprint/stylesheets/./blueprint/_print.sass */
+body.bp a img {
+  border: none;
+}
+/* line 68, C:/Ruby/lib/ruby/gems/1.8/gems/compass-0.10.0.rc1/frameworks/blueprint/stylesheets/./blueprint/_print.sass */
+body.bp a:link,
+body.bp a:visited {
+  background: transparent;
+  font-weight: 700;
+  text-decoration: underline;
+}
+/* line 73, C:/Ruby/lib/ruby/gems/1.8/gems/compass-0.10.0.rc1/frameworks/blueprint/stylesheets/./blueprint/_print.sass */
+body.bp p img.top {
+  margin-top: 0;
+}
+/* line 75, C:/Ruby/lib/ruby/gems/1.8/gems/compass-0.10.0.rc1/frameworks/blueprint/stylesheets/./blueprint/_print.sass */
+body.bp blockquote {
+  margin: 1.5em;
+  padding: 1em;
+  font-style: italic;
+  font-size: .9em;
+}
+/* line 80, C:/Ruby/lib/ruby/gems/1.8/gems/compass-0.10.0.rc1/frameworks/blueprint/stylesheets/./blueprint/_print.sass */
+body.bp .small {
+  font-size: .9em;
+}
+/* line 82, C:/Ruby/lib/ruby/gems/1.8/gems/compass-0.10.0.rc1/frameworks/blueprint/stylesheets/./blueprint/_print.sass */
+body.bp .large {
+  font-size: 1.1em;
+}
+/* line 84, C:/Ruby/lib/ruby/gems/1.8/gems/compass-0.10.0.rc1/frameworks/blueprint/stylesheets/./blueprint/_print.sass */
+body.bp .quiet {
+  color: #999;
+}
+/* line 86, C:/Ruby/lib/ruby/gems/1.8/gems/compass-0.10.0.rc1/frameworks/blueprint/stylesheets/./blueprint/_print.sass */
+body.bp .hide {
+  display: none;
+}
