@@ -1,23 +1,23 @@
 /* line 3, ../../../../app/stylesheets/jqtouch/jqt.sass */
-body {
+body, #jqt {
   background: #000;
   color: #ddd;
 }
-/* line 7, ../../../../app/stylesheets/jqtouch/jqt.sass */
-body > * {
+
+/* line 8, ../../../../app/stylesheets/jqtouch/jqt.sass */
+body > *, div#jqt > * {
   background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#333), to(#5e5e65));
 }
 
-/* line 11, ../../../../app/stylesheets/jqtouch/jqt.sass */
-h1, h2 {
-  font: bold 18px Helvetica;
+/* line 13, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt h1, #jqt h2 {
+  font: bold 18px "Helvetica Neue", Helvetica;
   text-shadow: rgba(255,255,255,.2) 0 1px 1px;
   color: #000;
   margin: 10px 20px 5px;
 }
-
-/* line 18, ../../../../app/stylesheets/jqtouch/jqt.sass */
-.toolbar {
+/* line 19, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt .toolbar {
   -webkit-box-sizing: border-box;
   border-bottom: 1px solid #000;
   padding: 10px;
@@ -25,14 +25,13 @@ h1, h2 {
   background: url("/images/jqtouch/jqt/toolbar.png") #000000 repeat-x;
   position: relative;
 }
-
 /* line 27, ../../../../app/stylesheets/jqtouch/jqt.sass */
-.black-translucent .toolbar {
+#jqt .black-translucent .toolbar {
   margin-top: 20px;
 }
 
-/* line 31, ../../../../app/stylesheets/jqtouch/jqt.sass */
-.toolbar > h1 {
+/* line 32, ../../../../app/stylesheets/jqtouch/jqt.sass */
+div#jqt .toolbar > h1 {
   position: absolute;
   overflow: hidden;
   left: 50%;
@@ -49,15 +48,14 @@ h1, h2 {
   white-space: nowrap;
   color: #fff;
 }
-
 /* line 49, ../../../../app/stylesheets/jqtouch/jqt.sass */
-body.landscape .toolbar > h1 {
+div#jqt.landscape .toolbar > h1 {
   margin-left: -125px;
   width: 250px;
 }
 
-/* line 54, ../../../../app/stylesheets/jqtouch/jqt.sass */
-.button, .back, .cancel, .add {
+/* line 55, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt .button, #jqt .back, #jqt .cancel, #jqt .add {
   position: absolute;
   overflow: hidden;
   top: 8px;
@@ -79,15 +77,18 @@ body.landscape .toolbar > h1 {
   background: none;
   -webkit-border-image: url("/images/jqtouch/jqt/button.png") 0 5 0 5;
 }
-
 /* line 77, ../../../../app/stylesheets/jqtouch/jqt.sass */
-.blueButton {
+#jqt .button.active, #jqt .cancel.active, #jqt .add.active {
+  -webkit-border-image: url("/images/jqtouch/jqt/button_clicked.png") 0 5 0 5;
+  color: #aaa;
+}
+/* line 81, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt .blueButton {
   -webkit-border-image: url("/images/jqtouch/jqt/blueButton.png") 0 5 0 5;
   border-width: 0 5px;
 }
-
-/* line 82, ../../../../app/stylesheets/jqtouch/jqt.sass */
-.back {
+/* line 85, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt .back {
   left: 6px;
   right: auto;
   padding: 0;
@@ -95,27 +96,24 @@ body.landscape .toolbar > h1 {
   border-width: 0 8px 0 14px;
   -webkit-border-image: url("/images/jqtouch/jqt/back_button.png") 0 8 0 14;
 }
-/* line 90, ../../../../app/stylesheets/jqtouch/jqt.sass */
-.back.active {
+/* line 93, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt .back.active {
   -webkit-border-image: url("/images/jqtouch/jqt/back_button_clicked.png") 0 8 0 14;
   color: #aaa;
 }
-
-/* line 95, ../../../../app/stylesheets/jqtouch/jqt.sass */
-.leftButton, .cancel {
+/* line 97, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt .leftButton, #jqt .cancel {
   left: 6px;
   right: auto;
 }
-
-/* line 100, ../../../../app/stylesheets/jqtouch/jqt.sass */
-.add {
+/* line 101, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt .add {
   font-size: 24px;
   line-height: 24px;
   font-weight: bold;
 }
-
 /* line 106, ../../../../app/stylesheets/jqtouch/jqt.sass */
-.whiteButton, .grayButton {
+#jqt .whiteButton, #jqt .grayButton, #jqt .redButton, #jqt .blueButton, #jqt .greenButton {
   display: block;
   border-width: 0 12px;
   padding: 10px;
@@ -125,61 +123,71 @@ body.landscape .toolbar > h1 {
   text-decoration: inherit;
   color: inherit;
 }
-
-/* line 117, ../../../../app/stylesheets/jqtouch/jqt.sass */
-.whiteButton {
+/* line 116, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt .whiteButton.active, #jqt .grayButton.active, #jqt .redButton.active, #jqt .blueButton.active, #jqt .greenButton.active, #jqt .whiteButton:active, #jqt .grayButton:active, #jqt .redButton:active, #jqt .blueButton:active, #jqt .greenButton:active {
+  -webkit-border-image: url("/images/jqtouch/jqt/activeButton.png") 0 12 0 12;
+}
+/* line 119, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt .whiteButton {
   -webkit-border-image: url("/images/jqtouch/jqt/whiteButton.png") 0 12 0 12;
   text-shadow: rgba(255, 255, 255, 0.7) 0 1px 0;
 }
-
-/* line 122, ../../../../app/stylesheets/jqtouch/jqt.sass */
-.grayButton {
+/* line 123, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt .grayButton {
   -webkit-border-image: url("/images/jqtouch/jqt/grayButton.png") 0 12 0 12;
   color: #FFFFFF;
 }
-
 /* line 127, ../../../../app/stylesheets/jqtouch/jqt.sass */
-h1 + ul, h2 + ul, h3 + ul, h4 + ul, h5 + ul, h6 + ul {
+#jqt .redButton {
+  -webkit-border-image: url("/images/jqtouch/jqt/redButton.png") 0 12 0 12;
+  color: #FFFFFF;
+}
+/* line 131, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt .greenButton {
+  -webkit-border-image: url("/images/jqtouch/jqt/greenButton.png") 0 12 0 12;
+  color: #FFFFFF;
+}
+/* line 135, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt h1 + ul, #jqt h2 + ul, #jqt h3 + ul, #jqt h4 + ul, #jqt h5 + ul, #jqt h6 + ul {
   margin-top: 0;
 }
-
-/* line 131, ../../../../app/stylesheets/jqtouch/jqt.sass */
-ul {
+/* line 138, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt ul {
   color: #aaa;
   border: 1px solid #333333;
-  font: bold 18px Helvetica;
+  font: bold 18px "Helvetica Neue", Helvetica;
   padding: 0;
   margin: 15px 10px 17px 10px;
 }
-/* line 138, ../../../../app/stylesheets/jqtouch/jqt.sass */
-ul.rounded {
+/* line 145, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt ul.rounded {
   -webkit-border-radius: 8px;
   -webkit-box-shadow: rgba(0,0,0,.3) 1px 1px 3px;
 }
-/* line 143, ../../../../app/stylesheets/jqtouch/jqt.sass */
-ul.rounded li:first-child {
+/* line 150, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt ul.rounded li:first-child {
   border-top: 0;
   -webkit-border-top-left-radius: 8px;
   -webkit-border-top-right-radius: 8px;
 }
-/* line 148, ../../../../app/stylesheets/jqtouch/jqt.sass */
-ul.rounded li:first-child a {
+/* line 155, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt ul.rounded li:first-child a {
   border-top: 0;
   -webkit-border-top-left-radius: 8px;
   -webkit-border-top-right-radius: 8px;
 }
-/* line 153, ../../../../app/stylesheets/jqtouch/jqt.sass */
-ul.rounded li:last-child {
+/* line 160, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt ul.rounded li:last-child {
   -webkit-border-bottom-left-radius: 8px;
   -webkit-border-bottom-right-radius: 8px;
 }
-/* line 157, ../../../../app/stylesheets/jqtouch/jqt.sass */
-ul.rounded li:last-child a {
+/* line 164, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt ul.rounded li:last-child a {
   -webkit-border-bottom-left-radius: 8px;
   -webkit-border-bottom-right-radius: 8px;
 }
-/* line 161, ../../../../app/stylesheets/jqtouch/jqt.sass */
-ul li {
+/* line 168, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt ul li {
   color: #666;
   border-top: 1px solid #333;
   border-bottom: #555858;
@@ -188,20 +196,24 @@ ul li {
   background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#4c4d4e), to(#404142));
   overflow: hidden;
 }
-/* line 170, ../../../../app/stylesheets/jqtouch/jqt.sass */
-ul li.arrow {
+/* line 177, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt ul li.arrow {
   background-image: url("/images/jqtouch/jqt/chevron.png"), -webkit-gradient(linear, 0% 0%, 0% 100%, from(#4c4d4e), to(#404142));
   background-position: right center;
   background-repeat: no-repeat;
 }
-/* line 175, ../../../../app/stylesheets/jqtouch/jqt.sass */
-ul li.forward {
+/* line 182, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt ul li.arrow a {
+  padding: 12px 22px 12px 10px;
+}
+/* line 185, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt ul li.forward {
   background-image: url("/images/jqtouch/jqt/chevron_circle.png"), -webkit-gradient(linear, 0% 0%, 0% 100%, from(#4c4d4e), to(#404142));
   background-position: right center;
   background-repeat: no-repeat;
 }
-/* line 180, ../../../../app/stylesheets/jqtouch/jqt.sass */
-ul li a {
+/* line 190, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt ul li a {
   color: #fff;
   text-decoration: none;
   text-overflow: ellipsis;
@@ -213,9 +225,8 @@ ul li a {
   -webkit-tap-highlight-color: rgba(0,0,0,0);
   text-shadow: rgba(0,0,0,.2) 0 1px 1px;
 }
-
-/* line 193, ../../../../app/stylesheets/jqtouch/jqt.sass */
-li.img a + a {
+/* line 202, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt li.img a + a {
   color: #fff;
   text-decoration: none;
   text-overflow: ellipsis;
@@ -227,65 +238,64 @@ li.img a + a {
   -webkit-tap-highlight-color: rgba(0,0,0,0);
   text-shadow: rgba(0,0,0,.2) 0 1px 1px;
 }
-
-/* line 209, ../../../../app/stylesheets/jqtouch/jqt.sass */
-ul li a.active, ul li a.button {
+/* line 217, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt ul li a.active, #jqt ul li a.button {
   background-color: #53b401;
   color: #fff;
 }
-/* line 213, ../../../../app/stylesheets/jqtouch/jqt.sass */
-ul li a.active.loading {
-  background-image: url("/images/jqtouch/jqt/loading.gif);
+/* line 221, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt ul li a.active.loading {
+  background-image: url("/images/jqtouch/jqt/loading.gif");
   background-position: 95% center;
   background-repeat: no-repeat;
 }
-/* line 218, ../../../../app/stylesheets/jqtouch/jqt.sass */
-ul li.arrow a.active {
+/* line 226, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt ul li.arrow a.active {
   background-image: url("/images/jqtouch/jqt/chevron.png");
   background-position: right center;
   background-repeat: no-repeat;
 }
-/* line 223, ../../../../app/stylesheets/jqtouch/jqt.sass */
-ul li.forward a.active {
+/* line 231, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt ul li.forward a.active {
   background-image: url("/images/jqtouch/jqt/chevron_circle.png");
   background-position: right center;
   background-repeat: no-repeat;
 }
-/* line 229, ../../../../app/stylesheets/jqtouch/jqt.sass */
-ul li.img a + a {
+/* line 237, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt ul li.img a + a {
   margin: -10px 10px -20px -5px;
   font-size: 17px;
   font-weight: bold;
 }
-/* line 234, ../../../../app/stylesheets/jqtouch/jqt.sass */
-ul li.img a + a + a {
+/* line 242, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt ul li.img a + a + a {
   font-size: 14px;
   font-weight: normal;
   margin-left: -10px;
   margin-bottom: -10px;
   margin-top: 0;
 }
-/* line 241, ../../../../app/stylesheets/jqtouch/jqt.sass */
-ul li.img a + small + a {
+/* line 249, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt ul li.img a + small + a {
   margin-left: -5px;
 }
-/* line 244, ../../../../app/stylesheets/jqtouch/jqt.sass */
-ul li.img a + small + a + a {
+/* line 252, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt ul li.img a + small + a + a {
   margin-left: -10px;
   margin-top: -20px;
   margin-bottom: -10px;
   font-size: 14px;
   font-weight: normal;
 }
-/* line 251, ../../../../app/stylesheets/jqtouch/jqt.sass */
-ul li.img a + small + a + a + a {
+/* line 259, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt ul li.img a + small + a + a + a {
   margin-left: 0px !important;
   margin-bottom: 0;
 }
-/* line 255, ../../../../app/stylesheets/jqtouch/jqt.sass */
-ul li a + a {
+/* line 263, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt ul li a + a {
   color: #000;
-  font: 14px Helvetica;
+  font: 14px "Helvetica Neue", Helvetica;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -293,10 +303,10 @@ ul li a + a {
   margin: 0;
   padding: 0;
 }
-/* line 265, ../../../../app/stylesheets/jqtouch/jqt.sass */
-ul li a + a + a {
+/* line 273, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt ul li a + a + a {
   color: #666;
-  font: 13px Helvetica;
+  font: 13px "Helvetica Neue", Helvetica;
   margin: 0;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -304,10 +314,10 @@ ul li a + a + a {
   display: block;
   padding: 0;
 }
-/* line 276, ../../../../app/stylesheets/jqtouch/jqt.sass */
-ul li.img a + a + a + a, ul li.img a + small + a + a + a {
+/* line 284, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt ul li.img a + a + a + a, #jqt ul li.img a + small + a + a + a {
   color: #666;
-  font: 13px Helvetica;
+  font: 13px "Helvetica Neue", Helvetica;
   margin: 0;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -315,74 +325,74 @@ ul li.img a + a + a + a, ul li.img a + small + a + a + a {
   display: block;
   padding: 0;
 }
-/* line 286, ../../../../app/stylesheets/jqtouch/jqt.sass */
-ul.form li {
+/* line 294, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt ul.form li {
   padding: 7px 10px;
 }
-/* line 289, ../../../../app/stylesheets/jqtouch/jqt.sass */
-ul.form li.error {
+/* line 297, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt ul.form li.error {
   border: 2px solid red;
 }
-/* line 292, ../../../../app/stylesheets/jqtouch/jqt.sass */
-ul.form li.error + li.error {
+/* line 300, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt ul.form li.error + li.error {
   border-top: 0;
 }
-/* line 297, ../../../../app/stylesheets/jqtouch/jqt.sass */
-ul li input[type="text"], ul li input[type="password"] {
+/* line 305, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt ul li input[type="text"], #jqt ul li input[type="password"], #jqt ul li input[type="tel"], #jqt ul li input[type="number"], #jqt ul li input[type="search"], #jqt ul li input[type="email"], #jqt ul li input[type="url"] {
   color: #777;
-  background: transparent url(../.png);
+  background: transparent #inline_image("../.png");
   border: 0;
-  font: normal 17px Helvetica;
+  font: normal 17px "Helvetica Neue", Helvetica;
   padding: 0;
   display: inline-block;
   margin-left: 0px;
   width: 100%;
   -webkit-appearance: textarea;
 }
-/* line 308, ../../../../app/stylesheets/jqtouch/jqt.sass */
-ul li textarea, ul li select {
+/* line 316, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt ul li textarea, #jqt ul li select {
   color: #777;
-  background: transparent url(../.png);
+  background: transparent #inline_image("../.png");
   border: 0;
-  font: normal 17px Helvetica;
+  font: normal 17px "Helvetica Neue", Helvetica;
   padding: 0;
   display: inline-block;
   margin-left: 0px;
   width: 100%;
   -webkit-appearance: textarea;
 }
-/* line 319, ../../../../app/stylesheets/jqtouch/jqt.sass */
-ul li textarea {
+/* line 327, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt ul li textarea {
   height: 120px;
   padding: 0;
   text-indent: -2px;
 }
-/* line 324, ../../../../app/stylesheets/jqtouch/jqt.sass */
-ul li select {
+/* line 332, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt ul li select {
   text-indent: 0px;
   background: transparent url("/images/jqtouch/jqt/chevron.png") no-repeat right center;
   -webkit-appearance: textfield;
   margin-left: -6px;
   width: 104%;
 }
-/* line 332, ../../../../app/stylesheets/jqtouch/jqt.sass */
-ul li input[type="checkbox"], ul li input[type="radio"] {
+/* line 340, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt ul li input[type="checkbox"], #jqt ul li input[type="radio"] {
   margin: 0;
   padding: 10px 10px;
 }
-/* line 336, ../../../../app/stylesheets/jqtouch/jqt.sass */
-ul li input[type="checkbox"]:after, ul li input[type="radio"]:after {
+/* line 344, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt ul li input[type="checkbox"]:after, #jqt ul li input[type="radio"]:after {
   content: attr(title);
-  font: 17px Helvetica;
+  font: 17px "Helvetica Neue", Helvetica;
   display: block;
   width: 246px;
   color: #777;
   margin: -12px 0 0 17px;
 }
-/* line 344, ../../../../app/stylesheets/jqtouch/jqt.sass */
-ul li small {
+/* line 352, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt ul li small {
   color: #64c114;
-  font: 17px Helvetica;
+  font: 17px "Helvetica Neue", Helvetica;
   text-align: right;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -392,12 +402,12 @@ ul li small {
   float: right;
   padding: 0;
 }
-/* line 356, ../../../../app/stylesheets/jqtouch/jqt.sass */
-ul li.arrow small {
+/* line 364, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt ul li.arrow small {
   padding: 0 15px;
 }
-/* line 359, ../../../../app/stylesheets/jqtouch/jqt.sass */
-ul li small.counter {
+/* line 367, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt ul li small.counter {
   font-size: 17px;
   line-height: 13px;
   font-weight: bold;
@@ -410,12 +420,12 @@ ul li small.counter {
   margin-top: -22px;
   -webkit-box-shadow: rgba(255,255,255,.1) 0 1px 0;
 }
-/* line 372, ../../../../app/stylesheets/jqtouch/jqt.sass */
-ul li.arrow small.counter {
+/* line 380, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt ul li.arrow small.counter {
   margin-right: 15px;
 }
-/* line 375, ../../../../app/stylesheets/jqtouch/jqt.sass */
-ul.individual {
+/* line 383, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt ul.individual {
   border: 0;
   background: none;
   clear: both;
@@ -423,8 +433,8 @@ ul.individual {
   padding-bottom: 3px;
   -webkit-box-shadow: none;
 }
-/* line 383, ../../../../app/stylesheets/jqtouch/jqt.sass */
-ul.individual li {
+/* line 391, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt ul.individual li {
   background: #4c4d4e;
   border: 1px solid #333;
   font-size: 14px;
@@ -438,21 +448,20 @@ ul.individual li {
   -webkit-box-shadow: rgba(0,0,0,.2) 1px 1px 3px;
   background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#4c4d4e), to(#404142));
 }
-/* line 397, ../../../../app/stylesheets/jqtouch/jqt.sass */
-ul.individual li + li {
+/* line 405, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt ul.individual li + li {
   float: right;
 }
-/* line 400, ../../../../app/stylesheets/jqtouch/jqt.sass */
-ul.individual li a {
+/* line 408, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt ul.individual li a {
   color: #fff;
   line-height: 16px;
   margin: -11px -10px -14px -10px;
   padding: 11px 10px 14px 10px;
   -webkit-border-radius: 8px;
 }
-
-/* line 408, ../../../../app/stylesheets/jqtouch/jqt.sass */
-.toggle {
+/* line 415, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt .toggle {
   width: 94px;
   position: relative;
   height: 27px;
@@ -460,8 +469,8 @@ ul.individual li a {
   overflow: hidden;
   float: right;
 }
-/* line 416, ../../../../app/stylesheets/jqtouch/jqt.sass */
-.toggle input[type="checkbox"] {
+/* line 423, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt .toggle input[type="checkbox"] {
   -webkit-appearance: textarea;
   -webkit-border-radius: 5px;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
@@ -477,13 +486,12 @@ ul.individual li a {
   top: 0;
   width: 149px;
 }
-/* line 432, ../../../../app/stylesheets/jqtouch/jqt.sass */
-.toggle input[type="checkbox"]:checked {
+/* line 439, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt .toggle input[type="checkbox"]:checked {
   left: 0px;
 }
-
-/* line 436, ../../../../app/stylesheets/jqtouch/jqt.sass */
-.info {
+/* line 442, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt .info {
   background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ccc), to(#aaa), color-stop(.6,#CCCCCC));
   font-size: 12px;
   line-height: 16px;
@@ -494,23 +502,22 @@ ul.individual li a {
   border-top: 1px solid rgba(255,255,255,.2);
   font-weight: bold;
 }
-
-/* line 448, ../../../../app/stylesheets/jqtouch/jqt.sass */
-ul.edgetoedge {
+/* line 453, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt ul.edgetoedge {
   border-width: 1px 0;
   margin: 0;
   padding: 0;
 }
-/* line 453, ../../../../app/stylesheets/jqtouch/jqt.sass */
-ul.edgetoedge li {
+/* line 458, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt ul.edgetoedge li {
   background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#1e1f21), to(#272729));
   border-bottom: 2px solid #000;
   border-top: 1px solid #4a4b4d;
   font-size: 20px;
   margin-bottom: -1px;
 }
-/* line 460, ../../../../app/stylesheets/jqtouch/jqt.sass */
-ul.edgetoedge li.sep {
+/* line 465, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt ul.edgetoedge li.sep {
   background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(0,0,0,0)), to(rgba(0,0,0,.5)));
   border-bottom: 1px solid #111113;
   border-top: 1px solid #666;
@@ -520,28 +527,26 @@ ul.edgetoedge li.sep {
   padding: 2px 10px;
   text-shadow: #000 0 1px 0;
 }
-/* line 470, ../../../../app/stylesheets/jqtouch/jqt.sass */
-ul.edgetoedge li em {
+/* line 475, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt ul.edgetoedge li em {
   font-weight: normal;
   font-style: normal;
 }
-
-/* line 475, ../../../../app/stylesheets/jqtouch/jqt.sass */
-#plastic {
+/* line 479, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt #plastic {
   background: #17181a;
 }
-
-/* line 480, ../../../../app/stylesheets/jqtouch/jqt.sass */
-ul.plastic {
+/* line 483, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt ul.plastic {
   background: #17181a;
   color: #aaa;
-  font: bold 18px Helvetica;
+  font: bold 18px "Helvetica Neue", Helvetica;
   margin: 0;
   padding: 0;
   border-width: 0 0 1px 0;
 }
-/* line 488, ../../../../app/stylesheets/jqtouch/jqt.sass */
-ul.plastic li {
+/* line 491, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt ul.plastic li {
   border-width: 1px 0;
   border-style: solid;
   border-top-color: #222;
@@ -551,73 +556,73 @@ ul.plastic li {
   overflow: hidden;
   padding: 10px 10px 10px 10px;
 }
-/* line 498, ../../../../app/stylesheets/jqtouch/jqt.sass */
-ul.plastic li a.active.loading {
-  background-image: url("/images/jqtouch/jqt/loading.gif);
+/* line 501, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt ul.plastic li a.active.loading {
+  background-image: url("/images/jqtouch/jqt/loading.gif");
   background-position: 95% center;
   background-repeat: no-repeat;
 }
-/* line 503, ../../../../app/stylesheets/jqtouch/jqt.sass */
-ul.plastic li small {
+/* line 506, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt ul.plastic li small {
   color: #888;
   font-size: 13px;
   font-weight: bold;
   line-height: 24px;
   text-transform: uppercase;
 }
-/* line 510, ../../../../app/stylesheets/jqtouch/jqt.sass */
-ul.plastic li:nth-child(odd) {
+/* line 513, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt ul.plastic li:nth-child(odd) {
   background-color: #1c1c1f;
 }
-/* line 513, ../../../../app/stylesheets/jqtouch/jqt.sass */
-ul.plastic li.arrow {
+/* line 516, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt ul.plastic li.arrow {
   background-image: url("/images/jqtouch/jqt/chevron.png");
   background-position: right center;
   background-repeat: no-repeat;
 }
-/* line 518, ../../../../app/stylesheets/jqtouch/jqt.sass */
-ul.plastic li.arrow a.active {
+/* line 521, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt ul.plastic li.arrow a.active {
   background-image: url("/images/jqtouch/jqt/chevron.png");
   background-position: right center;
   background-repeat: no-repeat;
 }
-/* line 523, ../../../../app/stylesheets/jqtouch/jqt.sass */
-ul.plastic li.forward {
+/* line 526, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt ul.plastic li.forward {
   background-image: url("/images/jqtouch/jqt/chevron_circle.png");
   background-position: right center;
   background-repeat: no-repeat;
 }
-/* line 528, ../../../../app/stylesheets/jqtouch/jqt.sass */
-ul.plastic li.forward a.active {
+/* line 531, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt ul.plastic li.forward a.active {
   background-image: url("/images/jqtouch/jqt/chevron_circle.png");
   background-position: right center;
   background-repeat: no-repeat;
 }
-/* line 533, ../../../../app/stylesheets/jqtouch/jqt.sass */
-ul.metal {
+/* line 536, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt ul.metal {
   border-bottom: 0;
   border-left: 0;
   border-right: 0;
   border-top: 0;
   margin: 0;
 }
-/* line 540, ../../../../app/stylesheets/jqtouch/jqt.sass */
-ul.metal li {
+/* line 543, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt ul.metal li {
   background-image: none;
   border-top: 1px solid #fff;
   border-bottom: 1px solid #666;
   font-size: 26px;
   background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(238,238,238,1)), to(rgba(156,158,160,1)));
 }
-/* line 547, ../../../../app/stylesheets/jqtouch/jqt.sass */
-ul.metal li a {
+/* line 550, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt ul.metal li a {
   line-height: 26px;
   margin: 0;
   text-shadow: #fff 0 1px 0;
   padding: 13px 0;
 }
-/* line 553, ../../../../app/stylesheets/jqtouch/jqt.sass */
-ul.metal li a em {
+/* line 556, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt ul.metal li a em {
   display: block;
   font-size: 14px;
   font-style: normal;
@@ -625,19 +630,19 @@ ul.metal li a em {
   width: 50%;
   line-height: 14px;
 }
-/* line 561, ../../../../app/stylesheets/jqtouch/jqt.sass */
-ul.metal li a.active {
+/* line 564, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt ul.metal li a.active {
   color: rgb(0,0,0);
 }
-/* line 564, ../../../../app/stylesheets/jqtouch/jqt.sass */
-ul.metal li small {
+/* line 567, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt ul.metal li small {
   float: right;
   position: relative;
   margin-top: 10px;
   font-weight: bold;
 }
-/* line 570, ../../../../app/stylesheets/jqtouch/jqt.sass */
-ul.metal li.arrow {
+/* line 573, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt ul.metal li.arrow {
   background-image: url("/images/jqtouch/jqt/chevron.png");
   background-position: right center;
   background-repeat: no-repeat;
@@ -645,8 +650,8 @@ ul.metal li.arrow {
   background-repeat: no-repeat;
   background-position: right center;
 }
-/* line 578, ../../../../app/stylesheets/jqtouch/jqt.sass */
-ul.metal li.arrow a small {
+/* line 581, ../../../../app/stylesheets/jqtouch/jqt.sass */
+#jqt ul.metal li.arrow a small {
   padding-right: 15px;
   line-height: 17px;
 }

@@ -1,6 +1,6 @@
 :javascript
   var jQT = new $.jQTouch({
-    icon: 'jqtouch.png',
+    icon: '/images/jqtouch/jqtouch.png',
     addGlossToIcon: false,
     startupScreen: '/images/jqtouch/jqt_startup.png',
     statusBar: 'black',
@@ -23,7 +23,7 @@
         if (confirm('This link opens in a new window.')) {
           return true;
         } else {
-          $(this).removeClass('active');
+          //$(this).removeClass('active');
           return false;
         }
       });
@@ -52,8 +52,8 @@
 
 %style{:type => "text/css", :media => "screen"}
   :plain
-    body.fullscreen #home .info { display: none; }
-    #about { padding: 100px 10px 40px; text-shadow: rgba(255, 255, 255, 0.3) 0px -1px 0; font-size: 13px; text-align: center;	background: #161618; }
-    #about p { margin-bottom: 8px; }
-     #about a { color: #fff; font-weight: bold; text-decoration: none; }
+    #jqt.fullscreen #home .info { display: none; }
+    div#jqt #about { padding: 100px 10px 40px; text-shadow: rgba(255, 255, 255, 0.3) 0px -1px 0; font-size: 13px; text-align: center; background: #161618; }
+    div#jqt #about p { margin-bottom: 8px; }
+    div#jqt #about a { color: #fff; font-weight: bold; text-decoration: none; }
 							

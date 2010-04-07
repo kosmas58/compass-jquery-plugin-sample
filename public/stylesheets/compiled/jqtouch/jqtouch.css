@@ -22,22 +22,21 @@ a {
 }
 
 /* line 21, ../../../../app/stylesheets/jqtouch/jqtouch.sass */
-body {
-  overflow-x: hidden;
+div#jqt {
   -webkit-user-select: none;
   -webkit-text-size-adjust: none;
-  font-family: Helvetica;
+  font-family: "Helvetica Neue", Helvetica;
   -webkit-perspective: 800;
   -webkit-transform-style: preserve-3d;
 }
 
 /* line 30, ../../../../app/stylesheets/jqtouch/jqtouch.sass */
-.selectable, input, textarea {
+#jqt .selectable, #jqt input, #jqt textarea {
   -webkit-user-select: auto;
 }
 
-/* line 35, ../../../../app/stylesheets/jqtouch/jqtouch.sass */
-body > * {
+/* line 34, ../../../../app/stylesheets/jqtouch/jqtouch.sass */
+div#jqt > * {
   -webkit-backface-visibility: hidden;
   -webkit-box-sizing: border-box;
   display: none;
@@ -47,42 +46,43 @@ body > * {
   -webkit-transform: translate3d(0,0,0) rotate(0) scale(1);
   min-height: 420px !important;
 }
-/* line 46, ../../../../app/stylesheets/jqtouch/jqtouch.sass */
-body.fullscreen > * {
+
+/* line 47, ../../../../app/stylesheets/jqtouch/jqtouch.sass */
+#jqt.fullscreen > * {
   min-height: 460px !important;
 }
-/* line 49, ../../../../app/stylesheets/jqtouch/jqtouch.sass */
-body.fullscreen.black-translucent > * {
+/* line 50, ../../../../app/stylesheets/jqtouch/jqtouch.sass */
+#jqt.fullscreen.black-translucent > * {
   min-height: 480px !important;
 }
-/* line 52, ../../../../app/stylesheets/jqtouch/jqtouch.sass */
-body.landscape > * {
-  min-height: 320px;
+/* line 53, ../../../../app/stylesheets/jqtouch/jqtouch.sass */
+#jqt.landscape > * {
+  min-height: 320px !important;
 }
-/* line 55, ../../../../app/stylesheets/jqtouch/jqtouch.sass */
-body > .current {
+
+/* line 57, ../../../../app/stylesheets/jqtouch/jqtouch.sass */
+div#jqt > .current {
   display: block !important;
 }
 
-/* line 59, ../../../../app/stylesheets/jqtouch/jqtouch.sass */
-.in, .out {
+/* line 62, ../../../../app/stylesheets/jqtouch/jqtouch.sass */
+#jqt .in, #jqt .out {
   -webkit-animation-timing-function: ease-in-out;
   -webkit-animation-duration: 350ms;
 }
-
-/* line 65, ../../../../app/stylesheets/jqtouch/jqtouch.sass */
-.slide.in {
+/* line 67, ../../../../app/stylesheets/jqtouch/jqtouch.sass */
+#jqt .slide.in {
   -webkit-animation-name: slideinfromright;
 }
-/* line 68, ../../../../app/stylesheets/jqtouch/jqtouch.sass */
-.slide.out {
+/* line 70, ../../../../app/stylesheets/jqtouch/jqtouch.sass */
+#jqt .slide.out {
   -webkit-animation-name: slideouttoleft;
 }
-/* line 71, ../../../../app/stylesheets/jqtouch/jqtouch.sass */
-.slide.in.reverse {
+/* line 73, ../../../../app/stylesheets/jqtouch/jqtouch.sass */
+#jqt .slide.in.reverse {
   -webkit-animation-name: slideinfromleft;
 }
-/* line 74, ../../../../app/stylesheets/jqtouch/jqtouch.sass */
-.slide.out.reverse {
+/* line 76, ../../../../app/stylesheets/jqtouch/jqtouch.sass */
+#jqt .slide.out.reverse {
   -webkit-animation-name: slideouttoright;
 }
