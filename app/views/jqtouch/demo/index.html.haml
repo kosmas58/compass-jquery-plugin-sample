@@ -5,7 +5,7 @@
   #jqt
     #about.selectable
       %p
-        %img{ :src => "/images/jqtouch/jqtouch.png" }
+        %img{ :src => "jqtouch.png" }
       %p
         %strong
           jQTouch
@@ -41,6 +41,9 @@
           %a{ :href => "ajax.html" }
             GET Example
         %li.arrow
+          %a{ :href => "ajax_long.html" }
+            Long GET Example
+        %li.arrow
           %a{ :href => "#callback" }
             With Callback
     #animations
@@ -74,6 +77,9 @@
         %li
           %a.cube{ :href => "#animdemo" }
             Cube
+        %li
+          %a.slideup.reverse{ :href => "#animdemo" }
+            Slide Up (reversed)
       .info
         Custom animations are also
         %a{ :href => "http://code.google.com/p/jqtouch/wiki/Animations", :target => "_blank" }
@@ -89,6 +95,24 @@
         Pretty smooth, eh?
       %a.whiteButton.goback{ :href => "#", :style => "margin:0 10px;color:rgba(0,0,0,.9)" }
         Go back
+    #buttons
+      .toolbar
+        %h1
+          Buttons!
+        %a.back{ :href => "#" }
+          Home
+      %div{ :style => "margin: 10px;" }
+        %a.whiteButton{ :href => "#" }
+          White
+        %br
+        %a.grayButton{ :href => "#" }
+          Gray
+        %br
+        %a.redButton{ :href => "#" }
+          Red
+        %br
+        %a.greenButton{ :href => "#" }
+          Green
     #callback
       .toolbar
         %h1
@@ -105,7 +129,7 @@
         %li
           %a{ :href => "#pageevents" }
             Page events
-        %li#swipeme
+        %li#swipeme.touch
           Swipe me!
         %li#orient
           Orientation:
@@ -221,11 +245,15 @@
           %li
             %input#some_name{ :name => "name", :placeholder => "Text", :type => "text" }
           %li
-            %input#some_name{ :name => "search", :placeholder => "Search", :type => "text" }
+            %input#some_name{ :name => "search", :placeholder => "Search", :type => "search" }
           %li
-            %input#some_name{ :name => "phone", :placeholder => "Phone", :type => "text" }
+            %input#some_name{ :name => "phone", :placeholder => "Phone", :type => "tel" }
           %li
-            %input#some_name{ :name => "zip", :placeholder => "Numbers", :type => "text" }
+            %input#some_name{ :name => "zip", :placeholder => "Numbers", :type => "number" }
+          %li
+            %input#some_name{ :name => "email", :placeholder => "Email", :type => "email" }
+          %li
+            %input#some_name{ :name => "url", :placeholder => "Url", :type => "url" }
           %li
             %textarea{ :placeholder => "Textarea" }
           %li
@@ -247,13 +275,13 @@
           %li
             %input#some_name{ :name => "some_name", :type => "password", :value => "iphonedelcopon" }
           %li
-            %input#some_name{ :name => "some_name", :title => "V8 Engine Type", :type => "checkbox", :value => "Hello" }
+            %input{ :name => "food", :title => "Punch", :type => "checkbox", :value => "punch" }
           %li
-            %input#some_name{ :name => "some_name", :checked => "checked", :title => "V12 Engine Type", :type => "checkbox", :value => "Hello" }
+            %input{ :name => "food", :checked => "checked", :title => "Pie", :type => "checkbox", :value => "pie" }
           %li
-            %input#some_name{ :name => "some_name", :title => "Only cars", :type => "radio", :value => "Hello" }
+            %input{ :name => "bag", :title => "Paper", :type => "radio", :value => "paper" }
           %li
-            %input#some_name{ :name => "some_name", :title => "Only motorbikes", :type => "radio", :value => "Hello" }
+            %input{ :name => "bag", :title => "Plastic", :type => "radio", :value => "plastic" }
     #home.current
       .toolbar
         %h1
@@ -305,7 +333,7 @@
             Google Code
       %ul.individual
         %li
-          %a{ :href => "mailto:dk@morfunk.com", :target => "_blank" }
+          %a{ :href => "mailto:dk@morfunk.com" }
             Email
         %li
           %a{ :href => "http://tinyurl.com/support-jqt", :target => "_blank" }
@@ -404,6 +432,12 @@
           %a{ :href => "#metal" }
             Metal
       %h2
+        Buttons
+      %ul.rounded
+        %li.arrow
+          %a{ :href => "#buttons" }
+            Buttons
+      %h2
         Forms
       %ul.rounded
         %li.arrow
@@ -420,3 +454,4 @@
           %input{ :name => "zip", :placeholder => "Zip Code", :type => "text", :value => "" }
       %a.submit.whiteButton{ :href => "#", :style => "margin:0 10px;color:rgba(0,0,0,.9)" }
         Submit
+
