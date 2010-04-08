@@ -1,0 +1,52 @@
+-@browser_title = "jQTouch &beta;"
+-@jqt_partial_1 ='jqt.js.haml'
+
+#jqt
+  #home.edgetoedge.form{ :selected => "true" }
+    .toolbar
+      %h1
+        Todos
+      %a.btn2.slideup{ :href => "#add" }
+        Add
+    %form
+      %ul.incomplete
+        %li
+          %input{ :type => "checkbox" }
+          %span
+            Do something
+          %small
+            %a{ :href => "#" }
+              Blah
+        %li
+          %input{ :type => "checkbox" }
+          %span
+            Do something else
+        %li
+          %input{ :type => "checkbox" }
+          %span
+            Finish these damn demos
+      %h4
+        Completed
+      %ul.complete
+        %li
+          %input{ :checked => "", :type => "checkbox" }
+          %span
+            Do something
+        %li
+          %input{ :checked => "", :type => "checkbox" }
+          %span
+            Write eblast
+  #add.edit
+    %form
+      .toolbar
+        %h1
+          New Todo
+        %a.btn2.goback{ :href => "#" }
+          Cancel
+      %ul.rounded
+        %li
+          %input#todo{ :placeholder => "Enter your todo...", :type => "text" }
+        /
+          <li><textarea id="description" placeholder="Descripton"></textarea></li>
+      %a.whiteButton{ :href => "#", :style => "margin: 10px" }
+        Add
