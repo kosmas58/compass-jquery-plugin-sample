@@ -1,0 +1,177 @@
+-@browser_title = "jQTouch &beta;"
+-@jqt_partial_1 ='jqt.js.haml'
+
+#jqt
+  #home.edgetoedge
+    .toolbar
+      %h1
+        Accounts
+      /
+        <a class="button slideup" id="infoButton" href="#about">About</a>
+    %ul.edgetoedge
+      %li
+        %a{ :href => "#mailbox" }
+          Home
+      %li
+        %a{ :href => "#mailbox" }
+          Work
+      %li
+        %a{ :href => "#mailbox" }
+          MobileMe
+  #mailbox.edgetoedge
+    .toolbar
+      %a.back.button{ :href => "#" }
+        Accounts
+      %h1
+        Work
+      %a#newMessageLink.add.slideup{ :href => "#new", :name => "newMessageLink" }
+        +
+    %ul.edgetoedge
+      %li
+        %a{ :href => "#messages" }
+          Inbox
+      %li
+        %a{ :href => "#messages" }
+          Drafts
+      %li
+        %a{ :href => "#messages" }
+          Sent
+      %li
+        %a{ :href => "#messages" }
+          Trash
+  #messages
+    .toolbar
+      %a.back.button{ :href => "#" }
+        Accounts
+      %h1
+        Messages
+      %a#editLink.button{ :href => "#", :name => "editLink" }
+        Edit
+    %ul.edgetoedge
+      %li
+        %a{ :href => "#message" }
+          David Kaneda
+          %span.subject
+            Re: jQTouch Alpha 2
+          %span.preview
+            This is another span
+      %li
+        %a{ :href => "#message" }
+          John Doe
+          %span.subject
+            Your account
+          %span.preview
+            This is probably spam.
+      %li
+        %a{ :href => "#message" }
+          Bank of America
+          %span.subject
+            Your account
+          %span.preview
+            Sample something
+      %li
+        %a{ :href => "#message" }
+          Trash
+  #new.edgetoedge
+    %form
+      .toolbar
+        %h1
+          New Message
+        %a.cancel{ :href => "#home" }
+          Cancel
+        %a.button.disabled.blueButton{ :href => "#" }
+          Send
+      %fieldset
+        %ul.rounded
+          %li
+            %label
+              To:
+              %input{ :name => "name", :type => "text", :value => "" }
+          %li
+            %label
+              Cc/Bcc, From:
+            %input{ :name => "bcc", :placeholder => "you@email.com", :type => "text" }
+          %li
+            %label
+              Subject:
+            %input{ :name => "subject", :placeholder => "you@email.com", :type => "text" }
+          %li
+            %textarea
+              My email
+      %input{ :type => "submit" }
+  #message
+  #features
+    .toolbar
+      %h1
+        Features
+      %a.back.button{ :href => "#home" }
+        jQTouch
+    %form{ :action => "#", :method => "get", "accept-charset" => "utf-8" }
+      %p
+        %input{ :type => "submit", :value => "Continue \342\206\222" }
+    .pad
+      %ul
+        %li
+          One-line setup, with options for selectors, viewport settings, icon path and glossiness, and status bar style
+        %li
+          Pages can be built in a single HTML file, or loaded dynamically via GET or POST
+        %li
+          Native, hardware-accelerated, page animations, including slide in/out, slide up/down, and 3D flip. All with history support.
+        %li
+          Image preloading functions
+        %li
+          Easy to theme
+  #flipdemo
+    .pad
+      %div{ :style => "font-size: 1.5em; text-align: center; margin: 160px 0 160px; font-family: Marker felt;" }
+        Pretty smooth, eh?
+      %a.back.whiteButton{ :href => "#" }
+        Go back
+  %form#formdemo{ :name => "formdemo", :title => "Movie Search", :action => "search.php", :method => "post" }
+    .toolbar
+      %h1
+        Demos
+      %a.back.button{ :href => "#" }
+        Home
+    .pad
+      %fieldset
+        .row
+          %label
+            Movie
+          %input{ :name => "movie", :type => "text", :value => "" }
+        .row
+          %label
+            Zip
+          %input{ :name => "zip", :type => "text", :value => "" }
+      %input{ :type => "submit" }
+  %form#searchForm.dialog{ :name => "searchForm", :action => "search.php" }
+    %fieldset
+      %h1
+        Music Search
+      %a.button.leftButton{ :type => "cancel" }
+        Cancel
+      %a.button.blueButton{ :type => "submit" }
+        Search
+      %label
+        Artist:
+      %input#artist{ :name => "artist", :type => "text" }
+        %label
+          Song:
+        %input{ :name => "song", :type => "text" }
+          %p
+            This form retrieves the next page with Ajax via a POST request.
+  #license
+    .pad
+      %p
+        %strong
+          The MIT License
+      %p
+        Copyright © 2009 David Kaneda
+      %p
+        Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+      %p
+        The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+      %p
+        THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+      %a.grayButton.back{ :href => "#" }
+        Return

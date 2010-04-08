@@ -1,0 +1,25 @@
+%style{:type => "text/css", :media => "screen"}
+  :plain
+    .edgetoedge li a .preview, .edgetoedge li a .subject { display: block; color: #999; font-size: 12px; font-weight: normal; }
+    .edgetoedge li a .subject { color: #000; font-size: 14px; }		
+
+:javascript
+  var jqtouch = $.jQTouch({
+    icon: '/images/jqtouch/mail/mail.png',
+    preloadImages: [
+    '/images/jqtouch/jqt/chevron_white.png',
+    '/images/jqtouch/jqt/bg_row_select.gif',
+    '/images/jqtouch/jqt/back_button.png',
+    '/images/jqtouch/jqt/back_button_clicked.png',
+    '/images/jqtouch/jqt/button_clicked.png',
+    '/images/jqtouch/jqt/grayButton.png',
+    '/images/jqtouch/jqt/whiteButton.png'        ]
+  });
+  // Add an onload function
+  $(function(){
+    // Dynamically set next page titles after clicking certain links
+    $('#home ul a, #mailbox ul a').click(function(){
+      $( $(this).attr('href') + ' h1' ).html($(this).html());
+    });
+  });  
+  

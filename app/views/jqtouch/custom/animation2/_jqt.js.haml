@@ -1,0 +1,50 @@
+:javascript
+  var jQT = new $.jQTouch({
+    icon: '/images/jqtouch/jqtouch.png',
+    addGlossToIcon: false,
+    startupScreen: '/images/jqtouch/jqt_startup.png',
+    statusBar: 'black'
+    preloadImages: [
+      '/images/jqtouch/jqt/back_button.png',
+      '/images/jqtouch/jqt/back_button_clicked.png',
+      '/images/jqtouch/jqt/button_clicked.png',
+      '/images/jqtouch/jqt/grayButton.png',
+      '/images/jqtouch/jqt/whiteButton.png',
+      '/images/jqtouch/jqt/loading.gif'
+    ]
+  });
+
+  $(function(){
+    // This prevents scrolling
+    $('#jqt').bind('touchmove',function(){
+      event.preventDefault();
+    });
+    jQT.addAnimation({
+      name: 'pageflip',
+      selector: '.pageflip'
+    });
+    $('#page1').swipe(function(e, info){
+      if (info.direction === 'left') {
+        jQT.goTo($('#page2'), 'pageflip');
+      }
+    });
+    $('#page2').swipe(function(e, info){
+      if (info.direction === 'right') {
+        jQT.goBack('#page1');
+      }
+    })
+  });
+
+%style{:type => "text/css", :media => "screen"}
+  :plain
+    div#jqt { -webkit-transform-origin: 0 50%; -webkit-perspective: 800; }
+    div#jqt .pageflip { -webkit-transform-origin: 0 50%; -webkit-animation-duration: .5s; }
+    div#jqt .pageflip.in { -webkit-animation-name: dontmove; z-index: 0; }
+    div#jqt .pageflip.out { -webkit-animation-name: pageflipout; /* Chill out, page */ z-index: 10; }
+    div#jqt .pageflip.out.reverse { z-index: 0; -webkit-animation-name: dontmove; }
+    div#jqt .pageflip.in.reverse { 	z-index: 10; 	-webkit-animation-name: pageflipin; }
+    @-webkit-keyframes pageflipin { from { -webkit-transform: rotateY(-90deg); } to { -webkit-transform: rotateY(0); } }
+    @-webkit-keyframes pageflipout { from { -webkit-transform: rotateY(0); } to { -webkit-transform: rotateY(-90deg); } }
+    
+    /* Just for looks */
+    div#jqt > div > div { font-size: 1.5em; text-align: center; margin: 160px 0 0; font-family: Marker felt; }
