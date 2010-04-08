@@ -37,10 +37,10 @@
         %a{ :href => "#ajax_post" }
           POST Form Example
       %li.arrow
-        %a{ :href => "ajax.html" }
+        %a{ :href => "/jqtouch/demo/ajax" }
           GET Example
       %li.arrow
-        %a{ :href => "ajax_long.html" }
+        %a{ :href => "/jqtouch/demo/ajax_long" }
           Long GET Example
       %li.arrow
         %a{ :href => "#callback" }
@@ -52,6 +52,7 @@
       %a.back{ :href => "#" }
         Home
     %ul.rounded
+      Aninmations
       %li
         %a{ :href => "#animdemo" }
           Slide
@@ -79,6 +80,17 @@
       %li
         %a.slideup.reverse{ :href => "#animdemo" }
           Slide Up (reversed)
+      %li
+        %a.slideup.reverse{ :href => "#animdemo" }
+          Slide Up (reversed)
+    %ul.rounded
+      Custom animations
+      %li
+        %a{ :href => "/jqtouch/custom/animation/", :target => "_webapp" }
+          Test Reveal
+      %li
+        %a{ :href => "/jqtouch/custom/animation2/", :target => "_webapp" }
+          Swipe
     .info
       Custom animations are also
       %a{ :href => "http://code.google.com/p/jqtouch/wiki/Animations", :target => "_blank" }
@@ -225,16 +237,16 @@
       These apps open in a new window. Don’t forget to save them to your home screen to enable full-screen mode.
     %ul.rounded
       %li.forward
-        %a{ :href => "../ext_location/", :target => "_webapp" }
+        %a{ :href => "/jqtouch/ext/location/", :target => "_webapp" }
           Geo Location
       %li.forward
-        %a{ :href => "../ext_offline/", :target => "_webapp" }
+        %a{ :href => "/jqtouch/ext/offline/", :target => "_webapp" }
           Offline Utility
       %li.forward
-        %a{ :href => "../ext_floaty/", :target => "_webapp" }
+        %a{ :href => "/jqtouch/ext/floaty/", :target => "_webapp" }
           Floaty Bar
       %li.forward
-        %a{ :href => "../ext_autotitles/", :target => "_webapp" }
+        %a{ :href => "/jqtouch/ext/autotitles/", :target => "_webapp" }
           Auto Titles
   #forms
     .toolbar
