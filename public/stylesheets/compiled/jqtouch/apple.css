@@ -203,7 +203,7 @@ div#jqt.landscape .toolbar > h1 {
 }
 /* line 180, ../../../../app/stylesheets/jqtouch/apple.sass */
 #jqt #plastic ul li.arrow, #jqt #metal ul li.arrow {
-  background-image: url("/images/jqtouch/apple/chevron_dg.png");
+  background-image: url("../images/chevron_dg.png");
   background-position: right center;
   background-repeat: no-repeat;
 }
@@ -498,7 +498,7 @@ div#jqt.landscape .toolbar > h1 {
 #jqt .metal ul li {
   border-top: 1px solid rgb(238,238,238);
   border-bottom: 1px solid rgb(156,158,165);
-  background: url("/images/jqtouch/apple/bgMetal.png") top left repeat-x;
+  background: url("../images/bgMetal.png") top left repeat-x;
   font-size: 26px;
   text-shadow: #fff 0 1px 0;
 }
@@ -537,7 +537,7 @@ div#jqt.landscape .toolbar > h1 {
   background: url("/images/jqtouch/apple/bgMetal.png") top left repeat-x,;
 }
 /* line 479, ../../../../app/stylesheets/jqtouch/apple.sass */
-#jqt .metal ul li url("/images/jqtouch/apple/chevron_dg.png") right center no-repeat a small {
+#jqt .metal ul li url("../images/chevron_dg.png") right center no-repeat a small {
   padding-right: 0;
   line-height: 17px;
 }

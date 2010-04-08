@@ -1,4 +1,3 @@
 class Jqtouch::DemoController < ApplicationController
-  layout 'jqtouch'
-  
+  layout 'jqt_jqt'
 end
