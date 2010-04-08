@@ -1,3 +1,3 @@
 class Jqtouch::MailController < ApplicationController
-  layout 'jqt_jqt'
+  layout 'jqt_apple'
 end

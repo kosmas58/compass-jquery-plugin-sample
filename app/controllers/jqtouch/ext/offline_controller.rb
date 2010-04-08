@@ -1,3 +1,3 @@
 class Jqtouch::Ext::OfflineController < ApplicationController
-  layout 'jqt_jqt'
+  layout 'jqt_offline'
 end

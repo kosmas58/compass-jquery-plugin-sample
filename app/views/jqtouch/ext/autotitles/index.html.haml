@@ -1,0 +1,26 @@
+-@browser_title = "jQTouch &beta;"
+-@jqt_partial_1 ='jqt.js.haml'
+
+#jqt
+  #page1
+    .toolbar
+      %h1
+        Auto Titles
+    %ul.edgetoedge
+      %li
+        %a{ :href => "#page2" }
+          Oranges
+      %li
+        %a{ :href => "#page2" }
+          Bananas
+      %li
+        %a{ :href => "#page2" }
+          Apples
+  #page2
+    .toolbar
+      %a.back{ :href => "#" }
+        back
+      %h1
+        [Fruit Name]
+    .info
+      The title for this page was automatically set from it’s referring link, no extra scripts required. Just include the extension and this happens.
