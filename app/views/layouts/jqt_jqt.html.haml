@@ -3,7 +3,7 @@
   %head
     %meta{ :content => "text/html;charset=UTF-8", "http-equiv" => "content-type" }
     %title
-      = @browser_title || 'Compass jQTouch'
+      = raw @browser_title || 'Compass jQTouch'
 
     = stylesheet_link_tag 'compiled/jqtouch/jqtouch.css', :media => 'screen, projection'
     = stylesheet_link_tag 'jqtouch/jqt.jqt.css', :media => 'screen, projection'

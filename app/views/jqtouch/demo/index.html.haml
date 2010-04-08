@@ -26,25 +26,6 @@
       %br
       %a.grayButton.goback{ :href => "#" }
         Close
-  #ajax
-    .toolbar
-      %h1
-        AJAX
-      %a.back{ :href => "#home" }
-        Home
-    %ul.rounded
-      %li.arrow
-        %a{ :href => "#ajax_post" }
-          POST Form Example
-      %li.arrow
-        %a{ :href => "/jqtouch/demo/ajax" }
-          GET Example
-      %li.arrow
-        %a{ :href => "/jqtouch/demo/ajax_long" }
-          Long GET Example
-      %li.arrow
-        %a{ :href => "#callback" }
-          With Callback
   #animations
     .toolbar
       %h1
@@ -124,12 +105,6 @@
       %br
       %a.greenButton{ :href => "#" }
         Green
-  #callback
-    .toolbar
-      %h1
-        AJAX w/Callback
-      %a.back{ :href => "#" }
-        Ajax
   #callbacks
     .toolbar
       %h1
@@ -314,7 +289,7 @@
         %small.counter
           8
       %li.arrow
-        %a{ :href => "#ajax" }
+        %a{ :href => "/jqtouch/demo/ajax", :target => "_webapp" }
           AJAX
         %small.counter
           3
@@ -457,7 +432,7 @@
       %li.arrow
         %a{ :href => "#forms" }
           Forms
-  %form#ajax_post.form{ :action => "ajax_post.php", :method => "POST" }
+  %form#ajax_post.form{ :action => "ajax_post", :method => "POST" }
     .toolbar
       %h1
         Post Demo

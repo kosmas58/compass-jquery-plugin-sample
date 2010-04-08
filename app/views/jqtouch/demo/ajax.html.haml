@@ -2,25 +2,28 @@
 -@jqt_partial_1 ='jqt.js.haml'
 
 #jqt
-  #get
+  #ajax
     .toolbar
       %h1
-        GET Example
-      %a.back{ :href => "#" }
         AJAX
-    .info
-      This page was loaded via AJAX.
-    %ul.rounded
-      %li
-        %a{ :href => "#livetest" }
-          Test live events
-  #livetest
-    .toolbar
-      %h1
-        Events test
-      %a.back{ :href => "#" }
-        AJAX
-      %a.button.goback{ :href => "#home" }
+      %a.back{ :href => "/jqtouch/demo", :target => "_webapp"  }
         Home
-    .info
-      This is a test of live events.
+    %ul.rounded
+      %li.arrow
+        %a{ :href => "/jqtouch/demo/ajax_post", :target => "_webapp"  }
+          POST Form Example
+      %li.arrow
+        %a{ :href => "/jqtouch/demo/ajax_get", :target => "_webapp"  }
+          GET Example
+      %li.arrow
+        %a{ :href => "/jqtouch/demo/ajax_long", :target => "_webapp"  }
+          Long GET Example
+      %li.arrow
+        %a{ :href => "#callback" }
+          With Callback
+  #callback
+    .toolbar
+      %h1
+        AJAX w/Callback
+      %a.back{ :href => "#" }
+        Ajax
