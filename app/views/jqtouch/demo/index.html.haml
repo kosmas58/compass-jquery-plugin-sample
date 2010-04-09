@@ -61,9 +61,6 @@
       %li
         %a.slideup.reverse{ :href => "#animdemo" }
           Slide Up (reversed)
-      %li
-        %a.slideup.reverse{ :href => "#animdemo" }
-          Slide Up (reversed)
     %ul.rounded
       Custom animations
       %li
@@ -85,7 +82,7 @@
   #animdemo
     %div{ :style => "font-size: 1.5em; text-align: center; margin: 160px 0 160px; font-family: Marker felt;" }
       Pretty smooth, eh?
-    %a.whiteButton.goback{ :href => "#", :style => "margin:0 10px;color:rgba(0,0,0,.9)" }
+    %a.whiteButton.goback{ :href => "/jqtouch/demo#animation", :style => "margin:0 10px;color:rgba(0,0,0,.9)" }
       Go back
   #buttons
     .toolbar
@@ -431,16 +428,4 @@
     %ul.rounded
       %li.arrow
         %a{ :href => "#forms" }
-          Forms
-  %form#ajax_post.form{ :action => "ajax_post", :method => "POST" }
-    .toolbar
-      %h1
-        Post Demo
-      %a.back{ :href => "#" }
-        Ajax
-    %ul.rounded
-      %li
-        %input{ :name => "zip", :placeholder => "Zip Code", :type => "text", :value => "" }
-    %a.submit.whiteButton{ :href => "#", :style => "margin:0 10px;color:rgba(0,0,0,.9)" }
-      Submit
-
+          Form

@@ -6,17 +6,17 @@
     .toolbar
       %h1
         AJAX
-      %a.back{ :href => "/jqtouch/demo", :target => "_webapp"  }
+      %a.back{ :href => "index", :target => "_webapp"  } 
         Home
     %ul.rounded
       %li.arrow
-        %a{ :href => "/jqtouch/demo/ajax_post", :target => "_webapp"  }
+        %a{ :href => "#ajax_post" }
           POST Form Example
       %li.arrow
-        %a{ :href => "/jqtouch/demo/ajax_get", :target => "_webapp"  }
+        %a{ :href => "ajax_get", :target => "_webapp"  } 
           GET Example
       %li.arrow
-        %a{ :href => "/jqtouch/demo/ajax_long", :target => "_webapp"  }
+        %a{ :href => "ajax_long", :target => "_webapp"  }
           Long GET Example
       %li.arrow
         %a{ :href => "#callback" }
@@ -27,3 +27,15 @@
         AJAX w/Callback
       %a.back{ :href => "#" }
         Ajax
+  %form#ajax_post.form{ :action => "ajax_post", :method => "POST" }
+    .toolbar
+      %h1
+        Post Demo
+      %a.back{ :href => "#" }
+        Ajax
+    %ul.rounded
+      %li
+        %input{ :name => "zip", :placeholder => "Zip Code", :type => "text", :value => "" }
+    %a.submit.whiteButton{ :href => "#", :style => "margin:0 10px;color:rgba(0,0,0,.9)" }
+      Submit
+        
