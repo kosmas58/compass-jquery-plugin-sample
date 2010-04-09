@@ -1,4 +1,4 @@
-/* Inicialització en català per a l'extenció 'calendar' per jQuery. */
+/* Inicialitzaci� en catal� per a l'extenci� 'calendar' per jQuery. */
 /* Writers: (joan.leon@gmail.com). */
 jQuery(function($){
 	$.datepicker.regional['ca'] = {
@@ -13,11 +13,7 @@ jQuery(function($){
 		dayNames: ['Diumenge','Dilluns','Dimarts','Dimecres','Dijous','Divendres','Dissabte'],
 		dayNamesShort: ['Dug','Dln','Dmt','Dmc','Djs','Dvn','Dsb'],
 		dayNamesMin: ['Dg','Dl','Dt','Dc','Dj','Dv','Ds'],
-		weekHeader: 'Sm',
-		dateFormat: 'dd/mm/yy',
-		firstDay: 1,
-		isRTL: false,
-		showMonthAfterYear: false,
-		yearSuffix: ''};
+		dateFormat: 'mm/dd/yy', firstDay: 0,
+		isRTL: false};
 	$.datepicker.setDefaults($.datepicker.regional['ca']);
 });

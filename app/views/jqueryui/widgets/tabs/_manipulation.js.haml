@@ -7,9 +7,6 @@
     #tabs li .ui-icon-close { float: left; margin: 0.4em 0.2em 0 0; cursor: pointer; }
     #add_tab { cursor: pointer; }
 
--# Little trick to overcome issue with #{href} in ruby
-- tab_template = '<li><a href="#' + '{href}">#{label}</a> <span class="ui-icon ui-icon-close">Remove Tab</span></li>'
-
 :javascript
   $(function() {
     var $tab_title_input = $('#tab_title'), $tab_content_input = $('#tab_content');
@@ -17,7 +14,7 @@
     
     // tabs init with a custom tab template and an "add" callback filling in the content
     var $tabs = $('#tabs').tabs({
-      tabTemplate: '#{tab_template}',
+      tabTemplate: '<li><a href="#{href}">#{label}</a> <span class="ui-icon ui-icon-close">Remove Tab</span></li>',
       add: function(event, ui) {
         var tab_content = $tab_content_input.val() || 'Tab '+tab_counter+' content.';
         $(ui.panel).append('<p>'+tab_content+'</p>');

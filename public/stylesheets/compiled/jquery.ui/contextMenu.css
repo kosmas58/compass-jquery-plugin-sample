@@ -46,3 +46,27 @@
 .contextMenu LI.separator {
   border-top: solid 1px #CCC;
 }
+/* line 43, ../../../../app/stylesheets/jquery.ui/contextMenu.sass */
+.contextMenu LI.edit A {
+  background-image: url("/images/jquery.ui/contextMenu/page_white_edit.png");
+}
+/* line 46, ../../../../app/stylesheets/jquery.ui/contextMenu.sass */
+.contextMenu LI.cut A {
+  background-image: url("/images/jquery.ui/contextMenu/cut.png");
+}
+/* line 49, ../../../../app/stylesheets/jquery.ui/contextMenu.sass */
+.contextMenu LI.copy A {
+  background-image: url("/images/jquery.ui/contextMenu/page_white_copy.png");
+}
+/* line 52, ../../../../app/stylesheets/jquery.ui/contextMenu.sass */
+.contextMenu LI.paste A {
+  background-image: url("/images/jquery.ui/contextMenu/page_white_paste.png");
+}
+/* line 55, ../../../../app/stylesheets/jquery.ui/contextMenu.sass */
+.contextMenu LI.delete A {
+  background-image: url("/images/jquery.ui/contextMenu/page_white_delete.png");
+}
+/* line 58, ../../../../app/stylesheets/jquery.ui/contextMenu.sass */
+.contextMenu LI.quit A {
+  background-image: url("/images/jquery.ui/contextMenu/door.png");
+}
