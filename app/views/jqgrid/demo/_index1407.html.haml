@@ -9,6 +9,15 @@
 / End demo 
 .demo-description
   %p    
-    This example shows how we can load XML data from Server. Note that we
-    can use a multiple indexes in col model to sort data.    
+    In 3.6 we have done so that the developer can controll full the ajax requests to the server. For this purpose
+    we created a 3 level of settings:
+    %ol
+      %li 
+        common ajax settings for all modules that use ajax requests
+      %li
+        specific ajax settings for every module
+      %li
+        serialize function which can be used to serialize the data to the server in a way that the developer want
+    In this example we set the grid to use a POST to the server and in the serialize function we set the things so
+    that only the first page should be returned. 
 / End demo-description

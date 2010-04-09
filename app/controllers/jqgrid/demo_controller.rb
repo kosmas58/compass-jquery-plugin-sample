@@ -5,16 +5,22 @@ class Jqgrid::DemoController < ApplicationController
   
    def index
     fetch_params(request);
-    if request.xhr?
-      records = Object.const_get(@object).find_for_grid(@mylist, params)
-      if @demo == "demo0101"
-        render :xml => Object.const_get(@object).grid(@mylist).encode_records(records)
+    
+    if @demo == "demo0104"
+      ;
+    else    
+      if request.xhr?
+        records = Object.const_get(@object).find_for_grid(@mylist, params)
+        data = Object.const_get(@object).grid(@mylist).encode_records(records)
+        if @demo == "demo0101"
+          render :xml => data
+        else
+          render :json => data
+        end
       else
-        render :json => Object.const_get(@object).grid(@mylist).encode_records(records)
+        @grid = Object.const_get(@object).grid(@mylist)
       end
-    else
-      @grid = Object.const_get(@object).grid(@mylist)
-    end    
+    end
   end
   
   def create
