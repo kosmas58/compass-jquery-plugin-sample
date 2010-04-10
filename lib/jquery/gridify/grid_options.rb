@@ -118,10 +118,6 @@ module Gridify
     # attribute defaults and special value handling
     # (sure it'd be easier to initialize defaults using a hash but we want nil to mean the jqGrid default - might be true - and not pass a value at all)
     
-    def restful
-      @restful==false ? false : true
-    end
-    
     def inline_edit
       @inline_edit==true ? true : false  
     end
@@ -214,9 +210,7 @@ module Gridify
       when String:  @pager
       when true:    dom_id+'_pager'
       end
-    end
-    
-    
+    end  
     
     def paging_controls
       @paging_controls.nil? ? true : @paging_controls
@@ -229,6 +223,10 @@ module Gridify
     # data
     def url
       @url || "/#{resource}"
+    end
+    
+    def restful
+      @restful==false ? false : true
     end
 
     def rows_per_page
@@ -244,7 +242,7 @@ module Gridify
     end
     
     def data_type
-      @data_type || :xml
+      @data_type || :json
     end
 
     def data_format

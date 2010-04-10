@@ -5,18 +5,18 @@ class Jqgrid::DemoController < ApplicationController
   
    def index
     fetch_params(request);    
-    if @datatype != "local"
+    if @datatype != :local
       if request.xhr?
-        records = Object.const_get(@object).find_for_grid(@mylist, params)
-        data = Object.const_get(@object).grid(@mylist).encode_records(records)
+        records = @object.find_for_grid(@mylist, params)
+        data = @object.grid(@mylist).encode_records(records)
         case @datatype
-          when "json"
+          when :json
             render :json => data
-          when "xml"
+          when :xml
             render :xml => data
         end
       else
-        @grid = Object.const_get(@object).grid(@mylist)
+        @grid = @object.grid(@mylist)
       end
     end
   end
@@ -25,8 +25,8 @@ class Jqgrid::DemoController < ApplicationController
     fetch_params(request);
     if request.xhr?
       params[:id] = nil
-      object_params = Object.const_get(@object).grid(@mylist).member_params(params)
-      @this = Object.const_get(@object).new(object_params)
+      object_params = @object.grid(@mylist).member_params(params)
+      @this = @object.new(object_params)
       # must return nothing on success (until we setup a format for returning ok vs error)
       msg = ""
       unless @this.save
@@ -36,7 +36,7 @@ class Jqgrid::DemoController < ApplicationController
       end
       render :text => msg
     else
-      @this = Object.const_get(@object).new(params[@model])
+      @this = @object.new(params[@model])
       if @this.save
         flash[:notice] = "Successfully created #{@model}."
         redirect_to @this
@@ -48,10 +48,9 @@ class Jqgrid::DemoController < ApplicationController
   
   def update
     fetch_params(request);
-    @datatype = params[:datatype] || "json"
-    @this = Object.const_get(@object).find(params[:id])
+    @this = @object.find(params[:id])
     if request.xhr?
-      object_params = Object.const_get(@object).grid(@mylist).member_params(params)
+      object_params = @object.grid(@mylist).member_params(params)
       msg = "success"
       unless @this.update_attributes( object_params )
         @this.errors.entries.each do |error|
@@ -71,7 +70,7 @@ class Jqgrid::DemoController < ApplicationController
   
   def destroy
     # NOTE: if allow multiselect should check :id for string of comma delimited id's 
-    @this = Object.const_get(@object).find(params[:id])
+    @this = @object.find(params[:id])
     @this.destroy
     if request.xhr?
       render :nothing => true
@@ -83,10 +82,19 @@ class Jqgrid::DemoController < ApplicationController
   
   private 
   
-  def fetch_params(request)
-    @datatype = (params[:datatype] || :json)
+  def fetch_params(request)    
+    case params[:datatype]
+      when :json, "json"
+        @datatype = params[:datatype] = :json
+      when :xml, "xml"        
+        @datatype = params[:datatype] = :xml
+      when :local, "local"        
+        @datatype = params[:datatype] = :local
+      else       
+        @datatype = params[:datatype] = :json
+    end 
     @model = (params[:model] || "invheader")
-    @object = @model.capitalize! 
+    @object = Object.const_get(@model.capitalize!)
     if request.xhr?
       @demo = (params[:grid] || "demo0101")
       @mylist = "#{@demo}".to_sym
@@ -94,6 +102,5 @@ class Jqgrid::DemoController < ApplicationController
       @demo = (params[:demo] || "0101")
       @mylist = "demo#{@demo}".to_sym
     end
-    #Object.const_get(@object).grid(@mylist).data_type = @datatype
   end
 end
