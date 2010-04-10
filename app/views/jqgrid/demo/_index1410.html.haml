@@ -2,13 +2,58 @@
 .demo
   %h3
     =@title
-  %center
-    %table#invheaders_demo1410.scroll{ :cellspacing => "0", :cellpadding => "0" }
-    #invheaders_demo1410_pager.scroll{ :style => "text-align:center;" }
-
-/ End demo 
+  %table
+    %tbody
+      %tr
+        %td
+          %center
+            %table#grid1
+            #pgrid1
+        %td
+          %center
+            \&lt;===&gt;
+        %td
+          %center
+            %table#grid2
+            #pgrid2
+      %tr
+        %td
+          %center
+            ||
+        %td
+          %center
+            &nbsp;
+        %td
+          %center
+            \&nbsp;
+      %tr
+        %td
+          %center
+            \\/
+        %td
+          %center
+            \&nbsp;
+        %td
+          %center
+            \&nbsp;
+      %tr
+        %td
+          %center
+            %table#grid3
+          #pgrid3
+        %td
+          \&nbsp;
+        %td
+          \&nbsp;
+/ End demo
 .demo-description
   %p    
-    This example shows how we can load XML data from Server. Note that we
-    can use a multiple indexes in col model to sort data.    
+    Last, but not least we develop a row drag and drop method, which allow exchanging
+    information between grids in visual maner.
+  %p
+    This feature uses the jQuery UI draggable and droppable widgets.
+  %p
+    In this exmple try to drag rows between the grids following the allowed directions.
+  %i
+    You have to drop it on another row not on the surrounding table.
 / End demo-description
