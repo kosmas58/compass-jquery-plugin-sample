@@ -80,6 +80,12 @@ class Jqgrid::DemoController < ApplicationController
     end
   end 
   
+  def books
+    respond_to do |format|
+      format.xml { render :file =>  File.join(RAILS_ROOT, 'app/views/jqgrid/demo/books.xml' ) }
+    end
+  end
+  
   private 
   
   def fetch_params(request)    

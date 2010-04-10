@@ -3,8 +3,54 @@
     #toolbar { padding: 0.3em; }
 
 :javascript
-  $(function() {
+  jQuery(function() {
     $("a", ".demo").button();
+  });  
+  
+  jQuery(document).ready(function() {
+    jQuery("#g1").click( function() {
+      alert(jQuery('#invheaders_demo0202').jqGrid('getGridParam','url'));
+    });
+    jQuery("#g2").click( function() {
+      alert(jQuery('#invheaders_demo0202').jqGrid('getGridParam','sortname'));
+    });
+    jQuery("#g3").click( function() {
+      alert(jQuery('#invheaders_demo0202').jqGrid('getGridParam','sortorder'));
+    });
+    jQuery("#g4").click( function() {
+      alert(jQuery('#invheaders_demo0202').jqGrid('getGridParam','selrow'));
+    });
+    jQuery("#g5").click( function() {
+      alert(jQuery('#invheaders_demo0202').jqGrid('getGridParam','page'));
+    });
+    jQuery("#g6").click( function() {
+      alert(jQuery('#invheaders_demo0202').jqGrid('getGridParam','rowNum'));
+    });
+    jQuery("#g7").click( function() {
+      alert('See Multi select rows example');
+    });
+    jQuery("#g8").click( function() {
+      alert(jQuery('#invheaders_demo0202').jqGrid('getGridParam','datatype'));
+    });
+    jQuery("#g9").click( function() {
+      alert(jQuery('#invheaders_demo0202').jqGrid('getGridParam','records'));
+    });         
+    jQuery("#g10").click( function() {
+      jQuery("#invheaders_demo0202").jqGrid('setGridParam', { 
+        onSortCol : function(name,index) { 
+          alert("Column Name: "+name+" Column Index: "+index);
+        }
+      });
+    	alert("Try to sort a column");
+    });          
+    jQuery("#g11").click( function() {
+      jQuery("#invheaders_demo0202").jqGrid('setGridParam', { 
+        onDblClickRow : function(id) { 
+          alert("You double click row with id: "+id);
+        }
+      });
+    	alert("Try to doubleclick a row");
+    });      
   });
 
 = raw @grid

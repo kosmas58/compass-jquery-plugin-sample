@@ -9,30 +9,46 @@
   
   $(document).ready(function() {
     jQuery("#s1").click( function() {
-    	jQuery("#invheaders_demo0203").jqGrid('setGridParam',{url:"/jqgrid/demo"}).trigger("reloadGrid")
+    	jQuery("#invheaders_demo0203").jqGrid('setGridParam', {
+    	  url:"/jqgrid/demo"
+    	}).trigger("reloadGrid")
     });
     jQuery("#s2").click( function() {
-    	jQuery("#invheaders_demo0203").jqGrid('setGridParam',{sortname:"amount",sortorder:"asc"}).trigger("reloadGrid");
+    	jQuery("#invheaders_demo0203").jqGrid('setGridParam', {
+    	  sortname : "amount", sortorder : "asc"
+    	}).trigger("reloadGrid");
     });
     jQuery("#s3").click( function() {
     	var so = jQuery("#invheaders_demo0203").jqGrid('getGridParam','sortorder');
-    	so = so=="asc"?"desc":"asc";
-    	jQuery("#invheaders_demo0203").jqGrid('setGridParam',{sortorder:so}).trigger("reloadGrid");
+    	so = so == "asc" ? "desc" : "asc";
+    	jQuery("#invheaders_demo0203").jqGrid('setGridParam', {
+    	  sortorder : so
+    	}).trigger("reloadGrid");
     });
     jQuery("#s4").click( function() {
-    	jQuery("#invheaders_demo0203").jqGrid('setGridParam',{page:2}).trigger("reloadGrid");
+    	jQuery("#invheaders_demo0203").jqGrid('setGridParam', {
+    	  page : 2
+    	}).trigger("reloadGrid");
     });
     jQuery("#s5").click( function() {
-    	jQuery("#invheaders_demo0203").jqGrid('setGridParam',{rowNum:15}).trigger("reloadGrid");
+    	jQuery("#invheaders_demo0203").jqGrid('setGridParam', {
+    	  rowNum : 15
+      }).trigger("reloadGrid");
     });
     jQuery("#s6").click( function() {
-    	jQuery("#invheaders_demo0203").jqGrid('setGridParam',{postData:{"grid":"demo0203","datatype":"xml"}}).trigger("reloadGrid");
+    	jQuery("#invheaders_demo0203").jqGrid('setGridParam', {
+    	  postData :{ "grid": "demo0203", "datatype" : "xml" }
+    	}).trigger('reloadGrid');
     });
     jQuery("#s7").click( function() {
-    	jQuery("#invheaders_demo0203").jqGrid('setCaption',"New Caption");
+    	jQuery("#invheaders_demo0203").jqGrid('setCaption', 
+    	  "New Caption"
+    	);
     });
     jQuery("#s8").click( function() {
-    	jQuery("#invheaders_demo0203").jqGrid('sortGrid',"client_id",false);
+    	jQuery("#invheaders_demo0203").jqGrid('sortGrid', 
+    	  "client_id", false
+    	);
     });
   });
     
