@@ -1,0 +1,23 @@
+-@title = "#{t('txt.jqgrid.name')} #{t('txt.jqgrid.demo.name')} - #{t('txt.jqgrid.demo.manipulating')} - #{t('txt.jqgrid.demo.data')}"
+.demo
+  %h3
+    =@title
+  %center
+    %table#invheaders_demo0201.scroll{ :cellspacing => "0", :cellpadding => "0" }
+    #invheaders_demo0201_pager.scroll{ :style => "text-align:center;" }
+
+    #toolbar.ui-widget-header.ui-corner-all
+      %a#a1{ :href => "#" }
+        Get data from selected row
+      %a#a2{ :href => "#" }
+        Delete row 12
+      %a#a3{ :href => "#" }
+        Update amounts in row 11
+      %a#a4{ :href => "#" }
+        Add row with id 99     
+/ End demo 
+.demo-description
+  %p    
+    This example demostrates how we can manipulate data at client side. To synchronize
+    the manipulation on server we must write custom code.
+/ End demo-description
