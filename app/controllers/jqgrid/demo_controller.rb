@@ -4,18 +4,16 @@ class Jqgrid::DemoController < ApplicationController
   protect_from_forgery
   
    def index
-    fetch_params(request);
-    
-    if @demo == "demo0104"
-      ;
-    else    
+    fetch_params(request);    
+    if @datatype != "local"
       if request.xhr?
         records = Object.const_get(@object).find_for_grid(@mylist, params)
         data = Object.const_get(@object).grid(@mylist).encode_records(records)
-        if @demo == "demo0101"
-          render :xml => data
-        else
-          render :json => data
+        case @datatype
+          when "json"
+            render :json => data
+          when "xml"
+            render :xml => data
         end
       else
         @grid = Object.const_get(@object).grid(@mylist)
@@ -50,6 +48,7 @@ class Jqgrid::DemoController < ApplicationController
   
   def update
     fetch_params(request);
+    @datatype = params[:datatype] || "json"
     @this = Object.const_get(@object).find(params[:id])
     if request.xhr?
       object_params = Object.const_get(@object).grid(@mylist).member_params(params)
@@ -85,6 +84,7 @@ class Jqgrid::DemoController < ApplicationController
   private 
   
   def fetch_params(request)
+    @datatype = (params[:datatype] || :json)
     @model = (params[:model] || "invheader")
     @object = @model.capitalize! 
     if request.xhr?
@@ -94,5 +94,6 @@ class Jqgrid::DemoController < ApplicationController
       @demo = (params[:demo] || "0101")
       @mylist = "demo#{@demo}".to_sym
     end
+    #Object.const_get(@object).grid(@mylist).data_type = @datatype
   end
 end

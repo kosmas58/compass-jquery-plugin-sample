@@ -115,7 +115,7 @@ module Gridify
       vals[:editurl]           = url if editable
       vals[:restful]           = true if restful
       vals[:inline_edit]       = inline_edit if inline_edit.present? 
-      vals[:postData]          = { :grid => name } #identify which grid making the request
+      vals[:postData]          = { :grid => name, :datatype => data_type || :json } #identify which grid making the request
       vals[:colNames]          = colNames if colNames.present?
       vals[:colModel]          = column_model if colModel.present?
       vals[:datatype]          = data_type if data_type

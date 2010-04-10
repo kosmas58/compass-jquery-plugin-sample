@@ -1,0 +1,32 @@
+-@title = "#{t('txt.jqgrid.name')} #{t('txt.jqgrid.demo.name')} - #{t('txt.jqgrid.demo.manipulating')} - #{t('txt.jqgrid.demo.set')}"
+.demo
+  %h3
+    =@title
+  %center
+    %table#invheaders_demo0203.scroll{ :cellspacing => "0", :cellpadding => "0" }
+    #invheaders_demo0203_pager.scroll{ :style => "text-align:center;" }
+
+    #toolbar.ui-widget-header.ui-corner-all
+      %a#s1{ :href => "javascript:void(0)" }
+        Set new url
+      %a#s2{ :href => "javascript:void(0)" }
+        Set Sort to amount column
+      %a#s3{ :href => "javascript:void(0)" }
+        Set Sort new Order
+      %a#s4{ :href => "javascript:void(0)" }
+        Set to view second Page
+      %a#s5{ :href => "javascript:void(0)" }
+        Set new Number of Rows(15)
+      %a#s6{ :href => "javascript:void(0)" }
+        Set Data Type from json to xml
+      %a#s7{ :href => "javascript:void(0)" }
+        Set new Caption
+      %a#s8{ :href => "javascript:void(0)" }
+        Sort by Client
+/ End demo 
+.demo-description
+  %p    
+    This example demostrates the set methods in grid. The set methods in most cases are combined with
+    %code
+      \.trigger('relodGrid')
+/ End demo-description

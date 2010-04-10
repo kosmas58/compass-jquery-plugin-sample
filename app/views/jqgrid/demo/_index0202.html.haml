@@ -1,0 +1,33 @@
+-@title = "#{t('txt.jqgrid.name')} #{t('txt.jqgrid.demo.name')} - #{t('txt.jqgrid.demo.manipulating')} - #{t('txt.jqgrid.demo.get')}"
+.demo
+  %h3
+    =@title
+  %center
+    %table#invheaders_demo0202.scroll{ :cellspacing => "0", :cellpadding => "0" }
+    #invheaders_demo0202_pager.scroll{ :style => "text-align:center;" }
+  
+    #toolbar.ui-widget-header.ui-corner-all
+      %a#g1{ :href => "javascript:void(0)", :onclick => "alert(jQuery('#invheaders_demo0202').jqGrid('getGridParam','url'));" }
+        Get url
+      %a#g2{ :href => "javascript:void(0)", :onclick => "alert(jQuery('#invheaders_demo0202').jqGrid('getGridParam','sortname'));" }
+        Get Sort Name
+      %a#g3{ :href => "javascript:void(0)", :onclick => "alert(jQuery('#invheaders_demo0202').jqGrid('getGridParam','sortorder'));" }
+        Get Sort Order
+      %a#g4{ :href => "javascript:void(0)", :onclick => "alert(jQuery('#invheaders_demo0202').jqGrid('getGridParam','selrow'));" }
+        Get Selected Row
+      %a#g5{ :href => "javascript:void(0)", :onclick => "alert(jQuery('#invheaders_demo0202').jqGrid('getGridParam','page'));" }
+        Get Current Page
+      %a#g6{ :href => "javascript:void(0)", :onclick => "alert(jQuery('#invheaders_demo0202').jqGrid('getGridParam','rowNum'));" }
+        Get Number of Rows requested
+      %a#g7{ :href => "javascript:void(0)", :onclick => "alert('See Multi select rows example');" }
+        Get Selected Rows
+      %a#g8{ :href => "javascript:void(0)", :onclick => "alert(jQuery('#invheaders_demo0202').jqGrid('getGridParam','datatype'));" }
+        Get Data Type requested
+      %a#g9{ :href => "javascript:void(0)", :onclick => "alert(jQuery('#invheaders_demo0202').jqGrid('getGridParam','records'));" }
+        Get number of records in Grid
+/ End demo 
+.demo-description
+  %p    
+    This example demostrates how we can manipulate data at client side. To synchronize
+    the manipulation on server we must write custom code.
+/ End demo-description
