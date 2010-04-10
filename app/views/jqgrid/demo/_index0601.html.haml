@@ -1,0 +1,21 @@
+-@title = "#{t('txt.jqgrid.name')} #{t('txt.jqgrid.demo.name')} - #{t('txt.jqgrid.demo.mapping')} - #{t('txt.jqgrid.demo.xml_map')}"
+.demo
+  %h3
+    =@title
+  %center
+    %table#demo0601.scroll{ :cellspacing => "0", :cellpadding => "0" }
+    #demo0601_pager.scroll{ :style => "text-align:center;" }
+
+/ End demo 
+.demo-description
+  %p
+    From now jqGrid can accept XML and JSON data with arbitrary structure. In this release we
+    introduce a 
+    %code
+      xmlReader 
+    and 
+    %code
+      jsonReader.
+    This way we can analyze and display a wide range of data structures.
+    More information will be available in the upcoming documentation.   
+/ End demo-description

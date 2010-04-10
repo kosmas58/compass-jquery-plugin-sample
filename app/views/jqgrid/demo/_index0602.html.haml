@@ -1,0 +1,16 @@
+-@title = "#{t('txt.jqgrid.name')} #{t('txt.jqgrid.demo.name')} - #{t('txt.jqgrid.demo.mapping')} - #{t('txt.jqgrid.demo.json_map')}"
+.demo
+  %h3
+    =@title
+  %center
+    %table#invheaders_demo0602.scroll{ :cellspacing => "0", :cellpadding => "0" }
+    #invheaders_demo0602_pager.scroll{ :style => "text-align:center;" }
+
+/ End demo 
+.demo-description
+  %p
+    This example accepting json data in the format of type:
+  %code
+    { total: xxx, page: yyy, records: zzz, rows: [
+    {name1:”Row01″,name2:”Row 11″,name3:”Row 12″,name4:”Row 13″,name5:”Row 14″}, ...
+/ End demo-description
