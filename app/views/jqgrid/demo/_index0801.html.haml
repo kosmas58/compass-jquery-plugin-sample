@@ -1,0 +1,189 @@
+-@title = "#{t('txt.jqgrid.name')} #{t('txt.jqgrid.demo.name')} - #{t('txt.jqgrid.demo.live')} - #{t('txt.jqgrid.demo.searching')}"
+.demo
+  %h3
+    =@title
+  %center
+    %table#invheaders_demo0801.scroll{ :cellspacing => "0", :cellpadding => "0" }
+    #invheaders_demo0801_pager.scroll{ :style => "text-align:center;" }
+  %br
+  %a#bsdata{ :href => "#" }
+    Search
+
+/ End demo 
+.demo-description
+  %p
+    This example show how we can add dialog for live data search.
+    See below for all available options.
+  %p
+    This method uses
+    %b
+      colModel
+    names and
+    %b
+      url
+    parameters from jqGrid
+    %br
+    Calling:
+    %code
+      jQuery("#grid_id").searchGrid( options );
+  %p
+    %b
+      Options:
+    %table
+      %tr
+        %td
+          %code
+            top : 0
+        %td
+          the initial top position of search dialog
+      %tr
+        %td    
+          %code
+            left: 0
+        %td
+          the initinal left position of search dialog.
+          %br
+          If the left and top positions are not set the dialog apper on
+          upper left corner of the grid
+      %tr
+        %td    
+          %code
+            width: 360
+        %td
+          the width of serch dialog - default 360
+      %tr
+        %td    
+          %code
+            height: 70
+        %td
+          the height of serch dialog default 70
+      %tr
+        %td    
+          %code
+            modal: false
+        %td
+          determine if the dialog should be in modal mode default is false
+      %tr
+        %td    
+          %code
+            drag: true
+        %td
+          determine if the dialog is dragable default true
+      %tr
+        %td    
+          %code
+            caption: "Search..."
+        %td
+          the caption of the dialog
+      %tr
+        %td  
+          %code
+            Find: "Find"
+        %td
+          the text of the button when you click to search data default Find
+      %tr
+        %td  
+          %code
+            Reset: "Reset"
+        %td
+          the text of the button when you click to clear search string default Reset
+      %tr
+        %td  
+          %code
+            dirty: false
+        %td
+          applicable only in navigator see the last example.
+      %tr
+        %td
+          %b  
+            These parameters are passed to the url
+      %tr
+        %td  
+          %code
+            sField:'searchField'
+        %td
+          is the name that is passed to url the value is the name from colModel
+      %tr
+        %td  
+          %code
+            sValue:'searchString'
+        %td
+          is the name that is passed to url the value is the entered value
+      %tr
+        %td  
+          %code
+            sOper: 'searchOper'
+        %td
+          is the name that is passed to the url the value is the type of search - see sopt array     
+      %tr
+        %td    
+          %code
+            odata : ['...']
+        %td
+          translation string for the search options.
+          %code
+            %br
+            'equal'
+            %br
+            'not equal'
+            %br
+            'less'
+            %br
+            'less or equal'
+            %br
+            'greater'
+            %br
+            'greater or equal'
+            %br
+            'begins with'
+            %br
+            'ends with'
+            %br
+            'contains'
+      %tr
+        %td    
+          %code
+            sopt: null
+        %td    
+          if you want to change or remove the order change it in sopt.
+          by default all options are allowed.
+          %br
+          The codes are as follow:
+          %br
+          %code
+            %br
+            bw
+          \- begins with ( LIKE val% )
+          %code
+            %br
+            eq
+          \- equal ( = )
+          %code
+            %br
+            ne
+          \- not equal ( <> )
+          %code
+            %br
+            lt
+          \- little ( < )
+          %code
+            %br
+            le
+          \- little or equal ( <= )
+          %code
+            %br
+            gt
+          \- greater ( > )
+          %code
+            %br
+            ge
+          \- greater or equal ( >= )
+          %code
+            %br
+            ew
+          \- ends with  (LIKE %val )
+          %code
+            %br
+            cn
+          \- contain (LIKE %val% )    
+/ End demo-description

@@ -18,7 +18,7 @@ class Jqgrid::PlayersController < ApplicationController
       else
         @grid_players = Player.grid(@mylist)
         if @example == "05"
-          @grid_animals = Animal.grid(mylist)
+          @grid_animals = Animal.grid(@mylist)
         end
       end
     end

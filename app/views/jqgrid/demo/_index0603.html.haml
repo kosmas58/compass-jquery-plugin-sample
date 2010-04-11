@@ -1,0 +1,25 @@
+-@title = "#{t('txt.jqgrid.name')} #{t('txt.jqgrid.demo.name')} - #{t('txt.jqgrid.demo.mapping')} - #{t('txt.jqgrid.demo.optimize')}"
+.demo
+  %h3
+    =@title
+  %center
+    %table#invheaders_demo0603.scroll{ :cellspacing => "0", :cellpadding => "0" }
+    #invheaders_demo0603_pager.scroll{ :style => "text-align:center;" }
+
+/ End demo 
+.demo-description
+  %p
+    In some cases we need a smaller data between server and client. This example tell us how we
+    can do that. The data is JSON and is in format:
+  %code
+    { total: xxx, page: yyy, records: zzz, rows: [
+    %br
+  %code
+    {”Row01″,”Row 01″,”Row 02″,”Row 03″,”Row 04″},
+    %br
+  %code
+    {”Row11″,”Row 12″,”Row 12″,”Row 13″,”Row 14″}, 
+    %br
+  %code
+    \...
+/ End demo-description
