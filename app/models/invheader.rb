@@ -831,6 +831,7 @@ class Invheader < ActiveRecord::Base
   gridify :demo0803,
     :title          => I18n.t('txt.jqgrid.demo.add_row'),
     :url            => "/jqgrid/demo",
+    :include        => [ :client ],
     :data_type      => :xml,
     :colNames       => [
                         I18n.t('activerecord.attributes.invheader.id'),

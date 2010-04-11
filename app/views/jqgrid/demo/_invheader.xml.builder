@@ -5,7 +5,8 @@ xml.invheaders do
   xml.records 13
   @data.each do |u|
     xml.invheader :id => u.id do
-      xml.client_id  u.client_id
+      xml.amount     u.amount
+      xml.name       u.client.name
       xml.closed     u.closed
       xml.id         u.id
       xml.invdate    u.invdate

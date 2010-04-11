@@ -41,6 +41,7 @@ module Gridify
       end
       cond = rules_to_conditions
       find_args[:conditions] = cond unless cond.blank?
+      find_args[:include] = self.include if self.include.present?
       find_args
     end
     

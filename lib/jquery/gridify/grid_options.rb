@@ -8,6 +8,7 @@ module Gridify
     attr_accessor :name,                  # name of the table (required)
                   :resource,              # based on AR model class (assume tableized, plural, string)
                                           # used as basis for all RESTful requests and data format
+                  :include,
     # model
                   :colModel,              # incoming: hash of presets (native jqGrid); internally: array of GridColumn objects
                                           # { :body => { "title" => {"width" => 98} }} 
