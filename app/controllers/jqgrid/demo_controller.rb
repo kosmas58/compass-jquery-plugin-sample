@@ -17,6 +17,10 @@ class Jqgrid::DemoController < ApplicationController
         end
       else
         @grid = @object.grid(@mylist)
+        if @demo == "0302"
+          @grid_details = Invline.grid(@mylist)
+          otto = :willi
+        end
       end
     end
   end

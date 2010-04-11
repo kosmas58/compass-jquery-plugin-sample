@@ -89,21 +89,23 @@
                 %b
                   (W.I.P.)
           %li#jqgrid03{:data => "icon: '../../demo/dynatree.custom/grid.png'" }
-            %i
-              = t('txt.jqgrid.demo.advanced')
+            = t('txt.jqgrid.demo.advanced')
             %ul
-              %li#jqgrid0301{:data => "icon: '../../demo/dynatree.custom/grid.png'" }   
+              %li#jqgrid0301{:data => "url: '/jqgrid/demo?demo=0301;model=invheader', icon: '../../demo/dynatree.custom/grid.png'" }   
                 = t('txt.jqgrid.demo.multi')
-              %li#jqgrid0302{:data => "icon: '../../demo/dynatree.custom/grid.png'" }   
+              %li#jqgrid0302{:data => "url: '/jqgrid/demo?demo=0302;model=invheader', icon: '../../demo/dynatree.custom/grid.png'" }   
                 = t('txt.jqgrid.demo.master')
               %li#jqgrid0303{:data => "icon: '../../demo/dynatree.custom/grid.png'" }   
-                = t('txt.jqgrid.demo.subgrid')
-              %li#jqgrid0304{:data => "icon: '../../demo/dynatree.custom/grid.png'" }   
-                = t('txt.jqgrid.demo.as_subgrid')
-              %li#jqgrid0305{:data => "icon: '../../demo/dynatree.custom/grid.png'" }   
+                %i
+                  = t('txt.jqgrid.demo.subgrid')
+              %li#jqgrid0304{:data => "icon: '../../demo/dynatree.custom/grid.png'" } 
+                %i   
+                  = t('txt.jqgrid.demo.as_subgrid')
+              %li#jqgrid0305{:data => "url: '/jqgrid/demo?demo=0305;model=invheader', icon: '../../demo/dynatree.custom/grid.png'" }   
                 = t('txt.jqgrid.demo.resizing')
               %li#jqgrid0306{:data => "icon: '../../demo/dynatree.custom/grid.png'" }   
-                = t('txt.jqgrid.demo.big_sets')
+                %i
+                  = t('txt.jqgrid.demo.big_sets')
           %li#jqgrid04{:data => "icon: '../../demo/dynatree.custom/grid.png'" }
             %i
               = t('txt.jqgrid.demo.b30')

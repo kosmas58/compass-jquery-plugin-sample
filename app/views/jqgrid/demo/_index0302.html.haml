@@ -1,0 +1,16 @@
+-@title = "#{t('txt.jqgrid.name')} #{t('txt.jqgrid.demo.name')} - #{t('txt.jqgrid.demo.advanced')} - #{t('txt.jqgrid.demo.master')}"
+.demo
+  %h3
+    =@title
+  %center
+    %table#invheaders_demo0302.scroll{ :cellspacing => "0", :cellpadding => "0" }
+    #invheaders_demo0302_pager.scroll{ :style => "text-align:center;" }
+    %br
+    %table#invlines_demo0302.scroll{ :cellspacing => "0", :cellpadding => "0" }
+    #invlines_demo0302_pager.scroll{ :style => "text-align:center;" }
+/ End demo 
+.demo-description
+  %p
+    This example demonstartes constructing of two grids and how we
+    can realize master detail.Try to click row on Invoice Header.
+/ End demo-description
