@@ -614,7 +614,8 @@ class Invheader < ActiveRecord::Base
   gridify :demo0805,
     :title          => I18n.t('txt.jqgrid.demo.navigator'),
     :url            => "/jqgrid/demo",
-    :data_type      => :json,
+    :restful        => true,
+    :data_type      => :xml,
     :colNames       => [
                         I18n.t('activerecord.attributes.invheader.id'),
                         I18n.t('activerecord.attributes.invheader.invdate'),
@@ -657,6 +658,8 @@ class Invheader < ActiveRecord::Base
     :paging_choices => [10,20,30],
     :sort_by        => :id,
     :sort_order     => :desc,
+    :editable       => true,
+    :select_rows    => true, 
     :edit_button    => true,
     :add_button     => true, 
     :delete_button  => true, 
