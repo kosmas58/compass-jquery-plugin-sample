@@ -6,9 +6,8 @@
     %table#invheaders_demo0804.scroll{ :cellspacing => "0", :cellpadding => "0" }
     #invheaders_demo0804_pager.scroll{ :style => "text-align:center;" }
   %br
-  %a#bddata{ :href => "#" }
-    Edit Selected
-
+  %a#dedata{ :href => "#" }
+    Delete Selected
 / End demo 
 .demo-description
   %p
@@ -24,8 +23,8 @@
   %p
     Calling:
     %code
-      jQuery("#grid_id").jqGrid('editGridRow', the_row_id, options );
-    the_row_id is the row to edit.
+      jQuery("#grid_id").jqGrid('delGridRow', row_id_s,options );    
+    row_id_s is the row to delete. When in multiselect automatially delete the selected rows.
   %p
     %b
       Options:
@@ -34,5 +33,112 @@
         %td
           %code
             top : 0
+        %td
+          the initial top position of edit dialog
+      %tr
+        %td
+          %code
+            left: 0
+        %td
+          the initinal left position of edit dialog.
+          If the left and top positions are not set the dialog apper on
+          upper left corner of the grid.
+      %tr
+        %td
+          %code
+            width: 0
+        %td
+          the width of edit dialog - default 300
+      %tr
+        %td
+          %code
+            height: 0
+          the height of edit dialog default 200
+      %tr
+        %td
+          %code
+            modal: false
+        %td
+          determine if the dialog should be in modal mode default is false
+      %tr
+        %td
+          %code
+            drag: true
+        %td
+          determine if the dialog is dragable default true
+      %tr
+        %td
+          %code
+            msg: "Delete selected row(s)
+        %td
+          message to display when deleting the row
+      %tr
+        %td
+          %code
+            caption: "Delete Record"
+        %td
+          the caption of the dialog
+      %tr
+        %td
+          %code
+            bSubmit: "Submit"
+        %td
+          the text of the button when you click to data default Submit
+      %tr
+        %td
+          %code
+            bCancel: "Cancel"
+        %td
+          the text of the button when you click to close dialog default Cancel
+      %tr
+        %td
+          %code
+            url:
+        %td
+          url where to post data. If set replace the editurl
+      %tr
+        %td
+          %code
+            reloadAfterSubmit : true
+        %td
+          reloads grid data after posting default is true
+      %tr
+        %td
+          %i
+            Events
+      %tr
+        %td
+          %code
+            beforeShowForm: null
+        %td
+          fires before showing the form data.
+          Paramter passed to the event is the id of the constructed form.
+      %tr
+        %td
+          %code
+            afterShowForm: null
+        %td
+          fires after the form is shown.
+          Paramter passed to the event is the id of the constructed form.
+      %tr
+        %td
+          %code
+            beforeSubmit: null
+        %td
+          fires before the data is submitted to the server.
+          Paramter is of type id=value1,value2,... When called the event can  return array
+          where the first parameter can be true or false and the second is the message of the
+          error if any Example:
+          %br
+          %code
+            [false,"The value is not valid"]
+      %tr
+        %td
+          %code
+            afterSubmit: null
+        %td
+          fires after the data is posted to the server. Typical this
+          event is used to recieve status form server if the data is posted with success.
+          Parameters to this event are the returned data from the request and array of the
+          posted values of type id=value1,value2
 / End demo-description
-

@@ -70,6 +70,7 @@ class Jqgrid::DemoController < ApplicationController
   
   def destroy
     # NOTE: if allow multiselect should check :id for string of comma delimited id's 
+    fetch_params(request);
     @this = @object.find(params[:id])
     @this.destroy
     if request.xhr?
