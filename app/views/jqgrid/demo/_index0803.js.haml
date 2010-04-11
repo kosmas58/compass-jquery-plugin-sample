@@ -1,1 +1,16 @@
+%style{:type => "text/css", :media => "screen"}
+  :plain
+    .demo-description td{ vertical-align: top; }
+
+:javascript
+  $(function() {
+    $("a", ".demo").button();
+  });
+  
+  $(document).ready(function() {
+    jQuery("#badata").click( function(){    
+      jQuery("#invheaders_demo0803").jqGrid('editGridRow',"new",{height:280,reloadAfterSubmit:false});
+    });
+  });
+  
 = raw @grid

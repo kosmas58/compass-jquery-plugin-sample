@@ -5,14 +5,34 @@
   %center
     %table#invheaders_demo0804.scroll{ :cellspacing => "0", :cellpadding => "0" }
     #invheaders_demo0804_pager.scroll{ :style => "text-align:center;" }
+  %br
+  %a#bddata{ :href => "#" }
+    Edit Selected
 
 / End demo 
 .demo-description
   %p
-    This example accepting json data in the format of type:
-  %code
-    { total: xxx, page: yyy, records: zzz, rows: [
-    %br
-  %code
-    {name1:”Row01″,name2:”Row 11″,name3:”Row 12″,name4:”Row 13″,name5:”Row 14″}, ...
+    This example show how we can add dialog for adding data. See below for all available options.    This example show how we can add dialog for data editing. See below for all available options.
+  %p
+    This method uses
+    %b
+      colModel
+    names and
+    %b
+      editurl
+    parameters from jqGrid
+  %p
+    Calling:
+    %code
+      jQuery("#grid_id").jqGrid('editGridRow', the_row_id, options );
+    the_row_id is the row to edit.
+  %p
+    %b
+      Options:
+    %table
+      %tr
+        %td
+          %code
+            top : 0
 / End demo-description
+

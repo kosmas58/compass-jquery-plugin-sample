@@ -554,6 +554,8 @@ class Invheader < ActiveRecord::Base
     :height         => :auto,
     :rows_per_page  => 10,
     :paging_choices => [10,20,30],
+    :editable       => true,
+    :jqgrid_options => { :eit_url  => "/jqgrid/demo" },
     :sort_by        => :id,
     :sort_order     => :desc,
     :pager          => true
@@ -602,6 +604,7 @@ class Invheader < ActiveRecord::Base
     :height         => :auto,
     :rows_per_page  => 10,
     :paging_choices => [10,20,30],
+    :jqgrid_options => { :eit_url  => "/jqgrid/demo" },
     :sort_by        => :id,
     :sort_order     => :desc,
     :pager          => true

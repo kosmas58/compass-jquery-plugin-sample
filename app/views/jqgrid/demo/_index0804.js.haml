@@ -1,1 +1,20 @@
+%style{:type => "text/css", :media => "screen"}
+  :plain
+    .demo-description td{ vertical-align: top; }
+
+:javascript
+  $(function() {
+    $("a", ".demo").button();
+  });
+  
+  $(document).ready(function() {
+    jQuery("#bddata").click( function(){
+    	var gr = jQuery("#invheaders_demo0802").jqGrid('getGridParam','selrow');
+    	if( gr != null )
+    	  jQuery("#invheaders_demo0803").jqGrid('editGridRow',gr,{height:280,reloadAfterSubmit:false});
+    	else
+    	 alert("Please Select Row");
+    });
+  });
+  
 = raw @grid
