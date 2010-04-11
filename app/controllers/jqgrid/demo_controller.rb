@@ -13,15 +13,19 @@ class Jqgrid::DemoController < ApplicationController
           elsif @demo == "demo0302"
             records = Invheader.find(params[:details_for]).invlines.find(:all); 
           end
+        elsif params[:subgrid]
+          ;
         else
           records = @object.find_for_grid(@mylist, params)
         end
-        data = @object.grid(@mylist).encode_records(records)
         case @datatype
           when :json
-            render :json => data
+            render :json => @object.grid(@mylist).encode_records(records)
           when :xml
-            render :xml => data
+            #render :xml => @object.grid(@mylist).encode_records(records)
+            #render :xml => @data
+            @data = records
+            render :partial => "#{@model.downcase}.xml.builder", :layout => false
         end
       else
         @grid = @object.grid(@mylist)

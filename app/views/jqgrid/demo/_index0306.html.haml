@@ -1,0 +1,16 @@
+-@title = "#{t('txt.jqgrid.name')} #{t('txt.jqgrid.demo.name')} - #{t('txt.jqgrid.demo.advanced')} - #{t('txt.jqgrid.demo.big_sets')}"
+.demo
+  %h3
+    =@title
+  %center
+    %table#invheaders_demo0306.scroll{ :cellspacing => "0", :cellpadding => "0" }
+    #invheaders_demo0306_pager.scroll{ :style => "text-align:center;" }
+
+/ End demo 
+.demo-description
+  %p
+    This example demonstrates dynamic resizing of grid. It is known that the width of grid is
+    sum of the width of the columns. We can overwrite this by setting the grid width. In this
+    case the column width are scaled to the new width. With setting the height to 100% we can
+    scale the height of the grid. Try to go on next page.
+/ End demo-description

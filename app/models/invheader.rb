@@ -42,7 +42,6 @@ class Invheader < ActiveRecord::Base
                          :ship_via => { :name  => 'ship_via',
                                         :width =>  40 }
                        },
-    #:include        => :client,
     :height         => :auto,
     :sort_by        => :id,
     :sort_order     => :desc,
@@ -94,7 +93,6 @@ class Invheader < ActiveRecord::Base
                          :ship_via => { :name  => 'ship_via',
                                         :width =>  40 }
                        },
-    #:include        => [:client],
     :height         => :auto,
     :search_button  => true,  
     :refresh_button => true,
@@ -459,7 +457,22 @@ class Invheader < ActiveRecord::Base
     :sort_order     => :desc,
     :search_button  => true,  
     :refresh_button => true,
-    :pager          => true
+    :pager          => true,
+    :sub_grid       => true,
+    :sub_grid_url   => 'subgrid.php?q=2',
+    :sub_grid_model => [
+                         { 
+                           :name  => ['No','Item','Qty','Unit','Line Total'], 
+                           :width => [55,200,80,80,80]
+                         } 
+                       ]
+#    :sub_grid_url   => "/jqgrid/demo?model=invline&subgrid=true"
+#    :sub_grid_model => [
+#                         { 
+#                           :name  => ['No','Item','Qty','Unit','Line Total'], 
+#                           :width => [ 55,    200,  80,    80,  80] 
+#                         } 
+#                       ],
     
   gridify :demo0304,
     :title          => I18n.t('txt.jqgrid.demo.as_subgrid'),
@@ -810,7 +823,7 @@ class Invheader < ActiveRecord::Base
     :paging_choices => [10,20,30],
     :editable       => true,
     :select_rows    => true, 
-    :jqgrid_options => { :eit_url  => "/jqgrid/demo" },
+    :jqgrid_options => { :edit_url  => "/jqgrid/demo" },
     :sort_by        => :id,
     :sort_order     => :desc,
     :pager          => true
@@ -818,7 +831,7 @@ class Invheader < ActiveRecord::Base
   gridify :demo0803,
     :title          => I18n.t('txt.jqgrid.demo.add_row'),
     :url            => "/jqgrid/demo",
-    :data_type      => :json,
+    :data_type      => :xml,
     :colNames       => [
                         I18n.t('activerecord.attributes.invheader.id'),
                         I18n.t('activerecord.attributes.invheader.invdate'),
@@ -860,7 +873,7 @@ class Invheader < ActiveRecord::Base
     :rows_per_page  => 10,
     :paging_choices => [10,20,30],
     :editable       => true,
-    :jqgrid_options => { :eit_url  => "/jqgrid/demo" },
+    :jqgrid_options => { :edit_url  => "/jqgrid/demo" },
     :sort_by        => :id,
     :sort_order     => :desc,
     :pager          => true
@@ -911,7 +924,7 @@ class Invheader < ActiveRecord::Base
     :paging_choices => [10,20,30],
     :editable       => true,
     :select_rows    => true, 
-    :jqgrid_options => { :eit_url  => "/jqgrid/demo" },
+    :jqgrid_options => { :edit_url  => "/jqgrid/demo" },
     :sort_by        => :id,
     :sort_order     => :desc,
     :pager          => true

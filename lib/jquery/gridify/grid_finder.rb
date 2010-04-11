@@ -59,7 +59,7 @@ module Gridify
       total_pages = total_count / rows_per_page + 1
       #TODO: :only => [attributes], :methods => [virtual attributes]
       case data_type
-      when :xml
+      when :xml        
         xml = records.to_xml( :skip_types => true, :dasherize => false ) do |xml|
           if rows_per_page > 0
             xml.page          current_page
