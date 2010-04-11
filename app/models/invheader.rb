@@ -1,5 +1,6 @@
 class Invheader < ActiveRecord::Base
   belongs_to :client
+  has_many :invlines
   
   gridify :demo0101,
     :title          => I18n.t('txt.jqgrid.demo.xml_data'),

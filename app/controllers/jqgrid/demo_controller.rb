@@ -6,8 +6,16 @@ class Jqgrid::DemoController < ApplicationController
    def index
     fetch_params(request);    
     if @datatype != :local
-      if request.xhr?
-        records = @object.find_for_grid(@mylist, params)
+      if request.xhr?        
+        if params[:details_for].present?
+          if params[:_search] == "true"
+            records = @object.find_for_grid(@mylist, params);
+          elsif @demo == "demo0302"
+            records = Invheader.find(params[:details_for]).invlines.find(:all); 
+          end
+        else
+          records = @object.find_for_grid(@mylist, params)
+        end
         data = @object.grid(@mylist).encode_records(records)
         case @datatype
           when :json
@@ -19,7 +27,6 @@ class Jqgrid::DemoController < ApplicationController
         @grid = @object.grid(@mylist)
         if @demo == "0302"
           @grid_details = Invline.grid(@mylist)
-          otto = :willi
         end
       end
     end

@@ -1,7 +1,7 @@
 class CreateInvlines < ActiveRecord::Migration
   def self.up
-    create_table :invlines, { :id => false } do |t|
-      t.integer :id
+    create_table :invlines do |t|
+      t.integer :invheader_id
       t.integer :num
       t.string  :item, :limit => 20
       t.decimal :qty, :precision => 8, :scale => 2, :default => 0.0, :null => false

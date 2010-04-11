@@ -4,7 +4,7 @@ class Invline < ActiveRecord::Base
   gridify :demo0302,
     :url            => "/jqgrid/demo",
     :data_type      => :json,
-#    :only           => [:id, :name],
+    :only           => [:num, :item, :qty, :unit],
 #    :colModel       => {
 #                         :id    => { :name      => "id",
 #                                     :label     => "ID",
