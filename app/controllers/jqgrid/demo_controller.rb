@@ -22,10 +22,8 @@ class Jqgrid::DemoController < ApplicationController
           when :json
             render :json => @object.grid(@mylist).encode_records(records)
           when :xml
-            #render :xml => @object.grid(@mylist).encode_records(records)
-            #render :xml => @data
-            @data = records
-            render :partial => "#{@model.downcase}.xml.builder", :layout => false
+            render :xml => @object.grid(@mylist).encode_records(records)
+            #render :partial => "#{@model.downcase}.xml.builder", :layout => false
         end
       else
         @grid = @object.grid(@mylist)

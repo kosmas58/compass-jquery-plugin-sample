@@ -413,42 +413,42 @@ class Invheader < ActiveRecord::Base
     :title          => I18n.t('txt.jqgrid.demo.subgrid'),
     :url            => "/jqgrid/demo",
     :data_type      => :xml,
-    :colNames       => [
-                        I18n.t('activerecord.attributes.invheader.id'),
-                        I18n.t('activerecord.attributes.invheader.invdate'),
-                        I18n.t('activerecord.attributes.invheader.client'),
-                        I18n.t('activerecord.attributes.invheader.amount'),
-                        I18n.t('activerecord.attributes.invheader.tax'),
-                        I18n.t('activerecord.attributes.invheader.total'),
-                        I18n.t('activerecord.attributes.invheader.note'),
-                        I18n.t('activerecord.attributes.invheader.closed'),
-                        I18n.t('activerecord.attributes.invheader.ship_via')
-                       ],
-    :colModel       => {
-                         :id       => { :name     => 'id',
-                                        :width    =>  50, 
-                                        :align    => "right" },
-                         :invdate  => { :name  => 'invdate',  
-                                        :width =>  90 },
-                         :name     => { :name  => 'name',
-                                        :width => 100 },
-                         :amount   => { :name  => 'amount',
-                                        :width =>  80,
-                                        :align => "right" },
-                         :tax      => { :name  => 'tax',
-                                        :width =>  80,
-                                        :align => "right" },    
-                         :total    => { :name  => 'total',
-                                        :width =>  80,
-                                        :align => "right" },   
-                         :note     => { :name     => 'note',
-                                        :width    => 150,
-                                        :sortable => false },
-                         :closed   => { :name  => 'closed',
-                                        :width =>  40 },
-                         :ship_via => { :name  => 'ship_via',
-                                        :width =>  40 }
-                       },
+#    :colNames       => [
+#                        I18n.t('activerecord.attributes.invheader.id'),
+#                        I18n.t('activerecord.attributes.invheader.invdate'),
+#                        I18n.t('activerecord.attributes.invheader.client'),
+#                        I18n.t('activerecord.attributes.invheader.amount'),
+#                        I18n.t('activerecord.attributes.invheader.tax'),
+#                        I18n.t('activerecord.attributes.invheader.total'),
+#                        I18n.t('activerecord.attributes.invheader.note'),
+#                        I18n.t('activerecord.attributes.invheader.closed'),
+#                        I18n.t('activerecord.attributes.invheader.ship_via')
+#                       ],
+#    :colModel       => {
+#                         :id       => { :name     => 'id',
+#                                        :width    =>  50, 
+#                                        :align    => "right" },
+#                         :invdate  => { :name  => 'invdate',  
+#                                        :width =>  90 },
+#                         :name     => { :name  => 'name',
+#                                        :width => 100 },
+#                         :amount   => { :name  => 'amount',
+#                                        :width =>  80,
+#                                        :align => "right" },
+#                         :tax      => { :name  => 'tax',
+#                                        :width =>  80,
+#                                        :align => "right" },    
+#                         :total    => { :name  => 'total',
+#                                        :width =>  80,
+#                                        :align => "right" },   
+#                         :note     => { :name     => 'note',
+#                                        :width    => 150,
+#                                        :sortable => false },
+#                         :closed   => { :name  => 'closed',
+#                                        :width =>  40 },
+#                         :ship_via => { :name  => 'ship_via',
+#                                        :width =>  40 }
+#                       },
     :width          => 700,
     :height         => :auto,
     :rows_per_page  => 10,
@@ -459,20 +459,13 @@ class Invheader < ActiveRecord::Base
     :refresh_button => true,
     :pager          => true,
     :sub_grid       => true,
-    :sub_grid_url   => 'subgrid.php?q=2',
+    :sub_grid_url   => "/jqgrid/demo?model=invline&subgrid=true",
     :sub_grid_model => [
                          { 
                            :name  => ['No','Item','Qty','Unit','Line Total'], 
-                           :width => [55,200,80,80,80]
+                           :width => [ 55,    200,  80,    80,  80] 
                          } 
                        ]
-#    :sub_grid_url   => "/jqgrid/demo?model=invline&subgrid=true"
-#    :sub_grid_model => [
-#                         { 
-#                           :name  => ['No','Item','Qty','Unit','Line Total'], 
-#                           :width => [ 55,    200,  80,    80,  80] 
-#                         } 
-#                       ],
     
   gridify :demo0304,
     :title          => I18n.t('txt.jqgrid.demo.as_subgrid'),
