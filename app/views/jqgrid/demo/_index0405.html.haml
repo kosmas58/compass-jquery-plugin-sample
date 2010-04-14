@@ -1,0 +1,41 @@
+-@title = "#{t('txt.jqgrid.name')} #{t('txt.jqgrid.demo.name')} - #{t('txt.jqgrid.demo.b30')} - #{t('txt.jqgrid.demo.hide')}"
+.demo
+  %h3
+    =@title
+  %center
+    %table#invheaders_demo0405.scroll{ :cellspacing => "0", :cellpadding => "0" }
+    #invheaders_demo0405_pager.scroll{ :style => "text-align:center;" }
+    #toolbar.ui-widget-header.ui-corner-all
+      %a#hc{ :href => "#" }
+        Hide column Tax
+      %a#sc{ :href => "#" }
+        Show column Tax        
+/ End demo 
+.demo-description
+  %p
+    This example show two new methods:
+    %ol
+      %li
+        hideCol(colname) - hide a column with a given colname and
+      %li
+        showCol(colname) - show a column with a given colname.
+      %li
+        We can hide a column when the grid is initialized using a new property 'hidden' in 
+        colModel
+  %p
+    Example:
+    %code
+      {name:'invdate',index:'invdate', width:90, hidden:true}
+    will hide a column Date.
+  %p
+    %b
+      Known Bugs
+    %ol
+      %li
+        %del
+          In Safari header column does not disappear when hideCol is executed.
+      %li
+        %del
+          IE has bad behavior when column is resizable and hideCol is executed.
+          Cursor position of the resizable column does not change.
+/ End demo-description

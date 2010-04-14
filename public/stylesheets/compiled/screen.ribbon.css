@@ -26,8 +26,8 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 /* line 20, C:/Ruby/lib/ruby/gems/1.8/gems/compass-0.10.0.rc1/frameworks/compass/stylesheets/compass/utilities/general/_reset.sass */
 body {
   line-height: 1;
-  color: #000;
-  background: #fff;
+  color: black;
+  background: white;
 }
 
 /* line 23, C:/Ruby/lib/ruby/gems/1.8/gems/compass-0.10.0.rc1/frameworks/compass/stylesheets/compass/utilities/general/_reset.sass */
@@ -1009,7 +1009,7 @@ div.last {
 }
 
 /* line 1, ../../../app/stylesheets/partials/_ribbon.sass */
-﻿html {
+html {
   overflow-x: hidden;
 }
 
@@ -1020,7 +1020,7 @@ body {
   padding: 0px;
   margin: 0px;
   color: #254264;
-  background-color: #DCE5F2;
+  background-color: #dce5f2;
   background-image: url("/images/demo/ribbon/page/background.png");
   background-repeat: repeat-x;
 }
@@ -1035,7 +1035,7 @@ h1 {
 h2 {
   font-family: Cambria, Arial, Trebuchet MS;
   font-size: 13pt;
-  color: #4E81C8;
+  color: #4e81c8;
 }
 
 /* line 23, ../../../app/stylesheets/partials/_ribbon.sass */
@@ -1179,7 +1179,7 @@ body a:active {
 /* line 103, C:/Ruby/lib/ruby/gems/1.8/gems/compass-0.10.0.rc1/frameworks/blueprint/stylesheets/./blueprint/_typography.sass */
 body blockquote {
   margin: 1.5em;
-  color: #666;
+  color: #666666;
   font-style: italic;
 }
 /* line 107, C:/Ruby/lib/ruby/gems/1.8/gems/compass-0.10.0.rc1/frameworks/blueprint/stylesheets/./blueprint/_typography.sass */
@@ -1201,7 +1201,7 @@ body sup, body sub {
 }
 /* line 116, C:/Ruby/lib/ruby/gems/1.8/gems/compass-0.10.0.rc1/frameworks/blueprint/stylesheets/./blueprint/_typography.sass */
 body abbr, body acronym {
-  border-bottom: 1px dotted #666;
+  border-bottom: 1px dotted #666666;
 }
 /* line 118, C:/Ruby/lib/ruby/gems/1.8/gems/compass-0.10.0.rc1/frameworks/blueprint/stylesheets/./blueprint/_typography.sass */
 body address {
@@ -1210,7 +1210,7 @@ body address {
 }
 /* line 121, C:/Ruby/lib/ruby/gems/1.8/gems/compass-0.10.0.rc1/frameworks/blueprint/stylesheets/./blueprint/_typography.sass */
 body del {
-  color: #666;
+  color: #666666;
 }
 /* line 123, C:/Ruby/lib/ruby/gems/1.8/gems/compass-0.10.0.rc1/frameworks/blueprint/stylesheets/./blueprint/_typography.sass */
 body pre {
@@ -1278,7 +1278,7 @@ body tfoot {
 }
 /* line 157, C:/Ruby/lib/ruby/gems/1.8/gems/compass-0.10.0.rc1/frameworks/blueprint/stylesheets/./blueprint/_typography.sass */
 body caption {
-  background: #eee;
+  background: #eeeeee;
 }
 /* line 159, C:/Ruby/lib/ruby/gems/1.8/gems/compass-0.10.0.rc1/frameworks/blueprint/stylesheets/./blueprint/_typography.sass */
 body .quiet {

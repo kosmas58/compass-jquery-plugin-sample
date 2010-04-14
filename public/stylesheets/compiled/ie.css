@@ -42,22 +42,22 @@ body.bp textarea {
 /* line 72, C:/Ruby/lib/ruby/gems/1.8/gems/compass-0.10.0.rc1/frameworks/blueprint/stylesheets/./blueprint/_ie.sass */
 body.bp input.text {
   margin: 0.5em 0;
-  background-color: #fff;
-  border: 1px solid #bbb;
+  background-color: white;
+  border: 1px solid #bbbbbb;
 }
 /* line 76, C:/Ruby/lib/ruby/gems/1.8/gems/compass-0.10.0.rc1/frameworks/blueprint/stylesheets/./blueprint/_ie.sass */
 body.bp input.text:focus {
-  border: 1px solid #666;
+  border: 1px solid #666666;
 }
 /* line 78, C:/Ruby/lib/ruby/gems/1.8/gems/compass-0.10.0.rc1/frameworks/blueprint/stylesheets/./blueprint/_ie.sass */
 body.bp input.title {
   margin: 0.5em 0;
-  background-color: #fff;
-  border: 1px solid #bbb;
+  background-color: white;
+  border: 1px solid #bbbbbb;
 }
 /* line 82, C:/Ruby/lib/ruby/gems/1.8/gems/compass-0.10.0.rc1/frameworks/blueprint/stylesheets/./blueprint/_ie.sass */
 body.bp input.title:focus {
-  border: 1px solid #666;
+  border: 1px solid #666666;
 }
 /* line 84, C:/Ruby/lib/ruby/gems/1.8/gems/compass-0.10.0.rc1/frameworks/blueprint/stylesheets/./blueprint/_ie.sass */
 body.bp input.checkbox {

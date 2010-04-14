@@ -1,0 +1,15 @@
+-@title = "#{t('txt.jqgrid.name')} #{t('txt.jqgrid.demo.name')} - #{t('txt.jqgrid.demo.b30')} - #{t('txt.jqgrid.demo.resizable')}"
+.demo
+  %h3
+    =@title
+  %center
+    %table#invheaders_demo0404.scroll{ :cellspacing => "0", :cellpadding => "0" }
+    #invheaders_demo0404_pager.scroll{ :style => "text-align:center;" }
+/ End demo 
+.demo-description
+  %p
+    This example show that only certain columns can be resizable using the new property 
+    %b
+      resizable
+    in colModel. In this case resizable are only columns: Client and Total.
+/ End demo-description

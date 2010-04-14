@@ -1,0 +1,19 @@
+%style{:type => "text/css", :media => "screen"}
+  :plain
+    #toolbar { padding: 0.3em; }
+
+:javascript
+  $(function() {
+    $("a", ".demo").button();
+  });
+  
+  $(document).ready(function() {
+    jQuery("#hc").click( function() {
+    	jQuery("#invheaders_demo0405").jqGrid('hideCol',"tax");
+    });
+    jQuery("#sc").click( function() {
+    	jQuery("#invheaders_demo0405").jqGrid('showCol',"tax");
+    });
+  });
+  
+= raw @grid

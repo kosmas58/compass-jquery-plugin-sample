@@ -1,0 +1,23 @@
+-@title = "#{t('txt.jqgrid.name')} #{t('txt.jqgrid.demo.name')} - #{t('txt.jqgrid.demo.b30')} - #{t('txt.jqgrid.demo.cmulti')}"
+.demo
+  %h3
+    =@title
+  %center
+    %table#invheaders_demo0401.scroll{ :cellspacing => "0", :cellpadding => "0" }
+    #invheaders_demo0401_pager.scroll{ :style => "text-align:center;" }
+    #toolbar.ui-widget-header.ui-corner-all
+      %a#cm1{ :href => "#" }
+        Get Selected id's
+      %a#cm1s{ :href => "#" }
+        Select(Unselect) row 13
+/ End demo 
+.demo-description
+  %p
+    This example demonstrates multi selection of rows with custom defined key.
+    You can select (deselect) row(s) pressing CTRL key and mouse button.
+    Other keys, that can be used are: ALT or SHIFT
+    %del
+      %b
+        Todo:
+      Clear a selected text when select is done and browser is IE.
+/ End demo-description

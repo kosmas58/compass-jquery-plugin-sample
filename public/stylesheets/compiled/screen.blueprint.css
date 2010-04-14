@@ -26,8 +26,8 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 /* line 20, C:/Ruby/lib/ruby/gems/1.8/gems/compass-0.10.0.rc1/frameworks/compass/stylesheets/compass/utilities/general/_reset.sass */
 body {
   line-height: 1;
-  color: #000;
-  background: #fff;
+  color: black;
+  background: white;
 }
 
 /* line 23, C:/Ruby/lib/ruby/gems/1.8/gems/compass-0.10.0.rc1/frameworks/compass/stylesheets/compass/utilities/general/_reset.sass */
@@ -1056,19 +1056,19 @@ body .ui-dialog {
 }
 /* line 33, ../../../app/stylesheets/partials/_formrow.sass */
 .formrow input.text, .formrow input.title {
-  border: 1px solid #bbb;
+  border: 1px solid #bbbbbb;
 }
 /* line 36, ../../../app/stylesheets/partials/_formrow.sass */
 .formrow textarea, .formrow select {
-  border: 1px solid #bbb;
+  border: 1px solid #bbbbbb;
 }
 /* line 40, ../../../app/stylesheets/partials/_formrow.sass */
 .formrow input.text:focus, .formrow input.title:focus {
-  border: 1px solid #666;
+  border: 1px solid #666666;
 }
 /* line 43, ../../../app/stylesheets/partials/_formrow.sass */
 .formrow textarea:focus, .formrow select:focus {
-  border: 1px solid #666;
+  border: 1px solid #666666;
 }
 /* line 46, ../../../app/stylesheets/partials/_formrow.sass */
 .formrow input.title {
@@ -1386,7 +1386,7 @@ body a:active {
 /* line 103, C:/Ruby/lib/ruby/gems/1.8/gems/compass-0.10.0.rc1/frameworks/blueprint/stylesheets/./blueprint/_typography.sass */
 body blockquote {
   margin: 1.5em;
-  color: #666;
+  color: #666666;
   font-style: italic;
 }
 /* line 107, C:/Ruby/lib/ruby/gems/1.8/gems/compass-0.10.0.rc1/frameworks/blueprint/stylesheets/./blueprint/_typography.sass */
@@ -1408,7 +1408,7 @@ body sup, body sub {
 }
 /* line 116, C:/Ruby/lib/ruby/gems/1.8/gems/compass-0.10.0.rc1/frameworks/blueprint/stylesheets/./blueprint/_typography.sass */
 body abbr, body acronym {
-  border-bottom: 1px dotted #666;
+  border-bottom: 1px dotted #666666;
 }
 /* line 118, C:/Ruby/lib/ruby/gems/1.8/gems/compass-0.10.0.rc1/frameworks/blueprint/stylesheets/./blueprint/_typography.sass */
 body address {
@@ -1417,7 +1417,7 @@ body address {
 }
 /* line 121, C:/Ruby/lib/ruby/gems/1.8/gems/compass-0.10.0.rc1/frameworks/blueprint/stylesheets/./blueprint/_typography.sass */
 body del {
-  color: #666;
+  color: #666666;
 }
 /* line 123, C:/Ruby/lib/ruby/gems/1.8/gems/compass-0.10.0.rc1/frameworks/blueprint/stylesheets/./blueprint/_typography.sass */
 body pre {
@@ -1485,7 +1485,7 @@ body tfoot {
 }
 /* line 157, C:/Ruby/lib/ruby/gems/1.8/gems/compass-0.10.0.rc1/frameworks/blueprint/stylesheets/./blueprint/_typography.sass */
 body caption {
-  background: #eee;
+  background: #eeeeee;
 }
 /* line 159, C:/Ruby/lib/ruby/gems/1.8/gems/compass-0.10.0.rc1/frameworks/blueprint/stylesheets/./blueprint/_typography.sass */
 body .quiet {

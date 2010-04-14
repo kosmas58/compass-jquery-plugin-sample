@@ -1,0 +1,28 @@
+-@title = "#{t('txt.jqgrid.name')} #{t('txt.jqgrid.demo.name')} - #{t('txt.jqgrid.demo.b30')} - #{t('txt.jqgrid.demo.after_load')}"
+.demo
+  %h3
+    =@title
+  %center
+    %table#invheaders_demo0403.scroll{ :cellspacing => "0", :cellpadding => "0" }
+    #invheaders_demo0403_pager.scroll{ :style => "text-align:center;" }
+    #toolbar.ui-widget-header.ui-corner-all
+      %a#sids{ :href => "#" }
+        Get Grid id's
+/ End demo 
+.demo-description
+  %p    
+    This example demonstrates two new fetures in jqGrid.
+    %ol
+      %li
+        Callback
+        %code
+          loadComplete()
+        \- this function is executed immediately after data is loaded.
+        This way we can make some changes depending on the needs.
+      %li
+        New method
+        %code
+          getDataIDs() 
+        \- returns the id's of currently loaded data.
+        This method can be used in combination with loadComplete callback.
+/ End demo-description
