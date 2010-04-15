@@ -13,7 +13,7 @@
     conflicts with other plugins and make using jqGrid more natural in the code, showing that this is connected
     with jqGrid methods. The calling convension is:
   %p
-    %b
+    %code
       (jqgridelement).jqGrid( method ,parameter1,...,parameterN);
     %br
     Where 
@@ -27,7 +27,7 @@
       jQuery("#newapi").jqGrid('navGrid','#pnewapi',{edit:false,add:false,del:false});
   %p
     To enjoy full of this API a new variable is used in $.jgrid namespace - called 
-    %b
+    %i
       $.jgrid.no_legacy_api
     , which default value is false. The variable should be set before including jqGrid Java Script file or
     can be added in the language file.     

@@ -14,17 +14,19 @@
     This example show how we can add dialog for adding data. See below for all available options.    This example show how we can add dialog for data editing. See below for all available options.
   %p
     This method uses
-    %b
+    %i
       colModel
     names and
-    %b
+    %i
       editurl
     parameters from jqGrid
   %p
     Calling:
     %code
-      jQuery("#grid_id").jqGrid('delGridRow', row_id_s,options );    
-    row_id_s is the row to delete. When in multiselect automatially delete the selected rows.
+      jQuery("#grid_id").jqGrid('delGridRow', row_id_s,options );
+    %i    
+      row_id_s
+    is the row to delete. When in multiselect automatially delete the selected rows.
   %p
     %b
       Options:
@@ -53,6 +55,7 @@
         %td
           %code
             height: 0
+        %td
           the height of edit dialog default 200
       %tr
         %td

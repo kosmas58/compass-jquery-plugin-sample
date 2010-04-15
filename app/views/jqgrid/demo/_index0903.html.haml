@@ -1,0 +1,79 @@
+-@title = "#{t('txt.jqgrid.name')} #{t('txt.jqgrid.demo.name')} - #{t('txt.jqgrid.demo.row')} - #{t('txt.jqgrid.demo.post_data')}"
+.demo
+  %h3
+    =@title
+  %center
+    %table#invheaders_demo0903.scroll{ :cellspacing => "0", :cellpadding => "0" }
+    #invheaders_demo0903_pager.scroll{ :style => "text-align:center;" }
+    #toolbar.ui-widget-header.ui-corner-all
+      %a#ed1{ :href => "#" }
+        Edit row 13
+      %a#sved1{ :href => "#" }
+        Save row 13
+      %a#cned1{ :href => "#" }
+        Cancel Save      
+/ End demo 
+.demo-description
+  %p    
+    This example shows the basic steps to make the grid editable. To do that we need 3 steps.
+  %ol
+    %li
+      Mark which column in the grid is editable. This is done with a new property 
+      %code
+        editable:true.
+      By default all columns in the grid are not editable.
+    %li
+      Specify the url where the server accept the posted data. This is done with a option 
+      %code
+        editurl.
+    %li
+      Use the three new methods: 
+      %code
+        editRow, saveRow, restoreRow.
+    %p
+      %br
+      %code
+        editRow( rowid, keys )   
+      accepts two parametres:
+      %ul
+        %li 
+          %code
+            rowid 
+          \- the unique id of the row and 
+        %li
+          %code
+            keys
+          \- which when true - we can use Enter and Escape keys to save and cancel editing.
+    %p
+      %code
+        saveRow( rowid, callback, url, extraparams )
+      %ul
+        %li
+          %code
+            rowid
+          \ - unique id of the row, 
+        %li
+          %code
+            callback
+          \ - custom function - when defined accept data returned from the server after posting,
+        %li
+          %code
+            url
+          \- when specified - overwrite the editurl parameter,
+        %li
+          %code
+            extraparams
+          \- additinal params that can be passed to the server.
+    %p
+      When data is posted the format is
+      %code
+        id=rowid&name=value..., 
+      where the name is the 
+      %code
+        "name"
+      from colModel.
+    %p
+      %code
+        restoreRow( rowid )
+      \- restores the data to original values before the editing of the row.
+/ End demo-description
