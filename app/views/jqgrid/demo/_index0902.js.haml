@@ -6,7 +6,10 @@
   $(function() {
     $("a", ".demo").button();
   });
-  
+
+= raw @grid
+
+:javascript
   $(document).ready(function() {
     jQuery("#sm1").click( function(){
       alert($("#invheaders_demo0902").jqGrid('getGridParam',"records"));
@@ -24,4 +27,3 @@
     });
   });
 
-= raw @grid
