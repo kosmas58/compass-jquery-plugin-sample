@@ -26,7 +26,7 @@ date:
 txt: 
   jqgrid: 
     demo: 
-      gridify: 2dc examples implemented with gridify
+      actions: Actions
 support: 
   array: 
     words_connector: ", "

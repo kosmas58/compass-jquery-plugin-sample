@@ -1,0 +1,28 @@
+%style{:type => "text/css", :media => "screen"}
+  :plain
+    #toolbar { padding: 0.3em; }
+
+:javascript
+  $(function() {
+    $("a", ".demo").button();
+  });
+  
+  function checksave(result) {
+  	if (result.responseText=="") {alert("Update is missing!"); return false;}
+  	return true;
+  };
+  
+  $(document).ready(function() {
+    jQuery("#ed4").click( function() {
+    	jQuery("#invheaders_demo0504").jqGrid('editRow',"13");
+    	this.disabled = 'true';
+    	jQuery("#sved4").attr("disabled",false);
+    });
+    jQuery("#sved4").click( function() {
+    	jQuery("#invheaders_demo0504").jqGrid('saveRow',"13", checksave);
+    	jQuery("#sved4").attr("disabled",true);
+    	jQuery("#ed4").attr("disabled",false);
+    });
+  });
+  
+= raw @grid

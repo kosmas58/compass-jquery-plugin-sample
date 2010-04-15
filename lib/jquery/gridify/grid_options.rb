@@ -92,10 +92,6 @@ module Gridify
                   :load_once,             # true to use local data after first load (false)
                   :error_handler,         # javacript: method for crud error handling (default to "after_submit")
                   :error_container,       # selector for posting error/flash messages (.errorExplanation)
-     # events
-                  #:on_dbl_click_row,
-                  #:on_sort_col,
-                  #:serialize_grid_data, 
                                                      
                   :z        
 
@@ -133,10 +129,6 @@ module Gridify
     
     def jqgrid_options
       @jqgrid_options || {}
-    end
-    
-    def ajax_grid_options
-      @ajax_grid_options || {}
     end
     
     def width_fit
@@ -251,12 +243,6 @@ module Gridify
         }
       end
     end
-    
-    # events
-    
-#    def serialize_grid_data
-#      @serialize_grid_data || {}
-#    end
     
     def error_handler
       @error_handler || 'gridify_action_error_handler'

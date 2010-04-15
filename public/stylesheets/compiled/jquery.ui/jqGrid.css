@@ -8,11 +8,11 @@
   position: relative;
   left: 0px;
   top: 0px;
-  padding: .0em;
+  padding: 0em;
 }
 /* line 13, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
 .ui-jqgrid .ui-jqgrid-titlebar {
-  padding: .3em .2em .2em .3em;
+  padding: 0.3em 0.2em 0.2em 0.3em;
   position: relative;
   border-left: 0px none;
   border-right: 0px none;
@@ -21,7 +21,7 @@
 /* line 20, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
 .ui-jqgrid .ui-jqgrid-title {
   float: left;
-  margin: .1em 0 .2em;
+  margin: 0.1em 0 0.2em;
 }
 /* line 24, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
 .ui-jqgrid .ui-jqgrid-titlebar-close {
@@ -203,7 +203,7 @@ tr.ui-search-toolbar input, tr.ui-search-toolbar select {
 .ui-jqgrid .ui-jqgrid-resize-mark {
   width: 2px;
   left: 0;
-  background-color: #777;
+  background-color: #777777;
   cursor: e-resize;
   cursor: col-resize;
   position: absolute;
@@ -303,12 +303,12 @@ tr.ui-search-toolbar input, tr.ui-search-toolbar select {
 /* line 264, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
 .ui-jqgrid .ui-pg-input {
   height: 13px;
-  font-size: .8em;
+  font-size: 0.8em;
   margin: 0em;
 }
 /* line 269, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
 .ui-jqgrid .ui-pg-selbox {
-  font-size: .8em;
+  font-size: 0.8em;
   line-height: 18px;
   display: block;
   height: 18px;
@@ -317,8 +317,8 @@ tr.ui-search-toolbar input, tr.ui-search-toolbar select {
 /* line 276, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
 .ui-jqgrid .ui-separator {
   height: 18px;
-  border-left: 1px solid #ccc;
-  border-right: 1px solid #ccc;
+  border-left: 1px solid #cccccc;
+  border-right: 1px solid #cccccc;
   margin: 1px;
   float: right;
 }
@@ -449,18 +449,18 @@ tr.ui-search-toolbar input, tr.ui-search-toolbar select {
   display: none;
   width: 300px;
   position: absolute;
-  padding: .2em;
+  padding: 0.2em;
   font-size: 11px;
   overflow: visible;
 }
 /* line 398, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
 .ui-jqdialog .ui-jqdialog-titlebar {
-  padding: .3em .2em;
+  padding: 0.3em 0.2em;
   position: relative;
 }
 /* line 402, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
 .ui-jqdialog .ui-jqdialog-title {
-  margin: .1em 0 .2em;
+  margin: 0.1em 0 0.2em;
 }
 /* line 405, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
 .ui-jqdialog .ui-jqdialog-titlebar-close {
@@ -484,7 +484,7 @@ tr.ui-search-toolbar input, tr.ui-search-toolbar select {
 /* line 421, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
 .ui-jqdialog-content {
   border: 0;
-  padding: .3em .2em;
+  padding: 0.3em 0.2em;
   background: none;
   height: auto;
 }
@@ -492,13 +492,13 @@ tr.ui-search-toolbar input, tr.ui-search-toolbar select {
 /* line 429, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
 .ui-jqdialog .ui-jqdialog-content {
   border: 0;
-  padding: .3em .2em;
+  padding: 0.3em 0.2em;
   background: none;
   height: auto;
 }
 /* line 435, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
 .ui-jqdialog .ui-jqconfirm {
-  padding: .4em 1em;
+  padding: 0.4em 1em;
   border-width: 3px;
   position: absolute;
   bottom: 10px;
@@ -576,7 +576,7 @@ tr.ui-search-toolbar input, tr.ui-search-toolbar select {
 .fm-button {
   display: inline-block;
   margin: 0 4px 0 0;
-  padding: .4em .5em;
+  padding: 0.4em 0.5em;
   text-decoration: none !important;
   cursor: pointer;
   position: relative;
@@ -597,7 +597,7 @@ tr.ui-search-toolbar input, tr.ui-search-toolbar select {
 /* line 524, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
 .fm-button-icon-left .ui-icon {
   right: auto;
-  left: .2em;
+  left: 0.2em;
   margin-left: 0;
   position: absolute;
   top: 50%;
@@ -607,7 +607,7 @@ tr.ui-search-toolbar input, tr.ui-search-toolbar select {
 /* line 533, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
 .fm-button-icon-right .ui-icon {
   left: auto;
-  right: .2em;
+  right: 0.2em;
   margin-left: 0;
   position: absolute;
   top: 50%;
@@ -650,10 +650,10 @@ tr.ui-search-toolbar input, tr.ui-search-toolbar select {
 
 /* line 572, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
 .jqmOverlay {
-  background-color: #000;
+  background-color: black;
 }
 
-/* line 576, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
+/* line 575, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
 * iframe.jqm {
   position: absolute;
   top: 0;
@@ -663,7 +663,7 @@ tr.ui-search-toolbar input, tr.ui-search-toolbar select {
   height: expression(this.parentNode.offsetHeight+'px');
 }
 
-/* line 585, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
+/* line 584, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
 .ui-jqgrid-dnd tr td {
   border-right-width: 1px;
   border-right-color: inherit;
@@ -671,90 +671,90 @@ tr.ui-search-toolbar input, tr.ui-search-toolbar select {
   height: 20px;
 }
 
-/* line 593, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
+/* line 592, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
 .ui-jqgrid .ui-jqgrid-title-rtl {
   float: right;
-  margin: .1em 0 .2em;
+  margin: 0.1em 0 0.2em;
 }
-/* line 597, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
+/* line 596, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
 .ui-jqgrid .ui-jqgrid-hbox-rtl {
   float: right;
   padding-left: 20px;
 }
-/* line 601, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
+/* line 600, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
 .ui-jqgrid .ui-jqgrid-resize-ltr {
   float: right;
   margin: -2px -2px -2px 0px;
 }
-/* line 605, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
+/* line 604, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
 .ui-jqgrid .ui-jqgrid-resize-rtl {
   float: left;
   margin: -2px 0px -1px -3px;
 }
-/* line 609, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
+/* line 608, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
 .ui-jqgrid .ui-sort-rtl {
   left: 0px;
 }
-/* line 612, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
+/* line 611, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
 .ui-jqgrid .tree-wrap-ltr {
   float: left;
 }
-/* line 615, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
+/* line 614, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
 .ui-jqgrid .tree-wrap-rtl {
   float: right;
 }
-/* line 618, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
+/* line 617, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
 .ui-jqgrid .ui-ellipsis {
   text-overflow: ellipsis;
   -moz-binding: url('ellipsis-xbl.xml#ellipsis');
 }
 
-/* line 623, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
+/* line 622, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
 .ui-searchFilter {
   display: none;
   position: absolute;
   z-index: 770;
   overflow: visible;
 }
-/* line 629, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
+/* line 628, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
 .ui-searchFilter table {
   position: relative;
   margin: 0em;
   width: auto;
 }
-/* line 634, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
+/* line 633, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
 .ui-searchFilter table td {
   margin: 0em;
   padding: 1px;
 }
-/* line 638, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
+/* line 637, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
 .ui-searchFilter table td input, .ui-searchFilter table td select {
   margin: 0.1em;
 }
-/* line 641, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
+/* line 640, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
 .ui-searchFilter .ui-state-default {
   cursor: pointer;
 }
-/* line 644, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
+/* line 643, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
 .ui-searchFilter .divider {
   height: 1px;
 }
-/* line 647, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
+/* line 646, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
 .ui-searchFilter .divider div {
   background-color: black;
   height: 1px;
 }
 
-/* line 652, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
+/* line 651, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
 .ui-multiselect {
   border: solid 1px;
   font-size: 0.8em;
 }
-/* line 656, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
+/* line 655, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
 .ui-multiselect ul {
   -moz-user-select: none;
 }
-/* line 659, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
+/* line 658, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
 .ui-multiselect li {
   margin: 0;
   padding: 0;
@@ -764,20 +764,20 @@ tr.ui-search-toolbar input, tr.ui-search-toolbar select {
   font-size: 11px;
   list-style: none;
 }
-/* line 668, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
+/* line 667, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
 .ui-multiselect li a {
-  color: #999;
+  color: #999999;
   text-decoration: none;
   padding: 0;
   display: block;
   float: left;
   cursor: pointer;
 }
-/* line 676, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
+/* line 675, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
 .ui-multiselect li.ui-draggable-dragging {
   padding-left: 10px;
 }
-/* line 679, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
+/* line 678, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
 .ui-multiselect div.selected {
   position: relative;
   padding: 0;
@@ -785,20 +785,20 @@ tr.ui-search-toolbar input, tr.ui-search-toolbar select {
   border: 0;
   float: left;
 }
-/* line 686, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
+/* line 685, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
 .ui-multiselect ul.selected {
   position: relative;
   padding: 0;
   overflow: auto;
   overflow-x: hidden;
-  background: #fff;
+  background: white;
   margin: 0;
   list-style: none;
   border: 0;
   position: relative;
   width: 100%;
 }
-/* line 699, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
+/* line 698, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
 .ui-multiselect div.available {
   position: relative;
   padding: 0;
@@ -807,66 +807,66 @@ tr.ui-search-toolbar input, tr.ui-search-toolbar select {
   float: left;
   border-left: 1px solid;
 }
-/* line 707, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
+/* line 706, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
 .ui-multiselect ul.available {
   position: relative;
   padding: 0;
   overflow: auto;
   overflow-x: hidden;
-  background: #fff;
+  background: white;
   margin: 0;
   list-style: none;
   border: 0;
   width: 100%;
 }
-/* line 718, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
+/* line 717, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
 .ui-multiselect ul.available li {
   padding-left: 10px;
 }
-/* line 721, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
+/* line 720, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
 .ui-multiselect .ui-state-default {
   border: none;
   margin-bottom: 1px;
   position: relative;
   padding-left: 20px;
 }
-/* line 727, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
+/* line 726, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
 .ui-multiselect .ui-state-hover {
   border: none;
 }
-/* line 730, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
+/* line 729, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
 .ui-multiselect .ui-widget-header {
   border: none;
   font-size: 11px;
   margin-bottom: 1px;
 }
-/* line 735, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
+/* line 734, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
 .ui-multiselect .add-all, .ui-multiselect .remove-all {
   float: right;
   padding: 7px;
 }
-/* line 739, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
+/* line 738, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
 .ui-multiselect .search {
   float: left;
   padding: 4px;
 }
-/* line 743, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
+/* line 742, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
 .ui-multiselect .count {
   float: left;
   padding: 7px;
 }
-/* line 748, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
+/* line 747, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
 .ui-multiselect li span.ui-icon-arrowthick-2-n-s {
   position: absolute;
   left: 2px;
 }
-/* line 752, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
+/* line 751, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
 .ui-multiselect li a.action {
   position: absolute;
   right: 2px;
   top: 2px;
 }
-/* line 757, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
+/* line 756, ../../../../app/stylesheets/jquery.ui/jqGrid.sass */
 .ui-multiselect input.search {
   height: 14px;
   padding: 1px;
