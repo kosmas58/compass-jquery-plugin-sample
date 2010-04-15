@@ -1,0 +1,27 @@
+%style{:type => "text/css", :media => "screen"} 
+  :plain
+    #toolbar { padding: 0.3em; }
+
+:javascript
+  $(function() {
+    $("a", ".demo").button();
+  });
+  
+  $(document).ready(function() {
+    jQuery("#sm1").click( function(){
+      alert($("#invheaders_demo0902").jqGrid('getGridParam',"records"));
+    });
+    jQuery("#sm2").click( function(){
+      $("#invheaders_demo0902").jqGrid('setGridParam',{
+        onSelectRow : function(id) {
+          $("#resp").html("I'm row number: "+id +" and setted dynamically").css("color","red");
+        }
+      });
+      alert("Try to select row");
+    });
+    jQuery("#sm3").click( function(){
+      $("#invheaders_demo0902").jqGrid('resetSelection');
+    });
+  });
+
+= raw @grid

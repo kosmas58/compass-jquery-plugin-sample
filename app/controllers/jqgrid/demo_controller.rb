@@ -25,10 +25,13 @@ class Jqgrid::DemoController < ApplicationController
             render :xml => @object.grid(@mylist).encode_records(records)
             #render :partial => "#{@model.downcase}.xml.builder", :layout => false
         end
-      else
-        @grid = @object.grid(@mylist)
-        if @demo == "0302"
-          @grid_details = Invline.grid(@mylist)
+      else        
+        case @demo
+          when "0302"
+            @grid = @object.grid(@mylist)
+            @grid_details = Invline.grid(@mylist)
+          else
+            @grid = @object.grid(@mylist)
         end
       end
     end
