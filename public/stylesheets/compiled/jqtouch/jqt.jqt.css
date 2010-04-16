@@ -1,0 +1,678 @@
+/* line 3, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+body, #jqt {
+  background: black;
+  color: #dddddd;
+}
+
+/* line 7, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+body > *, div#jqt > * {
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#333333), to(#5e5e65));
+}
+
+/* line 11, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt h1, #jqt h2 {
+  font: bold 18px "Helvetica Neue", Helvetica;
+  text-shadow: rgba(255, 255, 255, 0.2) 0 1px 1px;
+  color: black;
+  margin: 10px 20px 5px;
+}
+/* line 16, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt .toolbar {
+  -webkit-box-sizing: border-box;
+  border-bottom: 1px solid black;
+  padding: 10px;
+  height: 45px;
+  background: url("/images/jqtouch/jqt/toolbar.png") black repeat-x;
+  position: relative;
+}
+/* line 23, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt .black-translucent .toolbar {
+  margin-top: 20px;
+}
+
+/* @group Toolbar */
+/* line 29, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+div#jqt .toolbar > h1 {
+  position: absolute;
+  overflow: hidden;
+  left: 50%;
+  top: 10px;
+  line-height: 1em;
+  margin: 1px 0 0 -75px;
+  height: 40px;
+  font-size: 20px;
+  width: 150px;
+  font-weight: bold;
+  text-shadow: black 0 -1px 1px;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: white;
+}
+/* line 45, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+div#jqt.landscape .toolbar > h1 {
+  margin-left: -125px;
+  width: 250px;
+}
+
+/* line 50, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt .button, #jqt .back, #jqt .cancel, #jqt .add {
+  position: absolute;
+  overflow: hidden;
+  top: 8px;
+  right: 10px;
+  margin: 0;
+  border-width: 0 5px;
+  padding: 0 3px;
+  width: auto;
+  height: 30px;
+  line-height: 30px;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+  text-shadow: rgba(0, 0, 0, 0.5) 0px -1px 0;
+  text-overflow: ellipsis;
+  text-decoration: none;
+  white-space: nowrap;
+  background: none;
+  -webkit-border-image: url("/images/jqtouch/jqt/button.png") 0 5 0 5;
+}
+/* line 71, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt .button.active, #jqt .cancel.active, #jqt .add.active {
+  -webkit-border-image: url("/images/jqtouch/jqt/button_clicked.png") 0 5 0 5;
+  color: #aaaaaa;
+}
+/* line 74, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt .blueButton {
+  -webkit-border-image: url("/images/jqtouch/jqt/blueButton.png") 0 5 0 5;
+  border-width: 0 5px;
+}
+/* line 77, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt .back {
+  left: 6px;
+  right: auto;
+  padding: 0;
+  max-width: 55px;
+  border-width: 0 8px 0 14px;
+  -webkit-border-image: url("/images/jqtouch/jqt/back_button.png") 0 8 0 14;
+}
+/* line 84, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt .back.active {
+  -webkit-border-image: url("/images/jqtouch/jqt/back_button_clicked.png") 0 8 0 14;
+  color: #aaaaaa;
+}
+/* line 87, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt .leftButton, #jqt .cancel {
+  left: 6px;
+  right: auto;
+}
+/* line 90, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt .add {
+  font-size: 24px;
+  line-height: 24px;
+  font-weight: bold;
+}
+/* line 94, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt .whiteButton, #jqt .grayButton, #jqt .redButton, #jqt .blueButton, #jqt .greenButton {
+  display: block;
+  border-width: 0 12px;
+  padding: 10px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: inherit;
+  color: inherit;
+}
+/* line 103, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt .whiteButton.active, #jqt .grayButton.active, #jqt .redButton.active, #jqt .blueButton.active, #jqt .greenButton.active, #jqt .whiteButton:active, #jqt .grayButton:active, #jqt .redButton:active, #jqt .blueButton:active, #jqt .greenButton:active {
+  -webkit-border-image: url("/images/jqtouch/jqt/activeButton.png") 0 12 0 12;
+}
+/* line 105, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt .whiteButton {
+  -webkit-border-image: url("/images/jqtouch/jqt/whiteButton.png") 0 12 0 12;
+  text-shadow: rgba(255, 255, 255, 0.7) 0 1px 0;
+}
+/* line 108, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt .grayButton {
+  -webkit-border-image: url("/images/jqtouch/jqt/grayButton.png") 0 12 0 12;
+  color: white;
+}
+/* line 111, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt .redButton {
+  -webkit-border-image: url("/images/jqtouch/jqt/redButton.png") 0 12 0 12;
+  color: white;
+}
+/* line 114, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt .greenButton {
+  -webkit-border-image: url("/images/jqtouch/jqt/greenButton.png") 0 12 0 12;
+  color: white;
+}
+/* line 117, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt h1 + ul, #jqt h2 + ul, #jqt h3 + ul, #jqt h4 + ul, #jqt h5 + ul, #jqt h6 + ul {
+  margin-top: 0;
+}
+/* line 119, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt ul {
+  color: #aaaaaa;
+  border: 1px solid #333333;
+  font: bold 18px "Helvetica Neue", Helvetica;
+  padding: 0;
+  margin: 15px 10px 17px 10px;
+}
+/* line 125, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt ul.rounded {
+  -webkit-border-radius: 8px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.3) 1px 1px 3px;
+}
+/* line 129, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt ul.rounded li:first-child {
+  border-top: 0;
+  -webkit-border-top-left-radius: 8px;
+  -webkit-border-top-right-radius: 8px;
+}
+/* line 133, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt ul.rounded li:first-child a {
+  border-top: 0;
+  -webkit-border-top-left-radius: 8px;
+  -webkit-border-top-right-radius: 8px;
+}
+/* line 137, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt ul.rounded li:last-child {
+  -webkit-border-bottom-left-radius: 8px;
+  -webkit-border-bottom-right-radius: 8px;
+}
+/* line 140, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt ul.rounded li:last-child a {
+  -webkit-border-bottom-left-radius: 8px;
+  -webkit-border-bottom-right-radius: 8px;
+}
+/* line 143, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt ul li {
+  color: #666666;
+  border-top: 1px solid #333333;
+  border-bottom: #555858;
+  list-style-type: none;
+  padding: 10px 10px 10px 10px;
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#4c4d4e), to(#404142));
+  overflow: hidden;
+}
+/* line 151, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt ul li.arrow {
+  background-image: url("/images/jqtouch/jqt/chevron.png"), -webkit-gradient(linear, 0% 0%, 0% 100%, from(#4c4d4e), to(#404142));
+  background-position: right center;
+  background-repeat: no-repeat;
+}
+/* line 155, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt ul li.arrow a {
+  padding: 12px 22px 12px 10px;
+}
+/* line 157, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt ul li.forward {
+  background-image: url("/images/jqtouch/jqt/chevron_circle.png"), -webkit-gradient(linear, 0% 0%, 0% 100%, from(#4c4d4e), to(#404142));
+  background-position: right center;
+  background-repeat: no-repeat;
+}
+/* line 161, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt ul li a {
+  color: white;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: block;
+  padding: 12px 10px 12px 10px;
+  margin: -10px;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  text-shadow: rgba(0, 0, 0, 0.2) 0 1px 1px;
+}
+/* line 172, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt li.img a + a {
+  color: white;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: block;
+  padding: 12px 10px 12px 10px;
+  margin: -10px;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  text-shadow: rgba(0, 0, 0, 0.2) 0 1px 1px;
+}
+/* line 186, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt ul li a.active, #jqt ul li a.button {
+  background-color: #53b401;
+  color: white;
+}
+/* line 189, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt ul li a.active.loading {
+  background-image: url("/images/jqtouch/jqt/loading.gif");
+  background-position: 95% center;
+  background-repeat: no-repeat;
+}
+/* line 193, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt ul li.arrow a.active {
+  background-image: url("/images/jqtouch/jqt/chevron.png");
+  background-position: right center;
+  background-repeat: no-repeat;
+}
+/* line 197, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt ul li.forward a.active {
+  background-image: url("/images/jqtouch/jqt/chevron_circle.png");
+  background-position: right center;
+  background-repeat: no-repeat;
+}
+/* line 202, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt ul li.img a + a {
+  margin: -10px 10px -20px -5px;
+  font-size: 17px;
+  font-weight: bold;
+}
+/* line 206, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt ul li.img a + a + a {
+  font-size: 14px;
+  font-weight: normal;
+  margin-left: -10px;
+  margin-bottom: -10px;
+  margin-top: 0;
+}
+/* line 212, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt ul li.img a + small + a {
+  margin-left: -5px;
+}
+/* line 214, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt ul li.img a + small + a + a {
+  margin-left: -10px;
+  margin-top: -20px;
+  margin-bottom: -10px;
+  font-size: 14px;
+  font-weight: normal;
+}
+/* line 220, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt ul li.img a + small + a + a + a {
+  margin-left: 0px !important;
+  margin-bottom: 0;
+}
+/* line 223, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt ul li a + a {
+  color: black;
+  font: 14px "Helvetica Neue", Helvetica;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+/* line 232, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt ul li a + a + a {
+  color: #666666;
+  font: 13px "Helvetica Neue", Helvetica;
+  margin: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: block;
+  padding: 0;
+}
+/* line 242, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt ul li.img a + a + a + a, #jqt ul li.img a + small + a + a + a {
+  color: #666666;
+  font: 13px "Helvetica Neue", Helvetica;
+  margin: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: block;
+  padding: 0;
+}
+/* line 251, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt ul.form li {
+  padding: 7px 10px;
+}
+/* line 253, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt ul.form li.error {
+  border: 2px solid red;
+}
+/* line 255, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt ul.form li.error + li.error {
+  border-top: 0;
+}
+/* line 259, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt ul li input[type="text"], #jqt ul li input[type="password"], #jqt ul li input[type="tel"], #jqt ul li input[type="number"], #jqt ul li input[type="search"], #jqt ul li input[type="email"], #jqt ul li input[type="url"] {
+  color: #777777;
+  background: transparent url('data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==');
+  border: 0;
+  font: normal 17px "Helvetica Neue", Helvetica;
+  padding: 0;
+  display: inline-block;
+  margin-left: 0px;
+  width: 100%;
+  -webkit-appearance: textarea;
+}
+/* line 269, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt ul li textarea, #jqt ul li select {
+  color: #777777;
+  background: transparent url('data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==');
+  border: 0;
+  font: normal 17px "Helvetica Neue", Helvetica;
+  padding: 0;
+  display: inline-block;
+  margin-left: 0px;
+  width: 100%;
+  -webkit-appearance: textarea;
+}
+/* line 279, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt ul li textarea {
+  height: 120px;
+  padding: 0;
+  text-indent: -2px;
+}
+/* line 283, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt ul li select {
+  text-indent: 0px;
+  background: transparent url("/images/jqtouch/jqt/chevron.png") no-repeat right center;
+  -webkit-appearance: textfield;
+  margin-left: -6px;
+  width: 104%;
+}
+/* line 290, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt ul li input[type="checkbox"], #jqt ul li input[type="radio"] {
+  margin: 0;
+  padding: 10px 10px;
+}
+/* line 293, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt ul li input[type="checkbox"]:after, #jqt ul li input[type="radio"]:after {
+  content: attr(title);
+  font: 17px "Helvetica Neue", Helvetica;
+  display: block;
+  width: 246px;
+  color: #777777;
+  margin: -12px 0 0 17px;
+}
+/* line 300, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt ul li small {
+  color: #64c114;
+  font: 17px "Helvetica Neue", Helvetica;
+  text-align: right;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: block;
+  width: 23%;
+  float: right;
+  padding: 0;
+}
+/* line 311, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt ul li.arrow small {
+  padding: 0 15px;
+}
+/* line 313, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt ul li small.counter {
+  font-size: 17px;
+  line-height: 13px;
+  font-weight: bold;
+  background: rgba(0, 0, 0, 0.15);
+  color: white;
+  -webkit-border-radius: 11px;
+  padding: 4px 10px 5px 10px;
+  display: block;
+  width: auto;
+  margin-top: -22px;
+  -webkit-box-shadow: rgba(255, 255, 255, 0.1) 0 1px 0;
+}
+/* line 325, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt ul li.arrow small.counter {
+  margin-right: 15px;
+}
+/* line 327, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt ul.individual {
+  border: 0;
+  background: none;
+  clear: both;
+  overflow: hidden;
+  padding-bottom: 3px;
+  -webkit-box-shadow: none;
+}
+/* line 334, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt ul.individual li {
+  background: #4c4d4e;
+  border: 1px solid #333333;
+  font-size: 14px;
+  text-align: center;
+  -webkit-border-radius: 8px;
+  -webkit-box-sizing: border-box;
+  width: 48%;
+  float: left;
+  display: block;
+  padding: 11px 10px 14px 10px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 3px;
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#4c4d4e), to(#404142));
+}
+/* line 347, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt ul.individual li + li {
+  float: right;
+}
+/* line 349, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt ul.individual li a {
+  color: white;
+  line-height: 16px;
+  margin: -11px -10px -14px -10px;
+  padding: 11px 10px 14px 10px;
+  -webkit-border-radius: 8px;
+}
+/* line 355, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt .toggle {
+  width: 94px;
+  position: relative;
+  height: 27px;
+  display: block;
+  overflow: hidden;
+  float: right;
+}
+/* line 362, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt .toggle input[type="checkbox"] {
+  -webkit-appearance: textarea;
+  -webkit-border-radius: 5px;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-transition: left 0.15s;
+  background-color: transparent;
+  background: white url("/images/jqtouch/jqt/on_off.png") 0 0 no-repeat;
+  border: 0;
+  height: 27px;
+  left: -55px;
+  margin: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 149px;
+}
+/* line 363, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt .toggle input[type="checkbox"]:checked {
+  left: 0px;
+}
+/* line 379, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt .info {
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#cccccc), to(#aaaaaa), color-stop(0.6, #cccccc));
+  font-size: 12px;
+  line-height: 16px;
+  text-align: center;
+  text-shadow: rgba(255, 255, 255, 0.8) 0 1px 0;
+  color: #444444;
+  padding: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  font-weight: bold;
+}
+/* line 389, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt ul.edgetoedge {
+  border-width: 1px 0;
+  margin: 0;
+  padding: 0;
+}
+/* line 393, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt ul.edgetoedge li {
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#1e1f21), to(#272729));
+  border-bottom: 2px solid black;
+  border-top: 1px solid #4a4b4d;
+  font-size: 20px;
+  margin-bottom: -1px;
+}
+/* line 399, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt ul.edgetoedge li.sep {
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.5)));
+  border-bottom: 1px solid #111113;
+  border-top: 1px solid #666666;
+  color: #3e9ac3;
+  font-size: 16px;
+  margin: 1px 0 0 0;
+  padding: 2px 10px;
+  text-shadow: black 0 1px 0;
+}
+/* line 408, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt ul.edgetoedge li em {
+  font-weight: normal;
+  font-style: normal;
+}
+/* line 411, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt #plastic {
+  background: #17181a;
+}
+/* line 414, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt ul.plastic {
+  background: #17181a;
+  color: #aaaaaa;
+  font: bold 18px "Helvetica Neue", Helvetica;
+  margin: 0;
+  padding: 0;
+  border-width: 0 0 1px 0;
+}
+/* line 421, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt ul.plastic li {
+  border-width: 1px 0;
+  border-style: solid;
+  border-top-color: #222222;
+  border-bottom-color: black;
+  color: #666666;
+  list-style-type: none;
+  overflow: hidden;
+  padding: 10px 10px 10px 10px;
+}
+/* line 430, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt ul.plastic li a.active.loading {
+  background-image: url("/images/jqtouch/jqt/loading.gif");
+  background-position: 95% center;
+  background-repeat: no-repeat;
+}
+/* line 434, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt ul.plastic li small {
+  color: #888888;
+  font-size: 13px;
+  font-weight: bold;
+  line-height: 24px;
+  text-transform: uppercase;
+}
+/* line 440, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt ul.plastic li:nth-child(odd) {
+  background-color: #1c1c1f;
+}
+/* line 442, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt ul.plastic li.arrow {
+  background-image: url("/images/jqtouch/jqt/chevron.png");
+  background-position: right center;
+  background-repeat: no-repeat;
+}
+/* line 446, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt ul.plastic li.arrow a.active {
+  background-image: url("/images/jqtouch/jqt/chevron.png");
+  background-position: right center;
+  background-repeat: no-repeat;
+}
+/* line 450, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt ul.plastic li.forward {
+  background-image: url("/images/jqtouch/jqt/chevron_circle.png");
+  background-position: right center;
+  background-repeat: no-repeat;
+}
+/* line 454, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt ul.plastic li.forward a.active {
+  background-image: url("/images/jqtouch/jqt/chevron_circle.png");
+  background-position: right center;
+  background-repeat: no-repeat;
+}
+/* line 458, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt ul.metal {
+  border-bottom: 0;
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+  margin: 0;
+}
+/* line 464, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt ul.metal li {
+  background-image: none;
+  border-top: 1px solid white;
+  border-bottom: 1px solid #666666;
+  font-size: 26px;
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#eeeeee), to(#9c9ea0));
+}
+/* line 470, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt ul.metal li a {
+  line-height: 26px;
+  margin: 0;
+  text-shadow: white 0 1px 0;
+  padding: 13px 0;
+}
+/* line 475, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt ul.metal li a em {
+  display: block;
+  font-size: 14px;
+  font-style: normal;
+  color: #444444;
+  width: 50%;
+  line-height: 14px;
+}
+/* line 482, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt ul.metal li a.active {
+  color: black;
+}
+/* line 484, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt ul.metal li small {
+  float: right;
+  position: relative;
+  margin-top: 10px;
+  font-weight: bold;
+}
+/* line 489, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt ul.metal li.arrow {
+  background-image: url("/images/jqtouch/jqt/chevron.png");
+  background-position: right center;
+  background-repeat: no-repeat;
+  background-image: url("/images/jqtouch/jqt/chevron.png"), -webkit-gradient(linear, 0% 0%, 0% 100%, from(#eeeeee), to(#9c9ea0));
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+/* line 496, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
+#jqt ul.metal li.arrow a small {
+  padding-right: 15px;
+  line-height: 17px;
+}
+
+/* @end */
+/* @group Lists */
+/* universal links on list */
+/* @end */
+/* @group Forms */
+/* @end */
+/* @group Mini Label */
+/* @end */
+/* @group Individual */
+/* @end */
+/* @group Toggle */
+/* @end */
+/* @group Info */
+/* @end */
+/* @group Edge to edge */
+/* @end */
+/* @group Plastic */
+/* @group Metal */
+/* @end */

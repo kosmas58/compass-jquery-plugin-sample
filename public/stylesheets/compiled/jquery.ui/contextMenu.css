@@ -1,23 +1,24 @@
-/* line 1, ../../../../app/stylesheets/jquery.ui/contextMenu.sass */
+/* Generic context menu styles */
+/* line 3, ../../../../app/stylesheets/jquery.ui/contextMenu.scss */
 .contextMenu {
   position: absolute;
   width: 120px;
   z-index: 99999;
-  border: solid 1px #CCC;
-  background: #EEE;
+  border: solid 1px #cccccc;
+  background: #eeeeee;
   padding: 0px;
   margin: 0px;
   display: none;
 }
-/* line 11, ../../../../app/stylesheets/jquery.ui/contextMenu.sass */
+/* line 12, ../../../../app/stylesheets/jquery.ui/contextMenu.scss */
 .contextMenu LI {
   list-style: none;
   padding: 0px;
   margin: 0px;
 }
-/* line 16, ../../../../app/stylesheets/jquery.ui/contextMenu.sass */
+/* line 16, ../../../../app/stylesheets/jquery.ui/contextMenu.scss */
 .contextMenu A {
-  color: #333;
+  color: #333333;
   text-decoration: none;
   display: block;
   line-height: 20px;
@@ -28,21 +29,45 @@
   padding: 1px 5px;
   padding-left: 28px;
 }
-/* line 29, ../../../../app/stylesheets/jquery.ui/contextMenu.sass */
+/* line 28, ../../../../app/stylesheets/jquery.ui/contextMenu.scss */
 .contextMenu LI.hover A {
-  color: #FFF;
-  background-color: #3399FF;
+  color: white;
+  background-color: #3399ff;
 }
-/* line 33, ../../../../app/stylesheets/jquery.ui/contextMenu.sass */
+/* line 31, ../../../../app/stylesheets/jquery.ui/contextMenu.scss */
 .contextMenu LI.disabled A {
-  color: #AAA;
+  color: #aaaaaa;
   cursor: default;
 }
-/* line 37, ../../../../app/stylesheets/jquery.ui/contextMenu.sass */
+/* line 34, ../../../../app/stylesheets/jquery.ui/contextMenu.scss */
 .contextMenu LI.hover.disabled A {
   background-color: transparent;
 }
-/* line 40, ../../../../app/stylesheets/jquery.ui/contextMenu.sass */
+/* line 36, ../../../../app/stylesheets/jquery.ui/contextMenu.scss */
 .contextMenu LI.separator {
-  border-top: solid 1px #CCC;
+  border-top: solid 1px #cccccc;
+}
+/* line 38, ../../../../app/stylesheets/jquery.ui/contextMenu.scss */
+.contextMenu LI.edit A {
+  background-image: url("/images/jquery.ui/contextMenu/page_white_edit.png");
+}
+/* line 40, ../../../../app/stylesheets/jquery.ui/contextMenu.scss */
+.contextMenu LI.cut A {
+  background-image: url("/images/jquery.ui/contextMenu/cut.png");
+}
+/* line 42, ../../../../app/stylesheets/jquery.ui/contextMenu.scss */
+.contextMenu LI.copy A {
+  background-image: url("/images/jquery.ui/contextMenu/page_white_copy.png");
+}
+/* line 44, ../../../../app/stylesheets/jquery.ui/contextMenu.scss */
+.contextMenu LI.paste A {
+  background-image: url("/images/jquery.ui/contextMenu/page_white_paste.png");
+}
+/* line 46, ../../../../app/stylesheets/jquery.ui/contextMenu.scss */
+.contextMenu LI.delete A {
+  background-image: url("/images/jquery.ui/contextMenu/page_white_delete.png");
+}
+/* line 48, ../../../../app/stylesheets/jquery.ui/contextMenu.scss */
+.contextMenu LI.quit A {
+  background-image: url("/images/jquery.ui/contextMenu/door.png");
 }

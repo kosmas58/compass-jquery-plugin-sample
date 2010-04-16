@@ -1,28 +1,17 @@
-@-webkit-keyframes slideinfromright {
-  /* line 4, ../../../../app/stylesheets/jqtouch/jqtouch.sass */
-  from {
-    -webkit-transform: translateX(100%);
-  }
-
-  /* line 7, ../../../../app/stylesheets/jqtouch/jqtouch.sass */
-  to {
-    -webkit-transform: translateX(0);
-  }
-}
-
-/* line 12, ../../../../app/stylesheets/jqtouch/jqtouch.sass */
+/* line 3, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
 * {
   margin: 0;
   padding: 0;
 }
 
-/* line 17, ../../../../app/stylesheets/jqtouch/jqtouch.sass */
+/* line 7, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
 a {
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-/* line 21, ../../../../app/stylesheets/jqtouch/jqtouch.sass */
+/* line 10, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
 div#jqt {
+  /*overflow-x: hidden; */
   -webkit-user-select: none;
   -webkit-text-size-adjust: none;
   font-family: "Helvetica Neue", Helvetica;
@@ -30,12 +19,12 @@ div#jqt {
   -webkit-transform-style: preserve-3d;
 }
 
-/* line 30, ../../../../app/stylesheets/jqtouch/jqtouch.sass */
+/* line 19, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
 #jqt .selectable, #jqt input, #jqt textarea {
   -webkit-user-select: auto;
 }
 
-/* line 34, ../../../../app/stylesheets/jqtouch/jqtouch.sass */
+/* line 22, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
 div#jqt > * {
   -webkit-backface-visibility: hidden;
   -webkit-box-sizing: border-box;
@@ -43,46 +32,480 @@ div#jqt > * {
   position: absolute;
   left: 0;
   width: 100%;
-  -webkit-transform: translate3d(0,0,0) rotate(0) scale(1);
+  -webkit-transform: translate3d(0, 0, 0) rotate(0) scale(1);
   min-height: 420px !important;
 }
 
-/* line 47, ../../../../app/stylesheets/jqtouch/jqtouch.sass */
+/* line 34, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
 #jqt.fullscreen > * {
   min-height: 460px !important;
 }
-/* line 50, ../../../../app/stylesheets/jqtouch/jqtouch.sass */
+/* line 36, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
 #jqt.fullscreen.black-translucent > * {
   min-height: 480px !important;
 }
-/* line 53, ../../../../app/stylesheets/jqtouch/jqtouch.sass */
+/* line 38, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
 #jqt.landscape > * {
   min-height: 320px !important;
 }
 
-/* line 57, ../../../../app/stylesheets/jqtouch/jqtouch.sass */
+/* line 41, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
 div#jqt > .current {
   display: block !important;
 }
 
-/* line 62, ../../../../app/stylesheets/jqtouch/jqtouch.sass */
+/* line 45, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
 #jqt .in, #jqt .out {
   -webkit-animation-timing-function: ease-in-out;
   -webkit-animation-duration: 350ms;
 }
-/* line 67, ../../../../app/stylesheets/jqtouch/jqtouch.sass */
+/* line 49, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
 #jqt .slide.in {
   -webkit-animation-name: slideinfromright;
 }
-/* line 70, ../../../../app/stylesheets/jqtouch/jqtouch.sass */
+/* line 51, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
 #jqt .slide.out {
   -webkit-animation-name: slideouttoleft;
 }
-/* line 73, ../../../../app/stylesheets/jqtouch/jqtouch.sass */
+/* line 53, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
 #jqt .slide.in.reverse {
   -webkit-animation-name: slideinfromleft;
 }
-/* line 76, ../../../../app/stylesheets/jqtouch/jqtouch.sass */
+/* line 55, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
 #jqt .slide.out.reverse {
   -webkit-animation-name: slideouttoright;
+}
+/* line 58, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+#jqt .fade.in {
+  z-index: 10;
+  -webkit-animation-name: fadein;
+}
+/* line 61, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+#jqt .fade.out {
+  z-index: 0;
+}
+/* line 64, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+#jqt .dissolve.in {
+  -webkit-animation-name: fadein;
+}
+/* line 66, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+#jqt .dissolve.out {
+  -webkit-animation-name: fadeout;
+}
+/* line 68, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+#jqt .flip {
+  -webkit-animation-duration: 0.65s;
+}
+/* line 70, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+#jqt .flip.in {
+  -webkit-animation-name: flipinfromleft;
+}
+/* line 72, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+#jqt .flip.out {
+  -webkit-animation-name: flipouttoleft;
+}
+/* line 74, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+#jqt .flip.in.reverse {
+  -webkit-animation-name: flipinfromright;
+}
+/* line 76, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+#jqt .flip.out.reverse {
+  -webkit-animation-name: flipouttoright;
+}
+/* line 79, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+#jqt .slideup.in {
+  -webkit-animation-name: slideup;
+  z-index: 10;
+}
+/* line 82, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+#jqt .slideup.out {
+  -webkit-animation-name: dontmove;
+  z-index: 0;
+}
+/* line 85, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+#jqt .slideup.out.reverse {
+  z-index: 10;
+  -webkit-animation-name: slidedown;
+}
+/* line 88, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+#jqt .slideup.in.reverse {
+  z-index: 0;
+  -webkit-animation-name: dontmove;
+}
+/* line 91, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+#jqt .swap {
+  -webkit-transform: perspective(800);
+  -webkit-animation-duration: 0.7s;
+}
+/* line 94, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+#jqt .swap.out {
+  -webkit-animation-name: swapouttoleft;
+}
+/* line 96, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+#jqt .swap.in {
+  -webkit-animation-name: swapinfromright;
+}
+/* line 98, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+#jqt .swap.out.reverse {
+  -webkit-animation-name: swapouttoright;
+}
+/* line 100, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+#jqt .swap.in.reverse {
+  -webkit-animation-name: swapinfromleft;
+}
+/* line 102, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+#jqt .cube {
+  -webkit-animation-duration: 0.55s;
+}
+/* line 104, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+#jqt .cube.in {
+  -webkit-animation-name: cubeinfromright;
+  -webkit-transform-origin: 0% 50%;
+}
+/* line 107, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+#jqt .cube.out {
+  -webkit-animation-name: cubeouttoleft;
+  -webkit-transform-origin: 100% 50%;
+}
+/* line 110, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+#jqt .cube.in.reverse {
+  -webkit-animation-name: cubeinfromleft;
+  -webkit-transform-origin: 100% 50%;
+}
+/* line 113, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+#jqt .cube.out.reverse {
+  -webkit-animation-name: cubeouttoright;
+  -webkit-transform-origin: 0% 50%;
+}
+/* line 116, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+#jqt .pop {
+  -webkit-transform-origin: 50% 50%;
+}
+/* line 118, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+#jqt .pop.in {
+  -webkit-animation-name: popin;
+  z-index: 10;
+}
+/* line 121, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+#jqt .pop.out.reverse {
+  -webkit-animation-name: popout;
+  z-index: 10;
+}
+/* line 124, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+#jqt .pop.in.reverse {
+  z-index: 0;
+  -webkit-animation-name: dontmove;
+}
+
+@-webkit-keyframes slideinfromright {
+  /* line 129, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+  from {
+    -webkit-transform: translateX(100%);
+  }
+
+  /* line 131, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+  to {
+    -webkit-transform: translateX(0);
+  }
+}
+
+@-webkit-keyframes slideinfromleft {
+  /* line 136, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+  from {
+    -webkit-transform: translateX(-100%);
+  }
+
+  /* line 138, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+  to {
+    -webkit-transform: translateX(0);
+  }
+}
+
+@-webkit-keyframes slideouttoleft {
+  /* line 143, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+  from {
+    -webkit-transform: translateX(0);
+  }
+
+  /* line 145, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+  to {
+    -webkit-transform: translateX(-100%);
+  }
+}
+
+@-webkit-keyframes slideouttoright {
+  /* line 150, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+  from {
+    -webkit-transform: translateX(0);
+  }
+
+  /* line 152, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+  to {
+    -webkit-transform: translateX(100%);
+  }
+}
+
+@-webkit-keyframes fadein {
+  /* line 157, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+  from {
+    opacity: 0;
+  }
+
+  /* line 159, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeout {
+  /* line 164, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+  from {
+    opacity: 1;
+  }
+
+  /* line 166, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+  to {
+    opacity: 0;
+  }
+}
+
+/* Shake it all about */
+@-webkit-keyframes flipinfromright {
+  /* line 173, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+  from {
+    -webkit-transform: rotateY(-180deg) scale(0.8);
+  }
+
+  /* line 175, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+  to {
+    -webkit-transform: rotateY(0) scale(1);
+  }
+}
+
+@-webkit-keyframes flipinfromleft {
+  /* line 180, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+  from {
+    -webkit-transform: rotateY(180deg) scale(0.8);
+  }
+
+  /* line 182, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+  to {
+    -webkit-transform: rotateY(0) scale(1);
+  }
+}
+
+@-webkit-keyframes flipouttoleft {
+  /* line 187, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+  from {
+    -webkit-transform: rotateY(0) scale(1);
+  }
+
+  /* line 189, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+  to {
+    -webkit-transform: rotateY(-180deg) scale(0.8);
+  }
+}
+
+@-webkit-keyframes flipouttoright {
+  /* line 194, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+  from {
+    -webkit-transform: rotateY(0) scale(1);
+  }
+
+  /* line 196, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+  to {
+    -webkit-transform: rotateY(180deg) scale(0.8);
+  }
+}
+
+@-webkit-keyframes slideup {
+  /* line 201, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+  from {
+    -webkit-transform: translateY(100%);
+  }
+
+  /* line 203, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+  to {
+    -webkit-transform: translateY(0);
+  }
+}
+
+@-webkit-keyframes slidedown {
+  /* line 208, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+  from {
+    -webkit-transform: translateY(0);
+  }
+
+  /* line 210, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+  to {
+    -webkit-transform: translateY(100%);
+  }
+}
+
+/* Hackish, but reliable. */
+@-webkit-keyframes dontmove {
+  /* line 217, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+  from, to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes swapouttoright {
+  /* line 222, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+  0% {
+    -webkit-transform: translate3d(0px, 0px, 0px) rotateY(0deg);
+    -webkit-animation-timing-function: ease-in-out;
+  }
+
+  /* line 225, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+  50% {
+    -webkit-transform: translate3d(-180px, 0px, -400px) rotateY(20deg);
+    -webkit-animation-timing-function: ease-in;
+  }
+
+  /* line 228, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+  100% {
+    -webkit-transform: translate3d(0px, 0px, -800px) rotateY(70deg);
+  }
+}
+
+@-webkit-keyframes swapouttoleft {
+  /* line 233, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+  0% {
+    -webkit-transform: translate3d(0px, 0px, 0px) rotateY(0deg);
+    -webkit-animation-timing-function: ease-in-out;
+  }
+
+  /* line 236, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+  50% {
+    -webkit-transform: translate3d(180px, 0px, -400px) rotateY(-20deg);
+    -webkit-animation-timing-function: ease-in;
+  }
+
+  /* line 239, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+  100% {
+    -webkit-transform: translate3d(0px, 0px, -800px) rotateY(-70deg);
+  }
+}
+
+@-webkit-keyframes swapinfromright {
+  /* line 244, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+  0% {
+    -webkit-transform: translate3d(0px, 0px, -800px) rotateY(70deg);
+    -webkit-animation-timing-function: ease-out;
+  }
+
+  /* line 247, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+  50% {
+    -webkit-transform: translate3d(-180px, 0px, -400px) rotateY(20deg);
+    -webkit-animation-timing-function: ease-in-out;
+  }
+
+  /* line 250, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+  100% {
+    -webkit-transform: translate3d(0px, 0px, 0px) rotateY(0deg);
+  }
+}
+
+@-webkit-keyframes swapinfromleft {
+  /* line 255, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+  0% {
+    -webkit-transform: translate3d(0px, 0px, -800px) rotateY(-70deg);
+    -webkit-animation-timing-function: ease-out;
+  }
+
+  /* line 258, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+  50% {
+    -webkit-transform: translate3d(180px, 0px, -400px) rotateY(-20deg);
+    -webkit-animation-timing-function: ease-in-out;
+  }
+
+  /* line 261, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+  100% {
+    -webkit-transform: translate3d(0px, 0px, 0px) rotateY(0deg);
+  }
+}
+
+@-webkit-keyframes cubeinfromleft {
+  /* line 266, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+  from {
+    -webkit-transform: rotateY(-90deg) translateZ(320px);
+    opacity: 0.5;
+  }
+
+  /* line 269, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+  to {
+    -webkit-transform: rotateY(0deg) translateZ(0);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes cubeouttoright {
+  /* line 275, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+  from {
+    -webkit-transform: rotateY(0deg) translateX(0);
+    opacity: 1;
+  }
+
+  /* line 278, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+  to {
+    -webkit-transform: rotateY(90deg) translateZ(320px);
+    opacity: 0.5;
+  }
+}
+
+@-webkit-keyframes cubeinfromright {
+  /* line 284, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+  from {
+    -webkit-transform: rotateY(90deg) translateZ(320px);
+    opacity: 0.5;
+  }
+
+  /* line 287, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+  to {
+    -webkit-transform: rotateY(0deg) translateZ(0);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes cubeouttoleft {
+  /* line 293, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+  from {
+    -webkit-transform: rotateY(0deg) translateZ(0);
+    opacity: 1;
+  }
+
+  /* line 296, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+  to {
+    -webkit-transform: rotateY(-90deg) translateZ(320px);
+    opacity: 0.5;
+  }
+}
+
+@-webkit-keyframes popin {
+  /* line 302, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+  from {
+    -webkit-transform: scale(0.2);
+    opacity: 0;
+  }
+
+  /* line 305, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+  to {
+    -webkit-transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes popout {
+  /* line 311, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+  from {
+    -webkit-transform: scale(1);
+    opacity: 1;
+  }
+
+  /* line 314, ../../../../app/stylesheets/jqtouch/jqtouch.scss */
+  to {
+    -webkit-transform: scale(0.2);
+    opacity: 0;
+  }
 }

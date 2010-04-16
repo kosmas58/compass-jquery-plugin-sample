@@ -1,48 +1,52 @@
-/* line 3, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 3, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 body {
   padding-top: 120px;
 }
 
-/* line 7, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 6, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 .clear {
   clear: both;
   font-size: 1px;
   line-height: 1px;
 }
 
-/* line 13, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 11, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 .mainContainer {
   position: fixed;
   top: 0px;
   left: 0px;
 }
 
-/* line 19, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 16, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 ul.ribbon {
   margin: 0px;
   padding: 0px;
   font-size: 0.8em;
-  border-bottom: 1px solid #8DB2E3;
+  border-bottom: 1px solid #8db2e3;
   float: left;
   position: relative;
   width: 100%;
 }
-/* line 28, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 21, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 ul.ribbon * {
   margin: 0px;
   padding: 0px;
   list-style-type: none;
 }
-/* line 33, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 25, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
+ul.ribbon ul ul {
+  /*display: none; */
+}
+/* line 27, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 ul.ribbon ul ul ul {
   display: block;
 }
-/* line 36, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 29, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 ul.ribbon ul ul ul li {
   display: block;
   float: none;
 }
-/* line 40, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 35, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 ul.ribbon .orb {
   display: block;
   width: 56px;
@@ -56,7 +60,7 @@ ul.ribbon .orb {
   margin-top: -4px;
   top: 1px;
 }
-/* line 53, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 47, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 ul.ribbon .orb a.orbButton {
   display: block;
   width: 50px;
@@ -66,28 +70,28 @@ ul.ribbon .orb a.orbButton {
   text-decoration: none;
   position: absolute;
 }
-/* line 62, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 55, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 ul.ribbon .orb li ul {
   background-image: url("/images/jquery.ui/ribbon.windows7/menu_middle.png");
   background-repeat: repeat-y;
   background-position: right;
 }
-/* line 67, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 59, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 ul.ribbon .orb:hover {
   background-image: url("/images/jquery.ui/ribbon.windows7/orb_office_hover.png");
 }
-/* line 70, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 61, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 ul.ribbon .orb span {
   display: none;
 }
-/* line 73, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 63, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 ul.ribbon .orb li {
   margin-top: 4px;
   margin-left: 10px;
 }
-/* line 77, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 66, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 ul.ribbon .orb ul {
-  background-color: #fff;
+  background-color: white;
   width: 499px;
   padding: 10px;
   margin-top: 0px;
@@ -97,32 +101,32 @@ ul.ribbon .orb ul {
   top: 0px;
   left: 11px;
 }
-/* line 88, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 76, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 ul.ribbon .orb li ul li {
   margin-top: 0px;
   margin-left: -9px;
   padding-left: 9px;
   width: 205px;
 }
-/* line 94, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 81, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 ul.ribbon .orb li ul li a {
   width: 190px;
 }
-/* line 97, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 83, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 ul.ribbon .orb li ul li a.arrow {
   background-image: url("/images/jquery.ui/ribbon.windows7/arrow.png");
   background-repeat: no-repeat;
   background-position: center right;
 }
 
-/* line 103, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 88, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 li.arrow {
   background-image: url("/images/jquery.ui/ribbon.windows7/arrow_down.png");
   background-repeat: no-repeat;
   background-position: center right;
 }
 
-/* line 113, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 97, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 ul.ribbon .orb li ul li ul {
   position: absolute;
   top: 21px !important;
@@ -134,14 +138,14 @@ ul.ribbon .orb li ul li ul {
   margin-left: -14px;
   margin-top: 0px;
 }
-/* line 124, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 107, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 ul.ribbon .orb li ul li ul li {
   width: 100%;
   margin: 0px;
   height: 53px;
   line-height: 53px;
 }
-/* line 130, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 112, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 ul.ribbon .orb li ul li ul li a {
   width: 100%;
   margin: 0px;
@@ -149,7 +153,7 @@ ul.ribbon .orb li ul li ul li a {
   line-height: 53px;
   font-weight: bold;
 }
-/* line 137, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 118, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 ul.ribbon .orb li ul li ul li:hover {
   background-image: url("/images/jquery.ui/ribbon.windows7/orb_submenu_item_hover.png");
   background-repeat: repeat-x;
@@ -157,21 +161,21 @@ ul.ribbon .orb li ul li ul li:hover {
   margin: 0px;
   line-height: 51px;
 }
-/* line 144, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 124, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 ul.ribbon .orb li ul li ul li:hover a {
   height: 51px;
   line-height: 51px;
 }
-/* line 148, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 127, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 ul.ribbon .orb li ul li:hover {
   background-image: url("/images/jquery.ui/ribbon.windows7/menu_item_hover.png");
   background-repeat: no-repeat;
   padding-left: 8px;
-  border: 1px solid #FFB700;
+  border: 1px solid #ffb700;
   height: 40px;
   line-height: 38px;
 }
-/* line 156, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 134, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 ul.ribbon .orb ul a {
   clear: both;
   display: block;
@@ -182,43 +186,43 @@ ul.ribbon .orb ul a {
   height: 42px;
   line-height: 42px;
 }
-/* line 166, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 143, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 ul.ribbon .orb ul a:hover {
   height: 40px;
   line-height: 40px;
 }
-/* line 170, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 146, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 ul.ribbon .orb ul a img {
   position: absolute;
   bottom: 7px;
 }
-/* line 174, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 149, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 ul.ribbon .orb ul a:hover img {
   position: absolute;
   bottom: 6px;
 }
-/* line 179, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 153, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 ul.ribbon .orb li ul li ul li a img {
   position: absolute;
   bottom: 13px;
 }
-/* line 183, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 156, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 ul.ribbon .orb li ul li ul li:hover a img {
   position: absolute;
   bottom: 12px;
 }
-/* line 187, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 159, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 ul.ribbon .orb ul a span {
   display: inline;
   left: 40px;
   top: 0px;
   position: absolute;
 }
-/* line 193, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 164, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 ul.ribbon a {
   outline: none;
 }
-/* line 196, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 166, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 ul.menu {
   clear: both;
   padding-left: 60px;
@@ -226,11 +230,11 @@ ul.menu {
   margin-left: 10px;
   width: 1000px;
 }
-/* line 203, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 172, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 ul.menu li {
   float: left;
 }
-/* line 206, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 174, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 ul.menu li a {
   display: block;
   padding-top: 3px;
@@ -241,13 +245,13 @@ ul.menu li a {
   width: 75px;
   text-align: center;
 }
-/* line 216, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 183, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 ul.menu li a.active {
   background-color: #d9e3f3;
   background-image: url("/images/jquery.ui/ribbon.windows7/menuitem_background.png");
   background-repeat: no-repeat;
 }
-/* line 221, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 187, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 ul.menu .submenu {
   display: block;
   position: absolute;
@@ -255,7 +259,7 @@ ul.menu .submenu {
   width: 100%;
   height: 90px;
   border: 1px solid #3b5a82;
-  border-bottom: 1px solid #9FAEC2;
+  border-bottom: 1px solid #9faec2;
   border-top: 0px;
   background-image: url("/images/jquery.ui/ribbon.windows7/menu_background.png");
   background-repeat: repeat-x;
@@ -264,7 +268,7 @@ ul.menu .submenu {
   z-index: 0;
   border-top: 1px solid #8db2e3;
 }
-/* line 237, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 202, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 ul.menu .submenu li {
   height: 80px;
   margin-top: 5px;
@@ -273,7 +277,7 @@ ul.menu .submenu li {
   cursor: pointer;
 }
 
-/* line 246, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 211, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 .submenu h2 {
   font-family: Calibri;
   font-size: 11px;
@@ -286,7 +290,7 @@ ul.menu .submenu li {
   position: absolute;
 }
 
-/* line 260, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 224, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 ul.menu li ul li div {
   padding: 5px;
   padding-top: 1px;
@@ -295,27 +299,27 @@ ul.menu li ul li div {
   height: 55px;
   float: left;
 }
-/* line 268, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 231, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 ul.menu li ul li div:hover {
   padding: 4px;
   padding-top: 0px;
   background-image: url("/images/jquery.ui/ribbon.windows7/item_background.png");
   background-repeat: repeat-x;
   height: 52px;
-  border: 1px solid #FFB700;
+  border: 1px solid #ffb700;
 }
-/* line 276, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 238, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 ul.menu li ul div.ribbon-list {
   padding: 0px 5px 0px 5px;
   height: 1.5em !important;
 }
-/* line 280, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 241, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 ul.menu li ul div.ribbon-list:hover {
   background-image: none;
   border: 0px;
   padding: 0px 5px 0px 5px;
 }
-/* line 285, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 245, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 ul.menu li ul div.ribbon-list div {
   padding: 1px;
   text-align: left;
@@ -324,33 +328,33 @@ ul.menu li ul div.ribbon-list div {
   line-height: 18px;
   float: none;
 }
-/* line 293, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 252, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 ul.menu li ul div.ribbon-list input {
   margin-top: 3px;
   margin-right: 3px;
 }
-/* line 298, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 256, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 ul.menu li ul div.ribbon-list div img {
   float: left;
   padding: 2px;
   padding-right: 3px;
 }
-/* line 303, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 260, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 ul.menu li ul div.ribbon-list div:hover {
   padding: 0px;
   background-image: url("/images/jquery.ui/ribbon.windows7/item_small_background.png");
   background-repeat: repeat-x;
   height: 18px;
-  border: 1px solid #FFB700;
+  border: 1px solid #ffb700;
 }
-/* line 310, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 266, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 ul.menu li ul div.ribbon-list ul {
-  background-color: #fff;
+  background-color: white;
   position: absolute;
   margin-left: -1px;
-  border: 1px solid #8492A6;
+  border: 1px solid #8492a6;
 }
-/* line 316, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 271, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 ul.menu li ul div.ribbon-list ul li {
   background-image: url("/images/jquery.ui/ribbon.windows7/menu_dropdownitembg.png");
   background-repeat: repeat-y;
@@ -360,44 +364,44 @@ ul.menu li ul div.ribbon-list ul li {
   padding: 1px;
   padding-left: 30px;
 }
-/* line 325, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 279, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 ul.menu li ul div.ribbon-list ul li:hover {
   background-image: url("/images/jquery.ui/ribbon.windows7/menu_dropdownitembghover.png");
   background-repeat: repeat-x;
-  border: 1px solid #FFB700;
+  border: 1px solid #ffb700;
   padding: 0px;
   padding-left: 29px;
 }
-/* line 332, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 285, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 ul.menu li ul li div img {
   padding-top: 5px;
   display: block;
   margin: 0px auto;
 }
-/* line 337, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 289, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 ul.menu li li {
-  border-right: 1px solid #abc;
+  border-right: 1px solid #aabbcc;
 }
 
-/* line 341, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 292, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 .ribbon-backstage {
-  background-color: #fff !important;
+  background-color: white !important;
   background-position: left top !important;
   background-repeat: no-repeat !important;
   top: 23px !important;
 }
-/* line 347, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 297, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 .ribbon-backstage * {
   background-color: transparent !important;
 }
-/* line 350, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 299, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 .ribbon-backstage li.ribbon-backstage-firstLevel {
   border: 0px !important;
   height: 34px !important;
   padding: 0px !important;
   width: 100px !important;
 }
-/* line 356, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 304, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 .ribbon-backstage li.ribbon-backstage-firstLevel:hover {
   background-image: url("/images/jquery.ui/ribbon.windows7/ribbon-backstage-firstLevel-hover.png") !important;
   background-position: center left;
@@ -406,40 +410,46 @@ ul.menu li li {
   height: 34px !important;
   padding: 0px !important;
 }
-/* line 364, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 311, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 .ribbon-backstage li.ribbon-backstage-firstLevel * {
   background-color: Transparent !important;
-  color: #000 !important;
+  color: black !important;
 }
-/* line 368, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 314, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 .ribbon-backstage li.ribbon-backstage-firstLevel a {
   line-height: 34px !important;
   height: 34px !important;
   width: 90px !important;
 }
-/* line 373, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 318, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 .ribbon-backstage li.ribbon-backstage-firstLevel a:hover {
   line-height: 34px !important;
 }
-/* line 376, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 320, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 .ribbon-backstage li.ribbon-backstage-firstLevel a span {
   left: 22px !important;
   line-height: 34px !important;
 }
-/* line 380, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 323, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 .ribbon-backstage li.ribbon-backstage-firstLevel a:hover span {
   left: 22px;
   line-height: 34px !important;
 }
-/* line 384, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
-.ribbon-backstage li.ribbon-backstage-firstLevel a img, .ribbon-backstage li.ribbon-backstage-firstLevel a:hover img {
+/* line 326, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
+.ribbon-backstage li.ribbon-backstage-firstLevel a img {
   width: 15px !important;
   bottom: 9px !important;
   left: 3px !important;
 }
-/* line 389, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 330, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
+.ribbon-backstage li.ribbon-backstage-firstLevel a:hover img {
+  width: 15px !important;
+  bottom: 9px !important;
+  left: 3px !important;
+}
+/* line 334, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 .ribbon-backstage li.ribbon-backstage-firstLevel ul.ribbon-backstage-subMenu {
-  background-color: #fff !important;
+  background-color: white !important;
   left: 115px !important;
   padding-left: 10px !important;
   padding-right: 10px !important;
@@ -447,11 +457,11 @@ ul.menu li li {
   margin-top: -11px;
   width: 261px;
 }
-/* line 398, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 342, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 .ribbon-backstage li.ribbon-backstage-firstLevel ul.ribbon-backstage-subMenu li, .ribbon-backstage li.ribbon-backstage-firstLevel ul.ribbon-backstage-subMenu div {
   width: 247px;
 }
-/* line 401, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 344, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 .ribbon-backstage li.ribbon-backstage-firstLevel ul.ribbon-backstage-subMenu .ribbon-backstage-subMenu-header {
   color: #262626 !important;
   font-size: 16px !important;
@@ -460,7 +470,7 @@ ul.menu li li {
   border-bottom-width: 3px;
   width: 90% !important;
 }
-/* line 409, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 351, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 .ribbon-backstage li.ribbon-backstage-firstLevel ul.ribbon-backstage-subMenu li {
   background-image: url("/images/jquery.ui/ribbon.windows7/ribbon-backstage-subMenu-item.png");
   background-repeat: no-repeat !important;
@@ -469,7 +479,7 @@ ul.menu li li {
   margin-top: 5px !important;
   padding-left: 8px !important;
 }
-/* line 417, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 358, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 .ribbon-backstage li.ribbon-backstage-firstLevel ul.ribbon-backstage-subMenu li:hover {
   background-image: url("/images/jquery.ui/ribbon.windows7/ribbon-backstage-subMenu-item-hover.png");
   background-repeat: no-repeat !important;
@@ -477,42 +487,49 @@ ul.menu li li {
   width: 255px;
   height: 43px;
 }
-/* line 424, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 364, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 .ribbon-backstage li.ribbon-backstage-firstLevel ul.ribbon-backstage-subMenu li a {
   line-height: 43px !important;
   height: 43px !important;
   width: auto !important;
 }
-/* line 429, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 368, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 .ribbon-backstage li.ribbon-backstage-firstLevel ul.ribbon-backstage-subMenu li:hover a {
   line-height: 43px !important;
   height: 43px !important;
 }
-/* line 433, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
-.ribbon-backstage li.ribbon-backstage-firstLevel ul.ribbon-backstage-subMenu li img, .ribbon-backstage li.ribbon-backstage-firstLevel ul.ribbon-backstage-subMenu li:hover img {
+/* line 371, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
+.ribbon-backstage li.ribbon-backstage-firstLevel ul.ribbon-backstage-subMenu li img {
   height: auto !important;
   width: auto !important;
   margin-right: 15px;
   bottom: 8px !important;
 }
-/* line 439, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 376, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
+.ribbon-backstage li.ribbon-backstage-firstLevel ul.ribbon-backstage-subMenu li:hover img {
+  height: auto !important;
+  width: auto !important;
+  margin-right: 15px;
+  bottom: 8px !important;
+}
+/* line 381, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 .ribbon-backstage li.ribbon-backstage-firstLevel ul.ribbon-backstage-subMenu li span {
   left: 40px;
-  color: #000 !important;
+  color: black !important;
   top: 5px;
   padding-left: 20px;
 }
-/* line 445, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 386, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 .ribbon-backstage li.ribbon-backstage-firstLevel ul.ribbon-backstage-subMenu li span:hover {
-  color: #000 !important;
+  color: black !important;
 }
-/* line 449, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 389, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 .ribbon-backstage li.ribbon-backstage-firstLevel div.ribbon-backstage-rightColumnWide {
-  background-color: #EDF0F2 !important;
+  background-color: #edf0f2 !important;
   background-image: url("/images/jquery.ui/ribbon.windows7/ribbon-backstage-rightColumn-wide.png");
   background-position: left;
   background-repeat: repeat-y;
-  color: #000 !important;
+  color: black !important;
   display: none;
   left: 382px;
   margin-top: -11px;
@@ -524,13 +541,13 @@ ul.menu li li {
   z-index: 30;
   line-height: 17px;
 }
-/* line 466, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 405, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 .ribbon-backstage li.ribbon-backstage-firstLevel div.ribbon-backstage-rightColumnSmall {
-  background-color: #EDF0F2 !important;
+  background-color: #edf0f2 !important;
   background-image: url("/images/jquery.ui/ribbon.windows7/ribbon-backstage-rightColumn-wide.png");
   background-position: left;
   background-repeat: repeat-y;
-  color: #000 !important;
+  color: black !important;
   display: none;
   left: 382px;
   margin-top: -11px;
@@ -543,37 +560,42 @@ ul.menu li li {
   line-height: 17px;
   text-align: center;
 }
-/* line 484, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 422, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 .ribbon-backstage li.ribbon-backstage-firstLevel div.ribbon-backstage-rightColumnSmall * {
-  color: #000 !important;
+  color: black !important;
 }
-/* line 487, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 424, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
+.ribbon-backstage li.ribbon-backstage-firstLevel div.ribbon-backstage-rightColumnSmall img {
+  max-width: 100px;
+  max-width: 100px;
+}
+/* line 427, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 .ribbon-backstage li.ribbon-backstage-firstLevel .ribbon-backstage-leftColumnWide li {
   background-image: url("/images/jquery.ui/ribbon.windows7/ribbon-backstage-subMenu-itemSquare.png") !important;
   background-position: center !important;
   background-repeat: no-repeat !important;
-  color: #0f0 !important;
+  color: lime !important;
   float: left;
   height: 100px !important;
   width: 90px !important;
   padding-left: 0px !important;
 }
-/* line 497, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 436, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 .ribbon-backstage li.ribbon-backstage-firstLevel .ribbon-backstage-leftColumnWide li:hover {
   background-image: url("/images/jquery.ui/ribbon.windows7/ribbon-backstage-subMenu-itemSquare-hover.png") !important;
   background-position: center !important;
   background-repeat: no-repeat !important;
-  color: #0f0 !important;
+  color: lime !important;
   float: left;
   height: 100px !important;
   width: 90px !important;
 }
-/* line 506, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 444, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 .ribbon-backstage li.ribbon-backstage-firstLevel .ribbon-backstage-leftColumnWide li img {
   padding-left: 25px;
   top: 20px;
 }
-/* line 510, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.sass */
+/* line 447, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 .ribbon-backstage li.ribbon-backstage-firstLevel .ribbon-backstage-leftColumnWide li span {
   line-height: 12px !important;
   font-size: 12px;
