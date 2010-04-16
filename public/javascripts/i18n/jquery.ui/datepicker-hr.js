@@ -6,18 +6,14 @@ jQuery(function($){
 		prevText: '&#x3c;',
 		nextText: '&#x3e;',
 		currentText: 'Danas',
-		monthNames: ['Siječanj','Veljača','Ožujak','Travanj','Svibanj','Lipanj',
+		monthNames: ['Siječanj','Veljača','Ožujak','Travanj','Svibanj','Lipani',
 		'Srpanj','Kolovoz','Rujan','Listopad','Studeni','Prosinac'],
 		monthNamesShort: ['Sij','Velj','Ožu','Tra','Svi','Lip',
 		'Srp','Kol','Ruj','Lis','Stu','Pro'],
-		dayNames: ['Nedjelja','Ponedjeljak','Utorak','Srijeda','Četvrtak','Petak','Subota'],
+		dayNames: ['Nedjalja','Ponedjeljak','Utorak','Srijeda','Četvrtak','Petak','Subota'],
 		dayNamesShort: ['Ned','Pon','Uto','Sri','Čet','Pet','Sub'],
 		dayNamesMin: ['Ne','Po','Ut','Sr','Če','Pe','Su'],
-		weekHeader: 'Tje',
-		dateFormat: 'dd.mm.yy.',
-		firstDay: 1,
-		isRTL: false,
-		showMonthAfterYear: false,
-		yearSuffix: ''};
+		dateFormat: 'dd.mm.yy.', firstDay: 1,
+		isRTL: false};
 	$.datepicker.setDefaults($.datepicker.regional['hr']);
 });
