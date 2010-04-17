@@ -3,8 +3,20 @@
 
 #jqt
   #page1.touch
-    %div
+    .toolbar
+      %h1
+        Swipe animation
+      %a.back{ :href => "/jqtouch/demo", :target => "_webapp" }
+        Back 
+    .swipe
       Swipe left to go to the next page.
+      %img{ :src => "/images/jqtouch/animations/swipe-left.gif" }
   #page2.touch
-    %div
+    .toolbar
+      %h1
+        Test reveal animation
+      %a.back{ :href => "/jqtouch/demo", :target => "_webapp" }
+        Back 
+    .swipe
       Swipe right to go back.
+      %img{ :src => "/images/jqtouch/animations/swipe-right.gif" }
