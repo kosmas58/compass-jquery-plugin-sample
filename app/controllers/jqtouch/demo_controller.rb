@@ -14,5 +14,6 @@ class Jqtouch::DemoController < ApplicationController
       @title = "Zip #{params[:zip]}"
       @zip = true
     end
+    render ( :partial => "ajax_post" )
   end
 end

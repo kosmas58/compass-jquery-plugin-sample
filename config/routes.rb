@@ -17,15 +17,6 @@ ActionController::Routing::Routes.draw do |map|
   
   map.resources :iphone, :collection => { :main     => :get,
                                           :original => :get }
-  
-  map.resources :demo, :collection => { :autotitles       => :get,
-                                        :clock            => :get,
-                                        :customanimation  => :get,
-                                        :customanimation2 => :get,
-                                        :floaty           => :get,
-                                        :location         => :get,
-                                        :offline          => :get,
-                                        :todo             => :get }
 
   map.namespace :jqgrid do |jqgrid|
     jqgrid.resources :animals
@@ -35,6 +26,10 @@ ActionController::Routing::Routes.draw do |map|
     jqgrid.resources :users, :collection => { :pets      => :get,
                                               :post_data => :post }  
     jqgrid.resources :widgets 
+  end
+  
+  map.namespace :jqtouch do |jqtouch|
+    jqtouch.resources :demo => { :ajax_post => :post }  
   end
   
   Translate::Routes.translation_ui(map) if RAILS_ENV != "production "
