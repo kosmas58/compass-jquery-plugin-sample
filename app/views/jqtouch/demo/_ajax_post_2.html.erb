@@ -1,0 +1,39 @@
+<div id='jqt'>
+  <div class='toolbar'>
+    <h1>
+      Post Demo
+    </h1>
+    <a class='button back' href='ajax' target='_webapp'>
+      Back
+    </a>
+  </div>
+  <ul class='edgetoedge'>
+	<% if @zip %>			
+  	<% for theater in @theaters %>
+    <li>
+      <a href='#theater'>
+        <%= theater %>
+      </a>
+    </li>
+		<% end %>
+  <% else %>
+  	<% for movie in @movies %>
+    <li>
+      <a href='#movie'>
+        <%= movie %>
+      </a>
+    </li>
+		<% end %>
+	<% end %>
+  </ul>
+  <form action='ajax_post' method='POST'>
+    <ul class='rounded'>
+      <li>
+        <input name='zip' placeholder='Live post event test' type='text' value='' />
+      </li>
+      <a class='submit whiteButton' href='#' style='margin:0 10px;color:rgba(0,0,0,.9)'>
+        Submit
+      </a>
+    </ul>
+  </form>
+</div>
