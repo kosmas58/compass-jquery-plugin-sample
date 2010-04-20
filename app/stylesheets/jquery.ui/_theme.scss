@@ -319,7 +319,8 @@ button.ui-button::-moz-focus-inner {
 
 .ui-datepicker-cover {
   display: none;
-  display/**/: block;
+  display/**/: block {
+ }
   position: absolute;
   z-index: -1;
   filter: mask();
