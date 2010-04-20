@@ -318,9 +318,6 @@ button.ui-button::-moz-focus-inner {
     border-left-width: 1px; } }
 
 .ui-datepicker-cover {
-  display: none;
-  display/**/: block {
- }
   position: absolute;
   z-index: -1;
   filter: mask();
