@@ -5,12 +5,12 @@ body, #jqt {
 
 /* line 6, ../../../../app/stylesheets/jqtouch/jqt.apple.scss */
 body > * {
-  background: #c5ccd3 url("/images/jqtouch/apple/pinstripes.png");
+  background: #c5ccd3 url('/images/jqtouch/apple/pinstripes.png?1271777477');
 }
 
 /* line 10, ../../../../app/stylesheets/jqtouch/jqt.apple.scss */
 #jqt > * {
-  background: #c5ccd3 url("/images/jqtouch/apple/pinstripes.png");
+  background: #c5ccd3 url('/images/jqtouch/apple/pinstripes.png?1271777477');
 }
 /* line 12, ../../../../app/stylesheets/jqtouch/jqt.apple.scss */
 #jqt h1, #jqt h2 {
@@ -25,7 +25,7 @@ body > * {
   border-bottom: 1px solid #2d3642;
   padding: 10px;
   height: 45px;
-  background: url("/images/jqtouch/apple/toolbar.png") #6d84a2 repeat-x;
+  background: url('/images/jqtouch/apple/toolbar.png?1271777477') #6d84a2 repeat-x;
   position: relative;
 }
 /* line 24, ../../../../app/stylesheets/jqtouch/jqt.apple.scss */
@@ -79,15 +79,15 @@ div#jqt.landscape .toolbar > h1 {
   text-decoration: none;
   white-space: nowrap;
   background: none;
-  -webkit-border-image: url("/images/jqtouch/apple/toolButton.png") 0 5 0 5;
+  -webkit-border-image: url('/images/jqtouch/apple/toolButton.png?1271777477') 0 5 0 5;
 }
 /* line 72, ../../../../app/stylesheets/jqtouch/jqt.apple.scss */
 #jqt .button.active, #jqt .cancel.active, #jqt .add.active {
-  -webkit-border-image: url("/images/jqtouch/apple/toolButton.png") 0 5 0 5;
+  -webkit-border-image: url('/images/jqtouch/apple/toolButton.png?1271777477') 0 5 0 5;
 }
 /* line 74, ../../../../app/stylesheets/jqtouch/jqt.apple.scss */
 #jqt .blueButton {
-  -webkit-border-image: url("/images/jqtouch/apple/actionButton.png") 0 5 0 5;
+  -webkit-border-image: url('/images/jqtouch/apple/actionButton.png?1271777477') 0 5 0 5;
   border-width: 0 5px;
 }
 /* line 77, ../../../../app/stylesheets/jqtouch/jqt.apple.scss */
@@ -97,11 +97,11 @@ div#jqt.landscape .toolbar > h1 {
   padding: 0;
   max-width: 55px;
   border-width: 0 8px 0 14px;
-  -webkit-border-image: url("/images/jqtouch/apple/backButton.png") 0 8 0 14;
+  -webkit-border-image: url('/images/jqtouch/apple/backButton.png?1271777477') 0 8 0 14;
 }
 /* line 84, ../../../../app/stylesheets/jqtouch/jqt.apple.scss */
 #jqt .back.active {
-  -webkit-border-image: url("/images/jqtouch/apple/backButton.png") 0 8 0 14;
+  -webkit-border-image: url('/images/jqtouch/apple/backButton.png?1271777477') 0 8 0 14;
 }
 /* line 86, ../../../../app/stylesheets/jqtouch/jqt.apple.scss */
 #jqt .leftButton, #jqt .cancel {
@@ -127,26 +127,26 @@ div#jqt.landscape .toolbar > h1 {
 }
 /* line 102, ../../../../app/stylesheets/jqtouch/jqt.apple.scss */
 #jqt .whiteButton.active, #jqt .grayButton.active, #jqt .redButton.active, #jqt .blueButton.active, #jqt .greenButton.active, #jqt .whiteButton:active, #jqt .grayButton:active, #jqt .redButton:active, #jqt .blueButton:active, #jqt .greenButton:active {
-  -webkit-border-image: url("/images/jqtouch/apple/activeButton.png") 0 12 0 12;
+  -webkit-border-image: url('/images/jqtouch/apple/activeButton.png?1271777477') 0 12 0 12;
 }
 /* line 104, ../../../../app/stylesheets/jqtouch/jqt.apple.scss */
 #jqt .whiteButton {
-  -webkit-border-image: url("/images/jqtouch/apple/whiteButton.png") 0 12 0 12;
+  -webkit-border-image: url('/images/jqtouch/apple/whiteButton.png?1271777477') 0 12 0 12;
   text-shadow: rgba(255, 255, 255, 0.7) 0 1px 0;
 }
 /* line 107, ../../../../app/stylesheets/jqtouch/jqt.apple.scss */
 #jqt .grayButton {
-  -webkit-border-image: url("/images/jqtouch/apple/grayButton.png") 0 12 0 12;
+  -webkit-border-image: url('/images/jqtouch/apple/grayButton.png?1271777477') 0 12 0 12;
   color: white;
 }
 /* line 110, ../../../../app/stylesheets/jqtouch/jqt.apple.scss */
 #jqt .redButton {
-  -webkit-border-image: url("/images/jqtouch/apple/redButton.png") 0 12 0 12;
+  -webkit-border-image: url('/images/jqtouch/apple/redButton.png?1271777477') 0 12 0 12;
   color: white;
 }
 /* line 113, ../../../../app/stylesheets/jqtouch/jqt.apple.scss */
 #jqt .greenButton {
-  -webkit-border-image: url("/images/jqtouch/apple/greenButton.png") 0 12 0 12;
+  -webkit-border-image: url('/images/jqtouch/apple/greenButton.png?1271777477') 0 12 0 12;
   color: white;
 }
 /* line 116, ../../../../app/stylesheets/jqtouch/jqt.apple.scss */
@@ -194,7 +194,7 @@ div#jqt.landscape .toolbar > h1 {
 }
 /* line 146, ../../../../app/stylesheets/jqtouch/jqt.apple.scss */
 #jqt ul li.arrow {
-  background-image: url("/images/jqtouch/apple/chevron.png");
+  background-image: url('/images/jqtouch/apple/chevron.png?1271777477');
   background-position: right center;
   background-repeat: no-repeat;
 }
@@ -204,7 +204,7 @@ div#jqt.landscape .toolbar > h1 {
 }
 /* line 152, ../../../../app/stylesheets/jqtouch/jqt.apple.scss */
 #jqt #plastic ul li.arrow, #jqt #metal ul li.arrow {
-  background-image: url("../images/chevron_dg.png");
+  background-image: url('"../images/chevron_dg.png"');
   background-position: right center;
   background-repeat: no-repeat;
 }
@@ -222,7 +222,7 @@ div#jqt.landscape .toolbar > h1 {
 }
 /* line 169, ../../../../app/stylesheets/jqtouch/jqt.apple.scss */
 #jqt ul li a.active {
-  background: #194fdb url("/images/jqtouch/apple/selection.png") 0 0 repeat-x;
+  background: #194fdb url('/images/jqtouch/apple/selection.png?1271777477') 0 0 repeat-x;
   color: white;
 }
 /* line 172, ../../../../app/stylesheets/jqtouch/jqt.apple.scss */
@@ -313,7 +313,7 @@ div#jqt.landscape .toolbar > h1 {
 /* line 235, ../../../../app/stylesheets/jqtouch/jqt.apple.scss */
 #jqt ul li input[type="text"], #jqt ul li input[type="password"], #jqt ul li input[type="tel"], #jqt ul li input[type="number"], #jqt ul li input[type="search"], #jqt ul li input[type="email"], #jqt ul li input[type="url"] {
   color: #777777;
-  background: white url('data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==');
+  background: white url('"data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="');
   border: 0;
   font: normal 17px "Helvetica Neue", Helvetica;
   padding: 0;
@@ -325,7 +325,7 @@ div#jqt.landscape .toolbar > h1 {
 /* line 245, ../../../../app/stylesheets/jqtouch/jqt.apple.scss */
 #jqt ul li textarea, #jqt ul li select {
   color: #777777;
-  background: white url('data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==');
+  background: white url('"data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="');
   border: 0;
   font: normal 17px "Helvetica Neue", Helvetica;
   padding: 0;
@@ -343,7 +343,7 @@ div#jqt.landscape .toolbar > h1 {
 /* line 259, ../../../../app/stylesheets/jqtouch/jqt.apple.scss */
 #jqt ul li select {
   text-indent: 0px;
-  background: transparent url("/images/jqtouch/apple/chevron.png") no-repeat 103% 3px;
+  background: transparent url('/images/jqtouch/apple/chevron.png?1271777477') no-repeat 103% 3px;
   -webkit-appearance: textfield;
   margin-left: -6px;
   width: 104%;
@@ -386,7 +386,7 @@ div#jqt.landscape .toolbar > h1 {
 /* line 288, ../../../../app/stylesheets/jqtouch/jqt.apple.scss */
 #jqt .edgetoedge h4 {
   color: white;
-  background: #9a9faa url("/images/jqtouch/apple/listGroup.png") top left repeat-x;
+  background: #9a9faa url('/images/jqtouch/apple/listGroup.png?1271777477') top left repeat-x;
   border-top: 1px solid #a5b1ba;
   text-shadow: #666666 0 1px 0;
   margin: 0;
@@ -483,7 +483,7 @@ div#jqt.landscape .toolbar > h1 {
 }
 /* line 362, ../../../../app/stylesheets/jqtouch/jqt.apple.scss */
 #jqt #plastic ul li.arrow, #jqt #metal ul li.arrow {
-  background-image: url("/images/jqtouch/apple/listArrow.png");
+  background-image: url('/images/jqtouch/apple/listArrow.png');
   background-position: right center;
   background-repeat: no-repeat;
 }
@@ -499,7 +499,7 @@ div#jqt.landscape .toolbar > h1 {
 #jqt .metal ul li {
   border-top: 1px solid #eeeeee;
   border-bottom: 1px solid #9c9ea5;
-  background: url("../images/bgMetal.png") top left repeat-x;
+  background: url('"../images/bgMetal.png"') top left repeat-x;
   font-size: 26px;
   text-shadow: white 0 1px 0;
 }
@@ -535,7 +535,7 @@ div#jqt.landscape .toolbar > h1 {
 }
 /* line 398, ../../../../app/stylesheets/jqtouch/jqt.apple.scss */
 #jqt .metal ul li.arrow {
-  background: url("/images/jqtouch/apple/bgMetal.png") top left repeat-x, url("../images/chevron_dg.png") right center no-repeat;
+  background: url('/images/jqtouch/apple/bgMetal.png') top left repeat-x, url('"../images/chevron_dg.png"') right center no-repeat;
 }
 /* line 399, ../../../../app/stylesheets/jqtouch/jqt.apple.scss */
 #jqt .metal ul li.arrow a small {
@@ -707,7 +707,7 @@ div#jqt.landscape .toolbar > h1 {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   margin: 0;
   -webkit-border-radius: 5px;
-  background: white url("/images/jqtouch/apple/on_off.png") 0 0 no-repeat;
+  background: white url('/images/jqtouch/apple/on_off.png?1271777477') 0 0 no-repeat;
   height: 27px;
   overflow: hidden;
   width: 149px;

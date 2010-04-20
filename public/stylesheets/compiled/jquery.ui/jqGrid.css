@@ -728,7 +728,7 @@ tr.ui-search-toolbar select {
 /* line 548, ../../../../app/stylesheets/jquery.ui/jqGrid.scss */
 .ui-jqgrid .ui-ellipsis {
   text-overflow: ellipsis;
-  -moz-binding: url('ellipsis-xbl.xml#ellipsis');
+  -moz-binding: url('"ellipsis-xbl.xml#ellipsis"');
 }
 
 /* line 552, ../../../../app/stylesheets/jquery.ui/jqGrid.scss */
