@@ -25,24 +25,24 @@ pre {
 a {
   color: black;
 }
-/* line 21, ../../../app/stylesheets/scaffold.sass */
+/* line 20, ../../../app/stylesheets/scaffold.sass */
 a:visited {
   color: #666666;
 }
-/* line 24, ../../../app/stylesheets/scaffold.sass */
+/* line 22, ../../../app/stylesheets/scaffold.sass */
 a:hover {
   color: white;
   background-color: black;
 }
 
-/* line 28, ../../../app/stylesheets/scaffold.sass */
+/* line 26, ../../../app/stylesheets/scaffold.sass */
 .fieldWithErrors {
   padding: 2px;
   background-color: red;
   display: table;
 }
 
-/* line 33, ../../../app/stylesheets/scaffold.sass */
+/* line 31, ../../../app/stylesheets/scaffold.sass */
 #errorExplanation {
   width: 400px;
   border: 2px solid red;
@@ -51,7 +51,7 @@ a:hover {
   margin-bottom: 20px;
   background-color: #f0f0f0;
 }
-/* line 41, ../../../app/stylesheets/scaffold.sass */
+/* line 38, ../../../app/stylesheets/scaffold.sass */
 #errorExplanation h2 {
   text-align: left;
   font-weight: bold;
@@ -61,13 +61,13 @@ a:hover {
   background-color: #cc0000;
   color: white;
 }
-/* line 50, ../../../app/stylesheets/scaffold.sass */
+/* line 46, ../../../app/stylesheets/scaffold.sass */
 #errorExplanation p {
   color: #333333;
   margin-bottom: 0;
   padding: 5px;
 }
-/* line 55, ../../../app/stylesheets/scaffold.sass */
+/* line 50, ../../../app/stylesheets/scaffold.sass */
 #errorExplanation ul li {
   font-size: 12px;
   list-style: square;
