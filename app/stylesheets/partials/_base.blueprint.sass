@@ -45,14 +45,14 @@
 #content
   :padding 0.6em 0em 0em 0em
 
-=two-column($header, $left, $center, $footer)
-  #{$header}
+=two-column(!header, !left, !center, !footer)
+  #{!header}
     +column(24)
-  #{$left}
+  #{!left}
     +column(6)
     +navigation
-  #{$center}
+  #{!center}
     +column(17)
     +content
-    #{$footer}
+    #{!footer}
       +footer
