@@ -3,17 +3,17 @@
     icon: '/images/jqtouch/jqtouch.png',
     addGlossToIcon: false,
     startupScreen: '/images/jqtouch/jqt_startup.png',
-    statusBar: 'black'
+    statusBar: 'black',
     preloadImages: [
-      '/images/jqtouch/jqt//back_button.png',
-      '/images/jqtouch/jqt//back_button_clicked.png',
-      '/images/jqtouch/jqt//button_clicked.png',
-      '/images/jqtouch/jqt//grayButton.png',
-      '/images/jqtouch/jqt//whiteButton.png',
-      '/images/jqtouch/jqt//loading.gif'
+      '/images/jqtouch/jqt/back_button.png',
+      '/images/jqtouch/jqt/back_button_clicked.png',
+      '/images/jqtouch/jqt/button_clicked.png',
+      '/images/jqtouch/jqt/grayButton.png',
+      '/images/jqtouch/jqt/whiteButton.png',
+      '/images/jqtouch/jqt/loading.gif'
     ]
-   });
-
+  });
+  
   $(function(){
     jQT.addAnimation({
       name: 'reveal',
@@ -21,7 +21,7 @@
     });
   });
 
-%style{:type => "text/css", :media => "screen"}
+%style{:type => "text/css", :media => 'screen, projection'}
   :plain
     div#jqt .reveal.in { -webkit-animation-name: dontmove; z-index: 0; }
     div#jqt .reveal.out { -webkit-animation-name: revealout; z-index: 10; }
@@ -29,4 +29,4 @@
     div#jqt .reveal.in.reverse { z-index: 10; -webkit-animation-name: revealin; }
     @-webkit-keyframes revealin { from { -webkit-transform: translateX(100%); } to { -webkit-transform: translateX(0); } }
     @-webkit-keyframes revealout { from { -webkit-transform: translateX(0); } to { -webkit-transform: translateX(100%); } }
-							
+	

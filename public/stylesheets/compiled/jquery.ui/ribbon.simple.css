@@ -38,7 +38,7 @@ ul.ribbon .orb {
   display: block;
   width: 56px;
   height: 22px;
-  background-image: url('"/images/jquery.ui/ribbon.simple/orb.png"');
+  background-image: url('/images/jquery.ui/ribbon.simple/orb.png?1271792602');
   background-position: right bottom;
   background-repeat: no-repeat;
   cursor: pointer;
@@ -50,13 +50,13 @@ ul.ribbon .orb {
 }
 /* line 39, ../../../../app/stylesheets/jquery.ui/ribbon.simple.scss */
 ul.ribbon .orb li ul {
-  background-image: url('"/images/jquery.ui/ribbon.simple/menu_middle.png"');
+  background-image: url('/images/jquery.ui/ribbon.simple/menu_middle.png?1271792602');
   background-repeat: repeat-y;
   background-position: right;
 }
 /* line 43, ../../../../app/stylesheets/jquery.ui/ribbon.simple.scss */
 ul.ribbon .orb:hover {
-  background-image: url('"/images/jquery.ui/ribbon.simple/orb_hover.png"');
+  background-image: url('/images/jquery.ui/ribbon.simple/orb_hover.png?1271792602');
 }
 /* line 45, ../../../../app/stylesheets/jquery.ui/ribbon.simple.scss */
 ul.ribbon .orb span {
@@ -92,14 +92,14 @@ ul.ribbon .orb li ul li a {
 }
 /* line 67, ../../../../app/stylesheets/jquery.ui/ribbon.simple.scss */
 ul.ribbon .orb li ul li a.arrow {
-  background-image: url('"/images/jquery.ui/ribbon.simple/arrow.png"');
+  background-image: url('/images/jquery.ui/ribbon.simple/arrow.png?1271792602');
   background-repeat: no-repeat;
   background-position: center right;
 }
 
 /* line 72, ../../../../app/stylesheets/jquery.ui/ribbon.simple.scss */
 li.arrow {
-  background-image: url('"/images/jquery.ui/ribbon.simple/arrow_down.png"');
+  background-image: url('/images/jquery.ui/ribbon.simple/arrow_down.png?1271792602');
   background-repeat: no-repeat;
   background-position: center right;
 }
@@ -133,7 +133,7 @@ ul.ribbon .orb li ul li ul li a {
 }
 /* line 102, ../../../../app/stylesheets/jquery.ui/ribbon.simple.scss */
 ul.ribbon .orb li ul li ul li:hover {
-  background-image: url('"/images/jquery.ui/ribbon.simple/orb_submenu_item_hover.png"');
+  background-image: url('/images/jquery.ui/ribbon.simple/orb_submenu_item_hover.png?1271792602');
   background-repeat: repeat-x;
   height: 51px;
   margin: 0px;
@@ -146,7 +146,7 @@ ul.ribbon .orb li ul li ul li:hover a {
 }
 /* line 111, ../../../../app/stylesheets/jquery.ui/ribbon.simple.scss */
 ul.ribbon .orb li ul li:hover {
-  background-image: url('"/images/jquery.ui/ribbon.simple/menu_item_hover.png"');
+  background-image: url('/images/jquery.ui/ribbon.simple/menu_item_hover.png?1271792602');
   background-repeat: no-repeat;
   padding-left: 8px;
   border: 1px solid #ffb700;
@@ -226,7 +226,7 @@ ul.menu li a {
 /* line 167, ../../../../app/stylesheets/jquery.ui/ribbon.simple.scss */
 ul.menu li a.active {
   background-color: #d9e3f3;
-  background-image: url('"/images/jquery.ui/ribbon.simple/menuitem_background.png"');
+  background-image: url('/images/jquery.ui/ribbon.simple/menuitem_background.png?1271792602');
   background-repeat: no-repeat;
 }
 /* line 171, ../../../../app/stylesheets/jquery.ui/ribbon.simple.scss */
@@ -239,7 +239,7 @@ ul.menu .submenu {
   border: 1px solid #3b5a82;
   border-bottom: 1px solid #9faec2;
   border-top: 0px;
-  background-image: url('"/images/jquery.ui/ribbon.simple/menu_background.png"');
+  background-image: url('/images/jquery.ui/ribbon.simple/menu_background.png?1271792602');
   background-repeat: repeat-x;
   border-top: 0px;
   margin-left: -1px;
@@ -281,7 +281,7 @@ ul.menu li ul li div {
 ul.menu li ul li div:hover {
   padding: 4px;
   padding-top: 0px;
-  background-image: url('"/images/jquery.ui/ribbon.simple/item_background.png"');
+  background-image: url('/images/jquery.ui/ribbon.simple/item_background.png?1271792602');
   background-repeat: repeat-x;
   height: 52px;
   border: 1px solid #ffb700;
@@ -319,7 +319,7 @@ ul.menu li ul div.ribbon-list div img {
 /* line 241, ../../../../app/stylesheets/jquery.ui/ribbon.simple.scss */
 ul.menu li ul div.ribbon-list div:hover {
   padding: 0px;
-  background-image: url('"/images/jquery.ui/ribbon.simple/item_small_background.png"');
+  background-image: url('/images/jquery.ui/ribbon.simple/item_small_background.png?1271792602');
   background-repeat: repeat-x;
   height: 18px;
   border: 1px solid #ffb700;
@@ -333,7 +333,7 @@ ul.menu li ul div.ribbon-list ul {
 }
 /* line 252, ../../../../app/stylesheets/jquery.ui/ribbon.simple.scss */
 ul.menu li ul div.ribbon-list ul li {
-  background-image: url('"/images/jquery.ui/ribbon.simple/menu_dropdownitembg.png"');
+  background-image: url('/images/jquery.ui/ribbon.simple/menu_dropdownitembg.png?1271792602');
   background-repeat: repeat-y;
   margin: 0px;
   border: 0px;
@@ -343,7 +343,7 @@ ul.menu li ul div.ribbon-list ul li {
 }
 /* line 260, ../../../../app/stylesheets/jquery.ui/ribbon.simple.scss */
 ul.menu li ul div.ribbon-list ul li:hover {
-  background-image: url('"/images/jquery.ui/ribbon.simple/menu_dropdownitembghover.png"');
+  background-image: url('/images/jquery.ui/ribbon.simple/menu_dropdownitembghover.png?1271792602');
   background-repeat: repeat-x;
   border: 1px solid #ffb700;
   padding: 0px;
