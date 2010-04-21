@@ -234,7 +234,7 @@ div#jqt {
       input {
         &[type="text"], &[type="password"], &[type="tel"], &[type="number"], &[type="search"], &[type="email"], &[type="url"] {
           color: #777777;
-          background: white url("data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==");
+          background: white url('data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==');
           border: 0;
           font: normal 17px "Helvetica Neue", Helvetica;
           padding: 0;
@@ -244,7 +244,7 @@ div#jqt {
           -webkit-appearance: textarea; } }
       textarea, select {
         color: #777777;
-        background: white url("data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==");
+        background: white url('data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==');
         border: 0;
         font: normal 17px "Helvetica Neue", Helvetica;
         padding: 0;
@@ -360,7 +360,7 @@ div#jqt {
     &.arrow small.counter {
       margin-right: 15px; } }
   #plastic ul li.arrow, #metal ul li.arrow {
-    background-image: image_url("jqtouch/apple/listArrow.png");
+    background-image: image_url("jqtouch/apple/listArrowSel.png");
     background-position: right center;
     background-repeat: no-repeat; }
   .edgetoedge ul, .metal ul, .plastic ul {

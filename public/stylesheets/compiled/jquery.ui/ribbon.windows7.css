@@ -35,7 +35,7 @@ ul.ribbon * {
 }
 /* line 25, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 ul.ribbon ul ul {
-  /*display: none; */
+  /*display: none;*/
 }
 /* line 27, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 ul.ribbon ul ul ul {
@@ -51,7 +51,7 @@ ul.ribbon .orb {
   display: block;
   width: 56px;
   height: 23px;
-  background-image: url('/images/jquery.ui/ribbon.windows7/orb_office.png?1271777436');
+  background-image: url('/images/jquery.ui/ribbon.windows7/orb_office.png?1271859781');
   background-position: right bottom;
   background-repeat: no-repeat;
   padding: 0px;
@@ -72,13 +72,13 @@ ul.ribbon .orb a.orbButton {
 }
 /* line 55, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 ul.ribbon .orb li ul {
-  background-image: url('/images/jquery.ui/ribbon.windows7/menu_middle.png?1271777436');
+  background-image: url('/images/jquery.ui/ribbon.windows7/menu_middle.png?1271859781');
   background-repeat: repeat-y;
   background-position: right;
 }
 /* line 59, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 ul.ribbon .orb:hover {
-  background-image: url('/images/jquery.ui/ribbon.windows7/orb_office_hover.png?1271777436');
+  background-image: url('/images/jquery.ui/ribbon.windows7/orb_office_hover.png?1271859781');
 }
 /* line 61, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 ul.ribbon .orb span {
@@ -114,14 +114,14 @@ ul.ribbon .orb li ul li a {
 }
 /* line 83, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 ul.ribbon .orb li ul li a.arrow {
-  background-image: url('/images/jquery.ui/ribbon.windows7/arrow.png?1271777436');
+  background-image: url('/images/jquery.ui/ribbon.windows7/arrow.png?1271859781');
   background-repeat: no-repeat;
   background-position: center right;
 }
 
 /* line 88, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 li.arrow {
-  background-image: url('/images/jquery.ui/ribbon.windows7/arrow_down.png?1271777436');
+  background-image: url('/images/jquery.ui/ribbon.windows7/arrow_down.png?1271859781');
   background-repeat: no-repeat;
   background-position: center right;
 }
@@ -155,7 +155,7 @@ ul.ribbon .orb li ul li ul li a {
 }
 /* line 118, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 ul.ribbon .orb li ul li ul li:hover {
-  background-image: url('/images/jquery.ui/ribbon.windows7/orb_submenu_item_hover.png?1271777436');
+  background-image: url('/images/jquery.ui/ribbon.windows7/orb_submenu_item_hover.png?1271859781');
   background-repeat: repeat-x;
   height: 51px;
   margin: 0px;
@@ -168,7 +168,7 @@ ul.ribbon .orb li ul li ul li:hover a {
 }
 /* line 127, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 ul.ribbon .orb li ul li:hover {
-  background-image: url('/images/jquery.ui/ribbon.windows7/menu_item_hover.png?1271777436');
+  background-image: url('/images/jquery.ui/ribbon.windows7/menu_item_hover.png?1271859781');
   background-repeat: no-repeat;
   padding-left: 8px;
   border: 1px solid #ffb700;
@@ -248,7 +248,7 @@ ul.menu li a {
 /* line 183, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 ul.menu li a.active {
   background-color: #d9e3f3;
-  background-image: url('/images/jquery.ui/ribbon.windows7/menuitem_background.png?1271777436');
+  background-image: url('/images/jquery.ui/ribbon.windows7/menuitem_background.png?1271859781');
   background-repeat: no-repeat;
 }
 /* line 187, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
@@ -261,7 +261,7 @@ ul.menu .submenu {
   border: 1px solid #3b5a82;
   border-bottom: 1px solid #9faec2;
   border-top: 0px;
-  background-image: url('/images/jquery.ui/ribbon.windows7/menu_background.png?1271777436');
+  background-image: url('/images/jquery.ui/ribbon.windows7/menu_background.png?1271859781');
   background-repeat: repeat-x;
   border-top: 0px;
   margin-left: -1px;
@@ -303,7 +303,7 @@ ul.menu li ul li div {
 ul.menu li ul li div:hover {
   padding: 4px;
   padding-top: 0px;
-  background-image: url('/images/jquery.ui/ribbon.windows7/item_background.png?1271777436');
+  background-image: url('/images/jquery.ui/ribbon.windows7/item_background.png?1271859781');
   background-repeat: repeat-x;
   height: 52px;
   border: 1px solid #ffb700;
@@ -342,7 +342,7 @@ ul.menu li ul div.ribbon-list div img {
 /* line 260, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 ul.menu li ul div.ribbon-list div:hover {
   padding: 0px;
-  background-image: url('/images/jquery.ui/ribbon.windows7/item_small_background.png?1271777436');
+  background-image: url('/images/jquery.ui/ribbon.windows7/item_small_background.png?1271859781');
   background-repeat: repeat-x;
   height: 18px;
   border: 1px solid #ffb700;
@@ -356,7 +356,7 @@ ul.menu li ul div.ribbon-list ul {
 }
 /* line 271, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 ul.menu li ul div.ribbon-list ul li {
-  background-image: url('/images/jquery.ui/ribbon.windows7/menu_dropdownitembg.png?1271777436');
+  background-image: url('/images/jquery.ui/ribbon.windows7/menu_dropdownitembg.png?1271859781');
   background-repeat: repeat-y;
   margin: 0px;
   border: 0px;
@@ -366,7 +366,7 @@ ul.menu li ul div.ribbon-list ul li {
 }
 /* line 279, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 ul.menu li ul div.ribbon-list ul li:hover {
-  background-image: url('/images/jquery.ui/ribbon.windows7/menu_dropdownitembghover.png?1271777436');
+  background-image: url('/images/jquery.ui/ribbon.windows7/menu_dropdownitembghover.png?1271859781');
   background-repeat: repeat-x;
   border: 1px solid #ffb700;
   padding: 0px;
@@ -403,7 +403,7 @@ ul.menu li li {
 }
 /* line 304, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 .ribbon-backstage li.ribbon-backstage-firstLevel:hover {
-  background-image: url('/images/jquery.ui/ribbon.windows7/ribbon-backstage-firstLevel-hover.png?1271777436') !important;
+  background-image: url('/images/jquery.ui/ribbon.windows7/ribbon-backstage-firstLevel-hover.png?1271859781') !important;
   background-position: center left;
   background-repeat: repeat-x;
   border: 0px !important;
@@ -472,7 +472,7 @@ ul.menu li li {
 }
 /* line 351, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 .ribbon-backstage li.ribbon-backstage-firstLevel ul.ribbon-backstage-subMenu li {
-  background-image: url('/images/jquery.ui/ribbon.windows7/ribbon-backstage-subMenu-item.png?1271777436');
+  background-image: url('/images/jquery.ui/ribbon.windows7/ribbon-backstage-subMenu-item.png?1271859781');
   background-repeat: no-repeat !important;
   line-height: 43px !important;
   height: 43px;
@@ -481,7 +481,7 @@ ul.menu li li {
 }
 /* line 358, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 .ribbon-backstage li.ribbon-backstage-firstLevel ul.ribbon-backstage-subMenu li:hover {
-  background-image: url('/images/jquery.ui/ribbon.windows7/ribbon-backstage-subMenu-item-hover.png?1271777436');
+  background-image: url('/images/jquery.ui/ribbon.windows7/ribbon-backstage-subMenu-item-hover.png?1271859781');
   background-repeat: no-repeat !important;
   border: 0px !important;
   width: 255px;
@@ -526,7 +526,7 @@ ul.menu li li {
 /* line 389, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 .ribbon-backstage li.ribbon-backstage-firstLevel div.ribbon-backstage-rightColumnWide {
   background-color: #edf0f2 !important;
-  background-image: url('/images/jquery.ui/ribbon.windows7/ribbon-backstage-rightColumn-wide.png?1271777436');
+  background-image: url('/images/jquery.ui/ribbon.windows7/ribbon-backstage-rightColumn-wide.png?1271859781');
   background-position: left;
   background-repeat: repeat-y;
   color: black !important;
@@ -544,7 +544,7 @@ ul.menu li li {
 /* line 405, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 .ribbon-backstage li.ribbon-backstage-firstLevel div.ribbon-backstage-rightColumnSmall {
   background-color: #edf0f2 !important;
-  background-image: url('/images/jquery.ui/ribbon.windows7/ribbon-backstage-rightColumn-wide.png?1271777436');
+  background-image: url('/images/jquery.ui/ribbon.windows7/ribbon-backstage-rightColumn-wide.png?1271859781');
   background-position: left;
   background-repeat: repeat-y;
   color: black !important;
@@ -571,7 +571,7 @@ ul.menu li li {
 }
 /* line 427, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 .ribbon-backstage li.ribbon-backstage-firstLevel .ribbon-backstage-leftColumnWide li {
-  background-image: url('/images/jquery.ui/ribbon.windows7/ribbon-backstage-subMenu-itemSquare.png?1271777436') !important;
+  background-image: url('/images/jquery.ui/ribbon.windows7/ribbon-backstage-subMenu-itemSquare.png?1271859781') !important;
   background-position: center !important;
   background-repeat: no-repeat !important;
   color: lime !important;
@@ -582,7 +582,7 @@ ul.menu li li {
 }
 /* line 436, ../../../../app/stylesheets/jquery.ui/ribbon.windows7.scss */
 .ribbon-backstage li.ribbon-backstage-firstLevel .ribbon-backstage-leftColumnWide li:hover {
-  background-image: url('/images/jquery.ui/ribbon.windows7/ribbon-backstage-subMenu-itemSquare-hover.png?1271777436') !important;
+  background-image: url('/images/jquery.ui/ribbon.windows7/ribbon-backstage-subMenu-itemSquare-hover.png?1271859781') !important;
   background-position: center !important;
   background-repeat: no-repeat !important;
   color: lime !important;
