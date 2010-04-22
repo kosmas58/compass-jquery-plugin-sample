@@ -7,5 +7,6 @@ log/*
 public/javascripts/common.js
 public/javascripts/locales.js
 public/stylesheets/*.sass
+public/stylesheets/compiled/*
 tmp/*
 
