@@ -1021,7 +1021,7 @@ body {
   margin: 0px;
   color: #254264;
   background-color: #dce5f2;
-  background-image: url('/images/demo/ribbon/page/background.png?1270064438');
+  background-image: url('/images/demo/ribbon/page/background.png?1271874240');
   background-repeat: repeat-x;
 }
 
@@ -1063,7 +1063,7 @@ a:hover {
 
 /* line 38, ../../../app/stylesheets/partials/_ribbon.sass */
 .textbox {
-  background-image: url('/images/demo/ribbon/page/textboxbg.png?1270064438');
+  background-image: url('/images/demo/ribbon/page/textboxbg.png?1271874240');
   background-repeat: repeat-y;
   width: 809px;
   margin: 0px auto;
