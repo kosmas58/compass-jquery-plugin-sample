@@ -85,7 +85,7 @@ div#jqt.landscape .toolbar > h1 {
 }
 /* line 74, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
 #jqt .blueButton {
-  -webkit-border-image: url('/images/jqtouch/jqt/blueButton.png?1271870287') 0 5 0 5;
+  -webkit-border-image: url('/images/jqtouch/jqt/blueButton.png?1271874240') 0 5 0 5;
   border-width: 0 5px;
 }
 /* line 77, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
@@ -126,7 +126,7 @@ div#jqt.landscape .toolbar > h1 {
 }
 /* line 103, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
 #jqt .whiteButton.active, #jqt .grayButton.active, #jqt .redButton.active, #jqt .blueButton.active, #jqt .greenButton.active, #jqt .whiteButton:active, #jqt .grayButton:active, #jqt .redButton:active, #jqt .blueButton:active, #jqt .greenButton:active {
-  -webkit-border-image: url('/images/jqtouch/jqt/activeButton.png?1271870287') 0 12 0 12;
+  -webkit-border-image: url('/images/jqtouch/jqt/activeButton.png?1271874240') 0 12 0 12;
 }
 /* line 105, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
 #jqt .whiteButton {
@@ -140,12 +140,12 @@ div#jqt.landscape .toolbar > h1 {
 }
 /* line 111, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
 #jqt .redButton {
-  -webkit-border-image: url('/images/jqtouch/jqt/redButton.png?1271870287') 0 12 0 12;
+  -webkit-border-image: url('/images/jqtouch/jqt/redButton.png?1271874240') 0 12 0 12;
   color: white;
 }
 /* line 114, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
 #jqt .greenButton {
-  -webkit-border-image: url('/images/jqtouch/jqt/greenButton.png?1271870287') 0 12 0 12;
+  -webkit-border-image: url('/images/jqtouch/jqt/greenButton.png?1271874240') 0 12 0 12;
   color: white;
 }
 /* line 117, ../../../../app/stylesheets/jqtouch/jqt.jqt.scss */
