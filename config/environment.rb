@@ -22,7 +22,7 @@ Rails::Initializer.run do |config|
 
   config.gem 'haml', :version => '= 3.0.0.beta.3'
   config.gem 'compass', :version => '= 0.10.0.rc3'
-  config.gem 'compass-jquery-plugin', :version => '= 0.3.0.beta.1', :lib => 'jquery'
+  config.gem 'compass-jquery-plugin', :version => '= 0.3.0.beta.2', :lib => 'jquery'
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
