@@ -109,15 +109,18 @@
       %a.back{ :href => "#home" }
         Home
     %ul.rounded
+      %li#orient
+        Orientation:
+        %strong
+          profile
       %li
         %a{ :href => "#pageevents" }
           Page events
       %li#swipeme.touch
         Swipe me!
-      %li#orient
-        Orientation:
-        %strong
-          profile
+      %li
+        %a#tapme{:href => "#"}
+          Tap me!
   #demos
     .toolbar
       %h1
@@ -279,32 +282,35 @@
         %a{ :href => "#ui" }
           User Interface
         %small.counter
-          4
+          5
       %li.arrow
         %a{ :href => "#animations" }
           Animations
         %small.counter
-          8
+          11
       %li.arrow
         %a{ :href => "/jqtouch/demo/ajax", :target => "_webapp" }
           AJAX
         %small.counter
-          3
+          4
       %li.arrow
         %a{ :href => "#callbacks" }
           Callback Events
         %small.counter
-          3
+          4
       %li.arrow
         %a{ :href => "#extensions" }
           Extensions
         %small.counter
           4
       %li.arrow
+        %a{ :href => "#video" }
+          Video
+      %li.arrow
         %a{ :href => "#demos" }
           Demos
         %small.counter
-          2
+          3
     %h2
       External Links
     %ul.rounded
@@ -429,3 +435,12 @@
       %li.arrow
         %a{ :href => "#forms" }
           Form
+          
+  #video
+    .toolbar
+      %h1
+        Video
+      %a.back{ :href => "#" }
+        Home     
+      %video#movie{:controls => "", :height => "426", :poster => "/videos/fireworks.jpg", :src => "/videos/fireworks-iPhone.m4v", :width => "320"}
+      %a#play_movie.whiteButton{:href => "#", :style => "margin: 10px;"} Play Movie

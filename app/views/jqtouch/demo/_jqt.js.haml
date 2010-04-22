@@ -20,6 +20,9 @@
       $('#swipeme').swipe(function(evt, data) {                
         $(this).html('You swiped <strong>' + data.direction + '</strong>!');
       });
+      $('#tapme').tap(function(){
+          $(this).parent().after('<li>tapped!</li>')
+      });
       $('a[target="_blank"]').click(function() {
         if (confirm('This link opens in a new window.')) {
           return true;
@@ -40,6 +43,19 @@
       $('body').bind('turn', function(e, data){
         $('#orient').html('Orientation: ' + data.orientation);
       });
+      // Video stuff
+      $('#play_movie').bind('tap', function(){
+        $('#movie').get(0).play();
+        $(this).removeClass('active');
+      });      
+      $('#video').bind('pageAnimationStart', function(e, info){
+        $('#movie').css('display', 'none');
+      }).bind('pageAnimationEnd', function(e, info){
+        if (info.direction == 'in')
+        {
+          $('#movie').css('display', 'block');
+        }
+      });      
     });
 
 %style{:type => "text/css", :media => "screen"}
