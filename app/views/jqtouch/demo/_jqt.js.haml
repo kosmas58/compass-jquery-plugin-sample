@@ -48,6 +48,10 @@
         $('#movie').get(0).play();
         $(this).removeClass('active');
       });      
+      $('#play_movie').bind('click', function(){
+        $('#movie').get(0).play();
+        $(this).removeClass('active');
+      });      
       $('#video').bind('pageAnimationStart', function(e, info){
         $('#movie').css('display', 'none');
       }).bind('pageAnimationEnd', function(e, info){
