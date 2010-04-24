@@ -1,5 +1,7 @@
 -@title = "#{t('txt.ui.name')} #{t('txt.ui.interactions.resizable.default')} - #{t('txt.ui.interactions.resizable.synchronous-resize')}"
--@jquery_partial = 'synchronous_resize.js.haml'
+
+- content_for :content_head do
+  = render(:partial => "synchronous_resize.js.haml", :format => :js)
 
 .demo
   %h3

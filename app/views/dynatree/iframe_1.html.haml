@@ -1,6 +1,8 @@
--@jquery_partial = 'iframe_1.js.haml'
 -@dynatree_theme = 'start'
 -@dynatree_theme = 'dynatree.xp.css'
+
+- content_for :content_head do
+  = render(:partial => "iframe_1.js.haml", :format => :js)
 
 .demo
   %h3

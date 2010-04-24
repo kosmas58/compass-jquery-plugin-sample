@@ -1,6 +1,8 @@
 -@title = "#{t('txt.ui.name')} #{t('txt.ui.widgets.datepicker.default')} - #{t('txt.ui.widgets.datepicker.date-formats')}"
--@jquery_partial = 'date_formats.js.haml'
-      
+
+- content_for :content_head do
+  = render(:partial => "date_formats.js.haml", :format => :js)
+     
 .demo
   %h3
     =@title

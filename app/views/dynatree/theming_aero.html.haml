@@ -1,7 +1,9 @@
 -@title = "#{t('txt.dt.name')} - #{t('txt.dt.theming.name')} - #{t('txt.dt.theming.aero')}"
--@jquery_partial = 'theming.js.haml'
 -@dynatree_theme = 'redmond'
 -@dynatree_skin = 'dynatree.aero.css'
+
+- content_for :content_head do
+  = render(:partial => "theming.js.haml", :format => :js)
 
 .demo
   .div.ui-widget-content.ui-corner-all

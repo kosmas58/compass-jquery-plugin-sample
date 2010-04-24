@@ -16,8 +16,7 @@
     = javascript_include_tag 'common'
     = javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery?
     
-    = render(:partial => @jqt_partial_1, :format => :js) if @jqt_partial_1 
-    = render(:partial => @jqt_partial_2, :format => :js) if @jqt_partial_2 
+    = yield :content_head
 
   %body{body_attributes}
     = yield

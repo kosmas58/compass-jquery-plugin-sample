@@ -1,0 +1,27 @@
+@import "blueprint";
+@import "blueprint/scaffolding";
+@import "blueprint/liquid";
+@import "compass/reset";
+@import "compass/utilities";
+
+@include blueprint-liquid-grid;
+
+@import "partials/ribbon";
+
+@mixin ribbon {
+ }
+
+#ribbon {
+ }
+
+@mixin content {
+ }
+
+#content {
+ }
+
+@mixin work-area($ribbon, $content) {
+  #{$ribbon} {
+    @include column(24); }
+  #{$content} {
+    @include content; } }

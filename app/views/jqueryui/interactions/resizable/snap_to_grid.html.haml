@@ -1,5 +1,7 @@
 -@title = "#{t('txt.ui.name')} #{t('txt.ui.interactions.resizable.default')} - #{t('txt.ui.interactions.resizable.snap-to-grid')}"
--@jquery_partial = 'snap_to_grid.js.haml'
+
+- content_for :content_head do
+  = render(:partial => "snap_to_grid.js.haml", :format => :js)
 
 .demo
   %h3

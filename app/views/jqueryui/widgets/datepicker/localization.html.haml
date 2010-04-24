@@ -1,6 +1,9 @@
 -@title = "#{t('txt.ui.name')} #{t('txt.ui.widgets.datepicker.default')} - #{t('txt.ui.widgets.datepicker.localization')}"
--@jquery_partial = 'localization.js.haml'
-      
+     
+- content_for :content_head do  
+  = render :partial => "layouts/datepicker_i18n"
+  = render(:partial => 'localization.js.haml', :format => :js)   
+ 
 .demo
   %h3
     =@title

@@ -1,6 +1,8 @@
 -@title = "#{t('txt.ui.name')} #{t('txt.ui.widgets.dialog.default')} - #{t('txt.ui.widgets.dialog.modal')}"
--@jquery_partial = 'modal.js.haml'
-      
+
+- content_for :content_head do
+  = render(:partial => "modal.js.haml", :format => :js)
+     
 .demo
   %h3
     =@title

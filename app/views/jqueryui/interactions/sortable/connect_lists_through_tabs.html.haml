@@ -1,5 +1,7 @@
 -@title = "#{t('txt.ui.name')} #{t('txt.ui.interactions.sortable.default')} - #{t('txt.ui.interactions.sortable.connect-lists-through-tabs')}"
--@jquery_partial = 'connect_lists_through_tabs.js.haml'
+
+- content_for :content_head do
+  = render(:partial => "connect_lists_through_tabs.js.haml", :format => :js)
 
 .demo
   %h3

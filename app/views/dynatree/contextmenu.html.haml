@@ -3,6 +3,10 @@
 -@dynatree_theme = 'start'
 -@dynatree_skin = 'dynatree.xp.css'
 
+- content_for :content_head do
+  = render(:partial => "theming.js.haml", :format => :js)
+
+
 .demo
   %h3
     =@title

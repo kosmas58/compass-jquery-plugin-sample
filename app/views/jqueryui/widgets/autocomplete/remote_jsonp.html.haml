@@ -1,5 +1,7 @@
 -@title = "#{t('txt.ui.name')} #{t('txt.ui.widgets.autocomplete.default')} - #{t('txt.ui.widgets.autocomplete.remote-jsonp')}"
--@jquery_partial = 'remote_jsonp.js.haml'
+
+- content_for :content_head do
+  = render(:partial => "remote_jsonp.js.haml", :format => :js)
       
 .demo
   %h3

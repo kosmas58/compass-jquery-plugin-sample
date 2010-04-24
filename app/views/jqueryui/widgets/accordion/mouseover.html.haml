@@ -1,6 +1,9 @@
 -@title = "#{t('txt.ui.name')} #{t('txt.ui.widgets.accordion.default')} - #{t('txt.ui.widgets.accordion.mouseover')}"
 -@jquery_partial = 'mouseover.js.haml'
-      
+
+- content_for :content_head do
+  = render(:partial => "mouseover.js.haml", :format => :js)
+    
 .demo
   %h3
     =@title

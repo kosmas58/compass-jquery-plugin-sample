@@ -1,6 +1,8 @@
 -@title = "#{t('txt.ui.name')} #{t('txt.ui.interactions.draggable.default')} - #{t('txt.ui.interactions.draggable.cursor-style')}"
--@jquery_partial = 'cursor_style.js.haml'
-      
+
+- content_for :content_head do
+  = render(:partial => "cursor_style.js.haml", :format => :js)
+
 .demo
   %h3
     =@title

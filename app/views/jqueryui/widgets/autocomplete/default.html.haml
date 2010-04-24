@@ -1,6 +1,8 @@
 -@title = "#{t('txt.ui.name')} #{t('txt.ui.widgets.autocomplete.default')} - #{t('txt.ui.default')}"
--@jquery_partial = 'default.js.haml'
-      
+
+- content_for :content_head do
+  = render(:partial => "default.js.haml", :format => :js)
+     
 .demo
   %h3
     =@title

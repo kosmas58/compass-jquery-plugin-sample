@@ -1,5 +1,7 @@
 -@title = "#{t('txt.ui.name')} #{t('txt.ui.interactions.droppable.default')} - #{t('txt.ui.interactions.droppable.revert')}"
--@jquery_partial = 'revert.js.haml'
+
+- content_for :content_head do
+  = render(:partial => "revert.js.haml", :format => :js)
 
 .demo
   %h3

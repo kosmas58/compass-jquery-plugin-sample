@@ -1,0 +1,8 @@
+@import "partials/base.ribbon";
+
+body {
+  @include blueprint-typography;
+  div.container {
+    @include container;
+    width: 95%;
+    @include work-area("#ribbon", "#content"); } }

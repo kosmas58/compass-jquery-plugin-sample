@@ -1,5 +1,7 @@
 -@browser_title = "jQTouch &beta;"
--@jqt_partial_1 ='jqt.js.haml'
+
+- content_for :content_head do
+  = render(:partial => "jqt.js.haml", :format => :js)
 
 #jqt
   #page1.touch

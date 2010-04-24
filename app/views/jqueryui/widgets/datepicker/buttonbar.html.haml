@@ -1,5 +1,7 @@
 -@title = "#{t('txt.ui.name')} #{t('txt.ui.widgets.datepicker.default')} - #{t('txt.ui.widgets.datepicker.buttonbar')}"
--@jquery_partial = 'buttonbar.js.haml'
+
+- content_for :content_head do
+  = render(:partial => "buttonbar.js.haml", :format => :js)
       
 .demo
   %h3

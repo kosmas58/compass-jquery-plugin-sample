@@ -1,6 +1,8 @@
 -@title = "#{t('txt.ribbon.name')} - #{t('txt.ribbon.theming.name')} - #{t('txt.ribbon.theming.windows7')}"
--@jquery_partial = 'default.js.haml'
 -@ribbon_theme = 'ribbon.windows7'
+
+- content_for :content_head do
+  = render(:partial => "default.js.haml", :format => :js)
 
 #header 
   .mainContainer
