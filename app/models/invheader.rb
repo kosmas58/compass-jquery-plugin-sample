@@ -402,7 +402,7 @@ class Invheader < ActiveRecord::Base
     :title          => I18n.t('txt.jqgrid.demo.subgrid'),
     :url            => "/jqgrid/demo",
     :data_type      => :xml,
-    :include        => [:client],
+#    :include        => [:client],
 #    :colNames       => [
 #                        I18n.t('activerecord.attributes.invheader.id'),
 #                        I18n.t('activerecord.attributes.invheader.invdate'),
@@ -665,7 +665,7 @@ class Invheader < ActiveRecord::Base
     :title          => I18n.t('txt.jqgrid.demo.json_subgrid'),
     :url            => "/jqgrid/demo",
     :data_type      => :json,
-    :include        => [:client],
+#    :include        => [:client],
 #    :colNames       => [
 #                        I18n.t('activerecord.attributes.invheader.id'),
 #                        I18n.t('activerecord.attributes.invheader.invdate'),
