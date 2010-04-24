@@ -232,7 +232,8 @@ de:
         name: mit Verbesserungen der Form
     ribbon: 
       name: Multifunktionsleiste
-      default: jQuery Ribbon Demo
+      default: jQuery Windows 7 Ribbon Demo
+      simple: jQuery Simple Ribbon Demo
     dt: 
       name: Dynatree
       ul: Aus ul-Element initialisieren

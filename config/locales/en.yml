@@ -173,7 +173,8 @@ en:
   txt:
     ribbon:
       name: Ribbon
-      default: jQuery Ribbon demo
+      default: jQuery Windows 7 Ribbon demo
+      simple: jQuery Simple Ribbon demo
     jqt:
       name: "jQTouch (needs a browser with WebKit engine)"
     jqgrid:
