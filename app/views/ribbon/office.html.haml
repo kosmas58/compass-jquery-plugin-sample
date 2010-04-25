@@ -1,8 +1,8 @@
 -@title = "#{t('txt.ribbon.name')} - #{t('txt.ribbon.theming.name')} - #{t('txt.ribbon.theming.windows7')}"
--@ribbon_theme = 'ribbon.simple'
+-@ribbon_theme = 'ribbon.office'
 
 - content_for :content_head do
-  = render(:partial => "simple.js.haml", :format => :js)
+  = render(:partial => "office.js.haml", :format => :js)
 
 #header 
   .mainContainer
@@ -167,33 +167,16 @@
                   %div
                     %img{ :src => "/images/demo/ribbon/icon_small_copy.png", :alt => "Copy" }
                     Copy
+                  %div
+                    %img{ :src => "/images/demo/ribbon/icon_small_copy_format.png", :alt => "Copy format" }
+                    Copy format
               %li
                 %h2
                   %span
-                    Insert
+                    Drawing
                 %div
-                  %img{ :src => "/images/demo/ribbon/icon_datetime.png", :alt => "Date and time" }
-                  Date and time
-                %div
-                  %img{ :src => "/images/demo/ribbon/icon_picture.png", :alt => "Picture" }
-                  Picture
-                %div
-                  %img{ :src => "/images/demo/ribbon/icon_paint.png", :alt => "Paint" }
-                  Paint drawing
-              %li
-                %h2
-                  %span
-                    Editing
-                .ribbon-list
-                  %div
-                    %img{ :src => "/images/demo/ribbon/icon_small_find.png", :alt => "Find" }
-                    Find
-                  %div
-                    %img{ :src => "/images/demo/ribbon/icon_small_replace.png", :alt => "Replace" }
-                    Replace
-                  %div
-                    %img{ :src => "/images/demo/ribbon/icon_small_selectall.png", :alt => "Select all" }
-                    Select all
+                  %img{ :src => "/images/demo/ribbon/icon_tools.png", :alt => "Tools" }
+                  Tools
               %li
                 %h2
                   Theme
@@ -209,59 +192,121 @@
                       %li.ribbon-simple
                         Simple
           %li
-            %a{ :href => "#view", :accesskey => "3" }
-              View
+            %a{ :href => "#insert", :accesskey => "3" }
+              Insert
             %ul
               %li
                 %h2
-                  Zoom
+                  %span
+                    Pages
                 %div
-                  %img{ :src => "/images/demo/ribbon/icon_zoomin.png", :alt => "Zoom in" }
-                  Zoom in
-                %div
-                  %img{ :src => "/images/demo/ribbon/icon_zoomout.png", :alt => "Zoom out" }
-                  Zoom out
-                %div
-                  %img{ :src => "/images/demo/ribbon/icon_zoom100.png", :alt => "Zoom" }
-                  100%
-              %li
-                %h2
-                  Show or hide
+                  %img{ :src => "/images/demo/ribbon/icon_cover.png", :alt => "Cover" }
+                  Cover
                 .ribbon-list
                   %div
-                    %input#chkbox1{ :type => "checkbox" }
-                    %label{ :accesskey => "r", :for => "chkbox1" }
-                      Ruler
+                    %img{ :src => "/images/demo/ribbon/icon_small_new.png", :alt => "New" }
                   %div
-                    %input#chkbox2{ :type => "checkbox" }
-                    %label{ :accesskey => "s", :for => "chkbox2" }
-                      Status bar
+                    %img{ :src => "/images/demo/ribbon/icon_small_pagejump.png", :alt => "Page jump" }
               %li
                 %h2
-                  Settings
+                  %span
+                    Tables
+                %div
+                  %img{ :src => "/images/demo/ribbon/icon_table.png", :alt => "Table" }
+                  Table
+              %li
+                %h2
+                  %span
+                    Graphics
+                %div
+                  %img{ :src => "/images/demo/ribbon/icon_image.png", :alt => "Image" }
+                  Image
+                %div
+                  %img{ :src => "/images/demo/ribbon/icon_clipart.png", :alt => "Clip" }
+                  Clip
                 .ribbon-list
                   %div
-                    %img{ :src => "/images/demo/ribbon/icon_small_wordwrap.png", :alt => "Word wrap" }
-                    Word wrap
-                    %ul
-                      %li
-                        No wrap
-                      %li
-                        Wrap to window
-                      %li
-                        Wrap to ruler
+                    %img{ :src => "/images/demo/ribbon/icon_small_shapesquare.png" }
                   %div
-                    %img{ :src => "/images/demo/ribbon/icon_small_measurement.png", :alt => "Measurement" }
-                    Measurement Units
-                    %ul
+                    %img{ :src => "/images/demo/ribbon/icon_small_smartart.png" }
+                  %div
+                    %img{ :src => "/images/demo/ribbon/icon_small_chart.png" }
+              %li
+                %h2
+                  %span
+                    Links
+                .ribbon-list
+                  %div
+                    %img{ :src => "/images/demo/ribbon/icon_small_link.png" }
+                    Link
+                  %div
+                    %img{ :src => "/images/demo/ribbon/icon_small_removelink.png" }
+                    Remove link
+              %li
+                %h2
+                  %span
+                    Header and footer
+                .ribbon-list
+                  %div
+                    %img{ :src => "/images/demo/ribbon/icon_small_header.png" }
+                    Header
+                    %ul.ribbon-header
                       %li
-                        Inches
+                        Paste special ...
                       %li
-                        Centimeters
+                        Clear clipboard
                       %li
-                        Points
-                      %li
-                        Picas
+                        Another
+                  %div
+                    %img{ :src => "/images/demo/ribbon/icon_small_footer.png" }
+                    Footer
+                  %div
+                    %img{ :src => "/images/demo/ribbon/icon_small_pagenumber.png" }
+                    Page number
+              %li
+                %h2
+                  %span
+                    Text
+                .ribbon-list
+                  %div
+                    %img{ :src => "/images/demo/ribbon/icon_small_textframe.png" }
+                  %div
+                    %img{ :src => "/images/demo/ribbon/icon_small_quickitems.png" }
+                  %div
+                    %img{ :src => "/images/demo/ribbon/icon_small_wordart.png" }
+                .ribbon-list
+                  %div
+                    %img{ :src => "/images/demo/ribbon/icon_small_capitalletter.png" }
+                  %div
+                    %img{ :src => "/images/demo/ribbon/icon_small_signatureline.png" }
+                  %div
+                    %img{ :src => "/images/demo/ribbon/icon_small_datetime.png" }
+                .ribbon-list
+                  %div
+                  %div
+                    %img{ :src => "/images/demo/ribbon/icon_small_insertobject.png" }
+          %li
+            %a{ :href => "#textboxes", :accesskey => "4" }
+              Textboxes
+            %ul
+              %li
+                %h2
+                  %span
+                    With image and label                    
+                .ribbon-list                    
+                  %div     
+                    %img{ :src => "/images/demo/ribbon/icon_small_link.png", :alt => "Link" }
+                    Link
+                    %input{ :type => "text" }                   
+                .ribbon-list                    
+                  %div     
+                    %img{ :src => "/images/demo/ribbon/icon_small_link.png", :alt => "Style name" }
+                    Style name
+                    %input{ :type => "text" }  
+                  %div
+                    %img{ :src => "/images/demo/ribbon/icon_small_replace.png", :alt => "Replace word" }
+                    Replace word
+                    %input{ :type => "text" } 
 #content 
   .textbox
     %div
