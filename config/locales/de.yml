@@ -233,6 +233,7 @@ de:
     ribbon: 
       name: Multifunktionsleiste
       default: jQuery Ribbon Windows 7 Demo
+      office: jQuery Ribbon Office Demo
       simple: jQuery Ribbon Simple Demo
     dt: 
       name: Dynatree
