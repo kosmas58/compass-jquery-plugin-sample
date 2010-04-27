@@ -1,0 +1,100 @@
+<!--
+	#####################################################################
+	
+	jQTouch iCal, alpha
+	@created by 
+		Bruno Alexandre, 26.03.2010
+		twitter.com/balexandre
+		balexandre.com
+		bruno.in.dk [at] gmail.com
+	
+	#####################################################################
+	
+	This is a static Month Calendar, just use your favorite
+	  language to create the calendar dynamically.
+	
+	Just read the QueryString values for:
+		Month (month) and Year (year)
+	
+	######################################################################
+-->
+<input type="hidden" id="month" value="3" />
+<input type="hidden" id="year" value="2010" />
+<table cellspacing="0"> 
+	<thead> 
+		<!-- Header -->
+		<tr> 
+			<th class="goto-prevmonth">Mon</th><th>Tue</th><th>Wed</th> 
+			<th><span>March 2010</span>Thu</th><th>Fri</th><th>Sat</th> 
+			<th class="goto-nextmonth">Sun</th> 
+		</tr> 
+	</thead> 
+	<tfoot> 
+		<!-- Footer -->
+		<tr>
+			<th colspan="7">&nbsp;</th> 
+		</tr>
+	</tfoot> 
+	<tbody> 
+		<!-- Row 1 -->
+		<tr> 
+			<td class="prevmonth">26</td> 
+			<td class="prevmonth">27</td> 
+			<td class="prevmonth">28</td> 
+			<td>1</td> 
+			<td>2</td> 
+			<td>3</td> 
+			<td>4</td> 
+		</tr> 
+		<!-- Row 2 -->
+		<tr> 
+			<td> 5</td> 
+			<td> 6</td> 
+			<td> 7</td> 
+			<td> 8</td> 
+			<td class="date_has_event"> 9</td> 
+			<td>10</td> 
+			<td>11</td> 
+		</tr> 
+		<!-- Row 3 -->
+		<tr> 
+			<td>12</td> 
+			<td class="date_has_event"> 13</td> 
+			<td>14</td> 
+			<td>15</td> 
+			<td>16</td> 
+			<td>17</td> 
+			<td>18</td> 
+		</tr> 
+		<!-- Row 4 -->
+		<tr> 
+			<td>19</td> 
+			<td class="hasevent">20</td> 
+			<td>21</td> 
+			<td class="date_has_event"> 22</td> 
+			<td>23</td> 
+			<td>24</td> 
+			<td>25</td> 
+		</tr>	
+		<!-- Row 5 -->
+		<tr> 
+			<td>26</td> 
+			<td>27</td> 
+			<td>28</td> 
+			<td>29</td> 
+			<td>30</td> 
+			<td>31</td> 
+			<td class="nextmonth"> 1</td>  
+		</tr> 
+	</tbody>
+</table> 
+<!-- Events -->
+<ul class="events">
+</ul>
+<!-- Bottom toolbar -->
+<ul class="bottom-bar">
+	<li class="bottom-bar-today"></li>
+	<li class="bottom-bar-list" onclick="alert('list');"></li>
+	<li class="bottom-bar-day" onclick="alert('day');"></li>
+	<li class="bottom-bar-month" onclick="alert('month');"></li>
+</ul>

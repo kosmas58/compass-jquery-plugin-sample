@@ -1,0 +1,113 @@
+/
+  \#####################################################################
+  
+  jQTouch iCal, 1.0 alpha
+  @created by
+  Bruno Alexandre, 26.03.2010
+  twitter.com/balexandre
+  balexandre.com
+  bruno.in.dk [at] gmail.com
+  
+  \#####################################################################
+  
+  This is a iCal a-like interface to serve as a calendar/diary, use
+  it at your own will.
+  
+  How to use.
+  Copy all files into you project
+  \/css/jqtouch-ical.css
+  \/js/jqtouch-ical.js
+  \/images/*
+  \/month.htm
+  \/events.htm
+  In your index.html file
+  Import CSS and JS files
+  jqtouch-ical.css
+  jqtouch-ical.js
+  Add a div with id "ical" where you want to show the calendar
+  <div id="ical"></div>
+  Call getCalendar( DATE ); to load and set the calendar
+  
+  \######################################################################
+<!doctype html>
+%html
+  %head
+    %meta{:charset => "UTF-8"}/
+    %title jQTouch iCal
+    %style{:media => "screen", :type => "text/css"} @import "../jqtouch/jqtouch.css";
+    %style{:media => "screen", :type => "text/css"} @import "../themes/apple/theme.css";
+    %style{:media => "screen", :type => "text/css"} @import "../jqtouch/jqtouch-ical.css";
+    %script{:charset => "utf-8", :src => "../jqtouch/jquery-1.4.2.min.js", :type => "text/javascript"}
+    %script{:charset => "utf-8", :src => "../jqtouch/jqtouch.js", :type => "text/javascript"}
+    %script{:charset => "utf-8", :src => "../jqtouch/jqtouch-ical.js", :type => "text/javascript"}
+    %script{:charset => "utf-8", :type => "text/javascript"}
+      var jQT = new $.jQTouch({
+      icon: 'jqtouch-ical.png',
+      addGlossToIcon: false,
+      startupScreen: 'jqt_startup.png',
+      statusBar: 'black',
+      preloadImages: [
+      '../themes/apple/img/back_button.png',
+      '../themes/apple/img/back_button_clicked.png',
+      '../themes/apple/img/button_clicked.png',
+      '../themes/apple/img/grayButton.png',
+      '../themes/apple/img/whiteButton.png',
+      '../themes/apple/img/loading.gif'
+      ]
+      });
+      \// Some sample Javascript functions:
+      $(function(){
+      
+      \// load calendar
+      var currentTime = new Date();
+      getCalendar(currentTime);
+      
+      });
+    %style{:media => "screen", :type => "text/css"}
+      body.fullscreen #home .info {
+      display: none;
+      }
+      \#about {
+      padding: 100px 10px 40px;
+      text-shadow: rgba(255, 255, 255, 0.3) 0px -1px 0;
+      font-size: 13px;
+      text-align: center;
+      background: #999;
+      }
+      \#about p {
+      margin-bottom: 8px;
+      }
+      \#about a {
+      color: #fff;
+      font-weight: bold;
+      text-decoration: none;
+      }
+  %body
+    #jqt
+      #about.selectable
+        %p
+          %img{:src => "jqtouch-ical.png"}/
+        %p
+          %strong jQTouch iCal
+          %br/
+          Version 1.0 alpha
+          %br/
+          %a{:href => "http://www.balexandre.com"} By Bruno Alexandre
+        %p
+          %em
+            A simple iCal alike
+            %br/
+            interface for jQTouch.
+        %p
+          %a{:href => "http://twitter.com/balexandre", :target => "_blank"} @balexandre on Twitter
+        %p
+          %br/
+          %br/
+          %a.grayButton.goback{:href => "#"} Close
+      #home.current
+        .toolbar
+          %h1 jQTouch iCal
+          %a#infoButton.button.flip{:href => "#about"} About
+        %center
+          #ical
+            / iCall will load here

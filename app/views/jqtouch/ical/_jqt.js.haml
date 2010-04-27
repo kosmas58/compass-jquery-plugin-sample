@@ -1,0 +1,29 @@
+:javascript
+  var jQT = new $.jQTouch({
+    icon: '/images/jqtouch/ical/jqtouch-ical.png',
+    addGlossToIcon: false,
+    startupScreen: '/images/jqtouch/ical/jqt_startup.png',
+    statusBar: 'black',
+    preloadImages: [
+      '/images/jqtouch/apple/img/back_button.png',
+      '/images/jqtouch/apple/img/back_button_clicked.png',
+      '/images/jqtouch/apple/img/button_clicked.png',
+      '/images/jqtouch/apple/img/grayButton.png',
+      '/images/jqtouch/apple/img/whiteButton.png',
+      '/images/jqtouch/apple/img/loading.gif'
+    ]
+  });
+  // Some sample Javascript functions:
+  $(function(){
+    // load calendar
+    var currentTime = new Date();
+    getCalendar(currentTime); 				
+  });
+
+%style{:type => "text/css", :media => "screen"}
+  :plain
+    #jqt.fullscreen #home .info { display: none; }
+    #about { padding: 100px 10px 40px; text-shadow: rgba(255, 255, 255, 0.3) 0px -1px 0; font-size: 13px; text-align: center; background: #999; }
+    #about p { margin-bottom: 8px; }
+    #about a { color: #fff; font-weight: bold; text-decoration: none; }					
+    					

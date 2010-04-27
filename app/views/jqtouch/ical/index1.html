@@ -1,0 +1,114 @@
+<!--
+	#####################################################################
+	
+	jQTouch iCal, 1.0 alpha
+	@created by 
+		Bruno Alexandre, 26.03.2010
+		twitter.com/balexandre
+		balexandre.com
+		bruno.in.dk [at] gmail.com
+	
+	#####################################################################
+	
+	This is a iCal a-like interface to serve as a calendar/diary, use
+		it at your own will.
+	
+	How to use.
+		Copy all files into you project
+			/css/jqtouch-ical.css
+			/js/jqtouch-ical.js
+			/images/*
+			/month.htm
+			/events.htm
+		In your index.html file
+			Import CSS and JS files
+				jqtouch-ical.css
+				jqtouch-ical.js
+			Add a div with id "ical" where you want to show the calendar
+				<div id="ical"></div>
+			Call getCalendar( DATE ); to load and set the calendar 
+		
+	######################################################################
+-->
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>jQTouch iCal</title>
+		<style type="text/css" media="screen">@import "../jqtouch/jqtouch.css";</style>
+        <style type="text/css" media="screen">@import "../themes/apple/theme.css";</style>
+		<style type="text/css" media="screen">@import "../jqtouch/jqtouch-ical.css";</style>
+        <script src="../jqtouch/jquery-1.4.2.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../jqtouch/jqtouch.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../jqtouch/jqtouch-ical.js" type="text/javascript" charset="utf-8"></script>
+        <script type="text/javascript" charset="utf-8">
+            var jQT = new $.jQTouch({
+                icon: 'jqtouch-ical.png',
+                addGlossToIcon: false,
+                startupScreen: 'jqt_startup.png',
+                statusBar: 'black',
+                preloadImages: [
+                    '../themes/apple/img/back_button.png',
+                    '../themes/apple/img/back_button_clicked.png',
+                    '../themes/apple/img/button_clicked.png',
+                    '../themes/apple/img/grayButton.png',
+                    '../themes/apple/img/whiteButton.png',
+                    '../themes/apple/img/loading.gif'
+                    ]
+            });
+            // Some sample Javascript functions:
+            $(function(){
+			
+				// load calendar
+				var currentTime = new Date();
+				getCalendar(currentTime); 
+				
+			});
+        </script>
+        <style type="text/css" media="screen">
+            body.fullscreen #home .info {
+                display: none;
+            }
+            #about {
+                padding: 100px 10px 40px;
+                text-shadow: rgba(255, 255, 255, 0.3) 0px -1px 0;
+                font-size: 13px;
+                text-align: center;
+                background: #999;
+            }
+            #about p {
+                margin-bottom: 8px;
+            }
+            #about a {
+                color: #fff;
+                font-weight: bold;
+                text-decoration: none;
+            }
+        </style>
+    </head>
+    <body>    	
+        <div id="jqt">
+	        <div id="about" class="selectable">
+	                <p><img src="jqtouch-ical.png" /></p>
+	                <p><strong>jQTouch iCal</strong><br />Version 1.0 alpha<br />
+	                    <a href="http://www.balexandre.com">By Bruno Alexandre</a></p>
+	                <p><em>A simple iCal alike<br /> interface for jQTouch.</em></p>
+	                <p>
+	                    <a href="http://twitter.com/balexandre" target="_blank">@balexandre on Twitter</a>
+	                </p>
+	                <p><br /><br /><a href="#" class="grayButton goback">Close</a></p>
+	        </div>
+	        <div id="home" class="current">
+	            <div class="toolbar">
+	                <h1>jQTouch iCal</h1>
+	                <a class="button flip" id="infoButton" href="#about">About</a>
+	            </div>
+				<center>
+					<div id="ical">
+						<!-- iCall will load here -->
+					</div>					
+				</center>
+	        </div>
+        </div>
+    </body>
+</html>

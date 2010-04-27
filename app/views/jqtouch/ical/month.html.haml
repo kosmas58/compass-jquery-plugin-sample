@@ -1,0 +1,83 @@
+/
+  \#####################################################################
+  
+  jQTouch iCal, alpha
+  @created by
+  Bruno Alexandre, 26.03.2010
+  twitter.com/balexandre
+  balexandre.com
+  bruno.in.dk [at] gmail.com
+  
+  \#####################################################################
+  
+  This is a static Month Calendar, just use your favorite
+  language to create the calendar dynamically.
+  
+  Just read the QueryString values for:
+  Month (month) and Year (year)
+  
+  \######################################################################
+%input#month{:type => "hidden", :value => "3"}/
+%input#year{:type => "hidden", :value => "2010"}/
+%table{:cellspacing => "0"}
+  %thead
+    / Header    %tr
+      %th.goto-prevmonth Mon
+      %th Tue
+      %th Wed
+      %th
+        %span March 2010
+        Thu
+      %th Fri
+      %th Sat
+      %th.goto-nextmonth Sun
+  %tfoot
+    / Footer    %tr
+      %th{:colspan => "7"} &nbsp;
+  %tbody
+    / Row 1    %tr
+      %td.prevmonth 26
+      %td.prevmonth 27
+      %td.prevmonth 28
+      %td 1
+      %td 2
+      %td 3
+      %td 4
+    / Row 2    %tr
+      %td 5
+      %td 6
+      %td 7
+      %td 8
+      %td.date_has_event 9
+      %td 10
+      %td 11
+    / Row 3    %tr
+      %td 12
+      %td.date_has_event 13
+      %td 14
+      %td 15
+      %td 16
+      %td 17
+      %td 18
+    / Row 4    %tr
+      %td 19
+      %td.hasevent 20
+      %td 21
+      %td.date_has_event 22
+      %td 23
+      %td 24
+      %td 25
+    / Row 5    %tr
+      %td 26
+      %td 27
+      %td 28
+      %td 29
+      %td 30
+      %td 31
+      %td.nextmonth 1
+/ Events%ul.events
+/ Bottom toolbar%ul.bottom-bar
+  %li.bottom-bar-today
+  %li.bottom-bar-list{:onclick => "alert('list');"}
+  %li.bottom-bar-day{:onclick => "alert('day');"}
+  %li.bottom-bar-month{:onclick => "alert('month');"}
