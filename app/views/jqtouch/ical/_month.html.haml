@@ -1,17 +1,23 @@
-%input#month{:type => "hidden", :value => "3"}
-%input#year{:type => "hidden", :value => "2010"}
+%input#month{:type => "hidden", :value => "#{@month}"}
+%input#year{:type => "hidden", :value => "#{@year}"}
 %table{:cellspacing => "0"}
   %thead
     %tr
-      %th.goto-prevmonth Mon
-      %th Tue
-      %th Wed
+      %th.goto-prevmonth        
+        Mon
+      %th
+        Tue
+      %th
+        Wed
       %th
         %span March 2010
         Thu
-      %th Fri
-      %th Sat
-      %th.goto-nextmonth Sun
+      %th
+        Fri
+      %th
+        Sat
+      %th.goto-nextmonth
+        Sun
   %tfoot
     %tr
       %th{:colspan => "7"} &nbsp;
@@ -59,6 +65,6 @@
 %ul.events
 %ul.bottom-bar
   %li.bottom-bar-today
-  %li.bottom-bar-list{:onclick => "alert('list');"}
-  %li.bottom-bar-day{:onclick => "alert('day');"}
-  %li.bottom-bar-month{:onclick => "alert('month');"}
+  %li.bottom-bar-list 
+  %li.bottom-bar-day
+  %li.bottom-bar-month

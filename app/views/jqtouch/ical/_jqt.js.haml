@@ -7,12 +7,12 @@
     startupScreen: '/images/jqtouch/ical/jqt_startup.png',
     statusBar: 'black',
     preloadImages: [
-      '/images/jqtouch/apple/img/back_button.png',
-      '/images/jqtouch/apple/img/back_button_clicked.png',
-      '/images/jqtouch/apple/img/button_clicked.png',
-      '/images/jqtouch/apple/img/grayButton.png',
-      '/images/jqtouch/apple/img/whiteButton.png',
-      '/images/jqtouch/apple/img/loading.gif'
+      '/images/jqtouch/apple/back_button.png',
+      '/images/jqtouch/apple/back_button_clicked.png',
+      '/images/jqtouch/apple/button_clicked.png',
+      '/images/jqtouch/apple/grayButton.png',
+      '/images/jqtouch/apple/whiteButton.png',
+      '/images/jqtouch/apple/loading.gif'
     ]
   });
   // Some sample Javascript functions:
@@ -21,7 +21,22 @@
     var currentTime = new Date();
     getCalendar(currentTime); 				
   });
-
+  
+  $(document).ready(function() {    
+    jQuery(".bottom-bar-today").click( function() {
+    	alert("Today");
+    });  
+    jQuery(".bottom-bar-list").click( function() {
+    	alert("List view");
+    });  
+    jQuery(".bottom-bar-day").click( function() {
+    	alert("Day view");
+    });  
+    jQuery(".bottom-bar-month").click( function() {
+    	alert("Month view");
+    });
+  });
+  
 %style{:type => "text/css", :media => "screen"}
   :plain
     #jqt.fullscreen #home .info { display: none; }

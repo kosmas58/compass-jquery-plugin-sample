@@ -53,6 +53,7 @@ function getCalendar(date) {
 		//alert('Calendar loaded with: ' + d + '.' + m + '.' + y);
 	});
 }
+
 function getEvents(date) {
 	var d = date.getDate();
 	var m = date.getMonth() + 1; // zero index based
@@ -65,6 +66,7 @@ function getEvents(date) {
 		$(data).appendTo('#ical .events');
 	});
 }
+
 // no events
 function getNoEvents() {
 	var noEvents = "<li class='no-event'>No Events</li>";
