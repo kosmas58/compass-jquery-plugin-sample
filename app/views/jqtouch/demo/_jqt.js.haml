@@ -12,55 +12,55 @@
         '/images/jqtouch/jqt/grayButton.png',
         '/images/jqtouch/jqt/whiteButton.png',
         '/images/jqtouch/jqt/loading.gif'
-        ]
+      ]
+  });
+  // Some sample Javascript functions:
+  $(function(){
+    // Show a swipe event on swipe test
+    $('#swipeme').swipe(function(evt, data) {                
+      $(this).html('You swiped <strong>' + data.direction + '</strong>!');
     });
-    // Some sample Javascript functions:
-    $(function(){
-      // Show a swipe event on swipe test
-      $('#swipeme').swipe(function(evt, data) {                
-        $(this).html('You swiped <strong>' + data.direction + '</strong>!');
-      });
-      $('#tapme').tap(function(){
-          $(this).parent().after('<li>tapped!</li>')
-      });
-      $('a[target="_blank"]').click(function() {
-        if (confirm('This link opens in a new window.')) {
-          return true;
-        } else {
-          //$(this).removeClass('active');
-          return false;
-        }
-      });
-      // Page animation callback events
-      $('#pageevents').
-        bind('pageAnimationStart', function(e, info){ 
-          $(this).find('.info').append('Started animating ' + info.direction + '&hellip; ');
-        }).
-        bind('pageAnimationEnd', function(e, info){
-          $(this).find('.info').append(' finished animating ' + info.direction + '.<br /><br />');
-        });
-      // Orientation callback event
-      $('body').bind('turn', function(e, data){
-        $('#orient').html('Orientation: ' + data.orientation);
-      });
-      // Video stuff
-      $('#play_movie').bind('tap', function(){
-        $('#movie').get(0).play();
-        $(this).removeClass('active');
-      });      
-      $('#play_movie').bind('click', function(){
-        $('#movie').get(0).play();
-        $(this).removeClass('active');
-      });      
-      $('#video').bind('pageAnimationStart', function(e, info){
-        $('#movie').css('display', 'none');
-      }).bind('pageAnimationEnd', function(e, info){
-        if (info.direction == 'in')
-        {
-          $('#movie').css('display', 'block');
-        }
-      });      
+    $('#tapme').tap(function(){
+        $(this).parent().after('<li>tapped!</li>')
     });
+    $('a[target="_blank"]').click(function() {
+      if (confirm('This link opens in a new window.')) {
+        return true;
+      } else {
+        //$(this).removeClass('active');
+        return false;
+      }
+    });
+    // Page animation callback events
+    $('#pageevents').
+      bind('pageAnimationStart', function(e, info){ 
+        $(this).find('.info').append('Started animating ' + info.direction + '&hellip; ');
+      }).
+      bind('pageAnimationEnd', function(e, info){
+        $(this).find('.info').append(' finished animating ' + info.direction + '.<br /><br />');
+      });
+    // Orientation callback event
+    $('body').bind('turn', function(e, data){
+      $('#orient').html('Orientation: ' + data.orientation);
+    });
+    // Video stuff
+    $('#play_movie').bind('tap', function(){
+      $('#movie').get(0).play();
+      $(this).removeClass('active');
+    });      
+    $('#play_movie').bind('click', function(){
+      $('#movie').get(0).play();
+      $(this).removeClass('active');
+    });      
+    $('#video').bind('pageAnimationStart', function(e, info){
+      $('#movie').css('display', 'none');
+    }).bind('pageAnimationEnd', function(e, info){
+      if (info.direction == 'in')
+      {
+        $('#movie').css('display', 'block');
+      }
+    });      
+  });
 
 %style{:type => "text/css", :media => "screen"}
   :plain
