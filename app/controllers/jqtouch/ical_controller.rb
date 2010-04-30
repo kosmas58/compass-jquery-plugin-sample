@@ -7,7 +7,7 @@ class Jqtouch::IcalController < ApplicationController
     @month = params[:month] 
     @year  = params[:year]   
     
-    @firstDay     = Date.new(y=@year, m=@month, d="1").strftime("%d-%m%Y")
+    #@firstDay     = Date.new(y=@year, m=@month, d="1").strftime("%d-%m%Y")
     #@firstDay     = date('d-m-Y', Date.new=(y=@year, m=@month, ));
     #@firstDayWeek = date('N', strtotime($firstDay)); 
     

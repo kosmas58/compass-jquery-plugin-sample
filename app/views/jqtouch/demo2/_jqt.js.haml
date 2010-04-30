@@ -25,26 +25,26 @@ statusBar: 'black',
 cacheGetRequests: false,
 slideSelector:'.slide-right',
 preloadImages: [
-'images/opacity_4.png',
-'images/back_button.png',
-'images/back_button_clicked.png',
-'images/button_clicked.png',
-'images/grayButton.png',
-'images/whiteButton.png',
-'images/loading.gif',
-'images/icon_user.png',
-'images/icon_users.png',
-'images/palette.png',
-'images/picture-frame.png',
-'images/map.png',
-'images/map_grey.png',
-'images/pic_tech.png',
-'images/icon_case.png',
-'images/house.png',
-'images/gear2.png',
-'images/photos.png',
-'images/clapboard.png',
-'images/tools.png'
+'/images/jqtouch/demo2/opacity_4.png',
+'/images/jqtouch/demo2/back_button.png',
+'/images/jqtouch/demo2/back_button_clicked.png',
+'/images/jqtouch/demo2/button_clicked.png',
+'/images/jqtouch/demo2/grayButton.png',
+'/images/jqtouch/demo2/whiteButton.png',
+'/images/jqtouch/demo2/loading.gif',
+'/images/jqtouch/demo2/icon_user.png',
+'/images/jqtouch/demo2/icon_users.png',
+'/images/jqtouch/demo2/palette.png',
+'/images/jqtouch/demo2/picture-frame.png',
+'/images/jqtouch/demo2/map.png',
+'/images/jqtouch/demo2/map_grey.png',
+'/images/jqtouch/demo2/pic_tech.png',
+'/images/jqtouch/demo2/icon_case.png',
+'/images/jqtouch/demo2/house.png',
+'/images/jqtouch/demo2/gear2.png',
+'/images/jqtouch/demo2/photos.png',
+'/images/jqtouch/demo2/clapboard.png',
+'/images/jqtouch/demo2/tools.png'
 ]
  });
     
@@ -219,17 +219,17 @@ function flickr(callback)
 
 <style type="text/css" media="screen">
 	#jqt .toolbar {
-		background: url(images/toolbar.png) repeat-x;
+		background: url(/images/jqtouch/demo2/toolbar.png) repeat-x;
 	}
 
 	#jqt #home, #jqt #more, #jqt #facilities, #jqt #artwork_styles, #jqt #artwork_types, #jqt #curators, #jqt #gallery_list {
-		background: url(images/background.png) repeat-x;
+		background: url(/images/jqtouch/demo2/background.png) repeat-x;
 	}
 
 	#jqt #home ul.rounded , #jqt #more ul.rounded, #jqt #facilities ul, #jqt #artwork_styles ul.rounded,
 		#jqt #artwork_types ul.rounded, #jqt #curators ul.rounded, #jqt #gallery_list ul {
 		-webkit-background-clip: none;
-		background: url(images/charcoal_opacity_8.png);
+		background: url(/images/jqtouch/demo2/charcoal_opacity_8.png);
 		background-color: none;
 		color: none;
 		border-width: 2px ;
@@ -237,14 +237,14 @@ function flickr(callback)
 
 	#jqt #gallery_list h2 {
 		-webkit-background-clip: none;
-		background: url(images/charcoal_opacity_8.png);
+		background: url(/images/jqtouch/demo2/charcoal_opacity_8.png);
 		color: White;
 	}
 
 	#jqt #home li.arrow, #jqt #more li.arrow, #jqt #facilities li.arrow, #jqt #artwork_styles li.arrow,
 		#jqt #artwork_types li.arrow, #jqt #curators li.arrow, #jqt #gallery_list li.arrow {
 		-webkit-background-clip: none;
-		background-image: url(images/charcoal_opacity_8.png), url(themes/jqt/img/chevron.png);
+		background-image: url(/images/jqtouch/demo2/charcoal_opacity_8.png), url(themes/jqt/img/chevron.png);
 		background-repeat: repeat, no-repeat;
 		background-color: none;
 		border-width: 2px ;
@@ -419,15 +419,15 @@ function flickr(callback)
 							document.getElementById('art_filter').innerHTML = data.filter;
 						}
 						if (tab.id == 'tab_1') {
-							tab.getElementsByTagName('img')[0].src="images/open_padlock_selected.png";
+							tab.getElementsByTagName('img')[0].src="/images/jqtouch/demo2/open_padlock_selected.png";
 						} else if (tab.id == 'tab_2') {
-							tab.getElementsByTagName('img')[0].src="images/house_selected.png";
+							tab.getElementsByTagName('img')[0].src="/images/jqtouch/demo2/house_selected.png";
 						} else if (tab.id == 'tab_3') {
-							tab.getElementsByTagName('img')[0].src="images/icon_users_selected.png";
+							tab.getElementsByTagName('img')[0].src="/images/jqtouch/demo2/icon_users_selected.png";
 						} else if (tab.id == 'tab_4') {
-							tab.getElementsByTagName('img')[0].src="images/picture-frame_selected.png";
+							tab.getElementsByTagName('img')[0].src="/images/jqtouch/demo2/picture-frame_selected.png";
 						} else if (tab.id == 'tab_5') {
-							tab.getElementsByTagName('img')[0].src="images/palette_selected.png";
+							tab.getElementsByTagName('img')[0].src="/images/jqtouch/demo2/palette_selected.png";
 						}
 					} else {
 						alert("You must select a piece of artwork first!");
@@ -451,7 +451,7 @@ function flickr(callback)
  !------------------------------------------------------------------------------------------------------------>
 		<style type="text/css" media="screen">
 	        div.tabbar {
-				background: url(images/tabbar.png) #000000 repeat-x;
+				background: url(/images/jqtouch/demo2/tabbar.png) #000000 repeat-x;
 				margin:0px 0px 0px 0px;
 				padding:0px 0px 0px 0px;            
 				text-align:center; 
@@ -485,7 +485,7 @@ function flickr(callback)
 				width:20%; 
 				height:44px;
 				-webkit-border-radius:5px; 
-				background:url(images/opacity_4.png) repeat; 
+				background:url(/images/jqtouch/demo2/opacity_4.png) repeat; 
 				opacity:1.0;
 			}
         #switching {
@@ -493,7 +493,7 @@ function flickr(callback)
             width: 15%;
 			height:10%;
             top:45%; left:45%;
-            background:url(images/ajax-loader-big.gif) white no-repeat center; 
+            background:url(/images/jqtouch/demo2/ajax-loader-big.gif) white no-repeat center; 
             opacity:.6;
         }
         .show_switching {
@@ -524,17 +524,17 @@ function flickr(callback)
 			<div class="vertical-scroll">
 			<div>
 			<ul class="rounded">
-				<li class="arrow"><a class="slide-right" href="#hunt"><img src="images/map.png"/>Spinning Wheel Demo</a></li>
+				<li class="arrow"><a class="slide-right" href="#hunt"><img src="/images/jqtouch/demo2/map.png"/>Spinning Wheel Demo</a></li>
 			</ul>
 			<ul class="rounded">
-				<li class="arrow"><a class="slide-right" href="#gallery_list"><img src="images/clapboard.png"/>Zflow Demo</a> </li>
+				<li class="arrow"><a class="slide-right" href="#gallery_list"><img src="/images/jqtouch/demo2/clapboard.png"/>Zflow Demo</a> </li>
 			</ul>
 		</div>
 		</div>
 		</div>
 
        	<div id="about" class="selectable">
-			<p><img src="images/museum.png" /></p>
+			<p><img src="/images/jqtouch/demo2/museum.png" /></p>
  			<p><strong>Deno</strong><br />Version 1.0 beta<br />
 			<a href="">By Chris Couper</a></p>
             <p><em>A tour of some JQT capabilities.</em></p>
@@ -553,8 +553,8 @@ function flickr(callback)
 			<div>
 				<p id="hunt_text">Choose the building, style and type of artwork and then press FIND.
 				<br/><br/>You may rotate the device to see all of the choices.</p>
-				<a id="hunt_image" class="pop" href="show_image.php?fName=images/artwork/blank.png">
-				<img class="art_pic" src="images/artwork/blank.png" BORDER="0"/></a>
+				<a id="hunt_image" class="pop" href="show_image.php?fName=/images/jqtouch/demo2/artwork/blank.png">
+				<img class="art_pic" src="/images/jqtouch/demo2/artwork/blank.png" BORDER="0"/></a>
 				<div id="clue_button">
 					<ul class="rounded">
 						<li><a id="clue_button_a" class="pop" href="room.php?id=1">Reveal Answer</a></li>
@@ -571,13 +571,13 @@ function flickr(callback)
 			<div class="vertical-scroll">
 				<div>
 				<ul class="rounded">
-	    			<li class="arrow"><a class="slide-right" href="gallery.php?id=1"><img src="images/photos.png"/>&nbsp;Flickr Gallery</a> </li>
-	    			<li class="arrow"><a class="slide-right" href="gallery.php?id=1"><img src="images/photos.png"/>&nbsp;Flickr Gallery</a> </li>
-	    			<li class="arrow"><a class="slide-right" href="gallery.php?id=1"><img src="images/photos.png"/>&nbsp;Flickr Gallery</a> </li>
-	    			<li class="arrow"><a class="slide-right" href="gallery.php?id=1"><img src="images/photos.png"/>&nbsp;Flickr Gallery</a> </li>
-	    			<li class="arrow"><a class="slide-right" href="gallery.php?id=1"><img src="images/photos.png"/>&nbsp;Flickr Gallery</a> </li>
-	    			<li class="arrow"><a class="slide-right" href="gallery.php?id=1"><img src="images/photos.png"/>&nbsp;Flickr Gallery</a> </li>
-	    			<li class="arrow"><a class="slide-right" href="gallery.php?id=1"><img src="images/photos.png"/>&nbsp;Flickr Gallery</a> </li>
+	    			<li class="arrow"><a class="slide-right" href="gallery.php?id=1"><img src="/images/jqtouch/demo2/photos.png"/>&nbsp;Flickr Gallery</a> </li>
+	    			<li class="arrow"><a class="slide-right" href="gallery.php?id=1"><img src="/images/jqtouch/demo2/photos.png"/>&nbsp;Flickr Gallery</a> </li>
+	    			<li class="arrow"><a class="slide-right" href="gallery.php?id=1"><img src="/images/jqtouch/demo2/photos.png"/>&nbsp;Flickr Gallery</a> </li>
+	    			<li class="arrow"><a class="slide-right" href="gallery.php?id=1"><img src="/images/jqtouch/demo2/photos.png"/>&nbsp;Flickr Gallery</a> </li>
+	    			<li class="arrow"><a class="slide-right" href="gallery.php?id=1"><img src="/images/jqtouch/demo2/photos.png"/>&nbsp;Flickr Gallery</a> </li>
+	    			<li class="arrow"><a class="slide-right" href="gallery.php?id=1"><img src="/images/jqtouch/demo2/photos.png"/>&nbsp;Flickr Gallery</a> </li>
+	    			<li class="arrow"><a class="slide-right" href="gallery.php?id=1"><img src="/images/jqtouch/demo2/photos.png"/>&nbsp;Flickr Gallery</a> </li>
 				</ul>
 				</div>
 			</div>
@@ -595,11 +595,11 @@ function flickr(callback)
 			<div id="tabbar" class="tabbar">
 				<table id="art_filter" class="art_filter"><tr align="center"><td></td></tr></table>
 				<table class="tabbar"><tr align="center">
-					<td id="tab_1" class="tab_sel" onclick="tab_to(this, '#home', 'flip');"><img src="images/open_padlock_selected.png" ><br>Unfiltered</td>
-					<td id="tab_2" class="tab" onclick="tab_to(this, '#home', 'flip');"><img src="images/house.png" ><br>Room</td>
-					<td id="tab_3" class="tab" onclick="tab_to(this, '#home', 'flip');"><img src="images/icon_users.png" ><br>Artist</td>
-					<td id="tab_4" class="tab" onclick="tab_to(this, '#home', 'flip');"><img src="images/picture-frame.png" ><br>Artwork</td>
-					<td id="tab_5" class="tab" onclick="tab_to(this, '#home', 'flip');"><img src="images/palette.png" ><br>Style</td>
+					<td id="tab_1" class="tab_sel" onclick="tab_to(this, '#home', 'flip');"><img src="/images/jqtouch/demo2/open_padlock_selected.png" ><br>Unfiltered</td>
+					<td id="tab_2" class="tab" onclick="tab_to(this, '#home', 'flip');"><img src="/images/jqtouch/demo2/house.png" ><br>Room</td>
+					<td id="tab_3" class="tab" onclick="tab_to(this, '#home', 'flip');"><img src="/images/jqtouch/demo2/icon_users.png" ><br>Artist</td>
+					<td id="tab_4" class="tab" onclick="tab_to(this, '#home', 'flip');"><img src="/images/jqtouch/demo2/picture-frame.png" ><br>Artwork</td>
+					<td id="tab_5" class="tab" onclick="tab_to(this, '#home', 'flip');"><img src="/images/jqtouch/demo2/palette.png" ><br>Style</td>
 				</tr></table>
 			</div> 
 		</div> <!-- id="outside" -->

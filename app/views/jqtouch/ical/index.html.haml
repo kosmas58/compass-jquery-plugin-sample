@@ -26,8 +26,12 @@
       %a.grayButton.goback{:href => "#"} Close
   #home.current
     .toolbar
-      %h1 jQTouch iCal
-      %a#infoButton.button.flip{:href => "#about"} About
+      %a.back.button{ :href => "#" }
+        Home
+      %h1
+        jQTouch iCal
+      %a#infoButton.button.flip{:href => "#about"}
+        About
     %center
       #ical
         / iCall will load here
