@@ -1,0 +1,101 @@
+<html>
+	<body>
+
+
+
+<!------------------------------------------------------------------------------------------------------------
+ !   Web Page Divisions
+ !------------------------------------------------------------------------------------------------------------>
+
+	<div id="jqt">
+<!------------------------------------------------------------------------------------------------------------>
+		
+		<div id="home" class="current">
+			<div class="toolbar">
+				<h1>Demo</h1>
+				<a class="button slideup" id="infoButton" href="#about">About</a>
+			</div>
+			<div class="vertical-scroll">
+			<div>
+			<ul class="rounded">
+				<li class="arrow"><a class="slide-right" href="#hunt"><img src="images/map.png"/>Spinning Wheel Demo</a></li>
+			</ul>
+			<ul class="rounded">
+				<li class="arrow"><a class="slide-right" href="#gallery_list"><img src="images/clapboard.png"/>Zflow Demo</a> </li>
+			</ul>
+		</div>
+		</div>
+		</div>
+
+		<div id="about" class="selectable">
+			<p><img src="images/museum.png" /></p>
+			<p><strong>Deno</strong><br />Version 1.0 beta<br />
+			<a href="">By Chris Couper</a></p>
+			<p><em>A tour of some JQT capabilities.</em></p>
+			<p><br /><br />Copyright 2010 by<br />Christopher C. Couper</p>
+			<p><br /><br /><a href="#" class="grayButton goback">Close</a></p>
+		</div>
+
+<!------------------------------------------------------------------------------------------------------------>
+		<div id="hunt">
+			<div class="toolbar">
+				<h1>Scavenger Hunt</h1>
+				<a class="back" href="#">Back</a>
+				<a id="sw-done">Find</a>
+				<a id="hunt_clue" style="display:none" class="button goTo slide-right" href="art.php?id=1">Clue</a>
+			</div>
+			<div>
+				<p id="hunt_text">Choose the building, style and type of artwork and then press FIND.
+				<br/><br/>You may rotate the device to see all of the choices.</p>
+				<a id="hunt_image" class="pop" href="show_image.php?fName=images/artwork/blank.png">
+				<img class="art_pic" src="images/artwork/blank.png" BORDER="0"/></a>
+				<div id="clue_button">
+					<ul class="rounded">
+						<li><a id="clue_button_a" class="pop" href="room.php?id=1">Reveal Answer</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+<!------------------------------------------------------------------------------------------------------------>
+		<div id="gallery_list">
+			<div class="toolbar">
+				<h1>Behind the Scenes</h1>
+				<a class="back" href="#">Back</a>
+			</div>
+			<div class="vertical-scroll">
+				<div>
+				<ul class="rounded">
+					<li class="arrow"><a class="slide-right" href="gallery.php?id=1"><img src="images/photos.png"/>&nbsp;Flickr Gallery</a> </li>
+					<li class="arrow"><a class="slide-right" href="gallery.php?id=1"><img src="images/photos.png"/>&nbsp;Flickr Gallery</a> </li>
+					<li class="arrow"><a class="slide-right" href="gallery.php?id=1"><img src="images/photos.png"/>&nbsp;Flickr Gallery</a> </li>
+					<li class="arrow"><a class="slide-right" href="gallery.php?id=1"><img src="images/photos.png"/>&nbsp;Flickr Gallery</a> </li>
+					<li class="arrow"><a class="slide-right" href="gallery.php?id=1"><img src="images/photos.png"/>&nbsp;Flickr Gallery</a> </li>
+					<li class="arrow"><a class="slide-right" href="gallery.php?id=1"><img src="images/photos.png"/>&nbsp;Flickr Gallery</a> </li>
+					<li class="arrow"><a class="slide-right" href="gallery.php?id=1"><img src="images/photos.png"/>&nbsp;Flickr Gallery</a> </li>
+				</ul>
+				</div>
+			</div>
+		</div>
+
+<!------------------------------------------------------------------------------------------------------------
+ !   Outside Divisions
+ !------------------------------------------------------------------------------------------------------------>
+	</div>	<!-- id="jqt" --> 
+		<div id="outside">
+			<div id="switching" class="hide_switching">
+				&nbsp;
+			</div>
+
+			<div id="tabbar" class="tabbar">
+				<table id="art_filter" class="art_filter"><tr align="center"><td></td></tr></table>
+				<table class="tabbar"><tr align="center">
+					<td id="tab_1" class="tab_sel" onclick="tab_to(this, '#home', 'flip');"><img src="images/open_padlock_selected.png" ><br>Unfiltered</td>
+					<td id="tab_2" class="tab" onclick="tab_to(this, '#home', 'flip');"><img src="images/house.png" ><br>Room</td>
+					<td id="tab_3" class="tab" onclick="tab_to(this, '#home', 'flip');"><img src="images/icon_users.png" ><br>Artist</td>
+					<td id="tab_4" class="tab" onclick="tab_to(this, '#home', 'flip');"><img src="images/picture-frame.png" ><br>Artwork</td>
+					<td id="tab_5" class="tab" onclick="tab_to(this, '#home', 'flip');"><img src="images/palette.png" ><br>Style</td>
+				</tr></table>
+			</div> 
+		</div> <!-- id="outside" -->
+	</body>
+</html>							
