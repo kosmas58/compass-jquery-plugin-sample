@@ -1,0 +1,47 @@
+%style{:type => "text/css", :media => "screen"}
+  :plain    
+    #hunt p { text-align:center; font-size: 18px; }
+    #result { margin:10px; background:#aaa; -webkit-border-radius:8px; padding:8px; font-size:18px; }
+
+:javascript
+  function chooseHunt() {	
+    var sw_facilities = {};
+    var sw_type = {};
+    var sw_style = {};
+    $.getJSON("get_hunt_arrays?item=facility", function(sw_facilities){
+      $.getJSON("get_hunt_arrays?item=type", function(sw_type){
+        $.getJSON("get_hunt_arrays?item=style", function(sw_style){
+          SpinningWheel.addSlot(sw_facilities, 'shrink');
+          SpinningWheel.addSlot(sw_style, 'shrink');
+          SpinningWheel.addSlot(sw_type, 'shrink');			
+          SpinningWheel.setDoneAction(spin_done);		
+          SpinningWheel.open();
+          return false;
+        }); //End sw_style
+      }); //End sw_type
+    }); //End sw_facilities
+  };
+        
+  function spin_done() {		
+    var results = SpinningWheel.getSelectedValues();
+    $.getJSON("get_random_hunt", function(data){
+      if (data.id == 0) {
+        hunting = 0;
+        alert("No items found that match your criteria");
+      } else {
+        hunting = 1;
+        document.getElementById('sw-done').style.display="none";
+        // set the clue link to the correct art id
+        // document.getElementById('hunt_clue').href="art.php?id=" + data.id+"&type=hunt";
+        document.getElementById('hunt_clue').style.display="inline";
+        document.getElementById('hunt_text').style.display="none";
+        //set the current page image to the art id
+        document.getElementById('hunt_image').href="show_image?fName="+ data.picture;
+        document.getElementById('hunt_image').getElementsByTagName('img')[0].src= data.picture;
+        document.getElementById('hunt_image').style.display="inline";
+        document.getElementById('clue_button').style.display="inline";
+        // document.getElementById('clue_button_a').href="room.php?id=" + data.room;
+        SpinningWheel.destroy();
+      }
+    });
+  };	
