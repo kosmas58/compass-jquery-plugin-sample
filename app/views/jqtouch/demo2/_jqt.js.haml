@@ -47,7 +47,7 @@
   
   // Some Javascript functions:
   $(function(){
-  // Orientation callback event
+    // Orientation callback event
     $('#jqt').bind('turn', function(e, data){
       $div = $(".current").attr("id");
       if (data.orientation == 'landscape'){
@@ -72,52 +72,49 @@
       $("#switching").removeClass("hide_switching").addClass("show_switching");
       var myOrient = jQT.getOrientation();
       if (e.target.id == 'home'){
-        if (myOrient != 'landscape') {
-          $("#tabbar").show();
-        }
-        hunting=0;
-      }
-      if ((e.target.id == 'show_image')||(e.target.id == 'floor_plan')||(e.target.id == 'gallery')||(e.target.id == 'hunt')) {
-        if (info.direction =='in')
-        {
-          $("#tabbar").hide();
-        } else if ((myOrient != 'landscape') && (hunting==0)) {
-          $("#tabbar").show();
-        }
-      }
-      if  ((e.target.id == 'gallery') && (galleryInit == 0) && (info.direction =='in')){
-        flickr(function (images) {
-          zflow(images, "#tray");
-        });
-      } else if  (e.target.id == 'hunt'){
-        if (info.direction =='in') {
-          if (hunting==0) {
-            chooseHunt();
-            document.getElementById('sw-done').style.display="inline";
-            document.getElementById('hunt_clue').style.display="none";
-            document.getElementById('hunt_text').style.display="inline";
-            document.getElementById('hunt_image').style.display="none";
-            document.getElementById('clue_button').style.display="none";
+          if (myOrient != 'landscape') {
+            $("#tabbar").show();
           }
-        } else if (hunting==0) {
-          SpinningWheel.destroy();
+          hunting=0;
+        }
+        if ((e.target.id == 'show_image')||(e.target.id == 'floor_plan')||(e.target.id == 'gallery')||(e.target.id == 'hunt')) {
+          if (info.direction =='in') {
+            $("#tabbar").hide();
+          } else if ((myOrient != 'landscape') && (hunting==0)) {
+            $("#tabbar").show();
+          }
+        }
+        if ((e.target.id == 'gallery') && (galleryInit == 0) && (info.direction =='in')){
+          flickr(function (images) {
+            zflow(images, "#tray");
+          });
+        } else if  (e.target.id == 'hunt'){
+          if (info.direction =='in') {
+            if (hunting==0) {
+              chooseHunt();
+              document.getElementById('sw-done').style.display="inline";
+              document.getElementById('hunt_clue').style.display="none";
+              document.getElementById('hunt_text').style.display="inline";
+              document.getElementById('hunt_image').style.display="none";
+              document.getElementById('clue_button').style.display="none";
+            }
+          } else if (hunting==0) {
+            SpinningWheel.destroy();
         }
       }
       if ((e.target.id == 'gallery_list') && (galleryInit == 1) && (info.direction =='in')) {
         // DELETE THE PREVIOUS zflow
         zflowCleanup("#tray");
       }
-    }).bind('pageAnimationEnd', function(e, info){
+    }).bind('pageAnimationEnd', function(e, info) {
       $("#switching").removeClass("show_switching").addClass("hide_switching");
-      if (info.direction =='in') 
-      {
+      if (info.direction =='in') {
         if (e.target.id == 'gallery') {
           var div = document.getElementById('show_image');
           if (div) {
             div.parentNode.removeChild(div);  //take the show_image out so it will reload
           }
         }
-
       }
     });
   });
@@ -125,19 +122,41 @@
   function flickr(callback)
   {
     var url = "http://api.flickr.com/services/rest/?method=flickr.interestingness.getList&api_key=60746a125b4a901f2dbb6fc902d9a716&per_page=20&format=json&jsoncallback=?";
-  
+    
     jQuery.getJSON(url, function(data) 
     {
-      var images = jQuery.map(data.photos.photo, function (item)
-      {
-        return 'http://farm' + item.farm + '.static.flickr.com/' + item.server + '/' + item.id + '_' + item.secret + '_m.jpg';
-      });
-  
+      var images = jQuery.map(data.photos.photo, function (item) {
+          return 'http://farm' + item.farm + '.static.flickr.com/' + item.server + '/' + item.id + '_' + item.secret + '_m.jpg';
+      });    
       callback(images);
     });
   };
+  
+  $(document).ready(function() { // Init - keeps the user from scrolling the panel
+    window.scrollTo(0,0);
+    document.addEventListener('touchmove', function(e){ e.preventDefault(); return false; }, false);
+    // document.onselectstart=new Function ("return false"); // Disables selections
+  });
 
 %style{:type => "text/css", :media => "screen"}
   :plain
-    #jqt.toolbar { background: url("/images/jqtouch/demo2/toolbar.png) repeat-x; }
-	  
+    #jqt .toolbar { background: url("/images/jqtouch/demo2/toolbar.png") repeat-x; }
+    #jqt #home, #jqt #more, #jqt #facilities, #jqt #artwork_styles, #jqt #artwork_types, #jqt #curators, #jqt #gallery_list { background: url("/images/jqtouch/demo2/background.png") repeat-x; }
+    #jqt #home ul.rounded , #jqt #more ul.rounded, #jqt #facilities ul, #jqt #artwork_styles ul.rounded, #jqt #artwork_types ul.rounded, #jqt #curators ul.rounded, #jqt #gallery_list ul { -webkit-background-clip: none; background: url("/images/jqtouch/demo2/charcoal_opacity_8.png"); background-color: none; color: none; border-width: 2px ; }
+    #jqt #gallery_list h2 { -webkit-background-clip: none; background: url("/images/jqtouch/demo2/charcoal_opacity_8.png"); color: White; }
+    #jqt #home li.arrow, #jqt #more li.arrow, #jqt #facilities li.arrow, #jqt #artwork_styles li.arrow, #jqt #artwork_types li.arrow, #jqt #curators li.arrow, #jqt #gallery_list li.arrow { -webkit-background-clip: none; background-image: url("/images/jqtouch/demo2/charcoal_opacity_8.png"), url("/images/jqtouch/jqt/chevron.png"); background-repeat: repeat, no-repeat; background-color: none; border-width: 2px ; }
+    
+    .art_pic { max-width:320px; max-height:220px; }
+    
+    #jqt #home li.arrow { margin:0; padding-top:2px !important; }
+    #jqt #home li img { position: relative; top: 5px; left: 0px; border:0; margin:0; padding-right: 10px; }
+    
+    #about { padding: 100px 10px 40px; text-shadow: rgba(255, 255, 255, 0.3) 0px -1px 0; font-size: 13px; text-align: center; background: #161618; }
+    #about p { margin-bottom: 8px; }
+    #about a { color: #fff; font-weight: bold; text-decoration: none; }
+    
+    .profile #show_image img { max-width:320px !important; max-height:460px !important; }
+    .landscape #show_image img { max-width:480px !important; max-height:300px !important; }
+    .profile #floor_plan .vertical-scroll { height:410px; overflow:hidden; }
+    .profile .vertical-scroll, .vertical-slide { height:350px; overflow:hidden; }
+    .landscape .vertical-scroll, .landscape .vertical-slide { height:250px; overflow:hidden; }
