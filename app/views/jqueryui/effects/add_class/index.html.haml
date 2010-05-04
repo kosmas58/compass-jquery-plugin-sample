@@ -1,6 +1,8 @@
 -@title = "#{t('txt.ui.name')} #{t('txt.ui.effects.default')} - #{t('txt.ui.effects.add_class.default')}"
--@jquery_partial = 'index.js.haml'
-      
+
+- content_for :content_head do
+  = render(:partial => "index.js.haml", :format => :js)
+
 .demo
   %h3
     =@title

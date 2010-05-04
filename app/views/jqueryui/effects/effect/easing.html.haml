@@ -1,6 +1,8 @@
 -@title = "#{t('txt.ui.name')} #{t('txt.ui.effects.default')} - #{t('txt.ui.effects.effect.easing')}"
--@jquery_partial = 'easing.js.haml'
-      
+
+- content_for :content_head do
+  = render(:partial => "easing.js.haml", :format => :js)
+
 .demo
   %h3
     =@title

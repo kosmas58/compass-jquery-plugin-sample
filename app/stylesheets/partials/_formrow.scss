@@ -1,0 +1,94 @@
+.formrow {
+  display: block;
+  label, input, select, textarea {
+    float: left;
+    display: block;
+    margin-right: 10px; }
+  label, .floatLeft, .floatRight {
+    padding-top: 2px; }
+  .digit {
+    padding-top: 7px; }
+  &:after {
+    content: "\0020";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+    overflow: hidden; }
+  .button {
+    float: none;
+    clear: both;
+    padding: 2px; }
+  input, select, textarea {
+    padding: 2px; }
+  input {
+    &.text, &.title {
+      border: 1px solid #bbbbbb; } }
+  textarea, select {
+    border: 1px solid #bbbbbb; }
+  input {
+    &.text:focus, &.title:focus {
+      border: 1px solid #666666; } }
+  textarea:focus, select:focus {
+    border: 1px solid #666666; }
+  input.title {
+    font-size: 1.5em; }
+  label, .floatLeft, .floatRight {
+    margin-top: 0.3em; }
+  .floatLeft {
+    float: left;
+    margin-right: 10px;
+    display: block; }
+  .floatRight {
+    float: right;
+    margin-left: 0px;
+    display: block; }
+  .digit {
+    float: left;
+    margin-left: -6px;
+    display: block; } }
+
+select.span-1, input.span-1, textarea.span-1 {
+  width: 24px; }
+
+select.span-2, input.span-2, textarea.span-2 {
+  width: 64px; }
+
+select.span-3, input.span-3, textarea.span-3 {
+  width: 104px; }
+
+select.span-4, input.span-4, textarea.span-4 {
+  width: 144px; }
+
+select.span-5, input.span-5, textarea.span-5 {
+  width: 184px; }
+
+select.span-6, input.span-6, textarea.span-6 {
+  width: 224px; }
+
+select.span-7, input.span-7, textarea.span-7 {
+  width: 264px; }
+
+select.span-8, input.span-8, textarea.span-8 {
+  width: 304px; }
+
+select.span-9, input.span-9, textarea.span-9 {
+  width: 344px; }
+
+select.span-10, input.span-10, textarea.span-10 {
+  width: 384px; }
+
+select.span-11, input.span-11, textarea.span-11 {
+  width: 424px; }
+
+select.span-12, input.span-12, textarea.span-12 {
+  width: 464px; }
+
+select.span-13, input.span-13, textarea.span-13 {
+  width: 504px; }
+
+select.span-14, input.span-14, textarea.span-14 {
+  width: 544px; }
+
+select.span-15, input.span-15, textarea.span-15 {
+  width: 584px; }

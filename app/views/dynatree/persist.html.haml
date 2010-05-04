@@ -1,7 +1,9 @@
 -@title = "#{t('txt.dt.name')} - #{t('txt.dt.persist')}"
--@jquery_partial = 'persist.js.haml'
 -@dynatree_theme = 'start'
 -@dynatree_skin = 'dynatree.xp.css'
+
+- content_for :content_head do
+  = render(:partial => "persist.js.haml", :format => :js)
 
 .demo
   %h3

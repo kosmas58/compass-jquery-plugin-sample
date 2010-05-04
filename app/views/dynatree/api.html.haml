@@ -1,7 +1,9 @@
 -@title = "#{t('txt.dt.name')} - #{t('txt.dt.api')}"
--@jquery_partial = 'api.js.haml'
 -@dynatree_theme = 'start'
 -@dynatree_skin = 'dynatree.xp.css'
+
+- content_for :content_head do
+  = render(:partial => "api.js.haml", :format => :js)
 
 .demo
   %h3

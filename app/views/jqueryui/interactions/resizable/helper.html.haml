@@ -1,5 +1,7 @@
 -@title = "#{t('txt.ui.name')} #{t('txt.ui.interactions.resizable.default')} - #{t('txt.ui.interactions.resizable.helper')}"
--@jquery_partial = 'helper.js.haml'
+
+- content_for :content_head do
+  = render(:partial => "helper.js.haml", :format => :js)
 
 .demo
   %h3

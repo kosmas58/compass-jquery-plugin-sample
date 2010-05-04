@@ -1,5 +1,7 @@
--@title = "#{t('txt.ui.name')} #{t('txt.ui.interactions.draggable.default')} - #{t('txt.ui.interactions.draggable.scroll')}"
--@jquery_partial = 'scroll.js.haml'      
+-@title = "#{t('txt.ui.name')} #{t('txt.ui.interactions.draggable.default')} - #{t('txt.ui.interactions.draggable.scroll')}"     
+
+- content_for :content_head do
+  = render(:partial => "scroll.js.haml", :format => :js)
 
 .demo
   %h3

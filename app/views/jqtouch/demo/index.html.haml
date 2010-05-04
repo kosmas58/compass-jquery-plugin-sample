@@ -1,5 +1,7 @@
 -@browser_title = "jQTouch &beta;"
--@jqt_partial_1 ='jqt.js.haml'
+
+- content_for :content_head do
+  = render(:partial => "jqt.js.haml", :format => :js)
 
 #jqt
   #about.selectable
@@ -60,7 +62,7 @@
           Cube
       %li
         %a.slideup.reverse{ :href => "#animdemo" }
-          Slide Up (reversed)
+          Reverse animations&hellip;
     %ul.rounded
       Custom animations
       %li
@@ -109,15 +111,19 @@
       %a.back{ :href => "#home" }
         Home
     %ul.rounded
-      %li
-        %a{ :href => "#pageevents" }
-          Page events
-      %li#swipeme.touch
-        Swipe me!
       %li#orient
         Orientation:
         %strong
           profile
+      %li
+        %a{ :href => "#pageevents" }
+          Page events
+      %li
+        %a#swipeme{:href => "#"}        
+          Swipe me!        
+      %li
+        %a#tapme{:href => "#"}
+          Tap me!
   #demos
     .toolbar
       %h1
@@ -128,14 +134,20 @@
       These apps open in a new window. Don’t forget to save them to your home screen to enable full-screen mode.
     %ul.rounded
       %li.forward
-        %a{ :href => "/jqtouch/todo/", :target => "_webapp" }
-          To-Do app
-      %li.forward
         %a{ :href => "/jqtouch/clocks/", :target => "_webapp" }
           Clock app
       %li.forward
+        %a{ :href => "/jqtouch/ical/", :target => "_webapp" }
+          iCal app
+      %li.forward
         %a{ :href => "/jqtouch/mail/", :target => "_webapp" }
           Mail app
+      %li.forward
+        %a{ :href => "/jqtouch/todo/", :target => "_webapp" }
+          To-Do app
+      %li.forward
+        %a{ :href => "/jqtouch/demo2/", :target => "_webapp" }
+          New demo
   #edge
     .toolbar
       %h1
@@ -279,32 +291,35 @@
         %a{ :href => "#ui" }
           User Interface
         %small.counter
-          4
+          5
       %li.arrow
         %a{ :href => "#animations" }
           Animations
         %small.counter
-          8
+          11
       %li.arrow
         %a{ :href => "/jqtouch/demo/ajax", :target => "_webapp" }
           AJAX
         %small.counter
-          3
+          4
       %li.arrow
         %a{ :href => "#callbacks" }
           Callback Events
         %small.counter
-          3
+          4
       %li.arrow
         %a{ :href => "#extensions" }
           Extensions
         %small.counter
           4
       %li.arrow
+        %a{ :href => "#video" }
+          Video
+      %li.arrow
         %a{ :href => "#demos" }
           Demos
         %small.counter
-          2
+          5
     %h2
       External Links
     %ul.rounded
@@ -429,3 +444,13 @@
       %li.arrow
         %a{ :href => "#forms" }
           Form
+          
+  #video
+    .toolbar
+      %h1
+        Video
+      %a.back{ :href => "#" }
+        Home   
+    %center
+      %video#movie{ :src => "/videos/fireworks-iphone.m4v", :poster => "/videos/fireworks.jpg", :height => "426", :width => "320", :controls => '' }
+      %a#play_movie.whiteButton{:href => "#video", :style => "margin: 10px;"} Play Movie

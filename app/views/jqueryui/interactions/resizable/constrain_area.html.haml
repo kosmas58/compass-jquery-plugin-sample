@@ -1,5 +1,7 @@
 -@title = "#{t('txt.ui.name')} #{t('txt.ui.interactions.resizable.default')} - #{t('txt.ui.interactions.resizable.constrain-area')}"
--@jquery_partial = 'constrain_area.js.haml'
+
+- content_for :content_head do
+  = render(:partial => "constrain_area.js.haml", :format => :js)
 
 .demo
   %h3

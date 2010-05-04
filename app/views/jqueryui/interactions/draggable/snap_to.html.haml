@@ -1,5 +1,7 @@
 -@title = "#{t('txt.ui.name')} #{t('txt.ui.interactions.draggable.default')} - #{t('txt.ui.interactions.draggable.snap-to')}"
--@jquery_partial = 'snap_to.js.haml'
+
+- content_for :content_head do
+  = render(:partial => "snap_to.js.haml", :format => :js)
 
 .demo
   %h3

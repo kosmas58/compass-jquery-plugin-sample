@@ -1,5 +1,7 @@
 -@browser_title = "jQTouch &beta;"
--@jqt_partial_1 ='jqt.js.haml'
+
+- content_for :content_head do
+  = render(:partial => "jqt.js.haml", :format => :js)
 
 #jqt
   #test
@@ -10,7 +12,7 @@
         Back 
     %ul.rounded
       %li
-        %a.revealme{ :href => "#page2" }
+        %a.norevealme{ :href => "#page2" }
           Test Reveal
   #page2
     %div{ :style => "font-size: 1.5em; text-align: center; margin: 160px 0 160px; font-family: Marker felt;" }

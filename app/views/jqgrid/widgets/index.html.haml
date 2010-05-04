@@ -1,5 +1,8 @@
 -@browser_title = 'Widgets: ' +controller.action_name
--@jquery_partial = 'index.js.haml'
+
+- content_for :content_head do
+  = render(:partial => "index.js.haml", :format => :js)
+
 %center
   %h3
     Secret Sauce jqGrid - DataGrid  

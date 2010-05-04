@@ -1,6 +1,8 @@
 -@title = "#{t('txt.ui.name')} #{t('txt.ui.widgets.button.default')} - #{t('txt.ui.widgets.button.icon')}"
--@jquery_partial = 'icon.js.haml'
-      
+
+- content_for :content_head do
+  = render(:partial => "icon.js.haml", :format => :js)
+     
 .demo
   %h3
     =@title

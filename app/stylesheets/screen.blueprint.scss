@@ -1,0 +1,9 @@
+@import "partials/base.blueprint";
+
+body {
+  @include blueprint-typography;
+  div.container {
+    @include container;
+    width: 95%;
+    font-size: 0.8em;
+    @include two-column("#header", "#navigation", "#content", "#footer"); } }

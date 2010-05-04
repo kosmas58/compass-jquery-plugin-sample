@@ -1,5 +1,7 @@
 -@title = "#{t('txt.ui.name')} #{t('txt.ui.widgets.slider.default')} - #{t('txt.ui.widgets.slider.multiple-vertical')}"
--@jquery_partial = 'multiple_vertical.js.haml'
+
+- content_for :content_head do
+  = render(:partial => "multiple_vertical.js.haml", :format => :js)
 
 .demo
   %h3

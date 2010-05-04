@@ -1,6 +1,8 @@
 -@title = "#{t('txt.ui.name')} #{t('txt.ui.widgets.button.default')} - #{t('txt.ui.widgets.button.splitbutton')}"
--@jquery_partial = 'splitbutton.js.haml'
-      
+
+- content_for :content_head do
+  = render(:partial => "splitbutton.js.haml", :format => :js)
+     
 .demo
   %h3
     =@title

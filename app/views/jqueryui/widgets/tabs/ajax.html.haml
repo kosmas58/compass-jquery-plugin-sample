@@ -1,6 +1,8 @@
 -@title = "#{t('txt.ui.name')} #{t('txt.ui.widgets.tabs.default')} - #{t('txt.ui.widgets.tabs.ajax')}"
--@jquery_partial = 'ajax.js.haml'
-      
+
+- content_for :content_head do
+  = render(:partial => "ajax.js.haml", :format => :js)
+     
 .demo
   %h3
     =@title

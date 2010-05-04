@@ -1,5 +1,7 @@
 -@title = "#{t('txt.ui.name')} #{t('txt.ui.interactions.draggable.default')} - #{t('txt.ui.interactions.draggable.delay-start')}"
--@jquery_partial = 'delay_start.js.haml'
+
+- content_for :content_head do
+  = render(:partial => "delay_start.js.haml", :format => :js)
       
 .demo
   %h3

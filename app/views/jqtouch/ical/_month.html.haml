@@ -1,0 +1,72 @@
+%input#month{:type => "hidden", :value => "#{@month}"}
+%input#year{:type => "hidden", :value => "#{@year}"}
+%table{:cellspacing => "0"}
+  %thead
+    %tr
+      %th.goto-prevmonth
+        = t('date.abbr_day_names')[1]
+      %th
+        = t('date.abbr_day_names')[2]
+      %th
+        = t('date.abbr_day_names')[3]
+      %th
+        %span
+          = @monthName
+          = @year
+        = t('date.abbr_day_names')[4]
+      %th
+        = t('date.abbr_day_names')[5]
+      %th
+        = t('date.abbr_day_names')[6]
+      %th.goto-nextmonth
+        = t('date.abbr_day_names')[0]
+  %tfoot
+    %tr
+      %th{:colspan => "7"} &nbsp;
+  %tbody
+    %tr    
+      %td.prevmonth 26     
+      %td.prevmonth 27
+      %td.prevmonth 28
+      %td 1
+      %td 2
+      %td 3
+      %td 4
+    %tr
+      %td 5
+      %td 6
+      %td 7
+      %td 8
+      %td.date_has_event 9
+      %td 10
+      %td 11
+    %tr
+      %td 12
+      %td.date_has_event 13
+      %td 14
+      %td 15
+      %td 16
+      %td 17
+      %td 18
+    %tr
+      %td 19
+      %td.hasevent 20
+      %td 21
+      %td.date_has_event 22
+      %td 23
+      %td 24
+      %td 25
+    %tr
+      %td 26
+      %td 27
+      %td 28
+      %td 29
+      %td 30
+      %td 31
+      %td.nextmonth 1
+%ul.events
+%ul.bottom-bar
+  %li.bottom-bar-today
+  %li.bottom-bar-list 
+  %li.bottom-bar-day
+  %li.bottom-bar-month

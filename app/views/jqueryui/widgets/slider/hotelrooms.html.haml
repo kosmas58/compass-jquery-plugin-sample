@@ -1,5 +1,7 @@
 -@title = "#{t('txt.ui.name')} #{t('txt.ui.widgets.slider.default')} - #{t('txt.ui.widgets.slider.hotelrooms')}"
--@jquery_partial = 'hotelrooms.js.haml'
+
+- content_for :content_head do
+  = render(:partial => "hotelrooms.js.haml", :format => :js)
 
 .demo
   %h3

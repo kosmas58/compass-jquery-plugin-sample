@@ -1,2 +1,3 @@
--@jquery_partial = "index#{@demo}.js.haml"
-= render :partial => "index#{@demo}"
+- content_for :content_head do
+  = render(:partial => "index#{@demo}.js.haml", :format => :js)
+  = render :partial => "index#{@demo}"

@@ -1,0 +1,373 @@
+-@title = "#{t('txt.ribbon.name')} - #{t('txt.ribbon.theming.name')} - #{t('txt.ribbon.theming.windows7')}"
+-@ribbon_theme = 'ribbon.office'
+
+- content_for :content_head do
+  = render(:partial => "office.js.haml", :format => :js)
+
+#header 
+  .mainContainer
+    %ul.ribbon
+      %li
+        %ul.orb
+          %li
+            %a.orbButton{ :href => "javascript:void(0);", :accesskey => "1" }
+              \&nbsp;
+            %span
+              Menu
+            %ul
+              %li
+                %a{ :href => "#" }
+                  %img{ :src => "/images/demo/ribbon/icon_doc.png", :alt => "New" }
+                  %span
+                    New
+                %ul
+                  %li
+                    %a{ :href => "#" }
+                      %img{ :src => "/images/demo/ribbon/icon_richtext.png", :alt => "Rich Text" }
+                      %span
+                        Rich Text document
+                  %li
+                    %a{ :href => "#" }
+                      %img{ :src => "/images/demo/ribbon/icon_ooxml.png", :alt => "OOXML" }
+                      %span
+                        Office Open XML document
+                  %li
+                    %a{ :href => "#" }
+                      %img{ :src => "/images/demo/ribbon/icon_ooxml.png", :alt => "Open Document" }
+                      %span
+                        OpenDocument text
+                  %li
+                    %a{ :href => "#" }
+                      %img{ :src => "/images/demo/ribbon/icon_plaintext.png", :alt => "Plain text" }
+                      %span
+                        Plain text document
+                  %li
+                    %a{ :href => "#" }
+                      %img{ :src => "/images/demo/ribbon/icon_otherformats.png", :alt => "Other formats" }
+                      %span
+                        Other formats
+                  %li
+                    %a{ :href => "#" }
+                      %img{ :src => "/images/demo/ribbon/icon_otherformats.png", :alt => "Other formats 2" }
+                      %span
+                        Other formats 2
+                  %li
+                    %a{ :href => "#" }
+                      %img{ :src => "/images/demo/ribbon/icon_otherformats.png", :alt => "Other formats 3" }
+                      %span
+                        Other formats 3
+                .ribbon-backstage-rightColumnSmall
+                  %h2
+                    Test
+                  %br
+                  %img{ :src => "/images/demo/ribbon/page/window_icon.png" }
+                  %p
+                    Information...
+              %li
+                %a{ :href => "#" }
+                  %img{ :src => "/images/demo/ribbon/icon_open.png", :alt => "Open" }
+                  %span
+                    Open
+              %li
+                %a{ :href => "#" }
+                  %img{ :src => "/images/demo/ribbon/icon_save.png", :alt => "Save" }
+                  %span
+                    Save
+              %li
+                %a{ :href => "#" }
+                  %img{ :src => "/images/demo/ribbon/icon_saveas.png", :alt => "Save as" }
+                  %span
+                    Save As
+                %ul
+                  %li
+                    %a{ :href => "#" }
+                      %img{ :src => "/images/demo/ribbon/icon_richtext.png", :alt => "Rich Text" }
+                      %span
+                        Rich Text document
+                  %li
+                    %a{ :href => "#" }
+                      %img{ :src => "/images/demo/ribbon/icon_ooxml.png", :alt => "OOXML" }
+                      %span
+                        Office Open XML document
+                  %li
+                    %a{ :href => "#" }
+                      %img{ :src => "/images/demo/ribbon/icon_ooxml.png", :alt => "Open Document" }
+                      %span
+                        OpenDocument text
+                  %li
+                    %a{ :href => "#" }
+                      %img{ :src => "/images/demo/ribbon/icon_plaintext.png", :alt => "Plain text" }
+                      %span
+                        Plain text document
+                  %li
+                    %a{ :href => "#" }
+                      %img{ :src => "/images/demo/ribbon/icon_otherformats.png", :alt => "Other formats" }
+                      %span
+                        Other formats
+                .ribbon-backstage-rightColumnWide
+                  Right content!
+              %li
+                %a{ :href => "#" }
+                  %img{ :src => "/images/demo/ribbon/icon_print.png", :alt => "Print" }
+                  %span
+                    Print
+                %ul
+                  %li
+                    %a{ :href => "#" }
+                      %img{ :src => "/images/demo/ribbon/icon_print.png", :alt => "Print" }
+                      %span
+                        Print
+                  %li
+                    %a{ :href => "#" }
+                      %img{ :src => "/images/demo/ribbon/icon_quickprint.png", :alt => "Quick print" }
+                      %span
+                        Quick print
+                  %li
+                    %a{ :href => "#" }
+                      %img{ :src => "/images/demo/ribbon/icon_printpreview.png", :alt => "Print preview" }
+                      %span
+                        Print preview
+              %li
+                %a{ :href => "#" }
+                  %img{ :src => "/images/demo/ribbon/icon_pagesetup.png", :alt => "Page setup" }
+                  %span
+                    Page setup
+              %li
+                %a{ :href => "#" }
+                  %img{ :src => "/images/demo/ribbon/icon_sendemail.png", :alt => "Send in e-mail" }
+                  %span
+                    Send e-mail
+              %li
+                %a{ :href => "#" }
+                  %img{ :src => "/images/demo/ribbon/icon_about.png", :alt => "About" }
+                  %span
+                    About
+              %li
+                %a{ :href => "#" }
+                  %img{ :src => "/images/demo/ribbon/icon_exit.png", :alt => "Exit" }
+                  %span
+                    Exit
+      %li
+        %ul.menu
+          %li
+            %a{ :href => "#home", :accesskey => "2" }
+              Home
+            %ul
+              %li
+                %h2
+                  %span
+                    Clipboard
+                %div
+                  %img{ :src => "/images/demo/ribbon/icon_paste.png", :alt => "Paste" }
+                  Paste
+                .ribbon-list
+                  %div
+                    %img{ :src => "/images/demo/ribbon/icon_small_cut.png", :alt => "Cut" }
+                    Cut
+                  %div
+                    %img{ :src => "/images/demo/ribbon/icon_small_copy.png", :alt => "Copy" }
+                    Copy
+                  %div
+                    %img{ :src => "/images/demo/ribbon/icon_small_copy_format.png", :alt => "Copy format" }
+                    Copy format
+              %li
+                %h2
+                  %span
+                    Drawing
+                %div
+                  %img{ :src => "/images/demo/ribbon/icon_tools.png", :alt => "Tools" }
+                  Tools
+              %li
+                %h2
+                  %span
+                    Insert
+                %div
+                  %img{ :src => "/images/demo/ribbon/icon_datetime.png", :alt => "Date and time" }
+                  Date and time
+                %div
+                  %img{ :src => "/images/demo/ribbon/icon_picture.png", :alt => "Picture" }
+                  Picture
+                %div
+                  %img{ :src => "/images/demo/ribbon/icon_paint.png", :alt => "Paint" }
+                  Paint drawing
+              %li
+                %h2
+                  %span
+                    Editing
+                .ribbon-list
+                  %div
+                    %img{ :src => "/images/demo/ribbon/icon_small_find.png", :alt => "Find" }
+                    Find
+                  %div
+                    %img{ :src => "/images/demo/ribbon/icon_small_replace.png", :alt => "Replace" }
+                    Replace
+                  %div
+                    %img{ :src => "/images/demo/ribbon/icon_small_selectall.png", :alt => "Select all" }
+                    Select all
+              %li
+                %h2
+                  Theme
+                .ribbon-list
+                  %div
+                    %img{ :src => "/images/demo/ribbon/icon_small_theme.png", :alt => "Theme" }
+                    Ribbon theme
+                    %ul.ribbon-theme
+                      %li.ribbon-windows7
+                        Windows 7
+                      %li.ribbon-office
+                        Office
+                      %li.ribbon-simple
+                        Simple
+          %li
+            %a{ :href => "#insert", :accesskey => "3" }
+              Insert
+            %ul
+              %li
+                %h2
+                  %span
+                    Pages
+                %div
+                  %img{ :src => "/images/demo/ribbon/icon_cover.png", :alt => "Cover" }
+                  Cover
+                .ribbon-list
+                  %div
+                    %img{ :src => "/images/demo/ribbon/icon_small_new.png", :alt => "New" }
+                  %div
+                    %img{ :src => "/images/demo/ribbon/icon_small_pagejump.png", :alt => "Page jump" }
+              %li
+                %h2
+                  %span
+                    Tables
+                %div
+                  %img{ :src => "/images/demo/ribbon/icon_table.png", :alt => "Table" }
+                  Table
+              %li
+                %h2
+                  %span
+                    Graphics
+                %div
+                  %img{ :src => "/images/demo/ribbon/icon_image.png", :alt => "Image" }
+                  Image
+                %div
+                  %img{ :src => "/images/demo/ribbon/icon_clipart.png", :alt => "Clip" }
+                  Clip
+                .ribbon-list
+                  %div
+                    %img{ :src => "/images/demo/ribbon/icon_small_shapesquare.png" }
+                  %div
+                    %img{ :src => "/images/demo/ribbon/icon_small_smartart.png" }
+                  %div
+                    %img{ :src => "/images/demo/ribbon/icon_small_chart.png" }
+              %li
+                %h2
+                  %span
+                    Links
+                .ribbon-list
+                  %div
+                    %img{ :src => "/images/demo/ribbon/icon_small_link.png" }
+                    Link
+                  %div
+                    %img{ :src => "/images/demo/ribbon/icon_small_removelink.png" }
+                    Remove link
+              %li
+                %h2
+                  %span
+                    Header and footer
+                .ribbon-list
+                  %div
+                    %img{ :src => "/images/demo/ribbon/icon_small_header.png" }
+                    Header
+                    %ul.ribbon-header
+                      %li
+                        Paste special ...
+                      %li
+                        Clear clipboard
+                      %li
+                        Another
+                  %div
+                    %img{ :src => "/images/demo/ribbon/icon_small_footer.png" }
+                    Footer
+                  %div
+                    %img{ :src => "/images/demo/ribbon/icon_small_pagenumber.png" }
+                    Page number
+              %li
+                %h2
+                  %span
+                    Text
+                .ribbon-list
+                  %div
+                    %img{ :src => "/images/demo/ribbon/icon_small_textframe.png" }
+                  %div
+                    %img{ :src => "/images/demo/ribbon/icon_small_quickitems.png" }
+                  %div
+                    %img{ :src => "/images/demo/ribbon/icon_small_wordart.png" }
+                .ribbon-list
+                  %div
+                    %img{ :src => "/images/demo/ribbon/icon_small_capitalletter.png" }
+                  %div
+                    %img{ :src => "/images/demo/ribbon/icon_small_signatureline.png" }
+                  %div
+                    %img{ :src => "/images/demo/ribbon/icon_small_datetime.png" }
+                .ribbon-list
+                  %div
+                  %div
+                    %img{ :src => "/images/demo/ribbon/icon_small_insertobject.png" }
+          %li
+            %a{ :href => "#textboxes", :accesskey => "4" }
+              Textboxes
+            %ul
+              %li
+                %h2
+                  %span
+                    With image and label                    
+                .ribbon-list                    
+                  %div     
+                    %img{ :src => "/images/demo/ribbon/icon_small_link.png", :alt => "Link" }
+                    Link
+                    %input{ :type => "text" }                   
+                .ribbon-list                    
+                  %div     
+                    %img{ :src => "/images/demo/ribbon/icon_small_link.png", :alt => "Style name" }
+                    Style name
+                    %input{ :type => "text" }  
+                  %div
+                    %img{ :src => "/images/demo/ribbon/icon_small_replace.png", :alt => "Replace word" }
+                    Replace word
+                    %input{ :type => "text" } 
+#content 
+  .textbox
+    %div
+      %h1
+        jQuery Ribbon
+      %h2
+        How do I use it?
+      %p
+        First of all you need to
+        %a{ :href => "http://jqueryribbon.codeplex.com" }
+          download the source
+        \.
+      %p
+        The next step is to unzip all the files to your website. After that you need to
+        grab the source code in the HTML and add to your site where you want to have the
+        ribbon, and add references to the javascript files.
+      %p
+        To enable the ribbon you just have to add this code snippet:
+      %pre
+        $().ready(function() {
+        $().Ribbon();
+        });
+      %p
+        The menu is built on ul lists, so to add new submenu items in the menu, just add
+        a nested list and it will be added autmagically.
+      %p
+        If you have any questions or comments, please let me know.
+      %h2
+        Author
+      Copyright &copy; 2009, Mikael Söderström.
+      %br
+      %a{ :href => "http://weblogs.asp.net/mikaelsoderstrom" }
+        My blog
+      %br
+      %a{ :href => "http://twitter.com/vimpyboy" }
+        vimpyboy@twitter
+        

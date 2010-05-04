@@ -1,5 +1,7 @@
 -@title = "#{t('txt.ui.name')} #{t('txt.ui.interactions.sortable.default')} - #{t('txt.ui.interactions.sortable.portlets')}"
--@jquery_partial = 'portlets.js.haml'
+
+- content_for :content_head do
+  = render(:partial => "portlets.js.haml", :format => :js)
 
 .demo
   %h3

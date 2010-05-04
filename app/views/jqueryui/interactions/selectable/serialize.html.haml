@@ -1,5 +1,7 @@
 -@title = "#{t('txt.ui.name')} #{t('txt.ui.interactions.selectable.default')} - #{t('txt.ui.interactions.selectable.serialize')}"
--@jquery_partial = 'serialize.js.haml'
+
+- content_for :content_head do
+  = render(:partial => "serialize.js.haml", :format => :js)
 
 .demo
   %h3

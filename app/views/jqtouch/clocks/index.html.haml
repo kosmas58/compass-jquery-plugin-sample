@@ -1,5 +1,7 @@
 -@browser_title = "jQTouch &beta;"
--@jqt_partial_1 ='jqt.js.haml'
+
+- content_for :content_head do
+  = render(:partial => "jqt.js.haml", :format => :js)
 
 #jqt
   #home
@@ -17,8 +19,8 @@
     .toolbar
       %h1
         New Time Zone
-      %a.cancel{ :href => "#add" }
-        Cancel
+      %a.back{ :href => "#add" }
+        Back
     %form#time
       %ul.rounded
         %li
