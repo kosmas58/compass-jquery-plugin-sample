@@ -3,27 +3,29 @@
 %table{:cellspacing => "0"}
   %thead
     %tr
-      %th.goto-prevmonth        
-        Mon
+      %th.goto-prevmonth
+        = t('date.abbr_day_names')[1]
       %th
-        Tue
+        = t('date.abbr_day_names')[2]
       %th
-        Wed
+        = t('date.abbr_day_names')[3]
       %th
-        %span March 2010
-        Thu
+        %span
+          = @monthName
+          = @year
+        = t('date.abbr_day_names')[4]
       %th
-        Fri
+        = t('date.abbr_day_names')[5]
       %th
-        Sat
+        = t('date.abbr_day_names')[6]
       %th.goto-nextmonth
-        Sun
+        = t('date.abbr_day_names')[0]
   %tfoot
     %tr
       %th{:colspan => "7"} &nbsp;
   %tbody
-    %tr
-      %td.prevmonth 26
+    %tr    
+      %td.prevmonth 26     
       %td.prevmonth 27
       %td.prevmonth 28
       %td 1

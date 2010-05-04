@@ -4,19 +4,21 @@ class Jqtouch::IcalController < ApplicationController
   protect_from_forgery
   
   def month
-    @month = params[:month] 
-    @year  = params[:year]   
+    @month = params[:month].to_i 
+    @year  = params[:year].to_i   
     
-    #@firstDay     = Date.new(y=@year, m=@month, d="1").strftime("%d-%m%Y")
-    #@firstDay     = date('d-m-Y', Date.new=(y=@year, m=@month, ));
-    #@firstDayWeek = date('N', strtotime($firstDay)); 
+    @monthName = I18n.t('date.month_names')[@month]
     
-    #@monthName   = date('F', strtotime($firstDay));
+    @firstDay     = Date.new(@year, @month, 1)
+    @firstDayWeek = @firstDay.wday    
+    
+    @lastDay     = (@firstDay>>1)-1 
+    @lastDayWeek = @lastDay.wday
+    
+    
     #@lastMonday  = date('d-m-Y', strtotime('last Monday', strtotime($firstDay)));
   
-    #@lastDayDay  = date('t', strtotime($firstDay)); 
-    #@lastDay     = date('d-m-Y', strtotime($lastDayDay.'-'.$month.'-'.$year));
-    #@lastDayWeek = date('N', strtotime($lastDay));    
+
     
     render :partial => "month", :layout => false
   end
