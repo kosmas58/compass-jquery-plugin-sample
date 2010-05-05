@@ -55,14 +55,12 @@
     $("#switching").removeClass("show_switching").addClass("hide_switching");
   };
 
-
-%style{:type => "text/css", :media => "screen"}
-  :plain  
-    div.tabbar { background: url("/images/jqtouch/demo2/tabbar.png") #000000 repeat-x; margin:0px 0px 0px 0px; padding:0px 0px 0px 0px; text-align:center; position:absolute; bottom:0px; width:100%; height:64px; }
-    table.tabbar { width:100%; color:white; font: bold 11px/13px helvetica; height:44px; padding:0px; margin:0px; }
-    table.art_filter { width:100%; color:black; font: bold 12px/14px helvetica; height:18px; padding:0px; margin:0px; background:darkgray; }
-    td.tab { width:20%; opacity:0.6; }
-    td.tab_sel { width:20%;  height:44px; -webkit-border-radius:5px; background:url("/images/jqtouch/demo2/opacity_4.png") repeat; opacity:1.0; }
-    #switching { position: absolute; width: 15%; height:10%; top:45%; left:45%; background:url("/images/jqtouch/demo2/ajax-loader-big.gif") white no-repeat center; opacity:.6; }
-    .show_switching { display: inline; } 
-    .hide_switching { display: none; }
+:css 
+  div.tabbar { background: url("/images/jqtouch/demo2/tabbar.png") #000000 repeat-x; margin:0px 0px 0px 0px; padding:0px 0px 0px 0px; text-align:center; position:absolute; bottom:0px; width:100%; height:64px; }
+  table.tabbar { width:100%; color:white; font: bold 11px/13px helvetica; height:44px; padding:0px; margin:0px; }
+  table.art_filter { width:100%; color:black; font: bold 12px/14px helvetica; height:18px; padding:0px; margin:0px; background:darkgray; }
+  td.tab { width:20%; opacity:0.6; }
+  td.tab_sel { width:20%;  height:44px; -webkit-border-radius:5px; background:url("/images/jqtouch/demo2/opacity_4.png") repeat; opacity:1.0; }
+  #switching { position: absolute; width: 15%; height:10%; top:45%; left:45%; background:url("/images/jqtouch/demo2/ajax-loader-big.gif") white no-repeat center; opacity:.6; }
+  .show_switching { display: inline; } 
+  .hide_switching { display: none; }

@@ -332,6 +332,10 @@ en:
           combobox: Combobox
           custom-data: Custom data and display
           remote-xml: XML data parsed once
+          categories: Categories
+          multiple: Multiple values
+          multiple-remote: Multiple, remote
+          folding: Accent folding
         default: Widgets
         button:
           default: Button
@@ -391,6 +395,7 @@ en:
           collapsible: Collapse content
           manipulation: Simple manipulation
           bottom: Tabs below content
+          cookie: Cookie persistence
         progressbar:
           default: Progressbar
           resize: Resizable progressbar
@@ -431,6 +436,7 @@ en:
           revert: Revert draggable position
           propagation: Prevent propagation
           accepted-elements: Accepted elements
+          shopping-cart: Shopping cart
           photo-manager: Simple photo manager
         sortable:
           items: Include / exclude items

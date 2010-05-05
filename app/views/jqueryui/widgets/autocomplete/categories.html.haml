@@ -1,0 +1,15 @@
+-@title = "#{t('txt.ui.name')} #{t('txt.ui.widgets.autocomplete.default')} - #{t('txt.ui.widgets.autocomplete.categories')}"
+
+- content_for :content_head do
+  = render(:partial => "categories.js.haml", :format => :js)
+     
+.demo
+  %h3
+    =@title
+  %label{:for => "search"} Search:
+  %input#search/
+/ End demo
+.demo-description
+  %p
+    A categorized search result. Try typing "a" or "n".
+/ End demo-description

@@ -1,0 +1,20 @@
+-@title = "#{t('txt.ui.name')} #{t('txt.ui.widgets.autocomplete.default')} - #{t('txt.ui.widgets.autocomplete.multiple-remote')}"
+
+- content_for :content_head do
+  = render(:partial => "multiple_remote.js.haml", :format => :js)
+     
+.demo
+  %h3
+    =@title  
+  .ui-widget
+    %label{:for => "birds"} Birds:
+    %input#birds{:size => "50"}/
+/ End demo    
+
+.demo-description
+  %p
+    Usage: Enter at least two characters to get bird name suggestions. Select a value to continue adding more names.
+  %p
+    This is an example showing how to use the source-option along with some events to enable autocompleting multiple values into a single field.
+  / End demo-description
+  

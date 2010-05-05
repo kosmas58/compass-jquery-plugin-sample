@@ -1,0 +1,31 @@
+:css
+  .demo .ui-widget-header { padding: .2em; margin: 0; }
+  #products { float:left; width: 500px; margin-right: 2em; }
+  #cart { width: 200px; float: left; }
+  #cart ol { margin: 0; padding: 1em 0 1em 3em; }
+  
+:javascript
+  $(function() {
+    $("#catalog").accordion();
+    $("#catalog li").draggable({
+      appendTo: "body",
+      cursor: 'move',
+      helper: "clone"
+    });
+    $("#cart ol").droppable({
+      activeClass: "ui-state-default",
+      hoverClass: "ui-state-hover",
+      accept: ":not(.ui-sortable-helper)",
+      drop: function(event, ui) {
+        $(this).find(".placeholder").remove();
+        $("<li></li>").text(ui.draggable.text()).appendTo(this);
+      }
+    }).sortable({
+      items: "li:not(.placeholder)",
+      sort: function() {
+        // gets added unintentionally by droppable interacting with sortable
+        // using connectWithSortable fixes this, but doesn't allow you to customize active/hoverClass options
+        $(this).removeClass("ui-state-default");
+      }
+    });
+  });

@@ -1,9 +1,8 @@
-%style{:type => "text/css", :media => "screen"}
-  :plain
-    #draggable, #draggable2, #draggable3, #set div { width: 90px; height: 90px; padding: 0.5em; float: left; margin: 0 10px 10px 0; }
-    #draggable, #draggable2, #draggable3 { margin-bottom:20px; }
-    #set { clear:both; float:left; width: 368px; height: 120px; }
-    .demo p { clear:both; margin:0; padding:1em 0; }
+:css
+  #draggable, #draggable2, #draggable3, #set div { width: 90px; height: 90px; padding: 0.5em; float: left; margin: 0 10px 10px 0; }
+  #draggable, #draggable2, #draggable3 { margin-bottom:20px; }
+  #set { clear:both; float:left; width: 368px; height: 120px; }
+  .demo p { clear:both; margin:0; padding:1em 0; }
     
 :javascript
   $(function() {
@@ -16,5 +15,6 @@
         return $('<div class="ui-widget-header">I\'m a custom helper</div>');
       }
     });
-    $("#set div").draggable({ stack: { group: '#set div', min: 1 } });
+    $("#set div").draggable({ stack: '#set div' });
   });
+  

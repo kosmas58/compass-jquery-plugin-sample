@@ -24,9 +24,10 @@ date:
   formats: 
     default: "%Y-%m-%d"
 txt: 
-  jqgrid: 
-    demo: 
-      actions: Actions
+  ui: 
+    widgets: 
+      autocomplete: 
+        folding: Accent folding
 support: 
   array: 
     words_connector: ", "
