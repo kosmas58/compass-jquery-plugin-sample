@@ -1,0 +1,24 @@
+-@title = "#{t('txt.ui.name')} #{t('txt.ui.widgets.autocomplete.default')} - Folding"
+
+- content_for :content_head do
+  = render(:partial => "folding.js.haml", :format => :js)
+
+.demo
+  %h3
+    =@title
+  .ui-widget
+    %form
+      %label{:for => "developer"}
+        Developer:
+      %input#developer
+/ End demo
+.demo-description
+  %p
+    The autocomplete field uses a custom source option which will match results that have accented
+    characters even when the text field doesn't contain accented characters. However if the you type
+    in accented characters in the text field it is smart enough not to show results that aren't accented.
+
+  %p
+    Try typing "Jo" to see "John" and "Jörn", then type "Jö" to see only "Jörn".
+/ End demo-description
+

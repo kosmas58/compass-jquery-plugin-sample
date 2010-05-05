@@ -24,9 +24,12 @@ date:
   formats: 
     default: "%Y-%m-%d"
 txt: 
-  jqgrid: 
-    demo: 
-      actions: Actions
+  ui: 
+    widgets: 
+      autocomplete: 
+        multiple-remote: Multiple, remote
+        categories: Categories
+        multiple: Multiple values
 support: 
   array: 
     words_connector: ", "

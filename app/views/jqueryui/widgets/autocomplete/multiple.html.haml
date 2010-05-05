@@ -1,0 +1,20 @@
+-@title = "#{t('txt.ui.name')} #{t('txt.ui.widgets.autocomplete.default')} - #{t('txt.ui.widgets.autocomplete.multiple')}"
+
+- content_for :content_head do
+  = render(:partial => "multiple.js.haml", :format => :js)
+     
+.demo
+  %h3
+    =@title
+  .ui-widget
+    %label{:for => "tags"}
+      Tag programming languages:
+    %input#tags{:size => "50"}
+/ End demo    
+
+.demo-description
+  %p
+    Usage: Type something, eg. "j" to see suggestions for tagging with programming languages. Select a value, then continue typing to add more.
+  %p
+    This is an example showing how to use the source-option along with some events to enable autocompleting multiple values into a single field.
+/ End demo-description

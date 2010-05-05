@@ -1,12 +1,10 @@
-
-%style{:type => "text/css", :media => 'screen, projection'}
-  :plain
-    div#jqt .reveal.in { -webkit-animation-name: dontmove; z-index: 0; }
-    div#jqt .reveal.out { -webkit-animation-name: revealout; z-index: 10; }
-    div#jqt .reveal.out.reverse { z-index: 0; -webkit-animation-name: dontmove; }
-    div#jqt .reveal.in.reverse { z-index: 10; -webkit-animation-name: revealin; }
-    @-webkit-keyframes revealin { from { -webkit-transform: translateX(100%); } to { -webkit-transform: translateX(0); } }
-    @-webkit-keyframes revealout { from { -webkit-transform: translateX(0); } to { -webkit-transform: translateX(100%); } }  
+:css
+  div#jqt .reveal.in { -webkit-animation-name: dontmove; z-index: 0; }
+  div#jqt .reveal.out { -webkit-animation-name: revealout; z-index: 10; }
+  div#jqt .reveal.out.reverse { z-index: 0; -webkit-animation-name: dontmove; }
+  div#jqt .reveal.in.reverse { z-index: 10; -webkit-animation-name: revealin; }
+  @-webkit-keyframes revealin { from { -webkit-transform: translateX(100%); } to { -webkit-transform: translateX(0); } }
+  @-webkit-keyframes revealout { from { -webkit-transform: translateX(0); } to { -webkit-transform: translateX(100%); } }  
   
 :javascript
   var jQT = new $.jQTouch({

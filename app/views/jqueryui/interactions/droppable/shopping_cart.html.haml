@@ -1,0 +1,60 @@
+-@title = "#{t('txt.ui.name')} #{t('txt.ui.interactions.droppable.default')} - #{t('txt.ui.interactions.droppable.shopping-cart')}"
+
+- content_for :content_head do
+  = render(:partial => "shopping_cart.js.haml", :format => :js)
+
+.demo   
+  %h3
+    =@title
+  #products
+    %h3.ui-widget-header
+      Products
+    #catalog
+      %h3
+        %a{:href => "#"}
+          T-Shirts
+      %div
+        %ul
+          %li
+            Lolcat Shirt
+          %li
+            Cheezeburger Shirt
+          %li
+            Buckit Shirt
+      %h3
+        %a{:href => "#"}
+          Bags
+      %div
+        %ul
+          %li
+            Zebra Striped
+          %li
+            Black Leather
+          %li
+            Alligator Leather
+      %h3
+        %a{:href => "#"}
+          Gadgets
+      %div
+        %ul
+          %li
+            iPhone
+          %li
+            iPod
+          %li
+            iPad
+        
+  #cart
+    %h3.ui-widget-header
+      Shopping Cart
+    .ui-widget-content
+      %ol
+        %li.placeholder
+          Add your items here
+/ End demo
+
+.demo-description
+  %p
+    Demonstrate how to use an accordion to structure products into a catalog and make use drag and drop for adding
+    them to a shopping cart, where they are sortable.
+/ End demo-description
