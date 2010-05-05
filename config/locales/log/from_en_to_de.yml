@@ -27,9 +27,7 @@ txt:
   ui: 
     widgets: 
       autocomplete: 
-        multiple-remote: Multiple, remote
-        categories: Categories
-        multiple: Multiple values
+        folding: Accent folding
 support: 
   array: 
     words_connector: ", "

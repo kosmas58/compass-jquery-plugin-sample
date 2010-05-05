@@ -335,6 +335,7 @@ en:
           categories: Categories
           multiple: Multiple values
           multiple-remote: Multiple, remote
+          folding: Accent folding
         default: Widgets
         button:
           default: Button
