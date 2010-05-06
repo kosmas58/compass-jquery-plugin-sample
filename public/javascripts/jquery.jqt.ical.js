@@ -31,14 +31,17 @@
 
 // Global variables
 var now = new Date();
+var url = 'month'
+
 
 // Loads the calendar for the passed Month and Year
-function getCalendar(date) {
+function getCalendar(url_in, date) {
+	url = url_in;
 	var d = date.getDate();
 	var m = date.getMonth() + 1; // zero index based
 	var y = date.getFullYear();
 				
-	$.get('month', { month: m, year: y }, function(data) {
+	$.get(url, { month: m, year: y }, function(data) {
 		// clear existing calendar
 		$('#ical').empty();
 		// append retrieved calendar markup
@@ -100,12 +103,12 @@ function setBindings() {
 		}
 		
 		if( btnClass.indexOf('prevmonth') != -1 || btnClass.indexOf('nextmonth') != -1 ) {
-			getCalendar(clickedDate);
+			getCalendar(url, clickedDate);
 		}
 	});
 	// bottom bar - today
 	$("#ical .bottom-bar .bottom-bar-today").bind("click", function(){
-		getCalendar(now);
+		getCalendar(url, now);
 	});
 	// load previous Month
 	$("#ical .goto-prevmonth").bind("click", function() {
@@ -142,7 +145,7 @@ function loadPrevNextMonth(num) {
 	else
 		currentDay.prevMonth();
 	
-	getCalendar(currentDay);
+	getCalendar(url, currentDay);
 }
 // Set Today's date
 function setToday() {
@@ -150,6 +153,14 @@ function setToday() {
 	    var dt = getDateFromHiddenField($(this).val());
 	
 		if(!isNaN(dt)) {
+			  var no = now
+			  var da = now.getDate()
+				var db = dt.getDate()
+			  var ma = now.getMonth()
+				var mb = dt.getMonth()
+			  var ya = now.getFullYear()
+				var yb = dt.getFullYear()
+				
 		    if( now.getDate() == dt.getDate()
 				&& now.getMonth() == dt.getMonth()
 				&& now.getFullYear() == dt.getFullYear()) {
@@ -167,7 +178,7 @@ function setToday() {
 
 function getDateFromHiddenField(date) {
 	var a = date.split('-');
-	return new Date(a[2],a[1]-1,a[0]);
+	return new Date(a[0],a[1]-1,a[2]);
 }
 // Set Selected date and Load events if exists
 function setSelectedAndLoadEvents(date) {

@@ -27,8 +27,9 @@
     - @cal.each_with_index do |day, index|
       - if index % 7 == 0
         %tr
-      %td -#.&=@cal[index][:type]
+      %td{ :class => "#{@cal[index][:type]}"}
         = @cal[index][:day]      
+        %input{:type => "hidden", :value => "#{@cal[index][:value]}"}
 %ul.events
 %ul.bottom-bar
   %li.bottom-bar-today

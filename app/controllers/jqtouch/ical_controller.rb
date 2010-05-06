@@ -10,11 +10,11 @@ class Jqtouch::IcalController < ApplicationController
     @monthName = I18n.t('date.month_names')[@month]
     
     firstDay     = Date.new(@year, @month, 1)
-    firstDayWDay = firstDay.wday    
+    firstDayWDay = firstDay.wday == 0 ? 7 : firstDay.wday     
     
     lastDay     = (firstDay>>1)-1 
     lastDayDay  = lastDay.strftime('%d').to_i
-    lastDayWDay = lastDay.wday
+    lastDayWDay = lastDay.wday == 0 ? 7 : lastDay.wday   
     
     @cal = []
 
@@ -23,24 +23,48 @@ class Jqtouch::IcalController < ApplicationController
       preDays = firstDayWDay - 1
       day = firstDay - preDays 
       preDays.times do
-        @cal <<= { :day => day.strftime('%d').to_i, :type => 'prevmonth' } 
+        @cal <<= { :day => day.strftime('%d').to_i, :type => 'prevmonth', :value => day  } 
         day += 1
       end      
     end
     
     # Fill array with month days    
-    (1..lastDayDay).each do |i| 
-      @cal <<= { :day => i, :type => 'normal' } 
+    day = firstDay
+    (1..lastDayDay).each do     
+      @cal <<= { :day => day.strftime('%d').to_i, :type => 'normal', :value => day  } 
+      day += 1
     end 
 
     # Fill array with next month days
-    if lastDayWDay != 0 then # last day of month not sunday
+    if lastDayWDay != 7 then # last day of month not sunday
       day = lastDay + 1
       (7-lastDayWDay).times do
-        @cal <<= { :day => day.strftime('%d').to_i, :type => 'nextmonth' } 
+        @cal <<= { :day => day.strftime('%d').to_i, :type => 'nextmonth', :value => day } 
         day += 1
       end      
     end
+    
+#    function writeTD($day, $type, $events)
+#  {
+#    $passedDate = date('d-m-Y', strtotime($day));
+#    $dayToWrite = date('j', strtotime($day));
+#    $eventDay = false;
+#    $class = '';
+#    
+#    // event day?
+#    if(in_array($passedDate, $events) == true)
+#      $eventDay = true;
+#    
+#    if($type == 'normal' && $eventDay == true)
+#      $class = ' class="date_has_event"';
+#    elseif($type != 'normal' && $eventDay == false)
+#      $class = ' class="'.$type.'"';
+#    elseif($type != 'normal' && $eventDay == true)
+#      $class = ' class="'.$type.' date_has_event"';
+#      
+#    return '<td'.$class.'>'.$dayToWrite.'<input type="hidden" value="'.$passedDate.'" /></td>';
+#  }
+    
     
     render :partial => "month", :layout => false
   end
