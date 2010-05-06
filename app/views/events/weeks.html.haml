@@ -1,0 +1,4 @@
+-@browser_title = 'Calendar: ' +controller.action_name
+
+- content_for :content_head do
+  = render(:partial => "weeks#{@example}.js.haml", :format => :js)

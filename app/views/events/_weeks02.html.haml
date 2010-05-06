@@ -1,0 +1,20 @@
+-@jquery_partial = 'weeks02.js.haml'
+
+%center
+  %h3
+    Week Calendar Demo (Data supplied config overrides)
+  %p.description
+    This calendar demonstrates the ability to return calendar configuration options with an event dataset.
+  #message.ui-corner-all
+  #calendar_selection.ui-corner-all
+    %strong
+      Event Data Source:
+    %select#data_source
+      %option{ :value => "" }
+        Select Event Data
+      %option{ :value => "1" }
+        Event Data 1
+      %option{ :value => "2" }
+        Event data 2
+  #calendar
+  

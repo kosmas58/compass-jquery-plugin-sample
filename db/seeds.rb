@@ -727,3 +727,5 @@ Bird.create!(:name => "Green Heron", :scientific_name => "Butorides virescens")
 Bird.create!(:name => "Solitary Sandpiper", :scientific_name => "Tringa solitaria")
 Bird.create!(:name => "Heuglin's Gull", :scientific_name => "Larus heuglini")
 
+Event.create(:start_date=> 24.hours.from_now, :end_date => 25.hours.from_now, :title => "Test Event 1")    
+Event.create(:start_date=> 48.hours.from_now, :end_date => 49.hours.from_now, :title => "Test Event 2")   
