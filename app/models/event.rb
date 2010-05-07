@@ -1,4 +1,6 @@
 class Event < ActiveRecord::Base
+  include Eventually::Event
+  before_save :serialize_ical_event
 
   def self.to_calendar_json
     events = find(:all)
