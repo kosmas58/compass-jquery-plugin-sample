@@ -1,0 +1,46 @@
+- if actions
+  - if actions[:create]
+    :javascript
+      jQuery(document).ready(function() {
+        $('##{domid}_create').bind('onClickButton', function() {
+          $.ajax({method: "GET", url: "#{url}#{actions[:create]}",
+            success: function(data, status) {
+              var dWidth = $(data).css("width");
+              var dHeight = $(data).css("height");
+              $("##{domid}_create_dialog").append(data);
+              $("#event_submit").hide(); // HACK: easy way to make submit on enter work
+              $("##{domid}_create_dialog").find("form").submit(function() {
+                $(this).ajaxSubmit({
+                  url: $(this).attr("action"),
+                  data: $(this).serialize(),
+                  type: "POST",
+                  success: function(response, status) {
+                    if(!$(response).is("form")) {
+                      $("##{domid}_create_dialog").dialog('close');
+                    } else {
+                      $("##{domid}_create_dialog").find("form").replaceWith(response);
+                    }
+                  }
+                });
+                return false;
+              });
+              $("##{domid}_create_dialog").dialog({
+                buttons: {
+                  "Save": function() {$(this).find("form").submit();},
+                  "Cancel": function() {$(this).dialog('close');}
+                },
+                title: "New",
+                width: dWidth,
+                height: dHeight,
+                modal: true,
+                draggable: false,
+                resizable: false,
+                close: function() {
+                  $(this).dialog('destroy');
+                  $("##{domid}_create_dialog").children().remove();
+                }
+              });
+            }
+          });
+        });       
+      });

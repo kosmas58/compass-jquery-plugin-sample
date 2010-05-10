@@ -1,4 +1,4 @@
--@browser_title = 'Calendar: ' +controller.action_name
+-@title = 'iCalendar: ' +controller.action_name
 
 - content_for :content_head do
   = render(:partial => "index.js.haml", :format => :js)
@@ -6,11 +6,17 @@
 .demo
   %h3
     =@title
-  = link_to_remote('New Event', :url => new_event_path, :method => :get)
-  = link_to('New Event', new_event_path)
   
   %ol
     - for event in @events
-      %li== #{link_to_remote(h(event.summary), :url => edit_event_path(event), :method => :get)} from #{event.starts_at.to_s(:at)} on #{event.starts_at.to_s(:mdy)} until #{event.ends_at.to_s(:at)} on #{event.ends_at.to_s(:mdy)}
+      %li
+        == #{event.summary} from #{event.starts_at.to_s(:at)} on #{event.starts_at.to_s(:mdy)} until #{event.ends_at.to_s(:at)} on #{event.ends_at.to_s(:mdy)}
+        = link_to('Edit', edit_event_path(event))
+        = link_to('Delete', event_path(event), :method => :delete)    
+   
+  %button#event_create
+    New Event     
+  -#= link_to('New Event', new_event_path)
+  -#= link_to_remote('New Event', :url => new_event_path, :method => :get)
 / End demo
  

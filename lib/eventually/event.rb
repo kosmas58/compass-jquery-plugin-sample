@@ -1,10 +1,19 @@
-module Eventually
-  
+module Eventually  
   module Event
     
     def ical_event
       @ical_event ||= RiCal.parse_string(ical_string || '').first || RiCal.Event
     end
+    
+    def description
+      @description ||= ical_event.description
+    end
+    attr_writer :description
+    
+    def location
+      @location ||= ical_event.location
+    end
+    attr_writer :location
     
     def starts_at
       @starts_at ||= ical_event.dtstart ? ical_event.dtstart.to_datetime : DateTime.now
@@ -38,7 +47,7 @@ module Eventually
     end
     
     def ends_at
-      @ends_at ||= ical_event.dtend ? ical_event.dtend.to_datetime : starts_at + 60 * 60
+      @ends_at ||= ical_event.dtend ? ical_event.dtend.to_datetime : starts_at + 60.minutes
     end
     
     def ends_at=(date_time)
@@ -75,9 +84,11 @@ module Eventually
     
     private
       def serialize_ical_event
-        ical_event.dtend = ends_at
-        ical_event.dtstart = starts_at
-        ical_event.summary = summary
+        ical_event.dtend       = ends_at
+        ical_event.dtstart     = starts_at
+        ical_event.summary     = summary
+        ical_event.description = description
+        ical_event.location    = location
         self.ical_string = ical_event.to_s
       end
   end
