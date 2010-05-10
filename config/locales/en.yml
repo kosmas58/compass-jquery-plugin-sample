@@ -318,6 +318,13 @@ en:
       benchmark: Benchmark large trees
     hello: Hello world
     ui:
+      form:
+        cancel: Cancel
+        delete: Delete
+        edit: Edit
+        new: New
+        save: Save
+        sure: "Are you sure?"
       name: jQuery UI
       theme-switcher:
         initial: Switch theme

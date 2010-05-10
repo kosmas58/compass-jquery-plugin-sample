@@ -39,9 +39,9 @@ de:
         email: E-Mail
       invheader: 
         tax: Steuer
-        ship_via: "Versenden \xC3\xBCber"
         total: Summe
         client: Kunde
+        ship_via: "Versenden \xC3\xBCber"
         id: Inv Nr.
         closed: Geschlossen
         amount: Betrag
@@ -164,13 +164,6 @@ de:
     jqt: 
       name: "jQTouch (ben\xC3\xB6tigt einen Browser mit WebKit)"
     jqgrid: 
-      simple: 
-        name: Einfache Datengitter
-        default: "mit Standardfunktionalit\xC3\xA4t"
-        master: mit Haupt- und Detailsicht
-        selection: mit Auswahllink und Suche deaktiviert
-        direct: mit direkter Auswahl und automatischer Weite
-        multiple: mit Mehrfachauswahl + Zeilennummern
       name: jqGrid
       manipulation: 
         name: Datenmanipulation
@@ -178,74 +171,81 @@ de:
         inline: "mit Inline-\xC3\x84nderung"
         datepicker: mit Datumsauswahl (Nachname)
         input: mit verschiedenen Eingabetypen
+      simple: 
+        name: Einfache Datengitter
+        default: "mit Standardfunktionalit\xC3\xA4t"
+        master: mit Haupt- und Detailsicht
+        selection: mit Auswahllink und Suche deaktiviert
+        direct: mit direkter Auswahl und automatischer Weite
+        multiple: mit Mehrfachauswahl + Zeilennummern
       demo: 
-        multi: Mehrfachauswahl
         row: "Zeilen \xC3\xA4ndern"
+        big_sets: "Gro\xC3\x9Fe Datenmengen durchsuchen"
         events: Ereignisse nutzen
         sortable: Sortierbare Spalten anzeigen
-        big_sets: "Gro\xC3\x9Fe Datenmengen durchsuchen"
+        multi: Mehrfachauswahl
         default: jqGrid Beispiele
+        integrations: Integrationen
         hide: Spalten anzeigen/verbergen
         chooser: Spaltenauswahl
         post_data: Post Data
-        integrations: Integrationen
         actions: Aktionen
-        delete_row: "Zeile l\xC3\xB6schen"
         v31: Neu in Version 3.1
+        delete_row: "Zeile l\xC3\xB6schen"
         ajax: Ajax-Verbesserungen
-        after_load: Callback nach dem Laden
-        tscroll: Echte scrollende Zeilen
-        v32: Neu in Version 3.2
         json_subgrid: Untergitter mit JSON
+        v32: Neu in Version 3.2
         initial: "Zun\xC3\xA4chst verstecktes Gitter"
         basic: Einfaches Beispiel
-        v33: Neu in Version 3.3
+        after_load: Callback nach dem Laden
+        tscroll: Echte scrollende Zeilen
+        srows: Sortierbare Zeilen
+        master: Haupt- und Detailsicht
         toolbar: Symbolleisten und Benutzerdaten
         tree: Baumgitter
-        set: Set-Methoden
-        master: Haupt- und Detailsicht
         xml_map: XML-Mapping
-        srows: Sortierbare Zeilen
+        set: Set-Methoden
+        v33: Neu in Version 3.3
         html: Gitter aus HTML-Tabelle
         format: Formatierer
         mapping: Daten-Mapping
-        loading: Laden von Daten
         2dc: 2dc_jqGrid Beispiele
+        loading: Laden von Daten
         cbutton: "Angepasste Schaltfl\xC3\xA4chen und Formulare"
         v34: Neu in Version 3.4
-        v35: Neu in Version 3.5
         json_data: JSON-Daten
-        reordering: Neuanordnung von Spalten
-        stoolbar: Integrierte Suchleiste
-        v36: Neu in Version 3.6
+        v35: Neu in Version 3.5
         mtoolbar: Mehrfache Symbolleistensuche
         rdnd: Drag and Drop von Zeilen
+        stoolbar: Integrierte Suchleiste
+        v36: Neu in Version 3.6
         cinput: Benutzerdefiniertes Eingabeelement erstellen
+        reordering: Neuanordnung von Spalten
+        scroll: Scrollen mit dynamischen Zeilenauswahl
         autoscroll: Das automatische Laden von Daten beim Scrollen
         view: Modus Gitteransicht
         function: Datentyp als Funktion
-        scroll: Scrollen mit dynamischen Zeilenauswahl
         as_subgrid: Gitter als Untergitter
         cedit: "Angepasstes \xC3\x84ndern"
         validation: Angepasste Validierung
         name: Demo
         visible: Sichtbare Spalten
         get: Get-Methoden
-        xml_data: XML-Daten
-        import: Konfiguration aus XML importieren
-        navigation: Formularnavigation
-        full: Vollzugriff
         edit_row: "Zeile \xC3\xA4ndern"
+        navigation: Formularnavigation
+        import: Konfiguration aus XML importieren
+        full: Vollzugriff
         client: Clientseitige Validierung
         number: Automatische Breite und Reihennummerierung
+        xml_data: XML-Daten
+        adjacency: Baumgitter mit Adjazenzliste
         summary: "Zusammenfassung in der Fu\xC3\x9Fzeile"
         mform: Mehrfache Formularsuche
         resizing: "Gitter vergr\xC3\xB6\xC3\x9Fern"
         cmulti: Angepasste Mehrfachauswahl
-        adjacency: Baumgitter mit Adjazenzliste
         cformat: Angepasster Formatierer
-        advanced: Fortgeschritten
         searching: Daten suchen
+        advanced: Fortgeschritten
         datepicker: Datumsauswahl
         cell: "Zellen \xC3\xA4ndern"
         real: "Reales Beispiel eines Baumgitters "
@@ -260,10 +260,11 @@ de:
         live: Live Datenmanipulation
         json_map: JSON-Mapping
         server_errors: Server-Fehler kontrollieren
-        gridify: 2dc-Beispiele mit gridify umgesetzt
-        improvements: Formverbesserungen
-        add_row: "Zeile hinzuf\xC3\xBCgen"
         resizable: "Vergr\xC3\xB6\xC3\x9Ferbare Spalten"
+        add_row: "Zeile hinzuf\xC3\xBCgen"
+        improvements: Formverbesserungen
+        gridify: 2dc-Beispiele mit gridify umgesetzt
+        navigator: Navigator
         optimize: Datenoptimierung
         types: Eingabetypen
         data: Gitterdaten
@@ -271,7 +272,6 @@ de:
         b30: Neu seit Beta 3.0
         subgrid: Untergitter
         asearch: Erweiterte Suche
-        navigator: Navigator
       subgrids: 
         name: Untergitter
         default: "mit Standardfunktionalit\xC3\xA4t"
@@ -280,8 +280,8 @@ de:
       improvements: 
         name: mit Verbesserungen der Form
     ribbon: 
-      simple: jQuery Ribbon Simple Demo
       name: Multifunktionsleiste
+      simple: jQuery Ribbon Simple Demo
       default: jQuery Ribbon Windows 7 Demo
       office: jQuery Ribbon Office Demo
     dt: 
@@ -292,8 +292,8 @@ de:
       lazy: Lazy
       quick: JS-Objekt initialisieren
       iframe: iframe und URL-Navigation
-      api: Programmier-API
       dnd: Ziehen und Ablegen
+      api: Programmier-API
       minexpand: Feste Expansionsebene
       effects: Effekte
       benchmark: "Benchmark f\xC3\xBCr gro\xC3\x9Fe B\xC3\xA4ume"
@@ -317,37 +317,37 @@ de:
           cycler: Wechselnde Bilder
       widgets: 
         button: 
-          splitbutton: "Geteilte Schaltfl\xC3\xA4che"
           default: "Schaltfl\xC3\xA4che"
+          splitbutton: "Geteilte Schaltfl\xC3\xA4che"
           icon: Symbole
           radio: Umschalttasten
           checkbox: Auswahltasten
           toolbar: Werkzeugleiste
+        default: Widgets
         autocomplete: 
           combobox: Auswahleiste
           default: "Autovervollst\xC3\xA4ndigung"
           multiple-remote: Mehrfachwerte, remote
-          remote-jsonp: Entfernte JSONP-Datenquelle
           folding: "Akzente ber\xC3\xBCcksichtigen"
+          remote-jsonp: Entfernte JSONP-Datenquelle
           categories: Kategorien
           remote-with-cache: Entfernt mit Caching
           custom-data: Angepasste Daten und Anzeige
           remote-xml: XML-Daten einmalig geparsed
           multiple: Mehrfachwerte
           remote: Entfernte Datenquelle
-        default: Widgets
         slider: 
           steps: Mit festen Schritten einrasten
-          multiple-vertical: Mehrere Regler
           default: Schieberegler
+          multiple-vertical: Mehrere Regler
           side-scroll: Einfache Bildlaufleiste
-          colorpicker: Einfache Farbauswahl
           range-vertical: Vertikaler Regler mit Bereich
           slider-vertical: Vertikaler Regler
-          range: Regler mit Bereich
+          colorpicker: Einfache Farbauswahl
           rangemax: Bereich mit festgesetzten Maximum
-          tabs: Reiter per Schieberegler kontrollieren
+          range: Regler mit Bereich
           hotelrooms: Zimmerreservierung
+          tabs: Reiter per Schieberegler kontrollieren
           rangemin: Bereich mit festgesetztem Mininum
         datepicker: 
           alt-field: "Alternatives Feld f\xC3\xBCllen"
@@ -355,14 +355,14 @@ de:
           buttonbar: "Schaltfl\xC3\xA4chen anzeigen"
           min-max: "Datumsbereich einschr\xC3\xA4nken "
           inline: Eingebettet anzeigen
-          animation: Animationen
           show-week: Zeige Kalanderwoche
           icon-trigger: "\xC3\x9Cber Symbol aktivieren"
+          animation: Animationen
           event-search: Veranstaltungen suchen
           multiple-calendars: Mehrerer Monate anzeigen
           dropdown-month-year: "Monat- & Jahresmen\xC3\xBCs anzeigen"
-          localization: " Kalender lokalisieren"
           date-formats: Datum formatieren
+          localization: " Kalender lokalisieren"
           other-months: Termine in den anderen Monaten
         accordion: 
           default: Akkordeon
@@ -372,6 +372,13 @@ de:
           mouseover: "\xC3\x96ffnen, wenn die Maus dar\xC3\xBCberf\xC3\xA4hrt"
           custom-icons: Symbole anpassen
           collapsible: Inhalt einklappen
+        dialog: 
+          default: Dialog
+          modal: Modaler Dialog
+          modal-confirmation: "Modale Best\xC3\xA4tigung"
+          animated: Animierter Dialog
+          modal-message: Modale Nachricht
+          modal-form: Modale Form
         tabs: 
           bottom: Reiter unterhalb des Inhalts
           manipulation: Einfache Handhabung
@@ -381,13 +388,6 @@ de:
           sortable: Sortierbar
           mouseover: "\xC3\x96ffnen, wenn die Maus dar\xC3\xBCberf\xC3\xA4hrt"
           collapsible: Inhalt wegklappen
-        dialog: 
-          default: Dialog
-          modal: Modaler Dialog
-          modal-confirmation: "Modale Best\xC3\xA4tigung"
-          animated: Animierter Dialog
-          modal-message: Modale Nachricht
-          modal-form: Modale Form
         progressbar: 
           default: Fortschrittsbalken
           resize: "Vergr\xC3\xB6\xC3\x9Ferbarer Fortschrittsbalken"
@@ -401,13 +401,13 @@ de:
         draggable: 
           visual-feedback: Visuelles Feedback
           handle: Position des Griffs
-          snap-to: In Element oder Gitter einrasten
           default: Ziehbar
+          snap-to: In Element oder Gitter einrasten
           scroll: Autoscrollen
           revert: "Zur Position zur\xC3\xBCckkehren"
           constrain-movement: "Einschr\xC3\xA4nken der Bewegung"
-          sortable: Zieh- und sortierbar
           delay-start: "Start verz\xC3\xB6gern"
+          sortable: Zieh- und sortierbar
           events: Ereignisse
           cursor-style: Cursorstil
         resizable: 
@@ -432,14 +432,14 @@ de:
           shopping-cart: Einkaufswagen
         sortable: 
           items: "Elemente ein- / ausschlie\xC3\x9Fen"
-          default: Sortierbar
           placeholder: "Platzhalter f\xC3\xBCr den Abwurf"
+          default: Sortierbar
           connect-lists-through-tabs: "Listen \xC3\xBCber Reiter verbinden"
           delay-start: "Start verz\xC3\xB6gern"
-          portlets: Portlets
           connect-lists: Listen verbinden
-          empty-lists: Leere Listen handhaben
+          portlets: Portlets
           display-grid: Als Gitter anzeigen
+          empty-lists: Leere Listen handhaben
       effects: 
         default: Effekte
         switch_class: 
@@ -462,12 +462,19 @@ de:
           default: Effekt
           easing: Easing im Schaufenster
           showcase: Effekte im Schaufenster
+      form: 
+        new: Anlegen
+        delete: "L\xC3\xB6schen"
+        edit: Bearbeiten
+        cancel: Abbrechen
+        save: Speichern
+        sure: Sind Sie sicher?
       theme-switcher: 
         button: "Thema: "
         initial: Thema wechseln
     layout: 
-      theme: Thema
       language: Sprache
+      theme: Thema
       footer: 
         legalese: "Copyright &copy; 2009-2010 Kosmas Sch\xC3\xBCtz. N\xC3\xA4heres finden Sie unter LICENSE."
   support: 

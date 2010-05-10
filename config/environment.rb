@@ -20,10 +20,10 @@ Rails::Initializer.run do |config|
   # config.gem "sqlite3-ruby", :lib => "sqlite3"
   # config.gem "aws-s3", :lib => "aws/s3"
 
-  config.gem 'haml', :version => '= 3.0.0.rc.5'
-  config.gem 'compass', :version => '= 0.10.0.rc6'
+  config.gem 'haml', :version => '>= 3.0.0'
+  config.gem 'compass', :version => '>= 0.10.0'
   config.gem 'compass-jquery-plugin', :version => '= 0.3.0.beta.5', :lib => 'jquery'
-  config.gem 'ri_cal', :version => '= 0.8.7'
+  config.gem 'ri_cal', :version => '>= 0.8.7'
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named

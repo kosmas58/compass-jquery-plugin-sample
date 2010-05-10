@@ -4,5 +4,5 @@
 // +blueprint-print
 
 //Recommended Blueprint configuration with scoping and semantic layout:
-body.bp {
+body {
   @include blueprint-print(true); }

@@ -25,9 +25,13 @@ date:
     default: "%Y-%m-%d"
 txt: 
   ui: 
-    widgets: 
-      autocomplete: 
-        folding: Accent folding
+    form: 
+      new: New
+      delete: Delete
+      edit: Edit
+      cancel: Cancel
+      save: Save
+      sure: Are you sure?
 support: 
   array: 
     words_connector: ", "
