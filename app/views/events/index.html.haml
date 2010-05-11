@@ -6,18 +6,12 @@
 .demo
   %h3
     =@title
-  
-  %ol
-    - for event in @events
-      %li
-        == #{event.summary} from #{event.starts_at.to_s(:at)} on #{event.starts_at.to_s(:mdy)} until #{event.ends_at.to_s(:at)} on #{event.ends_at.to_s(:mdy)}
-        = link_to('Edit', edit_event_path(event))
-        = link_to('Delete', event_path(event), :method => :delete)    
-   
+    
+  = render :partial => "events"
+    
   %button#event_create
     New Event     
-  = link_to('New Event', new_event_path)
-  -#= link_to_remote('New Event', :url => new_event_path, :method => :get)
+  -#= link_to('New Event', new_event_path)
   
   #event_delete_dialog{ :style => "display: none;" }
   #event_update_dialog{ :style => "display: none;" }

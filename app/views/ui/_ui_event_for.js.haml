@@ -1,8 +1,58 @@
 - if actions
+  - if actions[:update]
+    :javascript
+      $(document).ready(function() {
+        $("##{domid}_update").click(function() {  
+          $.ajax({
+            method: "GET", 
+            url: "#{url}#{actions[:update]}/"+rowId,
+            success: function(data, status) {
+              var dWidth = $(data).css("width")
+              var dHeight = $(data).css("height")
+              $("##{domid}_update_dialog").append(data)
+              $("##{domid}_submit").hide(); // HACK: easy way to make submit on enter work
+              $("##{domid}_update_dialog").find("form").submit(function() {
+                $(this).ajaxSubmit({
+                  url: "/jqgrid/#{domid}/"+rowId,
+                  type: "PUT",
+                  success: function(response, status) {
+                    if(!$(response).is("form")) {
+                      $("##{domid}_update_dialog").dialog('close');
+                    } else {
+                      $("##{domid}_update_dialog").find("form").replaceWith(response);
+                    }
+                  }
+                });
+                return false;
+              });
+              $("##{domid}_update_dialog").dialog({ 
+                buttons: {
+                  "#{I18n.t('txt.ui.form.save')}": function() {$(this).find("form").submit();},
+                  "#{I18n.t('txt.ui.form.cancel')}": function() {$(this).dialog('close');}
+                },
+                title: "#{I18n.t('txt.ui.form.edit')}",
+                width: dWidth,
+                height: dHeight,
+                modal: true,
+                draggable: false,
+                resizable: false,
+                close: function() {
+                  $(this).dialog('destroy');
+                  $("##{domid}_update_dialog").children().remove();
+                  // refresh
+                  $.ajax({ method: "GET", url: "#{url}#{actions[:reload]}" });
+                }
+              });
+              $("##{domid}_create_update").dialog('open');    
+            }
+          });             
+        }); 
+      });
+
   - if actions[:create]
     :javascript
       jQuery(document).ready(function() {
-        $("##{domid}_create").button().click(function() {        
+        $("##{domid}_create").click(function() {        
           $.ajax({
             method: "GET", 
             url: "#{url}#{actions[:create]}",
@@ -40,6 +90,7 @@
                 close: function() {
                   $(this).dialog('destroy');
                   $("##{domid}_create_dialog").children().remove();
+                  $.ajax({ method: "GET", url: "#{url}#{actions[:reload]}" });
                 }
               });
               $("##{domid}_create_dialog").dialog('open');    

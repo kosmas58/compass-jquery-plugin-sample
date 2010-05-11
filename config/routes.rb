@@ -32,8 +32,9 @@ ActionController::Routing::Routes.draw do |map|
     jqtouch.resources :demo => { :ajax_post => :post }  
   end
  
-  map.resources :events, :collection => { :weeks  => :get, 
-                                          :months => :get }
+  map.resources :events, :collection => { :index_reload => :get,
+                                          :weeks        => :get, 
+                                          :months       => :get }
   
   Translate::Routes.translation_ui(map) if RAILS_ENV != "production "
 

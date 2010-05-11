@@ -1,5 +1,2 @@
-:erb
-  $("#jqt").replaceWith("It was replaced!");
-  
-  
--#$("#jqt").replaceWith("<%= render(:partial => 'ajax_post_b') %>");
+:erb  
+  $("#jqt").replaceWith("<%= escape_javascript(render(:partial => 'ajax_post_b')) %>");

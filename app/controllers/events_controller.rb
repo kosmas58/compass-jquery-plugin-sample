@@ -10,6 +10,11 @@ class EventsController < ApplicationController
   def index
     @events = Event.all
   end
+  
+  def index_reload
+    @events = Event.all
+    render(:partial => "index_reload.js.haml", :format => :js)
+  end
 
   def new
     @event = Event.new
@@ -18,8 +23,13 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(params[:event])
-    @event.save!
-    redirect_to :action => :index
+    @event.save! 
+    
+    if request.xhr?
+      render :nothing => true, :status => 200
+    else
+      redirect_to :action => :index
+    end
   end
 
   def edit
@@ -29,7 +39,11 @@ class EventsController < ApplicationController
   def update
     @event = Event.find(params[:id])
     @event.update_attributes!(params[:event])
-    redirect_to :action => :index
+    if request.xhr? 
+      render :nothing => true, :status => 200
+    else
+      redirect_to :action => :index
+    end
   end
 
   def months
