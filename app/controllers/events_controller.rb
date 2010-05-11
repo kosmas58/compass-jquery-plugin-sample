@@ -34,6 +34,7 @@ class EventsController < ApplicationController
 
   def edit
     @event = Event.find(params[:id])
+    return render(:partial => "form")
   end
 
   def update

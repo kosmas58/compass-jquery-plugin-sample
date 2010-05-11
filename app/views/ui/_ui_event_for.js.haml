@@ -2,7 +2,8 @@
   - if actions[:update]
     :javascript
       $(document).ready(function() {
-        $("##{domid}_update").click(function() {  
+        $("##{domid}_update").click(function() {
+          rowId = $(this).attr('value');  
           $.ajax({
             method: "GET", 
             url: "#{url}#{actions[:update]}/"+rowId,
