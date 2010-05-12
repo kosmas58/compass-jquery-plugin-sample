@@ -33,29 +33,27 @@
       }
     });
     // Page animation callback events
-    $('#pageevents').
-      bind('pageAnimationStart', function(e, info){ 
+    $('#pageevents').live('pageAnimationStart', function(e, info){ 
         $(this).find('.info').append('Started animating ' + info.direction + '&hellip; ');
-      }).
-      bind('pageAnimationEnd', function(e, info){
+      }).live('pageAnimationEnd', function(e, info){
         $(this).find('.info').append(' finished animating ' + info.direction + '.<br /><br />');
       });
     // Orientation callback event
-    $('body').bind('turn', function(e, data){
+    $('body').live('turn', function(e, data){
       $('#orient').html('Orientation: ' + data.orientation);
     });
     // Video stuff
-    $('#play_movie').bind('tap', function(){
+    $('#play_movie').live('tap', function(){
       $('#movie').get(0).play();
       $(this).removeClass('active');
     });      
-    $('#play_movie').bind('click', function(){
+    $('#play_movie').live('click', function(){
       $('#movie').get(0).play();
       $(this).removeClass('active');
     });      
-    $('#video').bind('pageAnimationStart', function(e, info){
+    $('#video').live('pageAnimationStart', function(e, info){
       $('#movie').css('display', 'none');
-    }).bind('pageAnimationEnd', function(e, info){
+    }).live('pageAnimationEnd', function(e, info){
       if (info.direction == 'in')
       {
         $('#movie').css('display', 'block');

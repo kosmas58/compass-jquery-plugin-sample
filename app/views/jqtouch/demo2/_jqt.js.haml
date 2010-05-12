@@ -68,7 +68,7 @@
     });
     
     // Page animation callback events
-    $('#jqt').bind('pageAnimationStart', function(e, info){
+    $('#jqt').live('pageAnimationStart', function(e, info){
       $("#switching").removeClass("hide_switching").addClass("show_switching");
       var myOrient = jQT.getOrientation();
       if (e.target.id == 'home'){
@@ -106,7 +106,7 @@
         // DELETE THE PREVIOUS zflow
         zflowCleanup("#tray");
       }
-    }).bind('pageAnimationEnd', function(e, info) {
+    }).live('pageAnimationEnd', function(e, info) {
       $("#switching").removeClass("show_switching").addClass("hide_switching");
       if (info.direction =='in') {
         if (e.target.id == 'gallery') {

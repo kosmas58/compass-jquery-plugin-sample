@@ -9,10 +9,9 @@
     
   = render :partial => "events"
     
-  %button#event_create
+  %button.event_create
     New Event     
-  -#= link_to('New Event', new_event_path)
-  
+    
   #event_delete_dialog{ :style => "display: none;" }
   #event_update_dialog{ :style => "display: none;" }
   #event_create_dialog{ :style => "display: none;" }

@@ -29,7 +29,7 @@ jQuery(document).ready(function() {
 		active: active
 	});
 	
-	accordion.bind('accordionchange', function(event, ui) {
+	accordion.live('accordionchange', function(event, ui) {
 		var index = $(this).find("h3").index ( ui.newHeader[0] ); 
 		$.cookie("accordion-active", index, { path: "/" }); 
 	});

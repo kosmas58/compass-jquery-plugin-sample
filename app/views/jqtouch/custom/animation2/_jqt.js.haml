@@ -16,7 +16,7 @@
 
   $(function(){
     // This prevents scrolling
-    $('#jqt').bind('touchmove',function(){
+    $('#jqt').live('touchmove',function(){
       event.preventDefault();
     });
     jQT.addAnimation({

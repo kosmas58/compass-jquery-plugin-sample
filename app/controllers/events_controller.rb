@@ -24,8 +24,9 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(params[:event])
     @event.save! 
-    
     if request.xhr?
+      #flash[:notice] = "Successfully created." 
+      #return render(:partial => "form")
       render :nothing => true, :status => 200
     else
       redirect_to :action => :index
@@ -41,6 +42,25 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @event.update_attributes!(params[:event])
     if request.xhr? 
+      #flash[:notice] = "Successfully updated." 
+      #return render(:partial => "form") 
+      render :nothing => true, :status => 200  
+    else
+      redirect_to :action => :index
+    end
+  end
+
+  def delete
+    @event = Event.find(params[:id])
+    return render(:partial => "form_delete")
+  end
+
+  def destroy
+    @event = Event.find(params[:id])
+    @event.destroy
+    if request.xhr?
+      #flash[:notice] = "Successfully deleted." 
+      #return render(:partial => "form_delete")
       render :nothing => true, :status => 200
     else
       redirect_to :action => :index

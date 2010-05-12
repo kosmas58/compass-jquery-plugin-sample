@@ -19,7 +19,7 @@
     }
     $('#add form').submit(submitForm);
     $('#add .whiteButton').click(submitForm);
-    $('.complete li, .incomplete li').bind('swipe', function(){
+    $('.complete li, .incomplete li').live('swipe', function(){
       $(this).toggleClass('editingmode');
     });
     $('input[type="checkbox"]').live('change', function(){

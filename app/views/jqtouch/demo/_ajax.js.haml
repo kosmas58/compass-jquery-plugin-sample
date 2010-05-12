@@ -23,7 +23,7 @@
   // Some sample Javascript functions:
   $(function(){    
     // Page animations end with AJAX callback event, example 1 (load remote HTML only first time)
-    $('#callback').bind('pageAnimationEnd', function(e, info){
+    $('#callback').live('pageAnimationEnd', function(e, info){
       // Make sure the data hasn't already been loaded (we'll set 'loaded' to true a couple lines further down)
       if (!$(this).data('loaded')) {
         // Append a placeholder in case the remote HTML takes its sweet time making it back
