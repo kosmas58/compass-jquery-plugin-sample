@@ -1,16 +1,3 @@
-class CreateCalendars < ActiveRecord::Migration
-  def self.up
-    create_table :calendars do |t|
-      t.column :name, :string
-      t.timestamps
-    end
-  end
-  
-  def self.down
-    drop_table :calendars
-  end
-end
-
 class CreateCalendarEvents < ActiveRecord::Migration
   def self.up
     create_table :calendar_events do |t|
@@ -23,6 +10,7 @@ class CreateCalendarEvents < ActiveRecord::Migration
       t.column :description,   :string
       t.column :location,      :string
       t.column :all_day,       :boolean
+      t.string :ical_string,   :null => false
       t.timestamps
     end
   end
