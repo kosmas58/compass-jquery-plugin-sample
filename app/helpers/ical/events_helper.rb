@@ -1,0 +1,2 @@
+module Ical::EventsHelper
+end

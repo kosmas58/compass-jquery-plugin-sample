@@ -1,0 +1,11 @@
+.demo
+  %h3
+    Creating calendars
+  
+  = error_messages_for :calendars
+  
+  - form_for(:calendars, :url => ical_calendars_url) do |f|
+    = render :partial => "form", :locals => {:f => f}
+    %p= submit_tag "Create"
+  
+  = link_to 'Back', ical_calendars_path

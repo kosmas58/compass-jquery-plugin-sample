@@ -1,0 +1,21 @@
+-@title = 'iCalendar: ' +controller.action_name
+
+- content_for :content_head do
+  = render(:partial => "index.js.haml", :format => :js)
+
+.demo
+  %h3
+    =@title
+    
+  = render :partial => "events"
+    
+  %button.event_create
+    New Event
+  %button
+    = link_to 'Back', ical_calendars_path 
+    
+  #event_delete_dialog{ :style => "display: none;" }
+  #event_update_dialog{ :style => "display: none;" }
+  #event_create_dialog{ :style => "display: none;" }
+/ End demo
+ 

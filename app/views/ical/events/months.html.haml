@@ -1,0 +1,15 @@
+-@browser_title = 'Calendar: ' +controller.action_name
+
+- content_for :content_head do
+  = render(:partial => "months.js.haml", :format => :js)
+
+%center
+  %h3
+    jQuery Month Calendar
+  %p
+    #jMonthCalendar
+  %p
+    %button#Button
+      Add More Events
+    %button#ChangeMonth
+      Change Month to August 2009

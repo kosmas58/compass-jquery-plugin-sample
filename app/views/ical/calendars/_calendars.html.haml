@@ -1,0 +1,13 @@
+%tr
+  %td
+    = calendars.name
+  %td
+    = link_to 'Show', ical_calendar_path(calendars)
+    |
+    = link_to 'Edit', edit_ical_calendar_path(calendars)
+    |
+    = link_to 'Destroy', ical_calendar_path(calendars), :confirm => 'Really destroy calendars?', :method => :delete
+    |
+    = link_to 'Show Events', ical_calendar_events_path(calendars)
+    |
+    = link_to 'As iCalendar', ical_calendar_path(calendars, :format => :ics)

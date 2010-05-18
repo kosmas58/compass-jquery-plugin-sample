@@ -4,11 +4,13 @@
 %div
   .tree
     %ul
-      %li#cal0{:data => "url: '/events', icon: '../../demo/dynatree.custom/view_calendar_month.png'" }
+      %li#cal01{:data => "url: '/ical/calendars', icon: '../../demo/dynatree.custom/view_calendar_month.png'" }
+        Calendars
+      %li#cal10{:data => "url: '/events', icon: '../../demo/dynatree.custom/view_calendar_month.png'" }
         Eventually
-      %li#cal1{:data => "url: '/events/months', icon: '../../demo/dynatree.custom/view_calendar_month.png'" }
+      %li#cal11{:data => "url: '/events/months', icon: '../../demo/dynatree.custom/view_calendar_month.png'" }
         Month view
-      %li#cal2{:data => "icon: '../../demo/dynatree.custom/view_calendar_week.png'" }
+      %li#cal12{:data => "icon: '../../demo/dynatree.custom/view_calendar_week.png'" }
         Week view
         %ul
           %li#cal21{:data => "url: '/events/weeks?example=01', icon: '../../demo/dynatree.custom/view_calendar_week.png'" }

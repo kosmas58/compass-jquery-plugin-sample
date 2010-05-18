@@ -1,0 +1,15 @@
+.demo
+  %h3
+    Listing events
+  
+  .ui-widget-content.ui-corner-all
+    %table.calendars
+      %tr.ui-widget-header.ui-corner-all      
+        %th
+          Name    
+        %th
+          Actions  
+      = render :partial => 'events', :collection => current_objects
+  %br
+  %p
+    = link_to 'New events', new_ical_calendar_event_path 

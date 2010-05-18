@@ -1,0 +1,14 @@
+.demo
+  %h3
+    Viewing calendars
+  
+  %div
+    
+    = @current_object.name
+    %br
+    
+    = link_to 'Edit', edit_ical_calendar_path
+    |
+    = link_to 'Destroy', ical_calendar_path, :confirm => 'Really destroy calendars?', :method => :delete
+    |
+    = link_to 'Back', ical_calendars_path

@@ -1,0 +1,11 @@
+%h1 Editing events
+
+= error_messages_for :events
+
+- form_for(:events, :url => object_url, :html => { :method => :put }) do |f|
+  = render :partial => "form", :locals => {:f => f}
+  %p= submit_tag "Update"
+
+= link_to 'Show', object_path
+|
+= link_to 'Back', objects_path

@@ -1,19 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
-
-#  map.namespace :jqueryui do |jqueryui|
-#    jqueryui.namespace :effects do |effects|
-#      effects.resources :add_class
-#    end
-#    jqueryui.namespace :interactions do |interactions|
-#      interactions.resources :draggable
-#    end
-#    jqueryui.namespace :widgets do |widgets|
-#      widgets.resources :accordion
-#    end
-#  end
-
-  #map.resources :dynatree, :collection => { :data1 => :get, 
-  #                                          :data2 => :get }
+  map.resources :events
   
   map.resources :iphone, :collection => { :main     => :get,
                                           :original => :get }
@@ -35,6 +21,16 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :events, :collection => { :index_reload => :get,
                                           :weeks        => :get, 
                                           :months       => :get }
+                                          
+  
+  map.namespace :ical do |ical|
+    ical.resources :calendars do |calendar|
+      calendar.resources :events,
+                         :collection => { :index_reload => :get } do |events|
+      end
+    end
+  end
+                                          
   
   Translate::Routes.translation_ui(map) if RAILS_ENV != "production "
 
