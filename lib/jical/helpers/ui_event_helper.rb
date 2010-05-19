@@ -1,4 +1,4 @@
-module Ical
+module Jical
   module Helpers
     module UiEventHelper
       def ui_event_for(*args)
