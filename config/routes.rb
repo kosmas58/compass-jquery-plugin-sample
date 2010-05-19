@@ -1,6 +1,4 @@
-ActionController::Routing::Routes.draw do |map|
-  map.resources :events
-  
+ActionController::Routing::Routes.draw do |map|  
   map.resources :iphone, :collection => { :main     => :get,
                                           :original => :get }
 
@@ -24,7 +22,7 @@ ActionController::Routing::Routes.draw do |map|
                                           :member =>     { :delete       => :get } 
                                           
   
-  map.namespace :ical do |ical|
+  map.namespace :jqical do |ical|
     ical.resources :calendars do |calendar|
       calendar.resources :events,
                          :collection => { :index_reload => :get },

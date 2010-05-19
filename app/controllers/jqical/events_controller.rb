@@ -1,5 +1,5 @@
-class Ical::EventsController < ApplicationController
-  layout 'ical'
+class Jqical::EventsController < ApplicationController
+  layout 'jqical'
   
   protect_from_forgery
   

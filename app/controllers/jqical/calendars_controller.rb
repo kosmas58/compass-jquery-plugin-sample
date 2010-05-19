@@ -1,5 +1,5 @@
-class Ical::CalendarsController < ApplicationController
-  layout 'ical'
+class Jqical::CalendarsController < ApplicationController
+  layout 'jqical'
   
   protect_from_forgery
   
@@ -12,7 +12,7 @@ class Ical::CalendarsController < ApplicationController
     end
     
     response_for :create, :update, :destroy do |format|
-      format.html { redirect_to ical_calendars_path }
+      format.html { redirect_to jqical_calendars_path }
     end
     
   end

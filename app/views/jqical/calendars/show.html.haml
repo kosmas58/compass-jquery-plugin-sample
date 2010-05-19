@@ -1,0 +1,14 @@
+.demo
+  %h3
+    Viewing calendars
+  
+  %div
+    
+    = @current_object.name
+    %br
+    
+    = link_to 'Edit', edit_jqical_calendar_path
+    |
+    = link_to 'Destroy', jqical_calendar_path, :confirm => 'Really destroy calendars?', :method => :delete
+    |
+    = link_to 'Back', jqical_calendars_path

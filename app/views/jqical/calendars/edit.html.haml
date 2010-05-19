@@ -1,0 +1,13 @@
+.demo
+  %h3
+    Editing calendars
+  
+  = error_messages_for :calendar
+  
+  - form_for(:calendar, :url => jqical_calendar_url, :html => { :method => :put }) do |f|
+    = render :partial => "form", :locals => {:f => f}
+    %p= submit_tag "Update"
+  
+  = link_to 'Show', jqical_calendar_path
+  |
+  = link_to 'Back', jqical_calendars_path
