@@ -1,46 +1,51 @@
-- form_for(@event, :url => events_url) do |f|
+- form_for(@event, :url => jqical_calendar_events_url) do |f|
   = f.error_messages
-  .formrow.clearfix
+  %p
     .span-4
       = f.label :summary
     .span-12
-      = f.text_field :summary
+      %strong
+        = @event.summary
   %br
-  .formrow.clearfix
+  %p
     .span-4
       = f.label :location
     .span-12
-      = f.text_field :location
+      %strong
+        = @event.location
   %br
-  .formrow.clearfix
+  %p
     .span-4
       = f.label :start_date
     .span-4
-      = f.text_field :start_date
+      %strong
+        = @event.start_date
     .span-4
       = f.label :start_time
     .span-4
-      = f.text_field :start_time
+      %strong
+        = @event.start_time
   %br
-  .formrow.clearfix
+  %p
     .span-4
       = f.label :end_date
     .span-4
-      = f.text_field :end_date
+      %strong
+        = @event.end_date
     .span-4
       = f.label :end_time
     .span-4
-      = f.text_field :end_time
+      %strong
+        = @event.end_time
   %br
-  .formrow.clearfix
+  %p
     .span-4
       = f.label :description
     .span-12
-      = f.text_area :description
+      %strong
+        = @event.description
   %br
   %p
     Do you really want to delete this event?
   = f.submit "Delete"
-
-  
   
