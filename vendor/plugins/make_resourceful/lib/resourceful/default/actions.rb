@@ -83,6 +83,13 @@ module Resourceful
         before :edit
         response_for :edit
       end
+      
+      # GET /foos/12/delete
+      def delete
+        #load_object
+        before :delete
+        response_for :delete
+      end
 
       # DELETE /foos/12
       def destroy

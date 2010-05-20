@@ -125,6 +125,10 @@ module Resourceful
         collection_route(current_model_name.pluralize.underscore, type)
       end
       
+      def delete_object_route(object, type)
+        nested_route(current_model_name.underscore, object, type, "delete")
+      end
+      
       def edit_object_route(object, type)
         nested_route(current_model_name.underscore, object, type, "edit")
       end

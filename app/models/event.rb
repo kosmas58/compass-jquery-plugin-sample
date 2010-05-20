@@ -1,13 +1,12 @@
 class Event < ActiveRecord::Base 
   require 'ri_cal'
-  require 'jqical/event'
   belongs_to :calendar
   
   #validates_presence_of :title
   #validates_presence_of :start
   #validates_presence_of :end  
   
-  include JqIcal::Event
+  include Jqical::Event
   
   def description
     @description ||= ical_event.description

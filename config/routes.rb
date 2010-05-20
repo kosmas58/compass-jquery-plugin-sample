@@ -22,12 +22,11 @@ ActionController::Routing::Routes.draw do |map|
                                           :member =>     { :delete       => :get } 
                                           
   
-  map.namespace :jqical do |ical|
-    ical.resources :calendars do |calendar|
+  map.namespace :jqical do |jqical|
+    jqical.resources :calendars do |calendar|
       calendar.resources :events,
                          :collection => { :index_reload => :get },
-                         :member =>     { :delete       => :get } do |events|
-      end
+                         :member =>     { :delete       => :get } 
     end
   end
                                           
