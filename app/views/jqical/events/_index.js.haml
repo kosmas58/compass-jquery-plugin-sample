@@ -1,1 +1,7 @@
+:javascript
+  $(function() {
+    $("button, a", ".buttons").button();
+  });
+  
+
 = ui_event_for :event, :url => jqical_calendar_events_path, :actions => {:update => "/edit", :create => "/new", :delete => "/delete", :reload => "/index_reload"} 

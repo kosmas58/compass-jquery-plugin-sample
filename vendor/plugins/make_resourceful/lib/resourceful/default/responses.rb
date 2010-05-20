@@ -52,7 +52,7 @@ module Resourceful
       # It sets up the default responses for the default actions.
       def self.included(base)
         base.made_resourceful do
-          response_for(:show, :index, :edit, :new, :delete) do |format|
+          response_for(:show, :index, :edit, :new, :delete, :index_reload) do |format|
             format.html
             format.js
           end

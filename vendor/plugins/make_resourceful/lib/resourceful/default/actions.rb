@@ -19,6 +19,12 @@ module Resourceful
         before :index
         response_for :index
       end
+      # GET /foos/index_reload
+      def index_reload
+        #load_objects
+        before :index_reload
+        response_for :index_reload
+      end
 
       # GET /foos/12
       def show

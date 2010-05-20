@@ -4,14 +4,32 @@ class Jqical::EventsController < ApplicationController
   protect_from_forgery
   
   make_resourceful do
-    actions :index, :new, :edit, :delete
+    actions :index, :index_reload, :new, :create, :edit, :update, :delete, :destroy
     
+    response_for :index_reload do | format |
+      format.html
+      format.js do
+        render(:partial => "index_reload", :layout => false)
+      end
+    end
+   
     response_for :new do | format |
       format.html
       format.js do
         render(:partial => "form", :layout => false)
       end
-    end  
+    end
+    
+    response_for :create do | format |
+      format.html
+      format.js do
+        if request.xhr?
+          render :nothing => true, :status => 200
+        else
+          redirect_to :action => :index
+        end        
+      end
+    end
      
     response_for :edit do | format |
       format.html
@@ -19,6 +37,17 @@ class Jqical::EventsController < ApplicationController
         render(:partial => "form", :layout => false)
       end
     end
+    
+    response_for :update do | format |
+      format.html
+      format.js do
+        if request.xhr?
+          render :nothing => true, :status => 200
+        else
+          redirect_to :action => :index
+        end        
+      end
+    end  
      
     response_for :delete do | format |
       format.html
@@ -26,54 +55,19 @@ class Jqical::EventsController < ApplicationController
         render(:partial => "form_delete", :layout => false)
       end
     end
+    
+    response_for :destroy do | format |
+      format.html
+      format.js do 
+        if request.xhr?
+          render :nothing => true, :status => 200
+        else
+          redirect_to :action => :index
+        end
+      end
+    end  
   end
   
-  def index_reload
-    @events = Event.all
-    render(:partial => "index_reload.js.haml", :format => :js)
-  end
-
-#  def create
-#    @event = Event.new(params[:event])
-#    @event.save! 
-#    if request.xhr?
-#      #flash[:notice] = "Successfully created." 
-#      #return render(:partial => "form")
-#      render :nothing => true, :status => 200
-#    else
-#      redirect_to :action => :index
-#    end
-#  end
-#
-#  def update
-#    @event = Event.find(params[:id])
-#    @event.update_attributes!(params[:event])
-#    if request.xhr? 
-#      #flash[:notice] = "Successfully updated." 
-#      #return render(:partial => "form") 
-#      render :nothing => true, :status => 200  
-#    else
-#      redirect_to :action => :index
-#    end
-#  end
-
-#  def delete
-#    @event = Event.find(params[:id])
-#    return render(:partial => "form_delete")
-#  end
-
-#  def destroy
-#    @event = Event.find(params[:id])
-#    @event.destroy
-#    if request.xhr?
-#      #flash[:notice] = "Successfully deleted." 
-#      #return render(:partial => "form_delete")
-#      render :nothing => true, :status => 200
-#    else
-#      redirect_to :action => :index
-#    end
-#  end
-
   def months
 
   end

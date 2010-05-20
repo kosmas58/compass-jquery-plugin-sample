@@ -1,6 +1,11 @@
+-@title = 'Listing calendars'
+
+- content_for :content_head do
+  = render(:partial => "index.js.haml", :format => :js)
+
 .demo
   %h3
-    Listing calendars
+    =@title
   
   .ui-widget-content.ui-corner-all
     %table.calendars
@@ -9,7 +14,7 @@
           Name    
         %th
           Actions  
-      = render :partial => 'calendars', :collection => current_objects
+      = render :partial => 'calendar', :collection => current_objects
   %br
-  %p
+  %p.buttons
     = link_to 'New calendars', new_jqical_calendar_path 

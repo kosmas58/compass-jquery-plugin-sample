@@ -27,6 +27,7 @@ ActionController::Routing::Routes.draw do |map|
       calendar.resources :events,
                          :collection => { :index_reload => :get },
                          :member =>     { :delete       => :get } 
+      calendar.resources :fullcalendar
     end
   end
                                           

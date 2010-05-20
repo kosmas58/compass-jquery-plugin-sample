@@ -8,7 +8,9 @@ class Jqical::CalendarsController < ApplicationController
     
     response_for :show do |format|
       format.html
-      format.ics { render :text => @current_object.to_ics() }
+      format.ics do
+        render(:text => @current_object.to_ics())
+      end
     end
     
     response_for :create, :update, :destroy do |format|

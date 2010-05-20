@@ -8,10 +8,10 @@
     =@title
     
   = render :partial => "events"
-    
-  %button.event_create
-    New Event
-  %button
+  
+  %p.buttons  
+    %button.event_create
+      New Event
     = link_to 'Back', jqical_calendars_path 
     
   #event_delete_dialog{ :style => "display: none;" }

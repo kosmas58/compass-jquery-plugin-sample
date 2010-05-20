@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+%html
+  %head
+    %link{:href => "../fullcalendar.css", :rel => "stylesheet", :type => "text/css"}/
+    %script{:src => "../jquery/jquery.js", :type => "text/javascript"}
+    %script{:src => "../jquery/ui.core.js", :type => "text/javascript"}
+    %script{:src => "../jquery/ui.draggable.js", :type => "text/javascript"}
+    %script{:src => "../jquery/ui.resizable.js", :type => "text/javascript"}
+    %script{:src => "../fullcalendar.min.js", :type => "text/javascript"}
+    :javascript
+      $(document).ready(function() {
+      
+      	$('#calendar').fullCalendar({
+      	
+      		editable: true,
+      		
+      		events: "json-events.php",
+      		
+      		eventDrop: function(event, delta) {
+      			alert(event.title + ' was moved ' + delta + ' days\n' +
+      				'(should probably update your database)');
+      		},
+      		
+      		loading: function(bool) {
+      			if (bool) $('#loading').show();
+      			else $('#loading').hide();
+      		}
+      		
+      	});
+      	
+      });
+
+    :css
+      body {
+      	margin-top: 40px;
+      	text-align: center;
+      	font-size: 14px;
+      	font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+      	}
+      	
+      #loading {
+      	position: absolute;
+      	top: 5px;
+      	right: 5px;
+      	}
+
+      #calendar {
+      	width: 900px;
+      	margin: 0 auto;
+      	}
+
+  %body
+    #loading{:style => "display:none"} loading...
+    #calendar
+    %p json-events.php needs to be running in the same directory.

@@ -1,0 +1,2 @@
+module Jqical::FullcalendarHelper
+end
