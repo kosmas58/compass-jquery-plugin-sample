@@ -1,5 +1,4 @@
 class Event < ActiveRecord::Base 
-  require 'ri_cal'
   belongs_to :calendar
   
   #validates_presence_of :title
