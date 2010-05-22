@@ -13,7 +13,7 @@
     /[if lt IE 8]
       = stylesheet_link_tag 'compiled/ie.css', :media => 'screen, projection'
 
-    = stylesheet_link_tag "compiled/jquery.ui/start.css", :media => 'screen, projection'
+    = stylesheet_link_tag "compiled/jquery.ui/#{session[:theme]}", :media => 'screen, projection'
     = stylesheet_link_tag 'compiled/jquery.ui/dynatree.aero.css', :media => 'screen, projection'
 
     = javascript_include_tag :jquery_142
@@ -31,8 +31,8 @@
       = render :partial => "layouts/header.blueprint"
       = render :partial => "layouts/navigation.blueprint"  
       #content
-        .ui-widget-content.ui-corner-all{ :style => "background: none" }       
-          %iframe{ :name => "contentFrame", :src => "welcome/hello", :marginwidth => "0", :frameborder => "0", :height => 754, :width => "100%", :marginheight => "0" }
+        .ui-widget-content.ui-corner-all{ :style => "background: none" }
+          %iframe#demoframe{ :name => "contentFrame", :src => "welcome/hello", :marginwidth => "0", :frameborder => "0", :height => 754, :width => "100%", :marginheight => "0" }
             %p
               Your browser does not support iframes
         = render :partial => "layouts/footer.blueprint"

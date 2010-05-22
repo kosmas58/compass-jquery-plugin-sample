@@ -11,14 +11,14 @@
     /[if lt IE 8]
       = stylesheet_link_tag 'compiled/ie.css', :media => 'screen, projection'
 
-    = stylesheet_link_tag "compiled/jquery.ui/start.css", :media => 'screen, projection'
-    = stylesheet_link_tag "compiled/jquery.ui/calendar.css", :media => 'screen, projection'
+    = stylesheet_link_tag "compiled/jquery.ui/#{session[:theme]}", :media => 'screen, projection'
+    = stylesheet_link_tag "compiled/jquery.ui/jqical.css", :media => 'screen, projection'
     = stylesheet_link_tag 'demos.css', :media => 'screen, projection'
 
     = javascript_include_tag :jquery_142
     = javascript_include_tag :jrails
     = raw jrails_javascripts(I18n.locale)
-    = javascript_include_tag :calendar
+    = javascript_include_tag :jqical
 
     = javascript_include_tag 'locales'
     = javascript_include_tag 'common'
@@ -29,6 +29,4 @@
 
   %body{body_attributes}
     #content
-      %p{ :style => "color: green" }
-        = flash[:notice]
       = yield

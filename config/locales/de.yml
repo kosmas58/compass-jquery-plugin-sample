@@ -160,7 +160,10 @@ de:
     - Okt
     - Nov
     - Dez
-  txt: 
+  txt:
+    jqical:
+      anytime:
+        name: "Any+Time&trade" 
     jqt: 
       name: "jQTouch (ben\xC3\xB6tigt einen Browser mit WebKit)"
     jqgrid: 

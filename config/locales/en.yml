@@ -176,6 +176,10 @@ en:
       default: jQuery Ribbon Windows 7 theme
       office: jQuery Ribbon Office theme
       simple: jQuery Ribbon Simple theme
+    jqical:
+      anytime:
+        name: "Any+Time&trade"
+        default: Default functionality 
     jqt:
       name: "jQTouch (needs a browser with WebKit engine)"
     jqgrid:

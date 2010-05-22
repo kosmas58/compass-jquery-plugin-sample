@@ -1,0 +1,2 @@
+module Jqical::AnytimeHelper
+end

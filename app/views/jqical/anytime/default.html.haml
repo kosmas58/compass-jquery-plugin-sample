@@ -1,0 +1,15 @@
+-@title =  "#{t('txt.jqical.anytime.name')} - #{t('txt.jqical.anytime.default')}" 
+
+- content_for :content_head do
+  = render(:partial => "default.js.haml", :format => :js)
+
+.demo
+  %h3
+    =raw @title
+  %div
+    %input#DateTimeDemo{:type => "text", :value => "2010-04-20 04:20:10 (CE) +0"}
+  
+
+  
+  
+  

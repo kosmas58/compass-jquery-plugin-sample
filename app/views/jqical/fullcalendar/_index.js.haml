@@ -1,7 +1,11 @@
 :css
-  #calendar { width: 800px; margin: 0 auto; margin-top: 40px;	text-align: center; font-size: 13px; }
+  #calendar { width: 800px; margin: 0 auto; font-size: 13px; }
 
 :javascript
+  $(function() {
+    $("button, a", ".buttons").button();
+  });
+  
   $(document).ready(function() {
     var date = new Date();
     var d = date.getDate();
@@ -9,6 +13,7 @@
     var y = date.getFullYear();
     $('#calendar').fullCalendar({
       theme: true,
+      firstDay: 1,
       header: {
         left: 'prev,next today',
         center: 'title',

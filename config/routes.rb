@@ -14,23 +14,18 @@ ActionController::Routing::Routes.draw do |map|
   
   map.namespace :jqtouch do |jqtouch|
     jqtouch.resources :demo => { :ajax_post => :post }  
-  end
- 
-  map.resources :events, :collection => { :index_reload => :get,
-                                          :weeks        => :get, 
-                                          :months       => :get },
-                                          :member =>     { :delete       => :get } 
-                                          
+  end                                          
   
   map.namespace :jqical do |jqical|
-    jqical.resources :calendars do |calendar|
+    jqical.resources :calendars, :shallow => true do |calendar|
       calendar.resources :events,
-                         :collection => { :index_reload => :get },
+                         :collection => { :index_reload => :get,
+                                          :weeks        => :get, 
+                                          :months       => :get },
                          :member =>     { :delete       => :get } 
       calendar.resources :fullcalendar
     end
-  end
-                                          
+  end                                     
   
   Translate::Routes.translation_ui(map) if RAILS_ENV != "production "
 

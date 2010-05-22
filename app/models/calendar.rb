@@ -1,39 +1,43 @@
 class Calendar < ActiveRecord::Base
   require 'ri_cal'
   
-  has_many :calendar_events
+  has_many :events
   attr_accessor :ics 
   
   def to_ics(reload = false)
     if !@ics || reload
-      icalendar = RiCal.Calendar do |c| 
-#        self.calendar_events.each { |calendar_event| 
-#          c.event do |e|
-#            e.summary = calendar_event.title.to_s 
-#            e.description = calendar_event.description.to_s 
-#            if calendar_event.all_day || calendar_event.start.to_date > calendar_event.end.to_date
-#              e.dtstart = calendar_event.start.to_date
-#              e.dtend = calendar_event.start.advance(:days => 1).to_date
-#            elsif calendar_event.all_day
-#              e.dtstart = calendar_event.start.to_date
-#              e.dtend = calendar_event.end.to_date
+      @ics = RiCal.Calendar
+      #@ics.sub!(/END:VCALENDAR/, '')
+
+#      icalendar = RiCal.Calendar do |c| 
+#        self.events.each do |event| 
+#         event.ical_string
+#          c.event do |e|             
+#            e.summary = event.title.to_s 
+#            e.description = event.description.to_s 
+#            if event.all_day || event.start.to_date > event.end.to_date
+#              e.dtstart = event.start.to_date
+#              e.dtend = event.start.advance(:days => 1).to_date
+#            elsif event.all_day
+#              e.dtstart = event.start.to_date
+#              e.dtend = event.end.to_date
 #            else
-#              e.dtstart = calendar_event.start
-#              e.dtend = calendar_event.end
+#              e.dtstart = event.start
+#              e.dtend = event.end
 #            end
-#            e.location = calendar_event.location.to_s
+#            e.location = event.location.to_s
 #            
-#            if !calendar_event.frequency.to_s.empty? && CONFIG[:calendar]["frequency"].collect { |i| i[1] }.include?( calendar_event.frequency )
+#            if !event.frequency.to_s.empty? && CONFIG[:calendar]["frequency"].collect { |i| i[1] }.include?( event.frequency )
 #              recurrence = []
-#              recurrence << "FREQ=#{calendar_event.frequency}" if calendar_event.frequency
-#              recurrence << "INTERVAL=#{calendar_event.interval}" if calendar_event.interval
-#              recurrence << "UNTIL=#{ calendar_event.until.strftime('%Y%m%dT%H%M%SZ') }" if calendar_event.until
+#              recurrence << "FREQ=#{event.frequency}" if event.frequency
+#              recurrence << "INTERVAL=#{event.interval}" if event.interval
+#              recurrence << "UNTIL=#{ event.until.strftime('%Y%m%dT%H%M%SZ') }" if event.until
 #              e.rrule = recurrence.join(";") if recurrence.length > 0
 #            end
 #          end
-#        } 
-      end
-      @ics = icalendar
+#        end 
+#      end
+#      @ics = icalendar
     end
     @ics
   end

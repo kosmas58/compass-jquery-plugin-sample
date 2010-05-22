@@ -5,6 +5,7 @@ class Jqical::EventsController < ApplicationController
   
   make_resourceful do
     actions :index, :index_reload, :new, :create, :edit, :update, :delete, :destroy
+    belongs_to :calendar
     
     response_for :index_reload do | format |
       format.html

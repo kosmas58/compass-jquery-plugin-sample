@@ -3,13 +3,13 @@
 
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
-  protect_from_forgery # See ActionController::RequestForgeryProtection for details
-  
+  protect_from_forgery # See ActionController::RequestForgeryProtection for details 
 
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
   
   before_filter :set_locale
+  before_filter :set_theme
 
   def set_locale
     # update session if passed
@@ -17,5 +17,13 @@ class ApplicationController < ActionController::Base
 
     # set locale based on session or default 
     I18n.locale = session[:locale] || I18n.default_locale
+  end
+
+  def set_theme
+    if cookies['jquery-ui-theme']
+      session[:theme] = cookies['jquery-ui-theme'].downcase.gsub(/ /, "-") + ".css"
+    else
+      session[:theme] = "start.css"
+    end
   end
 end

@@ -1,4 +1,4 @@
-class CreateIcalEvents < ActiveRecord::Migration
+class CreateJqicalEvents < ActiveRecord::Migration
   def self.up
     create_table :events, :force => true do |t|
       t.column :calendar_id,   :integer

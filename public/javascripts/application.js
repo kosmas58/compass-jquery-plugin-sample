@@ -8,7 +8,7 @@ jQuery.fn.submitWithAjax = function() {
     return false;
   })
 }
-
+	
 jQuery(document).ready(function() {	
   // From http://dev.jqueryui.com/ticket/3613
 	// Cookie persistence missing
@@ -59,10 +59,23 @@ jQuery(document).ready(function() {
 	$("#locale").change(function(){
 		this.form.submit();
 	});	
+	
+	function updateCSS(theme){
+		var cssLink = $('<link href="/stylesheets/compiled/jquery.ui/' + theme.toLowerCase().replace(/ /,"-") + '.css " type="text/css" rel="Stylesheet" class="ui-theme" />');
+		$("#demoframe").contents().find("head").append(cssLink);
+		
+		//	if( $("link.ui-theme").size() > 3){
+		//	$("link.ui-theme:first").remove();
+		//}
+	};
 
   $('#switcher').themeswitcher({
 		initialText: I18n.t('txt.ui.theme-switcher.initial'),
-    buttonPreText: I18n.t('txt.ui.theme-switcher.button')	
+    buttonPreText: I18n.t('txt.ui.theme-switcher.button'),	
+		onClose: function(){
+			//$.cookie("theme", null); 
+			updateCSS($.cookie('jquery-ui-theme'));	
+	  }
 	});
 	
   $("#license").dialog({

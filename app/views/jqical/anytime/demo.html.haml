@@ -1,0 +1,2303 @@
+!!!
+/ Copyright 2010 AJAX, JSON and XML Consulting and Training by Andrew M. Andrews III (SM). All Rights Reserved.  "Andrew M. Andrews III", "AMA3", Andrew_M_Andrews_III, Any+Time and the Tre Design are trademarks and/or service marks of Andrew M. Andrews III. Use this site at your own risk. Use of this site for illegal or malicious purposes is prohibited.%html{:lang => "en-US"}
+  %head
+    %meta{:content => "text/html; charset=ISO-8859-1", "http-equiv" => "Content-Type"}
+    %title Any+Time™ DatePicker/TimePicker AJAX Calendar Widget - AJAX, JSON and XML Consulting and Training by Andrew M. Andrews III (SM)
+    %meta{:content => "en-US", "http-equiv" => "Content-Language"}
+    %meta{:content => "Any+Time(TM) datepicker/timepicker/calendar widget (AnyTime.picker) for jQuery and date/time/string parse/format utility (AnyTime.Converter). - Andrew M. Andrews III provides consulting and training services for AJAX, JSON, XML and related technologies in extranet (B2B), internet (B2C), intranet and other back-end and front-end server development projects.", :name => "description"}
+    %meta{:content => "text/javascript", "http-equiv" => "Content-Script-Type"}
+    %meta{:content => "datepicker,timepicker,date/time picker,calendar,ajax,date,time,date/time,jquery,widget,format,convert,javascript,Any+Time,AnyTime.picker,AnyTime.Converter,MySQL,jquery.js,ajax,json,andrew m andrews iii,andrew andrews,andrew andrews iii,andrew m andrews,andrews,andrew,ama3,ama,ajax development,ajax training,ajax programming,xml", :name => "keywords"}
+    %meta{:content => "datepicker,timepicker,date/time picker,calendar,ajax,date,time,date/time,jquery,widget,format,convert,javascript,Any+Time,AnyTime.picker,AnyTime.Converter,MySQL,jquery.js,ajax,json,andrew m andrews iii,andrew andrews,andrew andrews iii,andrew m andrews,andrews,andrew,ama3,ama,ajax development,ajax training,ajax programming,xml", :name => "keyword"}
+    %link{:href => "/PxSite/PxSite.html.css", :media => "screen", :rel => "stylesheet"}
+    %link{:href => "http://www.ama3.com/anytime/?pxCT=text%2Fhtml", :rel => "alternate", :title => "This page in text/html format.", :type => "text/html"}/
+  %body
+    %span#pxNote{:style => "font-family:monospace"}
+    #title
+      %a{:href => "/"}
+        %img{:height => "50", :src => "/PxSite/tre.light.50x50.png", :width => "50"}
+          Andrew_M_Andrews_III =
+          %br
+            ( AJAX + JSON + XML ) * ( Consulting + Training );
+    .mainMenu
+      .mainMenuButton{:style => "width:60px"}
+        .mainMenuButtonOffset
+      .mainMenuButton
+        .mainMenuButtonOffset
+          %a.mainMenu{:href => "http://www.ama3.com/", :title => "Got AJAX?"} Got AJAX?
+      .mainMenuButton
+        .mainMenuButtonOffset
+          %a.mainMenu{:href => "http://www.ama3.com/anytime/", :title => "Any+Time\342\204\242"} Any+Time™
+      .mainMenuButton
+        .mainMenuButtonOffset
+          %a.mainMenu{:href => "http://www.ama3.com/whois/", :title => "Whois Search"} Whois Search
+      .mainMenuButton
+        .mainMenuButtonOffset
+          %a.mainMenu{:href => "http://www.ama3.com/user/", :title => "Client Area"} Client Area
+      .mainMenuButton
+        .mainMenuButtonOffset
+          %a.mainMenu{:href => "http://www.ama3.com/doorkeeper/", :title => "Contact"} Contact
+    #pageContainerBackground
+      .pageContainer
+        %h1 Any+Time™ DatePicker/TimePicker AJAX Calendar Widget
+        #mainContent
+          :css
+            .newFeature
+            {
+                background-color: #FFFF66;/*rgb(93, 176, 230);*/
+                border: 1px dashed #4c4c66;
+                font-family: Days;
+                padding: 0 0.1em;
+            }
+            .demo
+            {
+                border:4px solid #c0c0c0;
+                border-top:20px solid #c0c0c0;
+                margin:1em;
+                padding:1em 2em;
+            }
+            pre
+            {
+                background-color:#f0f0f0;
+                border:1px dashed #333367;
+                display:block;
+                margin:1em;
+                padding:0.5em 0 0.5em 1.2em;
+            }
+            %p
+            The
+            %strong
+              Any+Time&trade;
+              
+              JavaScript Library
+            includes a highly-customizable,
+            - succeed "-compatible" do
+              %a{:href => "http://www.ama3.com/PxStandard/PxClickAway.php?url=httpZ23AZ22FZ22Fwww.jquery.com"} jQuery
+            datepicker/
+            timepicker (calendar/ clock widget) and a powerful Date/String parse/format utility.
+          .quotebox
+            %blockquote{:cite => "http://www.ama3.com/PxStandard/PxClickAway.php?url=httpZ23AZ22FZ22Fwww.drweb.deZ22FmagazinZ22Fjquery-die-interessantesten-aktuellen-plugins-und-toolsZ22F"}
+              der Mercedes, ach was, der Rolls Royce unter den Datepicker-Plugins
+              %br
+                %i (the Mercedes, no, the Rolls Royce of Datepicker Plugins)
+            %cite
+              \&mdash;
+              %img{:alt => "[logo]", :src => "drweb.de.png", :style => "height:16px;width:16px"}
+                %a{:href => "http://www.ama3.com/PxStandard/PxClickAway.php?url=httpZ23AZ22FZ22Fwww.drweb.deZ22FmagazinZ22Fjquery-die-interessantesten-aktuellen-plugins-und-toolsZ22F", :style => "color:#9C9C9C;font-family:Helvetica,Arial,sans-serif", :title => "read the review on drweb.de"}
+                  %span{:style => "color:#397BB5;font-weight:bold"}> dr
+                  web
+          %form{:action => "/anytime/", :method => "GET", :style => "float:right;width:33em;margin-bottom:1em;margin-left:1em;margin-top:1em"}
+            %iframe{:frameborder => "0", :scrolling => "no", :src => "themerollerdemo.html", :style => "height:26em;width:33em"}
+            .divCaption{:style => "text-align:center"}
+              %strong Above:
+              example datepicker and timepicker, with selectable themes
+              (using jQuery UI
+              - succeed ")." do
+                %a{:href => "http://www.ama3.com/PxStandard/PxClickAway.php?url=httpZ23AZ22FZ22Fjqueryui.comZ22FdocsZ22FThemingZ22FThemeSwitcher"} Theme Switcher
+              %a{:name => "InlineDemo"}
+                %strong Below:
+              Date/time picker using default style, hidden field,
+              a 24-hour clock and both era and timezone selection,
+              followed by the single JavaScript statement to create it!
+              Click the buttons on any of these widgets to change values.
+              %a{:href => "#PopupDemos"} Examples of pop-up pickers
+              and other variations follow.
+            %div{:style => "padding:1em 1em 1em 1em"}
+              %input#DateTimeDemo{:type => "text", :value => "2010-04-20 04:20:10 (CE) +0"}/
+            %pre
+              %code
+                \&lt;input type="text" id="DateTimeDemo" /&gt;
+                \&lt;script type="text/javascript"&gt;
+                $("#DateTimeDemo").
+                %a{:href => "#jQuery.AnyTime_picker"}> AnyTime_picker
+                (
+                {
+                - succeed ":" do
+                  %a{:href => "#AnyTime.Converter.format"} format
+                "%Y-%m-%d %H:%i:%s %E %#",
+                - succeed ":" do
+                  %a{:href => "#AnyTime.picker.formatUtcOffset"} formatUtcOffset
+                "%: (%@)",
+                - succeed ":" do
+                  %a{:href => "#AnyTime.picker.hideInput"} hideInput
+                true,
+                - succeed ":" do
+                  %a{:href => "#AnyTime.picker.placement"} placement
+                "inline" } );
+                
+                \&lt;/script&gt;
+            %p.standout{:style => "padding:1em"}
+              Rip out your old date/time pickers, and drop in
+              - succeed "&amp;trade;" do
+                %strong Any+Time
+              this instant! Hurry, before you lose another frustrated user!
+            .quotebox
+              %blockquote{:cite => "http://www.ama3.com/PxStandard/PxClickAway.php?url=httpZ23AZ22FZ22Fwww.opcmf.comZ22FdatetimepickerZ22F"}
+                the best date/time picker out there
+              %cite
+                \&mdash;
+                %img{:alt => "[logo]", :src => "opcmf.com.png", :style => "height:16px;width:16px"}
+                  %a{:href => "http://www.ama3.com/PxStandard/PxClickAway.php?url=httpZ23AZ22FZ22Fwww.opcmf.comZ22FdatetimepickerZ22F", :style => "color:#83AF95;font-family:Helvetica,Arial,sans-serif;font-size:16px", :title => "The Open Portal Content Module Framework"} Peter Drinnan, OPCMF
+          %p.standout
+            Sexy is
+            %br
+              %strong{:style => "font-size:x-large"}> OVER-RATED
+              \.
+          %p.standout
+            Let's try
+            %br
+              %strong{:style => "font-size:x-large"}> USER-FRIENDLY
+              \.
+          %p
+            It seems like there's a million calendar and clock widgets out there,
+            and when you look past the eye-candy, they all have one thing in common:
+            they're
+            %strong{:style => "text-decoration:underline"} tedious
+            at best.  At worst,
+            - succeed "." do
+              %strong{:style => "text-decoration:underline"} counter-intuitive
+          %p
+            Sure, a picker that uses sliders or spinners, or looks like an analog clock
+            face might be
+            - succeed "," do
+              %em cute
+            but did you ever notice how long it takes
+            to position one to the correct hour and minute?  Or how about choosing a month
+            that's more than a season away?  Worse yet, entering your
+            birth year on a datepicker that forces you to click...
+            backwards... repeatedly... one... year... at... a... time?
+          %p
+            Does your favorite "pretty" picker even work if your
+            user has a keyboard, but not a mouse?
+            Does it scale larger if the user increases
+            the text size on your page?
+            If not, ask your legal department how they'd feel about
+            an accessibility lawsuit!
+          %p.standout Enough already!
+          %p
+            %strong Any+Time&trade;
+            is different.  More powerful, yes, but more importantly,
+            designed with speed and ease-of-use in mind.
+            And not only can it create a date/time picker with advanced
+            features and options not found in other calendar/clock widgets,
+            it also allows you to format dates and times the way
+            %strong you
+            want them.  Or your database wants them.  Or, better yet, the way your
+            %strong{:style => "text-decoration:underline"} users
+            want them.
+          %p
+            And you can still
+            - succeed "," do
+              %strong make it sexy
+            with plenty of styling options.
+            %code
+              %strong ;)
+          %p
+            For starters, take a look at these
+            DATE/TIME ALTERNATIVES:
+          %ul
+            %li 12-hour or 24-hour clock
+            %li
+              custom date/time
+              %a{:href => "#AnyTime.Converter.format"} format
+              (countless possibilities,
+              including
+              %a{:href => "#json"} JSON
+              and
+              - succeed ")" do
+                %a{:href => "#xml"} XML
+            %li
+              date-only, time-only, or specific
+              - succeed "!" do
+                %a{:href => "#AnyTime.Converter.format"} fields
+            %li
+              date/time
+              %a{:href => "#AnyTime.picker.earliest"} range
+              %a{:href => "#AnyTime.picker.latest"} limits
+            %li
+              %a{:href => "#AnyTime.picker.askEra"}> era
+              \-selection (BCE/CE, BC/AD, etc.)
+            %li
+              %a{:href => "#AnyTime.picker.firstDOW"} start
+              week on any day (Sunday, Monday, etc.)
+            %li
+              custom
+              %a{:href => "#AnyTime.Converter.baseYear"} base
+              for 2-digit years (1900, 2000, etc.)
+            %li
+              %a{:href => "#AnyTime.utcLabel"}> UTC offsets
+              \/time zones
+              %span.newFeature NEW!
+          %p Then peep these STYLING CHOICES:
+          %ul
+            %li
+              custom
+              - succeed "/languages" do
+                %a{:href => "#AnyTime.picker.labelDayOfMonth"} labels
+            %li
+              custom CSS
+              %a{:href => "#customStyles"} styles
+            %li
+              %a{:href => "http://www.ama3.com/PxStandard/PxClickAway.php?url=httpZ23AZ22FZ22Fdocs.jquery.comZ22FUIZ22FTheming"} jQuery UI Theming
+            %li
+              %a{:href => "http://www.ama3.com/PxStandard/PxClickAway.php?url=httpZ23AZ22FZ22Fjqueryui.comZ22FdocsZ22FThemingZ22FThemeSwitcher"} jQuery UI Theme Switcher
+            %li
+              %a{:href => "http://www.ama3.com/PxStandard/PxClickAway.php?url=httpZ23AZ22FZ22Fjqueryui.comZ22FthemerollerZ22F"} jQuery ThemeRoller
+            %li
+              %a{:href => "#AnyTime.picker.placement"} pop-up
+              or
+              %a{:href => "#AnyTime.picker.placement"} always-present
+              picker
+            %li
+              visible or
+              %a{:href => "#AnyTime.picker.hideInput"} hidden
+              field
+          %p It's also PROGRAMMER-FRIENDLY:
+          %ul
+            %li
+              easy to
+              %a{:href => "#PopupDemos"} implement
+            %li
+              easy
+              %a{:href => "#AnyTime.picker.ajaxOptions"} AJAX
+              validation
+            %li
+              easy Date/String
+              - succeed "," do
+                %a{:href => "#converting"} conversion
+              including
+              %a{:href => "#json"} JSON
+              and
+              %a{:href => "#xml"} XML
+            %li
+              create
+              %a{:href => "#PopupDemos"} multiple
+              pickers at once
+              %span.newFeature NEW!
+            %li
+              easy
+              %a{:href => "#AnyTime.noPicker"} removal
+              %span.newFeature NEW!
+            %li
+              easy to
+              %a{:href => "#extending"} extend
+          %p And let's not forget those USABILITY FEATURES:
+          %ul
+            %li single-click value selection
+            %li
+              double-click select-and-dismiss
+              %span.newFeature NEW!
+            %li
+              %a{:href => "http://www.ama3.com/PxStandard/PxClickAway.php?url=httpZ23AZ22FZ22Fwww.w3.orgZ22FTRZ22F2009Z22FWD-wai-aria-practices-20091215Z22FZ223datepicker"} WAI-ARIA 1.0
+              keyboard accessibility
+            %li em-based relative-size
+          %p
+            A
+            %a{:href => "#PopupDemos"} single JavaScript statement
+            is all you need to add
+            a date and/or time picker to any
+            %code &lt;input&gt;
+            field!
+            Srsly. See the example code?  It's for reals, yo.
+          %p
+            Use
+            %a{:href => "#converting"}
+              %var
+                %strong AnyTime.Converter
+            to parse a String into a Date, or convert a Date to a String.  Many
+            %a{:href => "#AnyTime.Converter.format"} format options
+            are
+            supported—in fact, most of the fields specified by the MySQL
+            %a{:href => "http://www.ama3.com/PxStandard/PxClickAway.php?url=httpZ23AZ22FZ22Fdev.mysql.comZ22FdocZ22FrefmanZ22F5.0Z22FenZ22Fdate-and-time-functions.htmlZ223function_date-format"}
+              %var DATE_FORMAT()
+            function!
+          %div{:style => "background-color:black;border:6px solid black;color:#f0f0f0;float:left;font-size:x-small;margin:18px 16px 10px 8px;text-align:center"}
+            %a{:href => "http://www.ama3.com/PxStandard/PxClickAway.php?url=httpZ23AZ22FZ22Fwww.jquery.com", :title => "jQuery website"}
+              %img{:alt => "jQuery", :height => "23", :src => "jQuery.gif", :style => "vertical-align:top", :width => "81"}/
+            %br
+              compatible
+          %p
+            %strong> Any+Time
+            \&trade;
+            
+            uses the free
+            %em
+              %a{:href => "http://www.ama3.com/PxStandard/PxClickAway.php?url=httpZ23AZ22FZ22Fwww.jquery.com", :title => "jQuery website"} jQuery
+              JavaScript Library
+            as a foundation for robust performance.
+            An older version (2.x) of this library, based on Prototype,
+            is still
+            %a{:href => "#prototype"} available
+            also.
+          %p{:style => "clear:left"}
+            %strong> Any+Time
+            \&trade;
+            has been tested compatible with
+            Chrome 4.1, Firefox 3.6, Internet Explorer 8.0,
+            Opera 10.51 and Safari 4.0,
+            and should work with any version of ECMA-262
+            (JavaScript, JScript, ECMAScript, etc.) and HTML/XHTML supported by
+            - succeed "." do
+              %a{:href => "http://www.ama3.com/PxStandard/PxClickAway.php?url=httpZ23AZ22FZ22Fwww.jquery.com", :title => "jQuery website"}
+                %em jQuery
+          %p
+            %strong> Any+Time
+            \&trade;
+            
+            follows
+            %a{:href => "http://www.ama3.com/PxStandard/PxClickAway.php?url=httpZ23AZ22FZ22Fwww.w3.orgZ22FTRZ22F2009Z22FWD-wai-aria-practices-20091215Z22FZ223datepicker"} WIA-ARIA Authoring Practices 1.0
+            for Date Picker keyboard interaction as closely as possible, to
+            maximize accessibility without a mouse. Use
+            %kbd Tab
+            to navigate between the date and time sections, and arrows
+            to navigate between time-selection buttons.
+          %link{:href => "AnyTime/anytimec.css", :rel => "stylesheet", :type => "text/css"}
+            %script{:src => "AnyTime/jquery.js", :type => "text/javascript"}
+            %script{:src => "AnyTime/anytimec.js", :type => "text/javascript"}
+            %script{:src => "AnyTime/anytimetz.js", :type => "text/javascript"}
+            :javascript
+              $("#DateTimeDemo").AnyTime_picker(
+                  { format: "%Y-%m-%d %H:%i:%s %E %#",
+                  formatUtcOffset: "%: (%@)",
+                  hideInput: true,
+                  placement: "inline" });
+              %div{:style => "float:left;margin:18px 16px 12px 8px"}
+              %a{:href => "http://www.ama3.com/PxStandard/PxClickAway.php?url=httpZ23AZ22FZ22Fcreativecommons.orgZ22FlicensesZ22Fby-nc-saZ22F3.0Z22F", :rel => "license"}
+                %img{:alt => "Creative Commons License", :src => "cc-by-nc-sa-88x31.png", :style => "border-width:0px"}/
+            %p
+              %strong> Any+Time
+              \&trade;
+              is
+              %span{:style => "background-color:#EFE;border:1px solid #060;color:#060;font-family:serif;font-size:8pt;font-weight:bold;padding:4px 4px 4px 4px"}
+                $
+                %strong{:style => "font-size:12pt"}> FREE
+                $
+              under the Creative Commons BY-NC-SA 3.0
+              - succeed "." do
+                %a{:href => "http://www.ama3.com/PxStandard/PxClickAway.php?url=httpZ23AZ22FZ22Fcreativecommons.orgZ22FlicensesZ22Fby-nc-saZ22F3.0Z22F", :title => "read the license"} License
+              %strong Tip:
+              site owners can avoid the need for a commercial license by not
+              charging users to access any page that uses the library; site developers can avoid the
+              need for a commercial license by not charging clients to add the library to their site
+              or to modify the library (code that invokes the library functionality and CSS styles
+              that override the default appearance are not considered modifications as long as the
+              original source files are not modified in any way).
+              A good rule of thumb is: "If nobody has to pay to use
+              - succeed "&amp;trade;," do
+                %strong Any+Time
+              then nobody has to pay to use
+              - succeed "&amp;trade;!\"" do
+                %strong Any+Time
+              %strong
+                If you need a commercial license (or aren't sure), please
+                %a{:href => "http://www.ama3.com/doorkeeper/", :title => "contact page"} contact the author
+              for terms and conditions tailored to your needs.
+            %h2 Instructions
+            %p
+              Follow these easy steps to use the
+              %strong
+                Any+Time&trade;
+                JavaScript Library
+              on your website!
+            %h3 1. Download
+            .quotebox{:style => "float:right;width:24em;margin-bottom:1em;margin-left:1em;margin-top:1em"}
+              %blockquote{:cite => "http://www.ama3.com/PxStandard/PxClickAway.php?url=httpZ23AZ22FZ22Fwww.technogadge.comZ22Fdownload-anytime-date-time-pickerZ22F"}
+                extremely easy to use
+              %cite
+                \&mdash;
+                %img{:alt => "[logo]", :src => "technogadge.com.png", :style => "height:16px;width:16px"}
+                  %a{:href => "http://www.ama3.com/PxStandard/PxClickAway.php?url=httpZ23AZ22FZ22Fwww.technogadge.comZ22Fdownload-anytime-date-time-pickerZ22F", :style => "color:#383838;font-family:Helvetica,Arial,sans-serif", :title => "read the review on technogadge.com"}
+                    %span{:style => "color:#E11100"}> Techno
+                    Gadge
+            %p
+              %strong> Any+Time
+              \&trade;
+              
+              consists of a JavaScript source file
+              with a CSS stylesheet file. Both files are formatted to
+              be human-readable, and they contain extensive comments to help you
+              understand and modify them. Right-click on either link to save the file:
+            %ul.doubleSpace
+              %li
+                %a{:href => "http://www.ama3.com/PxStandard/PxClickAway.php?url=Z22FanytimeZ22FAnyTimeZ22Fanytime.js", :title => "commented, formatted javascript source"} anytime.js
+                \- readable JavaScript source
+              %li
+                %a{:href => "http://www.ama3.com/PxStandard/PxClickAway.php?url=Z22FanytimeZ22FAnyTimeZ22Fanytime.css", :title => "commented, formatted stylesheet"} anytime.css
+                \- readable CSS stylesheet
+            %p
+              You may wish to use the compressed (unformatted, no comments) versions
+              instead, to improve download speed for your users:
+            %ul.doubleSpace
+              %li
+                %a{:href => "http://www.ama3.com/PxStandard/PxClickAway.php?url=Z22FanytimeZ22FAnyTimeZ22Fanytimec.js", :title => "compressed javascript source"} anytimec.js
+                \- compressed JavaScript source
+              %li
+                %a{:href => "http://www.ama3.com/PxStandard/PxClickAway.php?url=Z22FanytimeZ22FAnyTimeZ22Fanytimec.css", :title => "compressed stylesheet"} anytimec.css
+                \- compressed CSS stylesheet
+            %p
+              A copy of
+              %a{:href => "http://www.ama3.com/PxStandard/PxClickAway.php?url=httpZ23AZ22FZ22Fwww.jquery.com", :title => "download jQuery"}
+                %em jQuery
+              is also required:
+            %ul.doubleSpace
+              %li
+                %a{:href => "http://www.ama3.com/PxStandard/PxClickAway.php?url=httpZ23AZ22FZ22Fcode.jquery.comZ22Fjquery-1.4.2.min.js", :title => "production (minified) jQuery source file"} jquery-1.4.2.js
+                \- production (compressed) jQuery source
+            %p
+              If you want to display locale-specific time zone labels, or allow users to select
+              different UTC offsets with the timepicker,
+              also get the Basic Time Zone Support file (and
+              %a{:href => "#AnyTime.utcLabel"} modify
+              it to meet your needs):
+            %ul.doubleSpace
+              %li
+                %a{:href => "http://www.ama3.com/PxStandard/PxClickAway.php?url=Z22FanytimeZ22FAnyTimeZ22Fanytimetz.js", :title => "commented, formatted javascript time zone support source"} anytimetz.js
+                \- readable JavaScript source for Basic Time Zone Support
+                %span.newFeature NEW!
+            %div{:style => "background-color:#f0f0f0;margin-top:1em;padding:0.5em 1em 1em 1em"}
+              %h4
+                %a{:href => "http://www.ama3.com/PxStandard/PxClickAway.php?url=httpZ23AZ22FZ22Fwww.prototypejs.orgZ22F", :name => "prototype", :title => "prototype website"}
+                  %img{:alt => "prototype", :height => "16", :src => "prototypejs.png", :style => "vertical-align:top", :width => "38"}/
+                PROTOTYPE LIBRARY USERS:
+              %p
+                Version 2.x uses the
+                %a{:href => "http://www.ama3.com/PxStandard/PxClickAway.php?url=httpZ23AZ22FZ22Fwww.prototypejs.orgZ22F"} Prototype
+                JavaScript Framework
+                (prototype.js) instead of jQuery.  This older version is still
+                available:
+              %ul.doubleSpace
+                %li
+                  %a{:href => "http://www.ama3.com/PxStandard/PxClickAway.php?url=Z22FanytimeZ22FAnyTimeZ22Fanytime.prototype.js", :title => "commented, formatted javascript source"} anytime.prototype.js
+                  \- Prototype-compatible, readable JavaScript source
+                %li
+                  %a{:href => "http://www.ama3.com/PxStandard/PxClickAway.php?url=Z22FanytimeZ22FAnyTimeZ22Fanytime.prototype.css", :title => "commented, formatted stylesheet"} anytime.prototype.css
+                  \- Prototype-compatible, readable CSS stylesheet
+              %p
+                Many of the features and behaviors described on this page are different or unavailable
+                in the older version (check the source file comments for more accurate instructions
+                and information).
+            %h3 2. Save and Include
+            %p
+              Save a copy of the JavaScript source and CSS stylesheet files
+              on your web server,
+              - succeed "," do
+                %strong
+                  remove the last line from the
+                  JavaScript file
+              and reference both files in your HTML page.
+              For example, if you install jquery.js, anytime.js and anytime.css
+              in the document root directory, then add the following lines to the
+              %code &lt;head&gt;
+              section of the HTML page:
+            %pre
+              %code
+                :preserve
+                  &lt;link rel="stylesheet" type="text/css" href="/anytime.css" /&gt;
+                  
+                  &lt;script type="text/javascript" src="/jquery.js"&gt;&lt;/script&gt;
+                  &lt;script type="text/javascript" src="/anytime.js"&gt;&lt;/script&gt;            %p
+              If you downloaded Basic Time Zone Support, be sure to include it last:
+            %pre
+              %code &lt;script type="text/javascript" src="/anytimetz.js"&gt;&lt;/script&gt;
+            %p
+              For proper formatting, the
+              %code &lt;link&gt;
+              element must appear
+              %strong before
+              the
+              %code &lt;script&gt;
+              elements!
+            %h3 3. Create HTML Input Fields
+            %p
+              Create your date and/or time field as a simple
+              %code &lt;input type="text"&gt;
+              element with a unique
+              %var id
+              attribute.
+            %p
+              Here are examples of a date-only field that uses a verbose format,
+              and a time-only field with a Spanish label:
+            %pre
+              %code
+                :preserve
+                  English: &lt;input type="text" id="field1" size="50"
+                      value="Sunday, July 30th in the Year 1967 CE" /&gt;&lt;br/&gt;
+                  Español: &lt;input type="text" id="field2" value="12:34" /&gt;
+                  
+            %h3
+              4. Add
+              %a{:name => "PopupDemos"} JavaScript
+              (and optional
+              - succeed ")" do
+                %a{:name => "customStyles"} CSS
+            %p
+              Call
+              %a{:href => "#AnyTime.picker"}
+                %var
+                  %strong AnyTime.picker()
+              in your JavaScript code,
+              passing it the
+              %var id
+              of the input element and any desired
+              - succeed "." do
+                %a{:href => "#options"}
+                  %var options
+              Or, use jQuery methods (such as
+              %var
+                %strong $()
+              or
+              - succeed ")" do
+                %var
+                  %strong $.find()
+              to select
+              one-or-more elements and invoke
+              %a{:href => "#jQuery.AnyTime_picker"}
+                %var
+                  %strong .AnyTime_picker()
+              %span.newFeature NEW!
+              on the result, passing the desired
+              - succeed "." do
+                %a{:href => "#options"}
+                  %var options
+              For example, the code to add pickers to the preceding example fields could be:
+            %pre
+              %code
+                \&lt;script type="text/javascript"&gt;
+                - succeed "(" do
+                  %a{:href => "#AnyTime.picker"} AnyTime.picker
+                "field1",
+                {
+                - succeed ":" do
+                  %a{:href => "#AnyTime.Converter.format"} format
+                "%W, %M %D in the Year %z %E",
+                - succeed ":" do
+                  %a{:href => "#AnyTime.picker.firstDOW"} firstDOW
+                1 } );
+                $("#field2").
+                %a{:href => "#jQuery.AnyTime_picker"}> AnyTime_picker
+                (
+                {
+                - succeed ":" do
+                  %a{:href => "#AnyTime.Converter.format"} format
+                "%H:%i",
+                - succeed ":" do
+                  %a{:href => "#AnyTime.picker.labelTitle"} labelTitle
+                "Hora",
+                - succeed ":" do
+                  %a{:href => "#AnyTime.picker.labelHour"} labelHour
+                "Hora",
+                - succeed ":" do
+                  %a{:href => "#AnyTime.picker.labelMinute"} labelMinute
+                "Minuto" } );
+                
+                \&lt;/script&gt;
+            %p
+              Want a live demonstration?  Click one of the following text fields to
+              display the corresponding popup picker! For the first field, try
+              choosing a year in the very distant past.
+            :css
+              #field2 { background-image:url("clock.png");
+                background-position:right center; background-repeat:no-repeat;
+                border:1px solid #FFC030;color:#3090C0;font-weight:bold}
+              #AnyTime--field2 {background-color:#EFEFEF;border:1px solid #CCC}
+              #AnyTime--field2 * {font-weight:bold}
+              #AnyTime--field2 .AnyTime-btn {background-color:#F9F9FC;
+                border:1px solid #CCC;color:#3090C0}
+              #AnyTime--field2 .AnyTime-cur-btn {background-color:#FCF9F6;
+                  border:1px solid #FFC030;color:#FFC030}
+              #AnyTime--field2 .AnyTime-focus-btn {border-style:dotted}
+              #AnyTime--field2 .AnyTime-lbl {color:black}
+              #AnyTime--field2 .AnyTime-hdr {background-color:#FFC030;color:white}
+              %form{:action => "/anytime/", :method => "GET"}
+              %p.demo
+                English:
+                %input#field1{:size => "50", :type => "text", :value => "Sunday, July 30th in the Year 1967 CE"}
+                  %br
+                    Español:
+                    %input#field2{:type => "text", :value => "12:34"}/
+            :javascript
+              AnyTime.picker( "field1", { format: "%W, %M %D in the Year %z %E",
+                                        firstDOW: 1 } );
+              $("#field2").AnyTime_picker( { format: "%H:%i", labelTitle: "Hora",
+                                        labelHour: "Hora", labelMinute: "Minuto" } );
+              %p
+              The first field specifies that the week begins with Monday.
+            %p
+              The second field demonstrates a custom style,
+              including a clock pseudo-button for the input field,
+              achieved by the following CSS:
+            %pre
+              %code
+                \&lt;style type="text/css"&gt;
+                
+                \#field2 { background-image:url("
+                %a{:href => "http://www.ama3.com/PxStandard/PxClickAway.php?url=Z22FanytimeZ22Fclock.png", :title => "right-click to download this image for use with your input field"}> clock.png
+                ");
+                background-position:right center; background-repeat:no-repeat;
+                border:1px solid #FFC030;color:#3090C0;font-weight:bold}
+                \#AnyTime--field2 {background-color:#EFEFEF;border:1px solid #CCC}
+                \#AnyTime--field2 * {font-weight:bold}
+                \#AnyTime--field2 .AnyTime-btn {background-color:#F9F9FC;
+                border:1px solid #CCC;color:#3090C0}
+                \#AnyTime--field2 .AnyTime-cur-btn {background-color:#FCF9F6;
+                border:1px solid #FFC030;color:#FFC030}
+                \#AnyTime--field2 .AnyTime-focus-btn {border-style:dotted}
+                \#AnyTime--field2 .AnyTime-lbl {color:black}
+                \#AnyTime--field2 .AnyTime-hdr {background-color:#FFC030;color:white}
+                \&lt;/style&gt;
+            %p
+              Refer to the CSS
+              %a{:href => "http://www.ama3.com/PxStandard/PxClickAway.php?url=Z22FanytimeZ22FAnyTimeZ22Fanytime.css"} stylesheet
+              for additional
+              details and instructions on custom styles.
+            %p
+              Be sure your code is executed
+              %em after
+              the text field is created, or
+              - succeed "&amp;trade;" do
+                %strong Any+Time
+              won't find the field to add the picker!
+            %h2
+              %a{:name => "options"} Options
+              and Format Specifiers
+            %p
+              When creating a picker, the following members may be specified as part of
+              the
+              - succeed ":" do
+                %a{:href => "#AnyTime.picker"}
+                  %var options
+                  argument
+            %dl{:style => "padding-left:2em"}
+              %dt
+                %a{:name => "AnyTime.picker.ajaxOptions"}
+                  %var ajaxOptions
+              %dd
+                Options to pass to jQuery's
+                %a{:href => "http://www.ama3.com/PxStandard/PxClickAway.php?url=httpZ23AZ22FZ22Fdocs.jquery.comZ22FAjaxZ22FjQuery.ajax"}
+                  %code $.ajax()
+                method whenever the user dismisses a popup picker or selects a value in
+                an inline picker.  The input's
+                %var name
+                (or
+                - succeed ")" do
+                  %var id
+                and
+                value are passed to the server (appended to
+                - succeed "," do
+                  %var ajaxOptions.data
+                if present), and the "
+                %var> success
+                " handler sets the input's value
+                to the responseText. Therefore, the text returned by the server must be
+                valid for the input's date/time
+                - succeed "," do
+                  %a{:href => "#AnyTime.Converter.format"}
+                    %var format
+                and the server must either echo or correct the value chosen by the user.
+                For example, the server for the following AJAX-enabled picker
+                always changes the day-of-the-month to
+                %samp 1
+                after the
+                component is dismissed, no matter what day the user actually
+                selects:
+                %pre
+                  %code
+                    First-of-month: &lt;input type="text" id="AjaxDemo" value="Apr 1, '10"/&gt;
+                    \&lt;script type="text/javascript"&gt;
+                    - succeed "(" do
+                      %a{:href => "#AnyTime.picker"} AnyTime.picker
+                    "AjaxDemo",
+                    {
+                    - succeed ":" do
+                      %a{:href => "#AnyTime.picker.ajaxOptions"} ajaxOptions
+                    { url: "ajaxdemo.php" },
+                    - succeed ":" do
+                      %a{:href => "#AnyTime.Converter.baseYear"} baseYear
+                    2000,
+                    - succeed ":" do
+                      %a{:href => "#AnyTime.picker.earliest"} earliest
+                    new Date(2000,0,1,0,0,0),
+                    - succeed ":" do
+                      %a{:href => "#AnyTime.Converter.format"} format
+                    "%b %e, '%y"
+                    - succeed ":" do
+                      %a{:href => "#AnyTime.picker.latest"} latest
+                    new Date(2099,11,31,23,59,59)
+                    } );
+                    
+                    \&lt;/script&gt;
+                %form{:action => "/anytime/"}
+                  %p.demo
+                    First-of-month:
+                    %input#AjaxDemo{:type => "text", :value => "Apr 1, '10"}/
+                If
+                %var ajaxOptions.success
+                is specified, it is used
+                - succeed "the" do
+                  %em instead of
+                default "success" behavior. Refer to the
+                %a{:href => "http://www.ama3.com/PxStandard/PxClickAway.php?url=httpZ23AZ22FZ22Fdocs.jquery.comZ22FAjaxZ22FjQuery.ajax"} jQuery
+                documentation for information about
+                that library's Ajax options.
+              %dt
+                %a{:name => "AnyTime.picker.askEra"}
+                  %var askEra
+              %dd
+                If true, buttons to select the era (BCE/CE) are shown on the year
+                selector popup, even if the
+                %a{:href => "#AnyTime.Converter.format"}
+                  %var format
+                specifier does not include the
+                era. If false, buttons to select the era are NOT shown, even if the
+                format specifier includes the era.  Normally, era buttons are only
+                shown if the format string specifies the era.
+              %dt
+                %var askSecond
+              %dd
+                If false, buttons for number-of-seconds are not shown on the
+                year selector popup, even if the
+                %a{:href => "#AnyTime.Converter.format"}
+                  %var format
+                specifier includes seconds. Normally,
+                the buttons are shown if the format string specifies seconds.
+              %dt
+                %a{:name => "AnyTime.Converter.baseYear"}
+                  %var baseYear
+              %dd
+                the number to add to two-digit years if the
+                %code "%y"
+                %a{:href => "#AnyTime.Converter.format"}
+                  %var format
+                specifier is used.
+                By default, the
+                %a{:href => "http://www.ama3.com/PxStandard/PxClickAway.php?url=httpZ23AZ22FZ22Fdev.mysql.comZ22FdocZ22FrefmanZ22F5.1Z22FenZ22Fy2k-issues.html"} MySQL convention
+                that two-digit years are in the range 1970 to 2069 is used.
+                The most common alternatives are 1900 and 2000.
+                When using this option, you should also specify the
+                %a{:href => "#AnyTime.picker.earliest"}
+                  %var earliest
+                and
+                %a{:href => "#AnyTime.picker.latest"}
+                  %var latest
+                options to the
+                first and last dates in the century, respectively.
+                Refer to the
+                - succeed "." do
+                  %a{:href => "#AnyTime.picker.ajaxOptions"}
+                    %var ajaxOptions
+                    example
+              %dt
+                %a{:name => "AnyTime.Converter.dayAbbreviations"}
+                  %var dayAbbreviations
+              %dd
+                An array of day abbreviations to replace
+                - succeed "," do
+                  %samp Sun
+                - succeed "," do
+                  %samp Mon
+                etc.
+                %strong Note:
+                if a different first day-of-week is specified by option
+                - succeed "," do
+                  %a{:href => "#AnyTime.picker.firstDOW"}
+                    %var firstDOW
+                this array should nonetheless
+                start with the desired abbreviation for
+                - succeed "." do
+                  %samp Sunday
+              %dt
+                %a{:name => "AnyTime.Converter.dayNames"}
+                  %var dayNames
+              %dd
+                An array of day names to replace
+                - succeed "," do
+                  %samp Sunday
+                - succeed "," do
+                  %samp Monday
+                etc.
+                %strong Note:
+                if a different first day-of-week is specified by option
+                - succeed "," do
+                  %a{:href => "#AnyTime.picker.firstDOW"}
+                    %var firstDOW
+                this array should nonetheless
+                start with the desired name for
+                - succeed "." do
+                  %samp Sunday
+              %dt
+                %a{:name => "AnyTime.picker.earliest"}
+                  %var earliest
+              %dd
+                String or Date object representing the earliest date/time that
+                a user can select.  If a String is specified, it is expected to
+                match the
+                %a{:href => "#AnyTime.Converter.format"}
+                  %var format
+                specifier.
+                For best results if the field is only used to specify a date,
+                be sure to set the time to
+                - succeed "." do
+                  %code 00:00:00
+                Refer to the
+                %a{:href => "#AnyTime.picker.ajaxOptions"}
+                  %var ajaxOptions
+                and
+                %a{:href => "#extending"} extending
+                examples.
+              %dt
+                %a{:name => "AnyTime.Converter.eraAbbreviations"}
+                  %var eraAbbreviations
+              %dd
+                An array of era abbreviations to replace
+                %samp BCE
+                and
+                - succeed "." do
+                  %samp CE
+                The most common
+                replacements are the obsolete:
+                %samp BC
+                and
+                - succeed "." do
+                  %samp AD
+              %dt
+                %a{:name => "AnyTime.picker.firstDOW"}
+                  %var firstDOW
+              %dd
+                a value from 0 (Sunday) to 6 (Saturday) stating which day should
+                appear at the beginning of the week.  The default is
+                %samp 0
+                (Sunday).  The most common substitution is
+                %samp 1
+                (Monday).
+                %strong Note:
+                if custom arrays are specified for
+                %a{:href => "#AnyTime.Converter.dayAbbreviations"}
+                  %var dayAbbreviations
+                and
+                - succeed "," do
+                  %a{:href => "#AnyTime.Converter.dayNames"}
+                    %var dayNames
+                they should nonetheless
+                begin with the desired value for
+                - succeed "." do
+                  %samp Sunday
+                Refer to the earlier
+                - succeed "." do
+                  %a{:href => "#PopupDemos"} popup examples
+              %dt
+                %a{:name => "AnyTime.Converter.format"}
+                  %var format
+              %dd
+                string specifying the date/time format. The following format
+                %a{:name => "specifiers"} specifiers
+                are recognized:
+                %table
+                  %thead
+                    %tr
+                      %th specifier
+                      %th meaning
+                  %tbody
+                    %tr
+                      %td
+                        %code %a
+                      %td
+                        Abbreviated weekday name (
+                        %samp> Sun
+                        \...
+                        %samp> Sat
+                        )
+                    %tr
+                      %td
+                        %code %B
+                      %td Abbreviation for Before Common Era (if year&lt;1)*
+                    %tr
+                      %td
+                        %code %b
+                      %td
+                        Abbreviated month name (
+                        %samp> Jan
+                        \...
+                        %samp> Dec
+                        )
+                    %tr
+                      %td
+                        %code %C
+                      %td Abbreviation for Common Era (if year&gt;=1)*
+                    %tr
+                      %td
+                        %code %c
+                      %td
+                        Month, numeric (
+                        %samp> 0
+                        \..
+                        %samp> 12
+                        )
+                    %tr
+                      %td
+                        %code %D
+                      %td
+                        Day of the month with English suffix (
+                        %samp> 1st
+                        ,
+                        - succeed "," do
+                          %samp 2nd
+                        \...)
+                    %tr
+                      %td
+                        %code %d
+                      %td
+                        Day of the month, numeric (
+                        %samp> 00
+                        \...
+                        %samp> 31
+                        )
+                    %tr
+                      %td
+                        %code %E
+                      %td Era abbreviation*
+                    %tr
+                      %td
+                        %code %e
+                      %td
+                        Day of the month, numeric (
+                        %samp> 0
+                        \...
+                        %samp> 31
+                        )
+                    %tr
+                      %td
+                        %code %H
+                      %td
+                        Hour (
+                        %samp> 00
+                        \...
+                        %samp> 23
+                        )
+                    %tr
+                      %td
+                        %code %h
+                      %td
+                        Hour (
+                        %samp> 01
+                        \...
+                        %samp> 12
+                        )
+                    %tr
+                      %td
+                        %code %I
+                      %td
+                        Hour (
+                        %samp> 01
+                        \...
+                        %samp> 12
+                        )
+                    %tr
+                      %td
+                        %code %i
+                      %td
+                        Minutes, numeric (
+                        %samp> 00
+                        \...
+                        %samp> 59
+                        )
+                    %tr
+                      %td
+                        %code %k
+                      %td
+                        Hour (
+                        %samp> 0
+                        \...
+                        %samp> 23
+                        )
+                    %tr
+                      %td
+                        %code %l
+                      %td
+                        Hour (
+                        %samp> 1
+                        \...
+                        %samp> 12
+                        )
+                    %tr
+                      %td
+                        %code %M
+                      %td
+                        Month name (
+                        %samp> January
+                        \...
+                        %samp> December
+                        )
+                    %tr
+                      %td
+                        %code %m
+                      %td
+                        Month, numeric (
+                        %samp> 00
+                        \...
+                        %samp> 12
+                        )
+                    %tr
+                      %td
+                        %code %p
+                      %td
+                        %samp AM
+                        or
+                        %samp PM
+                    %tr
+                      %td
+                        %code %r
+                      %td
+                        Time, 12-hour (
+                        %samp hh:mm:ss
+                        followed by
+                        %samp AM
+                        or
+                        - succeed ")" do
+                          %samp PM
+                    %tr
+                      %td
+                        %code %S
+                      %td
+                        Seconds (
+                        %samp> 00
+                        \...
+                        %samp> 59
+                        )
+                    %tr
+                      %td
+                        %code %s
+                      %td
+                        Seconds (
+                        %samp> 00
+                        \...
+                        %samp> 59
+                        )
+                    %tr
+                      %td
+                        %code %T
+                      %td
+                        Time, 24-hour (
+                        %samp> hh:mm:ss
+                        )
+                    %tr
+                      %td
+                        %code %W
+                      %td
+                        Weekday name (
+                        %samp> Sunday
+                        \...
+                        %samp> Saturday
+                        )
+                    %tr
+                      %td
+                        %code %w
+                      %td
+                        Day of the week (
+                        %samp> 0
+                        \=Sunday...
+                        %samp> 6
+                        \=Saturday)
+                    %tr
+                      %td
+                        %code %Y
+                      %td Year, numeric, four digits (possibly signed)
+                    %tr
+                      %td
+                        %code %y
+                      %td Year, numeric, two digits (possibly signed)
+                    %tr
+                      %td
+                        %code %Z
+                      %td Year, numeric, four digits (no sign)*
+                    %tr
+                      %td
+                        %code %z
+                      %td Year, numeric, variable length (no sign)*
+                    %tr
+                      %td
+                        %code %#
+                      %td
+                        Signed UTC offset in minutes*
+                        %span.newFeature NEW!
+                    %tr
+                      %td
+                        %code %+
+                      %td
+                        Signed UTC offset in
+                        %code %h%i
+                        format*
+                        %span.newFeature NEW!
+                    %tr
+                      %td
+                        %code %-
+                      %td
+                        Signed UTC offset in
+                        %code %l%i
+                        format*
+                        %span.newFeature NEW!
+                    %tr
+                      %td
+                        %code %:
+                      %td
+                        Signed UTC offset in
+                        %code %h:%i
+                        format*
+                        %span.newFeature NEW!
+                    %tr
+                      %td
+                        %code %;
+                      %td
+                        Signed UTC offset in
+                        %code %l:%i
+                        format*
+                        %span.newFeature NEW!
+                    %tr
+                      %td
+                        %code %@
+                      %td
+                        UTC offset time zone
+                        - succeed "*" do
+                          %a{:href => "#AnyTime.utcLabel"} label
+                        %span.newFeature NEW!
+                    %tr
+                      %td
+                        %code %%
+                      %td
+                        A literal
+                        %samp %
+                        character
+                %br
+                  The default format is
+                  - succeed "." do
+                    %code "%Y-%m-%d %T"
+                  %br
+                    %br
+                      *
+                      %strong Note:
+                      except for those delimited by an asterisk in the table above,
+                      these are the same format specifiers used by the MySQL database
+                      %a{:href => "http://www.ama3.com/PxStandard/PxClickAway.php?url=httpZ23AZ22FZ22Fdev.mysql.comZ22FdocZ22FrefmanZ22F5.0Z22FenZ22Fdate-and-time-functions.htmlZ223function_date-format"}
+                        %var DATE_FORMAT()
+                      function.
+                      The default format is the one used for MySQL
+                      %var DATETIME
+                      and
+                      %var TIMESTAMP
+                      data types.
+                      %br
+                        %br
+                          Any other character in the format string appears literally in the value.
+                          Any other sequence of percent sign ("%") followed by a character is
+                          reserved for future use, except for the following MySQL specifiers not
+                          implemented due to lack of support in JavaScript:
+                          %code %f
+                          (microseconds);
+                          %code %j
+                          (day-of-year);
+                          - succeed "," do
+                            %code %U
+                          - succeed "," do
+                            %code %u
+                          %code %V
+                          and
+                          %code %v
+                          (week-of-year); and
+                          %code %X
+                          and
+                          %code %x
+                          (year-for-week).
+                          Do not use format specifiers that are reserved or not implemented.
+                          %br
+                            %br
+                              Specifiers and literal characters can be combined into more
+                              complex formats, such as
+                              %a{:href => "#json"} JSON
+                              and
+                              - succeed "." do
+                                %a{:href => "#xml"} XML
+              %dt
+                %a{:name => "AnyTime.picker.formatUtcOffset"}
+                  %var formatUtcOffset
+                %span.newFeature NEW!
+              %dd
+                string specifying the format of the UTC offset choices displayed in the picker.
+                Although all
+                %a{:href => "#specifiers"} specifiers
+                used by the
+                %a{:href => "#AnyTime.Converter.format"}
+                  %var format
+                option are recognized,
+                only those pertaining to UTC offsets (namely
+                - succeed "," do
+                  %code %#
+                - succeed "," do
+                  %code %+
+                - succeed "," do
+                  %code %-
+                - succeed "," do
+                  %code %:
+                %code %;
+                and
+                - succeed ")" do
+                  %code %@
+                should be used.  By default, the picker will extrapolate
+                a format by scanning the
+                %a{:href => "#AnyTime.Converter.format"}
+                  %var format
+                option for appropriate specifiers and their surrounding characters.
+                Refer to the
+                %a{:href => "#InlineDemo"} date/time picker
+                near the beginning of this page for an example.
+              %dt
+                %a{:name => "AnyTime.picker.hideInput"}
+                  %var hideInput
+              %dd
+                if true, the
+                %code &lt;input&gt;
+                is "hidden" (the picker appears
+                in its place). This actually sets the border, height, margin, padding
+                and width of the field as small as possible, so it can still get focus.
+                Refer to the
+                %a{:href => "#InlineDemo"} date/time picker
+                near the beginning of this page for an example.
+                %strong Note:
+                if you try to hide the field using traditional
+                techniques (such as setting
+                - succeed ")," do
+                  %code display:none
+                the picker will
+                not behave correctly. This option should only be used with
+                %a{:href => "#AnyTime.picker.placement"}
+                  %var placement
+                - succeed ";" do
+                  %code :"inline"
+                otherwise, a popup will only appear (seemingly from nowhere) if the user tabs to
+                the hidden field.
+              %dt
+                %a{:name => "AnyTime.picker.labelDayOfMonth"}
+                  %var labelDayOfMonth
+              %dd
+                HTML to replace the
+                %samp Day of Month
+                label
+              %dt
+                %a{:name => "AnyTime.picker.labelDismiss"}
+                  %var labelDismiss
+              %dd
+                HTML to replace the dismiss popup button's
+                %samp X
+                label
+              %dt
+                %a{:name => "AnyTime.picker.labelHour"}
+                  %var labelHour
+              %dd
+                HTML to replace the
+                %samp Hour
+                label.
+                Refer to the earlier
+                - succeed "." do
+                  %a{:href => "#PopupDemos"} popup examples
+              %dt
+                %a{:name => "AnyTime.picker.labelMinute"}
+                  %var labelMinute
+              %dd
+                HTML to replace the
+                %samp Minute
+                label.
+                Refer to the earlier
+                - succeed "." do
+                  %a{:href => "#PopupDemos"} popup examples
+              %dt
+                %a{:name => "AnyTime.picker.labelMonth"}
+                  %var labelMonth
+              %dd
+                HTML to replace the
+                %samp Month
+                label
+              %dt
+                %a{:name => "AnyTime.picker.labelTimeZone"}
+                  %var labelTimeZone
+                %span.newFeature NEW!
+              %dd
+                HTML to replace the
+                %samp Time Zone
+                label
+              %dt
+                %a{:name => "AnyTime.picker.labelTitle"}
+                  %var labelTitle
+              %dd
+                HTML for the title of the picker. If not specified, the picker
+                automatically selects a title based on the
+                %a{:href => "#AnyTime.Converter.format"}
+                  %var format
+                specifier fields.
+                Refer to the earlier
+                - succeed "." do
+                  %a{:href => "#PopupDemos"} popup examples
+              %dt
+                %a{:name => "AnyTime.picker.labelYear"}
+                  %var labelYear
+              %dd
+                HTML to replace the
+                %samp Year
+                label
+              %dt
+                %a{:name => "AnyTime.picker.latest"}
+                  %var latest
+              %dd
+                String or Date object representing the latest date/time that
+                a user can select.  If a String is specified, it is expected to
+                match the
+                %a{:href => "#AnyTime.Converter.format"}
+                  %var format
+                specifier.
+                For best results if the field is only used to specify a date,
+                be sure to set the time to 23:59:59.
+                Refer to the
+                %a{:href => "#AnyTime.picker.ajaxOptions"}
+                  %var ajaxOptions
+                and
+                %a{:href => "#extending"} extending
+                examples.
+              %dt
+                %a{:name => "AnyTime.Converter.monthAbbreviations"}
+                  %var monthAbbreviations
+              %dd
+                An array of month abbreviations to replace
+                - succeed "," do
+                  %samp Jan
+                - succeed "," do
+                  %samp Feb
+                etc.
+                %strong Note:
+                do not use an HTML
+                entity reference (such as
+                - succeed ")" do
+                  %code &amp;auml;
+                in a month name or abbreviation;
+                embed the actual character (such as
+                \&auml;)
+                instead.  Be careful to save your source files under the
+                correct encoding, or the character may not display correctly in
+                all browsers; this often happens when a character code from
+                %var UTF-8
+                is saved with
+                %var ISO-8859-1
+                encoding (or vice-versa).
+              %dt
+                %a{:name => "AnyTime.Converter.monthNames"}
+                  %var monthNames
+              %dd
+                An array of month names to replace
+                - succeed "," do
+                  %samp January
+                - succeed "," do
+                  %samp February
+                etc.
+              %dt
+                %a{:name => "AnyTime.picker.placement"}
+                  %var placement
+              %dd
+                One of the following strings:
+                %dl
+                  %dt
+                    %code "popup"
+                  %dd
+                    the picker appears above its input when the input
+                    receives focus, and disappears when it is dismissed.
+                    This is the default behavior.
+                  %dt
+                    %code "inline"
+                  %dd
+                    the picker follows the &lt;input&gt; and remains visible at
+                    all times.  When choosing this placement, you might prefer
+                    to hide the input field using the
+                    %a{:href => "#AnyTime.picker.hideInput"}
+                      %var hideInput
+                    option (the correct value will still be
+                    submitted with the form).
+                    Refer to the
+                    %a{:href => "#InlineDemo"} date/time picker
+                    near the beginning of this page for an example.
+            :javascript
+              AnyTime.picker( "AjaxDemo",
+                  { ajaxOptions: { url: "ajaxdemo.php" },
+                    baseYear: 2000,
+                    earliest: new Date(2000,0,1,0,0,0),
+                    format: "%b %e, '%y",
+                    latest: new Date(2099,11,31,23,59,59)
+                  } );
+              %h2
+              %a{:name => "AnyTime.utcLabel"} UTC Offset/Time Zone
+              Customization
+              %span.newFeature NEW!
+            %p
+              Time zone determination is extremely complicated, and
+              ECMA-262 (the JavaScript standard) provides very little native support. Although
+              - succeed "&amp;trade;" do
+                %strong Any+Time
+              is a significant improvement, some features may require additional modification
+              to meet your needs.
+            %h3 Default Functionality
+            %p
+              By default,
+              %code AnyTime.Converter
+              and any date/time picker created by
+              - succeed "&amp;trade;" do
+                %strong Any+Time
+              can parse and/or format offsets from Coordinated Universal Time (UTC) as minutes
+              (
+              %code> %#
+              ) or hours-and-minutes (
+              %code> %+
+              ,
+              - succeed "," do
+                %code %-
+              %code %:
+              and
+              - succeed ")." do
+                %code %;
+            %p
+              UTC offsets can also be represented as time zone labels using the
+              %code %@
+              specifier.  By default, this uses the format "
+              %samp> UTC±%h:%m
+              ",
+              where "
+              %samp> UTC
+              " and "
+              %samp> :
+              " are literal characters,
+              "
+              %samp> ±
+              " is either a plus or minus sign (for before or after UTC),
+              "
+              %samp> %h
+              " is the two-digit offset full-hours and
+              "
+              %samp> %m
+              " is the two-digit offset remaining-minutes.
+              For example, "
+              %samp> UTC+05:30
+              " represents five (5) hours and thirty
+              (30) minutes ahead of Coordinated Universal Time.
+            %h3 Offset Selection and Time Zone Labels
+            %p
+              If it is necessary to change the UTC offset using a date/time picker,
+              or a list of locale-specific, human-friendly time zone labels are needed,
+              then a member named
+              %var AnyTime.utcLabel
+              must be added to the
+              library.  This can easily be accomplished by including the
+              %a{:href => "http://www.ama3.com/PxStandard/PxClickAway.php?url=Z22FanytimeZ22FAnyTimeZ22Fanytimetz.js"} anytimetz.js
+              file and modifying it
+              as needed, usually by removing unwanted UTC offsets and/or altering the
+              labels provided.
+            %p
+              %var AnyTime.utcLabel
+              is an Array of Arrays.  The primary array
+              is indexed by available UTC offsets
+              %strong in minutes
+              (not hours-and-minutes). Plus-sign (
+              %samp> +
+              ) must
+              %strong not
+              be used for positive minutes.  Each sub-array contains one or more Strings;
+              each String is a label for a possible time zone corresponding to the
+              UTC offset.  For example, the file includes the definition:
+            %pre
+              %code
+                :preserve
+                  AnyTime.utcLabel[330]=[
+                      'IST--Indian Standard Time'
+                      ,'SLT--Sri Lanka Time'
+                      ];            %p
+              which means that "
+              %samp> IST--Indian Standard Time
+              " and
+              "
+              %samp> SLT--Sri Lanka Time
+              " are the two possible labels
+              for 330 minutes (or 5 hours, 30 minutes) before UTC.  The first
+              label in a sub-array is the default label for that UTC offset,
+              so IST will always be selected when
+              %a{:href => "#AnyTime.picker.formatUtcOffset"}
+                %var formatUtcOffset
+              contains the
+              %samp %@
+              specifier but
+              %a{:href => "#AnyTime.Converter.format"}
+                %var format
+              does not.
+            %p
+              Any label can be altered as desired (for example, you may want
+              to show only abbreviations, or only long names).  Any unwanted
+              label can be removed from the sub-array.  The sub-array for any
+              unwanted UTC offset can be eliminated entirely, in which case
+              the offset will not be offered by the picker.  This can be useful,
+              for example, if you only want to allow time zones for a
+              limited geographic area (such as a single nation or continent).
+            %h3 Offset Conversion
+            %p
+              Normally,
+              %var AnyTime.Converter
+              assumes local time when it
+              parses a String or formats a Date.  Conversion between local time
+              and other UTC offsets is possible using two options:
+            %dl{:style => "padding-left:2em"}
+              %dt
+                %a{:name => "AnyTime.Converter.utcFormatOffsetImposed"}
+                  %var utcFormatOffsetImposed
+              %dd
+                offset from UTC,
+                - succeed "," do
+                  %strong in minutes
+                to specify when
+                %a{:href => "#AnyTime.Converter.formatMethod"} formatting
+                a Date object.
+                This can be used to convert a local time to a different UTC offset.
+                Refer to the
+                %a{:href => "#converting"} example
+                in the next section.
+              %dt
+                %var utcParseOffsetAssumed
+              %dd
+                offset from UTC,
+                - succeed "," do
+                  %strong in minutes
+                to assume when
+                %a{:href => "#AnyTime.Converter.parse"} parsing
+                a String object.
+                This can be used to convert a String created in a different
+                UTC offset to local time.
+                %strong Note:
+                if the
+                %a{:href => "#AnyTime.Converter.format"} format
+                string contains a UTC offset
+                %a{:href => "#specifiers"} specifier
+                (
+                %code> %#
+                ,
+                - succeed "," do
+                  %code %+
+                - succeed "," do
+                  %code %-
+                - succeed "," do
+                  %code %:
+                %code %;
+                or
+                - succeed ")," do
+                  %code %@
+                then the UTC offset specified
+                in the String is used instead of
+                - succeed "." do
+                  %var utcParseOffsetAssumed
+            %p
+              Explanations of more obscure
+              options for UTC offset manipulation appear in the
+              - succeed "." do
+                %a{:href => "http://www.ama3.com/PxStandard/PxClickAway.php?url=Z22FanytimeZ22FAnyTimeZ22Fanytime.js"} source file
+            %h3 Limitations
+            %p
+              Unlike
+              %a{:href => "#AnyTime.Converter.dayAbbreviations"} days
+              and
+              - succeed "," do
+                %a{:href => "#AnyTime.Converter.monthAbbreviations"} months
+              there are not separate labels for time zone abbreviations and
+              long names.
+              %a{:href => "http://www.ama3.com/PxStandard/PxClickAway.php?url=Z22FanytimeZ22FAnyTimeZ22Fanytimetz.js"} anytimetz.js
+              can be modified to contain only one or the other, but the library
+              does not provide the ability to select between abbreviations
+              or long names using different format specifiers, in part because many
+              abbreviations are ambiguous.  Separate labels might be added to a
+              future version, but no such work is currently underway.
+            %p
+              There is no automatic detection of daylight savings time
+              (AKA summer time), due to lack of support in JavaScript and the
+              time-prohibitive
+              %a{:href => "http://www.ama3.com/PxStandard/PxClickAway.php?url=httpZ23AZ22FZ22Fen.wikipedia.orgZ22FwikiZ22FTz_database"} complexity
+              of attempting such support in code
+              (alternate time zones are inconsistent from location-to-location
+              and year-to-year, and relevant time zone data is updated many
+              times per year)!  If you are concerned that users will not know
+              whether to select Standard or Daylight/Summer Time for a particular
+              date, you can eliminate the Daylight/Summer members from the array,
+              and remove the word "Standard" from the Standard labels.  For
+              example, instead of:
+            %pre
+              %code
+                :preserve
+                  AnyTime.utcLabel[-300]=[
+                    'EST--Eastern Standard Time (North America)' ];
+                  AnyTime.utcLabel[-240]=[
+                    'EDT--Eastern Daylight Time (North America)' ];            %p
+              modify the array to contain:
+            %pre
+              %code
+                :preserve
+                  AnyTime.utcLabel[-300]=[
+                      'Eastern Time (North America)' ];            %p
+              and only use the label (
+              %code> %@
+              ) specifier (do not use
+              - succeed "," do
+                %code %#
+              - succeed "," do
+                %code %+
+              - succeed "," do
+                %code %-
+              %code %:
+              or
+              %code %;
+              because the UTC offset will be misrepresented).
+              This is an effective solution for most cases, which do not require
+              conversion between local time and different time zones.
+            %h2
+              %a{:name => "converting"} Convert
+              Dates to/from Strings
+              (including
+              %a{:name => "json"} JSON
+              and
+              - succeed "!)" do
+                %a{:name => "xml"} XML
+            %p
+              %var
+                %strong AnyTime.Converter
+              can be used independently.
+              The following example converts a string in the default date/time format
+              into a Date object, then converts the Date into a JSON string (with
+              distinct members) and an XML string (using the XML Schema
+              %a{:href => "http://www.ama3.com/PxStandard/PxClickAway.php?url=httpZ23AZ22FZ22Fwww.w3.orgZ22FTRZ22Fxmlschema-2Z22FZ223dateTime"} dateTime
+              data type and Coordinated
+              Universal Time):
+            %pre
+              %code
+                var defaultConv = new
+                - succeed "();" do
+                  %a{:href => "#AnyTime.Converter"} AnyTime.Converter
+                var date = defaultConv.
+                %a{:href => "#AnyTime.Converter.parse"}> parse
+                ("1990-01-06 15:30:00");
+                
+                var jsonConv = new
+                - succeed "({" do
+                  %a{:href => "#AnyTime.Converter"} AnyTime.Converter
+                - succeed ":" do
+                  %a{:href => "#AnyTime.Converter.format"}
+                    %var format
+                '{"year":"%Y","month":"%m","day":"%d","hour":"%H","minute":"%i","second":"%s"}'});
+                
+                var xmlConv = new
+                - succeed "({" do
+                  %a{:href => "#AnyTime.Converter"} AnyTime.Converter
+                - succeed ":" do
+                  %a{:href => "#AnyTime.Converter.utcFormatOffsetImposed"}
+                    %var utcFormatOffsetImposed
+                0,
+                - succeed ":\"&amp;lt;\"+\"date&amp;gt;%Y-%m-%dT%H:%i:%s%:&amp;lt;\"+\"/date&amp;gt;\"});" do
+                  %a{:href => "#AnyTime.Converter.format"}
+                    %var format
+                alert( "JSON:\n" + jsonConv.
+                %a{:href => "#AnyTime.Converter.formatMethod"}> format
+                (date) + "\n\nXML:\n" + xmlConv.
+                %a{:href => "#AnyTime.Converter.formatMethod"}> format
+                (date) );
+            %form{:action => "/anytime/", :method => "GET"}
+              %p.demo
+                %input#show_me{:type => "button", :value => "Demonstrate Example"}/
+            :javascript
+    $("#show_me").click( function(e) {
+	    var defaultConv = new AnyTime.Converter();
+        var date = defaultConv.parse("1990-01-06 15:30:00");
+	    var jsonConv = new AnyTime.Converter({format:
+	      '{"year":"%Y","month":"%m","day":"%d","hour":"%H","minute":"%i","second":"%s"}'});
+	    var xmlConv = new AnyTime.Converter({utcFormatOffsetImposed:0,
+	      format:"<"+"date>%Y-%m-%dT%H:%i:%s%:<"+"/date>"});
+	    alert( "JSON:\n" + jsonConv.format(date) + "\n\nXML:\n" + xmlConv.format(date) );
+	});
+              %p
+              %a{:href => "#AnyTime.Converter"}
+                %var AnyTime.Converter
+              accepts the following
+              - succeed "," do
+                %a{:href => "#options"}
+                  %var options
+              which are the same as for
+              %a{:href => "#AnyTime.picker"}
+                %var AnyTime.picker()
+              and
+              - succeed ":" do
+                %a{:href => "#jQuery.AnyTime_picker"}
+                  %var jQuery.AnyTime_picker()
+              - succeed "," do
+                %a{:href => "#AnyTime.Converter.baseYear"}
+                  %var baseYear
+              - succeed "," do
+                %a{:href => "#AnyTime.Converter.dayAbbreviations"}
+                  %var dayAbbreviations
+              - succeed "," do
+                %a{:href => "#AnyTime.Converter.dayNames"}
+                  %var dayNames
+              - succeed "," do
+                %a{:href => "#AnyTime.Converter.eraAbbreviations"}
+                  %var eraAbbreviations
+              - succeed "," do
+                %a{:href => "#AnyTime.Converter.format"}
+                  %var format
+              %a{:href => "#AnyTime.Converter.monthAbbreviations"}
+                %var monthAbbreviations
+              and
+              - succeed "." do
+                %a{:href => "#AnyTime.Converter.monthNames"}
+                  %var monthNames
+            %p
+              %var AnyTime.Converter
+              supports all of the same
+              %a{:href => "#AnyTime.Converter.format"} format
+              field specifiers as
+              %a{:href => "#AnyTime.picker"}
+                %var AnyTime.picker()
+              and
+              - succeed "." do
+                %a{:href => "#jQuery.AnyTime_picker"}
+                  %var jQuery.AnyTime_picker()
+            %p
+              Check the JavaScript
+              %a{:href => "http://www.ama3.com/PxStandard/PxClickAway.php?url=Z22FanytimeZ22FAnyTimeZ22Fanytime.js", :title => "download source"} source code
+              for additional details and instructions.
+            %h2
+              %a{:name => "extending"} Extending
+              - succeed "&amp;trade;" do
+                %strong Any+Time
+              Functionality
+            %p
+              In the following example,
+              %a{:href => "#converting"}
+                %var AnyTime.Converter
+              and
+              %a{:href => "http://www.ama3.com/PxStandard/PxClickAway.php?url=httpZ23AZ22FZ22Fwww.jquery.com"} jQuery
+              work together to provide date-range selection.
+              The value for the second ("
+              %var> Finish
+              ") field must be at least one day after
+              the date in the first ("
+              %var> Start
+              ") field (thanks to the
+              %a{:href => "#AnyTime.picker.earliest"} earliest
+              option),
+              but no more than 90 days later (thanks to the
+              %a{:href => "#AnyTime.picker.latest"} latest
+              option).
+              This example also demostrates a button that sets the first field to the current date,
+              a button to clear the fields, and calendar pseudo-buttons using CSS
+              %a{:href => "http://www.ama3.com/PxStandard/PxClickAway.php?url=httpZ23AZ22FZ22Fwww.w3.orgZ22FTRZ22FREC-CSS1Z22FZ223color-and-background-properties"} background
+              properties.
+            %pre
+              %code
+                Start: &lt;input type="text" id="rangeDemoStart" size="14" /&gt;
+                
+                Finish: &lt;input type="text" id="rangeDemoFinish" size="14" disabled="disabled"/&gt;
+                \&lt;input type="button" id="rangeDemoToday" value="today" /&gt;
+                \&lt;input type="button" id="rangeDemoClear" value="clear" /&gt;
+                \&lt;style type="text/css"&gt;
+                \#rangeDemoStart, #rangeDemoFinish {
+                background-image:url("
+                %a{:href => "http://www.ama3.com/PxStandard/PxClickAway.php?url=Z22FanytimeZ22Fcalendar.png", :title => "right-click to download this image for use with your input field"}> calendar.png
+                ");
+                background-position:right center;
+                background-repeat:no-repeat; }
+                \&lt;/style&gt;
+                \&lt;script type="text/javascript"&gt;
+                
+                var oneDay = 24*60*60*1000;
+                var rangeDemoFormat = "%e-%b-%Y";
+                var rangeDemoConv = new
+                - succeed "({" do
+                  %a{:href => "#AnyTime.Converter"} AnyTime.Converter
+                - succeed ":rangeDemoFormat});" do
+                  %a{:href => "#AnyTime.Converter.format"} format
+                $("#rangeDemoToday").click( function(e) {
+                $("#rangeDemoStart").val(rangeDemoConv.
+                %a{:href => "#AnyTime.Converter.formatMethod"}> format
+                (new Date())).change(); } );
+                $("#rangeDemoClear").click( function(e) {
+                $("#rangeDemoStart").val("").change(); } );
+                $("#rangeDemoStart").
+                %a{:href => "#jQuery.AnyTime_picker"}> AnyTime_picker
+                ({format:rangeDemoFormat});
+                $("#rangeDemoStart").change( function(e) { try {
+                var fromDay = rangeDemoConv.
+                %a{:href => "#AnyTime.Converter.parse"}> parse
+                ($("#rangeDemoStart").val()).getTime();
+                var dayLater = new Date(fromDay+oneDay);
+                dayLater.setHours(0,0,0,0);
+                var ninetyDaysLater = new Date(fromDay+(90*oneDay));
+                ninetyDaysLater.setHours(23,59,59,999);
+                $("#rangeDemoFinish").
+                - succeed "()." do
+                  %a{:href => "#jQuery.AnyTime_noPicker"} AnyTime_noPicker
+                removeAttr("disabled").
+                val(rangeDemoConv.
+                %a{:href => "#AnyTime.Converter.formatMethod"}> format
+                (dayLater)).
+                - succeed "(" do
+                  %a{:href => "#jQuery.AnyTime_picker"} AnyTime_picker
+                {
+                - succeed ":" do
+                  %a{:href => "#AnyTime.picker.earliest"} earliest
+                dayLater,
+                - succeed ":" do
+                  %a{:href => "#AnyTime.Converter.format"} format
+                rangeDemoFormat,
+                - succeed ":" do
+                  %a{:href => "#AnyTime.picker.latest"} latest
+                ninetyDaysLater
+                } );
+                } catch(e){ $("#rangeDemoFinish").val("").attr("disabled","disabled"); } } );
+                
+                \&lt;/script&gt;
+            %form{:action => "/anytime/", :method => "GET"}
+              %p.demo
+                Start:
+                %input#rangeDemoStart{:size => "14", :type => "text"}
+                  Finish:
+                  %input#rangeDemoFinish{:disabled => "", :size => "14", :type => "text"}
+                    %input#rangeDemoToday{:type => "button", :value => "today"}
+                      %input#rangeDemoClear{:type => "button", :value => "clear"}/
+            :css
+              #rangeDemoStart, #rangeDemoFinish {
+                background-image:url("calendar.png");
+                background-position:right center;
+                background-repeat:no-repeat; }
+              :javascript
+    var oneDay = 24*60*60*1000;
+    var rangeDemoFormat = "%e-%b-%Y";
+    var rangeDemoConv = new AnyTime.Converter({format:rangeDemoFormat});
+    $("#rangeDemoToday").click( function(e) {
+        $("#rangeDemoStart").val(rangeDemoConv.format(new Date())).change(); } );
+    $("#rangeDemoClear").click( function(e) {
+        $("#rangeDemoStart").val("").change(); } );
+    $("#rangeDemoStart").AnyTime_picker({format:rangeDemoFormat});
+    $("#rangeDemoStart").change( function(e) { try {
+        var fromDay = rangeDemoConv.parse($("#rangeDemoStart").val()).getTime();
+        var dayLater = (new Date(fromDay+oneDay));
+        dayLater.setHours(0,0,0,0);
+        var ninetyDaysLater = (new Date(fromDay+(90*oneDay)));
+        ninetyDaysLater.setHours(23,59,59,999); 
+        $("#rangeDemoFinish").
+	        AnyTime_noPicker().
+	        removeAttr("disabled").
+	        val(rangeDemoConv.format(dayLater)).
+	        AnyTime_picker(
+	            { earliest: dayLater,
+	              format: rangeDemoFormat,
+	              latest: ninetyDaysLater
+	            } );
+        } catch(e){ $("#rangeDemoFinish").val("").attr("disabled","disabled"); } } );
+              %p
+              A few people have requested the ability to type a value directly into the
+              %code &lt;input&gt;
+              field.  Such behavior would be detrimental:
+              not only does the picker make it easy to select the appropriate
+              date/time, it also protects the user from entering a value in the wrong format!
+              In addition, navigation keys (such as arrows) are used by the picker to select
+              values, and would behave inappropriately for data entry. Therefore, although it
+              is possible to hack the picker to permit typing in the field
+              (simply remove the call to
+              %code event.preventDefault()
+              at the end of the
+              %code key
+              method),
+              - succeed "!" do
+                %strong
+                  doing so is
+                  %u not
+                  recommended
+              %strong Note:
+              in most browsers, it
+              - succeed "possible" do
+                %em is
+              to paste a value into the
+              input using CTRL-V; if the pasted value is not in the proper format, the current
+              time is used (subject to any range limits).
+            %h2
+              %a{:name => "tips"} Troubleshooting Tips
+            %p
+              Following are some of the most common issues, and how to avoid or solve them.
+              Even if you do not experience any problems, these are good rules to follow!
+            %h3 Display/Layout Issues
+            %p
+              Most display/layout problems can be avoided by keeping the browser
+              out of
+              - succeed "." do
+                %a{:href => "http://www.ama3.com/PxStandard/PxClickAway.php?url=httpZ23AZ22FZ22Fen.wikipedia.orgZ22FwikiZ22FQuirks_mode"} quirks mode
+              Common symptoms
+              include groups of buttons appearing in the wrong location, especially
+              in older versions of IE.  For best results, be sure to include an appropriate
+              %code &lt;!DOCTYPE&gt;
+              declaration as the first line of your HTML page; for example:
+            %pre
+              %code
+                :preserve
+                  &lt;!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                      "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd"&gt;            %p
+              Any legitimate HTML or XHTML
+              %code &lt;!DOCTYPE&gt;
+              can be used, as long
+              as it is appropriate for the source file.
+            %p
+              Minor variations in Microsoft Internet Explorer 6 and 7 are to be expected
+              due to their broken box model, but nothing should appear too out-of-the-ordinary.
+            %p
+              Some display problems are related to initialization conflicts with other
+              libraries, especially .NET.  These can be resolved using the
+              %code setTimeout()
+              function to delay picker creation until other
+              initializations are finished; for example:
+            %pre
+              %code
+                setTimeout( function() {
+                - succeed "(\"field1\");" do
+                  %a{:href => "#AnyTime.picker"} AnyTime.picker
+                }, 1000 );
+            %p
+              In some cases, it may be necessary to increase the timeout or use more
+              complicated techniques, such as waiting to create the picker when the
+              field first receives focus.
+            %p
+              Be careful to place all
+              %code &lt;link rel="stylesheet"&gt;
+              and
+              %code &lt;style&gt;
+              elements
+              %strong before
+              %code &lt;script&gt;
+              elements, or WebKit-based browsers
+              (Apple Safari and Google Chrome) might not format the picker correctly
+              (symptoms include extremely-tall pickers and misplaced time buttons).
+            %p
+              All names, IDs and classes in HTML, JavaScript and CSS created by
+              - succeed "&amp;trade;" do
+                %strong Any+Time
+              begin with the letters "
+              %var> AnyTime
+              ".  To avoid problems related to
+              naming conflicts, do not create any variables, elements or class names
+              beginning with these seven characters.
+            %h3 Behavior Issues
+            %p
+              Do not use an HTML entity reference (such as
+              - succeed ")" do
+                %code &amp;auml;
+              in
+              a string passed to the
+              %a{:href => "#AnyTime.Converter.monthAbbreviations"}
+                %var monthAbbreviations
+              option; embed the actual character
+              (such as &auml;)
+              instead.  Be careful to save your source files under the correct encoding,
+              or the character may not display correctly in
+              all browsers; this often happens when a character code from
+              %var UTF-8
+              is saved with
+              %var ISO-8859-1
+              encoding (or vice-versa).
+            %p
+              When using
+              %a{:href => "#AnyTime.picker.placement"}
+                %var placement
+              - succeed "," do
+                %code :"inline"
+              XHTML and a day-of-the-month
+              %a{:href => "#AnyTime.Converter.format"}
+                %var format
+              specifier
+              (
+              %code> "%D"
+              ,
+              %code "%d"
+              or
+              - succeed ")," do
+                %code "%e"
+              the
+              %code &lt;input&gt;
+              may only appear where a
+              %code &lt;table&gt;
+              element is permitted (for example, NOT within a
+              %code &lt;p&gt;
+              element).
+              This is because the picker uses a
+              %code &lt;table&gt;
+              element to arrange the
+              day-of-the-month (calendar) buttons.  Failure to follow this advice may
+              result in a JScript "unknown error" from Internet Explorer.
+            %p
+              When specifying the
+              %a{:href => "#AnyTime.picker.earliest"} earliest
+              and/or
+              %a{:href => "#AnyTime.picker.latest"} latest
+              option, be certain to
+              include a time value, even if the user is only able to select the date.
+              The time for an "earliest" date should be
+              - succeed "," do
+                %code 00:00:00
+              and the
+              time for a "latest" date should be
+              %code 23:59:59
+              (refer to the
+              - succeed ")." do
+                %a{:href => "#AnyTime.picker.ajaxOptions"}
+                  %var ajaxOptions
+                  example
+              This is because the Date objects used by the picker reflect exact moments
+              in time, regardless of which fields are specified by the
+              - succeed "." do
+                %a{:href => "#AnyTime.Converter.format"}
+                  %var format
+              Failure to set
+              the time could result in incorrect enforcement if, for example, the page
+              is loaded at 23:59 one day, but the field not changed until 00:01 the day
+              after!
+            %p
+              Only use the
+              %a{:href => "#AnyTime.picker.hideInput"}
+                %var hideInput
+              option to hide the
+              %code &lt;input&gt;
+              associated with a picker.
+              Traditional techniques (such as setting
+              - succeed ")" do
+                %code display:none
+              will cause the picker to behave incorrectly.
+            %p
+              Some older versions of
+              %a{:href => "http://www.ama3.com/PxStandard/PxClickAway.php?url=httpZ23AZ22FZ22Fwww.jquery.com"} jQuery
+              are incompatible
+              with
+              - succeed "&amp;trade;." do
+                %strong Any+Time
+              JavaScript errors, often involving
+              %code null
+              or
+              %code undefined
+              objects, may result.  After installing an updated version of jQuery, be sure
+              to clear the browser cache so the new version is loaded.
+            %p
+              All names, IDs and classes in HTML, JavaScript and CSS created by
+              - succeed "&amp;trade;" do
+                %strong Any+Time
+              begin with the letters "
+              %var> AnyTime
+              ".  To avoid problems related to
+              naming conflicts, do not create any variables, elements or class names
+              beginning with these seven characters.
+            %h3 Validation Issues
+            %p
+              It should go without saying that
+              - succeed "&amp;trade;" do
+                %strong Any+Time
+              only works in browsers with JavaScript enabled.  Any server-side form
+              processing should validate every value it receives, in case JavaScript
+              was disabled or otherwise unavailable when the form was submitted.
+            %p
+              Remember that two-digit years (
+              %code> "%y"
+              ) are susceptible to the
+              Y2K problem! For best results, use four-digit or variable-length years
+              (
+              %code> "%Y"
+              ,
+              %code "%Z"
+              or
+              - succeed ")" do
+                %code "%z"
+              instead.
+              The
+              %a{:href => "#AnyTime.Converter.baseYear"}
+                %var baseYear
+              option
+              can also be helpful in situations where
+              %code "%y"
+              is required.
+              When using
+              - succeed "," do
+                %var baseYear
+              you should also specify the
+              %a{:href => "#AnyTime.picker.earliest"}
+                %var earliest
+              and
+              %a{:href => "#AnyTime.picker.latest"}
+                %var latest
+              options to the
+              first and last dates in the century, respectively.
+            %h3 Other Issues
+            %p
+              To reduce memory leaks, always call
+              %a{:href => "#AnyTime.noPicker"}
+                %var
+                  %strong AnyTime.noPicker()
+              (or
+              the
+              %var
+                \.
+                %a{:href => "#jQuery.AnyTime_noPicker"}> AnyTime_noPicker
+                ()
+              extension to jQuery) to remove
+              the date/time picker from an
+              %code &lt;input&gt;
+              field before removing
+              the field, for example:
+            %pre
+              %code
+                AnyTime.
+                %a{:href => "#AnyTime.noPicker"}> noPicker
+                ("field1");
+                %span.newFeature NEW!
+                $("#field1").remove();
+                $("#field2").
+                %a{:href => "#jQuery.AnyTime_noPicker"}> AnyTime_noPicker
+                ().remove();
+                %span.newFeature NEW!
+            %p
+              This is especially necessary before adding a picker to a field with the same ID
+              as a previously-removed field that also had a picker, because
+              - succeed "&amp;trade;" do
+                %strong Any+Time
+              will not create more than one picker per ID.
+            %p
+              The JavaScript source files include an intrusive
+              %code alert()
+              call on
+              the last line, to discourage hot-linking to this server.  When you download
+              a source file, be sure to remove the last line to eliminate annoying messages
+              when your HTML page is loaded!
+            %p
+              %strong> Any+Time
+              \&trade;
+              
+              follows
+              %a{:href => "http://www.ama3.com/PxStandard/PxClickAway.php?url=httpZ23AZ22FZ22Fwww.w3.orgZ22FTRZ22F2009Z22FWD-wai-aria-practices-20091215Z22FZ223datepicker"} WIA-ARIA Authoring Practices 1.0
+              for Date Picker keyboard interaction as closely as possible, to
+              maximize accessibility without a mouse.
+              However, if a user reports difficulty changing a date/time value
+              using the picker (for example, due to problems with a "screen reader" or
+              other assistive technology), ask them to disable JavaScript and carefully
+              type the value into the input field. Again, be sure to validate the input
+              when it is received by the server.
+            %p
+              If you experience any other problems, please
+              - succeed "." do
+                %a{:href => "http://www.ama3.com/doorkeeper/"} contact the author
+            %h2 Interface Reference
+            %p
+              %strong> Any+Time
+              \&trade;
+              provides the following public objects and methods.  Check the
+              %a{:href => "http://www.ama3.com/PxStandard/PxClickAway.php?url=Z22FanytimeZ22FAnyTimeZ22Fanytime.js"} source code
+              for additional methods
+              that are not intended for general use, but potentially-helpful to
+              more advanced web developers.
+            %dl
+              %dt
+                %a{:name => "AnyTime.Converter"}
+                  %code
+                    (Object) new AnyTime.Converter( Object
+                    %a{:href => "#options"}
+                      %var options
+                    )
+              %dd
+                Creates an object for parsing Strings into Dates and formatting Dates as Strings,
+                using the specified
+                - succeed "." do
+                  %a{:href => "#options"}
+                    %var options
+              %dt
+                %a{:name => "AnyTime.Converter.formatMethod"}
+                  %code (String) AnyTime.Converter.format( Date date )
+              %dd
+                Returns a String representing the specified Date.
+              %dt
+                %a{:name => "AnyTime.Converter.parse"}
+                  %code (Date) AnyTime.Converter.parse( String string )
+              %dd
+                Returns a Date represented by the specifed string.
+              %dt
+                %a{:name => "AnyTime.noPicker"}
+                  %code (void) AnyTime.noPicker( String input_id )
+              %dd
+                Removes the picker associated with the
+                %code &lt;input&gt;
+                having the
+                specified ID, and cleans up the memory used by the widget.
+              %dt
+                %a{:name => "AnyTime.picker"}
+                  %code
+                    (void) AnyTime.picker( String input_id, Object
+                    %a{:href => "#options"}
+                      %var options
+                    )
+              %dd
+                Creates a date and/or time picker for the
+                %code &lt;input&gt;
+                having the
+                specified ID, according to the specified
+                - succeed "." do
+                  %a{:href => "#options"}
+                    %var options
+              %dt
+                %a{:name => "jQuery.AnyTime_noPicker"}
+                  %code (jQuery) jQuery.AnyTime_noPicker()
+              %dd
+                Removes the pickers associated with each of the elements selected by jQuery.
+                Refer to the
+                %a{:href => "#extending"} extending
+                example.
+              %dt
+                %a{:name => "jQuery.AnyTime_picker"}
+                  %code
+                    (jQuery) jQuery.AnyTime_picker( Object
+                    %a{:href => "#options"}
+                      %var options
+                    )
+              %dd
+                Creates a date and/or time picker for each of the elements selected by jQuery
+                according to the specified
+                - succeed "." do
+                  %a{:href => "#options"}
+                    %var options
+            %h2 Share Your Success!
+            %p
+              I'd love to show the world how you are using
+              - succeed "&amp;trade;" do
+                %strong Any+Time
+              on your website! Please
+              %a{:href => "http://www.ama3.com/doorkeeper/"} let me know
+              your URL and I'll
+              be happy to mention it here.
+            %p
+              Check back soon for a list of sites that show
+              - succeed "&amp;trade;" do
+                %strong Any+Time
+              in action!
+            %p
+              I'd also appreciate if you'd help others find the library, either by linking
+              to this page, or giving this script the best rating at one or more of the
+              following websites:
+            %ul
+              %li
+                %a{:href => "http://www.ama3.com/PxStandard/PxClickAway.php?url=httpZ23AZ22FZ22Fwww.allthescripts.comZ22Fpage-472086.htm"} AllTheScripts
+              %li
+                %a{:href => "http://www.ama3.com/PxStandard/PxClickAway.php?url=httpZ23AZ22FZ22Fwww.hotscripts.comZ22FlistingZ22Fany-time-tm-javascript-library-date-time-picker-ajax-calendar-widget-and-date-string-converterZ22F"} Hot Scripts
+              %li
+                %a{:href => "http://www.ama3.com/PxStandard/PxClickAway.php?url=httpZ23AZ22FZ22Fwww.scripteka.comZ22FscriptZ22Fany-time-date-time-library-atwidget-picker-and-atconverter-parse-format-utility"} Scripteka
+              %li
+                %a{:href => "http://www.ama3.com/PxStandard/PxClickAway.php?url=httpZ23AZ22FZ22Fwww.scripts.comZ22Fjavascript-scriptsZ22Fcalendar-scriptsZ22Fanytime-v3-datetimepicker-converter-w-jqueryZ22F"}> Scripts.com
+                \&trade;
+            %p
+              Both positive feedback and constructive criticism are also appreciated
+              (please
+              - succeed ")." do
+                %a{:href => "http://www.ama3.com/doorkeeper/"} contact the author
+    .pageBottom
+      .pageContainerExtension
+      .notice Copyright 2010 AJAX, JSON and XML Consulting and Training by Andrew M. Andrews III (SM). All Rights Reserved.  "Andrew M. Andrews III", "AMA3", Andrew_M_Andrews_III, Any+Time and the Tre Design are trademarks and/or service marks of Andrew M. Andrews III. Use this site at your own risk. Use of this site for illegal or malicious purposes is prohibited.

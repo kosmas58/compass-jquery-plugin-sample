@@ -1,4 +1,4 @@
-class CreateIcalCalendars < ActiveRecord::Migration
+class CreateJqicalCalendars < ActiveRecord::Migration
   def self.up
     create_table :calendars, :force => true do |t|
       t.column :name, :string
