@@ -1,0 +1,11 @@
+-@title =  "#{t('txt.jqical.anytime.name')} - #{t('txt.jqical.anytime.ajax')}" 
+
+- content_for :content_head do
+  = render(:partial => "ajax.js.haml", :format => :js)
+
+.demo
+  %h3
+    =raw @title
+  %p
+    First-of-month:
+    %input#AjaxDemo{:type => "text", :value => "Apr 1, '10"}

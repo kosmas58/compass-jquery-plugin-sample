@@ -24,14 +24,9 @@ date:
   formats: 
     default: "%Y-%m-%d"
 txt: 
-  ui: 
-    form: 
-      new: New
-      delete: Delete
-      edit: Edit
-      cancel: Cancel
-      save: Save
-      sure: Are you sure?
+  jqical: 
+    anytime: 
+      extend: Extending functionality
 support: 
   array: 
     words_connector: ", "

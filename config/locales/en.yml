@@ -180,6 +180,12 @@ en:
       anytime:
         name: "Any+Time&trade"
         default: Default functionality 
+        inline: Display inline
+        separate: Separate date and time
+        css: Custom stylesheet
+        ajax: Ajax Demo
+        convert: AnyTime.Converter
+        extend: Extending functionality
     jqt:
       name: "jQTouch (needs a browser with WebKit engine)"
     jqgrid:

@@ -1,0 +1,22 @@
+-@title =  "#{t('txt.jqical.anytime.name')} - #{t('txt.jqical.anytime.convert')}" 
+
+- content_for :content_head do
+  = render(:partial => "convert.js.haml", :format => :js)
+
+.demo
+  %h3
+    =raw @title
+    
+  %p
+    %var
+      %strong
+        AnyTime.Converter
+      can be used independently.
+      The following example converts a string in the default date/time format
+      into a Date object, then converts the Date into a JSON string (with
+      distinct members) and an XML string (using the XML Schema
+      %a{:href => "http://www.w3.org/TR/xmlschema-2/#dateTime"} dateTime
+      data type and Coordinated Universal Time):
+       
+  %input#show_me{ :value => "Demonstrate Example" }
+    

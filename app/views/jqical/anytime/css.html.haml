@@ -1,0 +1,15 @@
+-@title =  "#{t('txt.jqical.anytime.name')} - #{t('txt.jqical.anytime.css')}" 
+
+- content_for :content_head do
+  = render(:partial => "css.js.haml", :format => :js)
+
+.demo
+  %h3
+    =raw @title
+  %p
+    English:
+    %input.span-6#field1{:size => "50", :type => "text", :value => "Sunday, July 30th in the Year 1967 CE"}
+  %p
+    Español:
+    %input.span-2#field2{:type => "text", :value => "12:34"}
+  

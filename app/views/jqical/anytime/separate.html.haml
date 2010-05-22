@@ -1,0 +1,13 @@
+-@title =  "#{t('txt.jqical.anytime.name')} - #{t('txt.jqical.anytime.separate')}" 
+
+- content_for :content_head do
+  = render(:partial => "separate.js.haml", :format => :js)
+
+.demo
+  %h3
+    =raw @title
+  %div{ :style => "float: left;" }
+    %input#Demo1
+  %div{ :style => "float: left; padding-left: 1em;" }
+    %input#Demo2
+  

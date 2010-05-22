@@ -1,0 +1,16 @@
+-@title =  "#{t('txt.jqical.anytime.name')} - #{t('txt.jqical.anytime.extend')}" 
+
+- content_for :content_head do
+  = render(:partial => "extend.js.haml", :format => :js)
+
+.demo
+  %h3
+    =raw @title
+  %p
+    Start:
+    %input#rangeDemoStart{:size => "14", :type => "text"}
+    Finish:
+    %input#rangeDemoFinish{:disabled => "", :size => "14", :type => "text"}
+    %input#rangeDemoToday{:type => "button", :value => "today"}
+    %input#rangeDemoClear{:type => "button", :value => "clear"}
+    
