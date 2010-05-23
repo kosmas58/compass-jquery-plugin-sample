@@ -1,4 +1,4 @@
--@title = 'Listing calendars'
+-@title = t('txt.jqical.calendar.listing')
 
 - content_for :content_head do
   = render(:partial => "index.js.haml", :format => :js)
@@ -11,10 +11,10 @@
     %table.calendars
       %tr.ui-widget-header.ui-corner-all      
         %th
-          Name    
+          = t('txt.jqical.calendar.name')  
         %th
-          Actions  
+          = t('txt.jqical.calendar.actions.name')
       = render :partial => 'calendar', :collection => current_objects
   %br
   %p.buttons
-    = link_to 'New calendar', new_jqical_calendar_path 
+    = link_to t('txt.jqical.calendar.new'), new_jqical_calendar_path 

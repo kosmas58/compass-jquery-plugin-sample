@@ -1,13 +1,21 @@
+-@title = t('txt.jqical.calendar.edit')
+
+- content_for :content_head do
+  = render(:partial => "edit.js.haml", :format => :js)
+
 .demo
   %h3
-    Editing calendars
+    =@title
   
   = error_messages_for :calendar
   
   - form_for(:calendar, :url => jqical_calendar_url, :html => { :method => :put }) do |f|
     = render :partial => "form", :locals => {:f => f}
-    %p= submit_tag "Update"
+    %br
+    %p
+      = submit_tag t('txt.layout.update')
+  %p.buttons
+    = link_to t('txt.jqical.calendar.show'), jqical_calendar_path
+  %p.buttons
+    = link_to t('txt.layout.back'), jqical_calendars_path
   
-  = link_to 'Show', jqical_calendar_path
-  |
-  = link_to 'Back', jqical_calendars_path

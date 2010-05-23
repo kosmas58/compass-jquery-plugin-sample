@@ -1,6 +1,6 @@
-= link_to image_tag("icons/16x16/show.png", :border => 0, :title => 'Show'), jqical_calendar_path(calendar)
-= link_to image_tag("icons/16x16/edit.png", :border => 0, :title => 'Edit'), edit_jqical_calendar_path(calendar)
-= link_to image_tag("icons/16x16/delete.png", :border => 0, :title => 'Destroy'), jqical_calendar_path(calendar), :confirm => 'Really destroy calendars?', :method => :delete
-= link_to image_tag("icons/16x16/calendar.png", :border => 0, :title => 'Show Events'), jqical_calendar_events_path(calendar)
-= link_to image_tag("icons/16x16/calendar.png", :border => 0, :title => 'Show Calendar'), jqical_calendar_fullcalendar_index_path(calendar)
-= link_to image_tag("icons/16x16/ical.png", :border => 0, :title => 'As iCalendar'), jqical_calendar_path(calendar, :format => :ics)
+= link_to image_tag("icons/16x16/show.png", :border => 0, :title => t('txt.jqical.calendar.show')), jqical_calendar_path(calendar)
+= link_to image_tag("icons/16x16/edit.png", :border => 0, :title => t('txt.jqical.calendar.edit')), edit_jqical_calendar_path(calendar)
+= link_to image_tag("icons/16x16/delete.png", :border => 0, :title => t('txt.jqical.calendar.delete')), jqical_calendar_path(calendar), :confirm => t('txt.jqical.calendar.confirm'), :method => :delete
+= link_to image_tag("icons/16x16/calendar_list.png", :border => 0, :title => t('txt.jqical.calendar.actions.events')), jqical_calendar_events_path(calendar)
+= link_to image_tag("icons/16x16/calendar.png", :border => 0, :title => t('txt.jqical.calendar.actions.show')), jqical_calendar_fullcalendar_index_path(calendar)
+= link_to image_tag("icons/16x16/ical.png", :border => 0, :title => t('txt.jqical.calendar.actions.ical')), jqical_calendar_path(calendar, :format => :ics)

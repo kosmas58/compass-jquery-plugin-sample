@@ -1,11 +1,18 @@
+-@title = t('txt.jqical.calendar.show')
+
+- content_for :content_head do
+  = render(:partial => "new.js.haml", :format => :js)
+
 .demo
   %h3
-    Creating calendars
+    =@title
   
-  = error_messages_for :calendars
+  = error_messages_for :calendar
   
-  - form_for(:calendars, :url => jqical_calendars_url) do |f|
+  - form_for(:calendar, :url => jqical_calendars_url, :html => { :method => :post }) do |f|
     = render :partial => "form", :locals => {:f => f}
-    %p= submit_tag "Create"
-  
-  = link_to 'Back', jqical_calendars_path
+    %br
+    %p
+      = submit_tag t('txt.layout.create')
+  %p.buttons
+    = link_to t('txt.layout.back'), jqical_calendars_path

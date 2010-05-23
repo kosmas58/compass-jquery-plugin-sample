@@ -186,6 +186,27 @@ en:
         ajax: Ajax Demo
         convert: AnyTime.Converter
         extend: Extending functionality
+      calendar:
+        default: Calendar
+        listing: Listing iCalendars
+        new: New calendar
+        show: Show iCalendar
+        edit: Edit iCalendar
+        delete: Delete iCalendar
+        confirm: "Really destroy iCalendar?"
+        name: Name
+        actions:
+          name: Actions
+          events: Show events
+          show: Show as calendar
+          ical: Show as iCalendar
+      event:
+        default: Event
+        summary: Summary
+        location: Location
+        description: Description
+        starts_at: Starts at
+        ends_at: Ends at        
     jqt:
       name: "jQTouch (needs a browser with WebKit engine)"
     jqgrid:
@@ -495,6 +516,15 @@ en:
     layout:
       theme: Theme
       language: Language
+      colon: ":"
+      create: Create
+      show: Show
+      edit: Edit
+      delete: Delete
+      update: Update
+      save: Save
+      cancel: Cancel
+      back: Back
       footer:
         legalese: Copyright &copy 2009-2010 Kosmas Schuetz. See LICENSE for details.
   support:
