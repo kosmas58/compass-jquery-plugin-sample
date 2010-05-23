@@ -164,12 +164,11 @@ de:
     jqical: 
       calendar: 
         confirm: "iCalendar wirklich l\xC3\xB6schen?"
-        new: Neuer Kalender
+        new: Neuer iCalender
         delete: "iCalendar l\xC3\xB6schen"
         actions: 
           name: Aktionen
           ical: Als iCalendar anzeigen
-          events: Veranstaltungen anzeigen
           show: Als Kalender anzeigen
         name: Name
         default: Kalender
@@ -186,7 +185,9 @@ de:
         convert: AnyTime.Converter
         extend: "Erweiterung der Funktionalit\xC3\xA4t"
       event: 
+        new: Neuer Termin
         default: Veranstaltung
+        listing: Termine anzeigen
         starts_at: Beginnt um
         summary: Betreff
         description: Beschreibung

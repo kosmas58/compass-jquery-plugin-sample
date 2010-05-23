@@ -189,7 +189,7 @@ en:
       calendar:
         default: Calendar
         listing: Listing iCalendars
-        new: New calendar
+        new: New iCalendar
         show: Show iCalendar
         edit: Edit iCalendar
         delete: Delete iCalendar
@@ -197,7 +197,6 @@ en:
         name: Name
         actions:
           name: Actions
-          events: Show events
           show: Show as calendar
           ical: Show as iCalendar
       event:
@@ -206,7 +205,9 @@ en:
         location: Location
         description: Description
         starts_at: Starts at
-        ends_at: Ends at        
+        ends_at: Ends at
+        listing: Listing events
+        new: New Event
     jqt:
       name: "jQTouch (needs a browser with WebKit engine)"
     jqgrid:

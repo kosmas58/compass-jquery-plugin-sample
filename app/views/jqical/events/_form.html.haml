@@ -1,38 +1,38 @@
 - form_for(@current_object, :url => jqical_calendar_events_url) do |f|
   = f.error_messages
   .formrow.clearfix
-    %label.span-5{:for => :summary}
+    %label.span-6{:for => :summary}
       = t('txt.jqical.event.summary')
       = t('txt.layout.colon')
-    .span-18
+    .span-17
       = f.text_field :summary
   %br
   .formrow.clearfix
-    %label.span-5{:for => :location}
+    %label.span-6{:for => :location}
       = t('txt.jqical.event.location')
       = t('txt.layout.colon')
-    .span-18
+    .span-17
       = f.text_field :location
   %br
   .formrow.clearfix
-    %label.span-5{:for => :starts_at}
+    %label.span-6{:for => :starts_at}
       = t('txt.jqical.event.starts_at')
       = t('txt.layout.colon')
     .span-12
       = f.text_field :starts_at
   %br
   .formrow.clearfix
-    %label.span-5{:for => :ends_at}
+    %label.span-6{:for => :ends_at}
       = t('txt.jqical.event.ends_at')
       = t('txt.layout.colon')
     .span-12
       = f.text_field :ends_at
   %br
   .formrow.clearfix
-    %label.span-5{:for => :description}
+    %label.span-6{:for => :description}
       = t('txt.jqical.event.description')
       = t('txt.layout.colon')
-    .span-18
+    .span-17
       = f.text_area :description
   = f.submit "Save"
 

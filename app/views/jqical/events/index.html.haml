@@ -1,4 +1,4 @@
--@title = 'iCalendar: ' +controller.action_name
+-@title = t('txt.jqical.event.listing')
 
 - content_for :content_head do
   = render(:partial => "index.js.haml", :format => :js)
@@ -11,8 +11,8 @@
   
   %p.buttons  
     %button.event_create
-      New Event
-    = link_to 'Back', jqical_calendars_path 
+      = t('txt.jqical.event.new')
+    = link_to t('txt.layout.back'), jqical_calendars_path 
     
   #event_delete_dialog{ :style => "display: none;" }
   #event_update_dialog{ :style => "display: none;" }
