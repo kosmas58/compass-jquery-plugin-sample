@@ -2,7 +2,7 @@
   %ol
     - for event in @events
       %li
-        == #{event.summary} from #{event.starts_at.to_s} until #{event.ends_at.to_s}
+        == #{event.summary} from #{l(event.starts_at, :format => :long).to_s} until #{l(event.ends_at, :format => :long).to_s}
       %button.event_update{ :value => event.id }
         Edit
       %button.event_delete{ :value => event.id }   

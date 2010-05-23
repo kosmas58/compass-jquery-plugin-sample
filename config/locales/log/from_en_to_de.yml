@@ -1,38 +1,116 @@
 --- 
 activerecord: 
   errors: 
-    full_messages: 
-      format: "{{attribute}} {{message}}"
+    messages: 
+      taken: has already been taken
+      not_a_number: is not a number
+      record_invalid: "Validation failed: {{errors}}"
+      less_than_or_equal_to: must be less than or equal to {{count}}
+      odd: must be odd
+      wrong_length: is the wrong length (should be {{count}} characters)
+      too_short: is too short (minimum is {{count}} characters)
+      too_long: is too long (maximum is {{count}} characters)
+    template: 
+      body: "There were problems with the following fields:"
+      header: 
+        one: 1 error prohibited this {{model}} from being saved
+        other: "{{count}} errors prohibited this {{model}} from being saved"
 number: 
-  format: 
-    separator: .
-    delimiter: ","
   human: 
     storage_units: 
-      format: "%n %u"
-  currency: 
-    format: 
-      format: "%u%n"
-      unit: $
-      separator: .
-      delimiter: ","
+      units: 
+        kb: KB
+        tb: TB
+        gb: GB
+        mb: MB
 time: 
   am: am
   formats: 
     default: "%a, %d %b %Y %H:%M:%S %z"
+    long: "%B %d, %Y %H:%M"
+    short: "%d %b %H:%M"
   pm: pm
 date: 
   formats: 
     default: "%Y-%m-%d"
+    long: "%B %d, %Y"
+    short: "%b %d"
 txt: 
-  jqical: 
-    event: 
-      listing: Listing events
+  ui: 
+    widgets: 
+      slider: 
+        steps: Snap to increments
+        default: Slider
+        multiple-vertical: Multiple sliders
+        side-scroll: Simple scrollbar
+        colorpicker: Simple colorpicker
+        slider-vertical: Vertical slider
+        range-vertical: Vertical range slider
+        rangemax: Range with fixed maximum
+        range: Range slider
+        hotelrooms: Room reservation
+        tabs: Slider controls tabs
+        rangemin: Range with fixed minimum
+      tabs: 
+        manipulation: Simple manipulation
+        bottom: Tabs below content
+        default: Tabs
+        ajax: Content via Ajax
+        cookie: Cookie persistence
+        sortable: Sortable
+        mouseover: Open on mouseover
+        collapsible: Collapse content
+      progressbar: 
+        default: Progressbar
+        resize: Resizable progressbar
+        animated: Animated
 support: 
   array: 
     words_connector: ", "
+    last_word_connector: ", and "
+    two_words_connector: " and "
+  select: 
+    prompt: Please select
 datetime: 
   distance_in_words: 
+    less_than_x_minutes: 
+      one: less than a minute
+      other: less than {{count}} minutes
+    x_days: 
+      one: 1 day
+      other: "{{count}} days"
     almost_x_years: 
       one: almost 1 year
       other: almost {{count}} years
+    x_seconds: 
+      one: 1 second
+      other: "{{count}} seconds"
+    x_minutes: 
+      one: 1 minute
+      other: "{{count}} minutes"
+    about_x_hours: 
+      one: about 1 hour
+      other: about {{count}} hours
+    x_months: 
+      one: 1 month
+      other: "{{count}} months"
+    less_than_x_seconds: 
+      one: less than 1 second
+      other: less than {{count}} seconds
+    about_x_months: 
+      one: about 1 month
+      other: about {{count}} months
+    about_x_years: 
+      one: about 1 year
+      other: about {{count}} years
+    half_a_minute: half a minute
+    over_x_years: 
+      one: over 1 year
+      other: over {{count}} years
+  prompts: 
+    month: Month
+    minute: Minute
+    second: Seconds
+    hour: Hour
+    day: Day
+    year: Year

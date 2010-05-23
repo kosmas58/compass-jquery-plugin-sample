@@ -15,7 +15,7 @@ module Jqical
     end
     
     def start_date
-      @start_date ||= starts_at.strftime('%m/%d/%Y')
+      @start_date ||= l(starts_at)#.strftime('%m/%d/%Y')
     end
     
     def start_date=(string_date)
@@ -37,7 +37,7 @@ module Jqical
     end
     
     def ends_at
-      @ends_at ||= ical_event.dtend ? ical_event.dtend.to_datetime : starts_at + 60 * 60
+      @ends_at ||= ical_event.dtend ? ical_event.dtend.to_datetime : starts_at + 60.minutes
     end
     
     def ends_at=(date_time)
