@@ -17,9 +17,9 @@ class Event < ActiveRecord::Base
   end
   attr_writer :location
   
-  def ends_at
-    @ends_at ||= ical_event.dtend ? ical_event.dtend.to_datetime : starts_at + 60.minutes
-  end
+#  def ends_at
+#    @ends_at ||= ical_event.dtend ? ical_event.dtend.to_datetime : starts_at + 60.minutes
+#  end
     
   private
     def serialize_ical_event

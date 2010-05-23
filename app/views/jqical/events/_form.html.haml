@@ -1,3 +1,25 @@
+:javascript
+  $(document).ready(function() {
+    var fmt1 = '%m/%d/%Y';
+    var fmt2 = '%H:%i';
+    //var conv1 = new AnyTime.Converter({format:fmt1});               
+    //var conv2 = new AnyTime.Converter({format:fmt2});
+    //var now = new Date();               
+    //$('#event_start_date')[0].value = conv1.format( now );
+    //$('#event_start_time')[0].value = conv2.format( now );
+    AnyTime.picker('event_start_date', { 
+      format: fmt1
+    });
+    $('#event_start_time').AnyTime_picker({
+      format: fmt2,
+    }); AnyTime.picker('event_end_date', { 
+      format: fmt1
+    });
+    $('#event_end_time').AnyTime_picker({
+      format: fmt2,
+    });
+  });
+
 - form_for(@current_object, :url => jqical_calendar_events_url) do |f|
   = f.error_messages
   .formrow.clearfix
@@ -5,28 +27,32 @@
       = t('txt.jqical.event.summary')
       = t('txt.layout.colon')
     .span-17
-      = f.text_field :summary
+      = f.text_field :summary, :size => 44
   %br
   .formrow.clearfix
     %label.span-6{:for => :location}
       = t('txt.jqical.event.location')
       = t('txt.layout.colon')
     .span-17
-      = f.text_field :location
+      = f.text_field :location, :size => 44
   %br
   .formrow.clearfix
     %label.span-6{:for => :starts_at}
       = t('txt.jqical.event.starts_at')
       = t('txt.layout.colon')
-    .span-12
-      = f.text_field :starts_at
+    .span-6
+      = f.text_field :start_date, :size => 11
+    .span-5
+      = f.text_field :start_time, :size => 7
   %br
   .formrow.clearfix
     %label.span-6{:for => :ends_at}
       = t('txt.jqical.event.ends_at')
       = t('txt.layout.colon')
-    .span-12
-      = f.text_field :ends_at
+    .span-6
+      = f.text_field :end_date, :size => 11
+    .span-5
+      = f.text_field :end_time, :size => 7
   %br
   .formrow.clearfix
     %label.span-6{:for => :description}
