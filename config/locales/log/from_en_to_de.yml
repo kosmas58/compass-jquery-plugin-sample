@@ -1,28 +1,13 @@
 --- 
 activerecord: 
   errors: 
-    messages: 
-      taken: has already been taken
-      not_a_number: is not a number
-      record_invalid: "Validation failed: {{errors}}"
-      less_than_or_equal_to: must be less than or equal to {{count}}
-      odd: must be odd
-      wrong_length: is the wrong length (should be {{count}} characters)
-      too_short: is too short (minimum is {{count}} characters)
-      too_long: is too long (maximum is {{count}} characters)
-    template: 
-      body: "There were problems with the following fields:"
-      header: 
-        one: 1 error prohibited this {{model}} from being saved
-        other: "{{count}} errors prohibited this {{model}} from being saved"
+    full_messages: 
+      format: "{{attribute}} {{message}}"
 number: 
-  human: 
-    storage_units: 
-      units: 
-        kb: KB
-        tb: TB
-        gb: GB
-        mb: MB
+  currency: 
+    format: 
+      separator: .
+      delimiter: ","
 time: 
   am: am
   formats: 
@@ -36,34 +21,9 @@ date:
     long: "%B %d, %Y"
     short: "%b %d"
 txt: 
-  ui: 
-    widgets: 
-      slider: 
-        steps: Snap to increments
-        default: Slider
-        multiple-vertical: Multiple sliders
-        side-scroll: Simple scrollbar
-        colorpicker: Simple colorpicker
-        slider-vertical: Vertical slider
-        range-vertical: Vertical range slider
-        rangemax: Range with fixed maximum
-        range: Range slider
-        hotelrooms: Room reservation
-        tabs: Slider controls tabs
-        rangemin: Range with fixed minimum
-      tabs: 
-        manipulation: Simple manipulation
-        bottom: Tabs below content
-        default: Tabs
-        ajax: Content via Ajax
-        cookie: Cookie persistence
-        sortable: Sortable
-        mouseover: Open on mouseover
-        collapsible: Collapse content
-      progressbar: 
-        default: Progressbar
-        resize: Resizable progressbar
-        animated: Animated
+  layout: 
+    from: from
+    until: until
 support: 
   array: 
     words_connector: ", "

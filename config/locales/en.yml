@@ -533,6 +533,8 @@ en:
       save: Save
       cancel: Cancel
       back: Back
+      from: from
+      until: until
       footer:
         legalese: Copyright &copy 2009-2010 Kosmas Schuetz. See LICENSE for details.
   support:
