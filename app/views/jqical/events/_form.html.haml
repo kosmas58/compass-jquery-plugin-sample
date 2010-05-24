@@ -1,7 +1,12 @@
 :javascript
   $(document).ready(function() {
-    var fmt1 = '%m/%d/%Y';
-    var fmt2 = '%H:%i';
+    if (I18n.locale == "de") {
+      var fmt1 = '%d.%m.%Y';
+      var fmt2 = '%H:%i';
+    } else {
+      var fmt1 = '%m/%d/%Y';
+      var fmt2 = '%H:%i';
+    }
     //var conv1 = new AnyTime.Converter({format:fmt1});               
     //var conv2 = new AnyTime.Converter({format:fmt2});
     //var now = new Date();               
