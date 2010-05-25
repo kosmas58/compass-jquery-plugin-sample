@@ -119,6 +119,7 @@ de:
       time: "%H:%M"
       short: "%d. %B, %H:%M Uhr"
       long: "%A, %d. %B %Y, %H:%M Uhr"
+      time: "%H:%M Uhr"
     pm: nachmittags
   date: 
     order: 

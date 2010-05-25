@@ -15,7 +15,7 @@ module Jqical
     end
     
     def start_date
-      @start_date ||= starts_at.strftime('%m/%d/%Y')
+      @start_date ||= I18n.l(Date.parse(starts_at.to_s))
     end
     
     def start_date=(string_date)
@@ -26,7 +26,7 @@ module Jqical
     end
     
     def start_time
-      @start_time ||= starts_at.strftime('%l:%M%p').strip
+      @start_time ||= I18n.l(Time.parse(starts_at.to_s), :format => :time)
     end
     
     def start_time=(string_time)
@@ -35,7 +35,6 @@ module Jqical
       end
       @start_time = string_time
     end
-    
     
     def ends_at
       @ends_at ||= ical_event.dtend ? ical_event.dtend.to_datetime : starts_at + 60.minutes
@@ -47,7 +46,7 @@ module Jqical
     end
     
     def end_date
-      @end_date ||= ends_at.strftime('%m/%d/%Y')
+      @end_date ||=  I18n.l(Date.parse(ends_at.to_s))
     end
     
     def end_date=(string_date)
@@ -58,7 +57,7 @@ module Jqical
     end
     
     def end_time
-      @end_time ||= ends_at.strftime('%l:%M%p').strip
+      @end_time ||= I18n.l(Time.parse(ends_at.to_s), :format => :time)
     end
     
     def end_time=(string_time)
