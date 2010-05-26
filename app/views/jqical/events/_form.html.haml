@@ -1,11 +1,11 @@
 :javascript
   function toogleStatus(){
-    if ($('#event_all_day').is(':checked')) {
-      $('#event_start_time').attr('disabled', true);
-      $('#event_end_time').attr('disabled', true);
+    if ($("#event_all_day").is(':checked')) {
+      $("#event_start_time").attr('disabled', true);
+      $("#event_end_time").attr('disabled', true);
     } else {
-      $('#event_start_time').removeAttr('disabled');
-      $('#event_end_time').removeAttr('disabled');
+      $("#event_start_time").removeAttr('disabled');
+      $("#event_end_time").removeAttr('disabled');
     }  
   };    
 
@@ -21,26 +21,20 @@
       var fmt1 = '%m/%d/%Y';
       var fmt2 = '%H:%i';
     }
+    
     //var conv1 = new AnyTime.Converter({format:fmt1});               
     //var conv2 = new AnyTime.Converter({format:fmt2});
     //var now = new Date();               
     //$('#event_start_date')[0].value = conv1.format( now );
     //$('#event_start_time')[0].value = conv2.format( now );
-    $('#event_start_date').AnyTime_picker({ format: fmt1 });
-    $('#event_start_time').AnyTime_picker({ format: fmt2 }); 
-    $('#event_end_date').AnyTime_picker({ format: fmt1 });
-    $('#event_end_time').AnyTime_picker({ format: fmt2 });
+    $("#event_start_date").AnyTime_picker({ format: fmt1 });
+    $("#event_start_time").AnyTime_picker({ format: fmt2 }); 
+    $("#event_end_date").AnyTime_picker({ format: fmt1 });
+    $("#event_end_time").AnyTime_picker({ format: fmt2 });
     
     toogleStatus(); 
   };
   
-  function closeForm() {
-    $('#event_start_date').AnyTime_noPicker();
-    $('#event_start_time').AnyTime_noPicker(); 
-    $('#event_end_date').AnyTime_noPicker();
-    $('#event_end_time').AnyTime_noPicker();  
-  };
-
   $(document).ready(function() {    
     initForm();
   });
@@ -90,6 +84,3 @@
     .span-17
       = f.text_area :description, :cols => 60
   = f.submit "Save"
-
-  
-  

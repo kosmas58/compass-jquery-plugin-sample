@@ -4,7 +4,7 @@ class Jqical::EventsController < ApplicationController
   protect_from_forgery
   
   make_resourceful do
-    actions :index, :index_reload, :new, :create, :edit, :update, :delete, :destroy
+    actions :index, :index_reload, :new, :create, :create_fails, :edit, :update, :delete, :destroy
     belongs_to :calendar
     
     response_for :index_reload do | format |
