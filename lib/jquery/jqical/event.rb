@@ -69,8 +69,14 @@ module Jqical
     
     private
     def serialize_ical_event
-      #dtend   = DateTime.parse(@ends_at)
-      #dtstart = DateTime.parse(@starts_at)
+      #dtend   = DateTime.parse(ends_at)
+      #dtstart = DateTime.parse(starts_at)
+      
+      if all_day 
+        self.start_time = "00:00"
+      end
+      
+      #self.ends_at = DateTime.parse(starts_at)+1.day      
       
       ical_event.dtend       = ends_at
       ical_event.dtstart     = starts_at

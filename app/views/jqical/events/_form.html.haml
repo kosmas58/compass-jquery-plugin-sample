@@ -1,5 +1,19 @@
 :javascript
-  $(document).ready(function() {
+  function toogleStatus(){
+    if ($('#event_all_day').is(':checked')) {
+      $('#event_start_time').attr('disabled', true);
+      $('#event_end_time').attr('disabled', true);
+    } else {
+      $('#event_start_time').removeAttr('disabled');
+      $('#event_end_time').removeAttr('disabled');
+    }  
+  };    
+
+  function initForm() {
+    $('#event_all_day').live('change', function(){
+      toogleStatus();
+    }); 
+  
     if (I18n.locale == "de") {
       var fmt1 = '%d.%m.%Y';
       var fmt2 = '%H:%i';
@@ -12,17 +26,23 @@
     //var now = new Date();               
     //$('#event_start_date')[0].value = conv1.format( now );
     //$('#event_start_time')[0].value = conv2.format( now );
-    AnyTime.picker('event_start_date', { 
-      format: fmt1
-    });
-    $('#event_start_time').AnyTime_picker({
-      format: fmt2,
-    }); AnyTime.picker('event_end_date', { 
-      format: fmt1
-    });
-    $('#event_end_time').AnyTime_picker({
-      format: fmt2,
-    });
+    $('#event_start_date').AnyTime_picker({ format: fmt1 });
+    $('#event_start_time').AnyTime_picker({ format: fmt2 }); 
+    $('#event_end_date').AnyTime_picker({ format: fmt1 });
+    $('#event_end_time').AnyTime_picker({ format: fmt2 });
+    
+    toogleStatus(); 
+  };
+  
+  function closeForm() {
+    $('#event_start_date').AnyTime_noPicker();
+    $('#event_start_time').AnyTime_noPicker(); 
+    $('#event_end_date').AnyTime_noPicker();
+    $('#event_end_time').AnyTime_noPicker();  
+  };
+
+  $(document).ready(function() {    
+    initForm();
   });
 
 - form_for(@current_object, :url => jqical_calendar_events_url) do |f|
@@ -32,31 +52,35 @@
       = t('txt.jqical.event.summary')
       = t('txt.layout.colon')
     .span-17
-      = f.text_field :summary, :size => 44
+      = f.text_field :summary, :size => 60
   %br
   .formrow.clearfix
     %label.span-6{:for => :location}
       = t('txt.jqical.event.location')
       = t('txt.layout.colon')
     .span-17
-      = f.text_field :location, :size => 44
+      = f.text_field :location, :size => 60
   %br
   .formrow.clearfix
     %label.span-6{:for => :starts_at}
       = t('txt.jqical.event.starts_at')
       = t('txt.layout.colon')
-    .span-6
+    .span-5
       = f.text_field :start_date, :size => 11
-    .span-6
+    .span-5
       = f.text_field :start_time, :size => 11
+    .span-6
+      = f.check_box :all_day
+      %label{:for => :allday}
+        = t('txt.jqical.event.all_day')
   %br
   .formrow.clearfix
     %label.span-6{:for => :ends_at}
       = t('txt.jqical.event.ends_at')
       = t('txt.layout.colon')
-    .span-6
+    .span-5
       = f.text_field :end_date, :size => 11
-    .span-6
+    .span-5
       = f.text_field :end_time, :size => 11
   %br
   .formrow.clearfix
@@ -64,7 +88,7 @@
       = t('txt.jqical.event.description')
       = t('txt.layout.colon')
     .span-17
-      = f.text_area :description
+      = f.text_area :description, :cols => 60
   = f.submit "Save"
 
   

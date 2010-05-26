@@ -3,6 +3,14 @@ activerecord:
   errors: 
     full_messages: 
       format: "{{attribute}} {{message}}"
+  attributes: 
+    event: 
+      all_day: All-day event
+      dtend: End
+      description: Description
+      summary: Summary
+      dtstart: Start
+      location: Location
 number: 
   currency: 
     format: 
@@ -21,9 +29,9 @@ date:
     long: "%B %d, %Y"
     short: "%b %d"
 txt: 
-  layout: 
-    from: from
-    until: until
+  jqical: 
+    event: 
+      all_day: All-day event
 support: 
   array: 
     words_connector: ", "

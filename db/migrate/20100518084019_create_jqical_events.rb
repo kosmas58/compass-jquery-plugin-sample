@@ -4,13 +4,10 @@ class CreateJqicalEvents < ActiveRecord::Migration
       t.column :calendar_id,   :integer
       t.column :dtstart,       :datetime
       t.column :dtend,         :datetime
-#      t.column :frequency,     :string
-#      t.column :interval,      :integer
-#      t.column :until,         :datetime 
       t.column :summary,       :string
-      t.column :description,   :string
+      t.column :description,   :text
       t.column :location,      :string
-      t.column :all_day,       :boolean
+      t.column :all_day,       :boolean, :default => false, :null => false
       t.string :ical_string,   :null => false
       t.timestamps
     end

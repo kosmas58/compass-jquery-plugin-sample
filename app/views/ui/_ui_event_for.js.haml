@@ -81,7 +81,7 @@
                 "#{I18n.t('txt.ui.form.cancel')}": function() {$(this).dialog('close');}
               },
               title: "#{I18n.t('txt.ui.form.edit')}",
-              width: 480, //dWidth,
+              width: 640, //dWidth,
               height: 600, //dHeight,
               bgiframe: true,
               modal: true,
@@ -94,7 +94,7 @@
                 $.ajax({ method: "GET", url: "#{url}#{actions[:reload]}" });
               }
             });
-            $("##{domid}_create_update").dialog('open');    
+            $("##{domid}_create_update").dialog('open');
           }
         });             
       }; 
@@ -131,7 +131,7 @@
                 "#{I18n.t('txt.ui.form.cancel')}": function() {$(this).dialog('close');}
               },
               title: "#{I18n.t('txt.ui.form.new')}",
-              width: 480, //dWidth,
+              width: 640, //dWidth,
               height: 600, //dHeight,
               bgiframe: true,
               modal: true,
@@ -171,3 +171,4 @@
           live_create();
         });
       });
+     

@@ -85,6 +85,13 @@ en:
         id: ID
         num: Number
         item: Item
+      event:
+        dtstart: Start
+        dtend: End
+        summary: Summary
+        description: Description
+        location: Location
+        all_day: All-day event
   time:
     am: am
     formats:
@@ -212,6 +219,7 @@ en:
         summary: Summary
         location: Location
         description: Description
+        all_day: All-day event
         starts_at: Starts at
         ends_at: Ends at
         listing: Listing events
