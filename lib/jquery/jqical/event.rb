@@ -6,7 +6,7 @@ module Jqical
     end
     
     def starts_at
-      @starts_at ||= ical_event.dtstart ? ical_event.dtstart.to_datetime : DateTime.now
+      @starts_at ||= dtstart ? dtstart : DateTime.now
     end
     
     def starts_at=(date_time)
@@ -37,7 +37,7 @@ module Jqical
     end
     
     def ends_at
-      @ends_at ||= ical_event.dtend ? ical_event.dtend.to_datetime : starts_at + 60.minutes
+      @ends_at ||= dtend ? dtend : starts_at + 60.minutes
     end
     
     def ends_at=(date_time)
@@ -46,7 +46,7 @@ module Jqical
     end
     
     def end_date
-      @end_date ||=  I18n.l(Date.parse(ends_at.to_s))
+      @end_date ||= I18n.l(Date.parse(ends_at.to_s))
     end
     
     def end_date=(string_date)
@@ -67,18 +67,19 @@ module Jqical
       @end_time = string_time
     end
     
-    def summary
-      @summary ||= ical_event.summary
-    end
-    attr_writer :summary
-    
     private
-      def serialize_ical_event
-        ical_event.dtend = ends_at
-        ical_event.dtstart = starts_at
-        ical_event.summary = summary
-        self.ical_string = ical_event.to_s
-      end
+    def serialize_ical_event
+      #dtend   = DateTime.parse(@ends_at)
+      #dtstart = DateTime.parse(@starts_at)
+      
+      ical_event.dtend       = ends_at
+      ical_event.dtstart     = starts_at
+      ical_event.summary     = summary
+      ical_event.description = description
+      ical_event.location    = location
+      self.ical_string = ical_event.to_s
+    end
+    
   end
 end
 
