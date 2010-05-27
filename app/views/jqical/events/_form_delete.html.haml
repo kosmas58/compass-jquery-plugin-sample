@@ -7,7 +7,7 @@
           %span.ui-icon.ui-icon-alert{ :style => "float: left; margin-right: 0.3em" }
           = flash[:errore]
           
-  - if !flash[:notice].blank?
+  - elsif !flash[:notice].blank?
     .ui-widget
       .ui-state-highlight.ui-corner-all{ :style => "padding: 0pt 0.7em;" }
         %p

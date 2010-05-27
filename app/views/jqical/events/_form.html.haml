@@ -9,6 +9,13 @@
     }  
   };    
 
+  function resetForm() {
+    $("#event_start_date").AnyTime_noPicker();
+    $("#event_start_time").AnyTime_noPicker(); 
+    $("#event_end_date").AnyTime_noPicker();
+    $("#event_end_time").AnyTime_noPicker();
+  };
+
   function initForm() {
     $('#event_all_day').live('change', function(){
       toogleStatus();
@@ -18,36 +25,26 @@
       var fmt1 = '%d.%m.%Y';
       var fmt2 = '%H:%i';
     } else {
-      var fmt1 = '%m/%d/%Y';
+      var fmt1 = '%Y-%m-%d';
       var fmt2 = '%H:%i';
     }
     
-    //var conv1 = new AnyTime.Converter({format:fmt1});               
-    //var conv2 = new AnyTime.Converter({format:fmt2});
-    //var now = new Date();               
-    //$('#event_start_date')[0].value = conv1.format( now );
-    //$('#event_start_time')[0].value = conv2.format( now );
     $("#event_start_date").AnyTime_picker({ format: fmt1 });
-    $("#event_start_time").AnyTime_picker({ format: fmt2 }); 
-    $("#event_end_date").AnyTime_picker({ format: fmt1 });
-    $("#event_end_time").AnyTime_picker({ format: fmt2 });
-    
+    $("#event_end_date").AnyTime_picker({ format: fmt1 });        
+    $("#event_start_time").AnyTime_picker({ format: fmt2 });
+    $("#event_end_time").AnyTime_picker({ format: fmt2 });        
     toogleStatus(); 
   };
   
-  $(document).ready(function() {    
+  $(document).ready(function() {
+    resetForm();
     initForm();
-  });
+  });  
 
-- form_for(@current_object, :url => jqical_calendar_events_url) do |f|
+- form_for(@event, :url => jqical_calendar_events_url) do |f|
 
-  - if !flash[:error].blank?
-    .ui-widget
-      .ui-state-error.ui-corner-all{ :style => "padding: 0pt 0.7em;" }
-        %p
-          %span.ui-icon.ui-icon-alert{ :style => "float: left; margin-right: 0.3em" }
-          = flash[:errore]
-          
+  = f.error_messages
+              
   - if !flash[:notice].blank?
     .ui-widget
       .ui-state-highlight.ui-corner-all{ :style => "padding: 0pt 0.7em;" }

@@ -22,10 +22,8 @@ class Jqgrid::WidgetsController < ApplicationController
   
   def create
     @widget = Widget.new(params[:widget])
-    if @widget.save
-      return render(:nothing => true)      
-      #redirect_to widgets_url
-      red
+    if @widget.save    
+      redirect_to jqgrid_widgets_url
     else
       return render(:partial => "form")
     end
@@ -34,7 +32,7 @@ class Jqgrid::WidgetsController < ApplicationController
   def update
     @widget = Widget.update(params[:id], params[:widget])
     if @widget.save
-      return render(:nothing => true)
+      redirect_to jqgrid_widgets_url
     else
       if request.xhr?
         return render(:partial => "form")
