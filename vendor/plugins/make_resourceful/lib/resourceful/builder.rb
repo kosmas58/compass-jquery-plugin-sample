@@ -85,11 +85,16 @@ module Resourceful
     #
     # The available actions are defined in Default::Actions.
     def actions(*available_actions)
+      # FIXME HACK
+      # made all methods private, so plural?, too.
+      # Did not want to make an exception for that and i do not like it to
+      # come up on actions_methods.
+      # TODO: maybe we can define plural? as class_method
       if available_actions.first == :all
         if controller.respond_to?(:new_without_capture)
-          available_actions = controller.new_without_capture.plural? ? ACTIONS : SINGULAR_ACTIONS
+          available_actions = controller.new_without_capture.send(:plural?) ? ACTIONS : SINGULAR_ACTIONS
         else
-          available_actions = controller.new.plural? ? ACTIONS : SINGULAR_ACTIONS
+          available_actions = controller.new.send(:plural?) ? ACTIONS : SINGULAR_ACTIONS
         end
       end
 
@@ -236,17 +241,8 @@ module Resourceful
         response = Response.new
         block.call response
 
-
         actions.each do |action|
-          action_sym = action.to_sym
-          response.formats.each do |(format, proc)|
-            @responses[action_sym] ||= []
-            if existing = @responses[action_sym].find { |(f,p)| f == format }
-              existing[1] = proc
-            else
-              @responses[action_sym] << [format, proc]
-            end
-          end
+          @responses[action.to_sym] = response.formats
         end
       end
     end

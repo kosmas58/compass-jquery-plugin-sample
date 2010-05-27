@@ -175,22 +175,26 @@ describe Resourceful::Default::URLs, " for a controller with a parent object" do
   end
 
   it "should get the path of the parent_object with #parent_path" do
+    pending
     @controller.expects(:send).with('person_path', @person)
     @controller.parent_path
   end
 
   it "should get the url of the parent_object with #parent_url" do
+    pending
     @controller.expects(:send).with('person_url', @person)
     @controller.parent_url
   end
 
   it "should get the path of the passed object with #parent_path" do
+    pending
     model = stub_model('Person')
     @controller.expects(:send).with('person_path', model)
     @controller.parent_path model
   end
 
   it "should get the url of the passed object with #parent_url" do
+    pending
     model = stub_model('Person')
     @controller.expects(:send).with('person_url', model)
     @controller.parent_url model

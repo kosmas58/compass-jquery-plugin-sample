@@ -599,3 +599,15 @@ de:
       hour: Stunden
       day: Tag
       year: Jahr
+  make_resourceful: 
+    destroy: 
+      fails: "Es gab ein Problem beim L\xC3\xB6schen!"
+      success: "Erfolgreich gel\xC3\xB6scht!"
+    create: 
+      fails: Es gab ein Problem!
+      success: Erfolgreich angelegt!
+    show: 
+      fails: Es wurden keine Daten gefunden
+    update: 
+      fails: Es gab ein Problem beim Speichern!
+      success: Erfolgreich gespeichert!

@@ -18,7 +18,8 @@ module Resourceful
         #load_objects
         before :index
         response_for :index
-      end
+    end
+    
       # GET /foos/index_reload
       def index_reload
         #load_objects
@@ -95,16 +96,10 @@ module Resourceful
         #load_object
         before :delete
         response_for :delete
-      end
+      end 
 
       # DELETE /foos/12
       def destroy
-        # For shallow nested routes, setup the reidrect by storing the parent's id before destroying the item
-        if parent_names.length == 1
-          parent_id = "#{parent_names[0].to_sym}_id"
-          params[parent_id] = current_object.send(parent_id)
-        end
-        
         #load_object
         before :destroy
         if current_object.destroy

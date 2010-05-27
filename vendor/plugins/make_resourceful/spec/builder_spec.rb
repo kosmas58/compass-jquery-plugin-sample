@@ -198,31 +198,6 @@ describe Resourceful::Builder, " with a response set for the default format" do
   end
 end
 
-describe Resourceful::Builder, " with responses replacing and adding formats" do
-  include ControllerMocks
-  before :each do
-    mock_kontroller
-    create_builder
-    @builder.response_for('create') do |f|
-      f.js(&should_be_called('create.js'))
-      f.yaml(&should_never_be_called('create.yaml'))
-    end
-    @builder.response_for(:create, 'update') do |f|
-      f.yaml(&(should_be_called('create/update.yaml') { times(2) }))
-      f.png(&(should_be_called('create/update.png') { times(2) }))
-    end
-    @builder.apply
-  end
-
-  it "should save the responses as the :resourceful_responses inheritable_attribute" do
-    responses[:create].map(&:first).should == [:js, :yaml, :png]
-    responses[:create].map(&:last).each(&:call)
-
-    responses[:update].map(&:first).should == [:yaml, :png]
-    responses[:update].map(&:last).each(&:call)
-  end
-end
-
 describe Resourceful::Builder, " with a response set for no actions" do
   include ControllerMocks
   before :each do

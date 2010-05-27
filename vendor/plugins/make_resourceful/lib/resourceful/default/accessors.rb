@@ -246,6 +246,7 @@ module Resourceful
       #
       # FIXME - Perhaps this logic should be moved to parent?() or another init method
       def parent_name
+        return @parent_name if defined?(@parent_name)
         @parent_name = parent_names.find { |name| params["#{name}_id"] }
         if @parent_name.nil?
           # get any polymorphic parents through :as association inspection
@@ -266,7 +267,7 @@ module Resourceful
             end
           end
         else
-          @parent_class_name = params["#{@parent_name}_type"]
+          @parent_class_name = params["#{parent_name}_type"]
           @polymorphic_parent = !@parent_class_name.nil?
         end
         @parent_name
@@ -377,6 +378,9 @@ module Resourceful
       #
       # Note that the way this is determined is based on the singularity of the controller name,
       # so it may yield false positives for oddly-named controllers and need to be overridden.
+      # 
+      # TODO: maybe we can define plural? and singular? as class_methods, 
+      # so they are not visible to the world
       def singular?
         instance_variable_name.singularize == instance_variable_name
       end
@@ -387,6 +391,9 @@ module Resourceful
       # Note that the way this is determined is based on the singularity of the controller name,
       # so it may yield false negatives for oddly-named controllers.
       # If this is the case, the singular? method should be overridden.
+      # 
+      # TODO: maybe we can define plural? and singular? as class_methods, 
+      # so they are not visible to the world
       def plural?
         !singular?
       end

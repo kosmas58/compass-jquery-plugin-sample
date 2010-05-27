@@ -15,15 +15,9 @@ module MetaClass
   end
 end
 
-def should_be_called(name = nil, &block)
-  pstub = stub(name)
+def should_be_called(&block)
+  pstub = stub
   pstub.expects(:call).instance_eval(&(block || proc {}))
-  proc { |*args| pstub.call(*args) }
-end
-
-def should_never_be_called(name = nil)
-  pstub = stub(name)
-  pstub.expects(:call).never
   proc { |*args| pstub.call(*args) }
 end
 
@@ -181,6 +175,7 @@ module RailsMocks
     @kontroller.send(:define_method, :inspect) { "#<#{options[:name].camelize}Controller>" }
     @kontroller.send(:alias_method, :to_s, :inspect)
     @kontroller.send(:include, ControllerMethods)
+    @kontroller.send(:view_paths=, [File.join(File.dirname(__FILE__), 'views')])
 
     @kontroller
   end
@@ -268,21 +263,22 @@ module Spec::Example::ExampleGroupMethods
   def should_render_html(action)
     it "should render HTML by default for #{action_string(action)}" do
       action_method(action)[action, action_params(action)]
-      response.should be_success
+      response.body.should include("as HTML")
       response.content_type.should == 'text/html'
     end
   end
-
+  
   def should_render_js(action)
     it "should render JS for #{action_string(action)}" do
       action_method(action)[action, action_params(action, :format => 'js')]
+      response.body.should include("insert(\"#{action}")
       response.should be_success
       response.content_type.should == 'text/javascript'
     end
   end
 
   def shouldnt_render_xml(action)
-    it "should render XML for #{action_string(action)}" do
+    it "shouldn't render XML for #{action_string(action)}" do
       action_method(action)[action, action_params(action, :format => 'xml')]
       response.should_not be_success
       response.code.should == '406'
@@ -307,6 +303,16 @@ module Spec::Example
     include ActionController::TestProcess
     include ActionController::Assertions
     include RailsMocks
+    
+    # Need this helper, because we made current_objects private
+    def current_objects
+      controller.instance_eval("current_objects")
+    end
+
+    # Need this helper, because we made current_object private
+    def current_object
+      controller.instance_eval("current_object")
+    end
     
     ExampleGroupFactory.register(:integration, self)
   end

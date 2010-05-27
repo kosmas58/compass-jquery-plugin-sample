@@ -40,7 +40,21 @@
   });
 
 - form_for(@current_object, :url => jqical_calendar_events_url) do |f|
-  = f.error_messages
+
+  - if !flash[:error].blank?
+    .ui-widget
+      .ui-state-error.ui-corner-all{ :style => "padding: 0pt 0.7em;" }
+        %p
+          %span.ui-icon.ui-icon-alert{ :style => "float: left; margin-right: 0.3em" }
+          = flash[:errore]
+          
+  - if !flash[:notice].blank?
+    .ui-widget
+      .ui-state-highlight.ui-corner-all{ :style => "padding: 0pt 0.7em;" }
+        %p
+          %span.ui-icon.ui-icon-info{ :style => "float: left; margin-right: 0.3em" }
+          = flash[:notice]
+
   .formrow.clearfix
     %label.span-6{:for => :summary}
       = t('txt.jqical.event.summary')
@@ -83,4 +97,3 @@
       = t('txt.layout.colon')
     .span-17
       = f.text_area :description, :cols => 60
-  = f.submit "Save"

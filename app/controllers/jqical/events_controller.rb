@@ -4,7 +4,7 @@ class Jqical::EventsController < ApplicationController
   protect_from_forgery
   
   make_resourceful do
-    actions :index, :index_reload, :new, :create, :create_fails, :edit, :update, :delete, :destroy
+    actions :index, :index_reload, :new, :edit, :update, :delete, :destroy
     belongs_to :calendar
     
     response_for :index_reload do | format |
@@ -21,16 +21,9 @@ class Jqical::EventsController < ApplicationController
       end
     end
     
-    response_for :create do | format |
-      format.html
-      format.js do
-        if request.xhr?
-          render :nothing => true, :status => 200
-        else
-          redirect_to :action => :index
-        end        
-      end
-    end
+#    response_for :create do
+#      render(:partial => "form", :layout => false, :format => :js)
+#    end
      
     response_for :edit do | format |
       format.html
@@ -43,7 +36,8 @@ class Jqical::EventsController < ApplicationController
       format.html
       format.js do
         if request.xhr?
-          render :nothing => true, :status => 200
+          flash[:notice] = I18n.t('make_resourceful.update.success')
+          render(:partial => "form", :layout => false)
         else
           redirect_to :action => :index
         end        
@@ -53,6 +47,7 @@ class Jqical::EventsController < ApplicationController
     response_for :delete do | format |
       format.html
       format.js do
+        flash[:notice]  = "Do you really want to delete this event?"
         render(:partial => "form_delete", :layout => false)
       end
     end
@@ -61,13 +56,26 @@ class Jqical::EventsController < ApplicationController
       format.html
       format.js do 
         if request.xhr?
-          render :nothing => true, :status => 200
+          flash[:notice] = I18n.t('make_resourceful.destroy.success')
+          render(:partial => "form_delete", :layout => false)
         else
           redirect_to :action => :index
         end
       end
     end  
   end
+  
+  def create
+    @event = Event.new(params[:event])
+    @event.calendar_id = params[:calendar_id]
+    if @event.save
+      flash[:notice] = I18n.t('make_resourceful.create.success')
+      return render(:partial => "form", :layout => false)
+      red
+    else
+      return render(:partial => "form", :layout => false)
+    end
+  end 
   
   def months
 

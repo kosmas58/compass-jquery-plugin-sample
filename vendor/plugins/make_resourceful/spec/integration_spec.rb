@@ -1,6 +1,7 @@
 require File.dirname(__FILE__) + '/spec_helper'
 
-describe "ThingsController", "with all the resourceful actions", :type => :integration do
+describe "ThingsController", "with all the resourceful actions" do
+  
   before :each do
     mock_resourceful do
       actions :all
@@ -30,7 +31,7 @@ describe "ThingsController", "with all the resourceful actions", :type => :integ
   it "should return a list of objects for #current_objects after GET /things" do
     Thing.stubs(:find).returns(@objects)
     get :index
-    controller.current_objects.should == @objects
+    current_objects.should == @objects
   end
 
   it "should assign @things to a list of objects for GET /things" do
@@ -49,7 +50,7 @@ describe "ThingsController", "with all the resourceful actions", :type => :integ
   it "should return an object for #current_object after GET /things/12" do
     Thing.stubs(:find).returns(@object)
     get :show, :id => 12
-    controller.current_object.should == @object
+    current_object.should == @object
   end
 
   it "should assign @thing to an object for GET /things/12" do
@@ -68,7 +69,7 @@ describe "ThingsController", "with all the resourceful actions", :type => :integ
   it "should return an object for #current_object after GET /things/12/edit" do
     Thing.stubs(:find).returns(@object)
     get :edit, :id => 12
-    controller.current_object.should == @object
+    current_object.should == @object
   end
 
   it "should assign @thing to an object for GET /things/12/edit" do
@@ -92,7 +93,7 @@ describe "ThingsController", "with all the resourceful actions", :type => :integ
   it "should return the new object for #current_object after GET /things/new" do
     Thing.stubs(:new).returns(@object)
     get :new
-    controller.current_object.should == @object
+    current_object.should == @object
   end
 
   it "should assign @thing to the new object for GET /things/new" do
@@ -116,7 +117,7 @@ describe "ThingsController", "with all the resourceful actions", :type => :integ
   it "should return the new object for #current_object after POST /things" do
     Thing.stubs(:new).returns(@object)
     post :create
-    controller.current_object.should == @object
+    current_object.should == @object
   end
 
   it "should assign @thing to the new object for POST /things" do
@@ -162,7 +163,7 @@ describe "ThingsController", "with all the resourceful actions", :type => :integ
     Thing.stubs(:new).returns(@object)
     @object.stubs(:save).returns(false)
     post :create
-    response.should render_template('new')
+    response.body.should include('New object')
   end
 
   ## Specs for #update
@@ -175,7 +176,7 @@ describe "ThingsController", "with all the resourceful actions", :type => :integ
   it "should return an object for #current_object after PUT /things/12" do
     Thing.stubs(:find).returns(@object)
     put :update, :id => 12
-    controller.current_object.should == @object
+    current_object.should == @object
   end
 
   it "should assign @thing to an object for PUT /things/12" do
@@ -221,7 +222,7 @@ describe "ThingsController", "with all the resourceful actions", :type => :integ
     Thing.stubs(:find).returns(@object)
     @object.stubs(:update_attributes).returns(false)
     put :update, :id => 12
-    response.should render_template('edit')
+    response.body.should include('Editting object')
   end
 
   ## Specs for #destroy
@@ -234,7 +235,7 @@ describe "ThingsController", "with all the resourceful actions", :type => :integ
   it "should return an object for #current_object after DELETE /things/12" do
     Thing.stubs(:find).returns(@object)
     delete :destroy, :id => 12
-    controller.current_object.should == @object
+    current_object.should == @object
   end
 
   it "should assign @thing to an object for DELETE /things/12" do
@@ -306,19 +307,19 @@ describe "ThingsController", "with several parent objects", :type => :integratio
   it "should find all things on GET /things" do
     Thing.expects(:find).with(:all).returns(@objects)
     get :index
-    controller.current_objects.should == @objects
+    current_objects.should == @objects
   end
 
   it "should find the thing with id 12 regardless of scoping on GET /things/12" do
     Thing.expects(:find).with('12').returns(@object)
     get :show, :id => 12
-    controller.current_object.should == @object
+    current_object.should == @object
   end
 
   it "should create a new thing without a person on POST /things" do
     Thing.expects(:new).with('name' => "Lamp").returns(@object)
     post :create, :thing => {:name => "Lamp"}
-    controller.current_object.should == @object
+    current_object.should == @object
   end
 
   ## Person ids
@@ -328,7 +329,7 @@ describe "ThingsController", "with several parent objects", :type => :integratio
     @person.stubs(:things).returns(@fake_model)
     @fake_model.stubs(:find).with(:all).returns(@objects)
     get :index, :person_id => 4
-    controller.parent_object.should == @person
+    controller.instance_eval("parent_object").should == @person
     assigns(:person).should == @person
   end
 
@@ -337,7 +338,7 @@ describe "ThingsController", "with several parent objects", :type => :integratio
     @person.expects(:things).at_least_once.returns(@fake_model)
     @fake_model.expects(:find).with(:all).returns(@objects)
     get :index, :person_id => 4
-    controller.current_objects.should == @objects
+    current_objects.should == @objects
   end
 
   it "should find the thing with id 12 if it belongs to the person with id 4 on GET /person/4/things/12" do
@@ -345,7 +346,7 @@ describe "ThingsController", "with several parent objects", :type => :integratio
     @person.expects(:things).at_least_once.returns(@fake_model)
     @fake_model.expects(:find).with('12').returns(@object)
     get :show, :person_id => 4, :id => 12
-    controller.current_object.should == @object
+    current_object.should == @object
   end
 
   it "should create a new thing belonging to the person with id 4 on POST /person/4/things" do
@@ -353,7 +354,7 @@ describe "ThingsController", "with several parent objects", :type => :integratio
     @person.expects(:things).at_least_once.returns(@fake_model)
     @fake_model.expects(:build).with('name' => 'Lamp').returns(@object)
     post :create, :person_id => 4, :thing => {:name => "Lamp"}
-    controller.current_object.should == @object
+    current_object.should == @object
   end
 
   ## Category ids
@@ -363,7 +364,7 @@ describe "ThingsController", "with several parent objects", :type => :integratio
     @category.stubs(:things).returns(@fake_model)
     @fake_model.stubs(:find).with(:all).returns(@objects)
     get :index, :category_id => 4
-    controller.parent_object.should == @category
+    controller.instance_eval("parent_object").should == @category
     assigns(:category).should == @category
   end
 
@@ -372,7 +373,7 @@ describe "ThingsController", "with several parent objects", :type => :integratio
     @category.expects(:things).at_least_once.returns(@fake_model)
     @fake_model.expects(:find).with(:all).returns(@objects)
     get :index, :category_id => 4
-    controller.current_objects.should == @objects
+    current_objects.should == @objects
   end
 
   it "should find the thing with id 12 if it belongs to the category with id 4 on GET /category/4/things/12" do
@@ -380,7 +381,7 @@ describe "ThingsController", "with several parent objects", :type => :integratio
     @category.expects(:things).at_least_once.returns(@fake_model)
     @fake_model.expects(:find).with('12').returns(@object)
     get :show, :category_id => 4, :id => 12
-    controller.current_object.should == @object
+    current_object.should == @object
   end
 
   it "should create a new thing belonging to the category with id 4 on POST /category/4/things" do
@@ -388,6 +389,6 @@ describe "ThingsController", "with several parent objects", :type => :integratio
     @category.expects(:things).at_least_once.returns(@fake_model)
     @fake_model.expects(:build).with('name' => 'Lamp').returns(@object)
     post :create, :category_id => 4, :thing => {:name => "Lamp"}
-    controller.current_object.should == @object
+    current_object.should == @object
   end
 end

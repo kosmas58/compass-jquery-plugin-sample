@@ -596,3 +596,16 @@ en:
       hour: Hour
       day: Day
       year: Year
+  make_resourceful:
+    show:
+      fails: "No item found"
+    create:
+      success: "Create successful!"
+      fails: "There was a problem!"
+    update:
+      success: "Save successful!"
+      fails: "There was a problem saving!"
+    destroy:
+      success: "Record deleted!"
+      fails: "There was a problem deleting!"
+
