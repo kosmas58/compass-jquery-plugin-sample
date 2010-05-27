@@ -7,10 +7,6 @@ class Jqical::EventsController < ApplicationController
     actions :index, :index_reload, :new, :edit, :update, :delete, :destroy
     belongs_to :calendar
     
-    before :all do
-      flash[:notice] = flash[:error] = ""
-    end
-    
     response_for :index_reload do | format |
       format.html
       format.js do
@@ -21,6 +17,7 @@ class Jqical::EventsController < ApplicationController
     response_for :new do | format |
       format.html
       format.js do
+        flash[:notice] = ""
         render(:partial => "form", :layout => false)
       end
     end
@@ -28,6 +25,7 @@ class Jqical::EventsController < ApplicationController
     response_for :edit do | format |
       format.html
       format.js do
+        flash[:notice] = ""
         render(:partial => "form", :layout => false)
       end
     end
