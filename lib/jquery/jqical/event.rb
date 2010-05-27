@@ -66,28 +66,31 @@ module Jqical
       end
       @end_time = string_time
     end
-    
+
     private
-    def serialize_ical_event
-      if all_day
-        self.all_day = true
-        self.dtstart = DateTime.parse("#{start_date}T00:00")
-        self.dtend = DateTime.parse("#{end_date}T00:00")+1.day
-      else
-        self.all_day = false
-        self.dtstart = DateTime.parse("#{start_date}T#{start_time}")
-        self.dtend = DateTime.parse("#{end_date}T#{end_time}")
+      def serialize_ical_event
+        handle_all_day()
+        ical_event.dtend       = ends_at
+        ical_event.dtstart     = starts_at
+        ical_event.summary     = summary
+        ical_event.description = description
+        ical_event.location    = location
+        self.ical_string = ical_event.to_s
       end
       
-      ical_event.dtend       = ends_at
-      ical_event.dtstart     = starts_at
-      ical_event.summary     = summary
-      ical_event.description = description
-      ical_event.location    = location
-      #ical_event.all_day     = all_day
-      self.ical_string = ical_event.to_s
-    end
-    
+      def handle_all_day
+         ical_event.x_properties["X-MICROSOFT-CDO-ALLDAYEVENT"] = []
+         if all_day
+          self.all_day = true
+          self.dtstart = DateTime.parse("#{start_date}T00:00")
+          self.dtend = DateTime.parse("#{end_date}T00:00")+1.day 
+          ical_event.add_x_property("X-MICROSOFT-CDO-ALLDAYEVENT", "1")
+        else
+          self.all_day = false
+          self.dtstart = DateTime.parse("#{start_date}T#{start_time}")
+          self.dtend = DateTime.parse("#{end_date}T#{end_time}")
+        end
+      end    
   end
 end
 

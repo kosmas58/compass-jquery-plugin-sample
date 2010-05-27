@@ -7,6 +7,7 @@ class Calendar < ActiveRecord::Base
   def to_ics(reload = false)
     if !@ics || reload
       @ics = RiCal.Calendar
+      @ics.add_x_property("X-WR-CALNAME" , self.name)
       #@ics.sub!(/END:VCALENDAR/, '')
 
 #      icalendar = RiCal.Calendar do |c| 
