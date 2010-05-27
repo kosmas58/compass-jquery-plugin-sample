@@ -7,8 +7,6 @@ class ResourcefulScaffoldGenerator < Rails::Generator::NamedBase
                 :controller_class_name,
                 :controller_underscore_name,
                 :controller_plural_name,
-                # Functional names
-                :route_base_name
   alias_method  :controller_file_name,  :controller_underscore_name
   alias_method  :controller_table_name, :controller_plural_name
 
@@ -23,7 +21,6 @@ class ResourcefulScaffoldGenerator < Rails::Generator::NamedBase
     else
       @controller_class_name = "#{@controller_class_nesting}::#{@controller_class_name_without_nesting}"
     end
-     @route_base_name = @name.pluralize.underscore
   end
   
   def manifest
@@ -38,6 +35,8 @@ class ResourcefulScaffoldGenerator < Rails::Generator::NamedBase
       m.directory(File.join('app/helpers', controller_class_path))
       m.directory(File.join('app/views', controller_class_path, controller_file_name))
       m.directory(File.join('test/functional', controller_class_path))
+      m.directory(File.join('test/unit', class_path))
+      m.directory(File.join('test/fixtures', class_path))
    
       # Views
       for action in scaffold_views

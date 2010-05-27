@@ -18,12 +18,11 @@ while still keeping your controllers trim and readable.
 h1. Get it!
 Rails
 
-  $ ruby script/plugin install http://svn.hamptoncatlin.com/make_resourceful/trunk
-  $ mv vendor/plugins/trunk vendor/plugins/make_resourceful
+  $ ruby script/plugin install git://github.com/hcatlin/make_resourceful.git
 
-Subversion
+Git
 
-  $ svn co http://svn.hamptoncatlin.com/make_resourceful/trunk make_resourceful
+  $ git clone git://github.com/hcatlin/make_resourceful.git
 
 h1. Use it!
 
@@ -216,20 +215,25 @@ Haven't found all the information you need in the RDoc?
 Still a little confused about something?
 Don't despair, there are still more resources available!
 
-* Nathan Weizenbaum periodically makes blog posts about new features and versions of make_resourceful. They may be a little outdated, but they should still be useful and explanatory.
-  * On nesting and associations: here[http://nex-3.com/posts/55-nesting-and-make_resourceful].
-  * An overview of make_resourceful 0.2.0 and 0.2.2: here[http://localhost:3000/posts/54-make_resourceful-0-2-0].
-  * On Resourceful::Builder#publish[link:classes/Resourceful/Builder.html#M000061]and Resourceful::Serialize:
-    here[http://nex-3.com/posts/35-make_resourceful-the-basics-of-publish] and
-    here[http://nex-3.com/posts/36-make_resourceful-publish-extras].
-* There's an excellent, active Google Group (link[http://groups.google.com/group/make_resourceful]) where people will be happy to answer your questions.
+
 * Read the source code!
   It's very straightforward,
   and make_resourceful is built to encourage overriding methods
   and hacking the source.
+* Nathan Weizenbaum has some good blog posts about make_resourceful.
+  They may be a little outdated, but they should still be useful and explanatory.
+  * On nesting and associations: {here}[http://nex-3.com/posts/55-nesting-and-make_resourceful].
+  * An overview of make_resourceful 0.2.0 and 0.2.2: {here}[http://localhost:3000/posts/54-make_resourceful-0-2-0].
+  * On Resourceful::Builder#publish
+    and Resourceful::Serialize:
+    {here}[http://nex-3.com/posts/35-make_resourceful-the-basics-of-publish] and
+    {here}[http://nex-3.com/posts/36-make_resourceful-publish-extras].
+* There's an excellent, active Google Group http://groups.google.com/group/make_resourceful
+  where people will be happy to answer your questions.
 
 Copyright 2007 Hampton Catlin, Nathan Weizenbaum, and Jeff Hardy.
 
+Copyright 2007-2010 Hampton Catlin and Nathan Weizenbaum.
 Contributions by:
 
 * Russell Norris
@@ -241,4 +245,5 @@ Contributions by:
 * Alex Ross
 * Tom Stuart
 * Glenn Powell
+* Johannes Jörg Schmidt
 * Kosmas Schuetz
