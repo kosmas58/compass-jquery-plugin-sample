@@ -10,7 +10,7 @@ class Calendar < ActiveRecord::Base
         c.add_x_property("X-WR-CALNAME" , self.name)
         self.events.each do |event|
           c.event do |e|
-            #e = event.to_ics
+            event.to_ics(e)
           end
         end
       end
