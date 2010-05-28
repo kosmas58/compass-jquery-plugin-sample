@@ -8,7 +8,7 @@ class Calendar < ActiveRecord::Base
     if !@ics || reload
       ical = RiCal.Calendar do |c| 
         c.add_x_property("X-WR-CALNAME" , self.name)
-        c.add_x_property("X-WR-TIMEZONE" , "Europe/Berlin")
+        #c.add_x_property("X-WR-TIMEZONE" , "Europe/Berlin")
         self.events.each do |event|
           c.event do |e|
             event.to_ics(e)
