@@ -69,7 +69,26 @@ module Jqical
 
     private
       def serialize_ical_event
-        handle_all_day()
+        ical_event.x_properties["X-MICROSOFT-CDO-ALLDAYEVENT"] = []
+        if all_day
+          self.all_day = true          
+          ical_event.add_x_property("X-MICROSOFT-CDO-ALLDAYEVENT", "1")
+          self.dtstart = DateTime.parse("#{start_date}T00:00")
+          if starts_at <= ends_at-1.day
+            self.dtend = DateTime.parse("#{end_date}T00:00")
+          else            
+            self.dtend = self.dtstart+1.day
+          end
+        else
+          self.all_day = false
+          self.dtstart = DateTime.parse("#{start_date}T#{start_time}")
+          if starts_at <= ends_at
+            self.dtend = DateTime.parse("#{end_date}T#{end_time}")
+          else
+            self.dtend = self.dtstart+1.hour
+          end
+        end
+        
         ical_event.dtend       = ends_at
         ical_event.dtstart     = starts_at
         ical_event.summary     = summary
@@ -77,66 +96,5 @@ module Jqical
         ical_event.location    = location
         self.ical_string = ical_event.to_s
       end
-      
-      def handle_all_day
-         ical_event.x_properties["X-MICROSOFT-CDO-ALLDAYEVENT"] = []
-         if all_day
-          self.all_day = true
-          self.dtstart = DateTime.parse("#{start_date}T00:00")
-          self.dtend = DateTime.parse("#{end_date}T00:00")+1.day 
-          ical_event.add_x_property("X-MICROSOFT-CDO-ALLDAYEVENT", "1")
-        else
-          self.all_day = false
-          self.dtstart = DateTime.parse("#{start_date}T#{start_time}")
-          self.dtend = DateTime.parse("#{end_date}T#{end_time}")
-        end
-      end    
   end
 end
-
-#- class
-#- created
-#- description
-#- dtstart 
-#- geo
-#- last-modified
-#- location
-#- organizer
-#- priority
-#- dtstamp
-#- sequence
-#- status
-#- summary
-#- transp
-#- uid
-#- url
-#- recurrence-id
-#- dtend:
-#    conflicts_with: duration
-#- duration:
-#    conflicts_with: dtend
-#- attach:
-#    multi: *
-#- attendee:
-#    multi: *
-#- categories:
-#    multi: *
-#- comment:
-#    multi: *
-#- contact:
-#    multi: *
-#- exdate:
-#    multi: *
-#- rdate:
-#    multi: *
-#- exrule:
-#    multi: *
-#- request-status:
-#    multi: *
-#- related-to:
-#    multi: *
-#- resources:
-#    multi: *
-#- rrule:
-#    multi: *
-
