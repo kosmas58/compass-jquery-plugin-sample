@@ -1,0 +1,56 @@
+:css
+  #toolbar { padding: 0.3em; }
+
+:javascript
+  $(function() {
+    $("a", ".demo").button();
+  });
+
+= raw @grid
+
+:javascript
+  $(document).ready(function() {  
+    jQuery("#ps1").click( function() {
+      $("#invheaders_demo0903").jqGrid('setPostData',{q:1,param1:"p1"});
+      $("#invheaders_demo0903").trigger("reloadGrid");
+    });
+    
+    jQuery("#ps2").click( function() {
+      var pd =$("#invheaders_demo0903").jqGrid('getPostData');
+      var r ="";
+      $.each(pd,function(i){r += i+": "+pd[i]+",";})
+      $("#postdata").html(r).css("background-color","yellow");
+    });
+    
+    jQuery("#ps3").click( function() {
+      $("#invheaders_demo0903").jqGrid('appendPostData',{param2:"p2"});
+      $("#invheaders_demo0903").trigger("reloadGrid");
+      var pd =$("#invheaders_demo0903").jqGrid('getPostData');
+      var r ="";
+      $.each(pd,function(i){r += i+": "+pd[i]+",";})
+      $("#postdata").html(r).css("background-color","yellow");
+    });
+    
+    jQuery("#ps4").click( function() {
+      $("#invheaders_demo0903").jqGrid('setPostDataItem',"param2","I'w new value");
+      $("#invheaders_demo0903").trigger("reloadGrid");
+      var pd =$("#invheaders_demo0903").jqGrid('getPostData');
+      var r ="";
+      $.each(pd,function(i){r += i+": "+pd[i]+",";})
+      $("#postdata").html(r).css("background-color","yellow");
+    });
+    
+    jQuery("#ps5").click( function() {
+    	alert( "rows : "+$("#invheaders_demo0903").jqGrid('getPostDataItem',"rows"));
+    });
+    
+    jQuery("#ps6").click( function() {
+      $("#invheaders_demo0903").jqGrid('removePostDataItem',"param1");
+      $("#invheaders_demo0903").trigger("reloadGrid");
+      var pd =$("#invheaders_demo0903").jqGrid('getPostData');
+      var r ="";
+      $.each(pd,function(i){r += i+": "+pd[i]+",";})
+      $("#postdata").html(r).css("background-color","yellow");
+    });    
+  });
+  

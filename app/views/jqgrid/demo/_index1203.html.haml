@@ -1,0 +1,19 @@
+-@title = "#{t('txt.jqgrid.name')} #{t('txt.jqgrid.demo.name')} - #{t('txt.jqgrid.demo.v34')} - #{t('txt.jqgrid.demo.import')}"
+.demo
+  %h3
+    =@title
+  %center
+    %table#invheaders_demo1203.scroll{ :cellspacing => "0", :cellpadding => "0" }
+    #invheaders_demo1203_pager.scroll{ :style => "text-align:center;" }
+/ End demo
+.demo-description
+  %p
+    This example demonstrates
+    %code
+      setCell
+    and
+    %code
+      setLabel
+    methods. We can change the contents and style of the particular header and cell.
+    Again with this we use a loadui option to disable interaction when the data is loaded.
+/ End demo-description
