@@ -74,17 +74,28 @@ class Jqical::EventsController < ApplicationController
     else
       return render(:partial => "form")
     end
-  end 
+  end
   
-  def months
-
+  def full_calendar
+    respond_to do |format|
+      format.html
+      format.json do
+        cal = Calendar.find(:params[:calendar_id])
+        events = cal.bounded_events_by_date(params[:start], params[:end])
+        
+#           i.occurrences(:starting => start_date, :before => end_date).collect { |j| 
+#        { :summary     => j.summary, 
+#          :description => j.description, 
+#          :location    => j.location, 
+#          :start       => j.dtstart, 
+#          :end         => j.dtend } 
+#      } 
+#    } 
+#    events.reject { |i| i.empty? }.flatten
+#        
+        willi = "wutz"
+      end
+    end
   end
-
-  def weeks
-    @example = (params[:example] || "01")
-    @events = Event.to_calendar_json()
-
-    @event = '[{"id":1, "start":"2009-09-10T09:15:00.000+10:00", "end":"2009-09-10T11:15:00.000+10:00", "title":"Breakfast with Willy"},
-                {"id":2, "start":"2009-09-10T13:15:00.000+10:00", "end":"2009-09-10T14:15:00.000+10:00", "title":"Lunch with Mike"}]'
-  end
+  
 end

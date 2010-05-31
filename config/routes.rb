@@ -19,11 +19,9 @@ ActionController::Routing::Routes.draw do |map|
   map.namespace :jqical do |jqical|
     jqical.resources :calendars do |calendar|
       calendar.resources :events,
-                         :collection => { :index_reload => :get,
-                                          :weeks        => :get, 
-                                          :months       => :get },
-                         :member =>     { :delete       => :get } 
-      calendar.resources :fullcalendar
+                         :collection => { :index_reload =>  :get,
+                                          :full_calendar => :get },
+                         :member =>     { :delete       => :get  } 
     end
   end                                     
   
