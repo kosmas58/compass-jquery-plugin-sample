@@ -5,15 +5,19 @@
   %center
     %table#invheaders_demo1001.scroll{ :cellspacing => "0", :cellpadding => "0" }
     #invheaders_demo1001_pager.scroll{ :style => "text-align:center;" }
+   
+    #toolbar.ui-widget-header.ui-corner-all
+      %a#shc{ :href => "#" }
+        Change the content of header Tax
+      %a#scc{ :href => "#" }
+        Change the tax of row 12
+      %a#cdat{ :href => "#" }
+        Clear the currently loaded data
 / End demo
 .demo-description
   %p
-    This example demonstrates
-    %code
-      setCell
-    and
-    %code
-      setLabel
-    methods. We can change the contents and style of the particular header and cell.
-    Again with this we use a loadui option to disable interaction when the data is loaded.
+    This example demonstartes a setCell and setLabel methods. We can change the contents.
+  %p
+    and style of the particular header and cell. Again with this we use a loadui option
+    to disable interaction when the data is loaded
 / End demo-description

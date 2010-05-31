@@ -1,9 +1,17 @@
-= raw @grid
+:javascript
+  function afterInsertRow(rowid, aData){
+    switch (aData.name) {
+      case 'Client 1':
+        jQuery("#invheaders_demo1003").jqGrid('setCell',rowid,'total','',{color:'green'});
+        break;
+      case 'Client 2':
+        jQuery("#invheaders_demo1003").jqGrid('setCell',rowid,'total','',{color:'red'});
+        break;
+      case 'Client 3':
+        jQuery("#invheaders_demo1003").jqGrid('setCell',rowid,'total','',{color:'blue'});
+        break;
+    }
+  };
 
-:javascript  
-  $(document).ready(function() {  
-    jQuery("#t_invheaders_demo0901").append("<input type='button' value='Click Me' style='height:20px;font-size:-3'/>");
-    jQuery("input","#t_invheaders_demo0901").click(function(){
-      alert("Hi! I'm added button at this toolbar");
-    });
-  }); 
+= raw @grid
+  

@@ -1,9 +1,23 @@
+:css
+  #toolbar { padding: 0.3em; }
+
+:javascript
+  $(function() {
+    $("a", ".demo").button();
+  });
+  
 = raw @grid
 
 :javascript  
   $(document).ready(function() {  
-    jQuery("#t_invheaders_demo0901").append("<input type='button' value='Click Me' style='height:20px;font-size:-3'/>");
-    jQuery("input","#t_invheaders_demo0901").click(function(){
-      alert("Hi! I'm added button at this toolbar");
+    jQuery("#shc").click( function() {
+      $("#invheaders_demo1001").jqGrid('setLabel',"tax","Tax Amt",{'font-weight': 'bold','font-style': 'italic'});
+    });    
+    jQuery("#scc").click( function() {
+      $("#invheaders_demo1001").jqGrid('setCell',"12","tax","",{'font-weight': 'bold',color: 'red','text-align':'center'});
     });
-  }); 
+    jQuery("#cdat").click( function() {
+     $("#invheaders_demo1001").jqGrid('clearGridData');
+    }); 
+  });  
+  
