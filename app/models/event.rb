@@ -17,7 +17,7 @@ class Event < ActiveRecord::Base
     end
     event.dtstart  = ical_event.dtstart
     event.dtend    = ical_event.dtend
-    event.location = ical_event.location  
+    event.location = ical_event.location
     
 #    if !self.frequency.to_s.empty? && CONFIG[:calendar]["frequency"].collect { |i| i[1] }.include?( self.frequency )
 #      recurrence = []

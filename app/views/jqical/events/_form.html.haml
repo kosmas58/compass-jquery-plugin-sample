@@ -88,7 +88,7 @@
       = f.text_field :start_time, :size => 11
     .span-6
       = f.check_box :all_day
-      %label{:for => :allday}
+      %label
         = t('txt.jqical.event.all_day')
   %br
   .formrow.clearfix
@@ -105,4 +105,4 @@
       = t('txt.jqical.event.description')
       = t('txt.layout.colon')
     .span-17
-      = f.text_area :description, :cols => 60
+      = f.text_area :description

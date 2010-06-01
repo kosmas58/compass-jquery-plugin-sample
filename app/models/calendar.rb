@@ -2,7 +2,9 @@ class Calendar < ActiveRecord::Base
   require 'ri_cal'
   
   has_many :events
-  attr_accessor :ics 
+  attr_accessor :ics
+  
+  include Jqical::Calendar
   
   def to_ics(reload = false)
     if !@ics || reload
@@ -20,6 +22,29 @@ class Calendar < ActiveRecord::Base
     @ics
   end
     
+  def full_events(start_date, end_date)
+    events = self.to_ics.events.collect { |i|
+      i.occurrences(:starting => start_date, :before => end_date).collect { |j| 
+        { :id          => 1,
+          :title       => j.summary, 
+          :start       => j.dtstart, 
+          :end         => j.dtend,
+          :allDay      => j.x_properties["X-MICROSOFT-CDO-ALLDAYEVENT"][0] == "1" ? true : false }           
+      } 
+    } 
+    events.reject { |i| i.empty? }.flatten
+  end
+  
+  def full_events_by_date(start_date,end_date)
+    events = self.full_events(start_date, end_date) 
+    rtn_array = [] 
+    events.each do |e|
+      rtn_array << [] << e
+    end
+ 
+    rtn_array 
+  end
+  
   def bounded_events(start_date, end_date)
     events = self.to_ics.events.collect { |i|
       i.occurrences(:starting => start_date, :before => end_date).collect { |j| 
@@ -46,4 +71,5 @@ class Calendar < ActiveRecord::Base
     }
     rtn_hash 
   end
+  
 end

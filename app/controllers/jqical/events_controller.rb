@@ -1,19 +1,19 @@
 class Jqical::EventsController < ApplicationController
   layout 'jqical'
-  
+
   protect_from_forgery
-  
+
   make_resourceful do
     actions :index, :index_reload, :new, :edit, :update, :delete, :destroy
     belongs_to :calendar
-    
+
     response_for :index_reload do | format |
       format.html
       format.js do
         render(:partial => "index_reload", :layout => false)
       end
     end
-   
+
     response_for :new do | format |
       format.html
       format.js do
@@ -21,7 +21,7 @@ class Jqical::EventsController < ApplicationController
         render(:partial => "form", :layout => false)
       end
     end
-    
+
     response_for :edit do | format |
       format.html
       format.js do
@@ -29,7 +29,7 @@ class Jqical::EventsController < ApplicationController
         render(:partial => "form", :layout => false)
       end
     end
-    
+
     response_for :update do | format |
       format.html
       format.js do
@@ -38,10 +38,10 @@ class Jqical::EventsController < ApplicationController
           render(:partial => "form", :layout => false)
         else
           redirect_to :action => :index
-        end        
+        end
       end
-    end  
-     
+    end
+
     response_for :delete do | format |
       format.html
       format.js do
@@ -49,53 +49,44 @@ class Jqical::EventsController < ApplicationController
         render(:partial => "form_delete", :layout => false)
       end
     end
-    
+
     response_for :destroy do | format |
       format.html
-      format.js do 
+      format.js do
         if request.xhr?
-          flash[:notice] = I18n.t('make_resourceful.destroy.success')          
+          flash[:notice] = I18n.t('make_resourceful.destroy.success')
           redirect_to :action => :index
           #render(:partial => "form_delete", :layout => false)
         else
           redirect_to :action => :index
         end
       end
-    end  
+    end
   end
-  
+
   def create
     @event = ActiveRecord::Base::Event.new(params[:event])
     @event.calendar_id = params[:calendar_id]
     if @event.save
       flash[:notice] = I18n.t('make_resourceful.create.success')
-      return render(:partial => "form")      
+      return render(:partial => "form")
       #redirect_to jqical_calendar_events_url
     else
       return render(:partial => "form")
     end
   end
-  
+
   def full_calendar
     respond_to do |format|
       format.html
-      format.json do
-        cal = Calendar.find(:params[:calendar_id])
-        events = cal.bounded_events_by_date(params[:start], params[:end])
-        
-#           i.occurrences(:starting => start_date, :before => end_date).collect { |j| 
-#        { :summary     => j.summary, 
-#          :description => j.description, 
-#          :location    => j.location, 
-#          :start       => j.dtstart, 
-#          :end         => j.dtend } 
-#      } 
-#    } 
-#    events.reject { |i| i.empty? }.flatten
-#        
-        willi = "wutz"
+      format.json do        
+        cal = ActiveRecord::Base::Calendar.find(params[:calendar_id])
+        events = cal.full_events_by_date(((Time.at(params[:start].to_i)).to_date).to_datetime, 
+                                         ((Time.at(params[:end].to_i)).to_date).to_datetime)
+      
+        render :json => events
       end
     end
   end
-  
+
 end
