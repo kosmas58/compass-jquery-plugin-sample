@@ -9,15 +9,18 @@ class Event < ActiveRecord::Base
   
   before_save :serialize_ical_event
   
-  def to_ics(event)
+  def to_ics(event, ical=true)
     event.summary     = ical_event.summary
     event.description = ical_event.description
+    event.location    = ical_event.location
+    event.dtstart     = ical_event.dtstart
+    event.dtend       = ical_event.dtend
     if ical_event.x_properties["X-MICROSOFT-CDO-ALLDAYEVENT"][0]
       event.add_x_property("X-MICROSOFT-CDO-ALLDAYEVENT", "1")
-    end
-    event.dtstart  = ical_event.dtstart
-    event.dtend    = ical_event.dtend
-    event.location = ical_event.location
+      if ical
+        event.dtend = ical_event.dtend + 1.minute
+      end
+    end   
     
 #    if !self.frequency.to_s.empty? && CONFIG[:calendar]["frequency"].collect { |i| i[1] }.include?( self.frequency )
 #      recurrence = []
