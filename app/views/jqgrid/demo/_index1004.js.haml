@@ -1,16 +1,6 @@
 :javascript  
-  function afterInsertRow(rowid, aData){
-    switch (aData.name) {
-      case "1":
-        jQuery("#invheaders_demo1003").jqGrid('setCell',rowid,"total","",{color:'green'});
-        break;
-      case "2":
-        jQuery("#invheaders_demo1003").jqGrid('setCell',rowid,"total","",{color:'red'});
-        break;
-      case "3":
-        jQuery("#invheaders_demo1003").jqGrid('setCell',rowid,"total","",{color:'blue'});
-        break;
-    }
+  function loadError(xhr,st,err) {
+    $("#rsperror").html("Type: "+st+"; Response: "+ xhr.status + " "+xhr.statusText);
   };
   
 = raw @grid
