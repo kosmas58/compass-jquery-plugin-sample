@@ -1,9 +1,16 @@
-= raw @grid
-
 :javascript  
-  $(document).ready(function() {  
-    jQuery("#t_invheaders_demo0901").append("<input type='button' value='Click Me' style='height:20px;font-size:-3'/>");
-    jQuery("input","#t_invheaders_demo0901").click(function(){
-      alert("Hi! I'm added button at this toolbar");
-    });
-  }); 
+  function afterInsertRow(rowid, aData){
+    switch (aData.name) {
+      case "1":
+        jQuery("#invheaders_demo1003").jqGrid('setCell',rowid,"total","",{color:'green'});
+        break;
+      case "2":
+        jQuery("#invheaders_demo1003").jqGrid('setCell',rowid,"total","",{color:'red'});
+        break;
+      case "3":
+        jQuery("#invheaders_demo1003").jqGrid('setCell',rowid,"total","",{color:'blue'});
+        break;
+    }
+  };
+  
+= raw @grid

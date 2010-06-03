@@ -1,24 +1,12 @@
--@title = "#{t('txt.jqgrid.name')} #{t('txt.jqgrid.demo.name')} - #{t('txt.jqgrid.demo.v31')} - #{t('txt.jqgrid.demo.new_methods')}"
+-@title = "#{t('txt.jqgrid.name')} #{t('txt.jqgrid.demo.name')} - #{t('txt.jqgrid.demo.v31')} - #{t('txt.jqgrid.demo.userdata')}"
 .demo
   %h3
     =@title
   %center
     %table#invheaders_demo0902.scroll{ :cellspacing => "0", :cellpadding => "0" }
     #invheaders_demo0902_pager.scroll{ :style => "text-align:center;" }
-
-    #toolbar.ui-widget-header.ui-corner-all
-      %a#sm1{ :href => "#" }
-        Get number of record
-      %a#sm2{ :href => "#" }
-        Set a onSelectRow Method
-      %a#sm3{ :href => "#" }
-        Reset selected Rows
-  %br
-  %b
-    Response:
-  %span#resp
 / End demo 
 .demo-description
   %p    
-    This example demonstrates new methods. Try to click on pager buttons
+    This example shows how we can add toolbars at top or bottom of the grid.
 / End demo-description

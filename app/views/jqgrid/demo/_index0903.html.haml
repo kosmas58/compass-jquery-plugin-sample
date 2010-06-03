@@ -1,31 +1,25 @@
--@title = "#{t('txt.jqgrid.name')} #{t('txt.jqgrid.demo.name')} - #{t('txt.jqgrid.demo.row')} - #{t('txt.jqgrid.demo.post_data')}"
+-@title = "#{t('txt.jqgrid.name')} #{t('txt.jqgrid.demo.name')} - #{t('txt.jqgrid.demo.v31')} - #{t('txt.jqgrid.demo.new_methods')}"
 .demo
   %h3
     =@title
   %center
     %table#invheaders_demo0903.scroll{ :cellspacing => "0", :cellpadding => "0" }
     #invheaders_demo0903_pager.scroll{ :style => "text-align:center;" }
+
     #toolbar.ui-widget-header.ui-corner-all
-      %a#ps1{ :href => "#" }
-        Set Post Data
-      %a#ps2{ :href => "#" }
-        Get Post Data
-      %a#ps3{ :href => "#" }
-        Append Post Data
-      %a#ps4{ :href => "#" }
-        Set Post Data Item
-      %a#ps5{ :href => "#" }
-        Get Post Data Item
-      %a#ps6{ :href => "#" }
-        Remove Post Data Item
+      %a#sm1{ :href => "#" }
+        Get number of record
+      %a#sm2{ :href => "#" }
+        Set a onSelectRow Method
+      %a#sm3{ :href => "#" }
+        Reset selected Rows
+      << Select some rows and then click me 
   %br
-    %b
-      Request:
-    %span#postdata
+  %b
+    Response:
+  %span#resp
 / End demo 
 .demo-description
-  %p
-    This example demonstrates new methods for posing data using postData array (thanks to Paul Tiseo).
-  %p
-    If you have FireBug Installed you can see what data is posted.
+  %p    
+    This example demonstrates new methods. Try to click on pager buttons
 / End demo-description

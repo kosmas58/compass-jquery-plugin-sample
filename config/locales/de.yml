@@ -254,7 +254,8 @@ de:
         basic: Einfaches Beispiel
         after_load: Callback nach dem Laden
         master: Haupt- und Detailsicht
-        toolbar: Symbolleisten und Benutzerdaten
+        toolbar: Symbolleisten
+        userdata: Benutzerdaten
         tree: Baumgitter
         set: Set-Methoden
         xml_map: XML-Mapping

@@ -396,7 +396,8 @@ class Invheader < ActiveRecord::Base
     :select_rows    => "javascript: handleDemo0302",
     :search_button  => true,  
     :refresh_button => true,
-    :pager          => true
+    :pager          => true,
+    :collapsible    => true
     
   gridify :demo0303,
     :title          => I18n.t('txt.jqgrid.demo.subgrid'),
@@ -1497,7 +1498,7 @@ class Invheader < ActiveRecord::Base
     :pager          => true,
     :jqgrid_options => { :toolbar => [true,"top"] }
   
-  gridify :demo0901b,
+  gridify :demo0902,
     :title          => "User data example",
     :url            => "/jqgrid/demo",
     :data_type      => :json,
@@ -1548,7 +1549,7 @@ class Invheader < ActiveRecord::Base
     :jqgrid_options => { :toolbar => [true, "bottom"], 
                          :loadComplete => "javascript: after_load" }
     
-  gridify :demo0902,
+  gridify :demo0903,
     :title          => I18n.t('txt.jqgrid.demo.new_methods'),
     :url            => "/jqgrid/demo",
     :data_type      => :json,
@@ -1600,7 +1601,7 @@ class Invheader < ActiveRecord::Base
     :refresh_button => true,
     :pager          => true
     
-  gridify :demo0903,
+  gridify :demo0904,
     :title          => I18n.t('txt.jqgrid.demo.post_data'),
     :url            => "/jqgrid/demo",
     :data_type      => :json,
@@ -1652,7 +1653,7 @@ class Invheader < ActiveRecord::Base
     :refresh_button => true,
     :pager          => true
                          
-  gridify :demo0904,
+  gridify :demo0905,
     :title          => I18n.t('txt.jqgrid.demo.cparams'),
     :url            => "/jqgrid/demo",
     :data_type      => :json,
@@ -1855,8 +1856,8 @@ class Invheader < ActiveRecord::Base
     :select_rows    => true,
     :search_button  => true,  
     :refresh_button => true,
-    :pager          => true#,
-    #:jqgrid_options => { "afterInsertRow" => "javascript: afterInsertRow" }
+    :pager          => true,
+    :jqgrid_options => { "afterInsertRow" => "javascript: afterInsertRow" }
     
   gridify :demo1401,
     :title          => I18n.t('txt.jqgrid.demo.api'),

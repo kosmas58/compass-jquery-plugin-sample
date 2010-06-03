@@ -9,48 +9,19 @@
 = raw @grid
 
 :javascript
-  $(document).ready(function() {  
-    jQuery("#ps1").click( function() {
-      $("#invheaders_demo0903").jqGrid('setPostData',{q:1,param1:"p1"});
-      $("#invheaders_demo0903").trigger("reloadGrid");
+  $(document).ready(function() {
+    jQuery("#sm1").click( function(){
+      alert($("#invheaders_demo0903").jqGrid('getGridParam',"records"));
     });
-    
-    jQuery("#ps2").click( function() {
-      var pd =$("#invheaders_demo0903").jqGrid('getPostData');
-      var r ="";
-      $.each(pd,function(i){r += i+": "+pd[i]+",";})
-      $("#postdata").html(r).css("background-color","yellow");
+    jQuery("#sm2").click( function(){
+      $("#invheaders_demo0903").jqGrid('setGridParam',{
+        onSelectRow : function(id) {
+          $("#resp").html("I'm row number: "+id +" and setted dynamically").css("color","red");
+        }
+      });
+      alert("Try to select row");
     });
-    
-    jQuery("#ps3").click( function() {
-      $("#invheaders_demo0903").jqGrid('appendPostData',{param2:"p2"});
-      $("#invheaders_demo0903").trigger("reloadGrid");
-      var pd =$("#invheaders_demo0903").jqGrid('getPostData');
-      var r ="";
-      $.each(pd,function(i){r += i+": "+pd[i]+",";})
-      $("#postdata").html(r).css("background-color","yellow");
+    jQuery("#sm3").click( function(){
+      $("#invheaders_demo0903").jqGrid('resetSelection');
     });
-    
-    jQuery("#ps4").click( function() {
-      $("#invheaders_demo0903").jqGrid('setPostDataItem',"param2","I'w new value");
-      $("#invheaders_demo0903").trigger("reloadGrid");
-      var pd =$("#invheaders_demo0903").jqGrid('getPostData');
-      var r ="";
-      $.each(pd,function(i){r += i+": "+pd[i]+",";})
-      $("#postdata").html(r).css("background-color","yellow");
-    });
-    
-    jQuery("#ps5").click( function() {
-    	alert( "rows : "+$("#invheaders_demo0903").jqGrid('getPostDataItem',"rows"));
-    });
-    
-    jQuery("#ps6").click( function() {
-      $("#invheaders_demo0903").jqGrid('removePostDataItem',"param1");
-      $("#invheaders_demo0903").trigger("reloadGrid");
-      var pd =$("#invheaders_demo0903").jqGrid('getPostData');
-      var r ="";
-      $.each(pd,function(i){r += i+": "+pd[i]+",";})
-      $("#postdata").html(r).css("background-color","yellow");
-    });    
   });
-  

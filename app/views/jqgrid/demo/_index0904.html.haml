@@ -1,4 +1,4 @@
--@title = "#{t('txt.jqgrid.name')} #{t('txt.jqgrid.demo.name')} - #{t('txt.jqgrid.demo.row')} - #{t('txt.jqgrid.demo.cparams')}"
+-@title = "#{t('txt.jqgrid.name')} #{t('txt.jqgrid.demo.name')} - #{t('txt.jqgrid.demo.row')} - #{t('txt.jqgrid.demo.post_data')}"
 .demo
   %h3
     =@title
@@ -6,14 +6,26 @@
     %table#invheaders_demo0904.scroll{ :cellspacing => "0", :cellpadding => "0" }
     #invheaders_demo0904_pager.scroll{ :style => "text-align:center;" }
     #toolbar.ui-widget-header.ui-corner-all
-      %a#pp1{ :href => "#" }
-        Set Common Params
+      %a#ps1{ :href => "#" }
+        Set Post Data
+      %a#ps2{ :href => "#" }
+        Get Post Data
+      %a#ps3{ :href => "#" }
+        Append Post Data
+      %a#ps4{ :href => "#" }
+        Set Post Data Item
+      %a#ps5{ :href => "#" }
+        Get Post Data Item
+      %a#ps6{ :href => "#" }
+        Remove Post Data Item
+  %br
+    %b
+      Request:
+    %span#postdata
 / End demo 
 .demo-description
-  %p 
-    This example demonstartes setting of common grid parameters.
   %p
-    After setting this parameters a Rows and Loading messages will be changed.
+    This example demonstrates new methods for posing data using postData array (thanks to Paul Tiseo).
   %p
-    Reopen the grid to view this.Note that all parameters can be changed.
+    If you have FireBug Installed you can see what data is posted.
 / End demo-description

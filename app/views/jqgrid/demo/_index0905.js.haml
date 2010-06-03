@@ -1,0 +1,17 @@
+:css
+  #toolbar { padding: 0.3em; }
+
+:javascript
+  $(function() {
+    $("a", ".demo").button();
+  });
+  
+= raw @grid
+
+:javascript  
+  $(document).ready(function() {  
+    jQuery("#pp1").click( function() {
+    	$.extend($.jgrid.defaults,{recordtext: "{0} - {1} of {2} Record(s)",loadtext: "Processing"});
+    	alert("New parameters are set - reopen the grid");    }); 
+  });  
+  

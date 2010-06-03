@@ -1,27 +1,7 @@
-:css
-  #toolbar { padding: 0.3em; }
-
-:javascript
-  $(function() {
-    $("a", ".demo").button();
-  });
+:javascript  
+  function after_load(){
+    var udata = $("#invheaders_demo0901b").jqGrid('getUserData');
+    $("#t_invheaders_demo0902").css("text-align","right").html("Totals Amount:"+udata.tamount+" Tax: "+udata.ttax+" Total: "+udata.ttotal+ "&nbsp;&nbsp;&nbsp;");
+  };   
 
 = raw @grid
-
-:javascript
-  $(document).ready(function() {
-    jQuery("#sm1").click( function(){
-      alert($("#invheaders_demo0902").jqGrid('getGridParam',"records"));
-    });
-    jQuery("#sm2").click( function(){
-      $("#invheaders_demo0902").jqGrid('setGridParam',{
-        onSelectRow : function(id) {
-          $("#resp").html("I'm row number: "+id +" and setted dynamically").css("color","red");
-        }
-      });
-      alert("Try to select row");
-    });
-    jQuery("#sm3").click( function(){
-      $("#invheaders_demo0902").jqGrid('resetSelection');
-    });
-  });

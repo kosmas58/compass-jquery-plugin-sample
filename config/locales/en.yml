@@ -266,14 +266,15 @@ en:
         delete_row: Delete row
         ajax: Ajax Improvements
         json_subgrid: Subgrid with JSON
-        initial: Initial hidden grid
+        initial: Initially hidden grid
         v32: New in version 3.2
         basic: Basic Example
         after_load: After Load Callback
         tscroll: True scrolling Rows
         srows: Sortable Rows
         master: Master Detail
-        toolbar: Toolbars and userdata
+        toolbar: Toolbars
+        userdata: Userdata
         tree: Tree Grid
         xml_map: XML Mapping
         set: Set Methods
