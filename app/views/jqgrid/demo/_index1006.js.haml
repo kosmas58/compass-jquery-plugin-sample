@@ -1,9 +1,24 @@
 = raw @grid
 
 :javascript  
-  $(document).ready(function() {  
-    jQuery("#t_invheaders_demo0901").append("<input type='button' value='Click Me' style='height:20px;font-size:-3'/>");
-    jQuery("input","#t_invheaders_demo0901").click(function(){
-      alert("Hi! I'm added button at this toolbar");
+  $(document).ready(function() {
+    jQuery("#invheaders_demo1006").jqGrid('navButtonAdd','#invheaders_demo1006_pager',{caption:"Edit",
+      onClickButton:function(){
+    		var gsr = jQuery("#invheaders_demo1006").jqGrid('getGridParam','selrow');
+    		if(gsr){
+    			jQuery("#invheaders_demo1006").jqGrid('GridToForm',gsr,"#order");
+    		} else {
+    			alert("Please select Row")
+    		}							
+    	} 
+    });
+    jQuery("#savedata").click(function(){
+    	var invid = jQuery("#invid").val();
+    	if(invid) {
+    		jQuery("#invheaders_demo1006").jqGrid('FormToGrid',invid,"#order");
+    	  jQuery("#invheaders_demo1006").jqGrid('editRow',invid);
+    		jQuery("#invheaders_demo1006").jqGrid('saveRow',invid);
+    	}
     });
   }); 
+    
