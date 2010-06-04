@@ -5,15 +5,22 @@
   %center
     %table#invheaders_demo1101.scroll{ :cellspacing => "0", :cellpadding => "0" }
     #invheaders_demo1101_pager.scroll{ :style => "text-align:center;" }
+    
+    #toolbar.ui-widget-header.ui-corner-all
+      %input#setwidth{:type => "text"}
+      %input#snw{:type => "button", :value => "Set New Width"}
+      %input#setheight{:type => "text"}
+      %input#snh{:type => "button", :value => "Set New Height"}
 / End demo
 .demo-description
   %p
-    This example demonstrates
-    %code
-      setCell
-    and
-    %code
-      setLabel
-    methods. We can change the contents and style of the particular header and cell.
-    Again with this we use a loadui option to disable interaction when the data is loaded.
+    This example shows the new feature
+    %i
+      forcefit.
+    Try to resize a column. We can see that the adjacent column (to the right) resizes so
+    that the overall grid width is maintained. Again with this we can set the width and height
+    dynamically.
+  %p
+    Another feature is that we can apply a sort to a certain column instead of clicking on another one.
+    Click on date colummn. The sort is not by date, but by client name.
 / End demo-description

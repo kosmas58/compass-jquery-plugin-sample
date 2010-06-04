@@ -8,12 +8,11 @@
 / End demo
 .demo-description
   %p
-    This example demonstrates
+    This example shows the new Cell editing feature of jqGrid. Select some cell. The fields date, amout and
+    tax are editable. When selecting a cell you can navigate with left, right, up and down keys. The Enter key
+    saves the content. The ESC key cancels without saving the content. Try to change the values of amount or
+    tax and see that the total changes.	To enable cell editing you should just set
     %code
-      setCell
-    and
-    %code
-      setLabel
-    methods. We can change the contents and style of the particular header and cell.
-    Again with this we use a loadui option to disable interaction when the data is loaded.
+      cellEdit: true
+    and ajust the colModel in an appropriate way.
 / End demo-description
