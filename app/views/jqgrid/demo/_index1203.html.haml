@@ -5,15 +5,15 @@
   %center
     %table#invheaders_demo1203.scroll{ :cellspacing => "0", :cellpadding => "0" }
     #invheaders_demo1203_pager.scroll{ :style => "text-align:center;" }
+    
+    #toolbar.ui-widget-header.ui-corner-all
+      %a#cnvxml{ :href => "#" }
+        Convert
+      %a{ :href => "testxml.xml" }
+        The XML example file look like this
 / End demo
 .demo-description
   %p
-    This example demonstrates
-    %code
-      setCell
-    and
-    %code
-      setLabel
-    methods. We can change the contents and style of the particular header and cell.
-    Again with this we use a loadui option to disable interaction when the data is loaded.
+    This example shows how we can load a XML Grid Configuration from an external xml file.
+    A JSON import is also available. Press the Convert button to perform the conversion.
 / End demo-description
