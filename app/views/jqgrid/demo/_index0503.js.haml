@@ -2,8 +2,8 @@
   
   function handle_events(id){
     if(id && id!==lastsel_invheaders_demo0503){
-      jQuery('#invheaders_demo0503').jqGrid('restoreRow',lastsel_invheaders_demo0503);
-      jQuery('#invheaders_demo0503').jqGrid('editRow',id,true);
+      $('#invheaders_demo0503').jqGrid('restoreRow',lastsel_invheaders_demo0503);
+      $('#invheaders_demo0503').jqGrid('editRow',id,true);
       lastsel_invheaders_demo0503=id;
     }
   }; 

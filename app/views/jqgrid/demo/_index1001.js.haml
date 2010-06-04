@@ -10,13 +10,13 @@
 
 :javascript  
   $(document).ready(function() {  
-    jQuery("#shc").click( function() {
+    $("#shc").click( function() {
       $("#invheaders_demo1001").jqGrid('setLabel',"tax","Tax Amt",{'font-weight': 'bold','font-style': 'italic'});
     });    
-    jQuery("#scc").click( function() {
+    $("#scc").click( function() {
       $("#invheaders_demo1001").jqGrid('setCell',"12","tax","",{'font-weight': 'bold',color: 'red','text-align':'center'});
     });
-    jQuery("#cdat").click( function() {
+    $("#cdat").click( function() {
      $("#invheaders_demo1001").jqGrid('clearGridData');
     }); 
   });  

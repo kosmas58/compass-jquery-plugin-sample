@@ -1,6 +1,6 @@
 :javascript
   $(document).ready(function() {
-    jQuery("#demo0104").jqGrid({
+    $("#demo0104").jqGrid({
     	datatype: "local",
     	height: 250,
        	colNames:['Inv No','Date', 'Client', 'Amount','Tax','Total','Notes'],
@@ -28,6 +28,6 @@
     		{id:"9",invdate:"2007-09-01",name:"test3",note:"note3",amount:"400.00",tax:"30.00",total:"430.00"}
     		];
     for(var i=0;i<=mydata.length;i++)
-    	jQuery("#demo0104").jqGrid('addRowData',i+1,mydata[i]);
+    	$("#demo0104").jqGrid('addRowData',i+1,mydata[i]);
    });
     	

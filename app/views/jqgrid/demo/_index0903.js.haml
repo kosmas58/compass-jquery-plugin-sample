@@ -10,10 +10,10 @@
 
 :javascript
   $(document).ready(function() {
-    jQuery("#sm1").click( function(){
+    $("#sm1").click( function(){
       alert($("#invheaders_demo0903").jqGrid('getGridParam',"records"));
     });
-    jQuery("#sm2").click( function(){
+    $("#sm2").click( function(){
       $("#invheaders_demo0903").jqGrid('setGridParam',{
         onSelectRow : function(id) {
           $("#resp").html("I'm row number: "+id +" and setted dynamically").css("color","red");
@@ -21,7 +21,7 @@
       });
       alert("Try to select row");
     });
-    jQuery("#sm3").click( function(){
+    $("#sm3").click( function(){
       $("#invheaders_demo0903").jqGrid('resetSelection');
     });
   });

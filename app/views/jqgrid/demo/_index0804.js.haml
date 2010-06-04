@@ -8,11 +8,11 @@
   });
   
   $(document).ready(function() {
-    jQuery("#dedata").click( function(){
-      var gr = jQuery("#invheaders_demo0804").jqGrid('getGridParam','selrow');
+    $("#dedata").click( function(){
+      var gr = $("#invheaders_demo0804").jqGrid('getGridParam','selrow');
       //getSelectedRow();
       if( gr != null )
-        jQuery("#invheaders_demo0804").jqGrid('delGridRow',gr,{reloadAfterSubmit:false});
+        $("#invheaders_demo0804").jqGrid('delGridRow',gr,{reloadAfterSubmit:false});
       else
         alert("Please Select Row to delete!");
     });

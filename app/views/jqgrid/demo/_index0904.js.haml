@@ -10,19 +10,19 @@
 
 :javascript
   $(document).ready(function() {  
-    jQuery("#ps1").click( function() {
+    $("#ps1").click( function() {
       $("#invheaders_demo0904").jqGrid('setPostData',{q:1,param1:"p1"});
       $("#invheaders_demo0904").trigger("reloadGrid");
     });
     
-    jQuery("#ps2").click( function() {
+    $("#ps2").click( function() {
       var pd =$("#invheaders_demo0904").jqGrid('getPostData');
       var r ="";
       $.each(pd,function(i){r += i+": "+pd[i]+",";})
       $("#postdata").html(r).css("background-color","yellow");
     });
     
-    jQuery("#ps3").click( function() {
+    $("#ps3").click( function() {
       $("#invheaders_demo0904").jqGrid('appendPostData',{param2:"p2"});
       $("#invheaders_demo0904").trigger("reloadGrid");
       var pd =$("#invheaders_demo0904").jqGrid('getPostData');
@@ -31,7 +31,7 @@
       $("#postdata").html(r).css("background-color","yellow");
     });
     
-    jQuery("#ps4").click( function() {
+    $("#ps4").click( function() {
       $("#invheaders_demo0904").jqGrid('setPostDataItem',"param2","I'w new value");
       $("#invheaders_demo0904").trigger("reloadGrid");
       var pd =$("#invheaders_demo0904").jqGrid('getPostData');
@@ -40,11 +40,11 @@
       $("#postdata").html(r).css("background-color","yellow");
     });
     
-    jQuery("#ps5").click( function() {
+    $("#ps5").click( function() {
     	alert( "rows : "+$("#invheaders_demo0904").jqGrid('getPostDataItem',"rows"));
     });
     
-    jQuery("#ps6").click( function() {
+    $("#ps6").click( function() {
       $("#invheaders_demo0904").jqGrid('removePostDataItem',"param1");
       $("#invheaders_demo0904").trigger("reloadGrid");
       var pd =$("#invheaders_demo0904").jqGrid('getPostData');

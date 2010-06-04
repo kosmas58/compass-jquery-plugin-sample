@@ -8,7 +8,7 @@
  
   function onSortCol(nm,index){
     if (nm == "invdate") {
-      jQuery("#invheaders_demo1101").jqGrid('setGridParam',{sortname:'client_id'});
+      $("#invheaders_demo1101").jqGrid('setGridParam',{sortname:'client_id'});
     }
   };
     
@@ -21,20 +21,20 @@
 
 :javascript
   $(document).ready(function() {
-    jQuery("#snw").click(function (){
-      var nw = parseInt(jQuery("#setwidth").val());
+    $("#snw").click(function (){
+      var nw = parseInt($("#setwidth").val());
       if(isNaN(nw)) {
         alert("Value must be a number");
       } else if (nw<200 || nw > 700) {
         alert("Value can be between 200 and 700")
       } else {
-        jQuery("#invheaders_demo1101").jqGrid('setGridWidth',nw);
+        $("#invheaders_demo1101").jqGrid('setGridWidth',nw);
       }
     });
     
-    jQuery("#snh").click(function (){
-      var nh = jQuery("#setheight").val();
-      jQuery("#invheaders_demo1101").jqGrid('setGridHeight',nh);
+    $("#snh").click(function (){
+      var nh = $("#setheight").val();
+      $("#invheaders_demo1101").jqGrid('setGridHeight',nh);
     });  
   });
     

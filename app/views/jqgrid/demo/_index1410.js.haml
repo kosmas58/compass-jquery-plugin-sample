@@ -1,6 +1,6 @@
 :javascript
   $(document).ready(function() {
-    jQuery("#grid1").jqGrid({
+    $("#grid1").jqGrid({
       datatype: "local",
       height: 100,
       colNames: ['Id1', 'Name1', 'Values1'],
@@ -20,7 +20,7 @@
       caption: 'Grid 1',
       pager: '#pgrid1'
     });
-    jQuery("#grid2").jqGrid({
+    $("#grid2").jqGrid({
       datatype: "local",
       height: 100,
       colNames: ['Id2', 'Name2', 'Values2'],
@@ -40,7 +40,7 @@
       caption: 'Grid 2',
       pager: '#pgrid2'
     });
-    jQuery("#grid3").jqGrid({
+    $("#grid3").jqGrid({
       datatype: "local",
       height: 'auto',
       colNames: ['Id3', 'Name3', 'Values3'],
@@ -76,11 +76,11 @@
       {id3:"32",name3:"test32",values3:'Three2'}
     ];
     for (var i = 0; i <= mydata1.length; i++) {
-      jQuery("#grid1").jqGrid('addRowData',i + 1, mydata1[i]);
-      jQuery("#grid2").jqGrid('addRowData',i + 1, mydata2[i]);
-      jQuery("#grid3").jqGrid('addRowData',i + 1, mydata3[i]);
+      $("#grid1").jqGrid('addRowData',i + 1, mydata1[i]);
+      $("#grid2").jqGrid('addRowData',i + 1, mydata2[i]);
+      $("#grid3").jqGrid('addRowData',i + 1, mydata3[i]);
     }
-    jQuery("#grid1").jqGrid('gridDnD',{connectWith:'#grid2,#grid3'});
-    jQuery("#grid2").jqGrid('gridDnD',{connectWith:'#grid1'});
+    $("#grid1").jqGrid('gridDnD',{connectWith:'#grid2,#grid3'});
+    $("#grid2").jqGrid('gridDnD',{connectWith:'#grid1'});
   });
   

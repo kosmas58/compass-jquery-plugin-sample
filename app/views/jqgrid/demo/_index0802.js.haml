@@ -8,10 +8,10 @@
   });
   
   $(document).ready(function() {
-    jQuery("#bedata").click( function(){
-    	var gr = jQuery("#invheaders_demo0802").jqGrid('getGridParam','selrow');
+    $("#bedata").click( function(){
+    	var gr = $("#invheaders_demo0802").jqGrid('getGridParam','selrow');
     	if( gr != null )
-    	  jQuery("#invheaders_demo0802").jqGrid('editGridRow',gr,{height:280,reloadAfterSubmit:false});
+    	  $("#invheaders_demo0802").jqGrid('editGridRow',gr,{height:280,reloadAfterSubmit:false});
     	else
     	 alert("Please Select Row");
     });

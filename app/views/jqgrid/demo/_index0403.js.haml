@@ -9,15 +9,15 @@
   function after_load(){
     var ret;
     alert("This function is executed immediately after\n data is loaded. We try to update data in row 13.");
-    ret = jQuery("#invheaders_demo0403").jqGrid('getRowData',"13");
+    ret = $("#invheaders_demo0403").jqGrid('getRowData',"13");
     if(ret.id == "13"){
-      jQuery("#invheaders_demo0403").jqGrid('setRowData',ret.id,{note:"<font color='red'>Row 13 is updated!</font>"})
+      $("#invheaders_demo0403").jqGrid('setRowData',ret.id,{note:"<font color='red'>Row 13 is updated!</font>"})
     }
   };   
   
   $(document).ready(function() {    
-    jQuery("#sids").click( function() {
-    	alert("Id's of Grid: \n"+jQuery("#invheaders_demo0403").jqGrid('getDataIDs'));
+    $("#sids").click( function() {
+    	alert("Id's of Grid: \n"+$("#invheaders_demo0403").jqGrid('getDataIDs'));
     });
   });
   

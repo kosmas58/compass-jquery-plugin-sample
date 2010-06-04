@@ -7,20 +7,20 @@
   });
   
   $(document).ready(function() {
-    jQuery("#ed1").click( function() {
-    	jQuery("#invheaders_demo0501").jqGrid('editRow',"13");
+    $("#ed1").click( function() {
+    	$("#invheaders_demo0501").jqGrid('editRow',"13");
     	this.disabled = 'true';
-    	jQuery("#sved1,#cned1").attr("disabled",false);
+    	$("#sved1,#cned1").attr("disabled",false);
     });
-    jQuery("#sved1").click( function() {
-    	jQuery("#invheaders_demo0501").jqGrid('saveRow',"13");
-    	jQuery("#sved1,#cned1").attr("disabled",true);
-    	jQuery("#ed1").attr("disabled",false);
+    $("#sved1").click( function() {
+    	$("#invheaders_demo0501").jqGrid('saveRow',"13");
+    	$("#sved1,#cned1").attr("disabled",true);
+    	$("#ed1").attr("disabled",false);
     });
-    jQuery("#cned1").click( function() {
-    	jQuery("#invheaders_demo0501").jqGrid('restoreRow',"13");
-    	jQuery("#sved1,#cned1").attr("disabled",true);
-    	jQuery("#ed1").attr("disabled",false);
+    $("#cned1").click( function() {
+    	$("#invheaders_demo0501").jqGrid('restoreRow',"13");
+    	$("#sved1,#cned1").attr("disabled",true);
+    	$("#ed1").attr("disabled",false);
     });
   });
   

@@ -2,22 +2,22 @@
 
 :javascript  
   $(document).ready(function() {
-    jQuery("#invheaders_demo1006").jqGrid('navButtonAdd','#invheaders_demo1006_pager',{caption:"Edit",
+    $("#invheaders_demo1006").jqGrid('navButtonAdd','#invheaders_demo1006_pager',{caption:"Edit",
       onClickButton:function(){
-    		var gsr = jQuery("#invheaders_demo1006").jqGrid('getGridParam','selrow');
+    		var gsr = $("#invheaders_demo1006").jqGrid('getGridParam','selrow');
     		if(gsr){
-    			jQuery("#invheaders_demo1006").jqGrid('GridToForm',gsr,"#order");
+    			$("#invheaders_demo1006").jqGrid('GridToForm',gsr,"#order");
     		} else {
     			alert("Please select Row")
     		}							
     	} 
     });
-    jQuery("#savedata").click(function(){
-    	var invid = jQuery("#invid").val();
+    $("#savedata").click(function(){
+    	var invid = $("#invid").val();
     	if(invid) {
-    		jQuery("#invheaders_demo1006").jqGrid('FormToGrid',invid,"#order");
-    	  jQuery("#invheaders_demo1006").jqGrid('editRow',invid);
-    		jQuery("#invheaders_demo1006").jqGrid('saveRow',invid);
+    		$("#invheaders_demo1006").jqGrid('FormToGrid',invid,"#order");
+    	  $("#invheaders_demo1006").jqGrid('editRow',invid);
+    		$("#invheaders_demo1006").jqGrid('saveRow',invid);
     	}
     });
   }); 

@@ -59,9 +59,9 @@
       }
       if ($div == 'gallery') {
         if (data.orientation == 'landscape'){
-          jQuery("div.centering").attr("class", "centering landscape");
+          $("div.centering").attr("class", "centering landscape");
         } else {
-          jQuery("div.centering").attr("class", "centering portrait");
+          $("div.centering").attr("class", "centering portrait");
         }
         window.setTimeout( function() { window.scrollTo(0, 0); }, 100 );
       }

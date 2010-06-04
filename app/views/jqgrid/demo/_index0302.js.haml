@@ -3,9 +3,9 @@
     if(id == null) { 
       id = 0; 
     } 
-    jQuery("#invlines_demo0302").jqGrid('setGridParam', {url: "/jqgrid/demo/?model=invline&details_for="+id,page:1})
-    //jQuery("#invlines_demo0302").jqGrid('setCaption', "Footballplayer's " +id + " animals")
-    jQuery("#invlines_demo0302").trigger('reloadGrid'); 
+    $("#invlines_demo0302").jqGrid('setGridParam', {url: "/jqgrid/demo/?model=invline&details_for="+id,page:1})
+    //$("#invlines_demo0302").jqGrid('setCaption', "Footballplayer's " +id + " animals")
+    $("#invlines_demo0302").trigger('reloadGrid'); 
   };
 
 = raw @grid
