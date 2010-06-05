@@ -1,9 +1,7 @@
+:javascript
+  function gridComplete() {
+    var tm = $("#invheaders_demo1302").jqGrid('getGridParam','totaltime');
+    $("#speed_div").html("<b>Render time:</b> "+ tm+" ms ");
+  };
+  
 = raw @grid
-
-:javascript  
-  $(document).ready(function() {  
-    $("#t_invheaders_demo0901").append("<input type='button' value='Click Me' style='height:20px;font-size:-3'/>");
-    $("input","#t_invheaders_demo0901").click(function(){
-      alert("Hi! I'm added button at this toolbar");
-    });
-  }); 

@@ -5,15 +5,16 @@
   %center
     %table#invheaders_demo1302.scroll{ :cellspacing => "0", :cellpadding => "0" }
     #invheaders_demo1302_pager.scroll{ :style => "text-align:center;" }
+  %br
+  %div#speed_div
+<br/>
 / End demo
 .demo-description
   %p
-    This example demonstrates
-    %code
-      setCell
-    and
-    %code
-      setLabel
-    methods. We can change the contents and style of the particular header and cell.
-    Again with this we use a loadui option to disable interaction when the data is loaded.
+    This sample demonstrates the new rendering engine of jqGrid. In the versions before 3.5 beta jqGrid
+    rendered big data sets slowly. This is changed in 3.5 beta. By default jqGrid renders data 3-5 times
+    faster compared with previous releases, but there is a bit more. When we use the option griedview set
+    to true it is possibe to speed the reading process by 5-10 times. This is achieved by reading the data
+    at once. This mode has some limitations - it is not possible to use treeGrid, subGrid and afterInsertRow
+    (event). Enjoy the speed!
 / End demo-description

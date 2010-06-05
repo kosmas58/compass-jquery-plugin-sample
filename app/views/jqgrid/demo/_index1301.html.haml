@@ -3,17 +3,18 @@
   %h3
     =@title
   %center
-    %table#invheaders_demo1302.scroll{ :cellspacing => "0", :cellpadding => "0" }
-    #invheaders_demo1302_pager.scroll{ :style => "text-align:center;" }
+    %table#invheaders_demo1301.scroll{ :cellspacing => "0", :cellpadding => "0" }
+    #invheaders_demo1301_pager.scroll{ :style => "text-align:center;" }
 / End demo
 .demo-description
   %p
-    This example demonstrates
-    %code
-      setCell
+    In this example we demonstrate two new options in jqGrid
+    %i
+      autowidth
     and
-    %code
-      setLabel
-    methods. We can change the contents and style of the particular header and cell.
-    Again with this we use a loadui option to disable interaction when the data is loaded.
+    %i
+      rownumbers.
+    When autowidth is set to true the grid fits to the width of the parent container.
+    This option does not resize the grid when the width of the parent container changes.
+    In order to do that a method setGridWidth should be used again with binding an event to the container.
 / End demo-description

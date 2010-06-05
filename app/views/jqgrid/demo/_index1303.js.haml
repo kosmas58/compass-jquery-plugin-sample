@@ -1,9 +1,22 @@
 = raw @grid
 
 :javascript  
-  $(document).ready(function() {  
-    $("#t_invheaders_demo0901").append("<input type='button' value='Click Me' style='height:20px;font-size:-3'/>");
-    $("input","#t_invheaders_demo0901").click(function(){
-      alert("Hi! I'm added button at this toolbar");
+  $(document).ready(function() { 
+    $("#invheaders_demo1303").jqGrid('navButtonAdd',"#invheaders_demo1303_pager",{ 
+      caption:"Toggle",
+      title:"Toggle Search Toolbar", 
+      buttonicon :'ui-icon-pin-s',
+      onClickButton:function(){
+        grid_invheaders_demo1303[0].toggleToolbar()
+     } 
     });
+    $("#invheaders_demo1303").jqGrid('navButtonAdd',"#invheaders_demo1303_pager",{
+      caption:"Clear",
+      title:"Clear Search",
+      buttonicon :'ui-icon-refresh',
+      onClickButton:function(){
+        grid_invheaders_demo1303[0].clearToolbar()
+      } 
+    });
+    $("#invheaders_demo1303").jqGrid('filterToolbar');
   }); 
