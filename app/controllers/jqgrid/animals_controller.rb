@@ -7,7 +7,10 @@ class Jqgrid::AnimalsController < ApplicationController
     @example = (params[:example] || "05")
     mylist = "example#{@example}".to_sym
     if request.xhr?
-      if params[:details_for].present?
+      if params[:id].present?
+        animals = Player.find(params[:id]).animals.find(:all)
+        render :json => animals.to_subgrid_json([:id,:name])
+      elsif params[:details_for].present?
         if params[:_search] == "true" 
           records = Animal.find_for_grid(mylist, params)
         else
