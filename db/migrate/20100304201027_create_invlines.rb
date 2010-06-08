@@ -6,6 +6,7 @@ class CreateInvlines < ActiveRecord::Migration
       t.string  :item, :limit => 20
       t.decimal :qty, :precision => 8, :scale => 2, :default => 0.0, :null => false
       t.decimal :unit, :precision => 10, :scale => 2, :null => false 
+      t.decimal :total, :precision => 10, :scale => 2, :null => false 
     end  
     add_index :invlines, [:id, :num], :unique => true
   end

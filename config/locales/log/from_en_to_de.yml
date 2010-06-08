@@ -4,13 +4,8 @@ activerecord:
     full_messages: 
       format: "{{attribute}} {{message}}"
   attributes: 
-    event: 
-      all_day: All-day event
-      dtend: End
-      description: Description
-      summary: Summary
-      dtstart: Start
-      location: Location
+    invline: 
+      total: Total
 number: 
   currency: 
     format: 

@@ -13,7 +13,7 @@ class Animal < ActiveRecord::Base
                          :name  => { :name  => "name",
                                      :label => "Name",
                                      :width => 365,
-                                     :align => 'center' }
+                                     :align => :center }
                        }, 
     :width          => 400,
     :width_fit      => :fitted,

@@ -12,7 +12,7 @@ class Item < ActiveRecord::Base
     :colModel            => {
                               :id       => { :name  => 'id',
                                              :width =>  65, 
-                                             :align => "right" },
+                                             :align => :right },
                               :name     => { :name  => 'name',
                                              :width => 150 },
                               :cd       => { :name  => 'cd',
