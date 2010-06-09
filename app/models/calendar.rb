@@ -39,7 +39,7 @@ class Calendar < ActiveRecord::Base
     events = self.full_events(start_date, end_date) 
     rtn_array = [] 
     events.each do |e|
-      rtn_array << [] << e
+      rtn_array << e
     end
  
     rtn_array 

@@ -2175,8 +2175,8 @@ class Invheader < ActiveRecord::Base
   gridify :demo1102,
     :title          => I18n.t('txt.jqgrid.demo.tree'),
     :url            => "/jqgrid/demo",
-    :data_type      => :json,    
-    :only           => [:client_id, :id, :invdate, :amount, :tax, :total, :note, :closed, :ship_via],
+    :data_type      => :xml,
+    :build_model    => :false,
     :colNames       => [
                         I18n.t('activerecord.attributes.invheader.client'),
                         I18n.t('activerecord.attributes.invheader.id'),
@@ -2189,13 +2189,13 @@ class Invheader < ActiveRecord::Base
                         I18n.t('activerecord.attributes.invheader.ship_via')
                        ],
     :colModel       => {
+                         :name     => { :name  => 'client_id',
+                                        :width => 100 },
                          :id       => { :name     => 'id',
                                         :width    =>  50, 
                                         :align    => :right },
                          :invdate  => { :name  => 'invdate',  
                                         :width =>  90 },
-                         :name     => { :name  => 'client_id',
-                                        :width => 100 },
                          :amount   => { :name  => 'amount',
                                         :width =>  80,
                                         :align => :right },
@@ -2220,8 +2220,7 @@ class Invheader < ActiveRecord::Base
     :sort_by        => :id,
     :sort_order     => :desc,
     :grid_view      => false,
-    :pager          => true,
-    :grid_view      => false#,
+    :pager          => true#,
 #    :jqgrid_options => { :treedatatype => :json,
 #                         :treeGrid     => true,
 #                         :ExpandColumn => "client_id" }

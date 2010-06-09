@@ -44,6 +44,9 @@ class Jqtouch::IcalController < ApplicationController
       end      
     end
     
+    mycal = ActiveRecord::Base::Calendar.find(1)
+    events = mycal.full_events_by_date(@cal[0][:value].to_datetime, @cal[-1][:value].to_datetime)    
+    
 #    function writeTD($day, $type, $events)
 #  {
 #    $passedDate = date('d-m-Y', strtotime($day));
