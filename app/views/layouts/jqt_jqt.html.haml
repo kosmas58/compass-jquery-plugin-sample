@@ -5,8 +5,8 @@
     %title
       = raw @browser_title || 'Compass jQTouch'
 
-    = stylesheet_link_tag 'compiled/jqtouch/jqtouch.css', :media => 'screen, projection'
-    = stylesheet_link_tag 'jqtouch/jqt.jqt.css', :media => 'screen, projection'
+    = stylesheet_link_tag :jqt
+    = stylesheet_link_tag :jqt_jqt
 
     = javascript_include_tag :jquery_142
     = javascript_include_tag :jrails

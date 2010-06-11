@@ -20,7 +20,7 @@ Rails::Initializer.run do |config|
   # config.gem "sqlite3-ruby", :lib => "sqlite3"
   # config.gem "aws-s3", :lib => "aws/s3"
 
-  config.gem 'haml', :version => '= 3.0.11'
+  config.gem 'haml', :version => '= 3.0.12'
   config.gem 'compass', :version => '= 0.10.2'
   config.gem 'compass-jquery-plugin', :version => '= 0.3.0.beta.8', :lib => 'jquery'
   config.gem 'ri_cal', :version => '= 0.8.7'
