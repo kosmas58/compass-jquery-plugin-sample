@@ -23,7 +23,7 @@ class Jqtouch::IcalController < ApplicationController
       preDays = firstDayWDay - 1
       day = firstDay - preDays 
       preDays.times do
-        @cal <<= { :day => day.strftime('%d').to_i, :type => 'prevmonth', :value => day  } 
+        @cal <<= { :day => day.strftime('%d').to_i, :type => 'prevmonth', :value => day, :class => 'prevmonth' } 
         day += 1
       end      
     end
@@ -31,7 +31,7 @@ class Jqtouch::IcalController < ApplicationController
     # Fill array with month days    
     day = firstDay
     (1..lastDayDay).each do     
-      @cal <<= { :day => day.strftime('%d').to_i, :type => 'normal', :value => day  } 
+      @cal <<= { :day => day.strftime('%d').to_i, :type => 'normal', :value => day, :class => 'normal'  } 
       day += 1
     end 
 
@@ -39,35 +39,21 @@ class Jqtouch::IcalController < ApplicationController
     if lastDayWDay != 7 then # last day of month not sunday
       day = lastDay + 1
       (7-lastDayWDay).times do
-        @cal <<= { :day => day.strftime('%d').to_i, :type => 'nextmonth', :value => day } 
+        @cal <<= { :day => day.strftime('%d').to_i, :type => 'nextmonth', :value => day, :class => 'nextmonth' } 
         day += 1
       end      
     end
     
-    mycal = ActiveRecord::Base::Calendar.find(1)
-    events = mycal.full_events_by_date(@cal[0][:value].to_datetime, @cal[-1][:value].to_datetime)    
-    
-#    function writeTD($day, $type, $events)
-#  {
-#    $passedDate = date('d-m-Y', strtotime($day));
-#    $dayToWrite = date('j', strtotime($day));
-#    $eventDay = false;
-#    $class = '';
-#    
-#    // event day?
-#    if(in_array($passedDate, $events) == true)
-#      $eventDay = true;
-#    
-#    if($type == 'normal' && $eventDay == true)
-#      $class = ' class="date_has_event"';
-#    elseif($type != 'normal' && $eventDay == false)
-#      $class = ' class="'.$type.'"';
-#    elseif($type != 'normal' && $eventDay == true)
-#      $class = ' class="'.$type.' date_has_event"';
-#      
-#    return '<td'.$class.'>'.$dayToWrite.'<input type="hidden" value="'.$passedDate.'" /></td>';
-#  }
-    
+    ActiveRecord::Base::Calendar.find(1).full_events_by_date(@cal[0][:value].to_datetime, @cal[-1][:value].to_datetime).each do |event|
+      myday = @cal.find do |day|
+        day[:value] == event[:start].to_date
+      end
+      if myday[:type] == :normal
+        myday[:class] = "date_has_event"
+      else
+        myday[:class] = "#{myday[:type]} date_has_event"
+      end
+    end    
     
     render :partial => "month", :layout => false
   end
