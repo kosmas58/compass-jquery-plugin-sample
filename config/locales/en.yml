@@ -211,6 +211,7 @@ en:
         delete: Delete iCalendar
         confirm: "Really destroy iCalendar?"
         name: Name
+        color: Color
         actions:
           name: Actions
           show: Show as calendar

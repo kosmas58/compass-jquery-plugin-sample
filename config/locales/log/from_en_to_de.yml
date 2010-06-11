@@ -3,9 +3,6 @@ activerecord:
   errors: 
     full_messages: 
       format: "{{attribute}} {{message}}"
-  attributes: 
-    invline: 
-      total: Total
 number: 
   currency: 
     format: 
@@ -25,8 +22,8 @@ date:
     short: "%b %d"
 txt: 
   jqical: 
-    event: 
-      all_day: All-day event
+    calendar: 
+      color: Color
 support: 
   array: 
     words_connector: ", "

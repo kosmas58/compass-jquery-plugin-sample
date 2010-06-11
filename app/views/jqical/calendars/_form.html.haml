@@ -5,4 +5,12 @@
         = t('txt.jqical.calendar.name')
   .span-8
     = f.text_field :name
+%br
+.formrow.clearfix 
+  .span-2 
+    %strong
+      %label{:for => :color} 
+        = t('txt.jqical.calendar.color')
+  .span-8
+    = f.text_field :color
   
