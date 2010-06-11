@@ -3,6 +3,10 @@ class Jqtouch::IcalController < ApplicationController
   
   protect_from_forgery
   
+  def index
+    @calendars = ActiveRecord::Base::Calendar.find(:all)    
+  end
+  
   def month
     @month = params[:month].to_i 
     @year  = params[:year].to_i   
