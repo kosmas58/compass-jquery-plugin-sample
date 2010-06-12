@@ -5,9 +5,9 @@
 
 .demo
   %h3
-    =@title
+    = @title
   %p{ :style => "color: #" + ("%x" % @current_object.color).rjust(6,'0') + ";" }
-    = @current_object.name 
+    = @current_object.name
   %p.buttons
     = link_to t('txt.jqical.calendar.edit'), edit_jqical_calendar_path
   %p.buttons

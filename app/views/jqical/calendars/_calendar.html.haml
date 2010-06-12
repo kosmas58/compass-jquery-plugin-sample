@@ -1,6 +1,8 @@
 %tr
-  %td{ :style => "color: #" + ("%x" % calendar.color).rjust(6,'0') + ";" }
+  %td{ :style => "width: 20px;" }
+    .circle{ :style => "background: #" + ("%x" % calendar.color).rjust(6,'0') + ";" }
+  %td  
     = calendar.name
   %td
     = render :partial => "calendar_actions", :locals => {:calendar => calendar}
-       
+     
