@@ -1,0 +1,19 @@
+-@browser_title = "jQTouch &beta;"
+
+- content_for :content_head do
+  = render(:partial => "jqt.js.haml", :format => :js)
+
+#jqt.fulscreen
+  #home
+    .toolbar
+      %h1
+        Gestures Demo
+      %a.back{ :href => "/jqtouch/demo", :target => "_webapp"  } 
+        Home
+    .info
+      Guitars are meant to be rotated. Give it a try.
+    .guitar.prop
+    .info
+      Make this drum any size you want. You don't belive me?
+    .drum.prop
+      
