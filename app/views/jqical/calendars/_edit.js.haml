@@ -1,24 +1,18 @@
-<script type="text/javascript" src="jquery.js"></script>
- <script type="text/javascript" src="farbtastic.js"></script>
- <link rel="stylesheet" href="farbtastic.css" type="text/css" />
- <script type="text/javascript" charset="utf-8">
- 
- 
- 
- 
-  $(document).ready(function() {
-    $('#demo').hide();
-    $('#picker').farbtastic('#color');
-  });
- </
- 
- script>
-
-= stylesheet_link_tag "compiled/jquery.ui/jqical.css", :media => 'screen, projection'
+= stylesheet_link_tag :jqical
+= stylesheet_link_tag :farbtastic
 = javascript_include_tag :jqical
+= javascript_include_tag :farbtastic
 
 :javascript
   $(function() {
     $("input:submit, .buttons").button();
   });
-  
+
+  $(document).ready(function() {
+    /document.getElementById('color').value = document.getElementById('calendar_color').value;
+    $('#picker').farbtastic('#color');
+
+    /$("input:submit").click(function(){
+    /  document.getElementById('calendar_color').value = document.getElementById('color').value;
+    /});
+  });

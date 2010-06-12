@@ -6,6 +6,14 @@ class Jqical::CalendarsController < ApplicationController
   make_resourceful do
     actions :all
     
+    before :new, :edit do
+      @color = @current_object.color.to_s(16)
+    end   
+    
+    before :create, :update do
+      params[:calendar][:color] = params[:color].sub(/#/,'').hex
+    end
+    
     response_for :show do |format|
       format.html
       format.ics do

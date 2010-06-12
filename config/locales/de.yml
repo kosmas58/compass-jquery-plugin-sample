@@ -37,12 +37,6 @@ de:
         firstname: Vorname
         lastname: Nachname
         email: E-Mail
-      player: 
-        pseudo: Pseudonym
-        role: Rolle
-        firstname: Vorname
-        lastname: Nachname
-        email: E-Mail
       invheader: 
         tax: Steuer
         client: Kunde
@@ -53,6 +47,12 @@ de:
         amount: Betrag
         note: Hinweis
         invdate: Datum
+      player: 
+        pseudo: Pseudonym
+        role: Rolle
+        firstname: Vorname
+        lastname: Nachname
+        email: E-Mail
       account: 
         name: Name
         debit: Soll
@@ -60,8 +60,8 @@ de:
         level: Level
         lft: lft
         acc_num: Kontonr.
-        rgt: rgt
         parent_id: Eltern ID
+        rgt: rgt
         balance: Kontostand
       event: 
         all_day: "Gant\xC3\xA4giges Ereignis"
@@ -185,9 +185,9 @@ de:
   txt: 
     jqical: 
       calendar: 
-        confirm: "iCalendar wirklich l\xC3\xB6schen?"
-        new: Neuer iCalender
         delete: "iCalendar l\xC3\xB6schen"
+        new: Neuer iCalender
+        confirm: "iCalendar wirklich l\xC3\xB6schen?"
         actions: 
           name: Aktionen
           ical: Als iCalendar anzeigen
@@ -198,6 +198,7 @@ de:
         listing: iCalendar auflisten
         color: Farbe
         show: " iCalendar anzeigen"
+        iphone: Zeigen Sie es auf einem iPhone
       anytime: 
         name: Any+Time&trade
         default: "Standardfunktionalit\xC3\xA4t"
@@ -220,13 +221,6 @@ de:
     jqt: 
       name: "jQTouch (ben\xC3\xB6tigt einen Browser mit WebKit)"
     jqgrid: 
-      manipulation: 
-        name: Datenmanipulation
-        modal: "mit modaler \xC3\x84nderung"
-        inline: "mit Inline-\xC3\x84nderung"
-        datepicker: mit Datumsauswahl (Nachname)
-        input: mit verschiedenen Eingabetypen
-      name: jqGrid
       simple: 
         name: Einfache Datengitter
         default: "mit Standardfunktionalit\xC3\xA4t"
@@ -234,6 +228,13 @@ de:
         selection: mit Auswahllink und Suche deaktiviert
         direct: mit direkter Auswahl und automatischer Weite
         multiple: mit Mehrfachauswahl + Zeilennummern
+      name: jqGrid
+      manipulation: 
+        name: Datenmanipulation
+        modal: "mit modaler \xC3\x84nderung"
+        inline: "mit Inline-\xC3\x84nderung"
+        datepicker: mit Datumsauswahl (Nachname)
+        input: mit verschiedenen Eingabetypen
       demo: 
         row: "Zeilen \xC3\xA4ndern"
         multi: Mehrfachauswahl
@@ -243,8 +244,8 @@ de:
         default: jqGrid Beispiele
         hide: Spalten anzeigen/verbergen
         chooser: Spaltenauswahl
-        post_data: Post Data
         integrations: Integrationen
+        post_data: Post Data
         actions: Aktionen
         v31: Neu in Version 3.1
         delete_row: "Zeile l\xC3\xB6schen"
@@ -274,11 +275,11 @@ de:
         reordering: Neuanordnung von Spalten
         stoolbar: Integrierte Suchleiste
         cinput: Benutzerdefiniertes Eingabeelement erstellen
-        mtoolbar: Mehrfache Symbolleistensuche
         v36: Neu in Version 3.6
+        mtoolbar: Mehrfache Symbolleistensuche
         rdnd: Drag and Drop von Zeilen
-        autoscroll: Das automatische Laden von Daten beim Scrollen
         userdata: Benutzerdaten
+        autoscroll: Das automatische Laden von Daten beim Scrollen
         view: Modus Gitteransicht
         function: Datentyp als Funktion
         scroll: Scrollen mit dynamischen Zeilenauswahl
@@ -300,34 +301,34 @@ de:
         resizing: "Gitter vergr\xC3\xB6\xC3\x9Fern"
         cmulti: Angepasste Mehrfachauswahl
         adjacency: Baumgitter mit Adjazenzliste
-        cell: "Zellen \xC3\xA4ndern"
+        cformat: Angepasster Formatierer
         real: "Reales Beispiel eines Baumgitters "
         searching: Daten suchen
         advanced: Fortgeschritten
         datepicker: Datumsauswahl
-        cformat: Angepasster Formatierer
+        cell: "Zellen \xC3\xA4ndern"
         new_methods: Neue Methoden
         dynamic: "Dynamische H\xC3\xB6he und Breite"
         rtl: "RNL-Unterst\xC3\xBCtzung"
         api: Neues API
         insert: "Ereignis nach Einf\xC3\xBCgen einer Zeile"
         once: Einmaliges Laden
-        server_errors: Server-Fehler kontrollieren
+        json_map: JSON-Mapping
         array: Daten aus einer Matrix
         manipulating: Manipulation
         live: Live Datenmanipulation
-        json_map: JSON-Mapping
-        gridify: 2dc-Beispiele mit gridify umgesetzt
-        resizable: "Vergr\xC3\xB6\xC3\x9Ferbare Spalten"
-        add_row: "Zeile hinzuf\xC3\xBCgen"
+        server_errors: Server-Fehler kontrollieren
         improvements: Formverbesserungen
+        add_row: "Zeile hinzuf\xC3\xBCgen"
+        resizable: "Vergr\xC3\xB6\xC3\x9Ferbare Spalten"
+        gridify: 2dc-Beispiele mit gridify umgesetzt
         types: Eingabetypen
-        asearch: Erweiterte Suche
+        subgrid: Untergitter
         data: Gitterdaten
         cparams: "Gebr\xC3\xA4uchliche Parameter"
         b30: Neu seit Beta 3.0
         optimize: Datenoptimierung
-        subgrid: Untergitter
+        asearch: Erweiterte Suche
         navigator: Navigator
       subgrids: 
         name: Untergitter
@@ -337,8 +338,8 @@ de:
       improvements: 
         name: mit Verbesserungen der Form
     ribbon: 
-      name: Multifunktionsleiste
       simple: jQuery Ribbon Simple Demo
+      name: Multifunktionsleiste
       default: jQuery Ribbon Windows 7 Demo
       office: jQuery Ribbon Office Demo
     dt: 
@@ -348,9 +349,9 @@ de:
       persist: Persistenz
       quick: JS-Objekt initialisieren
       lazy: Lazy
-      dnd: Ziehen und Ablegen
-      api: Programmier-API
       iframe: iframe und URL-Navigation
+      api: Programmier-API
+      dnd: Ziehen und Ablegen
       minexpand: Feste Expansionsebene
       effects: Effekte
       benchmark: "Benchmark f\xC3\xBCr gro\xC3\x9Fe B\xC3\xA4ume"
@@ -385,11 +386,11 @@ de:
           combobox: Auswahleiste
           default: "Autovervollst\xC3\xA4ndigung"
           multiple-remote: Mehrfachwerte, remote
-          folding: "Akzente ber\xC3\xBCcksichtigen"
           remote-jsonp: Entfernte JSONP-Datenquelle
+          folding: "Akzente ber\xC3\xBCcksichtigen"
           custom-data: Angepasste Daten und Anzeige
-          remote-with-cache: Entfernt mit Caching
           categories: Kategorien
+          remote-with-cache: Entfernt mit Caching
           remote-xml: XML-Daten einmalig geparsed
           multiple: Mehrfachwerte
           remote: Entfernte Datenquelle
@@ -398,8 +399,8 @@ de:
           default: Schieberegler
           multiple-vertical: Mehrere Regler
           side-scroll: Einfache Bildlaufleiste
-          slider-vertical: Vertikaler Regler
           range-vertical: Vertikaler Regler mit Bereich
+          slider-vertical: Vertikaler Regler
           colorpicker: Einfache Farbauswahl
           rangemax: Bereich mit festgesetzten Maximum
           range: Regler mit Bereich
@@ -413,21 +414,14 @@ de:
           min-max: "Datumsbereich einschr\xC3\xA4nken "
           inline: Eingebettet anzeigen
           show-week: Zeige Kalanderwoche
-          icon-trigger: "\xC3\x9Cber Symbol aktivieren"
           animation: Animationen
+          icon-trigger: "\xC3\x9Cber Symbol aktivieren"
           event-search: Veranstaltungen suchen
           multiple-calendars: Mehrerer Monate anzeigen
           dropdown-month-year: "Monat- & Jahresmen\xC3\xBCs anzeigen"
           date-formats: Datum formatieren
           localization: " Kalender lokalisieren"
           other-months: Termine in den anderen Monaten
-        dialog: 
-          default: Dialog
-          modal: Modaler Dialog
-          modal-confirmation: "Modale Best\xC3\xA4tigung"
-          modal-message: Modale Nachricht
-          animated: Animierter Dialog
-          modal-form: Modale Form
         accordion: 
           default: Akkordeon
           no-auto-height: "Ohne automatische H\xC3\xB6he"
@@ -436,9 +430,16 @@ de:
           fillspace: "Freien Platz f\xC3\xBCllen"
           custom-icons: Symbole anpassen
           collapsible: Inhalt einklappen
+        dialog: 
+          default: Dialog
+          modal: Modaler Dialog
+          modal-confirmation: "Modale Best\xC3\xA4tigung"
+          animated: Animierter Dialog
+          modal-message: Modale Nachricht
+          modal-form: Modale Form
         tabs: 
-          manipulation: Einfache Handhabung
           bottom: Reiter unterhalb des Inhalts
+          manipulation: Einfache Handhabung
           default: Reiter
           ajax: "Inhalt \xC3\xBCber Ajax"
           cookie: "Persistenz \xC3\xBCber Cookie"
@@ -499,12 +500,12 @@ de:
           empty-lists: Leere Listen handhaben
       effects: 
         default: Effekte
-        switch_class: 
-          default: Klasse wechseln
-        hide: 
-          default: Verstecken
         toggle_class: 
           default: Klasse umschalten
+        hide: 
+          default: Verstecken
+        switch_class: 
+          default: Klasse wechseln
         animate: 
           default: Farbanimation
         show: 

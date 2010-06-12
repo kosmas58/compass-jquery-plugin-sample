@@ -23,7 +23,7 @@ date:
 txt: 
   jqical: 
     calendar: 
-      color: Color
+      iphone: Show it on a iPhone
 support: 
   array: 
     words_connector: ", "

@@ -6,6 +6,8 @@ class Calendar < ActiveRecord::Base
   
   include Jqical::Calendar
   
+  before_save :convert_color
+  
   def to_full(reload = false)
     if !@ics || reload
       ical = RiCal.Calendar do |c| 
@@ -88,4 +90,9 @@ class Calendar < ActiveRecord::Base
     rtn_hash 
   end
   
+  private
+    def convert_color
+      a = self.color# .sub(/#/,"0x")
+      b = "a"
+    end
 end
