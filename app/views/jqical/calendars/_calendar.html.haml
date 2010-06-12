@@ -1,5 +1,5 @@
 %tr
-  %td
+  %td{ :style => "color: #" + ("%x" % calendar.color).rjust(6,'0') + ";" }
     = calendar.name
   %td
     = render :partial => "calendar_actions", :locals => {:calendar => calendar}
