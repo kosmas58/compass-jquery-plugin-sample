@@ -17,6 +17,8 @@
   });
   // Add an onload function
   $(function(){
+    jQT.resetHeight();
+      
     // Dynamically set next page titles after clicking certain links
     $('#home ul a, #mailbox ul a').click(function(){
       $( $(this).attr('href') + ' h1' ).html($(this).html());

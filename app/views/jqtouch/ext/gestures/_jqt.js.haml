@@ -26,6 +26,8 @@
   });
       
   $(function(){
+    jQT.resetHeight();
+      
     var actions = {
       onGestureStart: function(scale, rotation, event){
         $(event.originalEvent.target).css('background-color', 'red');

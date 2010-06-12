@@ -21,7 +21,9 @@
   });
     
   // Some sample Javascript functions:
-  $(function(){    
+  $(function(){ 
+    jQT.resetHeight();
+         
     // Page animations end with AJAX callback event, example 1 (load remote HTML only first time)
     $('#callback').live('pageAnimationEnd', function(e, info){
       // Make sure the data hasn't already been loaded (we'll set 'loaded' to true a couple lines further down)
