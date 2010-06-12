@@ -17,7 +17,8 @@ ActionController::Routing::Routes.draw do |map|
   end                                          
   
   map.namespace :jqical do |jqical|
-    jqical.resources :calendars do |calendar|
+    jqical.resources :calendars,
+                     :collection => { :iphone => :get } do |calendar|
       calendar.resources :events,
                          :collection => { :index_reload =>  :get,
                                           :full_calendar => :get },
