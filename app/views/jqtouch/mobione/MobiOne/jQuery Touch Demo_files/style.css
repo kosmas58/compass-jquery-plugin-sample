@@ -1,0 +1,78 @@
+@charset "utf-8";
+/* CSS Document */
+
+body,td,th {
+	font-family: Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+body {
+	margin: 0px;
+	padding: 0px;
+	width: 320px;
+	height: 417px;
+	overflow: hidden;
+}
+#touchme1 {
+	float: left;
+}
+#touchme2 {
+	float: right;
+}
+.largetouchbox {
+	width: 130px;
+	height:130px;
+	background-color:#999;
+	color: #FFF;
+	opacity: .75;
+	filter: alpha(opacity = 75);
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	text-align: center;
+	font-weight: bold;
+	font-size: 14px;
+	margin: 10px;
+	z-index: 950;
+}
+.largetouchbox b {
+	line-height: 130px;
+}
+.smalltouchbox {
+	width: 50px;
+	height:50px;
+	background-color:#666;
+	color: #FFF;
+	opacity: .75;
+	filter: alpha(opacity = 75);
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	text-align: center;
+	font-weight: bold;
+	font-size: 14px;
+	margin: 10px;
+	z-index: 900;
+	position: absolute;
+}
+.smalltouchbox span, .largetouchbox span {
+	position: relative;
+	float: left;
+	top: 10px;
+	left: 10px;
+	font-size: 10px;
+}
+#notes {
+	position: absolute;
+	display: block;
+	top: 300px;
+	width: 300px;
+	z-index: 800;
+	padding: 10px;
+	font-size: 16px;
+}
+#notes b {
+	font-size: 20px;
+}
+#smallwrapper {
+	position: absolute;
+	top: 150px;
+	left: 0px;
+}

@@ -1,0 +1,59 @@
+:javascript
+  var jQT = new $.jQTouch({
+    icon: '/images/jqtouch/jqtouch.png',
+    addGlossToIcon: false,
+    startupScreen: '/images/jqtouch/jqt_startup.png',
+    statusBar: 'black'
+  });
+  // Some sample Javascript functions:
+  $(function(){
+    jQT.resetHeight();
+  });  
+  
+  $(document).ready(function() {
+    var element = document.all("drag");
+    var logEl = document.all("drag");
+    function log(s) {
+      oElChild = document.createElement("div");
+      oElChild.innerHTML = s;
+      oElChild.style.color = "white";
+      oElChild.style.fontSize = "xx-small";
+      logEl.insertBefore(oElChild, logEl.firstChild);
+      // logEl.scrollTop = logEl.scrollHeight - logEl.clientHeight + oElChild.clientHeight;
+    }
+      
+    function traceTouchEvent(e) {
+      var strTouches = "";
+      if (e.touches) {
+        for (var i=0; i<e.touches.length; ++i) {
+          var touch = e.touches.item(i);
+          strTouches += touch.target + " " + touch.identifier + " " + touch.clientX.toFixed(1) + " " + touch.clientY.toFixed(1) + " " + touch.pageX.toFixed(1) + " " + touch.pageY.toFixed(1) + " " + touch.screenX.toFixed(1) + " " + touch.screenY.toFixed(1) + ", ";
+        }
+      }
+      log(e.type + " " + strTouches);
+    }
+      
+    document.body.addEventListener("touchstart", traceTouchEvent, false);
+    document.body.addEventListener("touchmove", traceTouchEvent, false);
+    document.body.addEventListener("touchend", traceTouchEvent, false);
+    //document.body.addEventListener("touchcancel", traceTouchEvent, false);
+ 
+    function traceGestureEvent(e) {
+      console.log()
+      log(e.type + " " + e.target + " " + e.scale.toFixed(1) + " " + e.rotation.toFixed(1));
+      e.preventDefault();
+    }
+ 
+    document.body.addEventListener("gesturestart", traceGestureEvent, false);
+    document.body.addEventListener("gesturechange", traceGestureEvent, false);
+    document.body.addEventListener("gestureend", traceGestureEvent, false);
+      
+    //document.body.addEventListener("mousemove", function (e) { log("mousemove " + e.x.toFixed(1) + " " + e.y.toFixed(1)); }, false);
+    //document.body.addEventListener("mousedown", function (e) { log("mousedown " + e.x.toFixed(1) + " " + e.y.toFixed(1)); }, false);
+    //document.body.addEventListener("mouseup", function (e) { log("mouseup " + e.x.toFixed(1) + " " + e.y.toFixed(1)); }, false);
+      
+    log("Log started");
+      
+    //setTimeout(function(){ window.scrollTo(0,1); }, 0);
+  });
+  

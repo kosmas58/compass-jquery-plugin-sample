@@ -147,7 +147,12 @@
           To-Do app
       %li.forward
         %a{ :href => "/jqtouch/demo2/", :target => "_webapp" }
-          New demo
+          New demo          
+      %li.arrow
+        %a{ :href => "#mobione" }
+          MobiOne Demos
+        %small.counter
+          6         
   #edge
     .toolbar
       %h1
@@ -322,7 +327,7 @@
         %a{ :href => "#demos" }
           Demos
         %small.counter
-          5
+          6
     %h2
       External Links
     %ul.rounded
@@ -387,6 +392,33 @@
           9:40
           %em
             Ontario
+  #mobione
+    .toolbar
+      %h1
+        MobiOneDemos
+      %a.back{ :href => "#demos" }
+        Demos
+    .info
+      These apps open in a new window. Don’t forget to save them to your home screen to enable full-screen mode.
+    %ul.rounded
+      %li.forward
+        %a{ :href => "/jqtouch/mobione/events", :target => "_webapp" }
+          Touch Debug Log
+      %li.forward
+        %a{ :href => "/jqtouch/mobione/demo1", :target => "_webapp" }
+          Touch Demo 1
+      %li.forward
+        %a{ :href => "/jqtouch/mobione/demo2", :target => "_webapp" }
+          Touch Demo 2
+      %li.forward
+        %a{ :href => "/jqtouch/mobione/demo3", :target => "_webapp" }
+          Touch Demo 3
+      %li.forward
+        %a{ :href => "/jqtouch/mobione/demo4", :target => "_webapp" }
+          Touch Demo 4
+      %li.forward
+        %a{ :href => "/jqtouch/mobione/virtual", :target => "_webapp" }
+          Virtual Light Table
   #pageevents
     .toolbar
       %h1
