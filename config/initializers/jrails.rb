@@ -27,7 +27,10 @@ ActionView::Helpers::AssetTagHelper.register_javascript_expansion :farbtastic =>
 ActionView::Helpers::AssetTagHelper.register_javascript_expansion :pngFix => ['jquery.pngFix.min']
 ActionView::Helpers::AssetTagHelper.register_javascript_expansion :themeSwitcher => ['jquery.themeswitchertool.min']
 
-
 require 'jquery/jrails'
 require 'jquery/jquery_selector_assertions' if RAILS_ENV == 'test'
 require 'jquery/jquery_auto_complete'
+require 'jquery/flash_messages'
+
+ActionController::Base.send(:include, FlashMessages::ControllerMethods)
+ActionView::Base.send(:include, FlashMessages::Display)
