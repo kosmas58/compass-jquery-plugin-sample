@@ -31,4 +31,7 @@
 
   %body{body_attributes}
     #content
+      #flash_messages
+        %span
+          = h raw flash_messages
       = yield
