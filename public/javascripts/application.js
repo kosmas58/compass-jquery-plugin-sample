@@ -76,8 +76,12 @@ jQuery(document).ready(function() {
     hide: 'clip'
   });
 	
+	
   $('#show_license').click(function() {
     $('#license').dialog('open');
     return false;
   });
+ 
+  setTimeout(function(){$('div.success, div.notice, div.warning').fadeOut(1500);} , 10000);
+  setTimeout(function(){$('div.error').fadeOut(1500);} , 20000);
 });
