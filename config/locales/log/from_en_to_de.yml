@@ -21,9 +21,16 @@ date:
     long: "%B %d, %Y"
     short: "%b %d"
 txt: 
-  jqical: 
-    calendar: 
-      iphone: Show it on a iPhone
+  jqgrid: 
+    demo: 
+      37toolbar: Toolbar search
+      37crud: Add/edit/delete on local data
+      v37: New in version 3.7
+      37single: Single search
+      37server: Load at once from server
+      37multiple: Multiple search
+      37scroll: Virtual scrolling
+      37array: Load array data at once
 support: 
   array: 
     words_connector: ", "

@@ -1,0 +1,20 @@
+-@title = "#{t('txt.jqgrid.name')} #{t('txt.jqgrid.demo.name')} - #{t('txt.jqgrid.demo.v37')} - #{t('txt.jqgrid.demo.37array')}"
+.demo
+  %h3
+    =@title
+  %center
+    %table#demo1501.scroll{ :cellspacing => "0", :cellpadding => "0" }
+    #demo1501_pager.scroll{ :style => "text-align:center;" }
+
+/ End demo 
+.demo-description
+  %p  
+    From this version on it is possible to load big array data at once. The only thing that is needed, is to set datatype to local and
+    the new option
+    %code
+      data
+    to the array that contains the data.
+  %p
+    Note that paging and sorting work correct. It is important to note that in order sorting to work correct a sorttype param
+    in colModel should be set. 
+/ End demo-description

@@ -303,6 +303,14 @@ en:
         validation: Custom Validation
         as_subgrid: Grid as Subgrid
         cedit: Custom Edit
+        v37: New in version 3.7
+        37array: Load array data at once
+        37server: Load at once from server
+        37single: Single search
+        37multiple: Multiple search
+        37scroll: Virtual scrolling
+        37toolbar: Toolbar search
+        37crud: Add/edit/delete on local data
         name: Demo
         visible: Visible Columns
         get: Get Methods

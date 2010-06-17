@@ -37,6 +37,12 @@ de:
         firstname: Vorname
         lastname: Nachname
         email: E-Mail
+      player: 
+        pseudo: Pseudonym
+        role: Rolle
+        firstname: Vorname
+        lastname: Nachname
+        email: E-Mail
       invheader: 
         tax: Steuer
         client: Kunde
@@ -47,12 +53,6 @@ de:
         amount: Betrag
         note: Hinweis
         invdate: Datum
-      player: 
-        pseudo: Pseudonym
-        role: Rolle
-        firstname: Vorname
-        lastname: Nachname
-        email: E-Mail
       account: 
         name: Name
         debit: Soll
@@ -60,8 +60,8 @@ de:
         level: Level
         lft: lft
         acc_num: Kontonr.
-        parent_id: Eltern ID
         rgt: rgt
+        parent_id: Eltern ID
         balance: Kontostand
       event: 
         all_day: "Gant\xC3\xA4giges Ereignis"
@@ -218,9 +218,13 @@ de:
         description: Beschreibung
         ends_at: Endet um
         location: Ort
-    jqt: 
-      name: "jQTouch (ben\xC3\xB6tigt einen Browser mit WebKit)"
     jqgrid: 
+      manipulation: 
+        name: Datenmanipulation
+        modal: "mit modaler \xC3\x84nderung"
+        inline: "mit Inline-\xC3\x84nderung"
+        datepicker: mit Datumsauswahl (Nachname)
+        input: mit verschiedenen Eingabetypen
       simple: 
         name: Einfache Datengitter
         default: "mit Standardfunktionalit\xC3\xA4t"
@@ -229,107 +233,109 @@ de:
         direct: mit direkter Auswahl und automatischer Weite
         multiple: mit Mehrfachauswahl + Zeilennummern
       name: jqGrid
-      manipulation: 
-        name: Datenmanipulation
-        modal: "mit modaler \xC3\x84nderung"
-        inline: "mit Inline-\xC3\x84nderung"
-        datepicker: mit Datumsauswahl (Nachname)
-        input: mit verschiedenen Eingabetypen
       demo: 
         row: "Zeilen \xC3\xA4ndern"
-        multi: Mehrfachauswahl
+        big_sets: "Gro\xC3\x9Fe Datenmengen durchsuchen"
+        37multiple: Mehrfachsuche
         events: Ereignisse nutzen
         sortable: Sortierbare Spalten anzeigen
-        big_sets: "Gro\xC3\x9Fe Datenmengen durchsuchen"
+        multi: Mehrfachauswahl
         default: jqGrid Beispiele
+        post_data: Post Data
         hide: Spalten anzeigen/verbergen
         chooser: Spaltenauswahl
         integrations: Integrationen
-        post_data: Post Data
+        37toolbar: Werkzeugleistensuche
         actions: Aktionen
         v31: Neu in Version 3.1
+        37array: Matrixdaten auf einmal laden
         delete_row: "Zeile l\xC3\xB6schen"
         ajax: Ajax-Verbesserungen
+        37crud: "Lokale Daten Hinzuf\xC3\xBCgen/\xC3\x84ndern/L\xC3\xB6schen"
+        after_load: Callback nach dem Laden
         tscroll: Echte scrollende Zeilen
         v32: Neu in Version 3.2
-        initial: "Zun\xC3\xA4chst verstecktes Gitter"
         json_subgrid: Untergitter mit JSON
+        initial: "Zun\xC3\xA4chst verstecktes Gitter"
         basic: Einfaches Beispiel
-        after_load: Callback nach dem Laden
+        v33: Neu in Version 3.3
+        master: Haupt- und Detailsicht
         tree: Baumgitter
         toolbar: Symbolleisten
-        master: Haupt- und Detailsicht
         set: Set-Methoden
         xml_map: XML-Mapping
         srows: Sortierbare Zeilen
-        v33: Neu in Version 3.3
         format: Formatierer
+        html: Gitter aus HTML-Tabelle
         mapping: Daten-Mapping
         loading: Laden von Daten
         2dc: 2dc_jqGrid Beispiele
         cbutton: "Angepasste Schaltfl\xC3\xA4chen und Formulare"
         v34: Neu in Version 3.4
-        html: Gitter aus HTML-Tabelle
-        json_data: JSON-Daten
         v35: Neu in Version 3.5
+        json_data: JSON-Daten
+        rdnd: Drag and Drop von Zeilen
+        37server: Daten auf einmal vom Server laden
         reordering: Neuanordnung von Spalten
         stoolbar: Integrierte Suchleiste
-        cinput: Benutzerdefiniertes Eingabeelement erstellen
-        v36: Neu in Version 3.6
         mtoolbar: Mehrfache Symbolleistensuche
-        rdnd: Drag and Drop von Zeilen
-        userdata: Benutzerdaten
+        v36: Neu in Version 3.6
+        cinput: Benutzerdefiniertes Eingabeelement erstellen
+        scroll: Scrollen mit dynamischen Zeilenauswahl
+        v37: Neu in Version 3.7
         autoscroll: Das automatische Laden von Daten beim Scrollen
+        userdata: Benutzerdaten
         view: Modus Gitteransicht
         function: Datentyp als Funktion
-        scroll: Scrollen mit dynamischen Zeilenauswahl
-        as_subgrid: Gitter als Untergitter
         validation: Angepasste Validierung
+        as_subgrid: Gitter als Untergitter
         cedit: "Angepasstes \xC3\x84ndern"
         name: Demo
         visible: Sichtbare Spalten
-        xml_data: XML-Daten
-        client: Clientseitige Validierung
-        import: Konfiguration aus XML importieren
-        navigation: Formularnavigation
-        full: Vollzugriff
         edit_row: "Zeile \xC3\xA4ndern"
+        import: Konfiguration aus XML importieren
+        client: Clientseitige Validierung
+        full: Vollzugriff
+        xml_data: XML-Daten
+        navigation: Formularnavigation
         number: Automatische Breite und Reihennummerierung
         get: Get-Methoden
-        mform: Mehrfache Formularsuche
-        summary: "Zusammenfassung in der Fu\xC3\x9Fzeile"
-        resizing: "Gitter vergr\xC3\xB6\xC3\x9Fern"
-        cmulti: Angepasste Mehrfachauswahl
         adjacency: Baumgitter mit Adjazenzliste
+        mform: Mehrfache Formularsuche
+        resizing: "Gitter vergr\xC3\xB6\xC3\x9Fern"
+        summary: "Zusammenfassung in der Fu\xC3\x9Fzeile"
+        cmulti: Angepasste Mehrfachauswahl
         cformat: Angepasster Formatierer
         real: "Reales Beispiel eines Baumgitters "
         searching: Daten suchen
-        advanced: Fortgeschritten
         datepicker: Datumsauswahl
+        advanced: Fortgeschritten
         cell: "Zellen \xC3\xA4ndern"
         new_methods: Neue Methoden
         dynamic: "Dynamische H\xC3\xB6he und Breite"
         rtl: "RNL-Unterst\xC3\xBCtzung"
         api: Neues API
+        37single: Einfache Suche
         insert: "Ereignis nach Einf\xC3\xBCgen einer Zeile"
         once: Einmaliges Laden
         json_map: JSON-Mapping
+        37scroll: Virtuelles Scrollen
         array: Daten aus einer Matrix
         manipulating: Manipulation
         live: Live Datenmanipulation
         server_errors: Server-Fehler kontrollieren
-        improvements: Formverbesserungen
-        add_row: "Zeile hinzuf\xC3\xBCgen"
-        resizable: "Vergr\xC3\xB6\xC3\x9Ferbare Spalten"
         gridify: 2dc-Beispiele mit gridify umgesetzt
+        add_row: "Zeile hinzuf\xC3\xBCgen"
+        improvements: Formverbesserungen
+        resizable: "Vergr\xC3\xB6\xC3\x9Ferbare Spalten"
         types: Eingabetypen
+        navigator: Navigator
         subgrid: Untergitter
+        asearch: Erweiterte Suche
         data: Gitterdaten
         cparams: "Gebr\xC3\xA4uchliche Parameter"
         b30: Neu seit Beta 3.0
         optimize: Datenoptimierung
-        asearch: Erweiterte Suche
-        navigator: Navigator
       subgrids: 
         name: Untergitter
         default: "mit Standardfunktionalit\xC3\xA4t"
@@ -337,6 +343,8 @@ de:
         crud: mit CRUD-Operationen
       improvements: 
         name: mit Verbesserungen der Form
+    jqt: 
+      name: "jQTouch (ben\xC3\xB6tigt einen Browser mit WebKit)"
     ribbon: 
       simple: jQuery Ribbon Simple Demo
       name: Multifunktionsleiste
@@ -346,24 +354,24 @@ de:
       name: Dynatree
       ul: Aus ul-Element initialisieren
       default: Standardeinstellungen
-      persist: Persistenz
       quick: JS-Objekt initialisieren
+      persist: Persistenz
       lazy: Lazy
-      iframe: iframe und URL-Navigation
       api: Programmier-API
+      iframe: iframe und URL-Navigation
       dnd: Ziehen und Ablegen
       minexpand: Feste Expansionsebene
       effects: Effekte
-      benchmark: "Benchmark f\xC3\xBCr gro\xC3\x9Fe B\xC3\xA4ume"
       contextmenu: "Kontextmen\xC3\xBC,  Kopieren / Einf\xC3\xBCgen"
       events: Ergeignisverarbeitung
-      select: "K\xC3\xA4stchen & Auswahl"
+      benchmark: "Benchmark f\xC3\xBCr gro\xC3\x9Fe B\xC3\xA4ume"
       theming: 
         name: Themen
         xp: XP
         crystal: Crystal
         aero: Aero
         aqua: Aqua
+      select: "K\xC3\xA4stchen & Auswahl"
     hello: Hallo Welt
     ui: 
       name: jQquery UI
@@ -381,31 +389,31 @@ de:
           radio: Umschalttasten
           checkbox: Auswahltasten
           toolbar: Werkzeugleiste
-        default: Widgets
         autocomplete: 
           combobox: Auswahleiste
           default: "Autovervollst\xC3\xA4ndigung"
           multiple-remote: Mehrfachwerte, remote
-          remote-jsonp: Entfernte JSONP-Datenquelle
           folding: "Akzente ber\xC3\xBCcksichtigen"
+          remote-jsonp: Entfernte JSONP-Datenquelle
           custom-data: Angepasste Daten und Anzeige
-          categories: Kategorien
           remote-with-cache: Entfernt mit Caching
-          remote-xml: XML-Daten einmalig geparsed
+          categories: Kategorien
           multiple: Mehrfachwerte
+          remote-xml: XML-Daten einmalig geparsed
           remote: Entfernte Datenquelle
+        default: Widgets
         slider: 
           steps: Mit festen Schritten einrasten
-          default: Schieberegler
           multiple-vertical: Mehrere Regler
+          default: Schieberegler
           side-scroll: Einfache Bildlaufleiste
           range-vertical: Vertikaler Regler mit Bereich
-          slider-vertical: Vertikaler Regler
           colorpicker: Einfache Farbauswahl
+          slider-vertical: Vertikaler Regler
           rangemax: Bereich mit festgesetzten Maximum
           range: Regler mit Bereich
-          hotelrooms: Zimmerreservierung
           tabs: Reiter per Schieberegler kontrollieren
+          hotelrooms: Zimmerreservierung
           rangemin: Bereich mit festgesetztem Mininum
         datepicker: 
           alt-field: "Alternatives Feld f\xC3\xBCllen"
@@ -413,15 +421,22 @@ de:
           default: Datumsauswahl
           min-max: "Datumsbereich einschr\xC3\xA4nken "
           inline: Eingebettet anzeigen
-          show-week: Zeige Kalanderwoche
-          animation: Animationen
           icon-trigger: "\xC3\x9Cber Symbol aktivieren"
+          animation: Animationen
+          show-week: Zeige Kalanderwoche
           event-search: Veranstaltungen suchen
           multiple-calendars: Mehrerer Monate anzeigen
           dropdown-month-year: "Monat- & Jahresmen\xC3\xBCs anzeigen"
-          date-formats: Datum formatieren
           localization: " Kalender lokalisieren"
+          date-formats: Datum formatieren
           other-months: Termine in den anderen Monaten
+        dialog: 
+          default: Dialog
+          modal: Modaler Dialog
+          modal-confirmation: "Modale Best\xC3\xA4tigung"
+          modal-message: Modale Nachricht
+          animated: Animierter Dialog
+          modal-form: Modale Form
         accordion: 
           default: Akkordeon
           no-auto-height: "Ohne automatische H\xC3\xB6he"
@@ -430,13 +445,6 @@ de:
           fillspace: "Freien Platz f\xC3\xBCllen"
           custom-icons: Symbole anpassen
           collapsible: Inhalt einklappen
-        dialog: 
-          default: Dialog
-          modal: Modaler Dialog
-          modal-confirmation: "Modale Best\xC3\xA4tigung"
-          animated: Animierter Dialog
-          modal-message: Modale Nachricht
-          modal-form: Modale Form
         tabs: 
           bottom: Reiter unterhalb des Inhalts
           manipulation: Einfache Handhabung
@@ -464,8 +472,8 @@ de:
           scroll: Autoscrollen
           revert: "Zur Position zur\xC3\xBCckkehren"
           constrain-movement: "Einschr\xC3\xA4nken der Bewegung"
-          delay-start: "Start verz\xC3\xB6gern"
           sortable: Zieh- und sortierbar
+          delay-start: "Start verz\xC3\xB6gern"
           events: Ereignisse
           cursor-style: Cursorstil
         resizable: 
@@ -494,16 +502,16 @@ de:
           default: Sortierbar
           connect-lists-through-tabs: "Listen \xC3\xBCber Reiter verbinden"
           delay-start: "Start verz\xC3\xB6gern"
-          connect-lists: Listen verbinden
           portlets: Portlets
+          connect-lists: Listen verbinden
           display-grid: Als Gitter anzeigen
           empty-lists: Leere Listen handhaben
       effects: 
         default: Effekte
-        toggle_class: 
-          default: Klasse umschalten
         hide: 
           default: Verstecken
+        toggle_class: 
+          default: Klasse umschalten
         switch_class: 
           default: Klasse wechseln
         animate: 
@@ -543,9 +551,9 @@ de:
       save: Sichern
       show: Anzeigen
       until: bis
+      update: Aktualisieren
       footer: 
         legalese: "Copyright \xC2\xA9 2009-2010 Kosmas Sch\xC3\xBCtz. N\xC3\xA4heres finden Sie unter LICENSE."
-      update: Aktualisieren
   activemodel: 
     errors: 
       template: 
