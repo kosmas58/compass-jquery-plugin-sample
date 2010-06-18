@@ -3,8 +3,9 @@ class CreateItems < ActiveRecord::Migration
     create_table :items do |t|
       t.string :item, :limit => 200
       t.string :cd, :limit => 15
-    end
-  end
+    end    
+    add_index :items, :cd
+  end 
 
   def self.down
     drop_table :items

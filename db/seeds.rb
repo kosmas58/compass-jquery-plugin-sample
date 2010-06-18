@@ -1,4 +1,4 @@
-# User
+# Users
 User.create!(:pseudo => "ahe", :firstname => "Anthony", :lastname => "Heukmes", :email => "ahe@ahe.be", :role => "admin")
 User.create!(:pseudo => "willd", :firstname => "Wilfried", :lastname => "Dalmat", :email => "willd@ahe.be", :role => "middlefielder")
 User.create!(:pseudo => "marcos", :firstname => "Marcos", :lastname => "Camozzato", :email => "marcos@ahe.be", :role => "defender")
@@ -50,7 +50,7 @@ Pet.create!(:name => "Poop", :user_id => 12)
 Pet.create!(:name => "Bikk", :user_id => 13)
 Pet.create!(:name => "Allo", :user_id => 13) 
 
-# Player
+# Players
 Player.create!(:pseudo => "ahe", :firstname => "Anthony", :lastname => "Heukmes", :email => "ahe@ahe.be", :role => "admin")
 Player.create!(:pseudo => "willd", :firstname => "Wilfried", :lastname => "Dalmat", :email => "willd@ahe.be", :role => "middlefielder")
 Player.create!(:pseudo => "marcos", :firstname => "Marcos", :lastname => "Camozzato", :email => "marcos@ahe.be", :role => "defender")
@@ -102,12 +102,12 @@ Animal.create!(:name => "Poop", :player_id => 12)
 Animal.create!(:name => "Bikk", :player_id => 13)
 Animal.create!(:name => "Allo", :player_id => 13) 
 
-# Client
+# Clients
 Client.create!(:name => "Client 1")
 Client.create!(:name => "Client 2")
 Client.create!(:name => "Client 3")
 
-# Invheader
+# Invheaders
 Invheader.create!(:invdate => "2007-10-01", :client_id => 1, :amount => "100.00", :tax => "20.00", :total => "120.00", :note => "note 1" )
 Invheader.create!(:invdate => "2007-10-03", :client_id => 1, :amount => "200.00", :tax => "40.00", :total => "240.00", :note => "note 2" )
 Invheader.create!(:invdate => "2007-10-02", :client_id => 2, :amount => "300.00", :tax => "60.00", :total => "360.00", :note => "note for invoice 3" )
@@ -122,7 +122,7 @@ Invheader.create!(:invdate => "2007-10-06", :client_id => 1, :amount => "600.00"
 Invheader.create!(:invdate => "2007-10-06", :client_id => 2, :amount => "700.00", :tax => "140.00", :total => "840.00", :note => nil )
 Invheader.create!(:invdate => "2007-10-06", :client_id => 3, :amount => "1000.00", :tax => "0.00", :total => "1000.00", :note => nil )
 
-# Invline
+# Invlines
 Invline.create!( :invheader_id => 1, :num => 1, :item => "item 1", :qty => "1.00", :unit => "20.00" )
 Invline.create!( :invheader_id => 1, :num => 2, :item => "item 2", :qty => "2.00", :unit => "40.00" )
 Invline.create!( :invheader_id => 2, :num => 1, :item => "item 1", :qty => "2.00", :unit => "20.00" )
@@ -149,10 +149,22 @@ Invline.create!( :invheader_id => 11, :num => 4, :item => "item 4", :qty => "1.0
 Invline.create!( :invheader_id => 12, :num => 4, :item => "item 4", :qty => "1.00", :unit => "300.00" )
 Invline.create!( :invheader_id => 12, :num => 2, :item => "item 2", :qty => "1.00", :unit => "400.00" )
 Invline.create!( :invheader_id => 13, :num => 13, :item => "item 13", :qty => "1.00", :unit => "1000.00" )
-# Item
 
+# Items
+f = File.open("#{RAILS_ROOT}/db/longtext.txt", "r") 
+wordlist = f.read.split(/ /)
+wordlist_length = wordlist.length
 
-# Account
+20000.times do
+  word = wordlist[rand(wordlist_length)]
+  number = 1
+  unless number > 99999
+    number = rand(999999)
+  end  
+  Item.create!(:item => "#{word}", :cd => "#{number.to_s}")
+end
+
+# Accounts
 Account.create!(:parent_id => nil, :name => "A1" , :acc_num => 100001, :debit => 11, :credit => 12, :balance => 13, :level => 0, :lft => 1, :rgt => 14 ) 
 Account.create!(:parent_id => nil, :name => "A11" , :acc_num => 100011, :debit => 111, :credit => 112, :balance => 113, :level => 1, :lft => 2, :rgt => 3 ) 
 Account.create!(:parent_id => nil, :name => "A12" , :acc_num => 100012, :debit => 121, :credit => 122, :balance => 123, :level => 1, :lft => 4, :rgt => 11 ) 
@@ -727,7 +739,8 @@ Bird.create!(:name => "Green Heron", :scientific_name => "Butorides virescens")
 Bird.create!(:name => "Solitary Sandpiper", :scientific_name => "Tringa solitaria")
 Bird.create!(:name => "Heuglin's Gull", :scientific_name => "Larus heuglini")
 
+# Calendar
+Calendar.create!(:name => "iCal Test Calendar")
+
 #Event.create(:start_date=> 24.hours.from_now, :end_date => 25.hours.from_now, :title => "Test Event 1")    
 #Event.create(:start_date=> 48.hours.from_now, :end_date => 49.hours.from_now, :title => "Test Event 2")  
-
-Calendar.create!(:name => "iCal Test Calendar")
