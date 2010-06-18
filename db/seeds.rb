@@ -158,7 +158,7 @@ wordlist_length = wordlist.length
 20000.times do
   word = wordlist[rand(wordlist_length)]
   number = 1
-  while number > 99999
+  while number < 99999
     number = rand(999999)
   end  
   Item.create!(:item => "#{word}", :cd => "#{number.to_s}")
