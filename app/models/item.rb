@@ -28,7 +28,7 @@ class Item < ActiveRecord::Base
     :pager               => true  
     
   gridify :demo1302,
-    :title               => I18n.t('txt.jqgrid.demo.view'),
+    :title               => I18n.t('txt.jqgrid.demo.35view'),
     :url                 => "/jqgrid/demo?model=item",
     :data_type           => :json,  
     :colNames            => [
@@ -57,7 +57,7 @@ class Item < ActiveRecord::Base
     :pager               => true
     
   gridify :demo1408,
-    :title               => I18n.t('txt.jqgrid.demo.tscroll'),
+    :title               => I18n.t('txt.jqgrid.demo.36tscroll'),
     :url                 => "/jqgrid/demo?model=item",
     :data_type           => :json,  
     :colNames            => [

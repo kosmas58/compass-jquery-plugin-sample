@@ -1,5 +1,5 @@
 ---
-en:  
+en:
   activemodel:
     errors:
       template:
@@ -195,7 +195,7 @@ en:
     jqical:
       anytime:
         name: "Any+Time&trade"
-        default: Default functionality 
+        default: Default functionality
         inline: Display inline
         separate: Separate date and time
         css: Custom stylesheet
@@ -252,108 +252,112 @@ en:
       improvements:
         name: with form improvements
       demo:
-        actions: Actions
-        default: jqGrid Demo
+        20advanced: Advanced
+        20array: Array Data
+        20as_subgrid: Grid as Subgrid
+        20big_sets: Search Big Sets
+        20data: Grid Data
+        20get: Get Methods
+        20json_data: JSON Data
+        20loading: Loading Data
+        20manipulating: Manipulating
+        20master: Master Detail
+        20multi: Multi Select
+        20once: Load once
+        20resizing: Resizing Grid
+        20set: Set Methods
+        20subgrid: Subgrid
+        20xml_data: XML Data
         2dc: 2dc_jqGrid Examples
-        gridify: 2dc examples implemented with gridify
-        sortable: View sortable columns
-        big_sets: Search Big Sets
-        events: Using Events
-        row: Row Editing
-        multi: Multi Select
-        post_data: Post Data
-        chooser: Column Chooser
-        integrations: Integrations
-        hide: Hide/Show Columns
-        v31: New in version 3.1
-        delete_row: Delete row
-        ajax: Ajax Improvements
-        json_subgrid: Subgrid with JSON
-        initial: Initially hidden grid
-        v32: New in version 3.2
-        basic: Basic Example
-        after_load: After Load Callback
-        tscroll: True scrolling Rows
-        srows: Sortable Rows
-        master: Master Detail
-        toolbar: Toolbars
-        userdata: Userdata
-        tree: Tree Grid
-        xml_map: XML Mapping
-        set: Set Methods
-        v33: New in version 3.3
-        loading: Loading Data
-        mapping: Data Mapping
-        cbutton: Custom Button and Forms
-        v34: New in version 3.4
-        format: Formatter
-        html: HTML Table to Grid
-        v35: New in version 3.5
-        json_data: JSON Data
-        rdnd: Drag and Drop Rows
-        stoolbar: Integrated Search Toolbar
-        mtoolbar: Multiple Toolbar Search
-        v36: New in version 3.6
-        cinput: Create Custom input element
-        reordering: Column Reordering
-        autoscroll: Autoloading data when scroll
-        view: Grid view mode
-        function: Data type as function
-        scroll: Scroll with dynamic row select
-        validation: Custom Validation
-        as_subgrid: Grid as Subgrid
-        cedit: Custom Edit
-        v37: New in version 3.7
+        30add_row: Add row
+        30after_load: After Load Callback
+        30basic: Basic Example
+        30cedit: Custom Edit
+        30cmulti: Custom Multi Select
+        30datepicker: UI Datepicker
+        30delete_row: Delete row
+        30edit_row: Edit row
+        30events: Using Events
+        30full: Full Control
+        30hide: Hide/Show Columns
+        30integrations: Integrations
+        30json_map: JSON Mapping
+        30json_subgrid: Subgrid with JSON
+        30live: Live Data Manipulation
+        30mapping: Data Mapping
+        30navigator: Navigator
+        30optimize: Data Optimization
+        30resizable: Resizable Columns
+        30row: Row Editing
+        30searching: Searching Data
+        30types: Input types
+        30v: New since beta 3.0
+        30xml_map: XML Mapping
+        31cparams: Common Params
+        31new_methods: New Methods
+        31post_data: Post Data
+        31toolbar: Toolbars
+        31userdata: Userdata
+        31v: New in version 3.1
+        32cbutton: Custom Button and Forms
+        32client: Client Validation
+        32hide: Hide/Show Columns
+        32initial: Initially hidden grid
+        32insert: After Insert Row event
+        32new_methods: New Methods
+        32server_errors: Controlling server errors
+        32v: New in version 3.2
+        33cell: Cell Editing
+        33dynamic: Dynamic height and width
+        33function: Data type as function
+        33html: HTML Table to Grid
+        33mform: Multiple Form Search
+        33mtoolbar: Multiple Toolbar Search
+        33rdnd: Drag and Drop Rows
+        33tree: Tree Grid
+        33v: New in version 3.3
+        33visible: Visible Columns
+        34adjacency: Tree Grid Adjacency model
+        34autoscroll: Autoloading data when scroll
+        34cformat: Custom Formatter
+        34format: Formatter
+        34import: Import Configuration from XML
+        34scroll: Scroll with dynamic row select
+        34v: New in version 3.4
+        35asearch: Advanced Searching
+        35improvements: Form Improvements
+        35navigation: Form Navigation
+        35number: Autowidth and row numbering
+        35real: TreeGrid real world example
+        35sortable: View sortable columns
+        35stoolbar: Integrated Search Toolbar
+        35summary: Summary Footer Row
+        35v: New in version 3.5
+        35view: Grid view mode
+        36ajax: Ajax Improvements
+        36api: New API
+        36chooser: Column Chooser
+        36cinput: Create Custom input element
+        36rdnd: Drag and Drop Rows
+        36reordering: Column Reordering
+        36resizing: Resizing Grid
+        36rtl: RTL Support
+        36srows: Sortable Rows
+        36tscroll: True scrolling Rows
+        36v: New in version 3.6
+        36validation: Custom Validation
         37array: Load array data at once
-        37server: Load at once from server
-        37single: Single search
+        37crud: Add/edit/delete on local data
         37multiple: Multiple search
         37scroll: Virtual scrolling
+        37server: Load at once from server
+        37single: Single search
         37toolbar: Toolbar search
-        37crud: Add/edit/delete on local data
+        37v: New in version 3.7
+        actions: Actions
+        default: jqGrid Demo
+        gridify: 2dc examples implemented with gridify
         name: Demo
-        visible: Visible Columns
-        get: Get Methods
-        xml_data: XML Data
-        navigation: Form Navigation
-        import: Import Configuration from XML
-        full: Full Control
-        edit_row: Edit row
-        client: Client Validation
-        number: Autowidth and row numbering
-        summary: Summary Footer Row
-        mform: Multiple Form Search
-        resizing: Resizing Grid
-        cmulti: Custom Multi Select
-        adjacency: Tree Grid Adjacency model
-        real: TreeGrid real world example
-        new_methods: New Methods
-        cell: Cell Editing
-        searching: Searching Data
-        datepicker: UI Datepicker
-        advanced: Advanced
-        cformat: Custom Formatter
-        dynamic: Dynamic height and width
-        rtl: RTL Support
-        api: New API
-        insert: After Insert Row event
-        once: Load once
-        server_errors: Controlling server errors
-        array: Array Data
-        live: Live Data Manipulation
-        json_map: JSON Mapping
-        manipulating: Manipulating
-        resizable: Resizable Columns
-        add_row: Add row
-        improvements: Form Improvements
-        types: Input types
-        subgrid: Subgrid
-        data: Grid Data
-        cparams: Common Params
-        b30: New since beta 3.0
-        optimize: Data Optimization
-        asearch: Advanced Searching
-        navigator: Navigator
     dt:
       name: Dynatree
       ul: Init from ul element
