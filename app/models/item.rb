@@ -176,7 +176,7 @@ class Item < ActiveRecord::Base
     :pager               => true
   
   gridify :demo1505,
-    :title               => I18n.t('txt.jqgrid.demo.37sroll'),
+    :title               => I18n.t('txt.jqgrid.demo.37scroll'),
     :url                 => "/jqgrid/demo?model=item",
     :data_type           => :json,  
     :colNames            => [
@@ -224,15 +224,16 @@ class Item < ActiveRecord::Base
                                              :width => 150 },
                               :cd       => { :name  => 'cd',
                                              :width =>  100 }
-                            },                            
+                            },                           
     :row_numbers         => 40,
+    :rows_per_page       => 50,
+    :total_rows          => 2000,
     :width               => 700,
-    :height              => :auto,
-    :rows_per_page       => 100,
-    :paging_choices      => [10,20,30],
+    :height              => 255,
+    :paging_choices      => [20,30,50],
     :sort_by             => :id,
     :sort_order          => :asc,
-    :search_button       => true,  
+    :search_toolbar      => true,  
     :refresh_button      => true,
     :pager               => true
   
