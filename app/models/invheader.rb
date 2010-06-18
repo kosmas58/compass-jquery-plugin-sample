@@ -3636,12 +3636,18 @@ class Invheader < ActiveRecord::Base
     :width          => 700,
     :height         => :auto,
     :rows_per_page  => 10,
+    :total_rows     => 50,
     :paging_choices => [10,20,30],
     :editable       => true,
     :select_rows    => true, 
     :jqgrid_options => { :edit_url  => "/jqgrid/demo" },
     :sort_by        => :id,
     :sort_order     => :desc,
+    :edit_button    => true,
+    :add_button     => true, 
+    :delete_button  => true,
+    :search_button  => true,  
+    :refresh_button => true,
     :pager          => true
 end
 
