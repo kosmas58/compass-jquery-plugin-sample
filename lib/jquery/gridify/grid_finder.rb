@@ -21,6 +21,7 @@ module Gridify
       self.sort_order    = params[:sord] if params[:sord]
       self.current_page  = params[:page].to_i if params[:page]
       self.rows_per_page = params[:rows].to_i if params[:rows]
+      self.total_rows    = params[:total_rows].to_i if params[:total_rows]
     end
 
     # return find args (scope) for current settings
@@ -35,7 +36,11 @@ module Gridify
           find_args[:order] = "upper(#{sort_by}) #{sort_order}" 
         end
       end
-      if rows_per_page.present? && rows_per_page > 0
+      if total_rows.present? && total_rows > 0
+        find_args[:limit] = total_rows
+        offset = (current_page.to_i-1) * rows_per_page if current_page.present?
+        find_args[:offset] = offset if offset && offset > 0      
+      elsif rows_per_page.present? && rows_per_page > 0
         find_args[:limit] = rows_per_page
         offset = (current_page.to_i-1) * rows_per_page if current_page.present?
         find_args[:offset] = offset if offset && offset > 0

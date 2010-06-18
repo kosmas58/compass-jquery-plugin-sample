@@ -1,24 +1,7 @@
 -@title = "#{t('txt.jqgrid.name')} #{t('txt.jqgrid.demo.name')} - #{t('txt.jqgrid.demo.advanced')} - #{t('txt.jqgrid.demo.big_sets')}"
 .demo
   %h3
-    =@title
-  .h
-    Search By:
-    %br
-    %div
-      Code    
-      %br
-      %input#search_cd{:onkeydown => "doSearch(arguments[0]||event)", :type => "text"}/
-      %input#autosearch{:onclick => "enableAutosubmit(this.checked)", :type => "checkbox"}
-        Enable Autosearch
-    %br
-    %div
-      Name
-      %br
-      %input#item_nm{:onkeydown => "doSearch(arguments[0]||event)", :type => "text"}/
-      %button#submitButton{:onclick => "gridReload()", :style => "margin-left:30px;"} Search
-    %br
-  
+    =@title 
   %center  
     %table#items_demo0306.scroll{ :cellspacing => "0", :cellpadding => "0" }
     #items_demo0306_pager.scroll{ :style => "text-align:center;" }

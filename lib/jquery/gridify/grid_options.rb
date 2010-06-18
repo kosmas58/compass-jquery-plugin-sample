@@ -85,6 +85,7 @@ module Gridify
                   :case_sensitive,        # sort and search are case sensitive (false)                  
                   :current_page,          # current page requested
                   :rows_per_page,         # number of items to be requested in the next request (paging_choices.first or -1 if pager false)
+                  :total_rows,            # number of rows to read
                   :table_to_grid,         # when true generates tableToGrid (false) from html table, then use as local data
                                           # note, we assume table rows are not selectable. 
                                           # (tableToGrid sets multiselect when first col has checkboxes or radio buttons, 
@@ -208,12 +209,12 @@ module Gridify
     def restful
       @restful==false ? false : true
     end
-
     
     # data
     def url
       @url || "/#{resource}"
     end
+    
     def rows_per_page
       #debugger
       # all rows when pager controls or rows per page are off

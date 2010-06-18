@@ -132,6 +132,7 @@ module Gridify
       vals[:sortname]          = sort_by if sort_by
       vals[:sortorder]         = sort_order if sort_order && sort_by
       vals[:rowNum]            = rows_per_page if rows_per_page
+      vals[:rowTotal]          = total_rows if total_rows
       vals[:page]              = current_page if current_page
 
       # grid options
