@@ -1,11 +1,11 @@
--@title = "#{t('txt.jqgrid.name')} #{t('txt.jqgrid.demo.name')} - #{t('txt.jqgrid.demo.b30')} - #{t('txt.jqgrid.demo.hide')}"
+-@title = "#{t('txt.jqgrid.name')} #{t('txt.jqgrid.demo.name')} - #{t('txt.jqgrid.demo.30v')} - #{t('txt.jqgrid.demo.30hide')}"
 .demo
   %h3
     =@title
   %center
     %table#invheaders_demo0405.scroll{ :cellspacing => "0", :cellpadding => "0" }
     #invheaders_demo0405_pager.scroll{ :style => "text-align:center;" }
-    #toolbar.ui-widget-header.ui-corner-all      
+    #toolbar.ui-widget-header.ui-corner-all
       %form
         #radio
           %input#hc{ :name => "radio", :type => "radio" }
@@ -13,8 +13,8 @@
             Hide column Tax
           %input#sc{ :name => "radio", :type => "radio", :checked => "checked" }
           %label{ :for => "sc" }
-            Show column Tax 
-/ End demo 
+            Show column Tax
+/ End demo
 .demo-description
   %p
     This example shows two new methods:
@@ -28,7 +28,7 @@
           showCol(colname)
         \ - show a column with a given colname.
       %li
-        We can hide a column when the grid is initialized using a new property 
+        We can hide a column when the grid is initialized using a new property
         %i
           hidden
         in colModel.

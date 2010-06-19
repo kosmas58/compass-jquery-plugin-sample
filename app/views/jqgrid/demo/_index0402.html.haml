@@ -1,11 +1,11 @@
--@title = "#{t('txt.jqgrid.name')} #{t('txt.jqgrid.demo.name')} - #{t('txt.jqgrid.demo.b30')} - #{t('txt.jqgrid.demo.json_subgrid')}"
+-@title = "#{t('txt.jqgrid.name')} #{t('txt.jqgrid.demo.name')} - #{t('txt.jqgrid.demo.30v')} - #{t('txt.jqgrid.demo.30json_subgrid')}"
 .demo
   %h3
     =@title
   %center
     %table#invheaders_demo0402.scroll{ :cellspacing => "0", :cellpadding => "0" }
     #invheaders_demo0402_pager.scroll{ :style => "text-align:center;" }
-/ End demo 
+/ End demo
 .demo-description
   %p
     This example demonstrates using a subgrid with JSON Data. To the subgrid url is passed the id
@@ -13,19 +13,19 @@
     grid data a params array can be constructed.
   %p
     Example: if we want to pass the date too - the
-    subGridModel can look like this: 
+    subGridModel can look like this:
     %code
       %br
       \...
       %br
-      subGridModel: [{ name  : ['No','Item','Qty','Unit','Line Total'], 
+      subGridModel: [{ name  : ['No','Item','Qty','Unit','Line Total'],
       %br
-      width : [55,200,80,80,80], 
+      width : [55,200,80,80,80],
       %br
-      params: ['invdate']} 
+      params: ['invdate']}
       %br
       \...
-  %p       
+  %p
     where the 'invdate' is a valid name from colModel. And a parameter invdate='xxxxx' is
     constructed.
 / End demo-description
