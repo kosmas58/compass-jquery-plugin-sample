@@ -22,7 +22,7 @@ class Jqgrid::DemoController < ApplicationController
           end
         elsif params[:subgrid]
           records = Invheader.find(params[:id]).invlines.find(:all)        
-          render :json => records.to_subgrid_json([:num,:item,:qty,:unit,:total])
+          render :json => records.to_subgrid_json(params[:atr])
         else
           records = @object.find_for_grid(@mylist, params)
           case @datatype

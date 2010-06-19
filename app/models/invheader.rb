@@ -406,7 +406,7 @@ class Invheader < ActiveRecord::Base
     :title          => I18n.t('txt.jqgrid.demo.20subgrid'),
     :url            => "/jqgrid/demo",
     :data_type      => :json,
-    :colInclude        => [:client],
+    :colInclude     => [:client],
     :colNames       => [
                         I18n.t('activerecord.attributes.invheader.id'),
                         I18n.t('activerecord.attributes.invheader.invdate'),
@@ -454,7 +454,7 @@ class Invheader < ActiveRecord::Base
     :pager          => true,
     :grid_view      => false,
     :sub_grid       => true,
-    :sub_grid_url   => "/jqgrid/demo?model=invline&subgrid=true",
+    :sub_grid_url   => "/jqgrid/demo?model=invline&subgrid=true&atr[]=num&atr[]=item&atr[]=qty&atr[]=unit&atr[]=total",
     :sub_grid_model => [
                          {
                            :name  => [
@@ -464,7 +464,7 @@ class Invheader < ActiveRecord::Base
                                        I18n.t('activerecord.attributes.invline.unit'),
                                        I18n.t('activerecord.attributes.invline.total')
                                      ],
-                           :width => [ 55,    200,  80,    80,  80],
+                           :width => [ 55, 200, 80, 80, 80],
                            :align => [ :right, :left, :right, :right, :right ]
                          }
                        ]
@@ -536,9 +536,9 @@ class Invheader < ActiveRecord::Base
                         I18n.t('activerecord.attributes.invheader.ship_via')
                        ],
     :colModel       => {
-                         :id       => { :name     => 'id',
-                                        :width    =>  50,
-                                        :align    => :right },
+                         :id       => { :name  => 'id',
+                                        :width =>  50,
+                                        :align => :right },
                          :invdate  => { :name  => 'invdate',
                                         :width =>  90 },
                          :name     => { :name  => 'name',
@@ -676,7 +676,7 @@ class Invheader < ActiveRecord::Base
     :pager          => true,
     :grid_view      => false,
     :sub_grid       => true,
-    :sub_grid_url   => "/jqgrid/demo?model=invline&subgrid=true",
+    :sub_grid_url   => "/jqgrid/demo?model=invline&subgrid=true&atr[]=num&atr[]=item&atr[]=qty&atr[]=unit&atr[]=total",
     :sub_grid_model => [
                          {
                            :name  => [
