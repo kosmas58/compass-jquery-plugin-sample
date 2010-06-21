@@ -740,7 +740,9 @@ Bird.create!(:name => "Solitary Sandpiper", :scientific_name => "Tringa solitari
 Bird.create!(:name => "Heuglin's Gull", :scientific_name => "Larus heuglini")
 
 # Calendar
-Calendar.create!(:name => "iCal Test Calendar")
+Calendar.create!(:name => "iCal Test Calendar", :color => 16711680 )
 
-#Event.create(:start_date=> 24.hours.from_now, :end_date => 25.hours.from_now, :title => "Test Event 1")    
-#Event.create(:start_date=> 48.hours.from_now, :end_date => 49.hours.from_now, :title => "Test Event 2")  
+#Events
+
+Event.create(:calendar_id => 1, :starts_at=> 24.hours.from_now, :ends_at => 25.hours.from_now, :summary => "Normal Event", :description => "It's a test!", :location => "Test town")      
+Event.create(:calendar_id => 1, :starts_at=> 24.hours.from_now, :ends_at => 49.hours.from_now, :summary => "2 day Event", :description => "It's a test!", :location => "Test town")   

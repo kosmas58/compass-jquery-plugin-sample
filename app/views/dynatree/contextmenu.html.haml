@@ -1,11 +1,9 @@
 -@title = "#{t('txt.dt.name')} - #{t('txt.dt.contextmenu')}"
--@jquery_partial = 'contextmenu.js.haml'
 -@dynatree_theme = 'start'
 -@dynatree_skin = 'dynatree.xp.css'
 
 - content_for :content_head do
-  = render(:partial => "theming.js.haml", :format => :js)
-
+  = render(:partial => "contextmenu.js.haml", :format => :js)
 
 .demo
   %h3
