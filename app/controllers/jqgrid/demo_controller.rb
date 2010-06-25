@@ -27,7 +27,7 @@ class Jqgrid::DemoController < ApplicationController
           records = @object.find_for_grid(@mylist, params)
           case @datatype
             when :json
-              render :json => @object.grid(@mylist).encode_records(records)
+              render :json => @object.grid(@mylist).encode_records(records)       
             when :xml
               render :xml => @object.grid(@mylist).encode_records(records)
               #render :partial => "#{@model.downcase}.xml.builder", :layout => false

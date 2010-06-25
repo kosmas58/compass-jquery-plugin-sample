@@ -46,6 +46,7 @@ class Invheader < ActiveRecord::Base
     :height         => :auto,
     :sort_by        => :id,
     :sort_order     => :desc,
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false] },
     :rows_per_page  => 10,
     :paging_choices => [10,20,30],
     :search_button  => true,
@@ -95,6 +96,7 @@ class Invheader < ActiveRecord::Base
                                         :width =>  40 }
                        },
     :height         => :auto,
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false] },
     :search_button  => true,
     :refresh_button => true,
     :pager          => true
@@ -142,6 +144,7 @@ class Invheader < ActiveRecord::Base
     :height         => :auto,
     :rows_per_page  => 20,
     :paging_choices => [10,20,30],
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false] },
     :pager          => true,
     :load_once      => true
 
@@ -191,6 +194,7 @@ class Invheader < ActiveRecord::Base
     :paging_choices => [10,20,30],
     :sort_by        => :id,
     :sort_order     => :desc,
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false] },
     :select_rows    => true,
     :search_button  => true,
     :refresh_button => true,
@@ -242,6 +246,7 @@ class Invheader < ActiveRecord::Base
     :paging_choices => [10,20,30],
     :sort_by        => :id,
     :sort_order     => :desc,
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false] },
     :select_rows    => true,
     :search_button  => true,
     :refresh_button => true,
@@ -293,6 +298,7 @@ class Invheader < ActiveRecord::Base
     :paging_choices => [10,20,30],
     :sort_by        => :id,
     :sort_order     => :desc,
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false] },
     :select_rows    => true,
     :search_button  => true,
     :refresh_button => true,
@@ -344,6 +350,7 @@ class Invheader < ActiveRecord::Base
     :paging_choices => [10,20,30],
     :sort_by        => :id,
     :sort_order     => :desc,
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false] },
     :select_rows    => true,
     :multi_select   => true,
     :search_button  => true,
@@ -396,6 +403,7 @@ class Invheader < ActiveRecord::Base
     :paging_choices => [10,20,30],
     :sort_by        => :id,
     :sort_order     => :desc,
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false] },
     :select_rows    => "javascript: handleDemo0302",
     :search_button  => true,
     :refresh_button => true,
@@ -449,6 +457,7 @@ class Invheader < ActiveRecord::Base
     :paging_choices => [10,20,30],
     :sort_by        => :id,
     :sort_order     => :desc,
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false] },
     :search_button  => true,
     :refresh_button => true,
     :pager          => true,
@@ -515,6 +524,7 @@ class Invheader < ActiveRecord::Base
     :paging_choices => [10,20,30],
     :sort_by        => :id,
     :sort_order     => :desc,
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false] },
     :grid_view      => false,
     :search_button  => true,
     :refresh_button => true,
@@ -567,6 +577,7 @@ class Invheader < ActiveRecord::Base
     :paging_choices => [10,20,30],
     :sort_by        => :id,
     :sort_order     => :desc,
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false] },
     :search_button  => true,
     :refresh_button => true,
     :pager          => true
@@ -617,9 +628,10 @@ class Invheader < ActiveRecord::Base
     :paging_choices => [10,20,30],
     :sort_by        => :id,
     :sort_order     => :desc,
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false],
+                         :multikey => "ctrlKey" },
     :select_rows    => true,
     :multi_select   => true,
-    :jqgrid_options => { :multikey => "ctrlKey" },
     :search_button  => true,
     :refresh_button => true,
     :pager          => true
@@ -671,6 +683,7 @@ class Invheader < ActiveRecord::Base
     :paging_choices => [10,20,30],
     :sort_by        => :id,
     :sort_order     => :desc,
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false] },
     :search_button  => true,
     :refresh_button => true,
     :pager          => true,
@@ -737,10 +750,11 @@ class Invheader < ActiveRecord::Base
     :paging_choices => [10,20,30],
     :sort_by        => :id,
     :sort_order     => :desc,
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false],
+                         :loadComplete => "javascript: after_load" },
     :search_button  => true,
     :refresh_button => true,
-    :pager          => true,
-    :jqgrid_options => { :loadComplete => "javascript: after_load" }
+    :pager          => true
 
   gridify :demo0404,
     :title          => I18n.t('txt.jqgrid.demo.30resizable'),
@@ -796,6 +810,7 @@ class Invheader < ActiveRecord::Base
     :paging_choices => [10,20,30],
     :sort_by        => :id,
     :sort_order     => :desc,
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false] },
     :search_button  => true,
     :refresh_button => true,
     :pager          => true
@@ -846,6 +861,7 @@ class Invheader < ActiveRecord::Base
     :paging_choices => [10,20,30],
     :sort_by        => :id,
     :sort_order     => :desc,
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false] },
     :search_button  => true,
     :refresh_button => true,
     :pager          => true
@@ -898,6 +914,7 @@ class Invheader < ActiveRecord::Base
     :editable       => true,
     :sort_by        => :id,
     :sort_order     => :desc,
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false] },
     :pager          => true
 
   gridify :demo0502,
@@ -953,8 +970,9 @@ class Invheader < ActiveRecord::Base
     :editable       => true,
     :sort_by        => :id,
     :sort_order     => :desc,
-    :pager          => true,
-    :jqgrid_options => { :gridComplete => "javascript: custom_edit" }
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false],
+                         :gridComplete => "javascript: custom_edit" },
+    :pager          => true
 
   gridify :demo0503,
     :title          => I18n.t('txt.jqgrid.demo.30events'),
@@ -1005,8 +1023,9 @@ class Invheader < ActiveRecord::Base
     :select_rows    => true,
     :sort_by        => :id,
     :sort_order     => :desc,
-    :pager          => true,
-    :jqgrid_options => { :onSelectRow => "javascript: handle_events" }
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false],
+                         :onSelectRow => "javascript: handle_events" },
+    :pager          => true
 
   gridify :demo0504,
     :title          => I18n.t('txt.jqgrid.demo.30full'),
@@ -1056,6 +1075,7 @@ class Invheader < ActiveRecord::Base
     :editable       => true,
     :sort_by        => :id,
     :sort_order     => :desc,
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false] },
     :pager          => true
 
   gridify :demo0602,
@@ -1104,6 +1124,7 @@ class Invheader < ActiveRecord::Base
     :paging_choices => [10,20,30],
     :sort_by        => :id,
     :sort_order     => :desc,
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false] },
     #:data_format    => { :repeatitems => false, :id => "0" },
     :select_rows    => true,
     :search_button  => true,
@@ -1156,6 +1177,7 @@ class Invheader < ActiveRecord::Base
     :paging_choices => [10,20,30],
     :sort_by        => :id,
     :sort_order     => :desc,
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false] },
     #:data_format    => { :repeatitems => true, :cell => "", :id => "0" },
     :select_rows    => true,
     :search_button  => true,
@@ -1208,6 +1230,7 @@ class Invheader < ActiveRecord::Base
     :paging_choices => [10,20,30],
     :sort_by        => :id,
     :sort_order     => :desc,
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false] },
     :pager          => true
 
   gridify :demo0802,
@@ -1256,7 +1279,8 @@ class Invheader < ActiveRecord::Base
     :paging_choices => [10,20,30],
     :editable       => true,
     :select_rows    => true,
-    :jqgrid_options => { :edit_url  => "/jqgrid/demo" },
+    :jqgrid_options => { :edit_url     => "/jqgrid/demo",
+                         :viewsortcols => [true, :horizontal,false] },
     :sort_by        => :id,
     :sort_order     => :desc,
     :pager          => true
@@ -1306,7 +1330,8 @@ class Invheader < ActiveRecord::Base
     :rows_per_page  => 10,
     :paging_choices => [10,20,30],
     :editable       => true,
-    :jqgrid_options => { :edit_url  => "/jqgrid/demo" },
+    :jqgrid_options => { :edit_url     => "/jqgrid/demo",
+                         :viewsortcols => [true, :horizontal,false] },
     :sort_by        => :id,
     :sort_order     => :desc,
     :pager          => true
@@ -1357,7 +1382,8 @@ class Invheader < ActiveRecord::Base
     :paging_choices => [10,20,30],
     :editable       => true,
     :select_rows    => true,
-    :jqgrid_options => { :edit_url  => "/jqgrid/demo" },
+    :jqgrid_options => { :edit_url  => "/jqgrid/demo",
+                         :viewsortcols => [true, :horizontal,false] },
     :sort_by        => :id,
     :sort_order     => :desc,
     :pager          => true
@@ -1409,6 +1435,7 @@ class Invheader < ActiveRecord::Base
     :paging_choices => [10,20,30],
     :sort_by        => :id,
     :sort_order     => :desc,
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false] },
     :editable       => true,
     :select_rows    => true,
     :edit_button    => true,
@@ -1461,12 +1488,13 @@ class Invheader < ActiveRecord::Base
     :height         => :auto,
     :sort_by        => :id,
     :sort_order     => :desc,
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false],
+                         :toolbar      => [true,"top"]},
     :rows_per_page  => 10,
     :paging_choices => [10,20,30],
     :search_button  => true,
     :refresh_button => true,
-    :pager          => true,
-    :jqgrid_options => { :toolbar => [true,"top"] }
+    :pager          => true
 
   gridify :demo0902,
     :title          => I18n.t('txt.jqgrid.demo.31userdata'),
@@ -1516,7 +1544,8 @@ class Invheader < ActiveRecord::Base
     :search_button  => true,
     :refresh_button => true,
     :pager          => true,
-    :jqgrid_options => { :toolbar => [true, "bottom"],
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false],
+                         :toolbar      => [true, "bottom"],
                          :loadComplete => "javascript: after_load" }
 
   gridify :demo0903,
@@ -1565,6 +1594,7 @@ class Invheader < ActiveRecord::Base
     :paging_choices => [10,20,30],
     :sort_by        => :id,
     :sort_order     => :desc,
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false] },
     :multi_select   => true,
     :select_rows    => true,
     :search_button  => true,
@@ -1617,6 +1647,7 @@ class Invheader < ActiveRecord::Base
     :paging_choices => [10,20,30],
     :sort_by        => :id,
     :sort_order     => :desc,
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false] },
     :multi_select   => true,
     :select_rows    => true,
     :search_button  => true,
@@ -1669,6 +1700,7 @@ class Invheader < ActiveRecord::Base
     :paging_choices => [10,20,30],
     :sort_by        => :id,
     :sort_order     => :desc,
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false] },
     :refresh_button => true,
     :pager          => true
 
@@ -1718,6 +1750,7 @@ class Invheader < ActiveRecord::Base
     :paging_choices => [10,20,30],
     :sort_by        => :id,
     :sort_order     => :desc,
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false] },
     :multi_select   => true,
     :select_rows    => true,
     :search_button  => true,
@@ -1770,6 +1803,7 @@ class Invheader < ActiveRecord::Base
     :paging_choices => [10,20,30],
     :sort_by        => :id,
     :sort_order     => :desc,
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false] },
     :select_rows    => true,
     :search_button  => true,
     :refresh_button => true,
@@ -1828,7 +1862,8 @@ class Invheader < ActiveRecord::Base
     :search_button  => true,
     :refresh_button => true,
     :pager          => true,
-    :jqgrid_options => { "afterInsertRow" => "javascript: afterInsertRow" }
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false],
+                         "afterInsertRow" => "javascript: afterInsertRow" }
 
   gridify :demo1004,
     :title          => I18n.t('txt.jqgrid.demo.32server_errors'),
@@ -1879,7 +1914,8 @@ class Invheader < ActiveRecord::Base
     :search_button  => true,
     :refresh_button => true,
     :pager          => true,
-    :jqgrid_options => { "loadError" => "javascript: loadError" }
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false],
+                         "loadError" => "javascript: loadError" }
 
   gridify :demo1005,
     :title          => I18n.t('txt.jqgrid.demo.32hide'),
@@ -1927,6 +1963,7 @@ class Invheader < ActiveRecord::Base
     :paging_choices => [10,20,30],
     :sort_by        => :id,
     :sort_order     => :desc,
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false] },
     :search_button  => true,
     :refresh_button => true,
     :pager          => true
@@ -1978,6 +2015,7 @@ class Invheader < ActiveRecord::Base
     :paging_choices => [10,20,30],
     :sort_by        => :id,
     :sort_order     => :desc,
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false] },
     :editable       => true,
     :search_button  => true,
     :refresh_button => true,
@@ -2062,6 +2100,7 @@ class Invheader < ActiveRecord::Base
     :paging_choices => [10,20,30],
     :sort_by        => :id,
     :sort_order     => :desc,
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false] },
     :editable       => true,
     :select_rows    => true,
     :edit_button    => true,
@@ -2121,7 +2160,8 @@ class Invheader < ActiveRecord::Base
     :refresh_button => true,
     :pager          => true,
     :collapsible    => true,
-    :jqgrid_options => { :forceFit      => true,
+    :jqgrid_options => { :viewsortcols  => [true, :horizontal,false],
+                         :forceFit      => true,
                          :onSortCol     => "javascript: onSortCol",
                          :onHeaderClick => "javascript: onHeaderClick" }
 
@@ -2173,7 +2213,8 @@ class Invheader < ActiveRecord::Base
     :sort_by        => :id,
     :sort_order     => :desc,
     :grid_view      => false,
-    :pager          => true#,
+    :pager          => true,
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false] }
 #    :jqgrid_options => { :treedatatype => :json,
 #                         :treeGrid     => true,
 #                         :ExpandColumn => "client_id" }
@@ -2228,7 +2269,8 @@ class Invheader < ActiveRecord::Base
     :editable       => true,
     :select_rows    => true,
     :pager          => true,
-    :jqgrid_options => { :forceFit      => true,
+    :jqgrid_options => { :viewsortcols  => [true, :horizontal,false],
+                         :forceFit      => true,
                          :cellEdit      => true,
                          :cellsubmit    => 'clientArray',
                          :afterEditCell => "javascript: afterEditCell",
@@ -2281,6 +2323,7 @@ class Invheader < ActiveRecord::Base
     :paging_choices => [10,20,30],
     :sort_by        => :id,
     :sort_order     => :desc,
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false] },
     :pager          => true
 
   gridify :demo1106,
@@ -2333,7 +2376,8 @@ class Invheader < ActiveRecord::Base
     :sort_by        => :id,
     :sort_order     => :desc,
     :pager          => true,
-    :jqgrid_options => { :toolbar => [true,"top"] }
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false],
+                         :toolbar      => [true,"top"] }
 
   gridify :demo1107,
     :title          => I18n.t('txt.jqgrid.demo.33mform'),
@@ -2386,7 +2430,8 @@ class Invheader < ActiveRecord::Base
     :sort_order     => :desc,
     :pager          => true,
     :collapsible    => true,
-    :jqgrid_options => { :onHeaderClick => "javascript: onHeaderClick" }
+    :jqgrid_options => { :viewsortcols  => [true, :horizontal,false],
+                         :onHeaderClick => "javascript: onHeaderClick" }
 
   gridify :demo1108,
     :title          => I18n.t('txt.jqgrid.demo.33function'),
@@ -2433,6 +2478,7 @@ class Invheader < ActiveRecord::Base
     :paging_choices => [10,20,30],
     :sort_by        => :id,
     :sort_order     => :desc,
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false] },
     :search_button  => true,
     :refresh_button => true,
     :pager          => true
@@ -2485,7 +2531,8 @@ class Invheader < ActiveRecord::Base
     :sort_by        => :id,
     :sort_order     => :desc,
     :pager          => true,
-    :jqgrid_options => { :gridComplete => "javascript: gridComplete" }
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false],
+                         :gridComplete => "javascript: gridComplete" }
 
   gridify :demo1201,
     :title          => I18n.t('txt.jqgrid.demo.34format'),
@@ -2541,6 +2588,7 @@ class Invheader < ActiveRecord::Base
     :paging_choices => [10,20,30],
     :sort_by        => :id,
     :sort_order     => :desc,
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false] },
     :pager          => true
 
   gridify :demo1202,
@@ -2600,6 +2648,7 @@ class Invheader < ActiveRecord::Base
     :paging_choices => [10,20,30],
     :sort_by        => :id,
     :sort_order     => :desc,
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false] },
     :pager          => true
 
   gridify :demo1204,
@@ -2649,6 +2698,7 @@ class Invheader < ActiveRecord::Base
     :paging_choices => [10,20,30],
     :sort_by        => :id,
     :sort_order     => :desc,
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false] },
     :pager          => true
     #jsonReader: { repeatitems : true, cell:"",  id: "0" }
 
@@ -2701,6 +2751,7 @@ class Invheader < ActiveRecord::Base
     :paging_choices => [10,20,30],
     :sort_by        => :id,
     :sort_order     => :desc,
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false] },
     :editable       => true,
     :select_rows    => true,
     :edit_button    => true,
@@ -2756,7 +2807,8 @@ class Invheader < ActiveRecord::Base
     :sort_order     => :desc,
     :grid_view      => false,
     :pager          => true,
-    :jqgrid_options => { :treedatatype => :json,
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false],
+                         :treedatatype => :json,
                          :treeGrid     => true,
                          :ExpandColumn => "client_id" }
 
@@ -2807,6 +2859,7 @@ class Invheader < ActiveRecord::Base
     :paging_choices => [10,20,30],
     :sort_by        => :id,
     :sort_order     => :desc,
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false] },
     :search_button  => true,
     :refresh_button => true,
     :pager          => true
@@ -2859,6 +2912,7 @@ class Invheader < ActiveRecord::Base
     :paging_choices => [10,20,30],
     :sort_by        => :id,
     :sort_order     => :desc,
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false] },
     :pager          => true
 
   gridify :demo1304,
@@ -2908,6 +2962,7 @@ class Invheader < ActiveRecord::Base
     :paging_choices => [10,20,30],
     :sort_by        => :id,
     :sort_order     => :desc,
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false] },
     :search_advanced => true,
     :pager          => true
 
@@ -2957,6 +3012,7 @@ class Invheader < ActiveRecord::Base
     :paging_choices => [10,20,30],
     :sort_by        => :id,
     :sort_order     => :desc,
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false] },
     :search_button  => true,
     :refresh_button => true,
     :pager          => true
@@ -3007,6 +3063,7 @@ class Invheader < ActiveRecord::Base
     :paging_choices => [10,20,30],
     :sort_by        => :id,
     :sort_order     => :desc,
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false] },
     :search_button  => true,
     :refresh_button => true,
     :pager          => true
@@ -3057,6 +3114,7 @@ class Invheader < ActiveRecord::Base
     :paging_choices => [10,20,30],
     :sort_by        => :id,
     :sort_order     => :desc,
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false] },
     :search_button  => true,
     :refresh_button => true,
     :pager          => true
@@ -3110,7 +3168,8 @@ class Invheader < ActiveRecord::Base
     :search_button  => true,
     :refresh_button => true,
     :pager          => true,
-    :jqgrid_options => { :footerrow => true,
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false],
+                         :footerrow => true,
                          :userDataOnFooter => true,
                          :altRows => true }
 
@@ -3160,10 +3219,10 @@ class Invheader < ActiveRecord::Base
     :paging_choices => [10,20,30],
     :sort_by        => :id,
     :sort_order     => :desc,
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false] },
     :search_button  => true,
     :refresh_button => true,
-    :pager          => true,
-    :jqgrid_options => { :viewsortcols => [true, :horizontal,false] }
+    :pager          => true
 
   gridify :demo1401,
     :title          => I18n.t('txt.jqgrid.demo.36api'),
@@ -3211,6 +3270,7 @@ class Invheader < ActiveRecord::Base
     :paging_choices => [10,20,30],
     :sort_by        => :id,
     :sort_order     => :desc,
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false] },
     :search_button  => true,
     :refresh_button => true,
     :pager          => true
@@ -3225,6 +3285,7 @@ class Invheader < ActiveRecord::Base
     :paging_choices => [10,20,30],
     :sort_by        => :id,
     :sort_order     => :desc,
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false] },
     :search_button  => true,
     :refresh_button => true,
     :pager          => true
@@ -3274,6 +3335,7 @@ class Invheader < ActiveRecord::Base
     :paging_choices => [10,20,30],
     :sort_by        => :id,
     :sort_order     => :desc,
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false] },
     :arranger       => :sortable,
     :search_button  => true,
     :refresh_button => true,
@@ -3324,6 +3386,7 @@ class Invheader < ActiveRecord::Base
     :paging_choices => [10,20,30],
     :sort_by        => :id,
     :sort_order     => :desc,
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false] },
     :arranger       => :chooser,
     :search_button  => true,
     :refresh_button => true,
@@ -3376,6 +3439,7 @@ class Invheader < ActiveRecord::Base
     :paging_choices => [10,20,30],
     :sort_by        => :id,
     :sort_order     => :desc,
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false] },
     :search_button  => true,
     :refresh_button => true,
     :pager          => true,
@@ -3432,6 +3496,7 @@ class Invheader < ActiveRecord::Base
     :paging_choices => [10,20,30],
     :sort_by        => :id,
     :sort_order     => :desc,
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false] },
     :search_button  => true,
     :refresh_button => true,
     :pager          => true,
@@ -3487,6 +3552,7 @@ class Invheader < ActiveRecord::Base
     :paging_choices      => [10,20,30],
     :sort_by             => :invdate,
     :sort_order          => :desc,
+    :jqgrid_options      => { :viewsortcols => [true, :horizontal,false] },
     :search_button       => true,
     :refresh_button      => true,
     :pager               => true
@@ -3537,6 +3603,7 @@ class Invheader < ActiveRecord::Base
     :paging_choices      => [10,20,30],
     :sort_by             => :id,
     :sort_order          => :desc,
+    :jqgrid_options      => { :viewsortcols => [true, :horizontal,false] },
     :sortable_rows       => true,
     :search_button       => true,
     :refresh_button      => true,
@@ -3589,6 +3656,7 @@ class Invheader < ActiveRecord::Base
     :paging_choices => [10,20,30],
     :sort_by        => :id,
     :sort_order     => :desc,
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false] },
     :search_button  => true,
     :refresh_button => true,
     :pager          => true
@@ -3640,7 +3708,8 @@ class Invheader < ActiveRecord::Base
     :paging_choices => [10,20,30],
     :editable       => true,
     :select_rows    => true,
-    :jqgrid_options => { :edit_url  => "/jqgrid/demo" },
+    :jqgrid_options => { :edit_url     => "/jqgrid/demo",
+                         :viewsortcols => [true, :horizontal,false] },
     :sort_by        => :id,
     :sort_order     => :desc,
     :edit_button    => true,

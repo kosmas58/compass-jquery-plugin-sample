@@ -17,6 +17,7 @@ class Invline < ActiveRecord::Base
     :width          => 400,
     :width_fit      => :fitted,
     :height         => :auto,
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false] },
     :search_button  => true,  
     :refresh_button => true,
     :pager          => true  

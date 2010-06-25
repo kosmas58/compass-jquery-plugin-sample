@@ -238,8 +238,8 @@ module Gridify
         {
           :root        => resource,
           :page        => resource+'>page',
-          :total       => resource+'>total_pages',
-          :records     => resource+'>total_records',
+          :total       => resource+'>total',
+          :records     => resource+'>records',
           :row         => resource.singularize,
           :repeatitems => false,
           :id          => :id
@@ -248,8 +248,8 @@ module Gridify
         {
           :root        => resource,
           :page        => 'page',
-          :total       => 'total_pages',
-          :records     => 'total_records',
+          :total       => 'total',
+          :records     => 'records',
           :row         => resource.singularize,
           :repeatitems => false,
           :id          => :id

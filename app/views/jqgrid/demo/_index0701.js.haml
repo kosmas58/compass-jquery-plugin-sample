@@ -13,6 +13,7 @@
        		{name:'ship',index:'ship', width:90, editable: true,edittype:"select",editoptions:{value:"FE:FedEx;IN:InTime;TN:TNT;AR:ARAMEX"}},
        		{name:'note',index:'note', width:200, sortable:false,editable: true,edittype:"textarea", editoptions:{rows:"2",cols:"10"}}		
        	],
+      viewsortcols: [true, 'horizontal', false],
     	onSelectRow: function(id){
     		if(id && id!==lastsel3){
     			$('#demo0701').jqGrid('restoreRow',lastsel3);

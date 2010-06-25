@@ -23,6 +23,7 @@ class Item < ActiveRecord::Base
     :paging_choices      => [10,20,30],
     :sort_by             => :id,
     :sort_order          => :asc,
+    :jqgrid_options      => { :viewsortcols => [true, :horizontal,false] },
     :search_button       => true,  
     :refresh_button      => true,
     :pager               => true  
@@ -52,6 +53,7 @@ class Item < ActiveRecord::Base
     :paging_choices      => [100,200,300],
     :sort_by             => :id,
     :sort_order          => :asc,
+    :jqgrid_options      => { :viewsortcols => [true, :horizontal,false] },
     :search_button       => true,  
     :refresh_button      => true,
     :pager               => true
@@ -81,7 +83,8 @@ class Item < ActiveRecord::Base
     :paging_choices      => [10,20,30],
     :sort_by             => :id,
     :sort_order          => :asc,
-    :jqgrid_options      => { :scroll => 1 },
+    :jqgrid_options      => { :viewsortcols => [true, :horizontal,false],
+                              :scroll       => 1 },
     :search_button       => true,  
     :refresh_button      => true,
     :pager               => true
@@ -112,6 +115,7 @@ class Item < ActiveRecord::Base
     :paging_choices      => [20,30,50],
     :sort_by             => :id,
     :sort_order          => :asc,
+    :jqgrid_options      => { :viewsortcols => [true, :horizontal,false] },
     :pager               => true
   
   gridify :demo1503,
@@ -140,6 +144,7 @@ class Item < ActiveRecord::Base
     :paging_choices      => [20,30,50],
     :sort_by             => :id,
     :sort_order          => :asc,
+    :jqgrid_options      => { :viewsortcols => [true, :horizontal,false] },
     :search_button       => true,  
     :refresh_button      => true,
     :pager               => true
@@ -170,6 +175,7 @@ class Item < ActiveRecord::Base
     :paging_choices      => [20,30,50],
     :sort_by             => :id,
     :sort_order          => :asc,
+    :jqgrid_options      => { :viewsortcols => [true, :horizontal,false] },
     :search_advanced     => true,  
     :search_button       => true,  
     :refresh_button      => true,
@@ -201,7 +207,8 @@ class Item < ActiveRecord::Base
     :paging_choices      => [20,30,50],
     :sort_by             => :id,
     :sort_order          => :asc,
-    :jqgrid_options      => { :scroll => 1 },
+    :jqgrid_options      => { :viewsortcols => [true, :horizontal,false],
+                              :scroll       => 1 },
     :search_advanced     => true,  
     :search_button       => true,  
     :refresh_button      => true,
@@ -233,6 +240,7 @@ class Item < ActiveRecord::Base
     :paging_choices      => [20,30,50],
     :sort_by             => :id,
     :sort_order          => :asc,
+    :jqgrid_options      => { :viewsortcols => [true, :horizontal,false] },
     :search_toolbar      => true,  
     :refresh_button      => true,
     :pager               => true

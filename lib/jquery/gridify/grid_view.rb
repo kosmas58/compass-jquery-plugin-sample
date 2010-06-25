@@ -42,7 +42,6 @@ module Gridify
       s     
     end
     
-    
     def to_json
       jqgrid_properties.to_json_with_js
     end

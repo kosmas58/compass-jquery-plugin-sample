@@ -77,9 +77,9 @@ module Gridify
 #        else
           xml = records.to_xml( :skip_types => true, :dasherize => false ) do |xml|
             if rows_per_page > 0
-              xml.page          current_page
-              xml.total_pages   total_pages
-              xml.total_records total_count
+              xml.page    current_page
+              xml.total   total_pages
+              xml.records total_count
             end
           end
 #        end    
@@ -89,9 +89,9 @@ module Gridify
         data = { resource => records }        
         if rows_per_page > 0       
           data.merge!( 
-            :page => current_page, 
-            :total_pages => total_pages, 
-            :total_records => total_count 
+            :page    => current_page, 
+            :total   => total_pages, 
+            :records => total_count 
           )
         end        
         save = ActiveRecord::Base.include_root_in_json
