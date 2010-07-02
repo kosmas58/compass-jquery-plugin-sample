@@ -16,36 +16,17 @@
 					},
 					{title: "Item 4"}
 				];
-
 		$("#tree1").dynatree({
 			onActivate: function(dtnode) {
 				logMsg("Activated %o", dtnode);
 			},
-			rootVisible: true,
-			minExpandLevel: 0,
+			minExpandLevel: 1,
 			children: children
 		});
 		$("#tree2").dynatree({
 			onActivate: function(dtnode) {
 				logMsg("Activated %o", dtnode);
 			},
-			rootVisible: true,
-			minExpandLevel: 1,
-			children: children
-		});
-		$("#tree3").dynatree({
-			onActivate: function(dtnode) {
-				logMsg("Activated %o", dtnode);
-			},
-			rootVisible: false,
-			minExpandLevel: 1,
-			children: children
-		});
-		$("#tree4").dynatree({
-			onActivate: function(dtnode) {
-				logMsg("Activated %o", dtnode);
-			},
-			rootVisible: false,
 			minExpandLevel: 2,
 			children: children
 		});

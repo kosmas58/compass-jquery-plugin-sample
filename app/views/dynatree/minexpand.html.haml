@@ -8,24 +8,13 @@
 .demo
   %h3
     =@title
-  
-  %hr
+  %hr  
     %p.description
-      Root visible, minExpandLevel=0  
+      minExpandLevel=1
   #tree1
   %hr
     %p.description
-      Root visible, minExpandLevel=1
-  #tree2
-  %hr
-    %p.description
-      Root hidden, minExpandLevel=1
-    This is the default option:
-  #tree3
-  %hr
-    %p.description
-      Root hidden, minExpandLevel=2
+      minExpandLevel=2
     Note, that you cannot collapse the top-level nodes:
-  #tree4
-
+  #tree2
 / End demo

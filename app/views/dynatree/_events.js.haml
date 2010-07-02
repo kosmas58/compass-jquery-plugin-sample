@@ -2,7 +2,6 @@
 	$(function(){
 		$("#tree").dynatree({
 			title: "Event samples",
-			rootVisible: true,
 			// checkbox: true,
 			// persist: true,
 			onQueryActivate: function(activate, dtnode) {
@@ -19,7 +18,7 @@
 				logMsg("onDeactivate(%o)", dtnode);
 				$("#echoActive").text("-");
 			},
-			
+
 			onQuerySelect: function(select, dtnode) {
 				logMsg("onQuerySelect(%o, %o)", select, dtnode);
 				if( dtnode.data.isFolder )
@@ -30,7 +29,7 @@
 				var s = dtnode.tree.getSelectedNodes().join(", ");
 				$("#echoSelected").text(s);
 			},
-			
+
 			onQueryExpand: function(expand, dtnode) {
 				logMsg("onQueryExpand(%o, %o)", expand, dtnode);
 				// return false;
@@ -51,7 +50,7 @@
 				logMsg("onBlur(%o)", dtnode);
 				$("#echoFocused").text("-");
 			},
-			
+
 			onClick: function(dtnode, event) {
 				logMsg("onClick(%o, %o)", dtnode, event);
 				if( event.shiftKey && dtnode.isLazy )
