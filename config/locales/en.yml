@@ -366,6 +366,7 @@ en:
       quick: Init from JS object
       persist: Persistence
       dnd: Drag'n'drop
+      dnd2: New drag'n'drop
       iframe: iframe and url navigation
       api: Programming API
       minexpand: Fixed expand level
