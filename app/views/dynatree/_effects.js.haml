@@ -1,0 +1,13 @@
+:javascript  
+  $(function(){
+    $("#tree").dynatree({
+      fx: { height: "toggle", duration: 200 },
+      autoCollapse: true,
+      onActivate: function(dtnode) {
+        $("#echoActive").text(dtnode.data.title);
+      },
+      onDeactivate: function(dtnode) {
+        $("#echoActive").text("-");
+      }
+    });
+  });

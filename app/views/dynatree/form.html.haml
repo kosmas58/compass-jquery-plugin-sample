@@ -9,7 +9,7 @@
   %h3
     =@title
   %form{:action => "http://127.0.0.1:8001/submit_data", :method => "POST"}
-    #tree
+    #tree{ :style => "padding: 20px;" }
       %ul#treeData{:style => "display: none;"}
         %li#id1{:title => "Look, a tool tip!"}
           item1 with key and tooltip

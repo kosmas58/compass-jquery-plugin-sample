@@ -8,10 +8,8 @@
                 
     // --- Initialize sample trees
     $("#tree").dynatree({
-      title: "Lazy loading sample",
-      minExpandLevel: 1, // 1: root node is not collapsible
       persist: true,
-      //checkbox: true,
+      checkbox: true,
       selectMode: 3,
       onPostInit: function(isReloading, isError) {
         // alert("reloading: "+isReloading+", error:"+isError);
@@ -25,6 +23,7 @@
                   dataType: "json", // Enable JSONP, so this sample can be run from the local file system against a localhost server
                   data: { key: "",
                           sleep: 1,
+                          depth: 3,
                           mode: "baseFolders"
                   },
                   addExpandedKeyList: true // Send list of expanded keys, so the webservice can deliver these children also
@@ -34,7 +33,8 @@
           { url: "data2?format=json", 
             dataType: "json",
             data: { key: dtnode.data.key,
-                    mode: "funnyMode" }
+                    sleep: 1,
+                    mode: "branch" }
         });
       },
       onActivate: function(dtnode) {
