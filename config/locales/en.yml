@@ -381,6 +381,8 @@ en:
         crystal: Crystal
       select: Checkbox & select
       benchmark: Benchmark large trees
+      form: Embed in forms
+      multiline: Large nodes
     hello: Hello world
     ui:
       form:

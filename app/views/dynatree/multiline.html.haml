@@ -1,0 +1,158 @@
+-@title = "#{t('txt.dt.name')} - #{t('txt.dt.multiline')}"
+-@dynatree_theme = 'start'
+-@dynatree_skin = 'dynatree.aero.css'
+
+- content_for :content_head do
+  = render(:partial => "multiline.js.haml", :format => :js)
+
+.demo
+  %h3
+    =@title
+  #tree
+    %ul
+      %li
+        Using some
+        %b bold
+        markup in the text (&lt;li&gt; tag only).
+      %li
+        %span
+          Using some
+          %b bold
+          markup in the text (&lt;li&gt;&lt;span&gt; tag).
+      %li.folder
+        Long paragraph, with H3, P, and BR
+        %ul
+          %li
+            %span
+              %h3 Title
+              %p
+                Lorem ipsum dolor sit amet, consectetuer sadipscing elitr, sed
+                diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+                sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+                %br
+                  Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor si
+                  amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+                  nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+                  sed diam voluptua.
+                  %br
+                    At vero eos et accusam et justo duo dolores et ea rebum.
+                    Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+                    tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+                    At vero eos et accusam et justo duo dolores et ea rebum.
+                    %br
+                      Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+            %li
+              Node 2
+        %li.folder
+          Long line
+          %ul
+            %li
+              %span
+                Lorem ipsum dolor sit amet, consectetuer sadipscing elitr, sed
+                diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+                sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+                Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
+                amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+                nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+                sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+                Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+                tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+                At vero eos et accusam et justo duo dolores et ea rebum.
+                Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+              %li
+                Node 2
+      %li.folder
+        Long text using BR and P
+        %ul
+          %li
+            %span
+              %p
+                Lorem ipsum dolor sit amet, consectetuer sadipscing elitr, sed
+                %br
+                  diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+                  %br
+                    sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+                    %br
+              %p
+                Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
+                %br
+                  amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+                  %br
+                    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+                    %br
+                      sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+                      %br
+                        Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                        %br
+              %p
+                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+                %br
+                  tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+                  %br
+                    At vero eos et accusam et justo duo dolores et ea rebum.
+                    %br
+              %p
+                Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                %br
+            %li
+              Node 2
+      %li.folder
+        Form elements
+        %ul
+          %li
+            %span
+              Click here:
+              %button{:value => "123"} Click me
+          %li{:data => "icon: false"}
+            %span
+              %input{:checked => "", :name => "rb1", :type => "radio", :value => "v1"}
+                Umschlag 1
+                %br
+              %input{:name => "rb1", :type => "radio", :value => "v2"}
+                Umschlag 2
+                %br
+              %input{:name => "rb1", :type => "radio", :value => "v3"}
+                Umschlag 3
+      %li.folder
+        Canvas
+        %ul
+          %li{:data => "icon: false"}
+            %span
+              %canvas#canvas1{:height => "100", :width => "400"}
+                Your browser does not support the
+                %code canvas
+                element.
+      %li.folder
+        Video
+        %ul
+          %li
+            %span
+              %video{:autoplay => ""}
+                %source{:src => "foo.ogg", :type => "video/ogg"}
+                  %source{:src => "foo.mov"}
+                    Your browser does not support the
+                    %code video
+                    element.
+      %li.folder
+        Audio
+        %ul
+          %li
+            %span
+              %audio{:autoplay => "", :src => "http://developer.mozilla.org/@api/deki/files/2926/=AudioTest_(1).ogg"}
+                Your browser does not support the
+                %code audio
+                element.
+      %li
+        item3
+  %div
+    Active node:
+    %span#echoActive -
+  %p
+    %button#btnAddObject Add nodes using arrays
+/ End demo
+.demo-description
+  %p
+    This example shows how multi-line and non-text contents are displayed.
+/ End demo-description

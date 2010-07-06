@@ -1,0 +1,54 @@
+:javascript
+  function drawCanvas() {
+    var canvas = document.getElementById("canvas1");
+    if(canvas && canvas.getContext) {
+      canvas = canvas.getContext("2d");
+      var lingrad = canvas.createLinearGradient( 0, 0, 0, 150 );  
+      lingrad.addColorStop( 0, "#0099cc" );  
+      lingrad.addColorStop( 0.5, "#fff" );  
+      lingrad.addColorStop( 0.5, "#99cc00");  
+      lingrad.addColorStop( 1, "#0099ff");  
+      canvas.fillStyle = lingrad;  
+      canvas.fillRect(0, 0, 400 ,100 );              
+      canvas.fillStyle = "rgb(200,0,0)";
+      canvas.fillRect( 10, 10, 55, 55 );
+    }  
+  }  
+
+  $(function(){
+    // Initialize the tree inside the element.
+    // The tree structure is read from the contained  tag.
+    $("#tree").dynatree({
+      onActivate: function(dtnode) {
+        $("#echoActive").text(dtnode.data.title);
+      },
+      onDeactivate: function(dtnode) {
+        $("#echoSelected").text("-");
+      }
+    });
+
+    $("#btnAddObject").click(function(){
+      // Sample: add an hierarchic branch using an array
+      var obj = [
+        { title: 'Folder node 3', isFolder: true,
+          children: [
+            { title: 'node 3.1 line1\nline2' },
+            { title: 'node 3.2',
+              children: [
+                { title: 'node 3.2.1' },
+                { title: 'node 3.2.2',
+                  children: [
+                    { title: 'node 3.2.2.1' }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ];
+      $("#tree").dynatree("getRoot").addChild(obj);
+    });
+    
+    drawCanvas();
+  });
+  

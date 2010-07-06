@@ -1,8 +1,10 @@
 :javascript
   $(function(){
     $("#tree").dynatree({
-      title: "Sample Theming",
       imagePath: "/images/jquery.ui/dynatree.aero/", // Image folder used for data.icon attribute.      
+      initAjax: { 
+        url: "data3?format=json"
+      },
       onSelect: function(dtnode) {
         alert ("You selected " + dtnode);
       }

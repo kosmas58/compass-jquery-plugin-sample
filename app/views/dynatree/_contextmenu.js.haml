@@ -49,7 +49,7 @@
 	
 	function bindContextMenu() {
 		// Add context menu to all nodes:
-		$("span.ui-dynatree-node")
+		$("span.dynatree-node")
 			.destroyContextMenu() // unbind first, to prevent duplicates			
 			.contextMenu({menu: "myMenu"}, function(action, el, pos) {
 			// The event was bound to the  tag, but the dtnode object

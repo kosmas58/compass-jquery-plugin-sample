@@ -1,0 +1,68 @@
+-@title = "#{t('txt.dt.name')} - #{t('txt.dt.form')}"
+-@dynatree_theme = 'start'
+-@dynatree_skin = 'dynatree.aero.css'
+
+- content_for :content_head do
+  = render(:partial => "form.js.haml", :format => :js)
+
+.demo
+  %h3
+    =@title
+  %form{:action => "http://127.0.0.1:8001/submit_data", :method => "POST"}
+    #tree
+      %ul#treeData{:style => "display: none;"}
+        %li#id1{:title => "Look, a tool tip!"}
+          item1 with key and tooltip
+        %li#id2
+          %span
+            %input{:name => "id2"}
+        %li#id2b
+          %button{:name => "as"}
+            click me
+        %li#id2c
+          Name:
+          %input{:name => "name", :type => "text"}
+          %br
+          Comment:
+          %textarea{:name => "comment"}
+        %li#id3.folder
+          Folder with some children
+          %ul
+            %li{:id => "id3.1"}
+              Sub-item 3.1
+              %ul
+                %li{:id => "id3.1.1"}
+                  Sub-item 3.1.1
+                  %li{:id => "id3.1.2"}
+                    Sub-item 3.1.2
+              %li{:id => "id3.2"}
+                Sub-item 3.2
+                %ul
+                  %li{:id => "id3.2.1"}
+                    Sub-item 3.2.1
+                    %li{:id => "id3.2.2"}
+                      Sub-item 3.2.2
+        %li#id4.expanded
+          Document with some children (expanded on init)
+          %ul
+            %li.active.focused{:id => "id4.1"}
+              Sub-item 4.1 (active and focus on init)
+              %ul
+                %li{:id => "id4.1.1"}
+                  Sub-item 4.1.1
+                  %li{:id => "id4.1.2"}
+                    Sub-item 4.1.2
+              %li{:id => "id4.2"}
+                Sub-item 4.2
+                %ul
+                  %li{:id => "id4.2.1"}
+                    Sub-item 4.2.1
+                    %li{:id => "id4.2.2"}
+                      Sub-item 4.2.2
+  %input{:type => "submit", :value => "Send data"}    
+/ End demo
+.demo-description
+  %p
+    This tree is embedded in a form and uses a [Submit] button to POST the
+    tree status. It also uses form input elements.
+/ End demo-description

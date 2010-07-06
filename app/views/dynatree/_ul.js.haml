@@ -1,6 +1,9 @@
 :javascript
 	$(function(){
 		$("#tree").dynatree({
+		  initAjax: { 
+		    url: "data3?format=json"
+		  },
 			onActivate: function(dtnode) {
 				$("#echoActive").text(dtnode.data.title);
 			},
