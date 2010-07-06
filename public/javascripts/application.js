@@ -26,8 +26,7 @@ jQuery(document).ready(function() {
 		
 	$(".tree").dynatree({
     // using default options
-    title: "Title",
-    rootVisible: false,
+		autoCollapse: true,
     persist: true,
     selectMode: 2,
     imagePath: "/images/jquery.ui/dynatree.vista/", // Image folder used for data.icon attribute.

@@ -8,13 +8,19 @@
 .demo
   %h3
     =@title
-  %hr  
-    %p.description
-      minExpandLevel=1
+  %p.description
+    minExpandLevel=1
+    %br
+    This is the default option.
   #tree1
   %hr
-    %p.description
-      minExpandLevel=2
-    Note, that you cannot collapse the top-level nodes:
+  %p.description
+    minExpandLevel=2
+    %br
+    Top-level nodes are always expanded, so the expander icon is hidden.
   #tree2
+  %hr
+  %p.description
+    minExpandLevel=3
+  #tree3
 / End demo

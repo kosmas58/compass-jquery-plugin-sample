@@ -51,6 +51,7 @@
         $("#echoActive2").text("-");
       },
       dnd: {
+        tolerance: 'touch',
         autoExpandMS: 1000,
         onDragEnter: function(node, sourceNode) {
           // Return `false` to disallow dropping sourceNode on node.
@@ -93,7 +94,7 @@
     // --- Initialize simple droppable sample ----------------------------------
     $("#droppableSample").droppable({
       hoverClass: "drophover",
-      addClasses: true,
+      addClasses: true,		
       over: function(event, ui) {
         logMsg("droppable.over, %o, %o", event, ui);
       },

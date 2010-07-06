@@ -3,7 +3,6 @@
 		// Initialize the tree inside the <div>element.
 		// The tree structure is read from the contained <ul> tag.
 		$("#tree").dynatree({
-			title: "Programming Sample",
 			onActivate: function(dtnode) {
 				$("#echoActive").text(dtnode.data.title);
 				if( dtnode.data.url )
@@ -75,8 +74,8 @@
 		});
 
 		$("#btnActiveNode").click(function(){
-			$("#tree").dynatree("getTree").activateKey("id4_3_2");
-			//$("#tree").dynatree("getTree").getNodeByKey("id4_3_2").activate();
+			//$("#tree").dynatree("getTree").activateKey("id4_3_2");
+			$("#tree").dynatree("getTree").getNodeByKey("id4_3_2").activate();
 		});
 
 		$("#btnShowActive").click(function(){
