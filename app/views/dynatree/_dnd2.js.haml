@@ -35,7 +35,7 @@
         onDragStart: function(dtnode) {
           // This function MUST be defined to enable dragging for the tree.
           // Return `false` to cancel dragging of dtnode. 
-         // logMsg("tree.onDragStart(%o)", dtnode);
+          // logMsg("tree.onDragStart(%o)", dtnode);
           if(dtnode.data.isFolder)
             return false;
           return true;
