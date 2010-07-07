@@ -1,6 +1,6 @@
 -@title = "#{t('txt.dt.name')} - #{t('txt.dt.dnd2')}"
 -@dynatree_theme = 'start'
--@dynatree_skin = 'dynatree.aero.css'
+-@dynatree_skin = 'dynatree.xp.css'
 
 - content_for :content_head do
   = render(:partial => "dnd2.js.haml", :format => :js)
@@ -19,46 +19,8 @@
       %tr
         %td
           #tree
-            %ul{:style => "display:none"}
-              %li#key1{:title => "Look, a tool tip!"}
-                item1 with key and tooltip
-              %li#key2.selected
-                item2: selected on init
-              %li#key3.folder
-                Folder with some children
-                %ul
-                  %li{:id => "key3.1"}
-                    Sub-item 3.1
-                    %li{:id => "key3.2"}
-                      Sub-item 3.2
-              %li#key4.expanded
-                Document with some children (expanded on init)
-                %ul
-                  %li{:id => "key4.1"}
-                    Sub-item 4.1
-                    %li{:id => "key4.2"}
-                      Sub-item 4.2
         %td
           #tree2
-            %ul{:style => "display:none"}
-              %li#key1{:title => "Look, a tool tip!"}
-                item1 with key and tooltip
-              %li#key2.selected
-                item2: selected on init
-              %li#key3.folder
-                Folder with some children
-                %ul
-                  %li{:id => "key3.1"}
-                    Sub-item 3.1
-                    %li{:id => "key3.2"}
-                      Sub-item 3.2
-              %li#key4.expanded
-                Document with some children (expanded on init)
-                %ul
-                  %li{:id => "key4.1"}
-                    Sub-item 4.1
-                    %li{:id => "key4.2"}
-                      Sub-item 4.2
       %tr
         %td
           %div
@@ -70,10 +32,10 @@
             %span#echoActive2 -
       %tr
         %td
-          #draggableSample.ui-widget-content
+          #draggableSample
             %p Drag me around
         %td
-          #droppableSample.ui-widget-content
+          #droppableSample
             %p Drop something here
 / End demo
 

@@ -21,6 +21,10 @@
   $(function(){
         // --- Initialize first Dynatree -------------------------------------------
     $("#tree").dynatree({
+      imagePath: "/images/jquery.ui/dynatree.aero/", // Image folder used for data.icon attribute.      
+      initAjax: { 
+        url: "data3?format=json"
+      },
       onActivate: function(dtnode) {
         $("#echoActive").text(dtnode.data.title + "(" + dtnode.data.key + ")");
       },
@@ -31,7 +35,7 @@
         onDragStart: function(dtnode) {
           // This function MUST be defined to enable dragging for the tree.
           // Return `false` to cancel dragging of dtnode. 
-          logMsg("tree.onDragStart(%o)", dtnode);
+         // logMsg("tree.onDragStart(%o)", dtnode);
           if(dtnode.data.isFolder)
             return false;
           return true;
@@ -44,6 +48,10 @@
     
     // --- Initialize second Dynatree ------------------------------------------
     $("#tree2").dynatree({
+      imagePath: "/images/jquery.ui/dynatree.aero/", // Image folder used for data.icon attribute.      
+      initAjax: { 
+        url: "data3?format=json"
+      },
       onActivate: function(dtnode) {
         $("#echoActive2").text(dtnode.data.title + "(" + dtnode.data.key + ")");
       },
@@ -51,22 +59,21 @@
         $("#echoActive2").text("-");
       },
       dnd: {
-        tolerance: 'touch',
         autoExpandMS: 1000,
         onDragEnter: function(node, sourceNode) {
           // Return `false` to disallow dropping sourceNode on node.
           // Return 'over', 'before, or 'after' to force a hitMode.
-          logMsg("tree.onDragEnter(%o, %o)", node, sourceNode);
+          //logMsg("tree.onDragEnter(%o, %o)", node, sourceNode);
           if(node.data.isFolder)
             return false;
           //                return "over";
         },
-        onDragOver: function(node, sourceNode, hitMode) {
-          logMsg("tree.onDragOver(%o, %o, %o)", node, sourceNode, hitMode);
-        },
+        //onDragOver: function(node, sourceNode, hitMode) {
+        //  logMsg("tree.onDragOver(%o, %o, %o)", node, sourceNode, hitMode);
+        //},
         onDrop: function(node, sourceNode, hitMode) {
           // This function MUST be defined to enable dropping of items on the tree.
-          logMsg("tree.onDrop(%o, %o)", node, sourceNode);
+          //logMsg("tree.onDrop(%o, %o)", node, sourceNode);
           var copynode;
           if(sourceNode) {
             copynode = sourceNode.toDict(true, function(dict){
@@ -77,9 +84,9 @@
             copynode = {title: "This node was dropped here."};
           }
           node.addChild(copynode);
-        },
-        onDragLeave: function(node, sourceNode) {
-          logMsg("tree.onDragLeave(%o, %o)", node, sourceNode);
+        //},
+        //onDragLeave: function(node, sourceNode) {
+        //  logMsg("tree.onDragLeave(%o, %o)", node, sourceNode);
         }
       }
     });
@@ -95,9 +102,9 @@
     $("#droppableSample").droppable({
       hoverClass: "drophover",
       addClasses: true,		
-      over: function(event, ui) {
-        logMsg("droppable.over, %o, %o", event, ui);
-      },
+      //over: function(event, ui) {
+      //  logMsg("droppable.over, %o, %o", event, ui);
+      //},
       drop: function(event, ui) {
         $(this).addClass('ui-state-highlight').find('p').html('Dropped!');
         alert("dropped");

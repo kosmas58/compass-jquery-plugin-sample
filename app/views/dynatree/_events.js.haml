@@ -9,29 +9,29 @@
 				// return false;
 			},
 			onActivate: function(dtnode) {
-				logMsg("onActivate(%o)", dtnode);
+				//logMsg("onActivate(%o)", dtnode);
 				$("#echoActive").text(dtnode.data.title);
 				if( dtnode.data.url )
 					window.open(dtnode.data.url);
 			},
 			onDeactivate: function(dtnode) {
-				logMsg("onDeactivate(%o)", dtnode);
+				//logMsg("onDeactivate(%o)", dtnode);
 				$("#echoActive").text("-");
 			},
 
 			onQuerySelect: function(select, dtnode) {
-				logMsg("onQuerySelect(%o, %o)", select, dtnode);
+				//logMsg("onQuerySelect(%o, %o)", select, dtnode);
 				if( dtnode.data.isFolder )
 					return false;
 			},
 			onSelect: function(select, dtnode) {
-				logMsg("onSelect(%o, %o)", dtnode);
+				//logMsg("onSelect(%o, %o)", dtnode);
 				var s = dtnode.tree.getSelectedNodes().join(", ");
 				$("#echoSelected").text(s);
 			},
 
 			onQueryExpand: function(expand, dtnode) {
-				logMsg("onQueryExpand(%o, %o)", expand, dtnode);
+				//logMsg("onQueryExpand(%o, %o)", expand, dtnode);
 				// return false;
 			},
 			onExpand: function(expand, dtnode) {

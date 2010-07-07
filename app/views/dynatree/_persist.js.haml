@@ -5,7 +5,7 @@
 			checkbox: true,
 			selectMode: 3,
 			onPostInit: function(isReloading, isError) {
-			   logMsg("onPostInit(%o, %o)", isReloading, isError);
+			   //logMsg("onPostInit(%o, %o)", isReloading, isError);
 			   // Re-fire onActivate, so the text is update  
 			   this.reactivate();
 			}, 
@@ -16,7 +16,7 @@
 				$("#echoActive").text("-");
 			},
 			onDblClick: function(dtnode, event) {
-				logMsg("onDblClick(%o, %o)", dtnode, event);
+				//logMsg("onDblClick(%o, %o)", dtnode, event);
 				dtnode.toggleExpand();
 			}
 		});
