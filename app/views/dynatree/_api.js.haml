@@ -113,4 +113,12 @@
 			});
 			return false;
 		});
+		$("#btnSortActive").click(function(){
+			var dtnode = $("#tree").dynatree("getActiveNode");
+			dtnode.sortChildren();
+		});
+		$("#btnSortAll").click(function(){
+			var dtnode = $("#tree").dynatree("getRoot");
+			dtnode.sortChildren(null, true);
+		});
 	});

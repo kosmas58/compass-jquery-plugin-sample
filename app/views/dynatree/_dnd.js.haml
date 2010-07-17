@@ -1,93 +1,66 @@
-:css
-  .dropappend a { 
-    border: 1px solid silver; 
-    /*background-color: silver; */
-    /*            background-repeat: repeat-x;
-    background-position: bottom;*/
-    background-image: image_url("jquery.ui/dynatree.aero/drop_append.png");
-  };
-  .dropchild{ 
-    border: 1px solid silver; 
-    /*background-color: silver; */
-    background-repeat: no-repeat;
-    background-position: right;
-    background-image: image_url("jquery.ui/dynatree.aero/drop_child.png");
-  };
-
 :javascript
-  // --- (Re)Bind event handlers ---------------------------------------------
-  function _bindDragDrop() {
-    // Enable all nodes as drag source
-    $("#tree span.dynatree-node").draggable({
-      //        $("#tree li").draggable({
-      delay: 0,
-      distance: 4,
-      helper: 'clone',
-      opacity: 0.35,
-      addClasses: false,
-      appendTo: 'body',
-      //			cursor: 'crosshair',
-      revert: 'invalid', 
-      revertDuration: 400,
-      //start: function(event, ui) {
-      //  logMsg("draggable.start, %o, %o", event, ui);
-      //},
-      //drag: function(event, ui) {
-      //				logMsg("draggable.drag, %o, %o", event, ui);
-      //},
-      //stop: function(event, ui) {
-      //  logMsg("draggable.stop, %o, %o", event, ui);
-      //},
-      _last: null
-    });
-    // Enable all nodes as drop target
-    $("#tree span.dynatree-node").droppable({
-      accept: '.dynatree-node',
-      addClasses: false,
-      //			activeClass: '.ui-state-highlight',
-      //			hoverClass: 'dropchild',
-      hoverClass: 'dropappend',
-      tolerance: 'touch',			
-      //activate: function(event, ui) {
-      //  logMsg("droppable.activate, %o, %o", event, ui);
-      //},
-      //deactivate: function(event, ui) {
-      //  logMsg("droppable.deactivate, %o, %o", event, ui);
-      //},
-      //over: function(event, ui) {
-      //  logMsg("droppable.over, %o, %o", event, ui);
-      //},
-      //out: function(event, ui) {
-      //  logMsg("droppable.out, %o, %o", event, ui);
-      //},
-      drop: function(event, ui) {
-        var srcnode = ui.draggable[0].parentNode.dtnode;
-        var destnode = event.target.parentNode.dtnode;
-        //logMsg("droppable.drop, %o, %o", event, ui);
-        //logMsg("drop source: %o", srcnode);
-        //logMsg("drop target: %o", destnode);
-        var copynode = srcnode.toDict(true, function(dict){
-          dict.title = "Copy of " + dict.title;
-          delete dict.key; // Remove key, so a new one will be created
-        });
-        destnode.addChild(copynode);
-        // Must re-bind, so new nodes become draggable too
-        _bindDragDrop();
-      },
-      _last: null
-    });
-  }
-    
-  // --- Initialize Dynatree -------------------------------------------------
   $(function(){
+  // --- Initialize first Dynatree -------------------------------------------
     $("#tree").dynatree({
+      initAjax: { 
+        url: "data3?format=json"
+      },
       onActivate: function(dtnode) {
         $("#echoActive").text(dtnode.data.title + "(" + dtnode.data.key + ")");
       },
       onDeactivate: function(dtnode) {
         $("#echoActive").text("-");
+      },
+      dnd: {
+        onDragStart: function(dtnode) {
+          // This function MUST be defined to enable dragging for the tree.
+          //  Return false to cancel dragging of dtnode.
+          // 
+          // logMsg("tree.onDragStart(%o)", dtnode);
+          return true;
+        },
+        onDragStop: function(dtnode) {
+          // This function is optional.
+          // logMsg("tree.onDragStop(%o)", dtnode);
+        },
+        autoExpandMS: 1000,
+        onDragEnter: function(node, sourceNode) {
+          // sourceNode may be null for non-dynatree droppables. 
+          // Return false to disallow dropping on node. In this case 
+          // onDragOver and onDragLeave are not called.
+          // Return 'over', 'before, or 'after' to force a hitMode.
+          // Any other return value will calc the hitMode from the cursor position.
+          //
+          // logMsg("tree.onDragEnter(%o, %o)", node, sourceNode);
+          // Prevent dropping a parent below it's own child
+          if(node.isDescendantOf(sourceNode))
+            return false;
+            // if(node === sourceNode)
+            //   return false;
+            // return "over";
+        },
+        onDragOver: function(node, sourceNode, hitMode) {
+          // Return false to disallow dropping this node.
+          //
+          // logMsg("tree.onDragOver(%o, %o, %o)", node, sourceNode, hitMode);
+          // Prohibit creating childs in non-folders (only sorting allowed)
+          if( !node.isFolder && hitMode == "over" )
+            return "after";
+        },
+        onDrop: function(node, sourceNode, hitMode) {
+          // This function MUST be defined to enable dropping of items on the tree. 
+          //
+          // logMsg("tree.onDrop(%o, %o, %s)", node, sourceNode, hitMode);
+          sourceNode.move(node, hitMode);
+          // expand the drop target
+          sourceNode.expand(true);
+        },
+        onDragLeave: function(node, sourceNode) {
+          // Always called if onDragEnter was called. 
+          //
+          // logMsg("tree.onDragLeave(%o, %o)", node, sourceNode);
+        }
       }
     });
-    _bindDragDrop();
   });
   	
