@@ -2,76 +2,78 @@
 	$(function(){
 		$("#tree").dynatree({
 			title: "Event samples",
-			// checkbox: true,
-			// persist: true,
+	    // checkbox: true,
+	    // persist: true,
 			onQueryActivate: function(activate, dtnode) {
 				logMsg("onQueryActivate(%o, %o)", activate, dtnode);
-				// return false;
+		  // return false;
 			},
 			onActivate: function(dtnode) {
-				//logMsg("onActivate(%o)", dtnode);
+				logMsg("onActivate(%o)", dtnode);
 				$("#echoActive").text(dtnode.data.title);
 				if( dtnode.data.url )
 					window.open(dtnode.data.url);
 			},
 			onDeactivate: function(dtnode) {
-				//logMsg("onDeactivate(%o)", dtnode);
+				logMsg("onDeactivate(%o)", dtnode);
 				$("#echoActive").text("-");
 			},
-
+			
 			onQuerySelect: function(select, dtnode) {
-				//logMsg("onQuerySelect(%o, %o)", select, dtnode);
+				logMsg("onQuerySelect(%o, %o)", select, dtnode);
 				if( dtnode.data.isFolder )
 					return false;
 			},
 			onSelect: function(select, dtnode) {
-				//logMsg("onSelect(%o, %o)", dtnode);
+				logMsg("onSelect(%o, %o)", dtnode);
 				var s = dtnode.tree.getSelectedNodes().join(", ");
 				$("#echoSelected").text(s);
 			},
-
+			
 			onQueryExpand: function(expand, dtnode) {
-				//logMsg("onQueryExpand(%o, %o)", expand, dtnode);
-				// return false;
+				logMsg("onQueryExpand(%o, %o)", expand, dtnode);
+		    // return false;
 			},
-			
-			//onExpand: function(expand, dtnode) {
-			//	logMsg("onExpand(%o, %o)", expand, dtnode);
-			//},
-			
-			//onLazyRead: function(dtnode) {
-			//	logMsg("onLazyRead(%o)", dtnode);
-			//},
+			onExpand: function(expand, dtnode) {
+				logMsg("onExpand(%o, %o)", expand, dtnode);
+			},
+
+			onLazyRead: function(dtnode) {
+				logMsg("onLazyRead(%o)", dtnode);
+			},
 
 			onFocus: function(dtnode) {
-				//logMsg("onFocus(%o)", dtnode);
+				logMsg("onFocus(%o)", dtnode);
 				$("#echoFocused").text(dtnode.data.title);
+		    // Auto-activate focused node after 2 seconds
+		    dtnode.scheduleAction("activate", 2000);
 			},
 			onBlur: function(dtnode) {
-				//logMsg("onBlur(%o)", dtnode);
+				logMsg("onBlur(%o)", dtnode);
 				$("#echoFocused").text("-");
 			},
-
+			
 			onClick: function(dtnode, event) {
-				//logMsg("onClick(%o, %o)", dtnode, event);
+				logMsg("onClick(%o, %o)", dtnode, event);
 				if( event.shiftKey && dtnode.isLazy )
 					alert("ctrl");
 				//return false;
 			},
 			onDblClick: function(dtnode, event) {
-				//logMsg("onDblClick(%o, %o)", dtnode, event);
+				logMsg("onDblClick(%o, %o)", dtnode, event);
 				dtnode.toggleSelect();
 			},
 			onKeydown: function(dtnode, event) {
-				//logMsg("onKeydown(%o, %o)", dtnode, event);
+				logMsg("onKeydown(%o, %o)", dtnode, event);
 				switch( event.which ) {
 				case 32: // [space]
 					dtnode.toggleSelect();
 					return false;
 				}
-			}//,
-			//onKeypress: function(dtnode, event) {
-			//	logMsg("onKeypress(%o, %o)", dtnode, event);
+			},
+			onKeypress: function(dtnode, event) {
+				logMsg("onKeypress(%o, %o)", dtnode, event);
 			}
 		});
-	});
+	});	
+	
