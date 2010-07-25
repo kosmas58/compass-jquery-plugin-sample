@@ -57,7 +57,7 @@ class Invheader < ActiveRecord::Base
     :title          => I18n.t('txt.jqgrid.demo.20json_data'),
     :url            => "/jqgrid/demo",
     :data_type      => :json,
-    :build_model    => false,
+    #:build_model    => false,
     :colInclude     => [:client],
     :colNames       => [
                         I18n.t('activerecord.attributes.invheader.id'),
