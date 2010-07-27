@@ -1,5 +1,6 @@
--@jquery_partial = 'hello.js.haml'
-
+- content_for :content_head do
+  = render(:partial => "hello.js.haml", :format => :js)
+    
 .welcome
   %h4.ui-widget-header.ui-corner-all
     compass-jquery-plugin
