@@ -1,0 +1,27 @@
+-@title = "#{t('txt.jqgrid.name')} #{t('txt.jqgrid.demo.name')} - #{t('txt.jqgrid.demo.38v')} - #{t('txt.jqgrid.demo.38array3')}"
+.demo
+  %h3
+    =@title
+  %center
+    %table#demo1603.scroll{ :cellspacing => "0", :cellpadding => "0" }
+    #demo1603_pager.scroll{ :style => "text-align:center;" }
+
+/ End demo
+.demo-description
+  %p
+    This example demonstrates how we can change the view of the group header row.
+  %p
+    This is done with the option
+    %code
+      groupText.
+    Actually this template has two possible values:
+    %ol
+      %li
+        %code
+          {0} -
+        for the grouped text and
+      %li
+        %code
+          {1} -
+        for the number of items in this group.
+/ End demo-description

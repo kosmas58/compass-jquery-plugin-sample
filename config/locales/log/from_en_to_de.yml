@@ -1,29 +1,31 @@
 --- 
-activerecord: 
-  errors: 
-    full_messages: 
-      format: "{{attribute}} {{message}}"
 number: 
   currency: 
     format: 
       separator: .
       delimiter: ","
+activerecord: 
+  errors: 
+    full_messages: 
+      format: "{{attribute}} {{message}}"
 time: 
   am: am
   formats: 
     default: "%a, %d %b %Y %H:%M:%S %z"
-    long: "%B %d, %Y %H:%M"
     short: "%d %b %H:%M"
+    long: "%B %d, %Y %H:%M"
   pm: pm
 date: 
   formats: 
     default: "%Y-%m-%d"
-    long: "%B %d, %Y"
     short: "%b %d"
+    long: "%B %d, %Y"
 txt: 
-  dt: 
-    multiline: Large nodes
-    embed: Embed in forms
+  jqgrid: 
+    demo: 
+      38remote1: Remote Data (sorted)
+      38remote2: Remote Data (sorted with grandtotals)
+      38remote3: Remote Data (not sorted with grandtotals)
 support: 
   array: 
     words_connector: ", "
@@ -32,6 +34,13 @@ support:
   select: 
     prompt: Please select
 datetime: 
+  prompts: 
+    minute: Minute
+    month: Month
+    second: Seconds
+    hour: Hour
+    day: Day
+    year: Year
   distance_in_words: 
     less_than_x_minutes: 
       one: less than a minute
@@ -63,14 +72,7 @@ datetime:
     about_x_years: 
       one: about 1 year
       other: about {{count}} years
-    half_a_minute: half a minute
     over_x_years: 
       one: over 1 year
       other: over {{count}} years
-  prompts: 
-    month: Month
-    minute: Minute
-    second: Seconds
-    hour: Hour
-    day: Day
-    year: Year
+    half_a_minute: half a minute

@@ -354,6 +354,18 @@ en:
         37single: Single search
         37toolbar: Toolbar search
         37v: New in version 3.7
+        38array1: Simple grouping with array data
+        38array2: Hide grouping column
+        38array3: Grouped header row config
+        38array4: RTL Support
+        38array5: Grouping row(s) collapsed
+        38array6: Summary Footers
+        38remote1: Remote Data (sorted)
+        38remote2: Remote Data (sorted with grandtotals)
+        38remote3: Remote Data (not sorted with grandtotals)
+        38remote4: Dynamically change grouping
+        38v: New in version 3.8
+        38xml1: Grouping with XML Data     
         actions: Actions
         default: jqGrid Demo
         gridify: 2dc examples implemented with gridify
