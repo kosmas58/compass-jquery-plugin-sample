@@ -3735,29 +3735,45 @@ class Invheader < ActiveRecord::Base
                         I18n.t('activerecord.attributes.invheader.ship_via')
                        ],
     :colModel       => {
-                         :id       => { :name     => 'id',
-                                        :width    =>  50,
-                                        :align    => :right },
-                         :invdate  => { :name  => 'invdate',
-                                        :width =>  90 },
-                         :name     => { :name  => 'name',
-                                        :width => 100 },
-                         :amount   => { :name  => 'amount',
-                                        :width =>  80,
-                                        :align => :right },
-                         :tax      => { :name  => 'tax',
-                                        :width =>  80,
-                                        :align => :right },
-                         :total    => { :name  => 'total',
-                                        :width =>  80,
-                                        :align => :right },
-                         :note     => { :name     => 'note',
-                                        :width    => 150,
-                                        :sortable => false },
-                         :closed   => { :name  => 'closed',
-                                        :width =>  40 },
-                         :ship_via => { :name  => 'ship_via',
-                                        :width =>  40 }
+                         :id       => { :name        => 'id',
+                                        :width       =>  55,
+                                        :editable    => true,
+                                        :align       => :right,
+                                        :sorttype    => :int,
+                                        :summary_type => :count,
+                                        :summary_tpl  => '({0}) total' },
+                         :invdate  => { :name        => 'invdate',
+                                        :width       =>  90,
+                                        :sorttype    => :date,
+                                        :formatter   => :date#, 
+                                        #:datefmt     => 'd/m/Y' 
+                                        },
+                         :name     => { :name        => 'name',
+                                        :width       => 100 },
+                         :amount   => { :name        => 'amount',
+                                        :width       =>  80,
+                                        :align       => :right,
+                                        :sorttype    => :number,
+                                        :formatter   => :number },
+                         :tax      => { :name        => 'tax',
+                                        :width       =>  80,
+                                        :align       => :right,
+                                        :sorttype    => :number,
+                                        :formatter   => :number },
+                         :total    => { :name        => 'total',
+                                        :width       =>  80,
+                                        :align       => :right,
+                                        :sorttype    => :number,
+                                        :formatter   => :number, 
+                                        :summary_type => :sum },
+                         :note     => { :name        => 'note',
+                                        :width       => 150,
+                                        :sortable    => false,
+                                        :editable    => true }, 
+                         :closed   => { :name        => 'closed',
+                                        :width       =>  40 },
+                         :ship_via => { :name        => 'ship_via',
+                                        :width       =>  40 }
                        },
     :height         => :auto,
     :rows_per_page  => 10,
@@ -3765,7 +3781,7 @@ class Invheader < ActiveRecord::Base
     :sort_by        => :invdate,
     :sort_order     => :desc,
     :pager          => true,
-    :jqgrid_options => {                       
+    :jqgrid_options => {
                          :grouping        => true,
                          :groupingView => {
                            :groupField      => ['note'],
@@ -3824,7 +3840,7 @@ class Invheader < ActiveRecord::Base
     :sort_by        => :invdate,
     :sort_order     => :desc,
     :pager          => true,
-    :jqgrid_options => {                       
+    :jqgrid_options => {
                          :grouping        => true,
                          :groupingView => {
                            :groupField      => ['note'],
@@ -3885,7 +3901,7 @@ class Invheader < ActiveRecord::Base
     :sort_by        => :invdate,
     :sort_order     => :desc,
     :pager          => true,
-    :jqgrid_options => {                       
+    :jqgrid_options => {
                          :grouping        => true,
                          :groupingView => {
                            :groupField      => ['note'],
@@ -3899,7 +3915,7 @@ class Invheader < ActiveRecord::Base
                          :footerrow         => true,
                          :userDataOnFooter  => true
                        }
-                       
+
   gridify :demo1610,
     :title          => I18n.t('txt.jqgrid.demo.38remote4'),
     :url            => "/jqgrid/demo",
@@ -3946,7 +3962,7 @@ class Invheader < ActiveRecord::Base
     :sort_by        => :invdate,
     :sort_order     => :desc,
     :pager          => true,
-    :jqgrid_options => {                       
+    :jqgrid_options => {
                          :grouping        => true,
                          :groupingView => {
                            :groupField      => ['note'],
@@ -3960,7 +3976,7 @@ class Invheader < ActiveRecord::Base
                          :footerrow         => true,
                          :userDataOnFooter  => true
                        }
-                       
+
   gridify :demo1611,
     :title          => I18n.t('txt.jqgrid.demo.38xml1'),
     :url            => "/jqgrid/demo",
@@ -4007,7 +4023,7 @@ class Invheader < ActiveRecord::Base
     :sort_by        => :invdate,
     :sort_order     => :desc,
     :pager          => true,
-    :jqgrid_options => {                       
+    :jqgrid_options => {
                          :grouping        => true,
                          :groupingView => {
                            :groupField      => ['note'],
@@ -4021,6 +4037,6 @@ class Invheader < ActiveRecord::Base
                          :footerrow         => true,
                          :userDataOnFooter  => true
                        }
-    
+
 end
 

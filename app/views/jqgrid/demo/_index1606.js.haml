@@ -40,11 +40,11 @@
      	colModel:[
      		{name:'id',index:'id', width:60, sorttype:"int"},
      		{name:'invdate',index:'invdate', width:90, sorttype:"date"},
-     		{name:'name',index:'name', width:100},
-     		{name:'amount',index:'amount', width:80, align:"right",sorttype:"float"},
-     		{name:'tax',index:'tax', width:80, align:"right",sorttype:"float"},
-     		{name:'total',index:'total', width:80,align:"right",sorttype:"float"},
-     		{name:'note',index:'note', width:150, sortable:false}
+   		  {name:'name',index:'name', width:100, editable:true},
+   		  {name:'amount',index:'amount', width:80, align:"right",sorttype:"float", formatter:"number", editable:true, summaryType:'min', summaryTpl:'<b>Min: {0}</b>'},
+   		  {name:'tax',index:'tax', width:80, align:"right",sorttype:"float",formatter:"number", editable:true, summaryType:'max', summaryTpl:'<b>Max: {0}</b>'},
+   		  {name:'total',index:'total', width:80,align:"right",sorttype:"float", formatter:"number", summaryType:'sum'},		
+   		  {name:'note',index:'note', width:150, sortable:false, summaryType:'count', summaryTpl:'<b>{0} Item(s)</b>'}		
      	],
      	pager: "#demo1606_pager",     	
      	viewrecords: true,
