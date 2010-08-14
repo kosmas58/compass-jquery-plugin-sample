@@ -422,6 +422,7 @@ en:
           multiple: Multiple values
           multiple-remote: Multiple, remote
           folding: Accent folding
+          maxheight: Max-height for the autocomplete menu
         default: Widgets
         button:
           default: Button
@@ -469,6 +470,7 @@ en:
           default: Accordion
           no-auto-height: No auto height
           mouseover: Open on mouseover
+          hoverintent: Open on hoverintent
           fillspace: Fill space
           custom-icons: Customize icons
           collapsible: Collapse content

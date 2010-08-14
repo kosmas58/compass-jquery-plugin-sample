@@ -1,0 +1,19 @@
+-@title = "#{t('txt.ui.name')} #{t('txt.ui.widgets.autocomplete.default')} - #{t('txt.ui.widgets.autocomplete.maxheight')}"
+
+- content_for :content_head do
+  = render(:partial => "maxheight.js.haml", :format => :js)
+     
+.demo
+  %h3
+    =@title
+  .ui-widget
+    %label{ :for => "tags" }
+      Tags:
+    %input#tags
+/ End demo
+.demo-description
+  %p
+    When displaying a long list of options, you can simply set the max-height for the autocomplete
+    menu to prevent the menu from growing too large. Try typing "a" or "s" above to get a long list
+    of results that you can scroll through.
+/ End demo-description

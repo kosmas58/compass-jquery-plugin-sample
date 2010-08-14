@@ -21,11 +21,10 @@ date:
     short: "%b %d"
     long: "%B %d, %Y"
 txt: 
-  jqgrid: 
-    demo: 
-      38remote1: Remote Data (sorted)
-      38remote2: Remote Data (sorted with grandtotals)
-      38remote3: Remote Data (not sorted with grandtotals)
+  ui: 
+    widgets: 
+      autocomplete: 
+        maxheight: Max-height for the autocomplete menu
 support: 
   array: 
     words_connector: ", "
