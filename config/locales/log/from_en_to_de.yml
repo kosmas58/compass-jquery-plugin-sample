@@ -24,7 +24,7 @@ txt:
   ui: 
     widgets: 
       autocomplete: 
-        maxheight: Max-height for the autocomplete menu
+        maxheight: Scrollable results
 support: 
   array: 
     words_connector: ", "

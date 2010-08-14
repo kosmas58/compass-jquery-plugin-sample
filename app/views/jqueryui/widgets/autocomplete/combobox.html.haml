@@ -7,43 +7,39 @@
   %h3
     =@title
   .ui-widget
-    %label
-      Your preferred programming language:
-    %select
-      %option{ :value => "a" }
-        asp
-      %option{ :value => "c" }
-        c
-      %option{ :value => "cpp" }
-        c++
-      %option{ :value => "cf" }
-        coldfusion
-      %option{ :value => "g" }
-        groovy
-      %option{ :value => "h" }
-        haskell
-      %option{ :value => "j" }
-        java
-      %option{ :value => "js" }
-        javascript
-      %option{ :value => "p1" }
-        pearl
-      %option{ :value => "p2" }
-        php
-      %option{ :value => "p3" }
-        python
-      %option{ :value => "r" }
-        ruby
-      %option{ :value => "s" }
-        scala
-/End demo
-
+    %label Your preferred programming language:
+    %select#combobox
+      %option{:value => ""} Select one...
+      %option{:value => "ActionScript"} ActionScript
+      %option{:value => "AppleScript"} AppleScript
+      %option{:value => "Asp"} Asp
+      %option{:value => "BASIC"} BASIC
+      %option{:value => "C"} C
+      %option{:value => "C++"} C++
+      %option{:value => "Clojure"} Clojure
+      %option{:value => "COBOL"} COBOL
+      %option{:value => "ColdFusion"} ColdFusion
+      %option{:value => "Erlang"} Erlang
+      %option{:value => "Fortran"} Fortran
+      %option{:value => "Groovy"} Groovy
+      %option{:value => "Haskell"} Haskell
+      %option{:value => "Java"} Java
+      %option{:value => "JavaScript"} JavaScript
+      %option{:value => "Lisp"} Lisp
+      %option{:value => "Perl"} Perl
+      %option{:value => "PHP"} PHP
+      %option{:value => "Python"} Python
+      %option{:value => "Ruby"} Ruby
+      %option{:value => "Scala"} Scala
+      %option{:value => "Scheme"} Scheme
+  %a#toggle{ :href => "#" } Show underlying select
+/ End demo
 .demo-description
   %p
     A custom widget built by composition of Autocomplete and Button.
     You can either type something into the field to get filtered suggestions based on your input,
     or use the button to get the full list of selections.
   %p
-    The input is read from an existing select-element for progressive enhancement,
-    passed to Autocomplete with a customized source-option.
-/End demo-description
+    The input is read from an existing select-element for progressive enhancement, passed to
+    Autocomplete with a customized source-option.
+/ End demo-description

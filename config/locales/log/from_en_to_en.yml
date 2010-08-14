@@ -3,3 +3,8 @@ activerecord:
   attributes: 
     invheader: 
       invdate: Date
+txt: 
+  ui: 
+    widgets: 
+      autocomplete: 
+        maxheight: Scrollable results

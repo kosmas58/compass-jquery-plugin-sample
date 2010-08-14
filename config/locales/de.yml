@@ -43,12 +43,6 @@ de:
         unit: Mengeneinheit
         num: Anzahl
         item: Element
-      player: 
-        pseudo: Pseudonym
-        role: Rolle
-        lastname: Nachname
-        firstname: Vorname
-        email: E-Mail
       invheader: 
         tax: Steuer
         ship_via: "Versenden \xC3\xBCber"
@@ -59,6 +53,12 @@ de:
         client: Kunde
         note: Hinweis
         invdate: Datum
+      player: 
+        pseudo: Pseudonym
+        role: Rolle
+        lastname: Nachname
+        firstname: Vorname
+        email: E-Mail
       account: 
         name: Name
         debit: Soll
@@ -128,6 +128,71 @@ de:
       short: "%d. %B, %H:%M Uhr"
       long: "%A, %d. %B %Y, %H:%M Uhr"
     pm: nachmittags
+  date: 
+    month_names: 
+    - 
+    - Januar
+    - Februar
+    - !binary |
+      TcOkcno=
+
+    - April
+    - Mai
+    - Juni
+    - Juli
+    - August
+    - September
+    - Oktober
+    - November
+    - Dezember
+    abbr_day_names: 
+    - So
+    - Mo
+    - Di
+    - Mi
+    - Do
+    - Fr
+    - Sa
+    order: 
+    - :day
+    - :month
+    - :year
+    formats: 
+      only_day: "%e"
+      default: "%d.%m.%Y"
+      short: "%e. %b"
+      long: "%e. %B %Y"
+    day_names: 
+    - Sonntag
+    - Montag
+    - Dienstag
+    - Mittwoch
+    - Donnerstag
+    - Freitag
+    - Samstag
+    abbr_month_names: 
+    - 
+    - Jan
+    - Feb
+    - !binary |
+      TcOkcg==
+
+    - Apr
+    - Mai
+    - Jun
+    - Jul
+    - Aug
+    - Sep
+    - Okt
+    - Nov
+    - Dez
+  activemodel: 
+    errors: 
+      template: 
+        body: "Bitte \xC3\xBCberpr\xC3\xBCfen Sie die folgenden Felder:"
+        header: 
+          one: "Konnte {{model}} nicht speichern: ein Fehler."
+          other: "Konnte {{model}} nicht speichern: {{count}} Fehler."
   txt: 
     layout: 
       colon: ":"
@@ -147,6 +212,12 @@ de:
       until: bis
     jqgrid: 
       name: jqGrid
+      manipulation: 
+        name: Datenmanipulation
+        inline: "mit Inline-\xC3\x84nderung"
+        modal: "mit modaler \xC3\x84nderung"
+        datepicker: mit Datumsauswahl (Nachname)
+        input: mit verschiedenen Eingabetypen
       simple: 
         name: Einfache Datengitter
         direct: mit direkter Auswahl und automatischer Weite
@@ -154,12 +225,6 @@ de:
         master: mit Haupt- und Detailsicht
         selection: mit Auswahllink und Suche deaktiviert
         multiple: mit Mehrfachauswahl + Zeilennummern
-      manipulation: 
-        name: Datenmanipulation
-        inline: "mit Inline-\xC3\x84nderung"
-        modal: "mit modaler \xC3\x84nderung"
-        datepicker: mit Datumsauswahl (Nachname)
-        input: mit verschiedenen Eingabetypen
       demo: 
         30xml_map: XML-Mapping
         30resizable: "Vergr\xC3\xB6\xC3\x9Ferbare Spalten"
@@ -286,13 +351,13 @@ de:
         crud: mit CRUD-Operationen
       improvements: 
         name: mit Verbesserungen der Form
-    jqt: 
-      name: "jQTouch (ben\xC3\xB6tigt einen Browser mit WebKit)"
     ribbon: 
       name: Multifunktionsleiste
       simple: jQuery Ribbon Simple Demo
       default: jQuery Ribbon Windows 7 Demo
       office: jQuery Ribbon Office Demo
+    jqt: 
+      name: "jQTouch (ben\xC3\xB6tigt einen Browser mit WebKit)"
     jqical: 
       anytime: 
         name: Any+Time&trade
@@ -334,13 +399,13 @@ de:
       lazy: Lazy
       persist: Persistenz
       default: Standardeinstellungen
+      dnd: Ziehen und Ablegen
       api: Programmier-API
       quick: JS-Objekt initialisieren
       dnd2: Neues Ziehen und Ablegen
       iframe: iframe und URL-Navigation
-      dnd: Ziehen und Ablegen
-      minexpand: Feste Expansionsebene
       events: Ergeignisverarbeitung
+      minexpand: Feste Expansionsebene
       form: In Formular integriert
       effects: Effekte
       contextmenu: "Kontextmen\xC3\xBC,  Kopieren / Einf\xC3\xBCgen"
@@ -384,8 +449,8 @@ de:
           scroll: Autoscrollen
           default: Ziehbar
           sortable: Zieh- und sortierbar
-          constrain-movement: "Einschr\xC3\xA4nken der Bewegung"
           events: Ereignisse
+          constrain-movement: "Einschr\xC3\xA4nken der Bewegung"
           revert: "Zur Position zur\xC3\xBCckkehren"
           cursor-style: Cursorstil
           delay-start: "Start verz\xC3\xB6gern"
@@ -469,19 +534,6 @@ de:
           mouseover: "\xC3\x96ffnen, wenn die Maus dar\xC3\xBCberf\xC3\xA4hrt"
           cookie: "Persistenz \xC3\xBCber Cookie"
           collapsible: Inhalt wegklappen
-        autocomplete: 
-          maxheight: "Max-H\xC3\xB6he f\xC3\xBCr das Auswahlmen\xC3\xBC"
-          default: "Autovervollst\xC3\xA4ndigung"
-          multiple-remote: Mehrfachwerte, entfernt
-          remote-jsonp: Entfernte JSONP-Datenquelle
-          folding: "Akzente ber\xC3\xBCcksichtigen"
-          custom-data: Angepasste Daten und Anzeige
-          remote-with-cache: Entfernt mit Caching
-          multiple: Mehrfachwerte
-          categories: Kategorien
-          remote: Entfernte Datenquelle
-          combobox: Auswahleiste
-          remote-xml: XML-Daten einmalig geparsed
         dialog: 
           default: Dialog
           modal-confirmation: "Modale Best\xC3\xA4tigung"
@@ -489,6 +541,19 @@ de:
           animated: Animierter Dialog
           modal-form: Modale Form
           modal-message: Modale Nachricht
+        autocomplete: 
+          maxheight: Scrollbare Ergebnisse
+          default: "Autovervollst\xC3\xA4ndigung"
+          folding: "Akzente ber\xC3\xBCcksichtigen"
+          multiple-remote: Mehrfachwerte, entfernt
+          remote-jsonp: Entfernte JSONP-Datenquelle
+          remote-with-cache: Entfernt mit Caching
+          custom-data: Angepasste Daten und Anzeige
+          multiple: Mehrfachwerte
+          categories: Kategorien
+          remote: Entfernte Datenquelle
+          remote-xml: XML-Daten einmalig geparsed
+          combobox: Auswahleiste
       form: 
         new: Anlegen
         edit: Bearbeiten
@@ -521,71 +586,6 @@ de:
       theme-switcher: 
         button: "Thema: "
         initial: Thema wechseln
-  date: 
-    month_names: 
-    - 
-    - Januar
-    - Februar
-    - !binary |
-      TcOkcno=
-
-    - April
-    - Mai
-    - Juni
-    - Juli
-    - August
-    - September
-    - Oktober
-    - November
-    - Dezember
-    abbr_day_names: 
-    - So
-    - Mo
-    - Di
-    - Mi
-    - Do
-    - Fr
-    - Sa
-    order: 
-    - :day
-    - :month
-    - :year
-    formats: 
-      only_day: "%e"
-      default: "%d.%m.%Y"
-      short: "%e. %b"
-      long: "%e. %B %Y"
-    day_names: 
-    - Sonntag
-    - Montag
-    - Dienstag
-    - Mittwoch
-    - Donnerstag
-    - Freitag
-    - Samstag
-    abbr_month_names: 
-    - 
-    - Jan
-    - Feb
-    - !binary |
-      TcOkcg==
-
-    - Apr
-    - Mai
-    - Jun
-    - Jul
-    - Aug
-    - Sep
-    - Okt
-    - Nov
-    - Dez
-  activemodel: 
-    errors: 
-      template: 
-        body: "Bitte \xC3\xBCberpr\xC3\xBCfen Sie die folgenden Felder:"
-        header: 
-          one: "Konnte {{model}} nicht speichern: ein Fehler."
-          other: "Konnte {{model}} nicht speichern: {{count}} Fehler."
   support: 
     array: 
       last_word_connector: " und "
