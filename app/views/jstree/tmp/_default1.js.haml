@@ -1,14 +1,17 @@
 :css
-  #toolbar_top, #toolbar_bottom{ padding: 0.3em; }
-  #treedemo { width:auto; height:400px; overflow:auto; }
-  #search0{ height: 2.4em; margin: 0 0.4em 0 0; padding: 0.1em 0 0.4em 0.1em; }
-  #alog { font-size:9px !important; padding: 0.5em; }
+  html, body { margin:0; padding:0; }
+  body, td, th, pre, code, select, option, input, textarea { font-family:verdana,arial,sans-serif; font-size:10px; }
+  .demo, .demo input, .jstree-dnd-helper, #vakata-contextmenu { font-size:10px; font-family:Verdana; }
+  #container { width:780px; margin:10px auto; overflow:hidden; position:relative; }
+  #demo { width:auto; height:400px; overflow:auto; border:1px solid gray; }
+  #text { margin-top:1px; }
+  #alog { font-size:9px !important; margin:5px; border:1px solid silver; }
   
 :javascript
   $(function () {
   	// Settings up the tree - using $(selector).jstree(options);
   	// All those configuration options are documented in the _docs folder
-  	$("#treedemo")
+  	$("#demo")
   		.jstree({ 
   			// the list of plugins to include
   			"plugins" : [ "themes", "json_data", "ui", "crrm", "cookies", "dnd", "search", "types", "hotkeys", "contextmenu" ],
@@ -189,83 +192,22 @@
   			});
   		});
   });
-  
-  $(function() {
-    $('#add_folder').button({
-      text: false,
-      icons: {
-        primary: 'ui-icon-folder-collapsed',
-        secondary: 'ui-icon-plusthick'
-      }
-    });
-    $('#add_default').button({
-      text: false,
-      icons: {
-        primary: 'ui-icon-document',
-        secondary: 'ui-icon-plusthick'
-      }
-    });
-    $('#rename').button({
-      text: true
-    })
-    $('#remove').button({
-      text: false,
-      icons: {
-        primary: 'ui-icon-trash'
-      }
-    });
-    $('#cut').button({
-      text: false,
-      icons: {
-        primary: 'ui-icon-scissors'
-      }
-    });
-    $('#copy').button({
-      text: false,
-      icons: {
-        primary: 'ui-icon-copy'
-      }
-    });
-    $('#paste').button({
-      text: false,
-      icons: {
-        primary: 'ui-icon-clipboard'
-      }
-    }); 
     
-    $('#search1').button({
-      text: false,
-      icons: {
-        primary: 'ui-icon-search'
-      }
-    }); 
-    $('#search2').button({
-      text: false,
-      icons: {
-        primary: 'ui-icon-close'
-      }
-    }); 
-    $('#reconstruct').button({
-      text: true
-    })
-    $('#analyze').button({
-      text: true
-    })
-    $('#refresh').button({
-      text: true
-    })
-    $('#stop').button({
-      text: false,
-      icons: {
-        primary: 'ui-icon-stop'
-      }
-    })
-    .click(function() {
-      $('#play').button('option', {
-        label: 'play',
-        icons: {
-          primary: 'ui-icon-play'
-        }
-      });
-    });
+  $(function () { 
+  	$("#mmenu input").click(function () {
+  		switch(this.id) {
+  			case "add_default":
+  			case "add_folder":
+  				$("#demo").jstree("create", null, "last", { "attr" : { "rel" : this.id.toString().replace("add_", "") } });
+  				break;
+  			case "search":
+  				$("#demo").jstree("search", document.getElementById("text").value);
+  				break;
+  			case "text": break;
+  			default:
+  				$("#demo").jstree(this.id);
+  				break;
+  		}
+  	});
   });
+    

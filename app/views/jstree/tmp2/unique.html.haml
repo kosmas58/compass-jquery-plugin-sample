@@ -1,0 +1,47 @@
+!!! Strict
+%html{:xmlns => "http://www.w3.org/1999/xhtml"}
+  %head
+    %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
+    %title jsTree v.1.0 - unique documentation
+    %script{:src => "../js/jquery.js", :type => "text/javascript"}
+    %script{:src => "../js/jquery.cookie.js", :type => "text/javascript"}
+    %script{:src => "../js/jquery.hotkeys.js", :type => "text/javascript"}
+    %script{:src => "../js/jquery.jstree.js", :type => "text/javascript"}
+    %link{:href => "syntax/!style.css", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "!style.css", :rel => "stylesheet", :type => "text/css"}/
+    %script{:src => "syntax/!script.js", :type => "text/javascript"}
+  %body
+    #container
+      %h1 jsTree v.1.0 - unique plugin
+      %h2 Description
+      #description
+        %p
+          The
+          %code unique
+          plugin prevents from nodes with same titles coexisting (create/move/rename) in the same parent.
+      %h2#demos Demos
+      .panel
+        %p Try moving the child nodes together (drag'n'drop).
+        %h3 Using the unique plugin
+        #demo1.demo
+          %ul
+            %li#phtml_1
+              %a{:href => "#"} Root node 1
+              %ul
+                %li#phtml_2
+                  %a{:href => "#"} Child node 1
+            %li#phtml_4
+              %a{:href => "#"} Root node 2
+              %ul
+                %li#phtml_3
+                  %a{:href => "#"} Child node 1
+        %script.source{:type => "text/javascript"}
+          $(function () {
+          $("#demo1").jstree({
+          "plugins" : [ "themes", "html_data", "dnd", "unique" ]
+          });
+          });
+      %h2#api API
+      .panel.api
+        %h3#save_cookie ._check_unique ( names, siblings )
+        %p Used internally - checks the names array against the sibling nodes for matches.

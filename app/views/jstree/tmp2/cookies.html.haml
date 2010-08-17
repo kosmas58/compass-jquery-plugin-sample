@@ -1,0 +1,112 @@
+!!! Strict
+%html{:xmlns => "http://www.w3.org/1999/xhtml"}
+  %head
+    %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
+    %title jsTree v.1.0 - cookies documentation
+    %script{:src => "../js/jquery.js", :type => "text/javascript"}
+    %script{:src => "../js/jquery.cookie.js", :type => "text/javascript"}
+    %script{:src => "../js/jquery.hotkeys.js", :type => "text/javascript"}
+    %script{:src => "../js/jquery.jstree.js", :type => "text/javascript"}
+    %link{:href => "syntax/!style.css", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "!style.css", :rel => "stylesheet", :type => "text/css"}/
+    %script{:src => "syntax/!script.js", :type => "text/javascript"}
+  %body
+    #container
+      %h1 jsTree v.1.0 - cookies plugin
+      %h2 Description
+      #description
+        %p
+          The
+          %code cookies
+          enables jstree to save the state of the tree across sessions. What this does is save the opened and selected nodes in a cookie, and reopen &amp; reselect them the next time the user loads the tree. Depends on the
+          %a{:href => "http://plugins.jquery.com/project/cookie"} jQuery.cookie
+          plugin.
+      %h2#configuration Configuration
+      .panel.configuration
+        %h3 save_opened
+        %p.meta
+          A string (or
+          = succeed ")." do
+            %code false
+          Default is
+          = succeed "." do
+            %code "jstree_open"
+        %p
+          The name of the cookie to save opened nodes in. If set to
+          %code false
+          \- opened nodes won't be saved.
+        %h3 save_selected
+        %p.meta
+          A string (or
+          = succeed ")." do
+            %code false
+          Default is
+          = succeed "." do
+            %code "jstree_select"
+        %p
+          The name of the cookie to save selected nodes in. If set to
+          %code false
+          \- selected nodes won't be saved.
+        %h3 auto_save
+        %p.meta
+          A Boolean. Default is
+          = succeed "." do
+            %code true
+        %p
+          If set to
+          %code true
+          jstree will automatically update the cookies every time a change in the state occurs.
+        %h3 cookie_options
+        %p.meta
+          An object. Default is
+          = succeed "." do
+            %code {}
+        %p
+          The options accepted by the
+          %a{:href => "http://plugins.jquery.com/project/cookie"} jQuery.cookie
+          plugin.
+      %h2#demos Demos
+      .panel
+        %p
+          Check your data plugin documentation (
+          %a{:href => "html_data.html"}> html_data
+          ,
+          = succeed "," do
+            %a{:href => "xml_data.html"} xml_data
+          = succeed ")" do
+            %a{:href => "json_data.html"} json_data
+          or take a close look at these examples for information on how to specify multilanguage nodes.
+        %h3 Using the cookies plugin
+        %p
+          Go ahead and make changes to the tree and then
+          = succeed "." do
+            %a{:href => "javascript:document.location.reload();"} refresh this page
+        #demo1.demo
+          %ul
+            %li#phtml_1
+              %a{:href => "#"} Root node 1
+              %ul
+                %li#phtml_2
+                  %a{:href => "#"} Child node 1
+                %li#phtml_3
+                  %a{:href => "#"} Child node 2
+            %li#phtml_4
+              %a{:href => "#"} Root node 2
+        %script.source{:type => "text/javascript"}
+          $(function () {
+          $("#demo1").jstree({
+          "plugins" : [ "themes", "html_data", "ui", "cookies" ]
+          });
+          });
+      %h2#api API
+      .panel.api
+        %h3#save_cookie .save_cookie ( event )
+        %p Save the current state.
+        %ul.arguments
+          %li
+            %code.tp string
+            %strong event
+            %p
+              Used internally with the
+              %code auto_save
+              option. Do not set this manually.

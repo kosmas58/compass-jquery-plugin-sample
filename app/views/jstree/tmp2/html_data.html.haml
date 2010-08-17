@@ -1,0 +1,237 @@
+!!! Strict
+%html{:xmlns => "http://www.w3.org/1999/xhtml"}
+  %head
+    %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
+    %title jsTree v.1.0 - html_data documentation
+    %script{:src => "../js/jquery.js", :type => "text/javascript"}
+    %script{:src => "../js/jquery.cookie.js", :type => "text/javascript"}
+    %script{:src => "../js/jquery.hotkeys.js", :type => "text/javascript"}
+    %script{:src => "../js/jquery.jstree.js", :type => "text/javascript"}
+    %link{:href => "syntax/!style.css", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "!style.css", :rel => "stylesheet", :type => "text/css"}/
+    %script{:src => "syntax/!script.js", :type => "text/javascript"}
+  %body
+    #container
+      %h1 jsTree v.1.0 - html_data plugin
+      %h2 Description
+      #description
+        %p
+          The
+          %code html_data
+          plugin enables jsTree to convert nested unordered lists to interactive trees. jsTree can also get HTML from the server insert it into the DOM and convert that to a tree.
+        %p The basic structure you need to follow when supplying data in the HTML format is:
+        .code_f
+          %pre{:class => "brush:xml;"}
+            :preserve
+              
+              &lt;li&gt;
+              	&lt;a href="some_value_here"&gt;Node title&lt;/a&gt;
+              	&lt;!-- UL node only needed for children - omit if there are no children --&gt;
+              	&lt;ul&gt;
+              		&lt;!-- Children LI nodes here --&gt;
+              	&lt;/ul&gt;
+              &lt;/li&gt;
+        %p If you inspect the resulting structure you will find it a bit different - that is because jstree will automatically do some corrections.
+        .code_f
+          %pre{:class => "brush:xml;"}
+            :preserve
+              
+              &lt;!-- one of the three classes will be applied depending on node structure --&gt;
+              &lt;li class="[ jstree-open | jstree-closed | jstree-leaf ]"&gt;
+              	&lt;!-- an INS element is inserted --&gt;
+              	&lt;ins class="jstree-icon"&gt;&amp;#160;&lt;/ins&gt;
+              	&lt;a href="some_value_here"&gt;
+              		&lt;!-- another INS element is inserted --&gt;
+              		&lt;ins class="jstree-icon"&gt;&amp;#160;&lt;/ins&gt;
+              		Node title
+              	&lt;/a&gt;
+              &lt;/li&gt;
+        %p
+          Both
+          %code ins
+          elements are inserted for visualization purposes. As for the class (
+          %code> jstree-open
+          ,
+          = succeed ")" do
+            %code jstree-closed
+          \- you can specify that yourself to force the node to appear either closed or opened. Making a node with no children appear closed is often used - if you use ajax, opening a closed node with no children will result in jstree making a server call for the children (see the
+          = succeed ")." do
+            %a{:href => "#demo3"} demo below
+      %h2#configuration Configuration
+      .panel.configuration
+        %h3 data
+        %p.meta
+          A HTML string (or
+          %code false
+          if not used). Default is
+          = succeed "." do
+            %code false
+        %p Specifies the content to load into the container and convert to a tree.
+        %h3 ajax
+        %p.meta
+          An object (or
+          %code false
+          if not used). Default is
+          = succeed "." do
+            %code false
+        %p
+          The ajax config object is pretty much the same as the
+          = succeed "." do
+            %a{:href => "http://api.jquery.com/jQuery.ajax/"} jQuery ajax settings object
+        %p
+          You can set the
+          %code data
+          option to a function, that will be executed in the current tree's scope (
+          %code this
+          will be the tree instance) and gets the node about to be open as a paramater (or
+          %code -1
+          for initial load). Whatever you return in the function will be sent to the server as data (so for example you can send the node's ID).
+        %p
+          You can set the
+          %code url
+          option to a function, that will be executed in the current tree's scope (
+          %code this
+          will be the tree instance) and gets the node about to be open as a paramater (or
+          %code -1
+          for initial load). Whatever you return in the
+          %code url
+          function will be used as the ajax URL (so that you can accomodate pretty paths such as /get_children/node_2).
+        %p
+          The
+          %code error
+          and
+          %code success
+          functions (if present) also fire in the context of the tree, and if you return a value in the
+          %code success
+          function it will be used to populate the tree - this can be useful if you want to somehow change what the server returned on the client side before it is displayed in the tree.
+        %h3 correct_state
+        %p.meta
+          A Boolean. Default is
+          = succeed "." do
+            %code true
+        %p
+          If this option is set to
+          %code true
+          if an AJAX request returns an empty result, the node that was about to be opened will be converted to a leaf node (the open icon will no longer be displayed).
+        %p.note
+          %strong NOTE:
+          = succeed "If" do
+            %br/
+          both
+          %code data
+          and
+          %code ajax
+          are not set, the current container's HTML is used to build the tree.
+          %br>/
+          If both
+          %code data
+          and
+          %code ajax
+          are set the initial tree is rendered from the
+          %code data
+          string. When opening a closed node (that has no loaded children) an AJAX request is made.
+      %h2#demos Demos
+      .panel
+        %h3 Using initial content (convert an existing list)
+        #demo1.demo
+          %ul
+            %li#phtml_1
+              %a{:href => "#"} Root node 1
+              %ul
+                %li#phtml_2
+                  %a{:href => "#"} Child node 1
+                %li#phtml_3
+                  %a{:href => "#"} Child node 2
+            %li#phtml_4
+              %a{:href => "#"} Root node 2
+        %script.source{:type => "text/javascript"}
+          $(function () {
+          $("#demo1").jstree({
+          "plugins" : [ "themes", "html_data" ]
+          });
+          });
+        %h3 Using the data config option
+        #demo2.demo
+        %script.source{:type => "text/javascript"}
+          $(function () {
+          $("#demo2").jstree({
+          "core" : { "initially_open" : [ "root" ] },
+          "html_data" : {
+          "data" : "
+          %li#root>
+            %a{:href => "#"} Root node
+            %ul
+              %li
+                %a{:href => "#"} Child node
+          "
+          },
+          "plugins" : [ "themes", "html_data" ]
+          });
+          });
+        %h3 Using the ajax config option
+        #demo3.demo
+        %script.source{:type => "text/javascript"}
+          $(function () {
+          $("#demo3").jstree({
+          "html_data" : {
+          "ajax" : {
+          "url" : "_html_data.html",
+          "data" : function (n) {
+          return { id : n.attr ? n.attr("id") : 0 };
+          }
+          }
+          },
+          "plugins" : [ "themes", "html_data" ]
+          });
+          });
+        %h3 Using both the data &amp; ajax config options
+        #demo4.demo
+        %script.source{:type => "text/javascript"}
+          $(function () {
+          $("#demo4").jstree({
+          "core" : { "initially_open" : [ "root2" ] },
+          "html_data" : {
+          "data" : "
+          %li#root2.jstree-closed>
+            %a{:href => "#"} Root node
+          ",
+          "ajax" : { "url" : "_html_data.html" }
+          },
+          "plugins" : [ "themes", "html_data" ]
+          });
+          });
+      %h2#api API
+      .panel.api
+        %p
+          Both dummy functions -
+          %code _is_loaded
+          and
+          %code load_node
+          are overwritten.
+        %h3#load_node_html .load_node_html ( node , success_callback , error_callback )
+        %p
+          This function is called instead of
+          = succeed "." do
+            %code load_node
+        %ul.arguments
+          %li
+            %code.tp mixed
+            %strong node
+            %p
+              This can be a DOM node, jQuery node or selector pointing to an element you want loaded. Use
+              %code -1
+              for root nodes.
+          %li
+            %code.tp function
+            %strong success_callback
+            %p
+              A function to be executed once the node is loaded successfully - used internally. You should wait for the
+              %code load_node
+              event.
+          %li
+            %code.tp function
+            %strong error_callback
+            %p
+              A function to be executed if the node is not loaded due to an error - used internally. You should wait for the
+              %code load_node
+              event.

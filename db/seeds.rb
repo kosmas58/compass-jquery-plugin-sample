@@ -165,13 +165,13 @@ wordlist_length = wordlist.length
 end
 
 # Accounts
-Account.create!(:parent_id => nil, :name => "A1" , :acc_num => 100001, :debit => 11, :credit => 12, :balance => 13, :level => 0, :lft => 1, :rgt => 14 ) 
-Account.create!(:parent_id => nil, :name => "A11" , :acc_num => 100011, :debit => 111, :credit => 112, :balance => 113, :level => 1, :lft => 2, :rgt => 3 ) 
-Account.create!(:parent_id => nil, :name => "A12" , :acc_num => 100012, :debit => 121, :credit => 122, :balance => 123, :level => 1, :lft => 4, :rgt => 11 ) 
-Account.create!(:parent_id => nil, :name => "A13" , :acc_num => 100013, :debit => 131, :credit => 132, :balance => 133, :level => 1, :lft => 12, :rgt => 13 ) 
-Account.create!(:parent_id => nil, :name => "A121" , :acc_num => 100121, :debit => 1211, :credit => 1212, :balance => 1213, :level => 2, :lft => 5, :rgt => 8 ) 
-Account.create!(:parent_id => nil, :name => "A122" , :acc_num => 100122, :debit => 1221, :credit => 1222, :balance => 1223, :level => 2, :lft => 9, :rgt => 10 ) 
-Account.create!(:parent_id => nil, :name => "A1211" , :acc_num => 101211, :debit => 12111, :credit => 12112, :balance => 12113, :level => 3, :lft => 6, :rgt => 7 ) 
+Account.create!(:parent_id => nil, :name => "A1" , :acc_num => 100001, :debit => 11, :credit => 12, :balance => 13, :level  => 0, :lft => 1, :rgt => 14 ) 
+Account.create!(:parent_id => nil, :name => "A11" , :acc_num => 100011, :debit => 111, :credit => 112, :balance => 113, :level  => 1, :lft => 2, :rgt => 3 ) 
+Account.create!(:parent_id => nil, :name => "A12" , :acc_num => 100012, :debit => 121, :credit => 122, :balance => 123, :level  => 1, :lft => 4, :rgt => 11 ) 
+Account.create!(:parent_id => nil, :name => "A13" , :acc_num => 100013, :debit => 131, :credit => 132, :balance => 133, :level  => 1, :lft => 12, :rgt => 13 ) 
+Account.create!(:parent_id => nil, :name => "A121" , :acc_num => 100121, :debit => 1211, :credit => 1212, :balance => 1213, :level  => 2, :lft => 5, :rgt => 8 ) 
+Account.create!(:parent_id => nil, :name => "A122" , :acc_num => 100122, :debit => 1221, :credit => 1222, :balance => 1223, :level  => 2, :lft => 9, :rgt => 10 ) 
+Account.create!(:parent_id => nil, :name => "A1211" , :acc_num => 101211, :debit => 12111, :credit => 12112, :balance => 12113, :level  => 3, :lft => 6, :rgt => 7 ) 
 
 # Birds
 Bird.create!(:name => "Great <em>Bittern</em>", :scientific_name => "Botaurus stellaris")
@@ -746,3 +746,15 @@ Calendar.create!(:name => "iCal Test Calendar", :color => 16711680 )
 
 Event.create(:calendar_id => 1, :starts_at=> 24.hours.from_now, :ends_at => 25.hours.from_now, :summary => "Normal Event", :description => "It's a test!", :location => "Test town")      
 Event.create(:calendar_id => 1, :starts_at=> 24.hours.from_now, :ends_at => 49.hours.from_now, :summary => "2 day Event", :description => "It's a test!", :location => "Test town")   
+
+#Trees
+Tree.create(:parent_id => 0, :position => 2, :left => 1,  :right => 20, :level => 0, :title => 'ROOT')
+Tree.create(:parent_id => 1, :position => 0, :left => 2,  :right => 17, :level => 1, :title => 'C:',         :ntype => 'drive')
+Tree.create(:parent_id => 2, :position => 0, :left => 3,  :right => 12, :level => 2, :title => '_demo:',     :ntype => 'folder')
+Tree.create(:parent_id => 3, :position => 0, :left => 4,  :right => 5,  :level => 3, :title => 'index.html', :ntype => 'default')
+Tree.create(:parent_id => 2, :position => 1, :left => 13, :right => 16, :level => 2, :title => '_docs',      :ntype => 'folder')
+Tree.create(:parent_id => 1, :position => 1, :left => 18, :right => 19, :level => 1, :title => 'zmei.html',  :ntype => 'drive')
+Tree.create(:parent_id => 5, :position => 0, :left => 14, :right => 15, :level => 3, :title => 'New node',   :ntype => 'default')
+Tree.create(:parent_id => 3, :position => 1, :left => 6,  :right => 9,  :level => 3, :title => 'New node',   :ntype => 'folder')
+Tree.create(:parent_id => 3, :position => 2, :left => 10, :right => 11, :level => 3, :title => 'New node',   :ntype => 'default')
+Tree.create(:parent_id => 9, :position => 0, :left => 7,  :right => 8,  :level => 4, :title => 'New node',   :ntype => 'default')

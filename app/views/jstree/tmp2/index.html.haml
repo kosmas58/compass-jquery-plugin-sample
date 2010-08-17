@@ -1,0 +1,106 @@
+!!! Strict
+%html{:xmlns => "http://www.w3.org/1999/xhtml"}
+  %head
+    %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
+    %title jsTree v.1.0 Documentation
+    %script{:src => "../js/jquery.js", :type => "text/javascript"}
+    %script{:src => "../js/jquery.cookie.js", :type => "text/javascript"}
+    %script{:src => "../js/jquery.hotkeys.js", :type => "text/javascript"}
+    %script{:src => "../js/jquery.jstree.js", :type => "text/javascript"}
+    %link{:href => "syntax/!style.css", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "!style.css", :rel => "stylesheet", :type => "text/css"}/
+    %script{:src => "syntax/!script.js", :type => "text/javascript"}
+  %body
+    #container
+      %h1 jsTree v.1.0
+      %h2 Description
+      #description
+        %p
+          jsTree is a javascript based, cross browser tree component. It is packaged as a
+          %a{:href => "http://jquery.com"} jQuery
+          plugin.
+        %p jsTree is absolutely free (licensed same as jQuery – under both GPL and MIT – whichever suits your needs).
+        %h3 Features at a glance
+        %ul.columns
+          %li Various data sources - HTML, JSON, XML
+          %li Supports AJAX loading
+          %li Drag &amp; drop support
+          %li Highly configurable
+          %li Theme support + included themes
+          %li Uses jQuery's event system
+          %li Optional keyboard navigation
+          %li Maintain the same tree in many languages
+          %li Inline editing
+          %li Open/close optional animation
+          %li Define node types and fine tune them
+          %li Configurable multitree drag &amp; drop
+          %li Optional checkbox tree support
+          %li Search function
+          %li Supports plugins
+          %li Optional state saving using cookies
+          %li RTL support
+          %li Optional sorting / unique management
+        %p
+          As of version 1.0 jsTree is extremely plugin friendly, so all functionality is now wrapped in plugins, which take care of various aspects of the tree and can be removed without affecting the functionality of other plugins. Below you will find a list of plugins - each with its own documentation page. Probably a good place to start is the
+          = succeed "." do
+            %a{:href => "core.html"} core
+      %h2#plugins Plugins
+      .panel
+        %ul.columns.plugins
+          %li{:style => "float:none; width:660px;"}
+            %a{:href => "core.html", :style => "font-weight:bold;"} Core functionality
+            %p all core functions for manipulating the tree + basic examples of including, configuring and working with the tree, along with demos of the new event system
+          %li
+            %a{:href => "html_data.html"} HTML_DATA plugin
+            %p enables jsTree to convert nested unordered lists to interactive trees, an already existing UL may be used or data could be retrieved from a server
+          %li
+            %a{:href => "json_data.html"} JSON_DATA plugin
+            %p enables jsTree to convert JSON objects to interactive trees, data can be set up in the config or retrieved from a server
+          %li
+            %a{:href => "xml_data.html"} XML_DATA plugin
+            %p enables jsTree to convert XML objects to interactive trees (using XSL), data can be set up in the config or retrieved from a server
+          %li
+            %a{:href => "themes.html"} Themes plugin
+            %p controls the looks of jstree - without this plugin you will get a functional tree, but it will look just like an ordinary UL list
+          %li
+            %a{:href => "ui.html"} UI plugin
+            %p handles selecting, deselecting and hovering tree items
+          %li
+            %a{:href => "crrm.html"} CRRM plugin
+            %p handles creating, renaming, removing and moving nodes by the user, also includes cut/copy/paste functions
+          %li
+            %a{:href => "hotkeys.html"} Hotkeys plugin
+            %p enables support for keyboard navigation &amp; shortcuts, highly configurable
+          %li
+            %a{:href => "languages.html"} Languages plugin
+            %p enables multilanguage support - each node can have multiple titles, but only one is visible
+          %li
+            %a{:href => "cookies.html"} Cookies plugin
+            %p enables jstree to save the state of the tree across sessions, by saving selected and opened nodes in a cookie
+          %li
+            %a{:href => "sort.html"} Sort plugin
+            %p
+              enables jstree to automatically sort all nodes
+              %br>/
+              using a specified function
+          %li
+            %a{:href => "dnd.html"} DND plugin
+            %p enables drag'n'drop support for jstree, also using foreign nodes and drop targets
+          %li
+            %a{:href => "checkbox.html"} Checkbox plugin
+            %p makes multiselection possible using three-state checkboxes
+          %li
+            %a{:href => "search.html"} Search plugin
+            %p enables searching for nodes whose title contains a given string, works on async trees too
+          %li
+            %a{:href => "contextmenu.html"} Contextmenu plugin
+            %p enables a multilevel context menu on tree items
+          %li
+            %a{:href => "types.html"} Types plugin
+            %p each node can have a type, and you can define rules on how that type should behave
+          %li
+            %a{:href => "themeroller.html"} Themeroller plugin
+            %p adds support for jQuery UI's themes
+          %li
+            %a{:href => "unique.html"} Unique plugin
+            %p adds unique checking to jsTree

@@ -1,0 +1,312 @@
+!!! Strict
+%html{:xmlns => "http://www.w3.org/1999/xhtml"}
+  %head
+    %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
+    %title jsTree v.1.0 - json_data documentation
+    %script{:src => "../js/jquery.js", :type => "text/javascript"}
+    %script{:src => "../js/jquery.cookie.js", :type => "text/javascript"}
+    %script{:src => "../js/jquery.hotkeys.js", :type => "text/javascript"}
+    %script{:src => "../js/jquery.jstree.js", :type => "text/javascript"}
+    %link{:href => "syntax/!style.css", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "!style.css", :rel => "stylesheet", :type => "text/css"}/
+    %script{:src => "syntax/!script.js", :type => "text/javascript"}
+  %body
+    #container
+      %h1 jsTree v.1.0 - json_data plugin
+      %h2 Description
+      #description
+        %p
+          The
+          %code json_data
+          plugin enables jsTree to convert JSON objects to interactive trees. The data (JSON) can be set up in the config or retrieved from a server (also ondemand). Version 1.0 also introduces the experimental progressive render feature, which is suitable for large heavy trees, when the DOM would be too heavy to manipulate.
+        %p The basic structure you need to follow when supplying data in the JSON format is:
+        .code_f
+          %pre{:class => "brush:js;"}
+            :preserve
+              
+              { 
+              	data : "node_title", 
+              	// omit `attr` if not needed; the `attr` object gets passed to the jQuery `attr` function
+              	attr : { id : "node_identificator", some-other-attribute : "attribute_value" }, 
+              	// `state` and `children` are only used for NON-leaf nodes
+              	state: "closed", // or "open", defaults to "closed"
+              	children: [ /* an array of child nodes objects */ ]
+              }
+        %p
+          The attr object will appear as attributes on the resulting
+          %code li
+          node.
+        %p
+          You may need to pass some attributes to the
+          %code a
+          node, or set some metadata, or use language versions (for the
+          = succeed "):" do
+            %a{:href => "languages.html"} languages plugin
+        .code_f
+          %pre{:class => "brush:js;"}
+            {
+            \// `data` can also be an object
+            data : {
+            title : "The node title",
+            \// omit when not needed
+            attr : {},
+            \// if `icon` contains a slash
+            %code /
+            it is treated as a file, used for background
+            \// otherwise - it is added as a class to the &lt;ins&gt; node
+            icon : "folder"
+            },
+            
+            \// the `metadata` property will be saved using the jQuery `data` function on the `li` node
+            metadata : "a string, array, object, etc",
+            
+            \// if you use the language plugin - just set this property
+            \// also make sure that `data` is an array of objects
+            language : "en" // any code you are using
+            }
+        %p As seen in the first example below - you can also use a simple string to define a node (Child 1 &amp; Child 2).
+      %h2#configuration Configuration
+      .panel.configuration
+        %h3 data
+        %p.meta
+          A JSON object (or
+          %code false
+          if not used). Default is
+          = succeed "." do
+            %code false
+        %p Specifies the content to load into the container and convert to a tree.
+        %h3 ajax
+        %p.meta
+          An object (or
+          %code false
+          if not used). Default is
+          = succeed "." do
+            %code false
+        %p
+          The ajax config object is pretty much the same as the
+          = succeed "." do
+            %a{:href => "http://api.jquery.com/jQuery.ajax/"} jQuery ajax settings object
+        %p
+          You can set the
+          %code data
+          option to a function, that will be executed in the current tree's scope (
+          %code this
+          will be the tree instance) and gets the node about to be open as a paramater (or
+          %code -1
+          for initial load). Whatever you return in the
+          %code data
+          function will be sent to the server as data (so for example you can send the node's ID).
+        %p
+          You can set the
+          %code url
+          option to a function, that will be executed in the current tree's scope (
+          %code this
+          will be the tree instance) and gets the node about to be open as a paramater (or
+          %code -1
+          for initial load). Whatever you return in the
+          %code url
+          function will be used as the ajax URL (so that you can accomodate pretty paths such as /get_children/node_2).
+        %p
+          The
+          %code error
+          and
+          %code success
+          functions (if present) also fire in the context of the tree, and if you return a value in the
+          %code success
+          function it will be used to populate the tree - this can be useful if you want to somehow change what the server returned on the client side before it is displayed in the tree (for example some .NET json implementations require this to work:
+          = succeed "." do
+            %code "success" : function (data) { return data.d; }
+        %h3 correct_state
+        %p.meta
+          A Boolean. Default is
+          = succeed "." do
+            %code true
+        %p
+          If this option is set to
+          %code true
+          if an AJAX returns an empty result, the node that was about to be opened will be converted to a leaf node (the open icon will no longer be displayed).
+        %h3 progressive_render
+        %p.meta
+          A Boolean. Default is
+          = succeed "." do
+            %code false
+        %p
+          If this option is set to
+          %code true
+          only the visible (open nodes) parts of the returned JSON are converted to DOM nodes, any hidden parts are saved away and parsed ondemand (when a node becomes visible). This is useful when you have a large nested tree which would result in a heavy DOM.
+        %p.note
+          %strong NOTE:
+          = succeed "If" do
+            %br/
+          both
+          %code data
+          and
+          %code ajax
+          are set the initial tree is rendered from the
+          %code data
+          string. When opening a closed node (that has no loaded children) an AJAX request is made.
+      %h2#demos Demos
+      .panel
+        %h3 Using the data config option
+        #demo1.demo
+        %script.source{:type => "text/javascript"}
+          $(function () {
+          $("#demo1").jstree({
+          "json_data" : {
+          "data" : [
+          {
+          "data" : "A node",
+          "children" : [ "Child 1", "Child 2" ]
+          },
+          {
+          "attr" : { "id" : "li.node.id" },
+          "data" : {
+          "title" : "Long format demo",
+          "attr" : { "href" : "#" }
+          }
+          }
+          ]
+          },
+          "plugins" : [ "themes", "json_data" ]
+          });
+          });
+        %h3 Using the ajax config option
+        #demo2.demo
+        %script.source{:type => "text/javascript"}
+          $(function () {
+          $("#demo2").jstree({
+          "json_data" : {
+          "ajax" : {
+          "url" : "_json_data.json",
+          "data" : function (n) {
+          return { id : n.attr ? n.attr("id") : 0 };
+          }
+          }
+          },
+          "plugins" : [ "themes", "json_data" ]
+          });
+          });
+        %h3 Using the progressive render config option
+        #demo3.demo
+        %script.source{:type => "text/javascript"}
+          $(function () {
+          $("#demo3").jstree({
+          "json_data" : {
+          "data" : [
+          {
+          "data" : "A node",
+          "children" : [ "Child 1", "Child 2" ]
+          },
+          {
+          "attr" : { "id" : "li.node.id" },
+          "data" : {
+          "title" : "Long format demo",
+          "attr" : { "href" : "#" }
+          }
+          }
+          ],
+          "progressive_render" : true
+          },
+          "plugins" : [ "themes", "json_data" ]
+          });
+          });
+        %h3 Using both the data &amp; ajax config options
+        #demo4.demo
+        %script.source{:type => "text/javascript"}
+          $(function () {
+          $("#demo4").jstree({
+          "json_data" : {
+          "data" : [
+          {
+          "data" : "A node",
+          "state" : "closed"
+          },
+          {
+          "attr" : { "id" : "li.node.id" },
+          "data" : {
+          "title" : "Long format demo",
+          "attr" : { "href" : "#" }
+          }
+          }
+          ],
+          "ajax" : { "url" : "_json_data.json" }
+          },
+          "plugins" : [ "themes", "json_data" ]
+          });
+          });
+      %h2#api API
+      .panel.api
+        %p
+          Both dummy functions -
+          %code _is_loaded
+          and
+          %code load_node
+          are overwritten.
+        %h3#load_node_json .load_node_json ( node , success_callback , error_callback )
+        %p
+          This function is called instead of
+          = succeed "." do
+            %code load_node
+        %ul.arguments
+          %li
+            %code.tp mixed
+            %strong node
+            %p
+              This can be a DOM node, jQuery node or selector pointing to an element you want loaded. Use
+              %code -1
+              for root nodes.
+          %li
+            %code.tp function
+            %strong success_callback
+            %p
+              A function to be executed once the node is loaded successfully - used internally. You should wait for the
+              %code load_node
+              event.
+          %li
+            %code.tp function
+            %strong error_callback
+            %p
+              A function to be executed if the node is not loaded due to an error - used internally. You should wait for the
+              %code load_node
+              event.
+        %h3#_parse_json ._parse_json ( data , is_callback )
+        %p This function converts JSON nodes to the DOM structure required by jstree. Returns a jQuery object.
+        %ul.arguments
+          %li
+            %code.tp mixed
+            %strong node
+            %p This can be a tree node in the JSON format described above, or an array of such JSON nodes, may also be a string.
+          %li
+            %code.tp bool
+            %strong is_callback
+            %p Specifies if the function is called recursively - used ONLY internally.
+        %h3#get_json .get_json ( node , li_attr , a_attr )
+        %p This function returns an array of tree nodes converted back to JSON.
+        %ul.arguments
+          %li
+            %code.tp mixed
+            %strong node
+            %p
+              This can be a DOM node, jQuery node or selector pointing to an element you want returned. Use
+              %code -1
+              or omit to get the whole tree.
+          %li
+            %code.tp array
+            %strong li_attr
+            %p
+              The attributes to collect from the
+              %code LI
+              node. Defaults to
+              %code [ "id" , "class" ]
+          %li
+            %code.tp array
+            %strong a_attr
+            %p
+              The attributes to collect from the
+              %code A
+              node. Defaults to
+              %code [ ]
+          %li
+            %code.tp boolean
+            %strong is_callback
+            %p Used internally.

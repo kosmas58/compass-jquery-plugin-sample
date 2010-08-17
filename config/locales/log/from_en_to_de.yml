@@ -21,10 +21,10 @@ date:
     short: "%b %d"
     long: "%B %d, %Y"
 txt: 
-  ui: 
-    widgets: 
-      autocomplete: 
-        maxheight: Scrollable results
+  plugins: Plugins
+  name: jsTree
+  demo: Demonstration
+  core: Core functionality
 support: 
   array: 
     words_connector: ", "

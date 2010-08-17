@@ -1,0 +1,192 @@
+!!! Strict
+%html{:xmlns => "http://www.w3.org/1999/xhtml"}
+  %head
+    %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
+    %title jsTree v.1.0 - types documentation
+    %script{:src => "../js/jquery.js", :type => "text/javascript"}
+    %script{:src => "../js/jquery.cookie.js", :type => "text/javascript"}
+    %script{:src => "../js/jquery.hotkeys.js", :type => "text/javascript"}
+    %script{:src => "../js/jquery.jstree.js", :type => "text/javascript"}
+    %link{:href => "syntax/!style.css", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "!style.css", :rel => "stylesheet", :type => "text/css"}/
+    %script{:src => "syntax/!script.js", :type => "text/javascript"}
+  %body
+    #container
+      %h1 jsTree v.1.0 - types plugin
+      %h2 Description
+      #description
+        %p
+          The
+          %code types
+          enables node types - each node can have a type, and you can define rules on how that type should behave - maximum children count, maximum depth, valid children types, selectable or not, etc.
+      %h2#configuration Configuration
+      .panel.configuration
+        %h3 max_children
+        %p.meta
+          A number. Default is
+          = succeed "." do
+            %code -1
+        %p
+          Defines maximum number of root nodes (
+          %code -1
+          means unlimited,
+          %code -2
+          means disable max_children checking in the tree).
+        %h3 max_depth
+        %p.meta
+          A number. Default is
+          = succeed "." do
+            %code -1
+        %p
+          Defines maximum depth of the tree (
+          %code -1
+          means unlimited,
+          %code -2
+          means disable max_depth checking in the tree).
+        %h3 valid_children
+        %p.meta
+          A string or array. Default is
+          = succeed "." do
+            %code "all"
+        %p
+          Defines valid root node types (could be
+          = succeed "," do
+            %code "all"
+          = succeed "," do
+            %code "none"
+          or an array of type strings).
+        %h3 type_attr
+        %p.meta
+          A string. Default is
+          = succeed "." do
+            %code "rel"
+        %p
+          Defines the attribute on each
+          %code li
+          node, where the type attribute will be stored.
+        %h3 types
+        %p.meta An object.
+        %p
+          Defines all the active types in the tree. Each key is the type name, and each value represents the rules for this type. A
+          %code default
+          type is defined - all nodes with no explicit type set are treated as if they were of the
+          %code default
+          type.
+        %div{:style => "border:1px solid gray;"}
+          %pre.brush:js
+            :preserve
+              
+              types : {
+              	// the default type
+              	"default" : {
+              		"max_children"	: -1,
+              		"max_depth"		: -1,
+              		"valid_children": "all"
+              
+              		// Bound functions - you can bind any other function here (using boolean or function)
+              		//"select_node"	: true,
+              		//"open_node"	: true,
+              		//"close_node"	: true,
+              		//"create_node"	: true,
+              		//"delete_node"	: true
+              	}
+              }
+        %p
+          For
+          = succeed "," do
+            %code max_children
+          %code max_depth
+          \&amp;
+          %code valid_children
+          use the same values as for the tree, but the value you set will only apply for that node type.
+        %p
+          You can set an
+          %code icon
+          key - it should be an object consisting of two keys -
+          %code image
+          (string - location of the image to be used as an icon) &amp;
+          %code position
+          (string - left and top pixels of the image - 10px 40px, only useful when using sprites - omit otherwise).
+        %p
+          You can set more keys in that object - each key should be a function name, and each value - either a boolean (in order to allow or disallow that operation, on that node type) or a function. If you supply a function - your function will be called with two arguments - the name of the called function (the key) and the arguments passed to that function - you can then decide whether to return
+          %code true
+          or
+          = succeed "." do
+            %code false
+        %p.note For any type - for now you can control only functions that take the node being manipulated as the first argument.
+      %h2#demos Demos
+      .panel
+        %h3 Using the types plugin
+        #demo1.demo
+          %ul
+            %li#phtml_1{:rel => "root"}
+              %a{:href => "#"} Root node 1
+              %ul
+                %li#phtml_2
+                  %a{:href => "#"} Child node 1
+                %li#phtml_3
+                  %a{:href => "#"} Child node 2
+            %li#phtml_4{:rel => "root"}
+              %a{:href => "#"} Root node 2
+        %script.source{:type => "text/javascript"}
+          $(function () {
+          $("#demo1").jstree({
+          "types" : {
+          "valid_children" : [ "root" ],
+          "types" : {
+          "root" : {
+          "icon" : {
+          "image" : "http://static.jstree.com/v.1.0rc/_docs/_drive.png"
+          },
+          "valid_children" : [ "default" ],
+          "max_depth" : 2,
+          "hover_node" : false,
+          "select_node" : function () {return false;}
+          },
+          "default" : {
+          "valid_children" : [ "default" ]
+          }
+          }
+          },
+          "plugins" : ["themes","html_data","dnd","ui","types"]
+          });
+          });
+      %h2#api API
+      .panel.api
+        %h3#_get_type ._get_type ( node )
+        %p Get the type of a node.
+        %ul.arguments
+          %li
+            %code.tp mixed
+            %strong node
+            %p This can be a DOM node, jQuery node or selector pointing to the element.
+        %h3#set_type .set_type ( type , node )
+        %p Set the type of a node.
+        %ul.arguments
+          %li
+            %code.tp string
+            %strong type
+            %p The new type.
+          %li
+            %code.tp mixed
+            %strong node
+            %p This can be a DOM node, jQuery node or selector pointing to the element.
+        %h3#_check ._check ( rule , node , opts )
+        %p Checks a rule on a give node. Used mostly internally.
+        %ul.arguments
+          %li
+            %code.tp string
+            %strong rule
+            %p The rule to check.
+          %li
+            %code.tp mixed
+            %strong node
+            %p This can be a DOM node, jQuery node or selector pointing to the element.
+          %li
+            %code.tp mixed
+            %strong opts
+            %p Any additional options regarding the rule. Used internally.
+        %div{:style => "height:1px; visibility:hidden;"}
+          %span#check_move &nbsp;
+        %h3#create_node .create_node ( ), .check_move ( )
+        %p Both functions are overwritten to accomodate the new functionality presented by the plugin.

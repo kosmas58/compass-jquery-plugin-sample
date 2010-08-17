@@ -1,0 +1,79 @@
+!!! Strict
+%html{:xmlns => "http://www.w3.org/1999/xhtml"}
+  %head
+    %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
+    %title jsTree v.1.0 - hotkeys documentation
+    %script{:src => "../js/jquery.js", :type => "text/javascript"}
+    %script{:src => "../js/jquery.cookie.js", :type => "text/javascript"}
+    %script{:src => "../js/jquery.hotkeys.js", :type => "text/javascript"}
+    %script{:src => "../js/jquery.jstree.js", :type => "text/javascript"}
+    %link{:href => "syntax/!style.css", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "!style.css", :rel => "stylesheet", :type => "text/css"}/
+    %script{:src => "syntax/!script.js", :type => "text/javascript"}
+  %body
+    #container
+      %h1 jsTree v.1.0 - hotkeys plugin
+      %h2 Description
+      #description
+        %p
+          The
+          %code hotkeys
+          plugin enables keyboard navigation and shortcuts. Depends on the
+          %a{:href => "http://github.com/jeresig/jquery.hotkeys/"} jquery.hotkeys plugin
+      %h2#configuration Configuration
+      .panel.configuration
+        %p
+          Expects an object:
+          %br>/
+          each key is the keyboard shortcut (for possible values check
+          = succeed ")" do
+            %a{:href => "http://github.com/jeresig/jquery.hotkeys/"} the hotkeys plugin
+          = succeed "each" do
+            %br/
+          values is a function executed in the instance's context, the return value is used as a return value for the event.
+        %p Simple example:
+        %p
+          %code "del" : function () { this.remove(); }
+      %h2#demos Demos
+      .panel
+        %h3 Using the hotkeys plugin
+        %p
+          Try pressing
+          = succeed "/" do
+            %code up
+          = succeed "/" do
+            %code down
+          = succeed "/" do
+            %code left
+          = succeed "/" do
+            %code right
+          = succeed "/" do
+            %code space
+          = succeed "/" do
+            %code f2
+          = succeed "." do
+            %code del
+        #demo1.demo
+          %ul
+            %li#phtml_1
+              %a{:href => "#"} Root node 1
+              %ul
+                %li#phtml_2
+                  %a{:href => "#"} Child node 1
+                %li#phtml_3
+                  %a{:href => "#"} Child node 2
+            %li#phtml_4
+              %a{:href => "#"} Root node 2
+        %script.source{:type => "text/javascript"}
+          $(function () {
+          $("#demo1").jstree({
+          "core" : { "initially_open" : [ "phtml_1" ] },
+          "plugins" : ["themes","html_data","ui","crrm","hotkeys"]
+          });
+          });
+      %h2#api API
+      .panel.api
+        %h3#enable_hotkeys .enable_hotkeys ( )
+        %p Enable shortcuts on the instance (enabled by default).
+        %h3#disable_hotkeys .disable_hotkeys ( )
+        %p Disable shortcuts on the instance.

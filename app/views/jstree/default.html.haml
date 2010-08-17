@@ -1,5 +1,5 @@
 -@title = "#{t('txt.dt.name')} - #{t('txt.dt.default')}"
--@jstree_skin = 'jstree.default.css'
+-@jstree_theme = 'jstree.default.css'
 
 - content_for :content_head do
   = render(:partial => "default.js.haml", :format => :js)
@@ -7,26 +7,46 @@
 .demo
   %h3
     =@title
-    
-  #mmenu{:style => "height:30px; overflow:auto;"}
-  %input#add_folder{:style => "display:block; float:left;", :type => "button", :value => "add folder"}
-  %input#add_default{:style => "display:block; float:left;", :type => "button", :value => "add file"}/
-  %input#rename{:style => "display:block; float:left;", :type => "button", :value => "rename"}/
-  %input#remove{:style => "display:block; float:left;", :type => "button", :value => "remove"}/
-  %input#cut{:style => "display:block; float:left;", :type => "button", :value => "cut"}/
-  %input#copy{:style => "display:block; float:left;", :type => "button", :value => "copy"}/
-  %input#paste{:style => "display:block; float:left;", :type => "button", :value => "paste"}/
-  %input#clear_search{:style => "display:block; float:right;", :type => "button", :value => "clear"}/
-  %input#search{:style => "display:block; float:right;", :type => "button", :value => "search"}/
-  %input#text{:style => "display:block; float:right;", :type => "text", :value => ""}/
-  #demo.demo
-  
-  %div{:style => "position:absolute; right:30px; top:120px; width:220px; border:1px solid silver; min-height:160px;"}
-    %input{:onclick => "$.get('./server.php?reconstruct', function () { $('#demo').jstree('refresh',-1); });", :style => "display:block; width:170px; height:24px; margin:5px auto;", :type => "button", :value => "reconstruct"}/
-    %input#analyze{:onclick => "$('#alog').load('./server.php?analyze');", :style => "display:block; width:170px; height:24px; margin:5px auto;", :type => "button", :value => "analyze"}/
-    %input{:onclick => "$('#demo').jstree('refresh',-1);", :style => "display:block; width:170px; height:24px; margin:5px auto;", :type => "button", :value => "refresh"}/
-    #alog/ End demo
+  .span-24
+    #toolbar_top.ui-widget-header.ui-corner-all 
+      %button#add_folder
+        Add folder
+      %button#add_default
+        Add file
+      %button#rename
+        Rename
+      %button#remove
+        Remove
+      %button#cut
+        Cut
+      %button#copy
+        Copy
+      %button#paste
+        Paste
+      %button#stop{ :style => "float:right;" }
+        Stop
+      %button#search2{ :style => "float:right;" }
+        Clear
+      %button#search1{ :style => "float:right;" }
+        Search
+      %input#search0{ :style => "float:right;", :type => "text" }
+  .span-16
+    #treedemo.ui-widget-content.ui-corner-all
+      a
+  .span-7
+    #alog.ui-widget-content.ui-corner-all
+      a
+  .span-24
+    #toolbar_bottom.ui-widget-header.ui-corner-all
+      %center
+        %button#reconstruct
+          Reconstruct
+        %button#analyze
+          Analyze
+        %button#refresh
+          Refresh
+/ End demo
 .demo-description
   %p
-    This tree uses default options.
+    This tree 
 / End demo-description

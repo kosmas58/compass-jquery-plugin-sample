@@ -1,47 +1,47 @@
---- 
-en: 
-  number: 
-    format: 
+---
+en:
+  number:
+    format:
       separator: .
       precision: 3
       delimiter: ","
-    human: 
-      format: 
+    human:
+      format:
         precision: 1
         delimiter: ""
-      storage_units: 
+      storage_units:
         format: "%n %u"
-        units: 
+        units:
           kb: KB
           tb: TB
           gb: GB
-          byte: 
+          byte:
             one: Byte
             other: Bytes
           mb: MB
-    percentage: 
-      format: 
+    percentage:
+      format:
         delimiter: ""
-    currency: 
-      format: 
+    currency:
+      format:
         format: "%u%n"
         unit: $
         separator: .
         precision: 2
         delimiter: ","
-    precision: 
-      format: 
+    precision:
+      format:
         delimiter: ""
-  activerecord: 
-    attributes: 
-      invline: 
+  activerecord:
+    attributes:
+      invline:
         qty: Quantity
         total: Total
         id: ID
         unit: Unit
         num: Number
         item: Item
-      invheader: 
+      invheader:
         tax: Tax
         ship_via: Ship via
         closed: Closed
@@ -51,13 +51,13 @@ en:
         client: Client
         note: Note
         invdate: Date
-      player: 
+      player:
         pseudo: Pseudonym
         role: Role
         lastname: Last name
         firstname: First name
         email: Email
-      account: 
+      account:
         name: Name
         debit: debit
         lft: lft
@@ -67,30 +67,30 @@ en:
         rgt: rgt
         balance: Balance
         acc_num: Account No.
-      event: 
+      event:
         location: Location
         dtend: End
         dtstart: Start
         summary: Summary
         description: Description
         all_day: All-day event
-      client: 
+      client:
         name: Name
-      user: 
+      user:
         pseudo: Pseudonym
         role: Role
         lastname: Last name
         firstname: First name
         email: Email
-      pet: 
+      pet:
         name: Name
-      item: 
+      item:
         cd: CD
         item: Item
-      animal: 
+      animal:
         name: Name
-    errors: 
-      messages: 
+    errors:
+      messages:
         record_invalid: "Validation failed: {{errors}}"
         greater_than_or_equal_to: must be greater than or equal to {{count}}
         confirmation: doesn't match confirmation
@@ -111,24 +111,24 @@ en:
         too_long: is too long (maximum is {{count}} characters)
         not_a_number: is not a number
         inclusion: is not included in the list
-      full_messages: 
+      full_messages:
         format: "{{attribute}} {{message}}"
-      template: 
+      template:
         body: "There were problems with the following fields:"
-        header: 
+        header:
           one: 1 error prohibited this {{model}} from being saved
           other: "{{count}} errors prohibited this {{model}} from being saved"
-  time: 
+  time:
     am: am
-    formats: 
+    formats:
       default: "%a, %d %b %Y %H:%M:%S %z"
       time: "%H:%M"
       short: "%d %b %H:%M"
       long: "%B %d, %Y %H:%M"
     pm: pm
-  date: 
-    month_names: 
-    - 
+  date:
+    month_names:
+    -
     - January
     - February
     - March
@@ -141,7 +141,7 @@ en:
     - October
     - November
     - December
-    abbr_day_names: 
+    abbr_day_names:
     - Sun
     - Mon
     - Tue
@@ -149,15 +149,15 @@ en:
     - Thu
     - Fri
     - Sat
-    order: 
+    order:
     - :year
     - :month
     - :day
-    formats: 
+    formats:
       default: "%Y-%m-%d"
       short: "%b %d"
       long: "%B %d, %Y"
-    day_names: 
+    day_names:
     - Sunday
     - Monday
     - Tuesday
@@ -165,8 +165,8 @@ en:
     - Thursday
     - Friday
     - Saturday
-    abbr_month_names: 
-    - 
+    abbr_month_names:
+    -
     - Jan
     - Feb
     - Mar
@@ -179,15 +179,15 @@ en:
     - Oct
     - Nov
     - Dec
-  activemodel: 
-    errors: 
-      template: 
+  activemodel:
+    errors:
+      template:
         body: "There were problems with the following fields:"
-        header: 
+        header:
           one: 1 error prohibited this {{model}} from being saved
           other: "{{count}} errors prohibited this {{model}} from being saved"
-  txt: 
-    layout: 
+  txt:
+    layout:
       colon: ":"
       back: Back
       edit: Edit
@@ -198,27 +198,27 @@ en:
       language: Language
       show: Show
       save: Save
-      footer: 
+      footer:
         legalese: Copyright &copy 2009-2010 Kosmas Schuetz. See LICENSE for details.
       create: Create
       update: Update
       until: until
-    jqgrid: 
+    jqgrid:
       name: jqGrid
-      manipulation: 
+      manipulation:
         name: Data manipulation
         inline: with inline editing
         modal: with modal editing
         datepicker: with datepicker for lastname
         input: with various input types
-      simple: 
+      simple:
         name: Simple Data Grids
         direct: with direct selection and autowidth
         default: with default functionality
         master: with master details
         selection: with selection link and search disabled
         multiple: with multiple selections + row numbers
-      demo: 
+      demo:
         30xml_map: XML Mapping
         30resizable: Resizable Columns
         20get: Get Methods
@@ -337,22 +337,22 @@ en:
         30after_load: After Load Callback
         31post_data: Post Data
         30delete_row: Delete row
-      subgrids: 
+      subgrids:
         name: Subgrids
         default: with default functionality
         selection: with selection
         crud: with CRUD operations
-      improvements: 
+      improvements:
         name: with form improvements
-    ribbon: 
+    ribbon:
       name: Ribbon
       simple: jQuery Ribbon Simple theme
       default: jQuery Ribbon Windows 7 theme
       office: jQuery Ribbon Office theme
-    jqt: 
+    jqt:
       name: jQTouch (needs a browser with WebKit engine)
-    jqical: 
-      anytime: 
+    jqical:
+      anytime:
         name: Any+Time&trade
         default: Default functionality
         css: Custom stylesheet
@@ -361,7 +361,7 @@ en:
         ajax: Ajax Demo
         extend: Extending functionality
         convert: AnyTime.Converter
-      event: 
+      event:
         new: New Event
         location: Location
         default: Event
@@ -371,10 +371,10 @@ en:
         summary: Summary
         description: Description
         all_day: All-day event
-      calendar: 
+      calendar:
         new: New iCalendar
         name: Name
-        actions: 
+        actions:
           name: Actions
           show: Show as calendar
           ical: Show as iCalendar
@@ -386,7 +386,7 @@ en:
         listing: Listing iCalendars
         show: Show iCalendar
         iphone: Show it on a iPhone
-    dt: 
+    dt:
       name: Dynatree
       ul: Init from ul element
       lazy: Lazy loading
@@ -405,28 +405,50 @@ en:
       multiline: Large nodes
       select: Checkbox & select
       benchmark: Benchmark large trees
-      theming: 
+      theming:
         name: Theming
         xp: XP
         crystal: Crystal
         aero: Aero
         aqua: Aqua
+    jst:
+    	name: jsTree
+    	demo: Demonstration
+    	core: Core functionality
+    	plugins: Plugins
+    	ui: UI
+    	crrm: CRRM
+    	themes: Themes
+    	hotkeys: Hotkeys
+    	json: JSON Data
+    	lang: Languages
+    	cookies: Cookies
+    	Sort: Sort
+    	dnd: Drag'n Drop
+    	checkbox: Checkbox
+    	xml: XML Data
+    	search: Search
+    	contextmenu: Contextmenu
+    	types: Types
+    	html: HTML Data
+    	themeroller: Themeroller
+    	unique: Unique
     hello: Hello world
-    ui: 
+    ui:
       name: jQuery UI
-      utilities: 
-        position: 
+      utilities:
+        position:
           default: Position
           cycler: Cycling images
         default: Utilities
       default: Default functionality
-      interactions: 
-        selectable: 
+      interactions:
+        selectable:
           serialize: Serialize
           default: Selectable
           display-grid: Display as grid
         default: Interactions
-        sortable: 
+        sortable:
           items: Include / exclude items
           empty-lists: Handle empty lists
           default: Sortable
@@ -436,7 +458,7 @@ en:
           display-grid: Display as grid
           connect-lists: Connect lists
           placeholder: Drop placeholder
-        draggable: 
+        draggable:
           snap-to: "Snap to element or\xC2\xA0grid"
           handle: Drag handle
           scroll: Auto-scroll
@@ -448,7 +470,7 @@ en:
           cursor-style: Cursor style
           delay-start: Delay start
           visual-feedback: Visual feedback
-        resizable: 
+        resizable:
           aspect-ratio: Preserve aspect ratio
           snap-to-grid: Snap to grid
           max-min: Maximum / minimum size
@@ -460,7 +482,7 @@ en:
           delay-start: Delay start
           constrain-area: Constrain resize area
           visual-feedback: Visual feedback
-        droppable: 
+        droppable:
           default: Droppable
           propagation: Prevent propagation
           revert: Revert draggable position
@@ -468,8 +490,8 @@ en:
           visual-feedback: Visual feedback
           photo-manager: Simple photo manager
           accepted-elements: Accepted elements
-      widgets: 
-        button: 
+      widgets:
+        button:
           default: Button
           checkbox: Checkboxes
           icon: Icons
@@ -477,7 +499,7 @@ en:
           toolbar: Toolbar
           splitbutton: Split button
         default: Widgets
-        slider: 
+        slider:
           steps: Snap to increments
           multiple-vertical: Multiple sliders
           default: Slider
@@ -490,7 +512,7 @@ en:
           hotelrooms: Room reservation
           rangemin: Range with fixed minimum
           tabs: Slider controls tabs
-        accordion: 
+        accordion:
           hoverintent: Open on hoverintent
           default: Accordion
           no-auto-height: No auto height
@@ -499,11 +521,11 @@ en:
           fillspace: Fill space
           custom-icons: Customize icons
           collapsible: Collapse content
-        progressbar: 
+        progressbar:
           resize: Resizable progressbar
           default: Progressbar
           animated: Animated
-        datepicker: 
+        datepicker:
           alt-field: Populate alternate field
           buttonbar: Display button bar
           min-max: Restrict date range
@@ -518,7 +540,7 @@ en:
           event-search: Event Search
           dropdown-month-year: Display month & year menus
           other-months: Dates in other months
-        tabs: 
+        tabs:
           manipulation: Simple manipulation
           bottom: Tabs below content
           default: Tabs
@@ -527,14 +549,14 @@ en:
           mouseover: Open on mouseover
           cookie: Cookie persistence
           collapsible: Collapse content
-        dialog: 
+        dialog:
           default: Dialog
           modal-confirmation: Modal confirmation
           modal: Modal dialog
           animated: Animated dialog
           modal-form: Modal form
           modal-message: Modal message
-        autocomplete: 
+        autocomplete:
           maxheight: Scrollable results
           default: Autocomplete
           folding: Accent folding
@@ -547,97 +569,97 @@ en:
           remote: Remote datasource
           remote-xml: XML data parsed once
           combobox: Combobox
-      form: 
+      form:
         new: New
         edit: Edit
         cancel: Cancel
         delete: Delete
         save: Save
         sure: Are you sure?
-      effects: 
-        toggle: 
+      effects:
+        toggle:
           default: Toggle
-        hide: 
+        hide:
           default: Hide
         default: Effects
-        animate: 
+        animate:
           default: Color animation
-        toggle_class: 
+        toggle_class:
           default: Toggle Class
-        switch_class: 
+        switch_class:
           default: Switch Class
-        add_class: 
+        add_class:
           default: Add Class
-        show: 
+        show:
           default: Show
-        effect: 
+        effect:
           easing: Easing showcase
           default: Effect
           showcase: Effect showcase
-        remove_class: 
+        remove_class:
           default: Remove Class
-      theme-switcher: 
+      theme-switcher:
         button: "Theme: "
         initial: Switch theme
-  support: 
-    array: 
+  support:
+    array:
       last_word_connector: ", and "
       words_connector: ", "
       two_words_connector: " and "
-    select: 
+    select:
       prompt: Please select
-  make_resourceful: 
-    destroy: 
+  make_resourceful:
+    destroy:
       fails: There was a problem deleting!
       success: Record deleted!
-    show: 
+    show:
       fails: No item found
-    create: 
+    create:
       fails: There was a problem!
       success: Create successful!
-    update: 
+    update:
       fails: There was a problem saving!
       success: Save successful!
-  datetime: 
-    prompts: 
+  datetime:
+    prompts:
       minute: Minute
       second: Seconds
       month: Month
       hour: Hour
       day: Day
       year: Year
-    distance_in_words: 
-      less_than_x_minutes: 
+    distance_in_words:
+      less_than_x_minutes:
         one: less than a minute
         other: less than {{count}} minutes
-      almost_x_years: 
+      almost_x_years:
         one: almost 1 year
         other: almost {{count}} years
-      x_days: 
+      x_days:
         one: 1 day
         other: "{{count}} days"
-      x_seconds: 
+      x_seconds:
         one: 1 second
         other: "{{count}} seconds"
-      less_than_x_seconds: 
+      less_than_x_seconds:
         one: less than 1 second
         other: less than {{count}} seconds
-      x_months: 
+      x_months:
         one: 1 month
         other: "{{count}} months"
-      x_minutes: 
+      x_minutes:
         one: 1 minute
         other: "{{count}} minutes"
-      about_x_hours: 
+      about_x_hours:
         one: about 1 hour
         other: about {{count}} hours
-      about_x_months: 
+      about_x_months:
         one: about 1 month
         other: about {{count}} months
-      about_x_years: 
+      about_x_years:
         one: about 1 year
         other: about {{count}} years
-      over_x_years: 
+      over_x_years:
         one: over 1 year
         other: over {{count}} years
       half_a_minute: half a minute
