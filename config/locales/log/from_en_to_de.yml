@@ -21,10 +21,12 @@ date:
     short: "%b %d"
     long: "%B %d, %Y"
 txt: 
-  plugins: Plugins
-  name: jsTree
-  demo: Demonstration
-  core: Core functionality
+  jst: 
+    checkbox: Checkbox
+    cookies: Cookies
+    contextmenu: Contextmenu
+    Sort: Sort
+  hello: Hello world
 support: 
   array: 
     words_connector: ", "

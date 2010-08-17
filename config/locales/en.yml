@@ -411,29 +411,29 @@ en:
         crystal: Crystal
         aero: Aero
         aqua: Aqua
-    jst:
-    	name: jsTree
-    	demo: Demonstration
-    	core: Core functionality
-    	plugins: Plugins
-    	ui: UI
-    	crrm: CRRM
-    	themes: Themes
-    	hotkeys: Hotkeys
-    	json: JSON Data
-    	lang: Languages
-    	cookies: Cookies
-    	Sort: Sort
-    	dnd: Drag'n Drop
-    	checkbox: Checkbox
-    	xml: XML Data
-    	search: Search
-    	contextmenu: Contextmenu
-    	types: Types
-    	html: HTML Data
-    	themeroller: Themeroller
-    	unique: Unique
     hello: Hello world
+    jst:
+      name: jsTree
+      demo: Demonstration
+      core: Core functionality
+      plugins: Plugins
+      ui: UI
+      crrm: CRRM
+      themes: Themes
+      hotkeys: Hotkeys
+      json: JSON Data
+      lang: Languages
+      cookies: Cookies
+      sort: Sort
+      dnd: Drag'n Drop
+      checkbox: Checkbox
+      xml: XML Data
+      search: Search
+      contextmenu: Contextmenu
+      types: Types
+      html: HTML Data
+      themeroller: Themeroller
+      unique: Unique
     ui:
       name: jQuery UI
       utilities:
