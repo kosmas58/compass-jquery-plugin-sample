@@ -7,6 +7,7 @@
 .demo
   %h3
     =@title
+  
   .span-24
     #toolbar_top.ui-widget-header.ui-corner-all 
       %button#add_folder
@@ -23,8 +24,6 @@
         Copy
       %button#paste
         Paste
-      %button#stop{ :style => "float:right;" }
-        Stop
       %button#search2{ :style => "float:right;" }
         Clear
       %button#search1{ :style => "float:right;" }
@@ -48,5 +47,7 @@
 / End demo
 .demo-description
   %p
-    This tree 
+    Demo transfered from PHP to rails using 
+    = link_to raw("<b>acts_as_tree_on_steroids</b>"), "http://github.com/bandito/acts_as_tree_on_steroids"
+    plugin.
 / End demo-description

@@ -1,6 +1,6 @@
-class CreateTrees < ActiveRecord::Migration
+class CreateJstrees < ActiveRecord::Migration
   def self.up
-    create_table :trees do |t|
+    create_table :jstrees do |t|
       t.column :parent_id,            :integer, :limit => 2, :null => true
       t.column :id_path,              :string, :limit => 200, :null => true
       t.column :level,                :integer, :limit => 1, :null => true
@@ -17,11 +17,11 @@ class CreateTrees < ActiveRecord::Migration
       t.column :ntype,                :text, :null => true    
     end
 
-    add_index :trees, :parent_id
-    add_index :trees, :id_path
+    add_index :jstrees, :parent_id
+    add_index :jstrees, :id_path
   end
 
   def self.down
-    drop_table :trees
+    drop_table :jstrees
   end
 end

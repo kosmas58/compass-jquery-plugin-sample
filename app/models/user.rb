@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   has_many :pets
   validates_presence_of :pseudo
   
-   gridify :example05,
+  gridify :example05,
     :title          => "Players pets",
     :url            => "/jqgrid/animals",
     :height         => :auto,

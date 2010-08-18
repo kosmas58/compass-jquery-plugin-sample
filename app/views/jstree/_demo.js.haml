@@ -20,7 +20,7 @@
   				// All the options are the same as jQuery's except for `data` which CAN (not should) be a function
   				"ajax" : {
   					// the URL to fetch the data
-  					"url" : "./server.php",
+  					"url" : "./server",
   					// this function is executed in the instance's scope (this refers to the tree instance)
   					// the parameter is the node being loaded (may be -1, 0, or undefined when loading the root nodes)
   					"data" : function (n) { 
@@ -37,7 +37,7 @@
   				// As this has been a common question - async search
   				// Same as above - the `ajax` config option is actually jQuery's object (only `data` can be a function)
   				"ajax" : {
-  					"url" : "./server.php",
+  					"url" : "./server",
   					// You get the search string as a parameter
   					"data" : function (str) {
   						return { 
@@ -65,7 +65,7 @@
   						"valid_children" : "none",
   						// If we specify an icon for the default type it WILL OVERRIDE the theme icons
   						"icon" : {
-  							"image" : "./file.png"
+  							"image" : "/images/jstree/file.png"
   						}
   					},
   					// The `folder` type
@@ -73,7 +73,7 @@
   						// can have files and other folders inside of it, but NOT `drive` nodes
   						"valid_children" : [ "default", "folder" ],
   						"icon" : {
-  							"image" : "./folder.png"
+  							"image" : "/images/jstree/folder.png"
   						}
   					},
   					// The `drive` nodes 
@@ -81,7 +81,7 @@
   						// can have files and folders inside, but NOT other `drive` nodes
   						"valid_children" : [ "default", "folder" ],
   						"icon" : {
-  							"image" : "./root.png"
+  							"image" : "/images/jstree/root.png"
   						},
   						// those options prevent the functions with the same name to be used on the `drive` type nodes
   						// internally the `before` event is used
@@ -108,7 +108,7 @@
   		})
   		.bind("create.jstree", function (e, data) {
   			$.post(
-  				"./server.php", 
+  				"./server", 
   				{ 
   					"operation" : "create_node", 
   					"id" : data.rslt.parent.attr("id").replace("node_",""), 
@@ -131,7 +131,7 @@
   				$.ajax({
   					async : false,
   					type: 'POST',
-  					url: "./server.php",
+  					url: "./server",
   					data : { 
   						"operation" : "remove_node", 
   						"id" : this.id.replace("node_","")
@@ -146,7 +146,7 @@
   		})
   		.bind("rename.jstree", function (e, data) {
   			$.post(
-  				"./server.php", 
+  				"./server", 
   				{ 
   					"operation" : "rename_node", 
   					"id" : data.rslt.obj.attr("id").replace("node_",""),
@@ -164,7 +164,7 @@
   				$.ajax({
   					async : false,
   					type: 'POST',
-  					url: "./server.php",
+  					url: "./server",
   					data : { 
   						"operation" : "move_node", 
   						"id" : $(this).attr("id").replace("node_",""), 
@@ -197,6 +197,9 @@
         primary: 'ui-icon-folder-collapsed',
         secondary: 'ui-icon-plusthick'
       }
+    })
+    .click(function() {
+     	$("#treedemo").jstree("create", null, "last", { "attr" : { "rel" : this.id.toString().replace("add_", "") } });			
     });
     $('#add_default').button({
       text: false,
@@ -204,68 +207,78 @@
         primary: 'ui-icon-document',
         secondary: 'ui-icon-plusthick'
       }
+    })
+    .click(function() {
+     	$("#treedemo").jstree("create", null, "last", { "attr" : { "rel" : this.id.toString().replace("add_", "") } });	
     });
     $('#rename').button({
       text: true
     })
+    .click(function() {
+      $("#treedemo").jstree(this.id);
+    });
     $('#remove').button({
       text: false,
       icons: {
         primary: 'ui-icon-trash'
       }
+    })
+    .click(function() {
+      $("#treedemo").jstree(this.id);
     });
     $('#cut').button({
       text: false,
       icons: {
         primary: 'ui-icon-scissors'
       }
+    })
+    .click(function() {
+      $("#treedemo").jstree(this.id);
     });
     $('#copy').button({
       text: false,
       icons: {
         primary: 'ui-icon-copy'
       }
+    })
+    .click(function() {
+      $("#treedemo").jstree(this.id);
     });
     $('#paste').button({
       text: false,
       icons: {
         primary: 'ui-icon-clipboard'
       }
-    }); 
-    
+    })
+    .click(function() {
+      $("#treedemo").jstree(this.id);
+    });    
     $('#search1').button({
       text: false,
       icons: {
         primary: 'ui-icon-search'
       }
+    })
+    .click(function() {
+  	  $("#treedemo").jstree("search", document.getElementById("text").value);
     }); 
     $('#search2').button({
       text: false,
       icons: {
         primary: 'ui-icon-close'
       }
-    }); 
-    $('#reconstruct').button({
-      text: true
-    })
-    $('#analyze').button({
-      text: true
-    })
-    $('#refresh').button({
-      text: true
-    })
-    $('#stop').button({
-      text: false,
-      icons: {
-        primary: 'ui-icon-stop'
-      }
     })
     .click(function() {
-      $('#play').button('option', {
-        label: 'play',
-        icons: {
-          primary: 'ui-icon-play'
-        }
-      });
+      $("#treedemo").jstree(this.id);
+    }); 
+    
+    $('#reconstruct').button({
+      text: true
     });
+    $('#analyze').button({
+      text: true
+    });
+    $('#refresh').button({
+      text: true
+    });   
   });
