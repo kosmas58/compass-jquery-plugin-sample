@@ -3,29 +3,25 @@ class JstreeController < ApplicationController
   
   protect_from_forgery
   
-  def server
-    
+  def server_get    
     if params[:operation].present?
-      tree = Jstree.get_children(params[:id])
+      tree = DemoTree.get_children(params[:id])
     elsif params[:reconstruct].present?
       puts reconstruct
     elsif params[:analyze].present?  
       puts reconstruct
-    end  
-    
-    
-    json1 = 
-    '[
-      {
-        "attr": {"id":"node_2","rel":"drive"},
-        "data":"C:","state":"closed"
-      },
-      {
-        "attr":{"id":"node_6","rel":"drive"},
-        "data":"D:","state":""
-      }
-     ]'
-    
-    render :json => json1, :layout => false    
+    end        
+    render :json => tree, :layout => false    
+  end
+  
+  def server_post    
+    if params[:operation].present?      
+      DemoTree.send("#{ params[:operation]}".to_sym, params) 
+      
+      
+
+
+      #echo $jstree->{$_REQUEST["operation"]}($_REQUEST);
+    end    
   end
 end

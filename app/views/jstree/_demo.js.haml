@@ -20,7 +20,7 @@
   				// All the options are the same as jQuery's except for `data` which CAN (not should) be a function
   				"ajax" : {
   					// the URL to fetch the data
-  					"url" : "./server",
+  					"url" : "./server_get",
   					// this function is executed in the instance's scope (this refers to the tree instance)
   					// the parameter is the node being loaded (may be -1, 0, or undefined when loading the root nodes)
   					"data" : function (n) { 
@@ -37,7 +37,7 @@
   				// As this has been a common question - async search
   				// Same as above - the `ajax` config option is actually jQuery's object (only `data` can be a function)
   				"ajax" : {
-  					"url" : "./server",
+  					"url" : "./server_get",
   					// You get the search string as a parameter
   					"data" : function (str) {
   						return { 
@@ -108,7 +108,7 @@
   		})
   		.bind("create.jstree", function (e, data) {
   			$.post(
-  				"./server", 
+  				"./server_post", 
   				{ 
   					"operation" : "create_node", 
   					"id" : data.rslt.parent.attr("id").replace("node_",""), 
@@ -131,7 +131,7 @@
   				$.ajax({
   					async : false,
   					type: 'POST',
-  					url: "./server",
+  					url: "./server_post",
   					data : { 
   						"operation" : "remove_node", 
   						"id" : this.id.replace("node_","")
@@ -146,7 +146,7 @@
   		})
   		.bind("rename.jstree", function (e, data) {
   			$.post(
-  				"./server", 
+  				"./server_post", 
   				{ 
   					"operation" : "rename_node", 
   					"id" : data.rslt.obj.attr("id").replace("node_",""),
@@ -164,7 +164,7 @@
   				$.ajax({
   					async : false,
   					type: 'POST',
-  					url: "./server",
+  					url: "./server_post",
   					data : { 
   						"operation" : "move_node", 
   						"id" : $(this).attr("id").replace("node_",""), 
@@ -199,7 +199,7 @@
       }
     })
     .click(function() {
-     	$("#treedemo").jstree("create", null, "last", { "attr" : { "rel" : this.id.toString().replace("add_", "") } });			
+     	$("#treedemo").jstree("create", null, "last", { "attr" : { "rel" : this.id.toString().replace("add_", "") } });	
     });
     $('#add_default').button({
       text: false,

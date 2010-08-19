@@ -1,9 +1,9 @@
-class Jstree < ActiveRecord::Base
-  acts_as_tree_on_steroids
+class DemoTree < ActiveRecord::Base
+  acts_as_tree_on_steroids :family_level => 1
   
   def self.get_children(id)
     node = find(id)
-    node.anchestors
+    node.ancestors
   end
   
   

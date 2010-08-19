@@ -2,6 +2,9 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :iphone, :collection => { :main     => :get,
                                           :original => :get }
 
+  map.resources :jstree => { :server_get  => :get,
+                             :server_post => :post }  
+
   map.namespace :jqgrid do |jqgrid|
     jqgrid.resources :animals
     jqgrid.resources :demo, :collection => { :books => :get } 
