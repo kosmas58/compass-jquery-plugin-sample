@@ -19,7 +19,8 @@ class JstreeController < ApplicationController
   end
   
   def remove_node
-    render :nothing => true, :status => 200
+    result = DemoTree.remove_node(params[:id])
+    render :json => result, :layout => false 
   end
   
   def rename_node

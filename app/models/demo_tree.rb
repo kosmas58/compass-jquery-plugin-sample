@@ -34,23 +34,24 @@ class DemoTree < ActiveRecord::Base
   
   def self.create_node(params)
     parent = find(params[:id])
-    tree = DemoTree.new()
-    tree.parent_id = params[:id]
-    tree.position  = params[:position]
-    tree.left      = parent[:left] +1
-    tree.right     = tree.left + 1
-    tree.level     = parent.level + 1
-    tree.title     = params[:title]
-    tree.ntype     = params[:type]
-    if tree.save
-      tree.ancestors.each do |ancestor|
-        ancestor.right += 1
+    node = DemoTree.new()
+    node.parent_id = params[:id]
+    node.position  = params[:position]
+    node.left      = parent[:right]
+    node.right     = node.left + 1
+    node.level     = parent.level + 1
+    node.title     = params[:title]
+    node.ntype     = params[:type]
+    if node.save
+      node.ancestors.each do |ancestor|
+        ancestor.right += 2
         ancestor.save
       end
-      return { :status => 0, :id => tree.id }   
+      result = { :status => 0, :id => node.id }   
     else
-      return { :status => 0 }   
-    end    
+      result = { :status => 0 }   
+    end         
+    return result.to_json
   end
   
 #  function create_node($data) {
@@ -206,9 +207,25 @@ class DemoTree < ActiveRecord::Base
 #    return $node === false || $is_copy ? $ind : true;
 #  }
   
-  
-  def remove_node
+  def self.remove_node(id)
+    the_node = find(id)
+    left = the_node.left
+    right = the_node.right
+    dif = right - left + 1
+    pid = the_node.parent_id
+    pos = the_node.position
     
+    #  deleting node and its children
+    the_node.delete_branch
+    # shift left indexes of nodes right of the node
+    update_all("left = left - #{dif}", "left > #{right}")
+    # shift right indexes of nodes right of the node and the node's parents
+    update_all("right = right - #{dif}", "right > #{left}")  
+    # Update position of siblings below the deleted node
+    update_all("position = position -1", "parent_id = #{pid} AND position > #{pos}")
+    
+    result = { :status => 1 }         
+    return result.to_json
   end
   
 #  function remove_node($data) {
