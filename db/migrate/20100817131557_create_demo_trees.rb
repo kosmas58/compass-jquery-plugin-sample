@@ -14,7 +14,7 @@ class CreateDemoTrees < ActiveRecord::Migration
       t.column :right,                :integer, :null => false
       t.column :level,                :integer, :null => false
       t.column :title,                :text
-      t.column :ntype,                :text, :null => true    
+      t.column :ntype,                :text,    :null => true    
     end
 
     add_index :demo_trees, :parent_id

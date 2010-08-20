@@ -2,7 +2,15 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :iphone, :collection => { :main     => :get,
                                           :original => :get }
 
-  map.resources :jstree => { :server_get  => :get,
+  map.resources :jstree => { :get_children=> :get,
+                             :search      => :get,
+                             :create_node => :post,
+                             :remove_node => :delete,
+                             :rename_node => :post,
+                             :move_node   => :post,
+                             :reconstruct => :get,
+                             :analyze     => :get,
+                             :rebuild     => :post,
                              :server_post => :post }  
 
   map.namespace :jqgrid do |jqgrid|

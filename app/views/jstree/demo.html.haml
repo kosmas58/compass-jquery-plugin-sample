@@ -9,7 +9,9 @@
     =@title
   
   .span-24
-    #toolbar_top.ui-widget-header.ui-corner-all 
+    #toolbar_top.ui-widget-header.ui-corner-all
+      %button#initialize
+        Initialize demo
       %button#add_folder
         Add folder
       %button#add_default
@@ -24,17 +26,15 @@
         Copy
       %button#paste
         Paste
-      %button#search2{ :style => "float:right;" }
+      %button#clear_search{ :style => "float:right;" }
         Clear
-      %button#search1{ :style => "float:right;" }
+      %button#search{ :style => "float:right;" }
         Search
-      %input#search0{ :style => "float:right;", :type => "text" }
+      %input#text{ :style => "float:right;", :type => "text" }
   .span-16
     #treedemo.ui-widget-content.ui-corner-all
-      a
   .span-7
     #alog.ui-widget-content.ui-corner-all
-      a
   .span-24
     #toolbar_bottom.ui-widget-header.ui-corner-all
       %center

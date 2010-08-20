@@ -1,0 +1,88 @@
+!!! Strict
+%html{:xmlns => "http://www.w3.org/1999/xhtml"}
+  %head
+    %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
+    %title jsTree v.1.0 - themeroller documentation
+    %script{:src => "../js/jquery.js", :type => "text/javascript"}
+    %script{:src => "../js/jquery.cookie.js", :type => "text/javascript"}
+    %script{:src => "../js/jquery.hotkeys.js", :type => "text/javascript"}
+    %script{:src => "../js/jquery.jstree.js", :type => "text/javascript"}
+    %link{:href => "syntax/!style.css", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "!style.css", :rel => "stylesheet", :type => "text/css"}/
+    %script{:src => "syntax/!script.js", :type => "text/javascript"}
+    %link{:href => "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/themes/base/jquery-ui.css", :media => "all", :rel => "stylesheet", :type => "text/css"}/
+  %body
+    #container
+      %h1 jsTree v.1.0 - themeroller plugin
+      %h2 Description
+      #description
+        %p
+          The
+          %code themeroller
+          plugin adds support for jQuery UI's themes. Add the plugin as last in your
+          %code plugins
+          config option. Also make sure that you have included the jquery theme you'd like to use and you should NOT use the native jstree
+          %code themes
+          plugin.
+      %h2#configuration Configuration
+      .panel.configuration
+        %h3 opened
+        %p.meta
+          A string. Default is
+          = succeed "." do
+            %code "ui-icon-triangle-1-se"
+        %p The class name to use for open nodes (shows the arrow to close).
+        %h3 closed
+        %p.meta
+          A string. Default is
+          = succeed "." do
+            %code "ui-icon-triangle-1-e"
+        %p The class name to use for closed nodes (shows the arrow to open).
+        %h3 item
+        %p.meta
+          A string. Default is
+          = succeed "." do
+            %code "ui-state-default"
+        %p The class name to use for the actual items.
+        %h3 item_h
+        %p.meta
+          A string. Default is
+          = succeed "." do
+            %code "ui-state-hover"
+        %p The class name to use for the hovered item.
+        %h3 item_a
+        %p.meta
+          A string. Default is
+          = succeed "." do
+            %code "ui-state-active"
+        %p The class name to use for selected items (UI plugin).
+        %h3 item_icon
+        %p.meta
+          A string. Default is
+          = succeed "." do
+            %code "ui-icon-folder-collapsed"
+        %p The class name to use for the default icon.
+      %h2#demos Demos
+      .panel
+        %h3 Using the themeroller plugin
+        #demo1.demo
+          %ul
+            %li#phtml_1
+              %a{:href => "#"} Root node 1
+              %ul
+                %li#phtml_2
+                  %a{:href => "#"} Child node 1
+                %li#phtml_3
+                  %a{:href => "#"} Child node 2
+            %li#phtml_4
+              %a{:href => "#"} Root node 2
+        %script.source{:type => "text/javascript"}
+          $(function () {
+          $("#demo1").jstree({
+          "plugins" : [ "html_data", "ui", "themeroller" ]
+          });
+          });
+      %h2#api API
+      .panel.api
+        %h3#_themeroller ._themeroller ( obj )
+        %p Fixes the tree on various events by applying the configured classes - used internally only.
