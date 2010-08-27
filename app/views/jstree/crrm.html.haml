@@ -7,6 +7,109 @@
 .demo
   %h3
     =@title
+  .span-11
+    %h4
+      Creating nodes
+    #demo1.ui-widget-content.ui-corner-all
+      %ul
+        %li#phtml_1
+          %a{:href => "#"} Root node 1
+          %ul
+            %li#phtml_2
+              %a{:href => "#"} Child node 1
+            %li#phtml_3
+              %a{:href => "#"} Child node 2
+        %li#phtml_4
+          %a{:href => "#"} Root node 2
+    .toolbar.ui-widget-header.ui-corner-all
+      %button#create_1
+        Create 1
+      %button#create_2
+        Create 2
+      %button#create_3
+        Create 3
+  .span-11.prepend-2.last
+    %h4
+      Removing nodes
+    #demo2.ui-widget-content.ui-corner-all
+      %ul
+        %li#rhtml_1
+          %a{:href => "#"} Root node 1
+          %ul
+            %li#rhtml_2
+              %a{:href => "#"} Child node 1
+            %li#rhtml_3
+              %a{:href => "#"} Child node 2
+        %li#rhtml_4
+          %a{:href => "#"} Root node 2
+    .toolbar.ui-widget-header.ui-corner-all
+      %button#remove_1
+        Remove 1
+      %button#remove_2
+        Remove 2
+  .span-24
+    %br
+    %br    
+  .span-11
+    %h4
+      Renaming nodes
+    #demo3.ui-widget-content.ui-corner-all
+      %ul
+        %li#shtml_1
+          %a{:href => "#"} Root node 1
+          %ul
+            %li#shtml_2
+              %a{:href => "#"} Child node 1
+            %li#shtml_3
+              %a{:href => "#"} Child node 2
+        %li#shtml_4
+          %a{:href => "#"} Root node 2
+    .toolbar.ui-widget-header.ui-corner-all
+      %button#rename_1
+        Rename 1
+      %button#rename_2
+        Rename 2
+  .span-11.prepend-2.last
+    %h4
+      Moving nodes
+    #demo4.ui-widget-content.ui-corner-all
+      %ul
+        %li#thtml_1
+          %a{:href => "#"} Root node 1
+          %ul
+            %li#thtml_2
+              %a{:href => "#"} Child node 1
+            %li#thtml_3
+              %a{:href => "#"} Child node 2
+        %li#thtml_4
+          %a{:href => "#"} Root node 2
+    .toolbar.ui-widget-header.ui-corner-all
+      %button#move_1
+        Move 1
+      %button#move_2
+        Move 2
+      %button#move_3
+        Move 3
+    %p
+      %strong
+        Move 1
+      uses the default position
+      %code
+        "first"
+    %p
+      %strong
+        Move 2
+      specifies a position 
+      %code
+        "before"
+      \- meaning that the node specified as a first argument will come above the node specified as the second argument
+    %p
+      %strong
+        Move 3
+      will never work, because of the specified
+      %code
+        check_move
+      function which prevents the first root node from being moved 
 / End demo
 .demo-description
   %p

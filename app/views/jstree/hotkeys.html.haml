@@ -7,6 +7,24 @@
 .demo
   %h3
     =@title
+  .span-11
+    %h4
+      Using the hotkeys plugin
+    #demo1.ui-widget-content.ui-corner-all
+      %ul
+        %li#phtml_1
+          %a{:href => "#"} Root node 1
+          %ul
+            %li#phtml_2
+              %a{:href => "#"} Child node 1
+            %li#phtml_3
+              %a{:href => "#"} Child node 2
+        %li#phtml_4
+          %a{:href => "#"} Root node 2
+    %p
+      Try pressing
+      %code 
+        up/down/left/right/space/f2/del
 / End demo
 .demo-description
   %p

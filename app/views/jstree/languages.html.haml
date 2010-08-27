@@ -7,6 +7,34 @@
 .demo
   %h3
     =@title
+  .span-11.append-13.last
+    %h4
+      Using the languages plugin with HTML data
+    #demo1.ui-widget-content.ui-corner-all
+      %ul
+        %li#phtml_1
+          %a.en{:href => "#"} Root node 1
+          %a.bg{:href => "#"} Корен 1
+          %ul
+            %li#phtml_2
+              %a.en{:href => "#"} Child node 1
+              %a.bg{:href => "#"} Дете 1
+            %li#phtml_3
+              %a.en{:href => "#"} Child node 2
+              %a.bg{:href => "#"} Дете 2
+        %li#phtml_4
+          %a.en{:href => "#"} Root node 2
+          %a.bg{:href => "#"} Корен 2
+  .span-11.append-13.last
+    #toolbar.ui-widget-header.ui-corner-all
+      %button#en_1
+        English
+      %button#bg_1
+        Bulgarian
+      %button#rename_1
+        Rename visible language
+      %button#rename_2
+        Rename 'bg'        
 / End demo
 .demo-description
   %p

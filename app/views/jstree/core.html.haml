@@ -10,10 +10,6 @@
   .span-11
     %h4
       Binding to an event and executing an action
-    %button#toggle_node
-      toggle node
-    %br
-    %br
     #demo1.ui-widget-content.ui-corner-all
       %ul
         %li#phtml_1
@@ -25,14 +21,13 @@
               %a{:href => "#"} Child node 2
         %li#phtml_4
           %a{:href => "#"} Root node 2
+    .toolbar.ui-widget-header.ui-corner-all
+      %button#toggle_node
+        toggle node
     %p#log1.log.ui-corner-all
   .span-11.prepend-2.last
     %h4
       Preventing an action
-    %button#toggle_node2
-      toggle node
-    %br
-    %br
     #demo2.ui-widget-content.ui-corner-all
       %ul
         %li#html_1
@@ -44,12 +39,15 @@
               %a{:href => "#"} Child node 2
         %li#html_4
           %a{:href => "#"} Root node 2
-    %p#log2.log.ui-corner-all   
+    .toolbar.ui-widget-header.ui-corner-all
+      %button#toggle_node2
+        toggle node
+    %p#log2.log.ui-corner-all
     %p
-      This is the same demo as left, but this time the operation will be prevented.
+      This is the same demo as on the left, but this time the operation will be prevented.
     %p
       The important part is:
-      %br%br
+      %br
       %code
         e.stopImmediatePropagation();
       %br
