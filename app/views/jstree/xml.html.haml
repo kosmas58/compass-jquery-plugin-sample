@@ -1,0 +1,40 @@
+-@title = "#{t('txt.jst.name')} - #{t('txt.jst.xml')}"
+-@jstree_theme = 'jstree.default.css'
+
+- content_for :content_head do
+  = render(:partial => "xml.js.haml", :format => :js)
+
+.demo
+  %h3
+    =@title
+  .span-11
+    %h4
+      Using the data config option (flat)
+    #demo1.ui-widget-content.ui-corner-all
+      %ul
+        %li#phtml_1
+          %a{:href => "#"} Root node 1
+          %ul
+            %li#phtml_2
+              %a{:href => "#"} Child node 1
+            %li#phtml_3
+              %a{:href => "#"} Child node 2
+        %li#phtml_4
+          %a{:href => "#"} Root node 2
+  .span-11.prepend-2.last
+    %h4
+      Using the ajax config option (nested)
+    #demo2.ui-widget-content.ui-corner-all
+  .span-24
+    %br
+    %br   
+  .span-11
+    %h4
+      Using both the data &amp; ajax config options (flat)
+    #demo3.ui-widget-content.ui-corner-all
+  .span-11.prepend-2.last
+/ End demo
+.demo-description
+  %p
+    = link_to raw("Look here for addtional Documentation"), "http://www.jstree.com/documentation/xml_data"  
+/ End demo-description

@@ -67,7 +67,7 @@
     @include column(6);
     @include navigation; }
   #{$center} {
-    @include column(17);
+    @include column(18, last);
     @include content;
     #{$footer} {
       @include footer; } } }

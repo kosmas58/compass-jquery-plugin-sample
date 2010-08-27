@@ -7,7 +7,7 @@
 .demo
   %h3
     =@title
-  .span-10
+  .span-11
     %h4
       Binding to an event and executing an action
     %button#toggle_node
@@ -25,10 +25,8 @@
               %a{:href => "#"} Child node 2
         %li#phtml_4
           %a{:href => "#"} Root node 2
-    %p#log1.log{:style => "clear:both;"}
-  .span-3
-      
-  .span-10
+    %p#log1.log.ui-corner-all
+  .span-11.prepend-2.last
     %h4
       Preventing an action
     %button#toggle_node2
@@ -46,11 +44,12 @@
               %a{:href => "#"} Child node 2
         %li#html_4
           %a{:href => "#"} Root node 2
-    %p#log2.log{:style => "clear:both;"}    
+    %p#log2.log.ui-corner-all   
     %p
       This is the same demo as left, but this time the operation will be prevented.
     %p
-      The important part is
+      The important part is:
+      %br%br
       %code
         e.stopImmediatePropagation();
       %br
@@ -58,4 +57,6 @@
         return false;
 / End demo
 .demo-description
+  %p
+    = link_to raw("Look here for addtional Documentation"), "http://www.jstree.com/documentation/core"  
 / End demo-description

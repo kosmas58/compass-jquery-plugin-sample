@@ -1,0 +1,14 @@
+-@title = "#{t('txt.jst.name')} - #{t('txt.jst.cookies')}"
+-@jstree_theme = 'jstree.default.css'
+
+- content_for :content_head do
+  = render(:partial => "cookies.js.haml", :format => :js)
+
+.demo
+  %h3
+    =@title
+/ End demo
+.demo-description
+  %p
+    = link_to raw("Look here for addtional Documentation"), "http://www.jstree.com/documentation/cookies"  
+/ End demo-description

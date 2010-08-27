@@ -1,0 +1,55 @@
+:javascript
+  $(function () {
+  	$("#demo3").jstree({ 
+  		"xml_data" : {
+  			"data" : "" + 
+  "<root>" + 
+  	"<item id='node_1' state='closed'>" + 
+  		"<content><name>Root node 1</name></content>" + 
+  	"</item>" + 
+  	"<item>" + 
+  		"<content><name>Root node 2</name></content>" + 
+  	"</item>" + 
+  "</root>",
+  			"ajax" : {
+  				"url" : "data?format=xml&type=flat",
+  				"data" : function (n) { 
+  					return { 
+  						id : n.attr ? n.attr("id") : 0, 
+  						rand : new Date().getTime()
+  					}; 
+  				}
+  			}
+  		},
+  		"plugins" : [ "themes", "xml_data" ]
+  	});
+  
+  	$("#demo2").jstree({ 
+  		"xml_data" : {
+  			"ajax" : {
+  				"url" : "data?format=xml&type=nested"
+  			},
+  			"xsl" : "nest"
+  		},
+  		"plugins" : [ "themes", "xml_data" ]
+  	});
+  
+  	$("#demo1").jstree({ 
+  		"xml_data" : {
+  			"data" : "" + 
+  "<root>" + 
+  	"<item id='node_1'>" + 
+  		"<content><name>Root node 1</name></content>" + 
+  	"</item>" + 
+  	"<item>" + 
+  		"<content><name>Root node 2</name></content>" + 
+  	"</item>" + 
+  	"<item parent_id='node_1'>" + 
+  		"<content><name>Child node</name></content>" + 
+  	"</item>" + 
+  "</root>"
+  		},
+  		"plugins" : [ "themes", "xml_data" ]
+  	});
+  }); 
+   

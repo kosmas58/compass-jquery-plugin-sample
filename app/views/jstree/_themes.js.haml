@@ -1,0 +1,32 @@
+:css
+  #toolbar{ padding: 0.3em; }
+  
+:javascript
+  $(function () {
+    $("button", ".demo").button();
+    
+  	$("#toggle_dots").click(function () { 
+  		$("#demo1").jstree("toogle_dots");
+  	});
+  	
+  	$("#toggle_icons").click(function () { 
+  		$("#demo1").jstree("toogle_icons");
+  	});
+  	
+  	$("#set_theme1").click(function () { 
+  		$("#demo1").jstree("set_theme","apple");
+  	});
+  	
+  	$("#set_theme2").click(function () { 
+  		$("#demo1").jstree("set_theme","default");
+  	});
+  	
+  	$("#demo1").jstree({ 
+  		"themes" : {
+  			"theme" : "default",
+  			"dots" : false,
+  			"icons" : false
+  		},
+  		"plugins" : [ "themes", "html_data" ]
+  	});
+  });

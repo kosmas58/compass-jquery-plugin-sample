@@ -22,6 +22,6 @@
 
 @mixin work-area($ribbon, $content) {
   #{$ribbon} {
-    @include column(24); }
+    @include column(24, last); }
   #{$content} {
     @include content; } }

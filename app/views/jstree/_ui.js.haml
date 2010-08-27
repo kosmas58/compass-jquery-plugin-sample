@@ -1,0 +1,13 @@
+:javascript
+  $(function () {
+  	$("#demo1").jstree({ 
+  		"ui" : {
+  			"select_limit" : 2,
+  			"select_multiple_modifier" : "alt",
+  			"selected_parent_close" : "select_parent",
+  			"initially_select" : [ "phtml_2" ]
+  		},
+  		"core" : { "initially_open" : [ "phtml_1" ] },
+  		"plugins" : [ "themes", "html_data", "ui" ]
+  	});
+  });

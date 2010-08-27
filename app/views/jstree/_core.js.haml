@@ -1,19 +1,14 @@
+:css
+  .log { font-size:10px !important; padding: 0.5em;  border:1px solid gray; margin-bottom:1em; }
+  
 :javascript
   $(function() {
     $("button", ".demo").button();
     
-    $("#toggle_node").click(function () {
-      $("#demo1").jstree("toggle_node","#phtml_1");
-    });
-    $("#demo1")
-    .bind("open_node.jstree close_node.jstree", function (e) {
-      $("#log1").html("Last operation: " + e.type);
-    })
-    .jstree({ "plugins" : [ "themes", "html_data" ] });
-    
     $("#toggle_node2").click(function () { 
       $("#demo2").jstree("toggle_node","#html_1");
     });
+    
     $("#demo2")
     .bind("open_node.jstree close_node.jstree", function (e) {
       $("#log2").html("Last operation: " + e.type);
@@ -27,4 +22,14 @@
         return false;
       }
     });
+    
+    $("#toggle_node").click(function () {
+      $("#demo1").jstree("toggle_node","#phtml_1");
+    });
+    
+    $("#demo1")
+    .bind("open_node.jstree close_node.jstree", function (e) {
+      $("#log1").html("Last operation: " + e.type);
+    })
+    .jstree({ "plugins" : [ "themes", "html_data" ] });    
   });

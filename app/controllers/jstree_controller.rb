@@ -2,6 +2,32 @@ class JstreeController < ApplicationController
   layout 'jstree' 
   
   protect_from_forgery
+  
+  def data
+    json = 
+    '[
+      { "data" : "A node", "children" : [ { "data" : "Only child", "state" : "closed" } ], "state" : "open" },
+        "Ajax node"
+    ]'
+    
+    respond_to do |format|
+      # Fields order is important in the to_jqgrid_json method (in this case : [:id,:name])
+      # It must be the same as display order in your datagrid
+      format.html do
+        render "_html_data", :layout => false
+      end      
+      format.json do
+        render :json => json, :layout => false
+      end
+      format.xml do
+        if params[:type] == "nested"
+          render :partial => "nested.xml.builder", :layout => false
+        else
+          render :partial => "flat.xml.builder", :layout => false
+        end  
+      end
+    end
+  end
 
   def get_children
     tree = DemoTree.get_children(params[:id])

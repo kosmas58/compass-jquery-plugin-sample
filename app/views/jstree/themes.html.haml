@@ -1,0 +1,40 @@
+-@title = "#{t('txt.jst.name')} - #{t('txt.jst.themes')}"
+-@jstree_theme = 'jstree.default.css'
+
+- content_for :content_head do
+  = render(:partial => "themes.js.haml", :format => :js)
+
+.demo
+  %h3
+    =@title
+  .span-11.last
+    %h4
+      Binding to an event and executing an action
+    #demo1.ui-widget-content.ui-corner-all
+      %ul
+        %li#phtml_1
+          %a{:href => "#"} Root node 1
+          %ul
+            %li#phtml_2
+              %a{:href => "#"} Child node 1
+            %li#phtml_3
+              %a{:href => "#"} Child node 2
+        %li#phtml_4
+          %a{:href => "#"} Root node 2
+  .span-24
+    %br
+  .span-24
+    #toolbar.ui-widget-header.ui-corner-all
+      %button#toogle_dots
+        Toogle dots
+      %button#toogle_icons
+        Toogle icons
+      %button#set_theme1
+        Set apple theme
+      %button#set_theme2
+        Set default theme
+/ End demo
+.demo-description
+  %p
+    = link_to raw("Look here for addtional Documentation"), "http://www.jstree.com/documentation/themes"  
+/ End demo-description
