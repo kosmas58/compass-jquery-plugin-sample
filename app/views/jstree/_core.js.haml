@@ -1,0 +1,30 @@
+:javascript
+  $(function() {
+    $("button", ".demo").button();
+    
+    $("#toggle_node").click(function () {
+      $("#demo1").jstree("toggle_node","#phtml_1");
+    });
+    $("#demo1")
+    .bind("open_node.jstree close_node.jstree", function (e) {
+      $("#log1").html("Last operation: " + e.type);
+    })
+    .jstree({ "plugins" : [ "themes", "html_data" ] });
+    
+    $("#toggle_node2").click(function () { 
+      $("#demo2").jstree("toggle_node","#html_1");
+    });
+    $("#demo2")
+    .bind("open_node.jstree close_node.jstree", function (e) {
+      $("#log2").html("Last operation: " + e.type);
+    })
+    .jstree({ "plugins" : [ "themes", "html_data" ] });
+    
+    $("#demo2").bind("before.jstree", function (e, data) {
+      if(data.func === "open_node") {
+        $("#log2").html(data.args[0].attr("id"));
+        e.stopImmediatePropagation();
+        return false;
+      }
+    });
+  });
