@@ -195,6 +195,16 @@
     .click(function() {
       $.post('./rebuild', function () { $('#treedemo').jstree('refresh',-1); });
     });
+    $('#add_drive').button({
+      text: false,
+      icons: {
+        primary: 'ui-icon-disk',
+        secondary: 'ui-icon-plusthick'
+      }
+    })
+    .click(function() {
+      $("#treedemo").jstree("create", -1, false, { "attr" : { "rel" : "drive" }, "data" : "New drive:" });
+    });
     $('#add_folder').button({
       text: false,
       icons: {
