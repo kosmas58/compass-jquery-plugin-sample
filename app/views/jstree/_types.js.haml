@@ -1,3 +1,23 @@
-:css
-  .toolbar{ padding: 0.3em; }
-  .ui-button{ font-size: 0.9em; }
+:javascript
+  $(function () {
+  	$("#demo1").jstree({ 
+  		"types" : {
+  			"valid_children" : [ "root" ],
+  			"types" : {
+  				"root" : {
+  					"icon" : { 
+  						"image" : "/images/jstree/root.png"
+  					},
+  					"valid_children" : [ "default" ],
+  					"max_depth" : 2,
+  					"hover_node" : false,
+  					"select_node" : function () {return false;}
+  				},
+  				"default" : {
+  					"valid_children" : [ "default" ]
+  				}
+  			}
+  		},
+  		"plugins" : ["themes","html_data","dnd","ui","types"]
+  	});
+  });

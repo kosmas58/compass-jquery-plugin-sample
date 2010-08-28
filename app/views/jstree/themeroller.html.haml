@@ -7,8 +7,29 @@
 .demo
   %h3
     =@title
+  .span-11.append-13.last
+    %h4
+      Using the themeroller plugin
+    #demo1.ui-widget-content.ui-corner-all   
+      %ul
+        %li#phtml_1
+          %a{:href => "#"} Root node 1
+          %ul
+            %li#phtml_2
+              %a{:href => "#"} Child node 1
+            %li#phtml_3
+              %a{:href => "#"} Child node 2
+        %li#phtml_4
+          %a{:href => "#"} Root node 2
 / End demo
 .demo-description
+  %p
+    The 
+    %b
+      themeroller plugin
+    adds support for jQuery UI's themes. Add the plugin as last in your plugins config option.
+    Also make sure that you have included the jquery theme you'd like to use and you should NOT
+    use the native jstree themes plugin.
   %p
     = link_to raw("Look here for addtional Documentation"), "http://www.jstree.com/documentation/themeroller"  
 / End demo-description

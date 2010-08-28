@@ -7,8 +7,28 @@
 .demo
   %h3
     =@title
+  .span-11.append-13.last
+    %h4
+      Using the contextmenu
+    #demo1.ui-widget-content.ui-corner-all      
+      %ul
+        %li#phtml_1
+          %a{:href => "#"} Root node 1
+          %ul
+            %li#phtml_2
+              %a{:href => "#"} Child node 1
+            %li#phtml_3
+              %a{:href => "#"} Child node 2
+        %li#phtml_4
+          %a{:href => "#"} Root node 2
 / End demo
 .demo-description
+  %p
+    The
+    %b
+      contextmenu plugin
+    enables a contextual menu to be shown, when the user right-clicks a node
+    (or when triggered programatically by the developer).
   %p
     = link_to raw("Look here for addtional Documentation"), "http://www.jstree.com/documentation/contextmenu"  
 / End demo-description

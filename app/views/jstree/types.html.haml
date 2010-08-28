@@ -7,8 +7,28 @@
 .demo
   %h3
     =@title
+  .span-11.append-13.last
+    %h4
+      Using the types plugin
+    #demo1.ui-widget-content.ui-corner-all      
+      %ul
+        %li#phtml_1{:rel => "root"}
+          %a{:href => "#"} Root node 1
+          %ul
+            %li#phtml_2
+              %a{:href => "#"} Child node 1
+            %li#phtml_3
+              %a{:href => "#"} Child node 2
+        %li#phtml_4{:rel => "root"}
+          %a{:href => "#"} Root node 2
 / End demo
 .demo-description
+  %p
+    The
+    %b
+      types plugin 
+    enables node types - each node can have a type, and you can define rules on how that type should
+    behave - maximum children count, maximum depth, valid children types, selectable or not, etc.
   %p
     = link_to raw("Look here for addtional Documentation"), "http://www.jstree.com/documentation/types"  
 / End demo-description
