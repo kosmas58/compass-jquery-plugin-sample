@@ -1,0 +1,31 @@
+!!!
+%html{ "xml:lang" => "en", :lang => "en", :xmlns => "http://www.w3.org/1999/xhtml" }
+  %head
+    %link{:rel=>"icon", :href=>"/favicon.ico", :type=>"image/ico"}
+    %link{:rel=>"shortcut icon", :href=>"/favicon.ico", :type=>"image/ico"}
+    %link{:rel=>"shortcut icon", :href=>"/favicon.ico"}
+    %meta{ :content => "text/html;charset=UTF-8", "http-equiv" => "content-type" }
+
+    = stylesheet_link_tag 'compiled/screen.blueprint.css', :media => 'screen, projection'
+    = stylesheet_link_tag 'compiled/print.css', :media => 'print'
+    /[if lt IE 8]
+      = stylesheet_link_tag 'compiled/ie.css', :media => 'screen, projection'
+      = javascript_include_tag 'jquery.pngFix'
+
+    = stylesheet_link_tag "compiled/jquery.ui/#{session[:theme]}", :media => 'screen, projection'
+
+    = javascript_include_tag :jquery_142
+    = javascript_include_tag :jrails
+    = raw jrails_javascripts(I18n.locale)  
+
+    = javascript_include_tag 'locales'
+    = javascript_include_tag 'common'
+    = javascript_include_tag 'ajax'
+    = javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery?
+
+    = yield :content_head
+
+  %body{body_attributes}
+    #content{ :style => "padding: 0.5em" } 
+      = yield
+      

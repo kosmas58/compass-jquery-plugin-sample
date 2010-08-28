@@ -2,6 +2,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :iphone, :collection => { :main     => :get,
                                           :original => :get }
 
+  map.resources :navigation
+  
   map.resources :jstree => { :get_children=> :get,
                              :search      => :get,
                              :create_node => :post,

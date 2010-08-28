@@ -196,6 +196,7 @@ en:
       delete: Delete
       from: from
       language: Language
+      conf_nav: Configure navigation
       show: Show
       save: Save
       footer:

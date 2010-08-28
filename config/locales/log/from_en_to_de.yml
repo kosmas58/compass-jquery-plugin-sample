@@ -21,11 +21,8 @@ date:
     short: "%b %d"
     long: "%B %d, %Y"
 txt: 
-  jst: 
-    checkbox: Checkbox
-    cookies: Cookies
-    contextmenu: Contextmenu
-    Sort: Sort
+  layout: 
+    conf_nav: Configure navigation
   hello: Hello world
 support: 
   array: 

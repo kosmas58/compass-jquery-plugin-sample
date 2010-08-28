@@ -17,4 +17,7 @@
               = select_tag("locale", options_for_select(LOCALES_AVAILABLE, I18n.locale.to_s))  
         %li
           %div#switcher
+        %li
+          %a#configure_navigation
+            = t('txt.layout.conf_nav')
   

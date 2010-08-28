@@ -66,6 +66,17 @@ jQuery(document).ready(function() {
 	  }
 	});
 	
+	$("#configure_navigation").button({
+    icons: {
+      primary: 'ui-icon-star'
+    },
+    text: false
+  });
+	
+	$("#configure_navigation").click(function() {
+    $("[name=contentFrame]").attr("src", "/navigation");
+  });
+	
   $("#license").dialog({
     autoOpen: false,
     bgiframe: true,
