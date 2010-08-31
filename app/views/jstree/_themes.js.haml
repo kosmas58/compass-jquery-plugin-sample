@@ -14,6 +14,14 @@
   		$("#demo1").jstree("toggle_icons");
   	});
   	
+  	$("#show_checkboxes").click(function () { 
+  		$("#demo1").jstree("show_checkboxes");
+  	});
+  	
+  	$("#hide_checkboxes").click(function () { 
+  		$("#demo1").jstree("hide_checkboxes");
+  	});
+  	
   	$("#set_theme1").click(function () { 
   		$("#demo1").jstree("set_theme","default");
   	});
@@ -37,13 +45,22 @@
   	$("#set_theme6").click(function () { 
   		$("#demo1").jstree("set_theme","classic");
   	});
-  	
-  	$("#demo1").jstree({ 
-  		"themes" : {
+
+  	$("#demo1").jstree({
+      "themes" : {
   			"theme" : "default",
   			"dots" : false,
   			"icons" : false
   		},
-  		"plugins" : [ "themes", "html_data" ]
+  		"json_data" : {
+  			"ajax" : {
+  				"url" : "data?format=json",
+  				"data" : function (n) { 
+  					return { id : n.attr ? n.attr("id") : 0 }; 
+  				}
+  			}
+  		},
+  		"plugins" : [ "themes", "checkbox", "json_data" ]
   	});
+  	$("#demo1").jstree("hide_checkboxes");
   });
