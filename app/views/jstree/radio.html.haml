@@ -1,15 +1,15 @@
--@title = "#{t('txt.jst.name')} - #{t('txt.jst.checkbox')}"
+-@title = "#{t('txt.jst.name')} - #{t('txt.jst.radio')}"
 -@jstree_theme = 'jstree.default.css'
 
 - content_for :content_head do
-  = render(:partial => "checkbox.js.haml", :format => :js)
+  = render(:partial => "radio.js.haml", :format => :js)
 
 .demo
   %h3
     =@title
   .span-11.append-13.last
     %h4
-      Using the checkbox plugin - all you need to do is include it in the list of active plugins.
+      Using the radio plugin - all you need to do is include it in the list of active plugins.
     #demo1.ui-widget-content.ui-corner-all
       %ul
         %li#phtml_1
@@ -38,8 +38,8 @@
   %p
     The
     %b
-      checkbox plugin 
-    makes multiselection possible using three-state checkboxes.    
+      radio plugin 
+    makes multiselection possible using three-state radio buttons.    
   %p
     = link_to raw("Look here for addtional Documentation"), "http://www.jstree.com/documentation/checkbox"  
 / End demo-description

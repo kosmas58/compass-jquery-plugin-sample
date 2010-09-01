@@ -428,6 +428,7 @@ en:
       sort: Sort
       dnd: Drag'n Drop
       checkbox: Checkbox
+      radio: Radio
       xml: XML Data
       search: Search
       contextmenu: Contextmenu
