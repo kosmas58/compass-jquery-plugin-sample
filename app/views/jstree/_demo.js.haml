@@ -1,7 +1,7 @@
 :css
   #toolbar_top, #toolbar_bottom{ padding: 0.3em; }
   #treedemo { width:auto; height:400px; overflow:auto; }
-  #text{ height: 2.4em; margin: 0 0.4em 0 0; padding: 0.1em 0 0.4em 0.1em; }
+  #text{ height: 1.9em; margin: 0 0.4em 0 0; padding: 0.2em 0 0.2em 0.2em; }
   #alog { font-size:9px !important; padding: 0.5em; }
   .ui-button{ font-size: 0.9em; }
   
@@ -12,7 +12,7 @@
     $("#treedemo")
         .jstree({ 
             // the list of plugins to include
-            "plugins" : [ "themes", "json_data", "ui", "crrm", "cookies", "dnd", "search", "types", "hotkeys", "contextmenu" ],
+            "plugins" : [ "themes", "json_data", "ui", "crrm", "cookies", "dnd", "search", "types", "hotkeys", "contextmenu", "sort" ],
             // Plugin configuration
   
             // I usually configure the plugin that handles the data first - in this case JSON as it is most common
@@ -109,7 +109,7 @@
             $.post(
                 "./create_node", 
                 { 
-                    "id" : data.rslt.parent.attr("id").replace("node_",""), 
+                    "id" : ( data.rslt.parent == -1) ? -1 : data.rslt.parent.attr("id").replace("node_",""), 
                     "position" : data.rslt.position,
                     "title" : data.rslt.name,
                     "type" : data.rslt.obj.attr("rel")
@@ -198,8 +198,8 @@
     $('#add_drive').button({
       text: false,
       icons: {
-        primary: 'ui-icon-disk',
-        secondary: 'ui-icon-plusthick'
+        primary: 'ui-icon-plusthick',
+        secondary: 'ui-icon-disk'
       }
     })
     .click(function() {
@@ -208,8 +208,8 @@
     $('#add_folder').button({
       text: false,
       icons: {
-        primary: 'ui-icon-folder-collapsed',
-        secondary: 'ui-icon-plusthick'
+        primary: 'ui-icon-plusthick',
+        secondary: 'ui-icon-folder-collapsed'
       }
     })
     .click(function() {
@@ -218,23 +218,14 @@
     $('#add_default').button({
       text: false,
       icons: {
-        primary: 'ui-icon-document',
-        secondary: 'ui-icon-plusthick'
+        primary: 'ui-icon-plusthick',
+        secondary: 'ui-icon-document'
       }
     })
     .click(function() {
       $("#treedemo").jstree("create", null, "last", { "attr" : { "rel" : this.id.toString().replace("add_", "") } });	
     });
     $('#rename').button()
-    .click(function() {
-      $("#treedemo").jstree(this.id);
-    });
-    $('#remove').button({
-      text: false,
-      icons: {
-        primary: 'ui-icon-trash'
-      }
-    })
     .click(function() {
       $("#treedemo").jstree(this.id);
     });
@@ -264,7 +255,16 @@
     })
     .click(function() {
       $("#treedemo").jstree(this.id);
-    });    
+    });  
+    $('#remove').button({
+      text: false,
+      icons: {
+        primary: 'ui-icon-trash'
+      }
+    })
+    .click(function() {
+      $("#treedemo").jstree(this.id);
+    });  
     $('#search').button({
       text: false,
       icons: {
@@ -282,8 +282,7 @@
     })
     .click(function() {
       $("#treedemo").jstree(this.id);
-    }); 
-    
+    });     
     $('#reconstruct').button()
     .click(function() {
       $.get('./reconstruct', function () { $('#treedemo').jstree('refresh',-1); });

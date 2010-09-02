@@ -33,9 +33,13 @@ class DemoTree < ActiveRecord::Base
   end
   
   def self.create_node(params)
-    parent = find(params[:id])
+    if params[:id].to_i > 0
+      parent = find(params[:id])
+    else
+      parent = find_by_title("ROOT")
+    end
     node = DemoTree.new()
-    node.parent_id = params[:id]
+    node.parent_id = parent.id
     node.position  = params[:position]
     node.left      = parent[:right]
     node.right     = node.left + 1
@@ -47,7 +51,7 @@ class DemoTree < ActiveRecord::Base
         ancestor.right += 2
         ancestor.save
       end
-      result = { :status => 0, :id => node.id }   
+      result = { :status => 1, :id => node.id }   
     else
       result = { :status => 0 }   
     end         
@@ -278,8 +282,33 @@ class DemoTree < ActiveRecord::Base
     end    
   end  
   
-  def move_node
-    
+  def move_node(params)
+    if params[:copy] == "1"
+    else
+      parent = find(params[:ref])
+      node = find(params[:id])
+      node.parent_id = parent.id
+      node.position  = params[:position]
+      node.left      = parent[:right]
+      node.right     = node.left + 1
+      node.level     = parent.level + 1
+      node.title     = params[:title]
+      node.ntype     = params[:type]
+      if node.save
+        node.ancestors.each do |ancestor|
+          ancestor.right += 2
+          ancestor.save
+        end
+        node.children.each do | child |
+          
+          
+        end
+        result = { :status => 1, :id => node.id }   
+      else
+        result = { :status => 0 }   
+      end         
+      return result.to_json
+    end    
   end
    
 #  function move_node($data) { 
