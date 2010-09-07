@@ -748,7 +748,7 @@ Event.create(:calendar_id => 1, :starts_at=> 24.hours.from_now, :ends_at => 25.h
 Event.create(:calendar_id => 1, :starts_at=> 24.hours.from_now, :ends_at => 49.hours.from_now, :summary => "2 day Event", :description => "It's a test!", :location => "Test town")   
 
 #DemoTree
-DemoTree.create(:parent_id => 0, :position => 2, :left => 1,  :right => 14, :level => 0, :title => 'ROOT')
+DemoTree.create(:parent_id => 0, :position => 0, :left => 1,  :right => 14, :level => 0, :title => 'ROOT')
 DemoTree.create(:parent_id => 1, :position => 0, :left => 2,  :right => 11, :level => 1, :title => 'C:',         :ntype => 'drive')
 DemoTree.create(:parent_id => 2, :position => 0, :left => 3,  :right => 6,  :level => 2, :title => '_demo',     :ntype => 'folder')
 DemoTree.create(:parent_id => 3, :position => 0, :left => 4,  :right => 5,  :level => 3, :title => 'index.html', :ntype => 'default')

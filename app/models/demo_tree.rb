@@ -18,7 +18,7 @@ class DemoTree < ActiveRecord::Base
         }
       end
     end    
-    return result.to_json
+    return result
   end
   
   def self.search(search_str)    
@@ -29,7 +29,7 @@ class DemoTree < ActiveRecord::Base
         result << "#node_#{node.id.to_s}"
       end
     end       
-    return result.to_json
+    return result
   end
   
   def self.create_node(params)
@@ -51,288 +51,69 @@ class DemoTree < ActiveRecord::Base
         ancestor.right += 2
         ancestor.save
       end
+      update_all("left = left + 2, right = right + 2", "left >= #{node.right}")
       result = { :status => 1, :id => node.id }   
     else
       result = { :status => 0 }   
     end         
-    return result.to_json
+    return result
   end
   
-#  function create_node($data) {
-#    $id = parent::_create((int)$data[$this->fields["id"]], (int)$data[$this->fields["position"]]);
-#    if($id) {
-#      $data["id"] = $id;
-#      $this->set_data($data);
-#      return  "{ \"status\" : 1, \"id\" : ".(int)$id." }";
-#    }
-#    return "{ \"status\" : 0 }";
-#  }
-#      
-#  function _create($parent, $position) {
-#    return $this->_move(0, $parent, $position);
-#  }
-#
-#  function _move($id, $ref_id, $position = 0, $is_copy = false) {
-#    if((int)$ref_id === 0 || (int)$id === 1) { return false; }
-#    $sql    = array();            // Queries executed at the end
-#    $node   = $this->_get_node($id);    // Node data
-#    $nchildren  = $this->_get_children($id);  // Node children
-#    $ref_node = $this->_get_node($ref_id);  // Ref node data
-#    $rchildren  = $this->_get_children($ref_id);// Ref node children
-#
-#    $ndif = 2;
-#    $node_ids = array(-1);
-#    if($node !== false) {
-#      $node_ids = array_keys($this->_get_children($id, true));
-#      // TODO: should be !$is_copy && , but if copied to self - screws some right indexes
-#      if(in_array($ref_id, $node_ids)) return false;
-#      $ndif = $node[$this->fields["right"]] - $node[$this->fields["left"]] + 1;
-#    }
-#    if($position >= count($rchildren)) {
-#      $position = count($rchildren);
-#    }
-#
-#    // Not creating or copying - old parent is cleaned
-#    if($node !== false && $is_copy == false) {
-#      $sql[] = "" . 
-#        "UPDATE `".$this->table."` " . 
-#          "SET `".$this->fields["position"]."` = `".$this->fields["position"]."` - 1 " . 
-#        "WHERE " . 
-#          "`".$this->fields["parent_id"]."` = ".$node[$this->fields["parent_id"]]." AND " . 
-#          "`".$this->fields["position"]."` > ".$node[$this->fields["position"]];
-#      $sql[] = "" . 
-#        "UPDATE `".$this->table."` " . 
-#          "SET `".$this->fields["left"]."` = `".$this->fields["left"]."` - ".$ndif." " . 
-#        "WHERE `".$this->fields["left"]."` > ".$node[$this->fields["right"]];
-#      $sql[] = "" . 
-#        "UPDATE `".$this->table."` " . 
-#          "SET `".$this->fields["right"]."` = `".$this->fields["right"]."` - ".$ndif." " . 
-#        "WHERE " . 
-#          "`".$this->fields["right"]."` > ".$node[$this->fields["left"]]." AND " . 
-#          "`".$this->fields["id"]."` NOT IN (".implode(",", $node_ids).") ";
-#    }
-#    // Preparing new parent
-#    $sql[] = "" . 
-#      "UPDATE `".$this->table."` " . 
-#        "SET `".$this->fields["position"]."` = `".$this->fields["position"]."` + 1 " . 
-#      "WHERE " . 
-#        "`".$this->fields["parent_id"]."` = ".$ref_id." AND " . 
-#        "`".$this->fields["position"]."` >= ".$position." " . 
-#        ( $is_copy ? "" : " AND `".$this->fields["id"]."` NOT IN (".implode(",", $node_ids).") ");
-#
-#    $ref_ind = $ref_id === 0 ? (int)$rchildren[count($rchildren) - 1][$this->fields["right"]] + 1 : (int)$ref_node[$this->fields["right"]];
-#    $ref_ind = max($ref_ind, 1);
-#
-#    $self = ($node !== false && !$is_copy && (int)$node[$this->fields["parent_id"]] == $ref_id && $position > $node[$this->fields["position"]]) ? 1 : 0;
-#    foreach($rchildren as $k => $v) {
-#      if($v[$this->fields["position"]] - $self == $position) {
-#        $ref_ind = (int)$v[$this->fields["left"]];
-#        break;
-#      }
-#    }
-#    if($node !== false && !$is_copy && $node[$this->fields["left"]] < $ref_ind) {
-#      $ref_ind -= $ndif;
-#    }
-#
-#    $sql[] = "" . 
-#      "UPDATE `".$this->table."` " . 
-#        "SET `".$this->fields["left"]."` = `".$this->fields["left"]."` + ".$ndif." " . 
-#      "WHERE " . 
-#        "`".$this->fields["left"]."` >= ".$ref_ind." " . 
-#        ( $is_copy ? "" : " AND `".$this->fields["id"]."` NOT IN (".implode(",", $node_ids).") ");
-#    $sql[] = "" . 
-#      "UPDATE `".$this->table."` " . 
-#        "SET `".$this->fields["right"]."` = `".$this->fields["right"]."` + ".$ndif." " . 
-#      "WHERE " . 
-#        "`".$this->fields["right"]."` >= ".$ref_ind." " . 
-#        ( $is_copy ? "" : " AND `".$this->fields["id"]."` NOT IN (".implode(",", $node_ids).") ");
-#
-#    $ldif = $ref_id == 0 ? 0 : $ref_node[$this->fields["level"]] + 1;
-#    $idif = $ref_ind;
-#    if($node !== false) {
-#      $ldif = $node[$this->fields["level"]] - ($ref_node[$this->fields["level"]] + 1);
-#      $idif = $node[$this->fields["left"]] - $ref_ind;
-#      if($is_copy) {
-#        $sql[] = "" . 
-#          "INSERT INTO `".$this->table."` (" . 
-#            "`".$this->fields["parent_id"]."`, " . 
-#            "`".$this->fields["position"]."`, " . 
-#            "`".$this->fields["left"]."`, " . 
-#            "`".$this->fields["right"]."`, " . 
-#            "`".$this->fields["level"]."`" . 
-#          ") " . 
-#            "SELECT " . 
-#              "".$ref_id.", " . 
-#              "`".$this->fields["position"]."`, " . 
-#              "`".$this->fields["left"]."` - (".($idif + ($node[$this->fields["left"]] >= $ref_ind ? $ndif : 0))."), " . 
-#              "`".$this->fields["right"]."` - (".($idif + ($node[$this->fields["left"]] >= $ref_ind ? $ndif : 0))."), " . 
-#              "`".$this->fields["level"]."` - (".$ldif.") " . 
-#            "FROM `".$this->table."` " . 
-#            "WHERE " . 
-#              "`".$this->fields["id"]."` IN (".implode(",", $node_ids).") " . 
-#            "ORDER BY `".$this->fields["level"]."` ASC";
-#      }
-#      else {
-#        $sql[] = "" . 
-#          "UPDATE `".$this->table."` SET " . 
-#            "`".$this->fields["parent_id"]."` = ".$ref_id.", " . 
-#            "`".$this->fields["position"]."` = ".$position." " . 
-#          "WHERE " . 
-#            "`".$this->fields["id"]."` = ".$id;
-#        $sql[] = "" . 
-#          "UPDATE `".$this->table."` SET " . 
-#            "`".$this->fields["left"]."` = `".$this->fields["left"]."` - (".$idif."), " . 
-#            "`".$this->fields["right"]."` = `".$this->fields["right"]."` - (".$idif."), " . 
-#            "`".$this->fields["level"]."` = `".$this->fields["level"]."` - (".$ldif.") " . 
-#          "WHERE " . 
-#            "`".$this->fields["id"]."` IN (".implode(",", $node_ids).") ";
-#      }
-#    }
-#    else {
-#      $sql[] = "" . 
-#        "INSERT INTO `".$this->table."` (" . 
-#          "`".$this->fields["parent_id"]."`, " . 
-#          "`".$this->fields["position"]."`, " . 
-#          "`".$this->fields["left"]."`, " . 
-#          "`".$this->fields["right"]."`, " . 
-#          "`".$this->fields["level"]."` " . 
-#          ") " . 
-#        "VALUES (" . 
-#          $ref_id.", " . 
-#          $position.", " . 
-#          $idif.", " . 
-#          ($idif + 1).", " . 
-#          $ldif. 
-#        ")";
-#    }
-#    foreach($sql as $q) { $this->db->query($q); }
-#    $ind = $this->db->insert_id();
-#    if($is_copy) $this->_fix_copy($ind, $position);
-#    return $node === false || $is_copy ? $ind : true;
-#  }
-  
   def self.remove_node(id)
-    the_node = find(id)
-    left = the_node.left
-    right = the_node.right
+    node = find(id)
+    left = node.left
+    right = node.right
     dif = right - left + 1
-    pid = the_node.parent_id
-    pos = the_node.position
+    pid = node.parent_id
+    pos = node.position
     
     #  deleting node and its children
-    the_node.delete_branch
+    node.delete_branch
     # shift left indexes of nodes right of the node
     update_all("left = left - #{dif}", "left > #{right}")
     # shift right indexes of nodes right of the node and the node's parents
     update_all("right = right - #{dif}", "right > #{left}")  
     # Update position of siblings below the deleted node
-    update_all("position = position -1", "parent_id = #{pid} AND position > #{pos}")
-    
+    update_all("position = position -1", "parent_id = #{pid} AND position > #{pos}")    
     result = { :status => 1 }         
-    return result.to_json
+    return result
   end
   
-#  function remove_node($data) {
-#    $id = parent::_remove((int)$data["id"]);
-#    return "{ \"status\" : 1 }";
-#  }
-#
-#  
-#  function _remove($id) {
-#    if((int)$id === 1) { return false; }
-#    $data = $this->_get_node($id);
-#    $lft = (int)$data[$this->fields["left"]];
-#    $rgt = (int)$data[$this->fields["right"]];
-#    $dif = $rgt - $lft + 1;
-#
-#    // deleting node and its children
-#    $this->db->query("" . 
-#      "DELETE FROM `".$this->table."` " . 
-#      "WHERE `".$this->fields["left"]."` >= ".$lft." AND `".$this->fields["right"]."` <= ".$rgt
-#    );
-#    // shift left indexes of nodes right of the node
-#    $this->db->query("".
-#      "UPDATE `".$this->table."` " . 
-#        "SET `".$this->fields["left"]."` = `".$this->fields["left"]."` - ".$dif." " . 
-#      "WHERE `".$this->fields["left"]."` > ".$rgt
-#    );
-#    // shift right indexes of nodes right of the node and the node's parents
-#    $this->db->query("" . 
-#      "UPDATE `".$this->table."` " . 
-#        "SET `".$this->fields["right"]."` = `".$this->fields["right"]."` - ".$dif." " . 
-#      "WHERE `".$this->fields["right"]."` > ".$lft
-#    );
-#
-#    $pid = (int)$data[$this->fields["parent_id"]];
-#    $pos = (int)$data[$this->fields["position"]];
-#
-#    // Update position of siblings below the deleted node
-#    $this->db->query("" . 
-#      "UPDATE `".$this->table."` " . 
-#        "SET `".$this->fields["position"]."` = `".$this->fields["position"]."` - 1 " . 
-#      "WHERE `".$this->fields["parent_id"]."` = ".$pid." AND `".$this->fields["position"]."` > ".$pos
-#    );
-#    return true;
-#  }
-  
-  def rename_node(params)
+  def self.rename_node(params)
     node = find(params[:id])
-    if node.update_attributes(params)
-      return { :status => 0 }   
-    end    
-  end  
-  
-  def move_node(params)
-    if params[:copy] == "1"
-    else
-      parent = find(params[:ref])
-      node = find(params[:id])
-      node.parent_id = parent.id
-      node.position  = params[:position]
-      node.left      = parent[:right]
-      node.right     = node.left + 1
-      node.level     = parent.level + 1
-      node.title     = params[:title]
-      node.ntype     = params[:type]
-      if node.save
-        node.ancestors.each do |ancestor|
-          ancestor.right += 2
-          ancestor.save
-        end
-        node.children.each do | child |
-          
-          
-        end
-        result = { :status => 1, :id => node.id }   
-      else
-        result = { :status => 0 }   
-      end         
-      return result.to_json
+    node.title = params[:title]
+    if node.save
+      return { :status => 1 }   
     end    
   end
-   
-#  function move_node($data) { 
-#    $id = parent::_move((int)$data["id"], (int)$data["ref"], (int)$data["position"], (int)$data["copy"]);
-#    if(!$id) return "{ \"status\" : 0 }";
-#    if((int)$data["copy"] && count($this->add_fields)) {
-#      $ids  = array_keys($this->_get_children($id, true));
-#      $data = $this->_get_children((int)$data["id"], true);
-#
-#      $i = 0;
-#      foreach($data as $dk => $dv) {
-#        $s = "UPDATE `".$this->table."` SET `".$this->fields["id"]."` = `".$this->fields["id"]."` "; 
-#        foreach($this->add_fields as $k => $v) {
-#          if(isset($dv[$k]))  $s .= ", `".$this->fields[$v]."` = \"".$this->db->escape($dv[$k])."\" ";
-#          else        $s .= ", `".$this->fields[$v]."` = `".$this->fields[$v]."` ";
-#        }
-#        $s .= "WHERE `".$this->fields["id"]."` = ".$ids[$i];
-#        $this->db->query($s);
-#        $i++;
-#      }
-#    }
-#    return "{ \"status\" : 1, \"id\" : ".$id." }";
-#  }  
   
+  def self.copy_node(id, node)
+    params = {} 
+    params[:id]       = id
+    params[:position] = node.position 
+    params[:title]    = node.title  
+    params[:type]     = node.ntype    
+    create_node(params)
+  end
+  
+  def self.copy_children(id, node)
+    node.children.each do |child|
+      result = copy_node(id, child)
+      copy_children(result[:id], child)
+    end
+  end
+  
+  def self.move_node(params)
+    node_old = find(params[:id])
+    result   = copy_node(params[:ref], node_old)   
+    copy_children(result[:id], node_old)    
+    if params[:copy] == "0"   
+      remove_node(params[:id])
+    end
+    result = { :status => 1, :id => result[:id] }   
+    return result
+  end
+
   def reconstruct
        
   end 
@@ -523,7 +304,7 @@ class DemoTree < ActiveRecord::Base
  
   def self.rebuild_demo
     delete_all
-    root = create(:parent_id => 0,  :position => 2, :left => 1,  :right => 14, :level => 0, :title => 'ROOT')
+    root = create(:parent_id => 0,  :position => 0, :left => 1,  :right => 14, :level => 0, :title => 'ROOT')
     create(:parent_id => root.id,   :position => 0, :left => 2,  :right => 11, :level => 1, :title => 'C:',         :ntype => 'drive')
     create(:parent_id => root.id+1, :position => 0, :left => 3,  :right => 6,  :level => 2, :title => '_demo',     :ntype => 'folder')
     create(:parent_id => root.id+2, :position => 0, :left => 4,  :right => 5,  :level => 3, :title => 'index.html', :ntype => 'default')

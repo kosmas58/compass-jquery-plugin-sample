@@ -31,7 +31,7 @@ class JstreeController < ApplicationController
 
   def get_children
     tree = DemoTree.get_children(params[:id])
-    render :json => tree, :layout => false   
+    render :json => tree.to_json, :layout => false   
   end
   
   def search    
@@ -57,7 +57,7 @@ class JstreeController < ApplicationController
             render :json => result, :layout => false
           else
             nodes = DemoTree.search(params[:search_str])
-            render :json => nodes, :layout => false 
+            render :json => nodes.to_json, :layout => false 
         end  
       end
     end
@@ -65,21 +65,22 @@ class JstreeController < ApplicationController
   
   def create_node
     result = DemoTree.create_node(params)
-    render :json => result, :layout => false 
+    render :json => result.to_json, :layout => false 
   end
   
   def remove_node
     result = DemoTree.remove_node(params[:id])
-    render :json => result, :layout => false 
+    render :json => result.to_json, :layout => false 
   end
   
   def rename_node
-    result = DemoTree.create_node(params)
-    render :json => result, :layout => false
+    result = DemoTree.rename_node(params)
+    render :json => result.to_json, :layout => false
   end
   
   def move_node
-    render :nothing => true, :status => 200
+    result = DemoTree.move_node(params)
+    render :json => result.to_json, :layout => false
   end
   
   def reconstruct
@@ -92,6 +93,6 @@ class JstreeController < ApplicationController
   
   def rebuild
     result = DemoTree.rebuild_demo()
-    render :json => result, :layout => false 
+    render :json => result.to_json, :layout => false 
   end
 end

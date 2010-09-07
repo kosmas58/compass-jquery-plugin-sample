@@ -41,6 +41,7 @@
                     // You get the search string as a parameter
                     "data" : function (str) {
                         return { 
+                            "format" : "json",
                             "search_str" : str 
                         }; 
                     }
@@ -281,6 +282,7 @@
       }
     })
     .click(function() {
+      document.getElementById("text").value = "";
       $("#treedemo").jstree(this.id);
     });     
     $('#reconstruct').button()
