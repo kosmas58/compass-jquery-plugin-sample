@@ -107,10 +107,12 @@ class DemoTree < ActiveRecord::Base
     node_old = find(params[:id])
     result   = copy_node(params[:ref], node_old)   
     copy_children(result[:id], node_old)    
-    if params[:copy] == "0"   
+    if params[:copy] == "1"   
+      result = { :status => 1, :id => result[:id] }
+    else
       remove_node(params[:id])
+      result = { :status => 1, :id => "1" }
     end
-    result = { :status => 1, :id => result[:id] }   
     return result
   end
 
@@ -243,29 +245,37 @@ class DemoTree < ActiveRecord::Base
 #      $this->db->query($sql);
 #    }
 #  }
-  
-  def analyze
-    
-  end
 
-#  function _analyze() {
-#    $report = array();
-#
-#    $this->db->query("" . 
-#      "SELECT " . 
-#        "`".$this->fields["left"]."` FROM `".$this->table."` s " . 
-#      "WHERE " . 
-#        "`".$this->fields["parent_id"]."` = 0 "
-#    );
-#    $this->db->nextr();
-#    if($this->db->nf() == 0) {
-#      $report[] = "[FAIL]\tNo root node.";
-#    }
-#    else {
-#      $report[] = ($this->db->nf() > 1) ? "[FAIL]\tMore than one root node." : "[OK]\tJust one root node.";
-#    }
-#    $report[] = ($this->db->f(0) != 1) ? "[FAIL]\tRoot node's left index is not 1." : "[OK]\tRoot node's left index is 1.";
-#
+  def self.analyze
+    report = []
+    
+    # Analyze root
+    nodes = find_all_by_title("ROOT")    
+    case nodes.size
+      when 0 then
+        report << "<div class='span-4'>[FAIL]</div><div class='span-20 last'>No root node.</div>"
+      when 1 then
+        report << "<div class='span-4'>[OK]</div><div class='span-20 last'>Just one root node.</div>"
+        if nodes[0].left == 1
+          report << "<div class='span-4'>[OK]</div><div class='span-20 last'>Root node's left index is 1.</div>"
+        else
+          report << "<div class='span-4'>[FAIL]</div><div class='span-20 last'>Root node's left index is not 1.</div>"
+        end
+      else
+        report << "<div class='span-4'>[FAIL]</div><div class='span-20 last'>More than one root node.</div>"
+    end
+        
+    # Missing parents (Unnecessary)
+
+    
+#    select cust.id, count(*)
+#    from order
+#    inner join order on order.cust_id = cust.id
+#    group by cust.id
+#    having count(*) > 10
+
+
+    
 #    $this->db->query("" . 
 #      "SELECT " . 
 #        "COUNT(*) FROM `".$this->table."` s " . 
@@ -274,14 +284,29 @@ class DemoTree < ActiveRecord::Base
 #        "(SELECT COUNT(*) FROM `".$this->table."` WHERE `".$this->fields["id"]."` = s.`".$this->fields["parent_id"]."`) = 0 ");
 #    $this->db->nextr();
 #    $report[] = ($this->db->f(0) > 0) ? "[FAIL]\tMissing parents." : "[OK]\tNo missing parents.";
-#
-#    $this->db->query("SELECT MAX(`".$this->fields["right"]."`) FROM `".$this->table."`");
-#    $this->db->nextr();
-#    $n = $this->db->f(0);
-#    $this->db->query("SELECT COUNT(*) FROM `".$this->table."`");
-#    $this->db->nextr();
-#    $c = $this->db->f(0);
-#    $report[] = ($n/2 != $c) ? "[FAIL]\tRight index does not match node count." : "[OK]\tRight index matches count.";
+
+
+
+    # Right index
+    max     = maximum(:right)
+    entries = count
+
+    if max/2 == entries
+      report << "<div class='span-4'>[OK]</div><div class='span-20 last'>Right index matches node count.</div>"
+    else
+      report << "<div class='span-4'>[FAIL]</div><div class='span-20 last'>Right index does not match node count.</div>"
+    end 
+
+    # Adjacency
+    
+    count1 = count(:conditions => right)
+
+    if max/2 == entries
+      report << "<div class='span-4'>[OK]</div><div class='span-20 last'>Adjacency and nested set do match.</div>"
+    else
+      report << "<div class='span-4'>[FAIL]</div><div class='span-20 last'>Adjacency and nested set do not match.</div>"
+    end
+
 #
 #    $this->db->query("" . 
 #      "SELECT COUNT(`".$this->fields["id"]."`) FROM `".$this->table."` s " . 
@@ -298,10 +323,10 @@ class DemoTree < ActiveRecord::Base
 #    $this->db->nextr();
 #    $report[] = ($this->db->f(0) > 0) ? "[FAIL]\tAdjacency and nested set do not match." : "[OK]\tNS and AJ match";
 #
-#    return implode("<br />",$report);
-#  }
+
+    return report * "<br/>"
+  end
   
- 
   def self.rebuild_demo
     delete_all
     root = create(:parent_id => 0,  :position => 0, :left => 1,  :right => 14, :level => 0, :title => 'ROOT')

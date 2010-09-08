@@ -87,8 +87,9 @@ class JstreeController < ApplicationController
     render :nothing => true, :status => 200
   end  
   
-  def analyze
-    render :nothing => true, :status => 200
+  def analyze    
+    result = DemoTree.analyze()
+    render :text => result, :status => 200
   end  
   
   def rebuild
