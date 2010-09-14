@@ -83,10 +83,6 @@ class JstreeController < ApplicationController
     render :json => result.to_json, :layout => false
   end
   
-  def reconstruct
-    render :nothing => true, :status => 200
-  end  
-  
   def analyze    
     result = DemoTree.analyze()
     render :text => result, :status => 200

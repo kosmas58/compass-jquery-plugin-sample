@@ -285,11 +285,7 @@
     .click(function() {
       document.getElementById("text").value = "";
       $("#treedemo").jstree(this.id);
-    });     
-    $('#reconstruct').button()
-    .click(function() {
-      $.get('./reconstruct', function () { $('#treedemo').jstree('refresh',-1); });
-    });  
+    }); 
     $('#analyze').button()
     .click(function() {
       $('#alog').load('./analyze');
