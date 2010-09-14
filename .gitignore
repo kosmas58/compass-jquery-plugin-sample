@@ -3,6 +3,7 @@
 app/stylesheets/.sass-cache/*
 db/schema.rb
 db/*.sqlite*
+db/*.sqlite3
 log/*
 public/javascripts/common.js
 public/javascripts/locales.js
