@@ -8,11 +8,7 @@ class NavigationController < ApplicationController
     respond_to do |format|
       format.html
       format.js do
-        if @tree.ntype == "accordion"
-          flash[:notice] = "You cannot edit an accordion header!" #I18n.t('make_resourceful.update.success')
-        else
-          flash[:notice] = ""
-        end
+        flash[:notice] = ""
         render(:partial => "form", :layout => false)
       end
     end
@@ -53,22 +49,22 @@ class NavigationController < ApplicationController
     end
   end
   
-  def create_node
+  def create
     result = NavigationTree.create_node(params)
     render :json => result.to_json, :layout => false 
   end
   
-  def remove_node
+  def destroy
     result = NavigationTree.remove_node(params[:id])
     render :json => result.to_json, :layout => false 
   end
   
-  def rename_node
+  def rename
     result = NavigationTree.rename_node(params)
     render :json => result.to_json, :layout => false
   end
   
-  def move_node
+  def move
     result = NavigationTree.move_node(params)
     render :json => result.to_json, :layout => false
   end

@@ -21,7 +21,15 @@
           %span.ui-icon.ui-icon-info{ :style => "float: left; margin-right: 0.3em" }
           = flash[:notice]
 
+  .formrow.clearfix
+    %label.span-6{:for => :title}
+      Title
+      = t('txt.layout.colon')
+    .span-17
+      = f.text_field :title, :size => 60
+
   - if @tree.ntype == "default" or @tree.ntype == "folder"
+    %br
     .formrow.clearfix
       %label.span-6{:for => :summary}
         Icon

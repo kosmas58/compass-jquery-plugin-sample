@@ -53,6 +53,8 @@ class NavigationTree < ActiveRecord::Base
     node.level     = parent.level + 1
     node.title     = params[:title]
     node.ntype     = params[:type]
+    node.icon      = params[:icon] if params[:icon]
+    node.href      = params[:href] if params[:href]
     if node.save
       node.ancestors.each do |ancestor|
         ancestor.right += 2
@@ -106,7 +108,9 @@ class NavigationTree < ActiveRecord::Base
     params[:id]       = id
     params[:position] = node.position 
     params[:title]    = node.title  
-    params[:type]     = node.ntype    
+    params[:type]     = node.ntype
+    params[:icon]     = node.icon if node.icon 
+    params[:href]     = node.href if node.href 
     create_node(params) 
   end
   
