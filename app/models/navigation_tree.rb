@@ -1,6 +1,6 @@
-class DemoTree < ActiveRecord::Base 
+class NavigationTree < ActiveRecord::Base
   acts_as_tree_on_steroids :family_level => 1
-  set_table_name "demo_trees"
+  set_table_name "navigation_trees"
   
   def self.get_children(id)
     result = Array.new
@@ -13,8 +13,14 @@ class DemoTree < ActiveRecord::Base
     if id != 0
       children.each do |child| 
         result << {
-          :attr  => {:id => "node_#{child.id.to_s}", :rel => child.ntype},
-          :data  => child.title,
+          :data => {
+            :title => child.title,
+            :icon  => (child.icon) ? "#{child.icon}" : nil
+          },  
+          :attr => {
+            :id  => "node_#{child.id.to_s}", 
+            :rel => child.ntype 
+          },
           :state => (child.right - child.left) > 1 ? "closed" : ""
         }
       end
@@ -201,16 +207,5 @@ class DemoTree < ActiveRecord::Base
     return report * "<br/>"
   end
   
-  def self.rebuild_demo
-    delete_all
-    root = create(:parent_id => 0,  :position => 0, :left => 1,  :right => 14, :level => 0, :title => 'ROOT')
-    create(:parent_id => root.id,   :position => 0, :left => 2,  :right => 11, :level => 1, :title => 'C:',         :ntype => 'drive')
-    create(:parent_id => root.id+1, :position => 0, :left => 3,  :right => 6,  :level => 2, :title => '_demo',     :ntype => 'folder')
-    create(:parent_id => root.id+2, :position => 0, :left => 4,  :right => 5,  :level => 3, :title => 'index.html', :ntype => 'default')
-    create(:parent_id => root.id+1, :position => 1, :left => 7,  :right => 10, :level => 2, :title => '_docs',      :ntype => 'folder')
-    create(:parent_id => root.id,   :position => 1, :left => 12, :right => 13, :level => 1, :title => 'D:',         :ntype => 'drive')
-    create(:parent_id => root.id+4, :position => 0, :left => 8,  :right => 9,  :level => 3, :title => 'zmei.html',  :ntype => 'default')
-    return { :status => 0 }   
-  end 
-  
 end
+

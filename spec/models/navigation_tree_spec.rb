@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Navigation do
+describe NavigationTree do
   before(:each) do
     @valid_attributes = {
       
@@ -8,6 +8,6 @@ describe Navigation do
   end
 
   it "should create a new instance given valid attributes" do
-    Navigation.create!(@valid_attributes)
+    NavigationTree.create!(@valid_attributes)
   end
 end

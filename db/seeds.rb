@@ -755,3 +755,6 @@ DemoTree.create(:parent_id => 3, :position => 0, :left => 4,  :right => 5,  :lev
 DemoTree.create(:parent_id => 2, :position => 1, :left => 7,  :right => 10, :level => 2, :title => '_docs',      :ntype => 'folder')
 DemoTree.create(:parent_id => 1, :position => 1, :left => 12, :right => 13, :level => 1, :title => 'D:',         :ntype => 'drive')
 DemoTree.create(:parent_id => 5, :position => 0, :left => 8,  :right => 9,  :level => 3, :title => 'zmei.html',  :ntype => 'default')
+
+#NavigationTree
+NavigationTree.create(:parent_id => 0, :position => 0, :left => 1,  :right => 2, :level => 0, :title => 'ROOT')

@@ -1,0 +1,40 @@
+:css
+  .ui-state-error {
+    min-width: 420px;
+  }
+  .ui-state-error .errorExplanation h2, .ui-state-error .errorExplanation p {
+    font-size: normal;
+    font-weight: bold;
+  }
+  .ui-state-error .errorExplanation ul li {
+    font-size: normal;
+  }
+
+- form_for(@tree, :url => "/navigation") do |f|
+
+  = f.error_messages
+              
+  - if !flash[:notice].blank?
+    .ui-widget
+      .ui-state-highlight.ui-corner-all{ :style => "padding: 0pt 0.7em;" }
+        %p
+          %span.ui-icon.ui-icon-info{ :style => "float: left; margin-right: 0.3em" }
+          = flash[:notice]
+
+  - if @tree.ntype == "default" or @tree.ntype == "folder"
+    .formrow.clearfix
+      %label.span-6{:for => :summary}
+        Icon
+        = t('txt.layout.colon')
+      .span-17
+        = f.text_field :icon, :size => 60
+  
+  - if @tree.ntype == "default"
+    %br
+    .formrow.clearfix
+      %label.span-6{:for => :location}
+        HREF
+        = t('txt.layout.colon')
+      .span-17
+        = f.text_field :href, :size => 60
+ 
