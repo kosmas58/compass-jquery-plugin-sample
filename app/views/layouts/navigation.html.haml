@@ -13,10 +13,12 @@
       = javascript_include_tag 'jquery.pngFix'
 
     = stylesheet_link_tag "compiled/jquery.ui/#{session[:theme]}", :media => 'screen, projection'
+    = stylesheet_link_tag 'demos.css', :media => 'screen, projection'
 
     = javascript_include_tag :jquery_142
     = javascript_include_tag :jrails
-    = raw jrails_javascripts(I18n.locale)  
+    = raw jrails_javascripts(I18n.locale)
+    = javascript_include_tag :jstree
 
     = javascript_include_tag 'locales'
     = javascript_include_tag 'common'
@@ -26,6 +28,8 @@
     = yield :content_head
 
   %body{body_attributes}
-    #content{ :style => "padding: 0.5em" } 
+    #content
+      #flash_messages
+        %span
+          = h raw flash_messages
       = yield
-      

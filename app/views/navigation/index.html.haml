@@ -1,2 +1,50 @@
-%h4
-  T.B.D.
+-@title = t('txt.layout.conf_nav')
+
+- content_for :content_head do
+  = render(:partial => "index.js.haml", :format => :js)
+
+.demo
+  %h3
+    =@title
+  
+  .span-24
+    #toolbar_top.ui-widget-header.ui-corner-all
+      %button#add_accordion
+        Add accordion
+      %button#add_folder
+        Add folder
+      %button#add_default
+        Add entry
+      %button#rename
+        Rename
+      %button#cut
+        Cut
+      %button#copy
+        Copy
+      %button#paste
+        Paste
+      %button#remove
+        Remove
+      %button#clear_search{ :style => "float:right;" }
+        Clear
+      %button#search{ :style => "float:right;" }
+        Search
+      %input#text{ :style => "float:right;", :type => "text" }
+  .span-16
+    #navigationtree.ui-widget-content.ui-corner-all
+  .span-8.last 
+    .report.ui-widget-content.ui-corner-all
+      #alog
+  .span-24
+    #toolbar_bottom.ui-widget-header.ui-corner-all
+      %button#analyze
+        Analyze
+      %button#refresh
+        Refresh
+  
+  #navigation_update_dialog{ :style => "display: none;" }
+/ End demo
+.demo-description
+  %p
+    Configure navigation 
+/ End demo-description
