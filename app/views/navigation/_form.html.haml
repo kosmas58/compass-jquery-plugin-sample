@@ -27,13 +27,13 @@
       = t('txt.layout.colon')
     .span-17
       = f.text_field :title, :size => 60
-    %br
-    .formrow.clearfix
-      %label.span-6{:for => :summary}
-        Icon
-        = t('txt.layout.colon')
-      .span-17
-        = f.text_field :icon, :size => 60
+  %br
+  .formrow.clearfix
+    %label.span-6{:for => :summary}
+      Icon
+      = t('txt.layout.colon')
+    .span-17
+      = f.text_field :icon, :size => 60
   
   - if @tree.ntype == "default"
     %br

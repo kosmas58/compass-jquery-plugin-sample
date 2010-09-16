@@ -14,7 +14,7 @@ class NavigationTree < ActiveRecord::Base
       children.each do |child| 
         result << {
           :data => {
-            :title => child.title, #I18n.t(child.title),
+            :title => I18n.t(child.title),
             :icon  => (child.icon) ? "#{child.icon}" : nil
           },  
           :attr => {

@@ -21,8 +21,11 @@ date:
     short: "%b %d"
     long: "%B %d, %Y"
 txt: 
-  layout: 
-    conf_nav: Configure navigation
+  jqt: 
+    beta: jQTouch &beta @ jqtouch.com
+    demo: Compass jQTouch Demo
+  jqical: 
+    name: iCalendar
   hello: Hello world
 support: 
   array: 

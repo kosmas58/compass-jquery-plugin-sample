@@ -1,14 +1,11 @@
 :css
-  #toolbar_botton{ padding: 0.3em; }
-  #testtree { width:auto; height:auto; overflow:auto; }
-  #text{ height: 1.9em; margin: 0 0.4em 0 0; padding: 0.2em 0 0.2em 0.2em; }
-  .ui-button{ font-size: 0.9em; }
+  #navtree { width:auto; height:auto; overflow:auto; }
   
 :javascript
   $(document).ready(function() {        
-    var first = false;
+    var navfirst = false;
     
-    $("#testtree")
+    $("#navtree")
       .jstree({
         "plugins" : [ "themes", "json_data", "ui", "cookies", "types" ],
         "json_data" : { 
@@ -23,7 +20,7 @@
         },
         "themes" : {
           "theme" : "aero",
-          "dots"  : false          
+          "dots"  : false 
     		},
         "types" : {
           "max_depth" : -2,
@@ -49,18 +46,15 @@
         }                            
       })        
       .bind("reselect.jstree", function(event, data) {
-        first = true;
+        navfirst = true;
       })
       .bind("select_node.jstree", function(event, data) {
-        if(first){
+        if(navfirst){
           url = data.rslt.obj.attr("href")
           if(url != "null") {
-            alert("Url: " + url);
+            $("[name=contentFrame]").attr("src", url);
           }
         }
       });        
     });
   
-  $(function() {
-    $('#back').button();
-  });

@@ -62,15 +62,13 @@ de:
       account: 
         name: Name
         debit: Soll
-        level: Level
         lft: lft
+        level: Level
         credit: Haben
         parent_id: Eltern ID
         rgt: rgt
-        acc_num: Kontonr.
         balance: Kontostand
-      client: 
-        name: Name
+        acc_num: Kontonr.
       event: 
         location: Ort
         dtend: Ende
@@ -78,7 +76,7 @@ de:
         summary: Betreff
         description: Beschreibung
         all_day: "Gant\xC3\xA4giges Ereignis"
-      pet: 
+      client: 
         name: Name
       user: 
         pseudo: Pseudonym
@@ -86,15 +84,17 @@ de:
         lastname: Nachname
         firstname: Vorname
         email: E-Mail
-      animal: 
+      pet: 
         name: Name
       item: 
         cd: CD
         item: Element
+      animal: 
+        name: Name
     errors: 
       messages: 
-        greater_than_or_equal_to: "muss gr\xC3\xB6\xC3\x9Fer oder gleich {{count}} sein"
         record_invalid: "G\xC3\xBCltigkeitspr\xC3\xBCfung ist fehlgeschlagen: {{errors}}"
+        greater_than_or_equal_to: "muss gr\xC3\xB6\xC3\x9Fer oder gleich {{count}} sein"
         confirmation: "stimmt nicht mit der Best\xC3\xA4tigung \xC3\xBCberein"
         less_than_or_equal_to: muss kleiner oder gleich {{count}} sein
         blank: "muss ausgef\xC3\xBCllt werden"
@@ -203,8 +203,8 @@ de:
       xml: XML-Daten
       dnd: Drag'n Drop
       checkbox: "Auswahlk\xC3\xA4stchen"
-      radio: Umschalttasten
       demo: Demonstration
+      radio: Umschalttasten
       json: JSON-Daten
       cookies: Cookies
       contextmenu: "Kontextmen\xC3\xBC"
@@ -214,48 +214,44 @@ de:
       unique: Eindeutig
       ui: UI
       core: "Basisfunktionalit\xC3\xA4t"
-      search: Suche
       crrm: CRRM
       themes: Themen
+      search: Suche
+    trees: !binary |
+      QsOkdW1l
+
     layout: 
       colon: ":"
       back: "Zur\xC3\xBCck"
       edit: Bearbeiten
       conf_nav: "Navigation konfigurieren "
-      cancel: Abbrechen
       delete: "L\xC3\xB6schen"
+      cancel: Abbrechen
       theme: Thema
       from: von
       language: Sprache
-      show: Anzeigen
-      save: Sichern
       footer: 
         legalese: "Copyright \xC2\xA9 2009-2010 Kosmas Sch\xC3\xBCtz. N\xC3\xA4heres finden Sie unter LICENSE."
+      show: Anzeigen
+      save: Sichern
       create: Anlegen
       update: Aktualisieren
       until: bis
-    ribbon: 
-      name: Multifunktionsleiste
-      simple: jQuery Ribbon Simple Demo
-      default: jQuery Ribbon Windows 7 Demo
-      office: jQuery Ribbon Office Demo
-    jqt: 
-      name: "jQTouch (ben\xC3\xB6tigt einen Browser mit WebKit)"
     jqgrid: 
+      name: jqGrid
+      simple: 
+        name: Einfache Datengitter
+        direct: mit direkter Auswahl und automatischer Weite
+        default: "mit Standardfunktionalit\xC3\xA4t"
+        master: mit Haupt- und Detailsicht
+        selection: mit Auswahllink und Suche deaktiviert
+        multiple: mit Mehrfachauswahl + Zeilennummern
       manipulation: 
         name: Datenmanipulation
         inline: "mit Inline-\xC3\x84nderung"
         modal: "mit modaler \xC3\x84nderung"
         datepicker: mit Datumsauswahl (Nachname)
         input: mit verschiedenen Eingabetypen
-      name: jqGrid
-      simple: 
-        direct: mit direkter Auswahl und automatischer Weite
-        name: Einfache Datengitter
-        default: "mit Standardfunktionalit\xC3\xA4t"
-        master: mit Haupt- und Detailsicht
-        selection: mit Auswahllink und Suche deaktiviert
-        multiple: mit Mehrfachauswahl + Zeilennummern
       demo: 
         30xml_map: XML-Mapping
         30resizable: "Vergr\xC3\xB6\xC3\x9Ferbare Spalten"
@@ -289,8 +285,8 @@ de:
         36api: Neues API
         38array5: Zeilen verbergen
         default: jqGrid Beispiele
-        38remote4: "Dynamische Ver\xC3\xA4nderung der Gruppierung"
         34autoscroll: Das automatische Laden von Daten beim Scrollen
+        38remote4: "Dynamische Ver\xC3\xA4nderung der Gruppierung"
         38array6: "Summarische Fu\xC3\x9Fzeilen"
         30searching: Daten suchen
         32cbutton: "Angepasste Schaltfl\xC3\xA4chen und Formulare"
@@ -327,17 +323,17 @@ de:
         actions: Aktionen
         30basic: Einfaches Beispiel
         38v: Neu in Version 3.8
+        34adjacency: Baumgitter mit Adjazenzliste
         36rdnd: Drag and Drop von Zeilen
         20advanced: Fortgeschritten
-        34adjacency: Baumgitter mit Adjazenzliste
         20set: Set-Methoden
         37toolbar: Werkzeugleistensuche
         35view: Modus Gitteransicht
         30full: Vollzugriff
-        30events: Ereignisse nutzen
         30hide: Spalten anzeigen/verbergen
-        38xml1: Gruppierung mit XML-Daten
+        30events: Ereignisse nutzen
         36srows: Sortierbare Zeilen
+        38xml1: Gruppierung mit XML-Daten
         20resizing: "Gitter vergr\xC3\xB6\xC3\x9Fern"
         33cell: "Zellen \xC3\xA4ndern"
         34scroll: Scrollen mit dynamischen Zeilenauswahl
@@ -382,13 +378,23 @@ de:
         crud: mit CRUD-Operationen
       improvements: 
         name: mit Verbesserungen der Form
+    ribbon: 
+      name: Multifunktionsleiste
+      simple: jQuery Ribbon Simple Demo
+      default: jQuery Ribbon Windows 7 Demo
+      office: jQuery Ribbon Office Demo
+    jqt: 
+      name: "jQTouch (ben\xC3\xB6tigt einen Browser mit WebKit)"
+      demo: Compass jQTouch Demo
+      beta: jQTouch & beta@jqtouch.com
     jqical: 
+      name: iCalendar
       anytime: 
         name: Any+Time&trade
         default: "Standardfunktionalit\xC3\xA4t"
         css: Benutzereigenes Layout
-        separate: Datum und Uhrzeit getrennt
         inline: Eingebettet anzeigen
+        separate: Datum und Uhrzeit getrennt
         ajax: Ajax Demo
         extend: "Erweiterung der Funktionalit\xC3\xA4t"
         convert: AnyTime.Converter
@@ -425,8 +431,8 @@ de:
       default: Standardeinstellungen
       dnd2: Neues Ziehen und Ablegen
       iframe: iframe und URL-Navigation
-      api: Programmier-API
       dnd: Ziehen und Ablegen
+      api: Programmier-API
       quick: JS-Objekt initialisieren
       events: Ergeignisverarbeitung
       minexpand: Feste Expansionsebene
@@ -467,6 +473,18 @@ de:
           display-grid: Als Gitter anzeigen
           connect-lists: Listen verbinden
           placeholder: "Platzhalter f\xC3\xBCr den Abwurf"
+        draggable: 
+          snap-to: In Element oder Gitter einrasten
+          handle: Position des Griffs
+          scroll: Autoscrollen
+          default: Ziehbar
+          sortable: Zieh- und sortierbar
+          constrain-movement: "Einschr\xC3\xA4nken der Bewegung"
+          events: Ereignisse
+          cursor-style: Cursorstil
+          revert: "Zur Position zur\xC3\xBCckkehren"
+          delay-start: "Start verz\xC3\xB6gern"
+          visual-feedback: Visuelles Feedback
         resizable: 
           aspect-ratio: "Seitenverh\xC3\xA4ltnis beibehalten"
           snap-to-grid: Im Gitter einrasten
@@ -478,18 +496,6 @@ de:
           textarea: Texfeld
           delay-start: "Start verz\xC3\xB6gern"
           constrain-area: "Vergr\xC3\xB6\xC3\x9Ferungsfl\xC3\xA4che einschr\xC3\xA4nken"
-          visual-feedback: Visuelles Feedback
-        draggable: 
-          snap-to: In Element oder Gitter einrasten
-          handle: Position des Griffs
-          scroll: Autoscrollen
-          default: Ziehbar
-          sortable: Zieh- und sortierbar
-          constrain-movement: "Einschr\xC3\xA4nken der Bewegung"
-          events: Ereignisse
-          revert: "Zur Position zur\xC3\xBCckkehren"
-          delay-start: "Start verz\xC3\xB6gern"
-          cursor-style: Cursorstil
           visual-feedback: Visuelles Feedback
         droppable: 
           default: Ablegbar
@@ -519,8 +525,17 @@ de:
           rangemax: Bereich mit festgesetzten Maximum
           colorpicker: Einfache Farbauswahl
           hotelrooms: Zimmerreservierung
-          rangemin: Bereich mit festgesetztem Mininum
           tabs: Reiter per Schieberegler kontrollieren
+          rangemin: Bereich mit festgesetztem Mininum
+        accordion: 
+          hoverintent: "\xC3\x96ffnen bei hoverintent"
+          default: Akkordeon
+          no-auto-height: "Ohne automatische H\xC3\xB6he"
+          sortable: Sortierbar
+          fillspace: "Freien Platz f\xC3\xBCllen"
+          mouseover: "\xC3\x96ffnen, wenn die Maus dar\xC3\xBCberf\xC3\xA4hrt"
+          custom-icons: Symbole anpassen
+          collapsible: Inhalt einklappen
         progressbar: 
           resize: "Vergr\xC3\xB6\xC3\x9Ferbarer Fortschrittsbalken"
           default: Fortschrittsbalken
@@ -534,41 +549,12 @@ de:
           show-week: Zeige Kalanderwoche
           icon-trigger: "\xC3\x9Cber Symbol aktivieren"
           date-formats: Datum formatieren
-          animation: Animationen
           multiple-calendars: Mehrerer Monate anzeigen
-          event-search: Veranstaltungen suchen
+          animation: Animationen
           localization: " Kalender lokalisieren"
+          event-search: Veranstaltungen suchen
           dropdown-month-year: "Monat- & Jahresmen\xC3\xBCs anzeigen"
           other-months: Termine in den anderen Monaten
-        accordion: 
-          hoverintent: "\xC3\x96ffnen bei hoverintent"
-          default: Akkordeon
-          no-auto-height: "Ohne automatische H\xC3\xB6he"
-          sortable: Sortierbar
-          fillspace: "Freien Platz f\xC3\xBCllen"
-          mouseover: "\xC3\x96ffnen, wenn die Maus dar\xC3\xBCberf\xC3\xA4hrt"
-          custom-icons: Symbole anpassen
-          collapsible: Inhalt einklappen
-        autocomplete: 
-          maxheight: Scrollbare Ergebnisse
-          default: "Autovervollst\xC3\xA4ndigung"
-          folding: "Akzente ber\xC3\xBCcksichtigen"
-          remote-jsonp: Entfernte JSONP-Datenquelle
-          multiple-remote: Mehrfachwerte, entfernt
-          remote-with-cache: Entfernt mit Caching
-          custom-data: Angepasste Daten und Anzeige
-          multiple: Mehrfachwerte
-          remote: Entfernte Datenquelle
-          categories: Kategorien
-          combobox: Auswahleiste
-          remote-xml: XML-Daten einmalig geparsed
-        dialog: 
-          default: Dialog
-          modal-confirmation: "Modale Best\xC3\xA4tigung"
-          modal: Modaler Dialog
-          animated: Animierter Dialog
-          modal-form: Modale Form
-          modal-message: Modale Nachricht
         tabs: 
           manipulation: Einfache Handhabung
           bottom: Reiter unterhalb des Inhalts
@@ -578,11 +564,31 @@ de:
           mouseover: "\xC3\x96ffnen, wenn die Maus dar\xC3\xBCberf\xC3\xA4hrt"
           cookie: "Persistenz \xC3\xBCber Cookie"
           collapsible: Inhalt wegklappen
+        dialog: 
+          default: Dialog
+          modal-confirmation: "Modale Best\xC3\xA4tigung"
+          modal: Modaler Dialog
+          animated: Animierter Dialog
+          modal-form: Modale Form
+          modal-message: Modale Nachricht
+        autocomplete: 
+          maxheight: Scrollbare Ergebnisse
+          default: "Autovervollst\xC3\xA4ndigung"
+          remote-jsonp: Entfernte JSONP-Datenquelle
+          multiple-remote: Mehrfachwerte, entfernt
+          folding: "Akzente ber\xC3\xBCcksichtigen"
+          remote-with-cache: Entfernt mit Caching
+          custom-data: Angepasste Daten und Anzeige
+          multiple: Mehrfachwerte
+          categories: Kategorien
+          remote: Entfernte Datenquelle
+          remote-xml: XML-Daten einmalig geparsed
+          combobox: Auswahleiste
       form: 
         new: Anlegen
         edit: Bearbeiten
-        cancel: Abbrechen
         delete: "L\xC3\xB6schen"
+        cancel: Abbrechen
         save: Speichern
         sure: Sind Sie sicher?
       effects: 
