@@ -32,6 +32,10 @@ class NavigationController < ApplicationController
     end
   end
 
+  def test
+    @accordions = NavigationTree.find_by_title("ROOT").children
+  end
+ 
   def get_children
     tree = NavigationTree.get_children(params[:id])
     render :json => tree.to_json, :layout => false   

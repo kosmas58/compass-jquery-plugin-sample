@@ -85,8 +85,7 @@ jQuery(document).ready(function() {
     show: 'bounce',
     hide: 'clip'
   });
-	
-	
+
   $('#show_license').click(function() {
     $('#license').dialog('open');
     return false;
