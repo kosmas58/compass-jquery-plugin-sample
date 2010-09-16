@@ -14,12 +14,13 @@ class NavigationTree < ActiveRecord::Base
       children.each do |child| 
         result << {
           :data => {
-            :title => child.title,
+            :title => child.title, #I18n.t(child.title),
             :icon  => (child.icon) ? "#{child.icon}" : nil
           },  
           :attr => {
             :id  => "node_#{child.id.to_s}", 
-            :rel => child.ntype 
+            :rel => child.ntype,
+            :href  => (child.url) ? "#{child.url}" : nil
           },
           :state => (child.right - child.left) > 1 ? "closed" : ""
         }
@@ -54,7 +55,7 @@ class NavigationTree < ActiveRecord::Base
     node.title     = params[:title]
     node.ntype     = params[:type]
     node.icon      = params[:icon] if params[:icon]
-    node.href      = params[:href] if params[:href]
+    node.url       = params[:url] if params[:url]
     if node.save
       node.ancestors.each do |ancestor|
         ancestor.right += 2
@@ -110,7 +111,7 @@ class NavigationTree < ActiveRecord::Base
     params[:title]    = node.title  
     params[:type]     = node.ntype
     params[:icon]     = node.icon if node.icon 
-    params[:href]     = node.href if node.href 
+    params[:url]      = node.url if node.url 
     create_node(params) 
   end
   

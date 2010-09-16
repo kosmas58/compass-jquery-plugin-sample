@@ -13,7 +13,7 @@ class CreateNavigationTrees < ActiveRecord::Migration
       t.column :title,                :text
       t.column :ntype,                :text,    :null => true
       
-      t.column :href,                 :text
+      t.column :url,                 :text
       t.column :icon,                 :text     
       
       t.timestamps 

@@ -5,9 +5,11 @@
   .ui-button{ font-size: 0.9em; }
   
 :javascript
-  $(function () {
+  $(document).ready(function() {
     // Settings up the tree - using $(selector).jstree(options);
-    // All those configuration options are documented in the _docs folder
+    // All those configuration options are documented in the _docs folder   
+    var first = false;
+    
     $("#test_tree")
         .jstree({ 
             // the list of plugins to include
@@ -86,10 +88,24 @@
             },
             // the UI plugin - it handles selecting/deselecting/hovering nodes
             "themes" : {
-                "theme" : "aero",
-        		}            
+                "theme" : "aero"
+        		},
+        		"core" : { 
+              "html_titles" : true 
+            }                            
+        })        
+        .bind("reselect.jstree", function(event, data) {
+          first = true;
         })
-     
+        .bind("select_node.jstree", function(event, data) {
+          if(first){
+            href = data.rslt.obj.attr("href")
+            if(href != "null") {
+              alert(href);
+              //window.location.href=href;
+            }
+          }
+        });        
   });
   
   $(function() {
