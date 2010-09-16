@@ -6,7 +6,7 @@ ActionController::Routing::Routes.draw do |map|
                 :collection => { :get_children=> :get,
                                  :search      => :get,                               
                                  :analyze     => :get,
-                                 :server_post => :post,
+                                 :configure   => :get,
                                  :test        => :get },
                 :member => { :rename => :post,
                              :move   => :put }
@@ -18,8 +18,7 @@ ActionController::Routing::Routes.draw do |map|
                              :rename_node => :post,
                              :move_node   => :post,
                              :analyze     => :get,
-                             :rebuild     => :post,
-                             :server_post => :post }  
+                             :rebuild     => :post }  
 
   map.namespace :jqgrid do |jqgrid|
     jqgrid.resources :animals
