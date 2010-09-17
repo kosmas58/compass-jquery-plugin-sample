@@ -206,6 +206,7 @@ en:
       until: until
     jqgrid:
       name: jqGrid
+      secret: Secret Sauce jqGrid
       manipulation:
         name: Data manipulation
         inline: with inline editing
@@ -351,8 +352,11 @@ en:
       default: jQuery Ribbon Windows 7 theme
       office: jQuery Ribbon Office theme
     jqt:
-      name: jQTouch (needs a browser with WebKit engine)
+      name: "jQTouch <i>(needs a browser with WebKit engine)</i>"
+      demo: Compass jQTouch Demo
+      beta: "jQTouch &beta @ jqtouch.com"
     jqical:
+      name: iCalendar
       anytime:
         name: Any+Time&trade
         default: Default functionality
@@ -413,6 +417,7 @@ en:
         aero: Aero
         aqua: Aqua
     hello: Hello world
+    trees: Trees
     jst:
       name: jsTree
       demo: Demonstration

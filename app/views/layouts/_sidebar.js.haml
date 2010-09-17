@@ -1,0 +1,60 @@
+:css
+  #navtree { width:auto; height:auto; overflow:auto; }
+  
+:javascript
+  $(document).ready(function() {        
+    var navfirst = false;
+    
+    $("#navtree")
+      .jstree({
+        "plugins" : [ "themes", "json_data", "ui", "cookies", "types" ],
+        "json_data" : { 
+          "ajax" : {
+            "url" : "/navigation/get_children",
+            "data" : function (n) { 
+              return { 
+                "id" : n.attr ? n.attr("id").replace("node_","") : 1 
+              }; 
+            }
+          }
+        },
+        "themes" : {
+          "theme" : "aero",
+          "dots"  : false 
+    		},
+        "types" : {
+          "max_depth" : -2,
+          "max_children" : -2,
+          "valid_children" : [ "accordion" ],
+          "types" : {
+            "default" : {
+              "valid_children" : "none"
+            },
+            "folder" : {
+              "valid_children" : [ "default", "folder" ]
+            },
+            "accordion" : {
+              "valid_children" : [ "default", "folder" ],
+              "icon" : {
+                "image" : "/images/jstree/accordion.png"
+              },
+            }
+          }
+        },
+    		"core" : { 
+          "html_titles" : true 
+        }                            
+      })        
+      .bind("reselect.jstree", function(event, data) {
+        navfirst = true;
+      })
+      .bind("select_node.jstree", function(event, data) {
+        if(navfirst){
+          url = data.rslt.obj.attr("href")
+          if(url != "null") {
+            $("[name=contentFrame]").attr("src", url);
+          }
+        }
+      });        
+    });
+  

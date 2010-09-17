@@ -4,14 +4,13 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :navigation,
                 :collection => { :get_children=> :get,
-                                 :search      => :get,
-                                 :create_node => :post,
-                                 :remove_node => :delete,
-                                 :rename_node => :post,
-                                 :move_node   => :post,
+                                 :search      => :get,                               
                                  :analyze     => :get,
-                                 :rebuild     => :post,
-                                 :server_post => :post }  
+                                 :configure   => :get,
+                                 :test        => :get,
+                                 :seed        => :get },
+                :member => { :rename => :post,
+                             :move   => :put }
   
   map.resources :jstree => { :get_children=> :get,
                              :search      => :get,
@@ -19,10 +18,8 @@ ActionController::Routing::Routes.draw do |map|
                              :remove_node => :delete,
                              :rename_node => :post,
                              :move_node   => :post,
-                             #:reconstruct => :get,
                              :analyze     => :get,
-                             :rebuild     => :post,
-                             :server_post => :post }  
+                             :rebuild     => :post }  
 
   map.namespace :jqgrid do |jqgrid|
     jqgrid.resources :animals
@@ -42,9 +39,9 @@ ActionController::Routing::Routes.draw do |map|
     jqical.resources :calendars,
                      :collection => { :iphone => :get } do |calendar|
       calendar.resources :events,
-                         :collection => { :index_reload =>  :get,
+                         :collection => { :index_reload  => :get,
                                           :full_calendar => :get },
-                         :member =>     { :delete       => :get  } 
+                         :member =>     { :delete        => :get } 
     end
   end                                     
   

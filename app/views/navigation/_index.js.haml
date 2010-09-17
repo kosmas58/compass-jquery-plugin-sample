@@ -99,10 +99,13 @@
         			}
         		},
             // For UI & core - the nodes to initially select and open will be overwritten by the cookie plugin
-  
+            "core" : { 
+              "html_titles" : true 
+            },
             // the UI plugin - it handles selecting/deselecting/hovering nodes
             "themes" : {
                 "theme" : "aero",
+                "dots"  : false 
             },
             "contextmenu" : {
         			"items" : { // Could be a function that should return an object like this one
@@ -165,7 +168,7 @@
         })
         .bind("create.jstree", function (e, data) {
             $.post(
-                "/navigation/create_node", 
+                "/navigation/create", 
                 { 
                     "id" : ( data.rslt.parent == -1) ? -1 : data.rslt.parent.attr("id").replace("node_",""), 
                     "position" : data.rslt.position,
@@ -187,10 +190,10 @@
                 $.ajax({
                     async : false,
                     type: 'DELETE',
-                    url: "/navigation/remove_node",
-                    data : { 
-                        "id" : this.id.replace("node_","")
-                    }, 
+                    url: "/navigation/" + this.id.replace("node_",""),
+                    //data : { 
+                    //    "id" : this.id.replace("node_","")
+                    //}, 
                     success : function (r) {
                         if(!r.status) {
                             data.inst.refresh();
@@ -201,9 +204,8 @@
         })
         .bind("rename.jstree", function (e, data) {
     			$.post(
-    				"/navigation/rename_node", 
+    				"/navigation/" + data.rslt.obj.attr("id").replace("node_","") + "/rename", 
     				{ 
-    					"id" : data.rslt.obj.attr("id").replace("node_",""),
     					"title" : data.rslt.new_name
     				}, 
     				function (r) {
@@ -218,9 +220,9 @@
                 $.ajax({
                     async : false,
                     type: 'PUT',
-                    url: "/navigation/move_node",
+                    url: "/navigation/" + $(this).attr("id").replace("node_","") + "/move",
                     data : { 
-                        "id" : $(this).attr("id").replace("node_",""), 
+                        "id" : $(this).attr("id").replace("node_",""),
                         "ref" : data.rslt.np.attr("id").replace("node_",""), 
                         "position" : data.rslt.cp + i,
                         "title" : data.rslt.name,
@@ -236,17 +238,12 @@
                                 data.inst.refresh(data.inst._get_parent(data.rslt.oc));
                             }
                         }
-                        $("#analyze").click();
+                        //$("#analyze").click();
                     }
                 });
             });
         });
   });
-  
-     
-    
-      //live_update(obj.attr("id").replace("node_",""));    
-
   
   $(function() {
     $('#add_accordion').button({
@@ -345,7 +342,9 @@
     $('#refresh').button()
     .click(function() {
       $('#navigationtree').jstree('refresh',-1);
-    });    
+    });
+    $('#test').button(); 
+    $('#seed').button(); 
   });
 
 = render(:file => 'ui/_ui_event_for.js.haml', :locals => { :domid => 'navigation', :url => '/navigation', :actions => {:update => "/edit"}})

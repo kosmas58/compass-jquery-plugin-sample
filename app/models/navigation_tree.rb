@@ -14,12 +14,13 @@ class NavigationTree < ActiveRecord::Base
       children.each do |child| 
         result << {
           :data => {
-            :title => child.title,
+            :title => I18n.t(child.title),
             :icon  => (child.icon) ? "#{child.icon}" : nil
           },  
           :attr => {
             :id  => "node_#{child.id.to_s}", 
-            :rel => child.ntype 
+            :rel => child.ntype,
+            :href  => (child.url) ? "#{child.url}" : nil
           },
           :state => (child.right - child.left) > 1 ? "closed" : ""
         }
@@ -53,15 +54,25 @@ class NavigationTree < ActiveRecord::Base
     node.level     = parent.level + 1
     node.title     = params[:title]
     node.ntype     = params[:type]
+    node.icon      = params[:icon] if params[:icon]
+    node.url       = params[:url] if params[:url]
     if node.save
       node.ancestors.each do |ancestor|
         ancestor.right += 2
         ancestor.save
       end
       update_all("left = left + 2, right = right + 2", "left >= #{node.right}")
-      result = { :status => 1, :id => node.id }   
+      if params[:seed]
+        result = node.id  
+      else
+        result = { :status => 1, :id => node.id } 
+      end  
     else
-      result = { :status => 0 }   
+      if params[:seed]
+        result  = nil  
+      else
+        result = { :status => 0 } 
+      end
     end         
     return result
   end
@@ -106,7 +117,9 @@ class NavigationTree < ActiveRecord::Base
     params[:id]       = id
     params[:position] = node.position 
     params[:title]    = node.title  
-    params[:type]     = node.ntype    
+    params[:type]     = node.ntype
+    params[:icon]     = node.icon if node.icon 
+    params[:url]      = node.url if node.url 
     create_node(params) 
   end
   
@@ -207,5 +220,33 @@ class NavigationTree < ActiveRecord::Base
     return report * "<br/>"
   end
   
+  def self.seed()    
+    root = find_by_title("ROOT")
+    if root
+      File.open(File.join(RAILS_ROOT, 'db/navigation.seeds.rb' ), "w+") do |file|      
+        file.write "\n#NavigationTree\n"
+        file.write "node_#{root.id} = NavigationTree.create(:parent_id => 0, :position => 0, :left => 1,  :right => 2, :level => 0, :title => 'ROOT').id\n"
+        export_node(file, root)
+        file.close
+      end
+    end
+  end
+  
+  private
+  
+  def self.export_node(file, parent)
+    pos = 0
+    file.write "parent_id = node_#{parent.id}\n"
+    parent.children.each do |child|
+      file.write "node_#{child.id} = NavigationTree.create_node(:id => parent_id, :seed => true, :position => #{pos}, :title => '#{child.title}', :type => '#{child.ntype}', :icon => '#{child.icon}', :url => '#{child.url}')\n" 
+      if !child.is_leaf?
+        export_node(file, child)
+      end
+      pos += 1
+    end    
+    if parent.parent
+      file.write "parent_id = node_#{parent.parent.id}\n"
+    end
+  end
 end
 

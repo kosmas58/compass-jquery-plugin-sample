@@ -1,0 +1,66 @@
+:css
+  #toolbar_botton{ padding: 0.3em; }
+  #testtree { width:auto; height:auto; overflow:auto; }
+  #text{ height: 1.9em; margin: 0 0.4em 0 0; padding: 0.2em 0 0.2em 0.2em; }
+  .ui-button{ font-size: 0.9em; }
+  
+:javascript
+  $(document).ready(function() {        
+    var first = false;
+    
+    $("#testtree")
+      .jstree({
+        "plugins" : [ "themes", "json_data", "ui", "cookies", "types" ],
+        "json_data" : { 
+          "ajax" : {
+            "url" : "/navigation/get_children",
+            "data" : function (n) { 
+              return { 
+                "id" : n.attr ? n.attr("id").replace("node_","") : 1 
+              }; 
+            }
+          }
+        },
+        "themes" : {
+          "theme" : "aero",
+          "dots"  : false          
+    		},
+        "types" : {
+          "max_depth" : -2,
+          "max_children" : -2,
+          "valid_children" : [ "accordion" ],
+          "types" : {
+            "default" : {
+              "valid_children" : "none"
+            },
+            "folder" : {
+              "valid_children" : [ "default", "folder" ]
+            },
+            "accordion" : {
+              "valid_children" : [ "default", "folder" ],
+              "icon" : {
+                "image" : "/images/jstree/accordion.png"
+              },
+            }
+          }
+        },
+    		"core" : { 
+          "html_titles" : true 
+        }                            
+      })        
+      .bind("reselect.jstree", function(event, data) {
+        first = true;
+      })
+      .bind("select_node.jstree", function(event, data) {
+        if(first){
+          url = data.rslt.obj.attr("href")
+          if(url != "null") {
+            alert("Url: " + url);
+          }
+        }
+      });        
+    });
+  
+  $(function() {
+    $('#back').button();
+  });

@@ -21,20 +21,26 @@
           %span.ui-icon.ui-icon-info{ :style => "float: left; margin-right: 0.3em" }
           = flash[:notice]
 
-  - if @tree.ntype == "default" or @tree.ntype == "folder"
-    .formrow.clearfix
-      %label.span-6{:for => :summary}
-        Icon
-        = t('txt.layout.colon')
-      .span-17
-        = f.text_field :icon, :size => 60
+  .formrow.clearfix
+    %label.span-6{:for => :title}
+      Title
+      = t('txt.layout.colon')
+    .span-17
+      = f.text_field :title, :size => 60
+  %br
+  .formrow.clearfix
+    %label.span-6{:for => :summary}
+      Icon
+      = t('txt.layout.colon')
+    .span-17
+      = f.text_field :icon, :size => 60
   
   - if @tree.ntype == "default"
     %br
     .formrow.clearfix
       %label.span-6{:for => :location}
-        HREF
+        Url
         = t('txt.layout.colon')
       .span-17
-        = f.text_field :href, :size => 60
+        = f.text_field :url, :size => 60
  
