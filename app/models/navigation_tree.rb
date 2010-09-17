@@ -62,9 +62,17 @@ class NavigationTree < ActiveRecord::Base
         ancestor.save
       end
       update_all("left = left + 2, right = right + 2", "left >= #{node.right}")
-      result = { :status => 1, :id => node.id }   
+      if params[:seed]
+        result = node.id  
+      else
+        result = { :status => 1, :id => node.id } 
+      end  
     else
-      result = { :status => 0 }   
+      if params[:seed]
+        result  = nil  
+      else
+        result = { :status => 0 } 
+      end
     end         
     return result
   end
@@ -212,5 +220,33 @@ class NavigationTree < ActiveRecord::Base
     return report * "<br/>"
   end
   
+  def self.seed()    
+    root = find_by_title("ROOT")
+    if root
+      File.open(File.join(RAILS_ROOT, 'db/navigation.seeds.rb' ), "w+") do |file|      
+        file.write "\n#NavigationTree\n"
+        file.write "node_#{root.id} = NavigationTree.create(:parent_id => 0, :position => 0, :left => 1,  :right => 2, :level => 0, :title => 'ROOT').id\n"
+        export_node(file, root)
+        file.close
+      end
+    end
+  end
+  
+  private
+  
+  def self.export_node(file, parent)
+    pos = 0
+    file.write "parent_id = node_#{parent.id}\n"
+    parent.children.each do |child|
+      file.write "node_#{child.id} = NavigationTree.create_node(:id => parent_id, :seed => true, :position => #{pos}, :title => '#{child.title}', :type => '#{child.ntype}', :icon => '#{child.icon}', :url => '#{child.url}')\n" 
+      if !child.is_leaf?
+        export_node(file, child)
+      end
+      pos += 1
+    end    
+    if parent.parent
+      file.write "parent_id = node_#{parent.parent.id}\n"
+    end
+  end
 end
 

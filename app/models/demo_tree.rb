@@ -98,10 +98,11 @@ class DemoTree < ActiveRecord::Base
   def self.copy_node(id, node)
     params = {} 
     params[:id]       = id
-    params[:position] = node.position 
+    params[:position] = (node.position) ? node.position : 0 
     params[:title]    = node.title  
     params[:type]     = node.ntype    
-    create_node(params) 
+    result = create_node(params) 
+    return result  
   end
   
   def self.move_node(params)
@@ -202,7 +203,27 @@ class DemoTree < ActiveRecord::Base
   end
   
   def self.rebuild_demo
-    delete_all
+    ActiveRecord::Migration.drop_table :demo_trees
+    ActiveRecord::Migration.create_table :demo_trees do |t|
+      t.column :parent_id,            :integer, :limit => 2, :null => true
+      t.column :id_path,              :string, :limit => 200, :null => true
+      t.column :level,                :integer, :limit => 1, :null => true
+      t.column :children_count,       :integer, :limit => 2, :null => true
+
+      #optional
+      t.column :family_id,            :integer, :limit => 2, :null => true
+    
+      t.column :position,             :integer, :null => false
+      t.column :left,                 :integer, :null => false
+      t.column :right,                :integer, :null => false
+      t.column :level,                :integer, :null => false
+      t.column :title,                :text
+      t.column :ntype,                :text,    :null => true    
+    end
+
+    ActiveRecord::Migration.add_index :demo_trees, :parent_id
+    ActiveRecord::Migration.add_index :demo_trees, :id_path
+    
     root = create(:parent_id => 0,  :position => 0, :left => 1,  :right => 14, :level => 0, :title => 'ROOT')
     create(:parent_id => root.id,   :position => 0, :left => 2,  :right => 11, :level => 1, :title => 'C:',         :ntype => 'drive')
     create(:parent_id => root.id+1, :position => 0, :left => 3,  :right => 6,  :level => 2, :title => '_demo',     :ntype => 'folder')

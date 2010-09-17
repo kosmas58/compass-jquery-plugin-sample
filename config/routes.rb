@@ -7,7 +7,8 @@ ActionController::Routing::Routes.draw do |map|
                                  :search      => :get,                               
                                  :analyze     => :get,
                                  :configure   => :get,
-                                 :test        => :get },
+                                 :test        => :get,
+                                 :seed        => :get },
                 :member => { :rename => :post,
                              :move   => :put }
   

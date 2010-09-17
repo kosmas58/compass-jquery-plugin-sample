@@ -206,6 +206,7 @@ en:
       until: until
     jqgrid:
       name: jqGrid
+      secret: Secret Sauce jqGrid
       manipulation:
         name: Data manipulation
         inline: with inline editing

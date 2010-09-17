@@ -33,7 +33,7 @@ class NavigationController < ApplicationController
   end
 
   def test
-    @accordions = NavigationTree.find_by_title("ROOT").children
+    #@accordions = NavigationTree.find_by_title("ROOT").children
   end
  
   def get_children
@@ -76,6 +76,12 @@ class NavigationController < ApplicationController
   def analyze    
     result = NavigationTree.analyze()
     render :text => result, :status => 200
-  end 
+  end
+  
+  def seed
+    NavigationTree.seed()   
+    flash[:notice] = "Successfully created seed file."
+    redirect_to :action => :index
+  end  
 end
 

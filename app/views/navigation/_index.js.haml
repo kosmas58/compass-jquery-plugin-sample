@@ -238,7 +238,7 @@
                                 data.inst.refresh(data.inst._get_parent(data.rslt.oc));
                             }
                         }
-                        $("#analyze").click();
+                        //$("#analyze").click();
                     }
                 });
             });
@@ -343,7 +343,8 @@
     .click(function() {
       $('#navigationtree').jstree('refresh',-1);
     });
-    $('#test').button();
+    $('#test').button(); 
+    $('#seed').button(); 
   });
 
 = render(:file => 'ui/_ui_event_for.js.haml', :locals => { :domid => 'navigation', :url => '/navigation', :actions => {:update => "/edit"}})
