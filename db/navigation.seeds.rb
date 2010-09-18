@@ -422,6 +422,14 @@ node_325 = NavigationTree.create_node(:id => parent_id, :seed => true, :position
 parent_id = node_212
 parent_id = node_194
 node_326 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.jqgrid.demo.2dc', :type => 'folder', :icon => '/images/jstree/grid.png', :url => '')
+parent_id = node_326
+node_342 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.jqgrid.subgrids.name', :type => 'folder', :icon => '/images/jstree/grid.png', :url => '')
+parent_id = node_342
+node_345 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.jqgrid.subgrids.default', :type => 'default', :icon => '/images/jstree/grid.png', :url => '/jqgrid/users?example=10')
+node_346 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.jqgrid.subgrids.crud', :type => 'default', :icon => '/images/jstree/grid.png', :url => '/jqgrid/users?example=11')
+node_347 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.jqgrid.subgrids.selection', :type => 'default', :icon => '/images/jstree/grid.png', :url => '/jqgrid/users?example=12')
+parent_id = node_326
+parent_id = node_194
 node_327 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.jqgrid.secret', :type => 'default', :icon => '/images/jstree/grid.png', :url => '/jqgrid/widgets')
 parent_id = node_1
 node_328 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 4, :title => 'txt.jqical.name', :type => 'accordion', :icon => '/images/jstree/working.png', :url => '')
