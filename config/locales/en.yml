@@ -348,7 +348,7 @@ en:
       improvements:
         name: with form improvements
     ribbon:
-      name: Ribbon
+      name: jQuery Ribbon
       simple: jQuery Ribbon Simple theme
       default: jQuery Ribbon Windows 7 theme
       office: jQuery Ribbon Office theme
@@ -442,6 +442,12 @@ en:
       html: HTML Data
       themeroller: Themeroller
       unique: Unique
+    mobiles:
+      name: jQuery on mobile devices
+    jqm:
+      name: jQuery Mobile 
+    plugins:
+      name: jQuery plugins   
     ui:
       name: jQuery UI
       utilities:

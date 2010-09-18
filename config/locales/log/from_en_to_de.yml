@@ -21,8 +21,8 @@ date:
     short: "%b %d"
     long: "%B %d, %Y"
 txt: 
-  jqgrid: 
-    secret: Secret Sauce jqGrid
+  jqm: 
+    name: jQuery Mobile
   hello: Hello world
 support: 
   array: 

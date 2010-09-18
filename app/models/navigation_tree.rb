@@ -238,7 +238,10 @@ class NavigationTree < ActiveRecord::Base
     pos = 0
     file.write "parent_id = node_#{parent.id}\n"
     parent.children.each do |child|
-      file.write "node_#{child.id} = NavigationTree.create_node(:id => parent_id, :seed => true, :position => #{pos}, :title => '#{child.title}', :type => '#{child.ntype}', :icon => '#{child.icon}', :url => '#{child.url}')\n" 
+      file.write "node_#{child.id} = NavigationTree.create_node(:id => parent_id, :seed => true, :position => #{pos}, :title => '#{child.title}', :type => '#{child.ntype}'"
+      file.write ", :icon => '#{child.icon}'" if child.icon
+      file.write ", :url => '#{child.url}'" if child.url
+      file.write ")\n"       
       if !child.is_leaf?
         export_node(file, child)
       end
