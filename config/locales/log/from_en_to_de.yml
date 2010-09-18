@@ -21,11 +21,8 @@ date:
     short: "%b %d"
     long: "%B %d, %Y"
 txt: 
-  jqt: 
-    beta: jQTouch &beta @ jqtouch.com
-    demo: Compass jQTouch Demo
-  jqical: 
-    name: iCalendar
+  jqgrid: 
+    secret: Secret Sauce jqGrid
   hello: Hello world
 support: 
   array: 

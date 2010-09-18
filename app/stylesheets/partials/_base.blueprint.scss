@@ -46,6 +46,8 @@
 
 #navigation {
   padding: 0.5em 0em 0em 0em; }
+  .ui-widget-header, .ui-widget-content { 
+  	padding: 0.3em 0.5em 0.3em 0.5em; } 
 
 @mixin footer {
  }

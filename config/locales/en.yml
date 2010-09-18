@@ -204,6 +204,7 @@ en:
       create: Create
       update: Update
       until: until
+      navi: Browse through the examples
     jqgrid:
       name: jqGrid
       secret: Secret Sauce jqGrid
