@@ -1,0 +1,31 @@
+:css
+  fieldset { border:0;  margin-bottom: 40px;}	
+  label,select,.ui-select-menu { float: left; margin-right: 10px; }
+  select { width: 200px; }
+
+:javascript
+  $(function(){			
+    $('select#speedD').selectmenu({
+      style:'dropdown', 
+      menuWidth: 400,
+      format: addressFormatting
+    });			
+  });		
+  
+  //a custom format option callback
+  var addressFormatting = function(text){
+    var newText = text;
+    //array of find replaces
+    var findreps = [
+      {find:/^([^\-]+) \- /g, rep: '$1'},
+      {find:/([^\|><]+) \| /g, rep: '$1'},
+      {find:/([^\|><\(\)]+) (\()/g, rep: '$1$2'},
+      {find:/([^\|><\(\)]+)$/g, rep: '$1'},
+      {find:/(\([^\|><]+\))$/g, rep: '$1'}
+    ];
+    	
+    for(var i in findreps){
+      newText = newText.replace(findreps[i].find, findreps[i].rep);
+    }
+    return newText;
+  }

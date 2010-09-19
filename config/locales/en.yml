@@ -513,6 +513,17 @@ en:
           toolbar: Toolbar
           splitbutton: Split button
         default: Widgets
+        selectmenu:
+          name: Selectmenu
+          default: "Default: <b>popup</b> style"
+          without-id: "Default: <b>popup</b> without ID"
+          maxheight: "Default: <b>popup</b> with maxHeight set"
+          text-formatting: "Default: <b>popup</b> with option text formatting"
+          icons: "Default: <b>popup</b> with framework icons"
+          custom-icons: "Default: <b>popup</b> with custom icon images"
+          optgroups: "Default: <b>popup</b> with optgroups"
+          dropdown: "<b>dropdown</b> style"
+          menuwidth: "<b>dropdown</b> with menuWidth wider than menu and text formatting"
         slider:
           steps: Snap to increments
           multiple-vertical: Multiple sliders

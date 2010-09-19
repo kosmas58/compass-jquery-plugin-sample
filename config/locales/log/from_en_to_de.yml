@@ -21,9 +21,11 @@ date:
     short: "%b %d"
     long: "%B %d, %Y"
 txt: 
-  jqm: 
-    name: jQuery Mobile
   hello: Hello world
+  ui: 
+    widgets: 
+      selectmenu: 
+        default: "Default: <b>popup</b> style"
 support: 
   array: 
     words_connector: ", "

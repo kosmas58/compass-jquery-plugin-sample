@@ -1,0 +1,24 @@
+:css
+  fieldset { border:0;  margin-bottom: 40px;}	
+  label,select,.ui-select-menu { float: left; margin-right: 10px; }
+  select { width: 300px; }
+  
+  /*select with custom icons*/
+  a.customicons { height: 2.8em;}
+  .customicons li a, body a.customicons span.ui-selectmenu-status { line-height: 2em; padding-left: 30px !important; }
+  .video .ui-selectmenu-item-icon, body .podcast .ui-selectmenu-item-icon, body .rss .ui-selectmenu-item-icon { height: 24px; width: 24px; }
+  .video .ui-selectmenu-item-icon { background: url("/images/icons/24x24/video-square.png") 0 0 no-repeat; }
+  .podcast .ui-selectmenu-item-icon { background: url("/images/icons/24x24/podcast-square.png") 0 0 no-repeat; }
+  .rss .ui-selectmenu-item-icon { background: url("/images/icons/24x24/rss-square.png") 0 0 no-repeat; }		
+	    
+:javascript
+  $(function() {
+  	$('select#filesB').selectmenu({
+  		icons: [
+  			{find: '.video'},
+  			{find: '.podcast'},
+  			{find: '.rss'}
+  		]
+  	});
+  });
+  

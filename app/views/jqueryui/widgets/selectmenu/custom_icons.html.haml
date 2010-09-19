@@ -1,0 +1,23 @@
+-@title = "#{t('txt.ui.name')} #{t('txt.ui.widgets.selectmenu.name')} - #{t('txt.ui.widgets.selectmenu.custom-icons')}"
+
+- content_for :content_head do
+  = render(:partial => "custom_icons.js.haml", :format => :js)
+
+.demo
+  %h3
+    = raw @title
+  %form{:action => "#"}
+    %fieldset
+      %label{:for => "filesB"}
+        Select a File:
+      %br
+      %br
+      %select#filesB.customicons{:name => "filesB"}
+        %option.podcast{:value => "mypodcast"} John Resig Podcast
+        %option.video{:value => "myvideo"} Scott Gonzales Video
+        %option.rss{:value => "myrss"} jQuery RSS XML
+/ End demo
+.demo-description
+  %p
+    Selectmenu demo.
+/ End demo-description

@@ -1,0 +1,29 @@
+-@title = "#{t('txt.ui.name')} #{t('txt.ui.widgets.selectmenu.name')} - #{t('txt.ui.widgets.selectmenu.optgroups')}"
+
+- content_for :content_head do
+  = render(:partial => "optgroups.js.haml", :format => :js)
+
+.demo
+  %h3
+    = raw @title
+  %form{:action => "#"}
+    %fieldset
+      %label{:for => "filesC"}
+        Select a File:
+      %br
+      %br
+      %select#filesC{:name => "filesC"}
+        %optgroup{:label => "images"}
+        %option.image{:value => "jquerylogo"} jQuery Logo
+        %option.image{:selected => "selected", :value => "jqueryuilogo"} jQuery UI Logo
+        %optgroup{:label => "scripts"}
+        %option.script{:value => "jquery"} jQuery.js
+        %option.script{:value => "jqueryui"} ui.jQuery.js
+        %optgroup{:label => "other"}
+        %option{:value => "somefile"} Some unknown file
+        %option{:value => "someotherfile"} Some other unknown file
+/ End demo
+.demo-description
+  %p
+    Selectmenu demo.
+/ End demo-description

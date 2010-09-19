@@ -1,0 +1,24 @@
+-@title = "#{t('txt.ui.name')} #{t('txt.ui.widgets.selectmenu.name')} - #{t('txt.ui.widgets.selectmenu.text-formatting')}"
+
+- content_for :content_head do
+  = render(:partial => "text_formatting.js.haml", :format => :js)
+
+.demo
+  %h3
+    = raw @title
+  %form{:action => "#"}
+    %fieldset
+      %label{:for => "speedB"}
+        Select an Address:
+      %br
+      %br          
+      %select#speedB{:name => "speedB"}
+        %option John Doe - 78 West Main St Apt 3A | Bloomsburg, PA 12345 (footer text)
+        %option{:selected => "selected"} Jane Doe - 78 West Main St Apt 3A | Bloomsburg, PA 12345 (footer text)
+        %option Joseph Doe - 78 West Main St Apt 3A | Bloomsburg, PA 12345 (footer text)
+        %option Mad Doe Kiiid - 78 West Main St Apt 3A | Bloomsburg, PA 12345 (footer text)
+/ End demo
+.demo-description
+  %p
+    Selectmenu demo.
+/ End demo-description

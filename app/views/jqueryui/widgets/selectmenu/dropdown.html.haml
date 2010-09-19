@@ -1,0 +1,25 @@
+-@title = "#{t('txt.ui.name')} #{t('txt.ui.widgets.selectmenu.name')} - #{t('txt.ui.widgets.selectmenu.dropdown')}"
+
+- content_for :content_head do
+  = render(:partial => "dropdown.js.haml", :format => :js)
+
+.demo
+  %h3
+    = raw @title
+  %form{:action => "#"}
+    %fieldset
+      %label{:for => "speedC"}
+        Select a Speed:
+      %br
+      %br
+      %select#speedC{:name => "speedC"}
+        %option.whoo{:value => "Slower"} Slower
+        %option{:value => "Slow"} Slow
+        %option{:selected => "selected", :value => "Medium"} Medium
+        %option{:value => "Fast"} Fast
+        %option{:value => "Faster"} Faster
+/ End demo
+.demo-description
+  %p
+    Selectmenu demo.
+/ End demo-description
