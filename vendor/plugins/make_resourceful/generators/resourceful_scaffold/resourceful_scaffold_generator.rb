@@ -6,7 +6,7 @@ class ResourcefulScaffoldGenerator < Rails::Generator::NamedBase
                 :controller_class_nesting_depth,
                 :controller_class_name,
                 :controller_underscore_name,
-                :controller_plural_name,
+                :controller_plural_name
   alias_method  :controller_file_name,  :controller_underscore_name
   alias_method  :controller_table_name, :controller_plural_name
 
