@@ -18,6 +18,8 @@
   float: right;
   @include horizontal-list;
   select {
+  	height: 1.65em;
+    width: 5em;
     margin-top: 0; } }
 
 @mixin header {

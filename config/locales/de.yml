@@ -542,7 +542,7 @@ de:
           default: "Default: <b>Popup</b>-Stil"
           icons: "Default: <b>Popup</b> mit UI-Symbolen"
           optgroups: "Default: <b>Popup</b> mit optgroups"
-          menuwidth: "<b>dropdown</b> mit menuWidth breiter als Men\xC3\xBC und Textformatierung"
+          menuwidth: "<b>dropdown</b> mit menuWidth und Textformatierung"
           text-formatting: "Default: <b>Popup</b> mit der Option Textformatierung"
           without-id: "Default: <b>Popup</b> ohne ID"
           dropdown: "Default: <b>Popup</b>-Stil"

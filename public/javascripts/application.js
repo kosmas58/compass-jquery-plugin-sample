@@ -3,7 +3,16 @@ jQuery(document).ready(function() {
 	// Cookie persistence missing
 	// start
 	
-	$("#locale").change(function(){
+	$("#locale")
+	.selectmenu({
+		style: 'dropdown'
+		//icons: [
+		//	{find: '.video'},
+		//	{find: '.podcast'},
+		//	{find: '.rss'}
+		//]
+	})
+	.change(function(){
 		this.form.submit();
 	});	
 	
