@@ -524,6 +524,7 @@ en:
           optgroups: "Default: <b>popup</b> with optgroups"
           dropdown: "<b>dropdown</b> style"
           menuwidth: "<b>dropdown</b> with menuWidth and text formatting"
+          custom-icons2: "<b>dropdown</b> languages with flag icons"
         slider:
           steps: Snap to increments
           multiple-vertical: Multiple sliders

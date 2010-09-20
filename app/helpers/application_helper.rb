@@ -23,7 +23,7 @@ module ApplicationHelper
       text, value = option_text_and_value(element)
       selected_attribute = ' selected="selected"' if option_value_selected?(value, selected)
       disabled_attribute = ' disabled="disabled"' if disabled && option_value_selected?(value, disabled)
-      options << %(<option class="#{html_escape(value.to_s)}" value="#{html_escape(value.to_s)}" #{selected_attribute}#{disabled_attribute}>#{html_escape(text.to_s)}</option>)
+      options << %(<option class="#{html_escape(value.to_s)}" value="#{html_escape(value.to_s)}"#{selected_attribute}#{disabled_attribute}>#{html_escape(text.to_s)}</option>)
     end
 
     options_for_select.join("\n").html_safe

@@ -25,7 +25,7 @@ txt:
   ui: 
     widgets: 
       selectmenu: 
-        default: "Default: <b>popup</b> style"
+        custom-icon2: <b>dropdown</b> languages with flag icons
 support: 
   array: 
     words_connector: ", "

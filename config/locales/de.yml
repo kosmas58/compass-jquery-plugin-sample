@@ -205,8 +205,8 @@ de:
       xml: XML-Daten
       dnd: Drag'n Drop
       checkbox: "Auswahlk\xC3\xA4stchen"
-      demo: Demonstration
       radio: Umschalttasten
+      demo: Demonstration
       json: JSON-Daten
       cookies: Cookies
       contextmenu: "Kontextmen\xC3\xBC"
@@ -241,6 +241,13 @@ de:
       QsOkdW1l
 
     jqgrid: 
+      simple: 
+        name: Einfache Datengitter
+        direct: mit direkter Auswahl und automatischer Weite
+        default: "mit Standardfunktionalit\xC3\xA4t"
+        master: mit Haupt- und Detailsicht
+        selection: mit Auswahllink und Suche deaktiviert
+        multiple: mit Mehrfachauswahl + Zeilennummern
       name: jqGrid
       manipulation: 
         name: Datenmanipulation
@@ -248,13 +255,6 @@ de:
         modal: "mit modaler \xC3\x84nderung"
         datepicker: mit Datumsauswahl (Nachname)
         input: mit verschiedenen Eingabetypen
-      simple: 
-        direct: mit direkter Auswahl und automatischer Weite
-        name: Einfache Datengitter
-        default: "mit Standardfunktionalit\xC3\xA4t"
-        master: mit Haupt- und Detailsicht
-        selection: mit Auswahllink und Suche deaktiviert
-        multiple: mit Mehrfachauswahl + Zeilennummern
       demo: 
         30xml_map: XML-Mapping
         30resizable: "Vergr\xC3\xB6\xC3\x9Ferbare Spalten"
@@ -333,8 +333,8 @@ de:
         37toolbar: Werkzeugleistensuche
         35view: Modus Gitteransicht
         30full: Vollzugriff
-        30events: Ereignisse nutzen
         30hide: Spalten anzeigen/verbergen
+        30events: Ereignisse nutzen
         36srows: Sortierbare Zeilen
         38xml1: Gruppierung mit XML-Daten
         20resizing: "Gitter vergr\xC3\xB6\xC3\x9Fern"
@@ -382,15 +382,15 @@ de:
       improvements: 
         name: mit Verbesserungen der Form
       secret: Secret Sauce jqGrid
-    ribbon: 
-      name: Multifunktionsleiste
-      simple: jQuery Ribbon Simple Demo
-      default: jQuery Ribbon Windows 7 Demo
-      office: jQuery Ribbon Office Demo
     jqt: 
       name: "jQTouch (ben\xC3\xB6tigt einen Browser mit WebKit)"
-      demo: Compass jQTouch Demo
       beta: jQTouch & beta@jqtouch.com
+      demo: Compass jQTouch Demo
+    ribbon: 
+      simple: jQuery Ribbon Simple Demo
+      name: Multifunktionsleiste
+      default: jQuery Ribbon Windows 7 Demo
+      office: jQuery Ribbon Office Demo
     jqical: 
       name: iCalendar
       anytime: 
@@ -433,11 +433,11 @@ de:
       lazy: Lazy
       persist: Persistenz
       default: Standardeinstellungen
-      quick: JS-Objekt initialisieren
+      api: Programmier-API
       dnd: Ziehen und Ablegen
+      quick: JS-Objekt initialisieren
       dnd2: Neues Ziehen und Ablegen
       iframe: iframe und URL-Navigation
-      api: Programmier-API
       events: Ergeignisverarbeitung
       minexpand: Feste Expansionsebene
       form: In Formular integriert
@@ -482,16 +482,16 @@ de:
           connect-lists: Listen verbinden
           placeholder: "Platzhalter f\xC3\xBCr den Abwurf"
         draggable: 
-          handle: Position des Griffs
           snap-to: In Element oder Gitter einrasten
+          handle: Position des Griffs
           scroll: Autoscrollen
           default: Ziehbar
           sortable: Zieh- und sortierbar
           events: Ereignisse
           constrain-movement: "Einschr\xC3\xA4nken der Bewegung"
+          revert: "Zur Position zur\xC3\xBCckkehren"
           cursor-style: Cursorstil
           delay-start: "Start verz\xC3\xB6gern"
-          revert: "Zur Position zur\xC3\xBCckkehren"
           visual-feedback: Visuelles Feedback
         resizable: 
           aspect-ratio: "Seitenverh\xC3\xA4ltnis beibehalten"
@@ -510,15 +510,15 @@ de:
           propagation: Weitergabe verhindern
           revert: "R\xC3\xBCckkehr zur  Position"
           shopping-cart: Einkaufswagen
-          accepted-elements: Akzeptierte Elemente
           visual-feedback: Visuelles Feedback
+          accepted-elements: Akzeptierte Elemente
           photo-manager: Einfacher Photomanager
       widgets: 
         button: 
           default: "Schaltfl\xC3\xA4che"
           checkbox: Auswahltasten
-          icon: Symbole
           radio: Umschalttasten
+          icon: Symbole
           toolbar: Werkzeugleiste
           splitbutton: "Geteilte Schaltfl\xC3\xA4che"
         default: Widgets
@@ -538,13 +538,14 @@ de:
         selectmenu: 
           maxheight: "Default: <b>Popup</b> mit maxheight gesetzt"
           name: "Auswahlmen\xC3\xBC"
-          custom-icons: "Default: <b>Popup</b> mit benutzerdefinierten Icons"
+          without-id: "Default: <b>Popup</b> ohne ID"
           default: "Default: <b>Popup</b>-Stil"
           icons: "Default: <b>Popup</b> mit UI-Symbolen"
           optgroups: "Default: <b>Popup</b> mit optgroups"
-          menuwidth: "<b>dropdown</b> mit menuWidth und Textformatierung"
           text-formatting: "Default: <b>Popup</b> mit der Option Textformatierung"
-          without-id: "Default: <b>Popup</b> ohne ID"
+          menuwidth: <b>dropdown</b> mit menuWidth und Textformatierung
+          custom-icons2: <b>Dropdown</b> Sprachen mit Flaggensymbolen
+          custom-icons: "Default: <b>Popup</b> mit benutzerdefinierten Icons"
           dropdown: "Default: <b>Popup</b>-Stil"
         accordion: 
           hoverintent: "\xC3\x96ffnen bei hoverintent"
@@ -555,6 +556,10 @@ de:
           mouseover: "\xC3\x96ffnen, wenn die Maus dar\xC3\xBCberf\xC3\xA4hrt"
           custom-icons: Symbole anpassen
           collapsible: Inhalt einklappen
+        progressbar: 
+          resize: "Vergr\xC3\xB6\xC3\x9Ferbarer Fortschrittsbalken"
+          default: Fortschrittsbalken
+          animated: Animiert
         datepicker: 
           alt-field: "Alternatives Feld f\xC3\xBCllen"
           buttonbar: "Schaltfl\xC3\xA4chen anzeigen"
@@ -570,10 +575,13 @@ de:
           event-search: Veranstaltungen suchen
           dropdown-month-year: "Monat- & Jahresmen\xC3\xBCs anzeigen"
           other-months: Termine in den anderen Monaten
-        progressbar: 
-          resize: "Vergr\xC3\xB6\xC3\x9Ferbarer Fortschrittsbalken"
-          default: Fortschrittsbalken
-          animated: Animiert
+        dialog: 
+          default: Dialog
+          modal-confirmation: "Modale Best\xC3\xA4tigung"
+          modal: Modaler Dialog
+          animated: Animierter Dialog
+          modal-form: Modale Form
+          modal-message: Modale Nachricht
         tabs: 
           manipulation: Einfache Handhabung
           bottom: Reiter unterhalb des Inhalts
@@ -587,22 +595,15 @@ de:
           maxheight: Scrollbare Ergebnisse
           default: "Autovervollst\xC3\xA4ndigung"
           multiple-remote: Mehrfachwerte, entfernt
-          remote-jsonp: Entfernte JSONP-Datenquelle
           folding: "Akzente ber\xC3\xBCcksichtigen"
+          remote-jsonp: Entfernte JSONP-Datenquelle
           custom-data: Angepasste Daten und Anzeige
           remote-with-cache: Entfernt mit Caching
           multiple: Mehrfachwerte
           categories: Kategorien
           remote: Entfernte Datenquelle
-          remote-xml: XML-Daten einmalig geparsed
           combobox: Auswahleiste
-        dialog: 
-          default: Dialog
-          modal-confirmation: "Modale Best\xC3\xA4tigung"
-          modal: Modaler Dialog
-          animated: Animierter Dialog
-          modal-form: Modale Form
-          modal-message: Modale Nachricht
+          remote-xml: XML-Daten einmalig geparsed
       form: 
         new: Anlegen
         edit: Bearbeiten
@@ -618,10 +619,10 @@ de:
         default: Effekte
         animate: 
           default: Farbanimation
-        toggle_class: 
-          default: Klasse umschalten
         switch_class: 
           default: Klasse wechseln
+        toggle_class: 
+          default: Klasse umschalten
         add_class: 
           default: "Klasse hinzuf\xC3\xBCgen"
         show: 

@@ -1,4 +1,4 @@
--@title = "#{t('txt.ui.name')} #{t('txt.ui.widgets.selectmenu.name')} - #{t('txt.ui.widgets.selectmenu.custom-icons')}"
+-@title = "#{t('txt.ui.name')} #{t('txt.ui.widgets.selectmenu.name')} - #{t('txt.ui.widgets.selectmenu.custom-icons2')}"
 
 - content_for :content_head do
   = render(:partial => "custom_icons2.js.haml", :format => :js)
@@ -8,13 +8,16 @@
     = raw @title
   %form{:action => "#"}
     %fieldset
-      %label{:for => "filesB"}
-        Select a File:
+      %label{:for => "languagesA"}
+        Select a Language:
       %br
       %br
-      %select#filesB.customicons{:name => "filesB"}
+      %select#languagesA.customicons{:name => "languagesA"}
         %option.en{:value => "en"} en
         %option.de{:value => "de"} de
+        %option.es{:value => "es"} es
+        %option.fr{:value => "fr"} fr
+        %option.it{:value => "it"} it
 / End demo
 .demo-description
   %p
