@@ -1,0 +1,23 @@
+:css
+  fieldset { border:0;  margin-bottom: 40px;}	
+  label,select,.ui-select-menu { float: left; margin-right: 10px; }
+  select { width: 300px; }
+  
+  /*select with custom icons*/
+  a.customicons { height: 2.8em;}
+  .customicons li a, body a.customicons span.ui-selectmenu-status { line-height: 2em; padding-left: 30px !important; }
+  .en .ui-selectmenu-item-icon, .de .ui-selectmenu-item-icon { height: 11px; width: 16px; }
+  .en .ui-selectmenu-item-icon { background: url("/images/icons/flags/en.png") 0 0 no-repeat; }
+  .de .ui-selectmenu-item-icon { background: url("/images/icons/flags/de.png") 0 0 no-repeat; }	
+	    
+:javascript
+  $(function() {
+  	$('select#filesB').selectmenu({
+  		style: 'dropdown',
+  		icons: [
+  			{find: '.en'},
+  			{find: '.de'}
+  		]
+  	});
+  });
+  

@@ -5,12 +5,11 @@ jQuery(document).ready(function() {
 	
 	$("#locale")
 	.selectmenu({
-		style: 'dropdown'
-		//icons: [
-		//	{find: '.video'},
-		//	{find: '.podcast'},
-		//	{find: '.rss'}
-		//]
+		style: 'dropdown',
+		icons: [
+			{find: '.en'},
+			{find: '.de'}
+		]
 	})
 	.change(function(){
 		this.form.submit();
