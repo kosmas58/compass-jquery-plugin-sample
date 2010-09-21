@@ -515,16 +515,16 @@ en:
         default: Widgets
         selectmenu:
           name: Selectmenu
-          default: "Default: <b>popup</b> style"
-          without-id: "Default: <b>popup</b> without ID"
-          maxheight: "Default: <b>popup</b> with maxHeight set"
-          text-formatting: "Default: <b>popup</b> with option text formatting"
-          icons: "Default: <b>popup</b> with framework icons"
-          custom-icons: "Default: <b>popup</b> with custom icon images"
-          optgroups: "Default: <b>popup</b> with optgroups"
-          dropdown: "<b>dropdown</b> style"
-          menuwidth: "<b>dropdown</b> with menuWidth and text formatting"
-          custom-icons2: "<b>dropdown</b> languages with flag icons"
+          default: "Style: <b>popup</b> (default)"
+          without-id: "Style: <b>popup</b> without ID"
+          maxheight: "Style: <b>popup</b> with maxHeight set"
+          text-formatting: "Style: <b>popup</b> with option text formatting"
+          icons: "Style: <b>popup</b> with framework icons"
+          custom-icons: "Style: <b>popup</b> with custom icon images"
+          optgroups: "Style: <b>popup</b> with optgroups"
+          dropdown: "Style: <b>dropdown</b>"
+          menuwidth: "Style: <b>dropdown</b> with menuWidth and text formatting"
+          custom-icons2: "Style: <b>dropdown</b> languages with flag icons"
         slider:
           steps: Snap to increments
           multiple-vertical: Multiple sliders
