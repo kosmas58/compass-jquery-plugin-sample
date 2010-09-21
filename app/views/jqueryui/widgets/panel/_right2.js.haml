@@ -1,0 +1,45 @@
+:css
+  .box { margin-top:2em;  font-size: 62.5%; }
+
+:javascript
+  $(document).ready(
+    function(){
+      $('#panel1').panel({
+        'collapseType':'slide-right',
+        'stackable':false,
+        'controls':$('#cntrl').html()
+      });
+      
+      $('#panel9').panel({
+        'collapseType':'slide-right',
+        'stackable':false,
+        'trueVerticalText':true
+      });
+      
+      $('#panel3').panel({
+        'collapseType':'slide-left',
+        'stackable':false,
+        'collapseSpeed':1000,
+        unfold: function() { alert(' \'unfold\' callback executed '); },
+        fold: function() { alert(' \'fold\' callback executed '); }
+      });
+      
+      $('#panel2').panel({
+        'collapsed':true,
+        'draggable':true
+      });
+      
+      $('#panel4').panel({
+        'controls':$('#cntrl').html(),
+        'collapsible':false
+      });
+      
+      $('#panel5').panel({
+        'cookie':{'expires':7}
+      });
+      
+      $('#panel6, #panel7, #panel8').panel({
+        'accordion':'my_group'
+      });
+    }
+  );

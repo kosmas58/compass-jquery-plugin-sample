@@ -1,0 +1,22 @@
+-@title = "#{t('txt.ui.name')} #{t('txt.ui.widgets.panel.name')} - #{t('txt.ui.widgets.panel.left')}"
+
+- content_for :content_head do
+  = render(:partial => "left.js.haml", :format => :js)
+
+.demo
+  %h3
+    = raw @title
+/ End demo
+.demo-description
+  %p
+    This is jQuery UI Draft
+    %b
+      Content grouping / Panel
+    advanced demonstration.
+  %p
+    Latest source at
+    = succeed "," do
+      %a{:href => "http://github.com/idlesign/ist-ui-panel/"} http://github.com/idlesign/ist-ui-panel/
+    also available at jQuery UI Labs:
+    %a{:href => "http://code.google.com/p/jquery-ui/source/browse/#svn/branches/labs/panel/"} http://code.google.com/p/jquery-ui/source/browse/#svn/branches/labs/panel
+/ End demo description

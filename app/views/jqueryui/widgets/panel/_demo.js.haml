@@ -1,0 +1,72 @@
+:css
+  .box { margin: 1em }
+  .navPanel { margin: 0 0.5em 0.5em 0.5em; }
+  .centralPanel { margin-bottom: 1em; }
+  .fakeLink{ color:navy; cursor:pointer; }
+  #desktop { background-color:#eee; padding:1.5em; padding-bottom:3em; color:#444; }
+  #container{
+    margin:0; padding:0; font-size: 10px;
+  }
+  #lCenter{
+    padding:1em;
+    padding-top:0;
+    overflow:hidden;
+  }
+  #lLeft{
+    float: left;
+  }
+  #lRight{
+    float: right;
+  }
+
+:javascript
+  $(document).ready(
+    function(){
+      $('#panelLeft_1').panel({
+        collapseType:'slide-left',
+        width:'300px'
+      });
+      $('#panelLeft_2').panel({
+        collapseType:'slide-left',
+        trueVerticalText:true,
+        vHeight:'150px',
+        width:'280px'
+      });
+      $('#panelLeft_3').panel({
+        collapseType:'slide-left',
+        trueVerticalText:true,
+        vHeight:'150px',
+        width:'300px'
+      });
+      $('#panelRight_1').panel({
+        collapseType:'slide-right',
+        collapsed:true,
+        trueVerticalText:true,
+        vHeight:'237px',
+        width:'200px'
+      });
+      $('#panelRight_2').panel({
+        collapseType:'slide-right',
+        collapsed:true,
+        trueVerticalText:true,
+        vHeight:'160px',
+        width:'200px'
+      });
+      $('#panelCenter_1').panel({
+        collapsible:false
+      });
+      $('#panelCenter_2').panel({
+        draggable:true,
+        cookie:{'expires':7}
+      });
+      $('#panelCenter_3_1, #panelCenter_3_2, #panelCenter_3_3').panel({
+        accordion:'my_group'
+      });
+      $('#panelCenter_4').panel({
+        controls:$('#cntrl').html(),
+        collapseSpeed:1000,
+        fold: function() { alert(' "fold" callback executed '); },
+        unfold: function() { alert(' "unfold" callback executed '); }
+      });
+  });
+  

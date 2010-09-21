@@ -1,0 +1,175 @@
+-@title = "#{t('txt.ui.name')} #{t('txt.ui.widgets.panel.name')} - #{t('txt.ui.widgets.panel.demo')}"
+
+- content_for :content_head do
+  = render(:partial => "demo.js.haml", :format => :js)
+
+.demo
+  %h3
+    = raw @title  
+  #container
+    #lLeft
+      #panelLeft_1.navPanel
+        %h3 Left panel #1
+        %div
+          Panel's initial options:
+          %ul
+            %li collapseType = slide-left
+            %li width = 300px
+          %b Notes:
+          %ul
+            %li 'slide-left' & 'slide-right' panels automatically create so-called stack area, where all these panels are stacked in collapsed state. This could be overriden with 'stackable' option set to 'false'.
+      #panelLeft_2.navPanel
+        %h3 Left panel #2
+        %div
+          Panel's initial options:
+          %ul
+            %li collapseType = slide-left
+            %li trueVerticalText = true
+            %li vHeight = 150px
+            %li width = 280px
+          %b Notes:
+          %ul
+            %li 'trueVerticalText' option forces collapsed panel's title to be rendered vertically (i.e. rotated, read from bottom to top) in contrast with 'Left panel #1'.
+            %li 'vHeight' option set to '150px' restricts panel's high in folded state.
+            %li Panels width is set to '280px', so when unfolded it's slightly narrower than 'Left panel #1' and 'Left panel #3'.
+      #panelLeft_3.navPanel
+        %h3 Left panel #3
+        %div
+          Panel's initial options:
+          %ul
+            %li collapseType = slide-left
+            %li trueVerticalText = true
+            %li vHeight = 150px
+            %li width = 300px
+    #lRight
+      #panelRight_1.navPanel
+        %h3 Right panel #1
+        %div
+          Panel's initial options:
+          %ul
+            %li collapseType = slide-right
+            %li collapsed = true
+            %li trueVerticalText = true
+            %li vHeight = 237px
+            %li width = 200px
+          %b Notes:
+          %ul
+            %li 'collapsed' option set to 'true' tells panel to be initially rendered in collapsed state.
+      #panelRight_2.navPanel
+        %h3 Right panel #2
+        %div
+          Panel's initial options:
+          %ul
+            %li collapseType = slide-right
+            %li collapsed = true
+            %li trueVerticalText = true
+            %li vHeight = 160px
+            %li width = 200px
+    #lCenter
+      #desktop
+        %p
+          %b Feel free to examine html of this page.
+        #panelCenter_1.centralPanel
+          %h3 Central panel #1
+          %div
+            Panel's initial options:
+            %ul
+              %li collapsible = false
+            %b Notes:
+            %ul
+              %li 'collapsible' option set to 'false' allows us to create static non-collapsible panel.
+        %div{:style => "width:40%;float:left;"}
+          #panelCenter_2.centralPanel
+            %h3 Central panel #2
+            %div
+              Panel's initial options:
+              %ul
+                %li draggable = true
+                %li cookie = {'expires':7}
+              %b Notes:
+              %ul
+                %li If 'draggable' option is set to 'true' panel uses jQuery UI Draggable plugin and could be dragged by title. Draggable panel overlaps other non-draggable panels.
+                %li If 'cookie' option is not 'false' panel uses jQuery Cookie plugin to store panel state between sessions. 'cookie' option accepts the same parameters as Cookie plugin (in the example we store cookie for 7 days).
+        %div{:style => "padding:1.5em;overflow:hidden;"}
+          %div{:style => "margin-left:1em;"}
+            Only one of these accordion-like panels below is opened at a time.
+            %br/
+            %b Note:
+            'accordion' option is set to work with 'my_group' classed controls.
+          .box
+            #panelCenter_3_1.panel.my_group
+              %h3 Central panel #3 (accordion-like #1)
+              %div
+                Just me and you, pal. Just me and you.
+                %br/
+                %br/
+                Panel's initial options:
+                %ul
+                  %li accordion = 'my_group'
+            #panelCenter_3_2.panel.my_group
+              %h3 Central panel #3 (accordion-like #2)
+              %div
+                Just me and you, pal. Just me and you.
+                %br/
+                %br/
+                Panel's initial options:
+                %ul
+                  %li accordion = 'my_group'
+            #panelCenter_3_3.panel.my_group
+              %h3 Central panel #3 (accordion-like #3)
+              %div
+                Just me and you, pal. Just me and you.
+                %br/
+                %br/
+                Panel's initial options:
+                %ul
+                  %li accordion = 'my_group'
+        %div{:style => "clear:both"}
+        #panelCenter_4.centralPanel
+          %h3 Central panel #4
+          %div
+            Panel's initial options:
+            %ul
+              %li controls = $('#cntrl').html()
+              %li collapseSpeed = 1000
+              %li fold = function() { alert(' "fold" callback executed '); }
+              %li unfold = function() { alert(' "unfold" callback executed '); }
+            %b Notes:
+            %ul
+              %li 'controls' option allows to place custom content at the right corner of unfolded panel's titlebar (in this example we place there 'Edit' link from hidden div with id=cntrl, examine page source).
+              %li 'collapseSpeed' option helps to ajust the duration of folding/unfolding animation (here animation time set to 1000ms).
+              %li Functions assigned to 'fold' & 'unfold' actions are called callbacks and are executed when the appropiate action took place.
+            %b And more:
+            %ul
+              %li
+                You can
+                %span.fakeLink{:onClick => "$('#panelCenter_4').panel('disable');$('#pan_enable').show()"} disable this panel
+                using .panel('disable').
+              %li
+                You can
+                %span.fakeLink{:onClick => "$('#panelCenter_4').panel('content', 'New content ;)');"} replace this content
+                using .panel('content', 'New content ;)').
+              %li
+                You can
+                %span.fakeLink{:onClick => "$('#panelCenter_4').panel('destroy');"} destroy this panel
+                using .panel('destroy'). Initial panel content would be restored.
+        #pan_enable{:onClick => "$('#panelCenter_4').panel('enable');$(this).hide();", :style => "display:none;color:navy;cursor:pointer;"} Enable panel above using .panel('enable').
+  #cntrl{:style => "display:none"}
+    %a{:href => "#", :style => "font-size:10px;color:blue;"} Edit
+    
+    
+    
+/ End demo
+.demo-description
+  %p
+    This is jQuery UI Draft
+    %b
+      Content grouping / Panel
+    advanced demonstration.
+  %p
+    Latest source at
+    = succeed "," do
+      %a{:href => "http://github.com/idlesign/ist-ui-panel/"} http://github.com/idlesign/ist-ui-panel/
+    also available at jQuery UI Labs:
+    %a{:href => "http://code.google.com/p/jquery-ui/source/browse/#svn/branches/labs/panel/"} http://code.google.com/p/jquery-ui/source/browse/#svn/branches/labs/panel
+/ End demo-description

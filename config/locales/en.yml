@@ -513,6 +513,16 @@ en:
           toolbar: Toolbar
           splitbutton: Split button
         default: Widgets
+        panel:
+          name: Panel
+          default: Default collapsible panel example
+          simple: Simple panel example
+          cookie: Panel state in a cookie
+          right1: "Slide right example #1"
+          right2: "Slide right example #2"
+          left: Slide left example
+          accordion: Accordion of panels
+          demo: Demonstration
         selectmenu:
           name: Selectmenu
           default: "Style: <b>popup</b> (default)"

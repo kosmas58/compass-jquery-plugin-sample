@@ -24,8 +24,9 @@ txt:
   hello: Hello world
   ui: 
     widgets: 
-      selectmenu: 
-        custom-icon2: <b>dropdown</b> languages with flag icons
+      panel: 
+        default: Default collapsible panel example
+        accordion: Accordion of panels
 support: 
   array: 
     words_connector: ", "

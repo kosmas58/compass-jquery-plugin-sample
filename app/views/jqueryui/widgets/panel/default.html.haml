@@ -1,0 +1,31 @@
+-@title = "#{t('txt.ui.name')} #{t('txt.ui.widgets.panel.name')} - #{t('txt.ui.widgets.panel.default')}"
+
+- content_for :content_head do
+  = render(:partial => "default.js.haml", :format => :js)
+
+.demo
+  %h3
+    = raw @title 
+  .box
+    #panel2.panel{:style => "width:32%;"}
+      %h3 Default collapsible panel example
+      %div
+        %p
+          This is a default collapsible panel initially collapsed.
+        %p
+          %b Note:
+          It's draggable (needs jQuery UI Draggable Plugin).
+/ End demo
+.demo-description
+  %p
+    This is jQuery UI Draft
+    %b
+      Content grouping / Panel
+    advanced demonstration.
+  %p
+    Latest source at
+    = succeed "," do
+      %a{:href => "http://github.com/idlesign/ist-ui-panel/"} http://github.com/idlesign/ist-ui-panel/
+    also available at jQuery UI Labs:
+    %a{:href => "http://code.google.com/p/jquery-ui/source/browse/#svn/branches/labs/panel/"} http://code.google.com/p/jquery-ui/source/browse/#svn/branches/labs/panel
+/ End demo description
