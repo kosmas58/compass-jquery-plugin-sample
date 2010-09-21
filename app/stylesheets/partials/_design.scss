@@ -7,9 +7,14 @@ body {
   a.flagicons {	
 		height: 1.65em; }
   .flagicons li a, a.flagicons span.ui-selectmenu-status {
-  	padding-left: 20px !important; } 
+  	padding-left: 20px !important; }
+  #locale-menu {
+  	.en .ui-selectmenu-item-icon, .de .ui-selectmenu-item-icon { 
+  		height: 11px; width: 16px; margin-top: -5px;} }
   .en .ui-selectmenu-item-icon, .de .ui-selectmenu-item-icon { 
   	height: 11px; width: 16px; margin-top: -5px;}
+  	
+  	
   .en .ui-selectmenu-item-icon {
   	background: url("/images/icons/flags/gb.png") 0 0 no-repeat; }	
   .de .ui-selectmenu-item-icon {
