@@ -8,20 +8,22 @@ body {
 		height: 1.65em; }
   .flagicons li a, a.flagicons span.ui-selectmenu-status {
   	padding-left: 20px !important; }
+  .flagicons {
+	  .en .ui-selectmenu-item-icon, .de .ui-selectmenu-item-icon { 
+	  	height: 11px; width: 16px; margin-top: -5px; }	
+	  .en .ui-selectmenu-item-icon {
+	  	background: url("/images/icons/flags/gb.png") 0 0 no-repeat; }	
+	  .de .ui-selectmenu-item-icon {
+	  	background: url("/images/icons/flags/de.png") 0 0 no-repeat; } } 
   #locale-menu {
   	.en .ui-selectmenu-item-icon, .de .ui-selectmenu-item-icon { 
-  		height: 11px; width: 16px; margin-top: -5px;} }
-  .en .ui-selectmenu-item-icon, .de .ui-selectmenu-item-icon { 
-  	height: 11px; width: 16px; margin-top: -5px;}
-  	
-  	
-  .en .ui-selectmenu-item-icon {
-  	background: url("/images/icons/flags/gb.png") 0 0 no-repeat; }	
-  .de .ui-selectmenu-item-icon {
-  	background: url("/images/icons/flags/de.png") 0 0 no-repeat; } }
-  
-#site-actions { 
-	select {
-    width: 6em; } }
+  		height: 11px; width: 16px; margin-top: -5px;} 
+	  .en .ui-selectmenu-item-icon {
+	  	background: url("/images/icons/flags/gb.png") 0 0 no-repeat; }	
+	  .de .ui-selectmenu-item-icon {
+	  	background: url("/images/icons/flags/de.png") 0 0 no-repeat; } } 
+	#site-actions { 
+		select {
+    	width: 5em; } }	}
 
   	
