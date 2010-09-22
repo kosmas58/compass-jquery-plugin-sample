@@ -7,7 +7,7 @@
   %h3
     = raw @title
   .box
-    #panel4.panel{:style => "width:32%;"}
+    #panel4.panel{:style => "width:50%;"}
       %h3 Simple panel example
       %div
         %p
@@ -18,6 +18,19 @@
           This panel uses controls from 'cntrl' hidden div (that is 'Edit' text).
           %br/
           %div{:onClick => "$('#panel4').panel('content', $('#fake_container').html());", :style => "margin:.5em 0 0 1em;color:navy;cursor:pointer;"} Change this content.   
+  #cntrl{:style => "display:none"}  
+    %a{:href => "#", :style => "font-size:10px;color:blue;"}
+      Edit
+  #fake_container{:style => "display:none;font-size:0.6em"}
+    %p
+      Panel's content was replaced with hidden 'fake_container' div using
+      %b
+        'content'
+      method.
+    %p
+      If you
+      %span{:onClick => "$('#panel4').panel('destroy');", :style => "color:navy;cursor:pointer;"} destroy this panel
+      initial content would be restored.
 / End demo
 .demo-description
   %p

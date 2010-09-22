@@ -6,8 +6,8 @@
 .demo
   %h3
     = raw @title
-  .box
-    #panel1.panel{:style => "width:80%;"}
+  .box{:style => "float:right;"}
+    #panel1.panel{:style => "width:80%; float:right;"}
       %h3 Slide right example #1
       %div
         %p
@@ -16,12 +16,16 @@
             example
           with controls from 'cntrl' hidden div.
         %p
-          = succeed "You" do
+          = succeed "You can" do
             %br/
-            can
           = succeed "." do
             %span{:onClick => "$('#panel1').panel('disable');$('#pan_enable').show()", :style => "color:navy;cursor:pointer;"} disable this panel
-  #pan_enable{:onClick => "$('#panel1').panel('enable');$(this).hide();", :style => "display:none;color:navy;cursor:pointer;"} Enable panel above.
+  #cntrl{:style => "display:none"}  
+    %a{:href => "#", :style => "font-size:10px;color:blue;"}
+      Edit
+  %p
+    #pan_enable{:onClick => "$('#panel1').panel('enable');$(this).hide();", :style => "display:none;color:navy;cursor:pointer;"} Enable panel above.
+     
 / End demo
 .demo-description
   %p

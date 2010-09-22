@@ -514,7 +514,7 @@ en:
           splitbutton: Split button
         default: Widgets
         panel:
-          name: Panel
+          name: Draft Panel
           default: Default collapsible panel example
           simple: Simple panel example
           cookie: Panel state in a cookie

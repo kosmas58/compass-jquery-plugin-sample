@@ -33,6 +33,11 @@ jQuery(document).ready(function() {
 	  }
 	});
 	
+	$('#panel_navigation').panel({
+    'collapseType':'slide-left',
+    'stackable':false
+  });
+	
 	$("#configure_navigation").button({
     icons: {
       primary: 'ui-icon-star'

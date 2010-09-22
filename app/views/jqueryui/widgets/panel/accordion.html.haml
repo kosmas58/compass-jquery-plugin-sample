@@ -6,19 +6,35 @@
 .demo
   %h3
     = raw @title
+  .box
+    #panel6.panel.my_group
+      %h3 Panel accordion-like #1
+      %div
+        Just me and you, pal. Just me and you.
+    #panel7.panel.my_group
+      %h3 Panel accordion-like #2
+      %div
+        Just me and you, pal. Just me and you.
+    #panel8.panel.my_group
+      %h3 Panel accordion-like #3
+      %div
+        Just me and you, pal. Just me and you.
 / End demo
 .demo-description
   %p
-    %i
-      This is jQuery UI Draft
-      %b
-        Content grouping / Panel
-      advanced demonstration.
+    Only one of these accordion-like panels is opened at a time.
+    %b
+      Note:
+    'accordion' option is set to work with 'my_group' classed controls.
   %p
-    %i
-      Latest source at
-      = succeed "," do
-        %a{:href => "http://github.com/idlesign/ist-ui-panel/"} http://github.com/idlesign/ist-ui-panel/
-      also available at jQuery UI Labs:
-      %a{:href => "http://code.google.com/p/jquery-ui/source/browse/#svn/branches/labs/panel/"} http://code.google.com/p/jquery-ui/source/browse/#svn/branches/labs/panel
+    This is jQuery UI Draft
+    %b
+      Content grouping / Panel
+    advanced demonstration.
+  %p
+    Latest source at
+    = succeed "," do
+      %a{:href => "http://github.com/idlesign/ist-ui-panel/"} http://github.com/idlesign/ist-ui-panel/
+    also available at jQuery UI Labs:
+    %a{:href => "http://code.google.com/p/jquery-ui/source/browse/#svn/branches/labs/panel/"} http://code.google.com/p/jquery-ui/source/browse/#svn/branches/labs/panel
 / End demo description
