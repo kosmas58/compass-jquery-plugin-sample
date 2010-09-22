@@ -1,5 +1,11 @@
+:css
+  select { width: 200px; } 
+
 :javascript
   $(function() {
     $("#datepicker").datepicker();
+   	$('select#anim').selectmenu({
+  		style: 'dropdown'
+  	});
     $("#anim").change(function() { $('#datepicker').datepicker('option', {showAnim: $(this).val()}); });
   });

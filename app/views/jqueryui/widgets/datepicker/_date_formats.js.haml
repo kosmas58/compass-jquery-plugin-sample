@@ -1,5 +1,9 @@
+:css
+  select { width: 500px; } 
+
 :javascript
   $(function() {
     $("#datepicker").datepicker();
+    $("#dateFormat").selectmenu();
     $("#dateFormat").change(function() { $('#datepicker').datepicker('option', {dateFormat: $(this).val()}); });
   });

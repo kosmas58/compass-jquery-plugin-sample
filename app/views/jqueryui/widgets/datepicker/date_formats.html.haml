@@ -9,8 +9,10 @@
   %p
     Date:
     %input#datepicker{ :size => "30", :type => "text" }
-  %p
-    Format options:
+  %fieldset
+    %label{:for => "speedA"}
+      Format options:
+    %br
     %br
     %select#dateFormat
       %option{ :value => "mm/dd/yy" }
