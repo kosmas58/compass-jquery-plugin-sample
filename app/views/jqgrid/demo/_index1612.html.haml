@@ -1,0 +1,17 @@
+-@title = "#{t('txt.jqgrid.name')} #{t('txt.jqgrid.demo.name')} - #{t('txt.jqgrid.demo.38v')} - #{t('txt.jqgrid.demo.38remote5')}"
+.demo
+  %h3
+    =@title
+  
+  %center  
+    %table#invheaders_demo1612.scroll{ :cellspacing => "0", :cellpadding => "0" }
+    #invheaders_demo1612_pager.scroll{ :style => "text-align:center;" }
+/ End demo
+.demo-description
+  %p
+    Another usefull option requestated many times: Now we can show the summary footer row
+    when the group header is collapsed. This is done with the option
+    %code
+      showSummaryOnHide
+    set to true.
+/ End demo-description

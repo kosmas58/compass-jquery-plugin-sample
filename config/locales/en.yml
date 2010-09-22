@@ -222,124 +222,125 @@ en:
         selection: with selection link and search disabled
         multiple: with multiple selections + row numbers
       demo:
-        30xml_map: XML Mapping
-        30resizable: Resizable Columns
-        20get: Get Methods
-        30cmulti: Custom Multi Select
-        31v: New in version 3.1
-        20big_sets: Search Big Sets
-        35sortable: View sortable columns
-        38array1: Simple grouping with array data
-        20as_subgrid: Grid as Subgrid
-        35summary: Summary Footer Row
-        30optimize: Data Optimization
-        38array2: Hide grouping column
-        34v: New in version 3.4
-        36validation: Custom Validation
-        36cinput: Create Custom input element
-        32client: Client Validation
-        20data: Grid Data
-        34format: Formatter
-        38array3: Grouped header row config
-        20once: Load once
-        38remote1: Remote Data (sorted)
-        37scroll: Virtual scrolling
-        37multiple: Multiple search
-        37v: New in version 3.7
-        35asearch: Advanced Searching
-        38remote2: Remote Data (sorted with grandtotals)
-        32hide: Hide/Show Columns
-        38array4: RTL Support
-        38remote3: Remote Data (not sorted with grandtotals)
-        36api: New API
-        default: jqGrid Demo
-        38array5: Grouping row(s) collapsed
-        38remote4: Dynamically change grouping
-        34autoscroll: Autoloading data when scroll
-        38array6: Summary Footers
-        32cbutton: Custom Button and Forms
-        30searching: Searching Data
-        31cparams: Common Params
-        32new_methods: New Methods
-        36tscroll: True scrolling Rows
-        20array: Array Data
-        37single: Single search
-        30edit_row: Edit row
-        30live: Live Data Manipulation
-        name: Demo
-        gridify: 2dc examples implemented with gridify
-        31toolbar: Toolbars
-        30integrations: Integrations
-        31new_methods: New Methods
-        32v: New in version 3.2
-        33tree: Tree Grid
-        30add_row: Add row
-        30cedit: Custom Edit
-        32insert: After Insert Row event
-        37server: Load at once from server
-        35real: TreeGrid real world example
-        20subgrid: Subgrid
-        33mform: Multiple Form Search
-        20json_data: JSON Data
-        33rdnd: Drag and Drop Rows
-        30json_map: JSON Mapping
-        35v: New in version 3.5
-        35stoolbar: Integrated Search Toolbar
-        20loading: Loading Data
-        20multi: Multi Select
-        36chooser: Column Chooser
-        35number: Autowidth and row numbering
-        actions: Actions
-        30basic: Basic Example
-        38v: New in version 3.8
-        36rdnd: Drag and Drop Rows
         20advanced: Advanced
-        34adjacency: Tree Grid Adjacency model
+        20array: Array Data
+        20as_subgrid: Grid as Subgrid
+        20big_sets: Search Big Sets
+        20data: Grid Data
+        20get: Get Methods
+        20json_data: JSON Data
+        20loading: Loading Data
+        20manipulating: Manipulating
+        20master: Master Detail
+        20multi: Multi Select
+        20once: Load once
+        20resizing: Resizing Grid
         20set: Set Methods
-        37toolbar: Toolbar search
-        35view: Grid view mode
+        20subgrid: Subgrid
+        20xml_data: XML Data
+        2dc: 2dc_jqGrid Examples
+        30add_row: Add row
+        30after_load: After Load Callback
+        30basic: Basic Example
+        30cedit: Custom Edit
+        30cmulti: Custom Multi Select
+        30datepicker: UI Datepicker
+        30delete_row: Delete row
+        30edit_row: Edit row
+        30events: Using Events
         30full: Full Control
         30hide: Hide/Show Columns
-        30events: Using Events
-        36srows: Sortable Rows
-        38xml1: Grouping with XML Data
-        20resizing: Resizing Grid
+        30integrations: Integrations
+        30json_map: JSON Mapping
+        30json_subgrid: Subgrid with JSON
+        30live: Live Data Manipulation
+        30mapping: Data Mapping
+        30navigator: Navigator
+        30optimize: Data Optimization
+        30resizable: Resizable Columns
+        30row: Row Editing
+        30searching: Searching Data
+        30types: Input types
+        30v: New since beta 3.0
+        30xml_map: XML Mapping
+        31cparams: Common Params
+        31new_methods: New Methods
+        31post_data: Post Data
+        31toolbar: Toolbars
+        31userdata: Userdata
+        31v: New in version 3.1
+        32cbutton: Custom Button and Forms
+        32client: Client Validation
+        32hide: Hide/Show Columns
+        32initial: Initially hidden grid
+        32insert: After Insert Row event
+        32new_methods: New Methods
+        32server_errors: Controlling server errors
+        32v: New in version 3.2
         33cell: Cell Editing
         33dynamic: Dynamic height and width
-        34scroll: Scroll with dynamic row select
-        30mapping: Data Mapping
-        34cformat: Custom Formatter
-        34import: Import Configuration from XML
-        30v: New since beta 3.0
-        35improvements: Form Improvements
-        36resizing: Resizing Grid
-        33v: New in version 3.3
-        30navigator: Navigator
-        30types: Input types
-        20master: Master Detail
-        36v: New in version 3.6
-        30datepicker: UI Datepicker
-        30row: Row Editing
-        37array: Load array data at once
-        33mtoolbar: Multiple Toolbar Search
-        33visible: Visible Columns
-        2dc: 2dc_jqGrid Examples
-        20xml_data: XML Data
-        35navigation: Form Navigation
-        31userdata: Userdata
         33function: Data type as function
-        36rtl: RTL Support
-        20manipulating: Manipulating
-        37crud: Add/edit/delete on local data
-        32server_errors: Controlling server errors
-        36ajax: Ajax Improvements
-        36reordering: Column Reordering
-        32initial: Initially hidden grid
-        30json_subgrid: Subgrid with JSON
         33html: HTML Table to Grid
-        30after_load: After Load Callback
-        31post_data: Post Data
-        30delete_row: Delete row
+        33mform: Multiple Form Search
+        33mtoolbar: Multiple Toolbar Search
+        33rdnd: Drag and Drop Rows
+        33tree: Tree Grid
+        33v: New in version 3.3
+        33visible: Visible Columns
+        34adjacency: Tree Grid Adjacency model
+        34autoscroll: Autoloading data when scroll
+        34cformat: Custom Formatter
+        34format: Formatter
+        34import: Import Configuration from XML
+        34scroll: Scroll with dynamic row select
+        34v: New in version 3.4
+        35asearch: Advanced Searching
+        35improvements: Form Improvements
+        35navigation: Form Navigation
+        35number: Autowidth and row numbering
+        35real: TreeGrid real world example
+        35sortable: View sortable columns
+        35stoolbar: Integrated Search Toolbar
+        35summary: Summary Footer Row
+        35v: New in version 3.5
+        35view: Grid view mode
+        36ajax: Ajax Improvements
+        36api: New API
+        36chooser: Column Chooser
+        36cinput: Create Custom input element
+        36rdnd: Drag and Drop Rows
+        36reordering: Column Reordering
+        36resizing: Resizing Grid
+        36rtl: RTL Support
+        36srows: Sortable Rows
+        36tscroll: True scrolling Rows
+        36v: New in version 3.6
+        36validation: Custom Validation
+        37array: Load array data at once
+        37crud: Add/edit/delete on local data
+        37multiple: Multiple search
+        37scroll: Virtual scrolling
+        37server: Load at once from server
+        37single: Single search
+        37toolbar: Toolbar search
+        37v: New in version 3.7
+        38array1: Simple grouping with array data
+        38array2: Hide grouping column
+        38array3: Grouped header row config
+        38array4: RTL Support
+        38array5: Grouping row(s) collapsed
+        38array6: Summary Footers
+        38remote1: Remote Data (sorted)
+        38remote2: Remote Data (sorted with grandtotals)
+        38remote3: Remote Data (not sorted with grandtotals)
+        38remote4: Dynamically change grouping
+        38remote5: View Summary Row on Collapse
+        38v: Grouping
+        38xml1: Grouping with XML Data
+        actions: Actions
+        default: jqGrid Demo
+        gridify: 2dc examples implemented with gridify
+        name: Demo
       subgrids:
         name: Subgrids
         default: with default functionality
