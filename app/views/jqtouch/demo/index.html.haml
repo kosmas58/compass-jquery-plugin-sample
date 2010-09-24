@@ -123,7 +123,25 @@
           Swipe me!        
       %li
         %a#tapme{:href => "#"}
-          Tap me!
+          Tap me!      
+  #chain
+    .toolbar
+      %h1
+        Cool App
+      %a.back{ :href => "#demos" }
+        Demos
+    %ul#friends
+      %li
+        %a{:href => "#details", :onClick => "friendclick(event)"}
+          %span.firstName
+          %span.lastName
+  #databases
+    .toolbar
+      %h1
+        Database
+      %a.back{ :href => "#demos" }
+        Demos
+    %ul#database.rounded         
   #demos
     .toolbar
       %h1
@@ -147,12 +165,26 @@
           To-Do app
       %li.forward
         %a{ :href => "/jqtouch/demo2/", :target => "_webapp" }
-          New demo          
+          New demo
+      %li.arrow
+        %a{ :href => "#chain" }
+          chain.js Demo
+      %li.arrow
+        %a{:href => "#databases"}
+          Database Example
+        %small.counter 2       
       %li.arrow
         %a{ :href => "#mobione" }
           MobiOne Demos
         %small.counter
-          6         
+          6
+  #details
+    .toolbar
+      %h1 Details?!
+      %a.back.cancel{:href => "#chain"} Back
+    #thedetails
+      %span.firstName
+      %span.lastName   
   #edge
     .toolbar
       %h1
@@ -327,7 +359,7 @@
         %a{ :href => "#demos" }
           Demos
         %small.counter
-          6
+          8
     %h2
       External Links
     %ul.rounded
