@@ -22,6 +22,9 @@ de:
     percentage: 
       format: 
         delimiter: ""
+    precision: 
+      format: 
+        delimiter: ""
     currency: 
       format: 
         format: "%n%u"
@@ -31,24 +34,21 @@ de:
         separator: ""
         precision: 
         delimiter: ""
-    precision: 
-      format: 
-        delimiter: ""
   activerecord: 
     attributes: 
       invline: 
         qty: Menge
         total: Summe
         id: ID
-        unit: Mengeneinheit
         num: Anzahl
+        unit: Mengeneinheit
         item: Element
       invheader: 
         tax: Steuer
         ship_via: "Versenden \xC3\xBCber"
         closed: Geschlossen
-        amount: Betrag
         total: Summe
+        amount: Betrag
         id: Inv Nr.
         client: Kunde
         note: Hinweis
@@ -69,6 +69,8 @@ de:
         rgt: rgt
         balance: Kontostand
         acc_num: Kontonr.
+      client: 
+        name: Name
       event: 
         location: Ort
         dtend: Ende
@@ -76,8 +78,6 @@ de:
         summary: Betreff
         description: Beschreibung
         all_day: "Gant\xC3\xA4giges Ereignis"
-      client: 
-        name: Name
       user: 
         pseudo: Pseudonym
         role: Rolle
@@ -93,24 +93,24 @@ de:
         name: Name
     errors: 
       messages: 
-        record_invalid: "G\xC3\xBCltigkeitspr\xC3\xBCfung ist fehlgeschlagen: {{errors}}"
         greater_than_or_equal_to: "muss gr\xC3\xB6\xC3\x9Fer oder gleich {{count}} sein"
-        confirmation: "stimmt nicht mit der Best\xC3\xA4tigung \xC3\xBCberein"
+        record_invalid: "G\xC3\xBCltigkeitspr\xC3\xBCfung ist fehlgeschlagen: {{errors}}"
         less_than_or_equal_to: muss kleiner oder gleich {{count}} sein
+        confirmation: "stimmt nicht mit der Best\xC3\xA4tigung \xC3\xBCberein"
         blank: "muss ausgef\xC3\xBCllt werden"
-        exclusion: "ist nicht verf\xC3\xBCgbar"
         invalid: "ist nicht g\xC3\xBCltig"
+        exclusion: "ist nicht verf\xC3\xBCgbar"
         odd: muss ungerade sein
+        too_short: ist zu kurz (nicht weniger als {{count}} Zeichen)
         wrong_length: "hat die falsche L\xC3\xA4nge (muss genau {{count}} Zeichen haben)"
         empty: "muss ausgef\xC3\xBCllt werden"
         even: muss gerade sein
-        too_short: ist zu kurz (nicht weniger als {{count}} Zeichen)
         less_than: muss kleiner als {{count}} sein
         equal_to: muss genau {{count}} sein
         greater_than: "muss gr\xC3\xB6\xC3\x9Fer als {{count}} sein"
+        too_long: ist zu lang (nicht mehr als {{count}} Zeichen)
         taken: ist bereits vergeben
         accepted: muss akzeptiert werden
-        too_long: ist zu lang (nicht mehr als {{count}} Zeichen)
         not_a_number: ist keine Zahl
         inclusion: "ist kein g\xC3\xBCltiger Wert"
       full_messages: 
@@ -128,6 +128,467 @@ de:
       short: "%d. %B, %H:%M Uhr"
       long: "%A, %d. %B %Y, %H:%M Uhr"
     pm: nachmittags
+  activemodel: 
+    errors: 
+      template: 
+        body: "Bitte \xC3\xBCberpr\xC3\xBCfen Sie die folgenden Felder:"
+        header: 
+          one: "Konnte {{model}} nicht speichern: ein Fehler."
+          other: "Konnte {{model}} nicht speichern: {{count}} Fehler."
+  txt: 
+    plugins: 
+      name: jQuery-Plugins
+    jst: 
+      name: jsTree
+      html: HTML-Daten
+      plugins: Plugins
+      themeroller: Themenwahl
+      hotkeys: Hotkeys
+      xml: XML-Daten
+      dnd: Drag'n Drop
+      checkbox: "Auswahlk\xC3\xA4stchen"
+      radio: Umschalttasten
+      demo: Demonstration
+      json: JSON-Daten
+      cookies: Cookies
+      contextmenu: "Kontextmen\xC3\xBC"
+      lang: Sprachen
+      types: Typen
+      sort: Sortieren
+      unique: Eindeutig
+      core: "Basisfunktionalit\xC3\xA4t"
+      ui: UI
+      themes: Themen
+      search: Suche
+      crrm: CRRM
+    layout: 
+      back: "Zur\xC3\xBCck"
+      colon: ":"
+      conf_nav: "Navigation konfigurieren "
+      edit: Bearbeiten
+      cancel: Abbrechen
+      theme: Thema
+      delete: "L\xC3\xB6schen"
+      from: von
+      language: Sprache
+      navi: Browsen Sie durch die Beispiele
+      footer: 
+        legalese: "Copyright \xC2\xA9 2009-2010 Kosmas Sch\xC3\xBCtz. N\xC3\xA4heres finden Sie unter LICENSE."
+      show: Anzeigen
+      save: Sichern
+      create: Anlegen
+      update: Aktualisieren
+      until: bis
+    trees: !binary |
+      QsOkdW1l
+
+    jqt: 
+      name: "jQTouch (ben\xC3\xB6tigt einen Browser mit WebKit)"
+      beta: jQTouch & beta@jqtouch.com
+      demo: Compass jQTouch Demo
+    jqgrid: 
+      manipulation: 
+        name: Datenmanipulation
+        inline: "mit Inline-\xC3\x84nderung"
+        modal: "mit modaler \xC3\x84nderung"
+        datepicker: mit Datumsauswahl (Nachname)
+        input: mit verschiedenen Eingabetypen
+      name: jqGrid
+      simple: 
+        name: Einfache Datengitter
+        direct: mit direkter Auswahl und automatischer Weite
+        default: "mit Standardfunktionalit\xC3\xA4t"
+        master: mit Haupt- und Detailsicht
+        selection: mit Auswahllink und Suche deaktiviert
+        multiple: mit Mehrfachauswahl + Zeilennummern
+      demo: 
+        30xml_map: XML-Mapping
+        30resizable: "Vergr\xC3\xB6\xC3\x9Ferbare Spalten"
+        20get: Get-Methoden
+        30cmulti: Angepasste Mehrfachauswahl
+        31v: Neu in Version 3.1
+        20big_sets: "Gro\xC3\x9Fe Datenmengen durchsuchen"
+        38array1: Einfache Gruppierung mit Matrixdaten
+        20as_subgrid: Gitter als Untergitter
+        35sortable: Sortierbare Spalten anzeigen
+        35summary: "Zusammenfassung in der Fu\xC3\x9Fzeile"
+        30optimize: Datenoptimierung
+        38array2: Spalten verbergen
+        34v: Neu in Version 3.4
+        36validation: Angepasste Validierung
+        36cinput: Benutzerdefiniertes Eingabeelement erstellen
+        32client: Clientseitige Validierung
+        20data: Gitterdaten
+        34format: Formatierer
+        38array3: Kopfzeile konfigurieren
+        20once: Einmaliges Laden
+        38remote1: Entfernte Daten (sortiert)
+        37scroll: Virtuelles Scrollen
+        37multiple: Mehrfachsuche
+        37v: Neu in Version 3.7
+        38remote2: Entfernte Daten (sortiert mit Gesamtsummen)
+        35asearch: Erweiterte Suche
+        32hide: Spalten anzeigen/verbergen
+        38array4: "RNL-Unterst\xC3\xBCtzung"
+        36api: Neues API
+        38remote3: Entfernte Daten (unsortiert mit Gesamtsummen)
+        38array5: Zeilen verbergen
+        default: jqGrid Beispiele
+        38remote4: "Dynamische Ver\xC3\xA4nderung der Gruppierung"
+        34autoscroll: Das automatische Laden von Daten beim Scrollen
+        38array6: "Summarische Fu\xC3\x9Fzeilen"
+        30searching: Daten suchen
+        32cbutton: "Angepasste Schaltfl\xC3\xA4chen und Formulare"
+        31cparams: "Gebr\xC3\xA4uchliche Parameter"
+        38remote5: Summenzeile anzeigen
+        32new_methods: Neue Methoden
+        36tscroll: Echte scrollende Zeilen
+        20array: Daten aus einer Matrix
+        37single: Einfache Suche
+        30edit_row: "Zeile \xC3\xA4ndern"
+        30live: Live Datenmanipulation
+        name: Demo
+        gridify: 2dc-Beispiele mit gridify umgesetzt
+        31toolbar: Symbolleisten
+        30integrations: Integrationen
+        31new_methods: Neue Methoden
+        32v: Neu in Version 3.2
+        33tree: Baumgitter
+        30add_row: "Zeile hinzuf\xC3\xBCgen"
+        30cedit: "Angepasstes \xC3\x84ndern"
+        32insert: "Ereignis nach Einf\xC3\xBCgen einer Zeile"
+        37server: Daten auf einmal vom Server laden
+        35real: "Reales Beispiel eines Baumgitters "
+        20subgrid: Untergitter
+        33mform: Mehrfache Formularsuche
+        20json_data: JSON-Daten
+        33rdnd: Drag and Drop von Zeilen
+        30json_map: JSON-Mapping
+        35v: Neu in Version 3.5
+        35stoolbar: Integrierte Suchleiste
+        20loading: Laden von Daten
+        20multi: Mehrfachauswahl
+        36chooser: Spaltenauswahl
+        35number: Automatische Breite und Reihennummerierung
+        actions: Aktionen
+        30basic: Einfaches Beispiel
+        38v: Gruppierung
+        36rdnd: Drag and Drop von Zeilen
+        20advanced: Fortgeschritten
+        34adjacency: Baumgitter mit Adjazenzliste
+        20set: Set-Methoden
+        37toolbar: Werkzeugleistensuche
+        35view: Modus Gitteransicht
+        30full: Vollzugriff
+        30hide: Spalten anzeigen/verbergen
+        30events: Ereignisse nutzen
+        36srows: Sortierbare Zeilen
+        38xml1: Gruppierung mit XML-Daten
+        20resizing: "Gitter vergr\xC3\xB6\xC3\x9Fern"
+        33cell: "Zellen \xC3\xA4ndern"
+        33dynamic: "Dynamische H\xC3\xB6he und Breite"
+        34scroll: Scrollen mit dynamischen Zeilenauswahl
+        30mapping: Daten-Mapping
+        34cformat: Angepasster Formatierer
+        34import: Konfiguration aus XML importieren
+        30v: Neu seit Beta 3.0
+        35improvements: Formverbesserungen
+        36resizing: "Gitter vergr\xC3\xB6\xC3\x9Fern"
+        33v: Neu in Version 3.3
+        30navigator: Navigator
+        30types: Eingabetypen
+        20master: Haupt- und Detailsicht
+        36v: Neu in Version 3.6
+        30datepicker: Datumsauswahl
+        30row: "Zeilen \xC3\xA4ndern"
+        37array: Matrixdaten auf einmal laden
+        33mtoolbar: Mehrfache Symbolleistensuche
+        33visible: Sichtbare Spalten
+        2dc: 2dc_jqGrid Beispiele
+        20xml_data: XML-Daten
+        35navigation: Formularnavigation
+        31userdata: Benutzerdaten
+        33function: Datentyp als Funktion
+        36rtl: "RNL-Unterst\xC3\xBCtzung"
+        20manipulating: Manipulation
+        37crud: "Lokale Daten Hinzuf\xC3\xBCgen/\xC3\x84ndern/L\xC3\xB6schen"
+        32server_errors: Server-Fehler kontrollieren
+        36ajax: Ajax-Verbesserungen
+        36reordering: Neuanordnung von Spalten
+        32initial: "Zun\xC3\xA4chst verstecktes Gitter"
+        30json_subgrid: Untergitter mit JSON
+        33html: Gitter aus HTML-Tabelle
+        30after_load: Callback nach dem Laden
+        31post_data: Post Data
+        30delete_row: "Zeile l\xC3\xB6schen"
+      subgrids: 
+        name: Untergitter
+        default: "mit Standardfunktionalit\xC3\xA4t"
+        selection: mit Auswahl
+        crud: mit CRUD-Operationen
+      secret: Secret Sauce jqGrid
+      improvements: 
+        name: mit Verbesserungen der Form
+    ribbon: 
+      name: Multifunktionsleiste
+      simple: jQuery Ribbon Simple Demo
+      default: jQuery Ribbon Windows 7 Demo
+      office: jQuery Ribbon Office Demo
+    jqical: 
+      name: iCalendar
+      anytime: 
+        name: Any+Time&trade
+        default: "Standardfunktionalit\xC3\xA4t"
+        inline: Eingebettet anzeigen
+        separate: Datum und Uhrzeit getrennt
+        css: Benutzereigenes Layout
+        ajax: Ajax Demo
+        extend: "Erweiterung der Funktionalit\xC3\xA4t"
+        convert: AnyTime.Converter
+      event: 
+        new: Neuer Termin
+        location: Ort
+        default: Veranstaltung
+        starts_at: Beginnt um
+        ends_at: Endet um
+        listing: Termine anzeigen
+        summary: Betreff
+        description: Beschreibung
+        all_day: "Ganzt\xC3\xA4giges Ereignis"
+      calendar: 
+        new: Neuer iCalender
+        name: Name
+        actions: 
+          name: Aktionen
+          ical: Als iCalendar anzeigen
+          show: Als Kalender anzeigen
+        edit: iCalendar bearbeiten
+        delete: "iCalendar l\xC3\xB6schen"
+        confirm: "iCalendar wirklich l\xC3\xB6schen?"
+        default: Kalender
+        color: Farbe
+        listing: iCalendar auflisten
+        show: " iCalendar anzeigen"
+        iphone: Zeigen es auf einem iPhone
+    dt: 
+      name: Dynatree
+      ul: Aus ul-Element initialisieren
+      persist: Persistenz
+      lazy: Lazy
+      default: Standardeinstellungen
+      dnd: Ziehen und Ablegen
+      dnd2: Neues Ziehen und Ablegen
+      iframe: iframe und URL-Navigation
+      api: Programmier-API
+      quick: JS-Objekt initialisieren
+      events: Ergeignisverarbeitung
+      minexpand: Feste Expansionsebene
+      form: In Formular integriert
+      effects: Effekte
+      contextmenu: "Kontextmen\xC3\xBC,  Kopieren / Einf\xC3\xBCgen"
+      multiline: "Gro\xC3\x9Fe Knoten"
+      select: "K\xC3\xA4stchen & Auswahl"
+      benchmark: "Benchmark f\xC3\xBCr gro\xC3\x9Fe B\xC3\xA4ume"
+      theming: 
+        name: Themen
+        xp: XP
+        crystal: Crystal
+        aero: Aero
+        aqua: Aqua
+    jqm: 
+      name: jQuery Mobile
+    mobiles: 
+      name: "jQuery auf mobilen Ger\xC3\xA4ten"
+    hello: ""
+    ui: 
+      name: jQquery UI
+      utilities: 
+        position: 
+          default: Position
+          cycler: Wechselnde Bilder
+        default: Hilfsmittel
+      default: "Standardfunktionalit\xC3\xA4t"
+      interactions: 
+        selectable: 
+          serialize: "Mehrere ausw\xC3\xA4hlen"
+          default: "W\xC3\xA4hlbar"
+          display-grid: Als Gitter anzeigen
+        default: Interaktionen
+        draggable: 
+          handle: Position des Griffs
+          snap-to: In Element oder Gitter einrasten
+          scroll: Autoscrollen
+          default: Ziehbar
+          sortable: Zieh- und sortierbar
+          constrain-movement: "Einschr\xC3\xA4nken der Bewegung"
+          events: Ereignisse
+          cursor-style: Cursorstil
+          delay-start: "Start verz\xC3\xB6gern"
+          revert: "Zur Position zur\xC3\xBCckkehren"
+          visual-feedback: Visuelles Feedback
+        resizable: 
+          aspect-ratio: "Seitenverh\xC3\xA4ltnis beibehalten"
+          snap-to-grid: Im Gitter einrasten
+          max-min: "Maximal-  / Minimalgr\xC3\xB6\xC3\x9Fe"
+          default: "Vergr\xC3\xB6\xC3\x9Ferbar"
+          animate: Animieren
+          synchronous-resize: "Synchrones Vergr\xC3\xB6\xC3\x9Fern"
+          helper: "Vergr\xC3\xB6\xC3\x9Ferungshelfer"
+          textarea: Texfeld
+          delay-start: "Start verz\xC3\xB6gern"
+          constrain-area: "Vergr\xC3\xB6\xC3\x9Ferungsfl\xC3\xA4che einschr\xC3\xA4nken"
+          visual-feedback: Visuelles Feedback
+        sortable: 
+          items: "Elemente ein- / ausschlie\xC3\x9Fen"
+          empty-lists: Leere Listen handhaben
+          default: Sortierbar
+          connect-lists-through-tabs: "Listen \xC3\xBCber Reiter verbinden"
+          portlets: Portlets
+          delay-start: "Start verz\xC3\xB6gern"
+          display-grid: Als Gitter anzeigen
+          connect-lists: Listen verbinden
+          placeholder: "Platzhalter f\xC3\xBCr den Abwurf"
+        droppable: 
+          default: Ablegbar
+          propagation: Weitergabe verhindern
+          revert: "R\xC3\xBCckkehr zur  Position"
+          shopping-cart: Einkaufswagen
+          visual-feedback: Visuelles Feedback
+          accepted-elements: Akzeptierte Elemente
+          photo-manager: Einfacher Photomanager
+      widgets: 
+        button: 
+          default: "Schaltfl\xC3\xA4che"
+          checkbox: Auswahltasten
+          icon: Symbole
+          radio: Umschalttasten
+          toolbar: Werkzeugleiste
+          splitbutton: "Geteilte Schaltfl\xC3\xA4che"
+        default: Widgets
+        slider: 
+          steps: Mit festen Schritten einrasten
+          multiple-vertical: Mehrere Regler
+          default: Schieberegler
+          slider-vertical: Vertikaler Regler
+          side-scroll: Einfache Bildlaufleiste
+          range-vertical: Vertikaler Regler mit Bereich
+          range: Regler mit Bereich
+          rangemax: Bereich mit festgesetzten Maximum
+          colorpicker: Einfache Farbauswahl
+          hotelrooms: Zimmerreservierung
+          tabs: Reiter per Schieberegler kontrollieren
+          rangemin: Bereich mit festgesetztem Mininum
+        panel: 
+          name: Entwurf Panel
+          simple: Einfaches Beispielpanel
+          left: Von links einblenden
+          right1: Von rechts einblenden 1
+          right2: Von rechts einblenden 2
+          default: Zusammenklappbares Panel
+          demo: Demonstration
+          cookie: Panelstatus im Cookie
+          accordion: Akkordeon von Panels
+        selectmenu: 
+          maxheight: "Stil: <b>Popup</b> mit maxheight gesetzt"
+          name: "Auswahlmen\xC3\xBC"
+          without-id: "Stil: <b>Popup</b> ohne ID"
+          custom-icons2: "Stil: <b>Dropdown</b> Sprachen mit Flaggensymbolen"
+          default: "Stil: <b>Popup</b>"
+          icons: "Stil: <b>Popup</b> mit UI-Symbolen"
+          optgroups: "Stil: <b>Popup</b> mit optgroups"
+          text-formatting: "Stil: <b>Popup</b> mit der Option Textformatierung"
+          menuwidth: "Stil: <b>Dropdown</b> mit menuWidth und Textformatierung"
+          custom-icons: "Stil: <b>Popup</b> mit benutzerdefinierten Icons"
+          dropdown: "Stil: <b>Popup</b>-Stil"
+        datepicker: 
+          alt-field: "Alternatives Feld f\xC3\xBCllen"
+          buttonbar: "Schaltfl\xC3\xA4chen anzeigen"
+          min-max: "Datumsbereich einschr\xC3\xA4nken "
+          default: Datumsauswahl
+          inline: Eingebettet anzeigen
+          icon-trigger: "\xC3\x9Cber Symbol aktivieren"
+          show-week: Zeige Kalanderwoche
+          date-formats: Datum formatieren
+          multiple-calendars: Mehrerer Monate anzeigen
+          animation: Animationen
+          localization: " Kalender lokalisieren"
+          event-search: Veranstaltungen suchen
+          dropdown-month-year: "Monat- & Jahresmen\xC3\xBCs anzeigen"
+          other-months: Termine in den anderen Monaten
+        accordion: 
+          hoverintent: "\xC3\x96ffnen bei hoverintent"
+          default: Akkordeon
+          no-auto-height: "Ohne automatische H\xC3\xB6he"
+          sortable: Sortierbar
+          mouseover: "\xC3\x96ffnen, wenn die Maus dar\xC3\xBCberf\xC3\xA4hrt"
+          fillspace: "Freien Platz f\xC3\xBCllen"
+          custom-icons: Symbole anpassen
+          collapsible: Inhalt einklappen
+        progressbar: 
+          resize: "Vergr\xC3\xB6\xC3\x9Ferbarer Fortschrittsbalken"
+          default: Fortschrittsbalken
+          animated: Animiert
+        tabs: 
+          manipulation: Einfache Handhabung
+          bottom: Reiter unterhalb des Inhalts
+          default: Reiter
+          ajax: "Inhalt \xC3\xBCber Ajax"
+          sortable: Sortierbar
+          mouseover: "\xC3\x96ffnen, wenn die Maus dar\xC3\xBCberf\xC3\xA4hrt"
+          cookie: "Persistenz \xC3\xBCber Cookie"
+          collapsible: Inhalt wegklappen
+        autocomplete: 
+          maxheight: Scrollbare Ergebnisse
+          default: "Autovervollst\xC3\xA4ndigung"
+          multiple-remote: Mehrfachwerte, entfernt
+          folding: "Akzente ber\xC3\xBCcksichtigen"
+          remote-jsonp: Entfernte JSONP-Datenquelle
+          remote-with-cache: Entfernt mit Caching
+          custom-data: Angepasste Daten und Anzeige
+          multiple: Mehrfachwerte
+          categories: Kategorien
+          remote: Entfernte Datenquelle
+          combobox: Auswahleiste
+          remote-xml: XML-Daten einmalig geparsed
+        dialog: 
+          default: Dialog
+          modal-confirmation: "Modale Best\xC3\xA4tigung"
+          modal: Modaler Dialog
+          animated: Animierter Dialog
+          modal-form: Modale Form
+          modal-message: Modale Nachricht
+      form: 
+        new: Anlegen
+        edit: Bearbeiten
+        cancel: Abbrechen
+        delete: "L\xC3\xB6schen"
+        save: Speichern
+        sure: Sind Sie sicher?
+      effects: 
+        toggle: 
+          default: Umschalten
+        hide: 
+          default: Verstecken
+        default: Effekte
+        animate: 
+          default: Farbanimation
+        toggle_class: 
+          default: Klasse umschalten
+        switch_class: 
+          default: Klasse wechseln
+        add_class: 
+          default: "Klasse hinzuf\xC3\xBCgen"
+        show: 
+          default: Zeigen
+        effect: 
+          easing: Easing im Schaufenster
+          default: Effekt
+          showcase: Effekte im Schaufenster
+        remove_class: 
+          default: Klasse entfernen
+      theme-switcher: 
+        button: "Thema: "
+        initial: Thema wechseln
   date: 
     month_names: 
     - 
@@ -145,6 +606,10 @@ de:
     - Oktober
     - November
     - Dezember
+    order: 
+    - :day
+    - :month
+    - :year
     abbr_day_names: 
     - So
     - Mo
@@ -153,10 +618,6 @@ de:
     - Do
     - Fr
     - Sa
-    order: 
-    - :day
-    - :month
-    - :year
     formats: 
       only_day: "%e"
       default: "%d.%m.%Y"
@@ -186,471 +647,10 @@ de:
     - Okt
     - Nov
     - Dez
-  activemodel: 
-    errors: 
-      template: 
-        body: "Bitte \xC3\xBCberpr\xC3\xBCfen Sie die folgenden Felder:"
-        header: 
-          one: "Konnte {{model}} nicht speichern: ein Fehler."
-          other: "Konnte {{model}} nicht speichern: {{count}} Fehler."
-  txt: 
-    plugins: 
-      name: jQuery-Plugins
-    jst: 
-      html: HTML-Daten
-      name: jsTree
-      plugins: Plugins
-      themeroller: Themenwahl
-      hotkeys: Hotkeys
-      xml: XML-Daten
-      dnd: Drag'n Drop
-      checkbox: "Auswahlk\xC3\xA4stchen"
-      radio: Umschalttasten
-      demo: Demonstration
-      json: JSON-Daten
-      cookies: Cookies
-      contextmenu: "Kontextmen\xC3\xBC"
-      types: Typen
-      lang: Sprachen
-      sort: Sortieren
-      unique: Eindeutig
-      ui: UI
-      core: "Basisfunktionalit\xC3\xA4t"
-      crrm: CRRM
-      themes: Themen
-      search: Suche
-    layout: 
-      colon: ":"
-      back: "Zur\xC3\xBCck"
-      edit: Bearbeiten
-      conf_nav: "Navigation konfigurieren "
-      cancel: Abbrechen
-      delete: "L\xC3\xB6schen"
-      theme: Thema
-      from: von
-      language: Sprache
-      navi: Browsen Sie durch die Beispiele
-      show: Anzeigen
-      save: Sichern
-      footer: 
-        legalese: "Copyright \xC2\xA9 2009-2010 Kosmas Sch\xC3\xBCtz. N\xC3\xA4heres finden Sie unter LICENSE."
-      create: Anlegen
-      update: Aktualisieren
-      until: bis
-    trees: !binary |
-      QsOkdW1l
-
-    jqgrid: 
-      simple: 
-        name: Einfache Datengitter
-        direct: mit direkter Auswahl und automatischer Weite
-        default: "mit Standardfunktionalit\xC3\xA4t"
-        master: mit Haupt- und Detailsicht
-        selection: mit Auswahllink und Suche deaktiviert
-        multiple: mit Mehrfachauswahl + Zeilennummern
-      name: jqGrid
-      manipulation: 
-        name: Datenmanipulation
-        inline: "mit Inline-\xC3\x84nderung"
-        modal: "mit modaler \xC3\x84nderung"
-        datepicker: mit Datumsauswahl (Nachname)
-        input: mit verschiedenen Eingabetypen
-      demo: 
-        20advanced: Fortgeschritten
-        20array: Daten aus einer Matrix
-        20as_subgrid: Gitter als Untergitter
-        20big_sets: "Gro\xC3\x9Fe Datenmengen durchsuchen"
-        20data: Gitterdaten
-        20get: Get-Methoden
-        20json_data: JSON-Daten
-        20loading: Laden von Daten
-        20manipulating: Manipulation
-        20master: Haupt- und Detailsicht
-        20multi: Mehrfachauswahl
-        20once: Einmaliges Laden
-        20resizing: "Gitter vergr\xC3\xB6\xC3\x9Fern"
-        20set: Set-Methoden
-        20subgrid: Untergitter
-        20xml_data: XML-Daten
-        2dc: 2dc_jqGrid Beispiele
-        30add_row: "Zeile hinzuf\xC3\xBCgen"
-        30after_load: Callback nach dem Laden
-        30basic: Einfaches Beispiel
-        30cedit: "Angepasstes \xC3\x84ndern"
-        30cmulti: Angepasste Mehrfachauswahl
-        30datepicker: Datumsauswahl
-        30delete_row: "Zeile l\xC3\xB6schen"
-        30edit_row: "Zeile \xC3\xA4ndern"
-        30events: Ereignisse nutzen
-        30full: Vollzugriff
-        30hide: Spalten anzeigen/verbergen
-        30integrations: Integrationen
-        30json_map: JSON-Mapping
-        30json_subgrid: Untergitter mit JSON
-        30live: Live Datenmanipulation
-        30mapping: Daten-Mapping
-        30navigator: Navigator
-        30optimize: Datenoptimierung
-        30resizable: "Vergr\xC3\xB6\xC3\x9Ferbare Spalten"
-        30row: "Zeilen \xC3\xA4ndern"
-        30searching: Daten suchen
-        30types: Eingabetypen
-        30v: Neu seit Beta 3.0
-        30xml_map: XML-Mapping
-        31cparams: "Gebr\xC3\xA4uchliche Parameter"
-        31new_methods: Neue Methoden
-        31post_data: Post Data
-        31toolbar: Symbolleisten
-        31userdata: Benutzerdaten
-        31v: Neu in Version 3.1
-        32cbutton: "Angepasste Schaltfl\xC3\xA4chen und Formulare"
-        32client: Clientseitige Validierung
-        32hide: Spalten anzeigen/verbergen
-        32initial: "Zun\xC3\xA4chst verstecktes Gitter"
-        32insert: "Ereignis nach Einf\xC3\xBCgen einer Zeile"
-        32new_methods: Neue Methoden
-        32server_errors: Server-Fehler kontrollieren
-        32v: Neu in Version 3.2
-        33cell: "Zellen \xC3\xA4ndern"
-        33dynamic: "Dynamische H\xC3\xB6he und Breite"
-        33function: Datentyp als Funktion
-        33html: Gitter aus HTML-Tabelle
-        33mform: Mehrfache Formularsuche
-        33mtoolbar: Mehrfache Symbolleistensuche
-        33rdnd: Drag and Drop von Zeilen
-        33tree: Baumgitter
-        33v: Neu in Version 3.3
-        33visible: Sichtbare Spalten
-        34adjacency: Baumgitter mit Adjazenzliste
-        34autoscroll: Das automatische Laden von Daten beim Scrollen
-        34cformat: Angepasster Formatierer
-        34format: Formatierer
-        34import: Konfiguration aus XML importieren
-        34scroll: Scrollen mit dynamischen Zeilenauswahl
-        34v: Neu in Version 3.4
-        35asearch: Erweiterte Suche
-        35improvements: Formverbesserungen
-        35navigation: Formularnavigation
-        35number: Automatische Breite und Reihennummerierung
-        35real: "Reales Beispiel eines Baumgitters "
-        35sortable: Sortierbare Spalten anzeigen
-        35stoolbar: Integrierte Suchleiste
-        35summary: "Zusammenfassung in der Fu\xC3\x9Fzeile"
-        35v: Neu in Version 3.5
-        35view: Modus Gitteransicht
-        36ajax: Ajax-Verbesserungen
-        36api: Neues API
-        36chooser: Spaltenauswahl
-        36cinput: Benutzerdefiniertes Eingabeelement erstellen
-        36rdnd: Drag and Drop von Zeilen
-        36reordering: Neuanordnung von Spalten
-        36resizing: "Gitter vergr\xC3\xB6\xC3\x9Fern"
-        36rtl: "RNL-Unterst\xC3\xBCtzung"
-        36srows: Sortierbare Zeilen
-        36tscroll: Echte scrollende Zeilen
-        36v: Neu in Version 3.6
-        36validation: Angepasste Validierung
-        37array: Matrixdaten auf einmal laden
-        37crud: "Lokale Daten Hinzuf\xC3\xBCgen/\xC3\x84ndern/L\xC3\xB6schen"
-        37multiple: Mehrfachsuche
-        37scroll: Virtuelles Scrollen
-        37server: Daten auf einmal vom Server laden
-        37single: Einfache Suche
-        37toolbar: Werkzeugleistensuche
-        37v: Neu in Version 3.7
-        38array1: Einfache Gruppierung mit Matrixdaten
-        38array2: Spalten verbergen
-        38array3: Kopfzeile konfigurieren
-        38array4: "RNL-Unterst\xC3\xBCtzung"
-        38array5: Zeilen verbergen
-        38array6: "Summarische Fu\xC3\x9Fzeilen"
-        38remote1: Entfernte Daten (sortiert)
-        38remote2: Entfernte Daten (sortiert mit Gesamtsummen)
-        38remote3: Entfernte Daten (unsortiert mit Gesamtsummen)
-        38remote4: "Dynamische Ver\xC3\xA4nderung der Gruppierung"
-        38remote5: Summenzeile anzeigen
-        38v: Gruppierung
-        38xml1: Gruppierung mit XML-Daten
-        actions: Aktionen
-        default: jqGrid Beispiele
-        gridify: 2dc-Beispiele mit gridify umgesetzt
-        name: Demo
-      subgrids: 
-        name: Untergitter
-        default: "mit Standardfunktionalit\xC3\xA4t"
-        selection: mit Auswahl
-        crud: mit CRUD-Operationen
-      improvements: 
-        name: mit Verbesserungen der Form
-      secret: Secret Sauce jqGrid
-    jqt: 
-      name: "jQTouch (ben\xC3\xB6tigt einen Browser mit WebKit)"
-      beta: jQTouch & beta@jqtouch.com
-      demo: Compass jQTouch Demo
-    ribbon: 
-      simple: jQuery Ribbon Simple Demo
-      name: Multifunktionsleiste
-      default: jQuery Ribbon Windows 7 Demo
-      office: jQuery Ribbon Office Demo
-    jqical: 
-      name: iCalendar
-      anytime: 
-        name: Any+Time&trade
-        default: "Standardfunktionalit\xC3\xA4t"
-        css: Benutzereigenes Layout
-        inline: Eingebettet anzeigen
-        separate: Datum und Uhrzeit getrennt
-        ajax: Ajax Demo
-        extend: "Erweiterung der Funktionalit\xC3\xA4t"
-        convert: AnyTime.Converter
-      event: 
-        new: Neuer Termin
-        location: Ort
-        default: Veranstaltung
-        starts_at: Beginnt um
-        ends_at: Endet um
-        listing: Termine anzeigen
-        summary: Betreff
-        description: Beschreibung
-        all_day: "Ganzt\xC3\xA4giges Ereignis"
-      calendar: 
-        new: Neuer iCalender
-        name: Name
-        actions: 
-          name: Aktionen
-          show: Als Kalender anzeigen
-          ical: Als iCalendar anzeigen
-        edit: iCalendar bearbeiten
-        delete: "iCalendar l\xC3\xB6schen"
-        confirm: "iCalendar wirklich l\xC3\xB6schen?"
-        default: Kalender
-        color: Farbe
-        listing: iCalendar auflisten
-        show: " iCalendar anzeigen"
-        iphone: Zeigen Sie es auf einem iPhone
-    dt: 
-      name: Dynatree
-      ul: Aus ul-Element initialisieren
-      lazy: Lazy
-      persist: Persistenz
-      default: Standardeinstellungen
-      dnd2: Neues Ziehen und Ablegen
-      dnd: Ziehen und Ablegen
-      iframe: iframe und URL-Navigation
-      api: Programmier-API
-      quick: JS-Objekt initialisieren
-      events: Ergeignisverarbeitung
-      minexpand: Feste Expansionsebene
-      form: In Formular integriert
-      effects: Effekte
-      contextmenu: "Kontextmen\xC3\xBC,  Kopieren / Einf\xC3\xBCgen"
-      select: "K\xC3\xA4stchen & Auswahl"
-      multiline: "Gro\xC3\x9Fe Knoten"
-      benchmark: "Benchmark f\xC3\xBCr gro\xC3\x9Fe B\xC3\xA4ume"
-      theming: 
-        name: Themen
-        xp: XP
-        crystal: Crystal
-        aero: Aero
-        aqua: Aqua
-    jqm: 
-      name: jQuery Mobile
-    mobiles: 
-      name: "jQuery auf mobilen Ger\xC3\xA4ten"
-    hello: ""
-    ui: 
-      name: jQquery UI
-      utilities: 
-        position: 
-          default: Position
-          cycler: Wechselnde Bilder
-        default: Hilfsmittel
-      default: "Standardfunktionalit\xC3\xA4t"
-      interactions: 
-        selectable: 
-          serialize: "Mehrere ausw\xC3\xA4hlen"
-          default: "W\xC3\xA4hlbar"
-          display-grid: Als Gitter anzeigen
-        default: Interaktionen
-        sortable: 
-          items: "Elemente ein- / ausschlie\xC3\x9Fen"
-          empty-lists: Leere Listen handhaben
-          default: Sortierbar
-          connect-lists-through-tabs: "Listen \xC3\xBCber Reiter verbinden"
-          portlets: Portlets
-          delay-start: "Start verz\xC3\xB6gern"
-          display-grid: Als Gitter anzeigen
-          connect-lists: Listen verbinden
-          placeholder: "Platzhalter f\xC3\xBCr den Abwurf"
-        draggable: 
-          snap-to: In Element oder Gitter einrasten
-          handle: Position des Griffs
-          scroll: Autoscrollen
-          default: Ziehbar
-          sortable: Zieh- und sortierbar
-          events: Ereignisse
-          constrain-movement: "Einschr\xC3\xA4nken der Bewegung"
-          revert: "Zur Position zur\xC3\xBCckkehren"
-          cursor-style: Cursorstil
-          delay-start: "Start verz\xC3\xB6gern"
-          visual-feedback: Visuelles Feedback
-        resizable: 
-          aspect-ratio: "Seitenverh\xC3\xA4ltnis beibehalten"
-          snap-to-grid: Im Gitter einrasten
-          max-min: "Maximal-  / Minimalgr\xC3\xB6\xC3\x9Fe"
-          default: "Vergr\xC3\xB6\xC3\x9Ferbar"
-          animate: Animieren
-          synchronous-resize: "Synchrones Vergr\xC3\xB6\xC3\x9Fern"
-          helper: "Vergr\xC3\xB6\xC3\x9Ferungshelfer"
-          textarea: Texfeld
-          delay-start: "Start verz\xC3\xB6gern"
-          constrain-area: "Vergr\xC3\xB6\xC3\x9Ferungsfl\xC3\xA4che einschr\xC3\xA4nken"
-          visual-feedback: Visuelles Feedback
-        droppable: 
-          default: Ablegbar
-          propagation: Weitergabe verhindern
-          revert: "R\xC3\xBCckkehr zur  Position"
-          shopping-cart: Einkaufswagen
-          visual-feedback: Visuelles Feedback
-          accepted-elements: Akzeptierte Elemente
-          photo-manager: Einfacher Photomanager
-      widgets: 
-        button: 
-          default: "Schaltfl\xC3\xA4che"
-          checkbox: Auswahltasten
-          radio: Umschalttasten
-          icon: Symbole
-          toolbar: Werkzeugleiste
-          splitbutton: "Geteilte Schaltfl\xC3\xA4che"
-        default: Widgets
-        slider: 
-          steps: Mit festen Schritten einrasten
-          multiple-vertical: Mehrere Regler
-          default: Schieberegler
-          slider-vertical: Vertikaler Regler
-          side-scroll: Einfache Bildlaufleiste
-          range-vertical: Vertikaler Regler mit Bereich
-          rangemax: Bereich mit festgesetzten Maximum
-          range: Regler mit Bereich
-          colorpicker: Einfache Farbauswahl
-          hotelrooms: Zimmerreservierung
-          tabs: Reiter per Schieberegler kontrollieren
-          rangemin: Bereich mit festgesetztem Mininum
-        panel: 
-          simple: Einfaches Beispielpanel
-          name: Entwurf Panel
-          left: Von links einblenden
-          right1: Von rechts einblenden 1
-          right2: Von rechts einblenden 2
-          default: Zusammenklappbares Panel
-          demo: Demonstration
-          cookie: Panelstatus im Cookie
-          accordion: Akkordeon von Panels
-        selectmenu: 
-          name: "Auswahlmen\xC3\xBC"
-          maxheight: "Stil: <b>Popup</b> mit maxheight gesetzt"
-          without-id: "Stil: <b>Popup</b> ohne ID"
-          custom-icons2: "Stil: <b>Dropdown</b> Sprachen mit Flaggensymbolen"
-          default: "Stil: <b>Popup</b>"
-          icons: "Stil: <b>Popup</b> mit UI-Symbolen"
-          text-formatting: "Stil: <b>Popup</b> mit der Option Textformatierung"
-          optgroups: "Stil: <b>Popup</b> mit optgroups"
-          menuwidth: "Stil: <b>Dropdown</b> mit menuWidth und Textformatierung"
-          custom-icons: "Stil: <b>Popup</b> mit benutzerdefinierten Icons"
-          dropdown: "Stil: <b>Popup</b>-Stil"
-        progressbar: 
-          resize: "Vergr\xC3\xB6\xC3\x9Ferbarer Fortschrittsbalken"
-          default: Fortschrittsbalken
-          animated: Animiert
-        accordion: 
-          hoverintent: "\xC3\x96ffnen bei hoverintent"
-          default: Akkordeon
-          no-auto-height: "Ohne automatische H\xC3\xB6he"
-          sortable: Sortierbar
-          fillspace: "Freien Platz f\xC3\xBCllen"
-          mouseover: "\xC3\x96ffnen, wenn die Maus dar\xC3\xBCberf\xC3\xA4hrt"
-          custom-icons: Symbole anpassen
-          collapsible: Inhalt einklappen
-        datepicker: 
-          alt-field: "Alternatives Feld f\xC3\xBCllen"
-          buttonbar: "Schaltfl\xC3\xA4chen anzeigen"
-          min-max: "Datumsbereich einschr\xC3\xA4nken "
-          default: Datumsauswahl
-          inline: Eingebettet anzeigen
-          show-week: Zeige Kalanderwoche
-          icon-trigger: "\xC3\x9Cber Symbol aktivieren"
-          date-formats: Datum formatieren
-          animation: Animationen
-          multiple-calendars: Mehrerer Monate anzeigen
-          event-search: Veranstaltungen suchen
-          localization: " Kalender lokalisieren"
-          dropdown-month-year: "Monat- & Jahresmen\xC3\xBCs anzeigen"
-          other-months: Termine in den anderen Monaten
-        tabs: 
-          manipulation: Einfache Handhabung
-          bottom: Reiter unterhalb des Inhalts
-          default: Reiter
-          sortable: Sortierbar
-          ajax: "Inhalt \xC3\xBCber Ajax"
-          mouseover: "\xC3\x96ffnen, wenn die Maus dar\xC3\xBCberf\xC3\xA4hrt"
-          cookie: "Persistenz \xC3\xBCber Cookie"
-          collapsible: Inhalt wegklappen
-        dialog: 
-          default: Dialog
-          modal-confirmation: "Modale Best\xC3\xA4tigung"
-          modal: Modaler Dialog
-          animated: Animierter Dialog
-          modal-form: Modale Form
-          modal-message: Modale Nachricht
-        autocomplete: 
-          maxheight: Scrollbare Ergebnisse
-          default: "Autovervollst\xC3\xA4ndigung"
-          folding: "Akzente ber\xC3\xBCcksichtigen"
-          remote-jsonp: Entfernte JSONP-Datenquelle
-          multiple-remote: Mehrfachwerte, entfernt
-          remote-with-cache: Entfernt mit Caching
-          custom-data: Angepasste Daten und Anzeige
-          multiple: Mehrfachwerte
-          categories: Kategorien
-          remote: Entfernte Datenquelle
-          remote-xml: XML-Daten einmalig geparsed
-          combobox: Auswahleiste
-      form: 
-        new: Anlegen
-        edit: Bearbeiten
-        cancel: Abbrechen
-        delete: "L\xC3\xB6schen"
-        save: Speichern
-        sure: Sind Sie sicher?
-      effects: 
-        toggle: 
-          default: Umschalten
-        hide: 
-          default: Verstecken
-        default: Effekte
-        animate: 
-          default: Farbanimation
-        switch_class: 
-          default: Klasse wechseln
-        toggle_class: 
-          default: Klasse umschalten
-        add_class: 
-          default: "Klasse hinzuf\xC3\xBCgen"
-        show: 
-          default: Zeigen
-        effect: 
-          easing: Easing im Schaufenster
-          default: Effekt
-          showcase: Effekte im Schaufenster
-        remove_class: 
-          default: Klasse entfernen
-      theme-switcher: 
-        button: "Thema: "
-        initial: Thema wechseln
   support: 
     array: 
-      last_word_connector: " und "
       words_connector: ", "
+      last_word_connector: " und "
       two_words_connector: " und "
     select: 
       prompt: "Bitte w\xC3\xA4hlen:"
@@ -687,18 +687,18 @@ de:
       x_seconds: 
         one: eine Sekunde
         other: "{{count}} Sekunden"
-      less_than_x_seconds: 
-        one: weniger als eine Sekunde
-        other: weniger als {{count}} Sekunden
-      x_months: 
-        one: ein Monat
-        other: "{{count}} Monate"
       x_minutes: 
         one: eine Minute
         other: "{{count}} Minuten"
       about_x_hours: 
         one: etwa eine Stunde
         other: etwa {{count}} Stunden
+      less_than_x_seconds: 
+        one: weniger als eine Sekunde
+        other: weniger als {{count}} Sekunden
+      x_months: 
+        one: ein Monat
+        other: "{{count}} Monate"
       about_x_months: 
         one: etwa ein Monat
         other: etwa {{count}} Monate

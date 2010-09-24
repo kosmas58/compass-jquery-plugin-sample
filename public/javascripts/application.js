@@ -33,9 +33,10 @@ jQuery(document).ready(function() {
 	  }
 	});
 	
-	$('#panel_navigation').panel({
-    'collapseType':'slide-left',
-    'stackable':false
+	$('#navpanel').panel({
+    'collapsed':true
+    //'collapseType':'slide-left',
+    //'stackable':false
   });
 	
 	$("#configure_navigation").button({

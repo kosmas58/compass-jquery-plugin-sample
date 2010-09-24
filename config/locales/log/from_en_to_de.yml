@@ -21,10 +21,9 @@ date:
     short: "%b %d"
     long: "%B %d, %Y"
 txt: 
-  jqgrid: 
-    demo: 
-      38remote5: View Summary Row on Collapse
-  hello: Hello world
+  jqical: 
+    calendar: 
+      iphone: Show it on a iPhone
 support: 
   array: 
     words_connector: ", "
