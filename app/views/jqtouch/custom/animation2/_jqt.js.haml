@@ -24,7 +24,7 @@
     jQT.addAnimation({
       name: 'pageflip',
       selector: '.pageflip'
-    });
+    });    
     $('#page1').swipe(function(e, info){
       if (info.direction === 'left') {
         jQT.goTo($('#page2'), 'pageflip');

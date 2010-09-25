@@ -119,8 +119,8 @@
         %a{ :href => "#pageevents" }
           Page events
       %li
-        %a#swipeme{:href => "#"}        
-          Swipe me!        
+        %a#swipeme{:href => "#"}
+          Swipe me!
       %li
         %a#tapme{:href => "#"}
           Tap me!      
@@ -169,9 +169,6 @@
       %li.arrow
         %a{ :href => "#chain" }
           chain.js Demo
-      %li.arrow
-        %a{:href => "#databases"}
-          Database Example
         %small.counter 2       
       %li.arrow
         %a{ :href => "#mobione" }
@@ -248,6 +245,144 @@
           Rubble,
           %em
             Betty
+  #edge2
+    .toolbar
+      %h1 Fixed Bottom Toolbar
+      %a.back{:href => "#"} Back
+    .vertical-scroll.use-bottom-toolbar
+      %div
+        %ul.edgetoedge
+          %li.sep F
+          %li
+            %a{:href => "#"}
+              Flintstone,
+              %em Fred
+          %li
+            %a{:href => "#"}
+              Flintstone,
+              %em Pebble
+          %li
+            %a{:href => "#"}
+              Flintstone,
+              %em Wilma
+          %li.sep J
+          %li
+            %a{:href => "#"}
+              Jetson,
+              %em Elroy
+          %li
+            %a{:href => "#"}
+              Jetson,
+              %em George
+          %li
+            %a{:href => "#"}
+              Jetson,
+              %em Jane
+          %li
+            %a{:href => "#"}
+              Jetson,
+              %em Judy
+          %li.sep R
+          %li
+            %a{:href => "#"}
+              Rubble,
+              %em Bambam
+          %li
+            %a{:href => "#"}
+              Rubble,
+              %em Barney
+          %li
+            %a{:href => "#"}
+              Rubble,
+              %em Betty
+          %li.sep F
+          %li
+            %a{:href => "#"}
+              Flintstone,
+              %em Fred
+          %li
+            %a{:href => "#"}
+              Flintstone,
+              %em Pebble
+          %li
+            %a{:href => "#"}
+              Flintstone,
+              %em Wilma
+          %li.sep J
+          %li
+            %a{:href => "#"}
+              Jetson,
+              %em Elroy
+          %li
+            %a{:href => "#"}
+              Jetson,
+              %em George
+          %li
+            %a{:href => "#"}
+              Jetson,
+              %em Jane
+          %li
+            %a{:href => "#"}
+              Jetson,
+              %em Judy
+          %li.sep R
+          %li
+            %a{:href => "#"}
+              Rubble,
+              %em Bambam
+          %li
+            %a{:href => "#"}
+              Rubble,
+              %em Barney
+          %li
+            %a{:href => "#"}
+              Rubble,
+              %em Betty
+          %li.sep F
+          %li
+            %a{:href => "#"}
+              Flintstone,
+              %em Fred
+          %li
+            %a{:href => "#"}
+              Flintstone,
+              %em Pebble
+          %li
+            %a{:href => "#"}
+              Flintstone,
+              %em Wilma
+          %li.sep J
+          %li
+            %a{:href => "#"}
+              Jetson,
+              %em Elroy
+          %li
+            %a{:href => "#"}
+              Jetson,
+              %em George
+          %li
+            %a{:href => "#"}
+              Jetson,
+              %em Jane
+          %li
+            %a{:href => "#"}
+              Jetson,
+              %em Judy
+          %li.sep R
+          %li
+            %a{:href => "#"}
+              Rubble,
+              %em Bambam
+          %li
+            %a{:href => "#"}
+              Rubble,
+              %em Barney
+          %li
+            %a{:href => "#"}
+              Rubble,
+              %em Betty
+    .toolbar
+      %h1 Bottom Toolbar
   #extensions
     .toolbar
       %h1
@@ -272,6 +407,22 @@
       %li.forward
         %a{ :href => "/jqtouch/ext/gestures/", :target => "_webapp" }
           Gestures
+      %li.arrow
+        %a{:href => "#databases"}
+          Database Example
+      %li.arrow
+        %a{:href => "#photo"} Photo Gallery
+        %small.counter 63
+      %li.arrow
+        %a{:href => "#photo2"} Photo Gallery 2
+        %small.counter 5
+      %li.arrow
+        %a{:href => "javascript:jQT.goToSlide('#photo',15)"} Jump to a slide
+        %small.counter 63
+      %li.arrow
+        %a{:href => "#horizontal-scrolling-example"} Horizontal Scroll
+      %li.arrow
+        %a{:href => "#horizontal-slide-example"} Horizontal Slide
   #forms
     .toolbar
       %h1
@@ -331,7 +482,7 @@
         %a{ :href => "#ui" }
           User Interface
         %small.counter
-          5
+          6
       %li.arrow
         %a{ :href => "#animations" }
           Animations
@@ -351,7 +502,7 @@
         %a{ :href => "#extensions" }
           Extensions
         %small.counter
-          5
+          11
       %li.arrow
         %a{ :href => "#video" }
           Video
@@ -359,7 +510,7 @@
         %a{ :href => "#demos" }
           Demos
         %small.counter
-          8
+          7
     %h2
       External Links
     %ul.rounded
@@ -382,6 +533,62 @@
     .info
       %p
         Add this page to your home screen to view the custom icon, startup screen, and full screen mode.
+  #horizontal-scrolling-example
+    .toolbar
+      %h1 Horizontal Scroll Example
+      %a.back{:href => "#back"} Back
+    .horizontal-scroll
+      %table.with-scrollbar
+        %tr
+          %td
+            %div
+              %img{:alt => "CSS Is Awesome", :src => "http://rlv.zcache.com/css_is_awesome_mug-p1687164350719819282objs_210.jpg"}/
+          %td
+            %div
+              %img{:alt => "CSS Is Awesome", :src => "http://rlv.zcache.com/css_is_awesome_mug-p1687164350719819282objs_210.jpg"}/
+          %td
+            %div
+              %img{:alt => "CSS Is Awesome", :src => "http://rlv.zcache.com/css_is_awesome_mug-p1687164350719819282objs_210.jpg"}/
+          %td
+            %div
+              %img{:alt => "CSS Is Awesome", :src => "http://rlv.zcache.com/css_is_awesome_mug-p1687164350719819282objs_210.jpg"}/
+          %td
+            %div
+              %img{:alt => "CSS Is Awesome", :src => "http://rlv.zcache.com/css_is_awesome_mug-p1687164350719819282objs_210.jpg"}/
+          %td
+            %div
+              %img{:alt => "CSS Is Awesome", :src => "http://rlv.zcache.com/css_is_awesome_mug-p1687164350719819282objs_210.jpg"}/
+          %td
+            %div
+              %img{:alt => "CSS Is Awesome", :src => "http://rlv.zcache.com/css_is_awesome_mug-p1687164350719819282objs_210.jpg"}/
+  #horizontal-slide-example
+    .toolbar
+      %h1 Horizontal Slide Example
+      %a.back{:href => "#Back"} Back
+    .horizontal-scroll
+      %table.with-scrollbar
+        %tr
+          %td
+            .slide-container.current
+              %img{:alt => "CSS Is Awesome", :src => "http://rlv.zcache.com/css_is_awesome_mug-p1687164350719819282objs_210.jpg"}/
+          %td
+            .slide-container
+              %img{:alt => "CSS Is Awesome", :src => "http://rlv.zcache.com/css_is_awesome_mug-p1687164350719819282objs_210.jpg"}/
+          %td
+            .slide-container
+              %img{:alt => "CSS Is Awesome", :src => "http://rlv.zcache.com/css_is_awesome_mug-p1687164350719819282objs_210.jpg"}/
+          %td
+            .slide-container
+              %img{:alt => "CSS Is Awesome", :src => "http://rlv.zcache.com/css_is_awesome_mug-p1687164350719819282objs_210.jpg"}/
+          %td
+            .slide-container
+              %img{:alt => "CSS Is Awesome", :src => "http://rlv.zcache.com/css_is_awesome_mug-p1687164350719819282objs_210.jpg"}/
+          %td
+            .slide-container
+              %img{:alt => "CSS Is Awesome", :src => "http://rlv.zcache.com/css_is_awesome_mug-p1687164350719819282objs_210.jpg"}/
+          %td
+            .slide-container
+              %img{:alt => "CSS Is Awesome", :src => "http://rlv.zcache.com/css_is_awesome_mug-p1687164350719819282objs_210.jpg"}/
   #metal
     .toolbar
       %h1
@@ -493,6 +700,9 @@
       %li.arrow
         %a{ :href => "#edge" }
           Edge to Edge
+      %li.arrow
+        %a{ :href => "#edge2" }
+          Fixed Bottom Toolbar
       %li.arrow
         %a{ :href => "#plastic" }
           Plastic
