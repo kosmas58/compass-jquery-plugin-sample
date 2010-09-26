@@ -163,13 +163,6 @@
       %li.forward
         %a{ :href => "/jqtouch/todo/", :target => "_webapp" }
           To-Do app
-      %li.forward
-        %a{ :href => "/jqtouch/demo2/", :target => "_webapp" }
-          New demo
-      %li.arrow
-        %a{ :href => "#chain" }
-          chain.js Demo
-        %small.counter 2       
       %li.arrow
         %a{ :href => "#mobione" }
           MobiOne Demos
@@ -410,19 +403,13 @@
       %li.arrow
         %a{:href => "#databases"}
           Database Example
+        %small.counter 2
       %li.arrow
-        %a{:href => "#photo"} Photo Gallery
-        %small.counter 63
-      %li.arrow
-        %a{:href => "#photo2"} Photo Gallery 2
-        %small.counter 5
-      %li.arrow
-        %a{:href => "javascript:jQT.goToSlide('#photo',15)"} Jump to a slide
-        %small.counter 63
-      %li.arrow
-        %a{:href => "#horizontal-scrolling-example"} Horizontal Scroll
-      %li.arrow
-        %a{:href => "#horizontal-slide-example"} Horizontal Slide
+        %a{ :href => "#chain" }
+          Chain Demo
+      %li.forward
+        %a{ :href => "/jqtouch/demo2/", :target => "_webapp" }
+          Image handling
   #forms
     .toolbar
       %h1
@@ -477,118 +464,63 @@
         jQTouch
       %a#infoButton.button.slideup{ :href => "#about" }
         About
-    %ul.rounded
-      %li.arrow
-        %a{ :href => "#ui" }
-          User Interface
-        %small.counter
-          6
-      %li.arrow
-        %a{ :href => "#animations" }
-          Animations
-        %small.counter
-          11
-      %li.arrow
-        %a{ :href => "/jqtouch/demo/ajax", :target => "_webapp" }
-          AJAX
-        %small.counter
-          4
-      %li.arrow
-        %a{ :href => "#callbacks" }
-          Callback Events
-        %small.counter
-          4
-      %li.arrow
-        %a{ :href => "#extensions" }
-          Extensions
-        %small.counter
-          11
-      %li.arrow
-        %a{ :href => "#video" }
-          Video
-      %li.arrow
-        %a{ :href => "#demos" }
-          Demos
-        %small.counter
-          7
-    %h2
-      External Links
-    %ul.rounded
-      %li.forward
-        %a{ :href => "http://www.jqtouch.com/", :target => "_blank" }
-          Homepage
-      %li.forward
-        %a{ :href => "http://www.twitter.com/jqtouch", :target => "_blank" }
-          Twitter
-      %li.forward
-        %a{ :href => "http://code.google.com/p/jqtouch/w/list", :target => "_blank" }
-          Google Code
-    %ul.individual
-      %li
-        %a{ :href => "mailto:dk@morfunk.com" }
-          Email
-      %li
-        %a{ :href => "http://tinyurl.com/support-jqt", :target => "_blank" }
-          Donate
-    .info
-      %p
-        Add this page to your home screen to view the custom icon, startup screen, and full screen mode.
-  #horizontal-scrolling-example
-    .toolbar
-      %h1 Horizontal Scroll Example
-      %a.back{:href => "#back"} Back
-    .horizontal-scroll
-      %table.with-scrollbar
-        %tr
-          %td
-            %div
-              %img{:alt => "CSS Is Awesome", :src => "http://rlv.zcache.com/css_is_awesome_mug-p1687164350719819282objs_210.jpg"}/
-          %td
-            %div
-              %img{:alt => "CSS Is Awesome", :src => "http://rlv.zcache.com/css_is_awesome_mug-p1687164350719819282objs_210.jpg"}/
-          %td
-            %div
-              %img{:alt => "CSS Is Awesome", :src => "http://rlv.zcache.com/css_is_awesome_mug-p1687164350719819282objs_210.jpg"}/
-          %td
-            %div
-              %img{:alt => "CSS Is Awesome", :src => "http://rlv.zcache.com/css_is_awesome_mug-p1687164350719819282objs_210.jpg"}/
-          %td
-            %div
-              %img{:alt => "CSS Is Awesome", :src => "http://rlv.zcache.com/css_is_awesome_mug-p1687164350719819282objs_210.jpg"}/
-          %td
-            %div
-              %img{:alt => "CSS Is Awesome", :src => "http://rlv.zcache.com/css_is_awesome_mug-p1687164350719819282objs_210.jpg"}/
-          %td
-            %div
-              %img{:alt => "CSS Is Awesome", :src => "http://rlv.zcache.com/css_is_awesome_mug-p1687164350719819282objs_210.jpg"}/
-  #horizontal-slide-example
-    .toolbar
-      %h1 Horizontal Slide Example
-      %a.back{:href => "#Back"} Back
-    .horizontal-scroll
-      %table.with-scrollbar
-        %tr
-          %td
-            .slide-container.current
-              %img{:alt => "CSS Is Awesome", :src => "http://rlv.zcache.com/css_is_awesome_mug-p1687164350719819282objs_210.jpg"}/
-          %td
-            .slide-container
-              %img{:alt => "CSS Is Awesome", :src => "http://rlv.zcache.com/css_is_awesome_mug-p1687164350719819282objs_210.jpg"}/
-          %td
-            .slide-container
-              %img{:alt => "CSS Is Awesome", :src => "http://rlv.zcache.com/css_is_awesome_mug-p1687164350719819282objs_210.jpg"}/
-          %td
-            .slide-container
-              %img{:alt => "CSS Is Awesome", :src => "http://rlv.zcache.com/css_is_awesome_mug-p1687164350719819282objs_210.jpg"}/
-          %td
-            .slide-container
-              %img{:alt => "CSS Is Awesome", :src => "http://rlv.zcache.com/css_is_awesome_mug-p1687164350719819282objs_210.jpg"}/
-          %td
-            .slide-container
-              %img{:alt => "CSS Is Awesome", :src => "http://rlv.zcache.com/css_is_awesome_mug-p1687164350719819282objs_210.jpg"}/
-          %td
-            .slide-container
-              %img{:alt => "CSS Is Awesome", :src => "http://rlv.zcache.com/css_is_awesome_mug-p1687164350719819282objs_210.jpg"}/
+    %div
+      %ul.rounded
+        %li.arrow
+          %a{ :href => "#ui" }
+            User Interface
+          %small.counter
+            6
+        %li.arrow
+          %a{ :href => "#animations" }
+            Animations
+          %small.counter
+            11
+        %li.arrow
+          %a{ :href => "/jqtouch/demo/ajax", :target => "_webapp" }
+            AJAX
+          %small.counter
+            4
+        %li.arrow
+          %a{ :href => "#callbacks" }
+            Callback Events
+          %small.counter
+            4
+        %li.arrow
+          %a{ :href => "#extensions" }
+            Extensions
+          %small.counter
+            8
+        %li.arrow
+          %a{ :href => "#video" }
+            Video
+        %li.arrow
+          %a{ :href => "#demos" }
+            Demos
+          %small.counter
+            5
+      %h2
+        External Links
+      %ul.rounded
+        %li.forward
+          %a{ :href => "http://www.jqtouch.com/", :target => "_blank" }
+            Homepage
+        %li.forward
+          %a{ :href => "http://www.twitter.com/jqtouch", :target => "_blank" }
+            Twitter
+        %li.forward
+          %a{ :href => "http://code.google.com/p/jqtouch/w/list", :target => "_blank" }
+            Google Code
+      %ul.individual
+        %li
+          %a{ :href => "mailto:dk@morfunk.com" }
+            Email
+        %li
+          %a{ :href => "http://tinyurl.com/support-jqt", :target => "_blank" }
+            Donate
+      .info
+        %p
+          Add this page to your home screen to view the custom icon, startup screen, and full screen mode.
   #metal
     .toolbar
       %h1

@@ -48,7 +48,88 @@
   // Some Javascript functions:
   $(function(){
     jQT.resetHeight();
-      
+    
+    jQT.generateGallery("photo", 
+      [
+        {
+          src:"http://www.nasa.gov/images/content/450090main_image_1653_946-710.jpg",
+          width: 946,
+          height: 710
+        },
+        {src:"/jqtouch/test-image-1.jpg",caption:"A test caption for the generator"},
+        {src:"http://www.thinkgeek.com/images/products/front/b597_rock_paper_scissors_lizard_spock.jpg"},
+        {src:"http://rlv.zcache.com/theres_no_place_like_127_0_0_1_tshirt-p235602976566783086tmn7_313.jpg"},
+        {src:"http://www.thinkgeek.com/images/products/front/lg-capsaicin.jpg"},
+        {src:"http://imgs.xkcd.com/comics/in_ur_reality.png"},
+        {src:"http://www.thinkgeek.com/images/products/front/power.jpg"},
+        {src:"http://imgs.xkcd.com/store/imgs/stand_back_square_0.png"},
+        {src:"/jqtouch/test-image-4.jpg"},
+        {src:"http://www.thinkgeek.com/images/products/front/zombie_repellent_crayon.jpg"},
+        {src:"http://imgs.xkcd.com/store/imgs/sudo_square_0.png"},
+        {src:"http://ladyzee.files.wordpress.com/2007/06/geek.jpg"},
+        {src:"http://imgs.xkcd.com/store/imgs/just_shy_square_0.png"},
+        {src:"/jqtouch/test-image-3.jpg"},
+        {src:"http://farm5.static.flickr.com/4048/4620214378_da454753f2.jpg"},
+        {src:"http://www.thinkgeek.com/images/products/front/ac0b_Electronic_Drum_Kit_Shirt.gif"},
+        {src:"http://imgs.xkcd.com/comics/chess_photo.png"},
+        {src:"http://farm5.static.flickr.com/4068/4635718507_389ca9b2e7.jpg"},
+        {src:"http://imgs.xkcd.com/comics/asshole.png"},
+        {src:"/jqtouch/test-image-2.jpg"},
+        {src:"http://www.thinkgeek.com/images/products/front/obey-gravity.jpg"},
+        {src:"http://farm3.static.flickr.com/2556/3833582019_a0c7593e5c.jpg"},
+        {src:"http://antwrp.gsfc.nasa.gov/apod/image/1005/rheaepimetheus_cassini.jpg"},
+        {src:"http://www.yeshua-do.com/jom/images/stories/einstein_tongue.jpg"},
+        {src:"http://fc07.deviantart.net/fs71/f/2010/155/a/6/a63f0de1d27516832f2ce1474efc6be4.png"},
+        {src:"http://fc07.deviantart.net/fs71/i/2010/154/8/5/sun_shower_by_jyoujo.jpg"},
+        {src:"http://grin.hq.nasa.gov/IMAGES/MEDIUM/GPN-2000-000762.jpg"},
+        {src:"http://i572.photobucket.com/albums/ss167/derekabril/einstein_010.png"},
+        {src:"http://grin.hq.nasa.gov/IMAGES/MEDIUM/GPN-2000-000058.jpg"},
+        {src:"http://fc05.deviantart.net/fs71/i/2010/153/5/f/tR_Minimal_Concept_by_kAtz93.png"},
+        {src:"http://grin.hq.nasa.gov/IMAGES/MEDIUM/GPN-2000-000439.jpg"},
+        {src:"http://antwrp.gsfc.nasa.gov/apod/image/1005/ic443_franke900.jpg"},
+        {src:"/jqtouch/test-image-1.jpg",caption:"A test caption for the generator"},
+        {src:"http://www.thinkgeek.com/images/products/front/b597_rock_paper_scissors_lizard_spock.jpg?2"},
+        {src:"http://rlv.zcache.com/theres_no_place_like_127_0_0_1_tshirt-p235602976566783086tmn7_313.jpg?2"},
+        {src:"http://www.thinkgeek.com/images/products/front/lg-capsaicin.jpg?2"},
+        {src:"http://imgs.xkcd.com/comics/in_ur_reality.png?2"},
+        {src:"http://www.thinkgeek.com/images/products/front/power.jpg?2"},
+        {src:"http://imgs.xkcd.com/store/imgs/stand_back_square_0.png?2"},
+        {src:"/jqtouch/test-image-4.jpg?2"},
+        {src:"http://www.thinkgeek.com/images/products/front/zombie_repellent_crayon.jpg?2"},
+        {src:"http://imgs.xkcd.com/store/imgs/sudo_square_0.png?2"},
+        {src:"http://ladyzee.files.wordpress.com/2007/06/geek.jpg?2"},
+        {src:"http://imgs.xkcd.com/store/imgs/just_shy_square_0.png?2"},
+        {src:"/jqtouch/test-image-3.jpg?2"},
+        {src:"http://farm5.static.flickr.com/4048/4620214378_da454753f2.jpg?2"},
+        {src:"http://www.thinkgeek.com/images/products/front/ac0b_Electronic_Drum_Kit_Shirt.gif?2"},
+        {src:"http://imgs.xkcd.com/comics/chess_photo.png?2"},
+        {src:"http://farm5.static.flickr.com/4068/4635718507_389ca9b2e7.jpg?2"},
+        {src:"http://imgs.xkcd.com/comics/asshole.png?2"},
+        {src:"/jqtouch/test-image-2.jpg?2"},
+        {src:"http://www.thinkgeek.com/images/products/front/obey-gravity.jpg?2"},
+        {src:"http://farm3.static.flickr.com/2556/3833582019_a0c7593e5c.jpg?2"},
+        {src:"http://antwrp.gsfc.nasa.gov/apod/image/1005/rheaepimetheus_cassini.jpg?2"},
+        {src:"http://www.yeshua-do.com/jom/images/stories/einstein_tongue.jpg?2"},
+        {src:"http://fc07.deviantart.net/fs71/f/2010/155/a/6/a63f0de1d27516832f2ce1474efc6be4.png?2"},
+        {src:"http://fc07.deviantart.net/fs71/i/2010/154/8/5/sun_shower_by_jyoujo.jpg?2"},
+        {src:"http://grin.hq.nasa.gov/IMAGES/MEDIUM/GPN-2000-000762.jpg?2"},
+        {src:"http://i572.photobucket.com/albums/ss167/derekabril/einstein_010.png?2"},
+        {src:"http://grin.hq.nasa.gov/IMAGES/MEDIUM/GPN-2000-000058.jpg?2"},
+        {src:"http://fc05.deviantart.net/fs71/i/2010/153/5/f/tR_Minimal_Concept_by_kAtz93.png?2"},
+        {src:"http://grin.hq.nasa.gov/IMAGES/MEDIUM/GPN-2000-000439.jpg?2"},
+        {src:"http://antwrp.gsfc.nasa.gov/apod/image/1005/ic443_franke900.jpg?2"},
+      ],
+      {defaultIndex:5}
+    );
+    jQT.generateGallery("photo2",
+      [
+        {src:"http://www.nasa.gov/images/content/450090main_image_1653_946-710.jpg"},
+        {src:"/images/jqtouch/mobione/leaf1.png",caption:"Test Image 1"},
+        {src:"/images/jqtouch/mobione/leaf2.png",caption:"Test Image 2"},
+        {src:"http://rlv.zcache.com/css_is_awesome_mug-p1687164350719819282objs_210.jpg",caption:"CSS is Awesome"},
+        {src:"/images/jqtouch/mobione/leaf3.png"}
+      ]);
+    
     // Orientation callback event
     $('#jqt').bind('turn', function(e, data){
       $div = $(".current").attr("id");
@@ -142,10 +223,10 @@
 
 :css
   #jqt .toolbar { background: url("/images/jqtouch/demo2/toolbar.png") repeat-x; }
-  #jqt #home, #jqt #more, #jqt #facilities, #jqt #artwork_styles, #jqt #artwork_types, #jqt #curators, #jqt #gallery_list { background: url("/images/jqtouch/demo2/background.png") repeat-x; }
-  #jqt #home ul.rounded , #jqt #more ul.rounded, #jqt #facilities ul, #jqt #artwork_styles ul.rounded, #jqt #artwork_types ul.rounded, #jqt #curators ul.rounded, #jqt #gallery_list ul { -webkit-background-clip: none; background: url("/images/jqtouch/demo2/charcoal_opacity_8.png"); background-color: none; color: none; border-width: 2px ; }
+  #jqt #home, #jqt #gallery2, #jqt #horizontal, #jqt #more, #jqt #facilities, #jqt #artwork_styles, #jqt #artwork_types, #jqt #curators, #jqt #gallery_list { background: url("/images/jqtouch/demo2/background.png") repeat-x; }
+  #jqt #home ul.rounded, #jqt #gallery2 ul.rounded, #jqt #horizontal ul.rounded, #jqt #more ul.rounded, #jqt #facilities ul, #jqt #artwork_styles ul.rounded, #jqt #artwork_types ul.rounded, #jqt #curators ul.rounded, #jqt #gallery_list ul { -webkit-background-clip: none; background: url("/images/jqtouch/demo2/charcoal_opacity_8.png"); background-color: none; color: none; border-width: 2px ; }
   #jqt #gallery_list h2 { -webkit-background-clip: none; background: url("/images/jqtouch/demo2/charcoal_opacity_8.png"); color: White; }
-  #jqt #home li.arrow, #jqt #more li.arrow, #jqt #facilities li.arrow, #jqt #artwork_styles li.arrow, #jqt #artwork_types li.arrow, #jqt #curators li.arrow, #jqt #gallery_list li.arrow { -webkit-background-clip: none; background-image: url("/images/jqtouch/demo2/charcoal_opacity_8.png"), url("/images/jqtouch/jqt/chevron.png"); background-repeat: repeat, no-repeat; background-color: none; border-width: 2px ; }
+  #jqt #home li.arrow, #jqt #gallery2 li.arrow, #jqt #horizontal li.arrow, #jqt #more li.arrow, #jqt #facilities li.arrow, #jqt #artwork_styles li.arrow, #jqt #artwork_types li.arrow, #jqt #curators li.arrow, #jqt #gallery_list li.arrow { -webkit-background-clip: none; background-image: url("/images/jqtouch/demo2/charcoal_opacity_8.png"), url("/images/jqtouch/jqt/chevron.png"); background-repeat: repeat, no-repeat; background-color: none; border-width: 2px ; }
   
   .art_pic { max-width:320px; max-height:220px; }
   
@@ -160,4 +241,7 @@
   .landscape #show_image img { max-width:480px !important; max-height:300px !important; }
   .profile #floor_plan .vertical-scroll { height:410px; overflow:hidden; }
   .profile .vertical-scroll, .vertical-slide { height:350px; overflow:hidden; }
-    .landscape .vertical-scroll, .landscape .vertical-slide { height:250px; overflow:hidden; }
+  .landscape .vertical-scroll, .landscape .vertical-slide { height:250px; overflow:hidden; }
+  
+  .slide-container,.scroll-container{text-align:center;/*outline:2px solid red;*/}
+  .slide-container > img,.scroll-container > img{vertical-align:middle;}
