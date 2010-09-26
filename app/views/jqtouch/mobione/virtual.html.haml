@@ -3,7 +3,7 @@
 - content_for :content_head do
   = render(:partial => "virtual.js.haml", :format => :js)
 
-#jqt
+#jqt.fullscreen
   #home
     .toolbar
       %h1
@@ -11,15 +11,4 @@
       %a.back{ :href => "/jqtouch/demo/#mobione", :target => "_webapp"  } 
         MobiOne Demos
     #virtual
-      %script{:src => "/images/jqtouch/mobione/saved_resource"}   
-      %img.movable{:src => "/images/jqtouch/mobione/4693188294_eba098f5a6_m.jpg", :style => "position: absolute; top: 0px; left: 0px; -webkit-transform: translate(1109.65px, 541.583px) scale(0.721386) rotate(-47.9455deg); "}
-      %img.movable{:src => "/images/jqtouch/mobione/4693243154_46db26c6ef_m.jpg", :style => "position: absolute; top: 0px; left: 0px; -webkit-transform: translate(173.44px, 456.079px) scale(0.690233) rotate(43.5718deg); "}
-      %img.movable{:src => "/images/jqtouch/mobione/4692842051_083d0707e1_m.jpg", :style => "position: absolute; top: 0px; left: 0px; -webkit-transform: translate(1068.77px, 92.9505px) scale(0.987721) rotate(-66.0803deg); "}
-      %img.movable{:src => "/images/jqtouch/mobione/4693132290_b0d6c234f1_m.jpg", :style => "position: absolute; top: 0px; left: 0px; -webkit-transform: translate(1253.46px, 571.149px) scale(0.803955) rotate(54.2868deg); "}
-      %img.movable{:src => "/images/jqtouch/mobione/4693768238_878a5cc829_m.jpg", :style => "position: absolute; top: 0px; left: 0px; -webkit-transform: translate(591.841px, 197.585px) scale(0.818049) rotate(79.5447deg); "}
-      %img.movable{:src => "/images/jqtouch/mobione/4693319989_b4a1d39e1c_m.jpg", :style => "position: absolute; top: 0px; left: 0px; -webkit-transform: translate(187.789px, 113.336px) scale(0.718036) rotate(65.5006deg); "}
-      %img.movable{:src => "/images/jqtouch/mobione/4693295487_d61834e5d4_m.jpg", :style => "position: absolute; top: 0px; left: 0px; -webkit-transform: translate(1387.18px, 456.254px) scale(0.676637) rotate(55.3122deg); "}
-      %img.movable{:src => "/images/jqtouch/mobione/4693539175_61e4d071bb_m.jpg", :style => "position: absolute; top: 0px; left: 0px; -webkit-transform: translate(975.053px, 150.209px) scale(0.718104) rotate(-68.4715deg); "}
-      %img.movable{:src => "/images/jqtouch/mobione/4693298803_44d00ea109_m.jpg", :style => "position: absolute; top: 0px; left: 0px; -webkit-transform: translate(708.713px, 513.589px) scale(0.940274) rotate(-52.9388deg); "}
-      %img.movable{:src => "/images/jqtouch/mobione/4692424679_d6fe88f46f_m.jpg", :style => "position: absolute; top: 0px; left: 0px; -webkit-transform: translate(910.157px, 391.977px) scale(0.877374) rotate(82.1379deg); "}/
-         
+      -#%script{:src => "/images/jqtouch/mobione/saved_resource"}
