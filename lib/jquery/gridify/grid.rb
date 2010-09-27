@@ -25,13 +25,14 @@ module Gridify
       only = options.delete(:only)
       except = options.delete(:except)
       col_presets = options.delete(:colModel)
+      col_include = options[:colInclude]
       
       # assign options
       update options
       
       # build columns from ActiveRecord model (klass)
       if klass.present? && build_model
-        @model = build_columns klass, only, except, col_presets
+        @model = build_columns(klass, only, except, col_presets, col_include)
       end
       
       instance_eval(&block) if block
@@ -112,7 +113,7 @@ module Gridify
     # generate list of columns based on AR model
     # option:  :only or :except
     #          :col_options  hash of hash of preset values for columns (eg from cookie) { :title => {:width => 98}}
-    def build_columns( klass, only, except, presets )
+    def build_columns( klass, only, except, presets, col_include )
       #debugger
       # stringify
       only = Array(only).map {|s| s.to_s }
@@ -138,10 +139,38 @@ module Gridify
           :sortable => sortable,
           :editable => edit
         }
-
         # create column with default args merged with options given for this column
         GridColumn.new args.merge( presets[ar.name]||{} )
-      end.compact      
-    end    
+      end.compact
+      
+      if col_include
+        col_include.each do |sub_symbol|
+          sub_model = sub_symbol.to_s
+          sub_klass = Kernel.const_get(sub_model.capitalize)
+          sub_model.pluralize!
+          
+          self.colModel.concat(sub_klass.columns.collect do |ar|
+            next if only.present? && !only.include?("#{sub_model}.#{ar.name}")
+            next if except.present? && except.include?("#{sub_model}.#{ar.name}")
+            is_key = (ar.name=='id')
+            edit = editable && !is_key && 
+              # only edit accessible attributes
+              (sub_klass.accessible_attributes.nil? || sub_klass.accessible_attributes.include?(ar.name))
+            args = {
+              :ar_column => ar,
+              :name => "#{sub_model}.#{ar.name}",
+              :value_type => ar.type,
+              :key => is_key,
+              #:hidden => is_key,
+              :searchable => searchable,
+              :sortable => sortable,
+              :editable => edit
+            }
+            # create column with default args merged with options given for this column
+            GridColumn.new args.merge( presets["#{sub_model}.#{ar.name}"]||{} )
+          end.compact)
+        end
+      end
+    end
   end
 end

@@ -24,7 +24,7 @@ class Invheader < ActiveRecord::Base
                                         :align    => :right  },
                          :invdate  => { :name     => 'invdate',
                                         :width    => 90 },
-                         :name     => { :name     => 'client.name',
+                         :name     => { :name     => 'client-name',
                                         :width    => 100 },
                          :amount   => { :name     => 'amount',
                                         :width    => 80,
@@ -68,7 +68,9 @@ class Invheader < ActiveRecord::Base
                         I18n.t('activerecord.attributes.invheader.total'),
                         I18n.t('activerecord.attributes.invheader.note'),
                         I18n.t('activerecord.attributes.invheader.closed'),
-                        I18n.t('activerecord.attributes.invheader.ship_via')
+                        I18n.t('activerecord.attributes.invheader.ship_via'),
+                        'aa',
+                        'aa'
                        ],
     :colModel       => {
                          :id       => { :name  => 'id',
@@ -76,7 +78,7 @@ class Invheader < ActiveRecord::Base
                                         :align => :right  },
                          :invdate  => { :name  => 'invdate',
                                         :width =>  90 },
-                         :name     => { :name  => 'client.name',
+                         :name     => { :name  => 'clients.name',
                                         :width => 100 },
                          :amount   => { :name  => 'amount',
                                         :width =>  80,
