@@ -44,8 +44,10 @@
 
 #navigation {
   padding: 0.5em 0em 0em 0em;
-  font-size: 1.0em; 
- 	.ui-widget-header, .ui-widget-content { 
+  font-size: 1.0em;
+  h3 {
+    margin-bottom: 0em; }
+ 	.ui-widget-header, .ui-widget-border { 
  	  padding: 0.3em 0.5em 0.3em 0.5em; } }
 
 
