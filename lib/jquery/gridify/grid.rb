@@ -140,14 +140,18 @@ module Gridify
           :editable => edit
         }
         # create column with default args merged with options given for this column
-        GridColumn.new args.merge( presets[ar.name]||{} )
+        if presets[ar.name]
+          GridColumn.new args.merge( presets[ar.name]||{} )
+        else
+          GridColumn.new
+        end
       end.compact
       
       if col_include
         col_include.each do |sub_symbol|
           sub_model = sub_symbol.to_s
           sub_klass = Kernel.const_get(sub_model.capitalize)
-          sub_model.pluralize!
+          #sub_model = sub_model.pluralize
           
           self.colModel.concat(sub_klass.columns.collect do |ar|
             next if only.present? && !only.include?("#{sub_model}.#{ar.name}")
@@ -166,8 +170,11 @@ module Gridify
               :sortable => sortable,
               :editable => edit
             }
-            # create column with default args merged with options given for this column
-            GridColumn.new args.merge( presets["#{sub_model}.#{ar.name}"]||{} )
+            # merge column with default args merged with options given for this column
+            
+            column = colModel.find{|name| name == "#{sub_model}.#{ar.name}" }
+            
+            colModel args.merge( presets["#{sub_model}.#{ar.name}"]||{} ) if column
           end.compact)
         end
       end
