@@ -56,9 +56,8 @@ module Gridify
     def find( params )
       #debugger
       update_from_params params
-      find_args = current_scope
       klass = resource.classify.constantize
-      records = klass.send( finder, :all, find_args )
+      records = klass.send( finder, :all, current_scope )
     end
     
     def encode_records( records, total_count=nil )
