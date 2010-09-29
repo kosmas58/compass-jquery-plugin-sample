@@ -143,7 +143,7 @@ module Gridify
         if presets[ar.name]
           GridColumn.new args.merge( presets[ar.name]||{} )
         else
-          GridColumn.new
+          GridColumn.new {}
         end
       end.compact
       
