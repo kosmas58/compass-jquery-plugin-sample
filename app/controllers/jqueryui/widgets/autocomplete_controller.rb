@@ -1,5 +1,5 @@
 class Jqueryui::Widgets::AutocompleteController < ApplicationController
-  include JqueryAutoComplete      
+  include JqueryAutoComplete
   
   layout 'jqueryui'
   

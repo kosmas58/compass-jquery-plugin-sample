@@ -29,7 +29,7 @@ module Gridify
       #debugger
       find_args = {}
       find_args[:include] = colInclude if colInclude
-      if sort_by.present? && col = columns_hash[sort_by]
+      if !(sort_by.include? ".") && sort_by.present? && col = columns_hash[sort_by]
         if case_sensitive || !([:string, :text].include?(col.value_type))
           find_args[:order] = "#{sort_by} #{sort_order}" 
         else

@@ -22,6 +22,6 @@ class Jqgrid::AnimalsController < ApplicationController
       end
     else
       render :nothing => true, :status => 200
-    end    
+    end
   end
 end

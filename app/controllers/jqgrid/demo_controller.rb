@@ -4,14 +4,14 @@ class Jqgrid::DemoController < ApplicationController
   protect_from_forgery
   
    def index
-    fetch_params(request);    
+    fetch_params(request)
     if @datatype != :local
-      if request.xhr?        
+      if request.xhr?
         if params[:details_for].present?
           if params[:_search] == "true"
             records = @object.find_for_grid(@mylist, params);
           elsif @demo == "demo0302"
-            records = Invheader.find(params[:details_for]).invlines.find(:all); 
+            records = Invheader.find(params[:details_for]).invlines.find(:all);
           end
           case @datatype
             when :json
@@ -27,13 +27,13 @@ class Jqgrid::DemoController < ApplicationController
           records = @object.find_for_grid(@mylist, params)
           case @datatype
             when :json
-              render :json => @object.grid(@mylist).encode_records(records)       
+              render :json => @object.grid(@mylist).encode_records(records)
             when :xml
               render :xml => @object.grid(@mylist).encode_records(records)
               #render :partial => "#{@model.downcase}.xml.builder", :layout => false
           end
         end
-      else        
+      else
         case @demo
           when "0302"
             @grid = @object.grid(@mylist)
@@ -56,7 +56,7 @@ class Jqgrid::DemoController < ApplicationController
       unless @this.save
         @this.errors.entries.each do |error|
           msg << "<strong>#{error[0]}</strong> : #{error[1]}<br/>"
-        end        
+        end
       end
       render :text => msg
     else
@@ -67,7 +67,7 @@ class Jqgrid::DemoController < ApplicationController
       else
         render :action => 'new'
       end
-    end    
+    end
   end
   
   def update
@@ -79,7 +79,7 @@ class Jqgrid::DemoController < ApplicationController
       unless @this.update_attributes( object_params )
         @this.errors.entries.each do |error|
           msg << "<strong>#{error[0]}</strong> : #{error[1]}<br/>"
-        end        
+        end
       end
       render :text => msg
     else
@@ -101,7 +101,7 @@ class Jqgrid::DemoController < ApplicationController
       render :nothing => true
     else
       flash[:notice] = "Successfully destroyed #{@model}."
-      redirect_to '#{@model}s_url'       
+      redirect_to '#{@model}s_url'
     end
   end 
   
@@ -113,15 +113,15 @@ class Jqgrid::DemoController < ApplicationController
   
   private 
   
-  def fetch_params(request)    
+  def fetch_params(request)
     case params[:datatype]
       when :json, "json"
         @datatype = params[:datatype] = :json
-      when :xml, "xml"        
+      when :xml, "xml"
         @datatype = params[:datatype] = :xml
-      when :local, "local"        
+      when :local, "local"
         @datatype = params[:datatype] = :local
-      else       
+      else
         @datatype = params[:datatype] = :json
     end 
     @model = (params[:model] || "invheader")

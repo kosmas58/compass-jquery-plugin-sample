@@ -4,7 +4,7 @@ class Jqtouch::IcalController < ApplicationController
   protect_from_forgery
   
   def index
-    @calendars = ActiveRecord::Base::Calendar.find(:all)    
+    @calendars = ActiveRecord::Base::Calendar.find(:all)
   end
   
   def month
@@ -14,11 +14,11 @@ class Jqtouch::IcalController < ApplicationController
     @monthName = I18n.t('date.month_names')[@month]
     
     firstDay     = Date.new(@year, @month, 1)
-    firstDayWDay = firstDay.wday == 0 ? 7 : firstDay.wday     
+    firstDayWDay = firstDay.wday == 0 ? 7 : firstDay.wday
     
     lastDay     = (firstDay>>1)-1 
     lastDayDay  = lastDay.strftime('%d').to_i
-    lastDayWDay = lastDay.wday == 0 ? 7 : lastDay.wday   
+    lastDayWDay = lastDay.wday == 0 ? 7 : lastDay.wday
     
     @cal = []
 
@@ -27,15 +27,15 @@ class Jqtouch::IcalController < ApplicationController
       preDays = firstDayWDay - 1
       day = firstDay - preDays 
       preDays.times do
-        @cal <<= { :day => day.strftime('%d').to_i, :type => 'prevmonth', :value => day, :class => 'prevmonth' } 
+        @cal <<= { :day => day.strftime('%d').to_i, :type => 'prevmonth', :value => day, :class => 'prevmonth' }
         day += 1
-      end      
+      end
     end
     
     # Fill array with month days    
     day = firstDay
     (1..lastDayDay).each do     
-      @cal <<= { :day => day.strftime('%d').to_i, :type => 'normal', :value => day, :class => 'normal'  } 
+      @cal <<= { :day => day.strftime('%d').to_i, :type => 'normal', :value => day, :class => 'normal'  }
       day += 1
     end 
 
@@ -43,9 +43,9 @@ class Jqtouch::IcalController < ApplicationController
     if lastDayWDay != 7 then # last day of month not sunday
       day = lastDay + 1
       (7-lastDayWDay).times do
-        @cal <<= { :day => day.strftime('%d').to_i, :type => 'nextmonth', :value => day, :class => 'nextmonth' } 
+        @cal <<= { :day => day.strftime('%d').to_i, :type => 'nextmonth', :value => day, :class => 'nextmonth' }
         day += 1
-      end      
+      end
     end
     
     ActiveRecord::Base::Calendar.find(1).full_events_by_date(@cal[0][:value].to_datetime, @cal[-1][:value].to_datetime).each do |event|
@@ -57,7 +57,7 @@ class Jqtouch::IcalController < ApplicationController
       else
         myday[:class] = "#{myday[:type]} date_has_event"
       end
-    end    
+    end
     
     render :partial => "month", :layout => false
   end

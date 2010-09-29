@@ -14,7 +14,7 @@ class NavigationController < ApplicationController
     end
   end
 
-  def update   
+  def update
     @tree = NavigationTree.find(params[:id])
     @tree.attributes = params[:navigation_tree]
     @tree.save
@@ -41,7 +41,7 @@ class NavigationController < ApplicationController
     render :json => tree.to_json, :layout => false   
   end
   
-  def search    
+  def search
     respond_to do |format|
       # Fields order is important in the to_jqgrid_json method (in this case : [:id,:name])
       # It must be the same as display order in your datagrid
@@ -60,7 +60,7 @@ class NavigationController < ApplicationController
   
   def destroy
     result = NavigationTree.remove_node(params[:id])
-    render :json => result.to_json, :layout => false 
+    render :json => result.to_json, :layout => false
   end
   
   def rename

@@ -4,7 +4,7 @@ class Jqgrid::PlayersController < ApplicationController
   protect_from_forgery
   
   def index
-    fetch_params(request)    
+    fetch_params(request)
     if @datatype != :local
       if request.xhr?
         records = Player.find_for_grid(@mylist, params)
@@ -35,7 +35,7 @@ class Jqgrid::PlayersController < ApplicationController
       unless @this.save
         @this.errors.entries.each do |error|
           msg << "<strong>#{error[0]}</strong> : #{error[1]}<br/>"
-        end        
+        end
       end
       render :text => msg
     else
@@ -46,7 +46,7 @@ class Jqgrid::PlayersController < ApplicationController
       else
         render :action => 'new'
       end
-    end    
+    end
   end
   
   def update
@@ -58,7 +58,7 @@ class Jqgrid::PlayersController < ApplicationController
       unless @this.update_attributes( object_params )
         @this.errors.entries.each do |error|
           msg << "<strong>#{error[0]}</strong> : #{error[1]}<br/>"
-        end        
+        end
       end
       render :text => msg
     else
@@ -79,11 +79,11 @@ class Jqgrid::PlayersController < ApplicationController
       render :nothing => true
     else
       flash[:notice] = "Successfully destroyed player."
-      redirect_to 'players_url'       
+      redirect_to 'players_url'
     end
   end 
   
-  private  
+  private
   
   def fetch_params(request)    
     case params[:datatype]

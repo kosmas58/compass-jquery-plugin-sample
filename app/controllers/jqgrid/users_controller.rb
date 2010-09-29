@@ -11,7 +11,7 @@ class Jqgrid::UsersController < ApplicationController
     
     if params[:id].present?
       pets = User.find(params[:id]).pets.find(:all) do
-        paginate :page => params[:page], :per_page => params[:rows]      
+        paginate :page => params[:page], :per_page => params[:rows]
         order_by "#{params[:sidx]} #{params[:sord]}"        
       end
       total_entries = pets.total_entries
@@ -78,15 +78,15 @@ class Jqgrid::UsersController < ApplicationController
         # 'ew'    ends with 
         # 'en'    not ends with
         # 'cn'    contains
-        # 'nc'    not contains        
+        # 'nc'    not contains
         
         #pseudo    =~ "%#{params[:pseudo]}%" if params[:pseudo].present?
         #firstname =~ "%#{params[:firstname]}%" if params[:firstname].present?
-        #lastname  =~ "%#{params[:lastname]}%" if params[:lastname].present?                
+        #lastname  =~ "%#{params[:lastname]}%" if params[:lastname].present?
         #email     =~ "%#{params[:email]}%" if params[:email].present?
-        #role      =~ "%#{params[:role]}%" if params[:role].present?        
+        #role      =~ "%#{params[:role]}%" if params[:role].present?
       end
-      paginate :page => params[:page], :per_page => params[:rows]      
+      paginate :page => params[:page], :per_page => params[:rows]
       order_by "#{params[:sidx]} #{params[:sord]}"
     end
    

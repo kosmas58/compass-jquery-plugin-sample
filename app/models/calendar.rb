@@ -29,7 +29,7 @@ class Calendar < ActiveRecord::Base
           :title       => j.summary + "(#{j.location})", 
           :start       => j.dtstart, 
           :end         => j.dtend,
-          :allDay      => j.x_properties["X-MICROSOFT-CDO-ALLDAYEVENT"][0] == "1" ? true : false }           
+          :allDay      => j.x_properties["X-MICROSOFT-CDO-ALLDAYEVENT"][0] == "1" ? true : false }
       } 
     } 
     events.reject { |i| i.empty? }.flatten

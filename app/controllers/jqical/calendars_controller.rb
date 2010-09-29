@@ -8,7 +8,7 @@ class Jqical::CalendarsController < ApplicationController
     
     before :new, :edit do
       @color = "#" + ("%x" % @current_object.color).rjust(6,'0')
-    end   
+    end
     
     before :create, :update do
       @current_object.color = params[:color].sub(/#/,'').hex

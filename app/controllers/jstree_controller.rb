@@ -15,7 +15,7 @@ class JstreeController < ApplicationController
       # It must be the same as display order in your datagrid
       format.html do
         render "_html_data", :layout => false
-      end      
+      end
       format.json do
         render :json => json, :layout => false
       end
@@ -34,7 +34,7 @@ class JstreeController < ApplicationController
     render :json => tree.to_json, :layout => false   
   end
   
-  def search    
+  def search
     data =
     '[
       "Ajax node 1",
@@ -58,7 +58,7 @@ class JstreeController < ApplicationController
           else
             nodes = DemoTree.search(params[:search_str])
             render :json => nodes.to_json, :layout => false 
-        end  
+        end
       end
     end
   end

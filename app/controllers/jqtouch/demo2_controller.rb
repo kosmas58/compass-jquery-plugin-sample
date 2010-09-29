@@ -4,7 +4,7 @@ class Jqtouch::Demo2Controller < ApplicationController
   protect_from_forgery
   
   def index
-    unless session[:filterStatus]         
+    unless session[:filterStatus]
       session[:filterStatus] = 0 # 0= none; 1=room; 2=artist; 3=technique; 4=style
       
       session[:tempRoomFilterId]   = 0
@@ -18,10 +18,10 @@ class Jqtouch::Demo2Controller < ApplicationController
       session[:styleFilterId]  = 0
       
       session[:galleryId] = 0
-    end    
+    end
   end
   
-  def setfilter    
+  def setfilter
     if params[:filter].present?    
       stat = params[:filter].to_i
       
@@ -48,11 +48,11 @@ class Jqtouch::Demo2Controller < ApplicationController
           filter = "Style"
       end
      
-      hash = {}              
+      hash = {}
       session[:filterStatus] = result
       hash["result"]   = result;
       hash["filter"]   = filter;
-      hash["filterId"] = filterId;    
+      hash["filterId"] = filterId;
       
       render :json =>  hash.to_json
     else
@@ -92,12 +92,12 @@ class Jqtouch::Demo2Controller < ApplicationController
       render(:partial => "gallery")
     else
       render :nothing => true, :status => 200
-    end    
+    end
   end
   
   def get_gallery_array
     array = Array.new
-    array = session[:galleryId]   
+    array = session[:galleryId]
     render :json =>  array.to_json
   end
   
@@ -116,7 +116,7 @@ class Jqtouch::Demo2Controller < ApplicationController
         when 'type'
         when 'facility'
         when 'style'
-      end     
+      end
       render :json =>  array.to_json
     else
       render :nothing => true, :status => 200
@@ -127,7 +127,7 @@ class Jqtouch::Demo2Controller < ApplicationController
     hash = {}   
     hash["id"]      = 1
     hash["picture"] = "/images/jqtouch/demo2/museum_startup.png"
-    hash["room"]    = 1      
+    hash["room"]    = 1
     render :json =>  hash.to_json
   end
 end

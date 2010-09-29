@@ -6,7 +6,7 @@ class Player < ActiveRecord::Base
     :title          => "Football players",
     :url            => "/jqgrid/players",
     :data_type      => :json,
-    :only           => [:id, :pseudo, :firstname, :lastname, :email, :role],  
+    :only           => [:id, :pseudo, :firstname, :lastname, :email, :role],
     :colModel       => {
                          :id        => { :name      => "id",
                                          :label     => "ID",
