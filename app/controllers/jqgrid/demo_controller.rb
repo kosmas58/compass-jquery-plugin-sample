@@ -17,8 +17,9 @@ class Jqgrid::DemoController < ApplicationController
             when :json
               render :json => @object.grid(@mylist).encode_records(records)
             when :xml
-              render :xml => @object.grid(@mylist).encode_records(records)
-              #render :partial => "#{@model.downcase}.xml.builder", :layout => false
+              @data = records
+              render :partial => "#{@model.downcase}.xml.builder", :layout => false
+              #render :xml => @object.grid(@mylist).encode_records(records)
           end
         elsif params[:subgrid]
           records = Invheader.find(params[:id]).invlines.find(:all)
@@ -29,8 +30,9 @@ class Jqgrid::DemoController < ApplicationController
             when :json
               render :json => @object.grid(@mylist).encode_records(records)
             when :xml
-              render :xml => @object.grid(@mylist).encode_records(records)
-              #render :partial => "#{@model.downcase}.xml.builder", :layout => false
+              #render :xml => @object.grid(@mylist).encode_records(records)
+              @data = records
+              render :partial => "#{@model.downcase}.xml.builder", :layout => false
           end
         end
       else

@@ -26,7 +26,8 @@ class Player < ActiveRecord::Base
     :height         => :auto,
     :search_button  => true,  
     :refresh_button => true,
-    :pager          => true
+    :pager          => true,
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false] }
     
   gridify :example02,
     :title          => "Football players",
@@ -53,7 +54,8 @@ class Player < ActiveRecord::Base
     :width_fit      => :fluid,
     :select_rows    => true, 
     :search_button  => false,  
-    :pager          => true
+    :pager          => true,
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false] }
     
   gridify :example03,
     :title          => "Football players",
@@ -80,7 +82,8 @@ class Player < ActiveRecord::Base
     :select_rows    => "javascript: handleExample03",
     :search_button  => true,  
     :refresh_button => true,
-    :pager          => true
+    :pager          => true,
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false] }
     
   gridify :example04,
     :title          => "Football players",
@@ -109,7 +112,8 @@ class Player < ActiveRecord::Base
     :row_numbers    => true,
     :search_button  => true,  
     :refresh_button => true,
-    :pager          => true
+    :pager          => true,
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false] }
     
   gridify :example05,
     :title          => "Football players",
@@ -138,7 +142,8 @@ class Player < ActiveRecord::Base
     :select_rows    => "javascript: handleExample05",
     :search_button  => true,  
     :refresh_button => true,
-    :pager          => true
+    :pager          => true,
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false] }
     
   gridify :example06,
     :title          => "Football players",
@@ -169,7 +174,8 @@ class Player < ActiveRecord::Base
     :editable       => true,
     :inline_edit    => true,
     :add_button     => true, 
-    :delete_button  => true
+    :delete_button  => true,
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false] }
     
   gridify :example07,
     :title          => "Football players",
@@ -203,7 +209,8 @@ class Player < ActiveRecord::Base
     :edit_button    => true,
     :add_button     => true, 
     :delete_button  => true,
-    :error_handler => "javascript: afterSubmit"
+    :error_handler => "javascript: afterSubmit",
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false] }
     
   gridify :example08,
     :title          => "Football players",
@@ -241,7 +248,8 @@ class Player < ActiveRecord::Base
     :editable       => true,
     :inline_edit    => true,
     :add_button     => true, 
-    :delete_button  => true
+    :delete_button  => true,
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false] }
     
   gridify :example09,
     :title          => "Football players",
@@ -280,7 +288,8 @@ class Player < ActiveRecord::Base
     :inline_edit    => true,
     :inline_edit_handler => "pickDates",
     :add_button     => true, 
-    :delete_button  => true
+    :delete_button  => true,
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false] }
     
   gridify :example10,
     :title          => "Football players",
@@ -314,7 +323,78 @@ class Player < ActiveRecord::Base
     :sub_grid_model => [
                          { :name =>  [ "ID", "Name"], 
                            :width =>  [55,200]}
-                       ]
+                       ],
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false] }
+    
+  gridify :example11,
+    :title          => "Football players",
+    :url            => "/jqgrid/players",
+    :data_type      => :json,
+    :only           => [:id, :pseudo, :firstname, :lastname, :email, :role],  
+    :colModel       => {
+                         :id        => { :name      => "id",
+                                         :label     => "ID",
+                                         :width     => 35,
+                                         :resizable => false }, 
+                         :pseudo    => { :name  => "pseudo",
+                                         :label => "Pseudo" }, 
+                         :firstname => { :name  => "firstname",
+                                         :label => "Firstname" },
+                         :lastname  => { :name  => "lastname",
+                                         :label => "Lastname" },
+                         :email     => { :name  => "email",
+                                         :label => "Email" },
+                         :role      => { :name  => "role",
+                                         :label => "Role" }
+                       },
+    :width          => 600,
+    :width_fit      => :fitted,
+    :height         => :auto,
+    :search_button  => true,  
+    :refresh_button => true,
+    :pager          => true,
+    :sub_grid       => true,
+    :sub_grid_url   => "/jqgrid/animals/?example=10",
+    :sub_grid_model => [
+                         { :name =>  [ "ID", "Name"], 
+                           :width =>  [55,200]}
+                       ],
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false] }
+    
+  gridify :example12,
+    :title          => "Football players",
+    :url            => "/jqgrid/players",
+    :data_type      => :json,
+    :only           => [:id, :pseudo, :firstname, :lastname, :email, :role],  
+    :colModel       => {
+                         :id        => { :name      => "id",
+                                         :label     => "ID",
+                                         :width     => 35,
+                                         :resizable => false }, 
+                         :pseudo    => { :name  => "pseudo",
+                                         :label => "Pseudo" }, 
+                         :firstname => { :name  => "firstname",
+                                         :label => "Firstname" },
+                         :lastname  => { :name  => "lastname",
+                                         :label => "Lastname" },
+                         :email     => { :name  => "email",
+                                         :label => "Email" },
+                         :role      => { :name  => "role",
+                                         :label => "Role" }
+                       },
+    :width          => 600,
+    :width_fit      => :fitted,
+    :height         => :auto,
+    :search_button  => true,  
+    :refresh_button => true,
+    :pager          => true,
+    :sub_grid       => true,
+    :sub_grid_url   => "/jqgrid/animals/?example=10",
+    :sub_grid_model => [
+                         { :name =>  [ "ID", "Name"], 
+                           :width =>  [55,200]}
+                       ],
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false] }
     
   gridify :example13,
     :title          => "Football players",
@@ -359,5 +439,6 @@ class Player < ActiveRecord::Base
     :editable       => true,
     :inline_edit    => true,
     :add_button     => true, 
-    :delete_button  => true
+    :delete_button  => true,
+    :jqgrid_options => { :viewsortcols => [true, :horizontal,false] }
 end

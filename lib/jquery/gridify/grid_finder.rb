@@ -72,15 +72,16 @@ module Gridify
       #TODO: :only => [attributes], :methods => [virtual attributes]
       case data_type
       when :xml
-#        if colInclude
-#          xml = records.to_xml( :include => [ colInclude ], :skip_types => true, :dasherize => false ) do |xml|
-#            if rows_per_page > 0
-#              xml.page          current_page
-#              xml.total_pages   total_pages
-#              xml.total_records total_count
-#            end
-#          end
-#        else
+        if colInclude
+          #  xml = records.to_xml( :include => [ colInclude ], :skip_types => true, :dasherize => false ) do |xml|
+          xml = records.to_xml( :include => [ colInclude ] ) do |xml| #, :skip_types => true, :dasherize => false ) do |xml|
+            if rows_per_page > 0
+              xml.page          current_page
+              xml.total_pages   total_pages
+              xml.total_records total_count
+            end
+          end
+        else
           xml = records.to_xml( :skip_types => true, :dasherize => false ) do |xml|
             if rows_per_page > 0
               xml.page    current_page
@@ -88,7 +89,7 @@ module Gridify
               xml.records total_count
             end
           end
-#        end    
+        end    
       
       when :json
         #debugger

@@ -7,14 +7,11 @@ xml.invheaders do
     xml.invheader :id => u.id do
       xml.id         u.id
       xml.invdate    u.invdate
+      xml.client_id  u.client_id
       xml.client do
-        xml.name u.client.name
+        xml.id       u.client.id
+        xml.name     u.client.name
       end
-      #xml.client_id  u.client_id
-      #xml.client do
-      #  xml.id       u.client.id
-      #  xml.name     u.client.name
-      #end
       xml.amount     u.amount
       xml.tax        u.tax
       xml.total      u.total
