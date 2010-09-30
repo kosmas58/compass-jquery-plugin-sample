@@ -50,6 +50,10 @@ module Gridify
       end
       cond = rules_to_conditions
       find_args[:conditions] = cond unless cond.blank?
+      
+      # Post.find(:all, :include => [ :author, :comments ], :conditions => ['comments.approved = ?', true])
+
+      
       find_args
     end
     
@@ -186,6 +190,13 @@ module Gridify
       expr = ''
       vals = []
       search_rules.each do |rule|
+        
+        # Workaround for :include and nested attributes
+        field = rule['field'].split('.', 2)
+        if field.length == 2
+          rule['field'] = field[0].pluralize + "." + field[1]
+        end
+        
         expr << " #{search_rules_op} " unless expr.blank?
         if op = OPS[rule['op']]
           expr << "#{rule['field']} #{op} ?"
@@ -195,7 +206,7 @@ module Gridify
           vals << OPS_PATTERN[rule['op']].gsub('?', rule['data'])
         end
       end
-      cond = [ expr ] + vals      
+      cond = [ expr ] + vals
     end
   end
 end
