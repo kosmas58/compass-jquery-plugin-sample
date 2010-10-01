@@ -183,7 +183,7 @@ de:
       QsOkdW1l
 
     jqt: 
-      name: "jQTouch (ben\xC3\xB6tigt einen Browser mit WebKit)"
+      name: "jQTouch (ben\xC3\xB6tigt eine WebKit Engine)"
       beta: jQTouch & beta@jqtouch.com
       demo: Compass jQTouch Demo
     jqgrid: 

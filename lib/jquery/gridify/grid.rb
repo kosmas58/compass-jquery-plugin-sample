@@ -140,11 +140,7 @@ module Gridify
           :editable => edit
         }
         # create column with default args merged with options given for this column
-        if presets[ar.name]
-          GridColumn.new args.merge( presets[ar.name]||{} )
-        else
-          GridColumn.new args
-        end
+        GridColumn.new args.merge( presets[ar.name]||{} )
       end.compact
       
       if col_include

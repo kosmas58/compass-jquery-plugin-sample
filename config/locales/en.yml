@@ -354,7 +354,7 @@ en:
       default: jQuery Ribbon Windows 7 theme
       office: jQuery Ribbon Office theme
     jqt:
-      name: "jQTouch <i>(needs a browser with WebKit engine)</i>"
+      name: "jQTouch <i>(needs a WebKit engine)</i>"
       demo: Compass jQTouch Demo
       beta: "jQTouch &beta @ jqtouch.com"
     jqical:
