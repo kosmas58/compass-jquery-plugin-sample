@@ -34,7 +34,7 @@ module Gridify
           # Workaround for :include and nested attributes
           field = sort_by.split('.', 2)
           if field.length == 2
-            sort_by = field[0].pluralize + "." + field[1]
+            self.sort_by = field[0].pluralize + "." + field[1]
           end
         end
         if case_sensitive || !([:string, :text].include?(col.value_type))
@@ -73,12 +73,11 @@ module Gridify
       case data_type
       when :xml
         if colInclude
-          #  xml = records.to_xml( :include => [ colInclude ], :skip_types => true, :dasherize => false ) do |xml|
-          xml = records.to_xml( :include => [ colInclude ] ) do |xml| #, :skip_types => true, :dasherize => false ) do |xml|
+          xml = records.to_xml( :include => colInclude, :skip_types => true, :dasherize => false ) do |xml|
             if rows_per_page > 0
-              xml.page          current_page
-              xml.total_pages   total_pages
-              xml.total_records total_count
+              xml.page     current_page
+              xml.total    total_pages
+              xml.records  total_count
             end
           end
         else
@@ -90,7 +89,6 @@ module Gridify
             end
           end
         end
-
       when :json
         #debugger
         data = { resource => records }

@@ -21,10 +21,10 @@ class Invheader < ActiveRecord::Base
     :colModel       => {
                          :id       => { :name  => 'id',
                                         :width =>  50,
-                                        :align => :right  },
+                                        :align => :right },
                          :invdate  => { :name  => 'invdate',
                                         :width =>  90 },
-                         :client_id => { :name  => 'client.name',
+                         :client_id => { :name  => 'client_id',
                                          :width => 100,
                                          :sort_type => :text },
                          :amount   => { :name  => 'amount',

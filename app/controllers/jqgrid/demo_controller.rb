@@ -30,9 +30,10 @@ class Jqgrid::DemoController < ApplicationController
             when :json
               render :json => @object.grid(@mylist).encode_records(records)
             when :xml
-              #render :xml => @object.grid(@mylist).encode_records(records)
+              @total_count ||= @object.count
               @data = records
               render :partial => "#{@model.downcase}.xml.builder", :layout => false
+              #render :xml => @object.grid(@mylist).encode_records(records)
           end
         end
       else
