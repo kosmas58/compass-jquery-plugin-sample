@@ -33,23 +33,7 @@
     });
     $("#g9").click( function() {
       alert($('#invheaders_demo0202').jqGrid('getGridParam','records'));
-    });         
-    $("#g10").click( function() {
-      $("#invheaders_demo0202").jqGrid('setGridParam', { 
-        onSortCol : function(name,index) { 
-          alert("Column Name: "+name+" Column Index: "+index);
-        }
-      });
-    	alert("Try to sort a column");
-    });          
-    $("#g11").click( function() {
-      $("#invheaders_demo0202").jqGrid('setGridParam', { 
-        onDblClickRow : function(id) { 
-          alert("You double click row with id: "+id);
-        }
-      });
-    	alert("Try to doubleclick a row");
-    });      
+    });
   });
 
 = raw @grid
