@@ -26,8 +26,8 @@ class Invheader < ActiveRecord::Base
                                         :width =>  90 },
                          :client_id => { :name  => 'client.name',
                                          :width => 100,
-                                         :sortable => false },
-                         :amount   => { :name  => 'amount ',
+                                         :sort_type => :text },
+                         :amount   => { :name  => 'amount',
                                         :width =>  80,
                                         :align => :right },
                          :tax      => { :name  => 'tax',
@@ -45,15 +45,10 @@ class Invheader < ActiveRecord::Base
                                         :width =>  40 }
                        },
     :height         => :auto,
-    :sort_by        => :id,
-    :sort_order     => :desc,
     :jqgrid_options => { :viewsortcols => [true, :horizontal,false] },
-    :rows_per_page  => 10,
-    :paging_choices => [10,20,30],
     :search_button  => true,
     :refresh_button => true,
     :pager          => true
-    
     
   gridify :demo0102,
     :title          => I18n.t('txt.jqgrid.demo.20json_data'),
