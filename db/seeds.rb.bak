@@ -155,7 +155,7 @@ f = File.open("#{RAILS_ROOT}/db/longtext.txt", "r")
 wordlist = f.read.split(/ /)
 wordlist_length = wordlist.length
 
-20000.times do
+20001.times do
   word = wordlist[rand(wordlist_length)]
   number = 1
   while number < 99999

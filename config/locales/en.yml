@@ -593,6 +593,7 @@ en:
           animated: Animated dialog
           modal-form: Modal form
           modal-message: Modal message
+          greybox: Greybox
         autocomplete:
           maxheight: Scrollable results
           default: Autocomplete

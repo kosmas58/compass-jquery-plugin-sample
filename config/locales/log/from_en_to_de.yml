@@ -21,9 +21,11 @@ date:
     short: "%b %d"
     long: "%B %d, %Y"
 txt: 
-  jqical: 
-    calendar: 
-      iphone: Show it on a iPhone
+  hello: Hello world
+  ui: 
+    widgets: 
+      dialog: 
+        greybox: Greybox
 support: 
   array: 
     words_connector: ", "

@@ -1,0 +1,27 @@
+-@title = "#{t('txt.ui.name')} #{t('txt.ui.widgets.dialog.default')} - #{t('txt.ui.widgets.dialog.greybox')}"
+
+- content_for :content_head do
+  = render(:partial => "greybox.js.haml", :format => :js)
+
+.demo
+  %h3
+    = raw @title
+  %ul
+    %li
+      %a.greybox{:href => "http://google.com/", :title => "Google"}
+        Launch Google
+    %li
+      %a.greybox{:href => "http://yahoo.com/", :title => "Yahoo"}
+        Visit Yahoo
+    %li
+      %a.greybox{:href => "http://msn.com/"}
+        Microsoft would like a visit.
+    %li
+      %a.greybox{:href => "http://jquery.com/"}
+        jQuery Rocks
+  #greybox
+/ End demo
+.demo-description  
+  %p
+    Using the dialog widget to implement a greybox.
+/ End demo description

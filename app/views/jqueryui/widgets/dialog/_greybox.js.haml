@@ -1,7 +1,3 @@
-:css      
-  .welcome .ui-widget-header, .welcome .ui-widget-content { padding: 0.3em 0.5em 0.3em 0.5em; } 
-  .welcome .ui-widget-content p { padding: 0em 0.8em 0em 0.8em; }
-
 :javascript
   $.fx.speeds._default = 600;
   $(function() {
@@ -18,12 +14,11 @@
   
   $(document).ready(function(){
     $("a.greybox").click(function(){
-      $( "#greybox" ).dialog( "option", "title", this.title || $(this).text() );
+      $("#greybox" ).dialog( "option", "title", this.title || $(this).text() );
       $("#frame").remove();
       $("#greybox").append("<iframe id='frame' src='"+this.href+"' width='100%' height='100%'></iframe>");
       $('#greybox').dialog('open');
       return false;
     });
   });
-  
   
