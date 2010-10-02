@@ -3,6 +3,14 @@ xml.invheaders do
   xml.page    params[:page]
   xml.total   @total_count / params[:rows].to_i + 1
   xml.records @total_count
+  if @userdata 
+    xml.userdata  do
+      xml.amount @userdata[:amount]
+      xml.tax    @userdata[:tax]
+      xml.total  @userdata[:total]
+      xml.name   @userdata[:name]
+    end
+  end
   @data.each do |u|
     xml.invheader :id => u.id do
       xml.id         u.id

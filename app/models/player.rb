@@ -1,7 +1,15 @@
 class Player < ActiveRecord::Base  
   has_many :animals
   validates_presence_of :pseudo
-    
+  
+  def self.userdata(records)
+    userdata = {}
+    if records
+      
+    end
+    userdata
+  end
+  
   gridify :example01,
     :title          => "Football players",
     :url            => "/jqgrid/players",

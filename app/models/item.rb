@@ -1,5 +1,13 @@
 class Item < ActiveRecord::Base     
-    
+  
+  def self.userdata(records)
+    userdata = {}
+    if records
+      
+    end
+    userdata
+  end
+  
   gridify :demo0306,
     :url                 => "/jqgrid/demo?model=item",
     :data_type           => :json,  

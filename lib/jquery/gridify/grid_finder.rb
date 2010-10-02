@@ -64,7 +64,7 @@ module Gridify
       records = klass.send( finder, :all, current_scope )
     end
 
-    def encode_records( records, total_count=nil )
+    def encode_records( records, userdata=nil, total_count=nil )
       #debugger
       klass = resource.classify.constantize
       total_count ||= klass.count
@@ -99,6 +99,7 @@ module Gridify
             :records => total_count
           )
         end
+        data.merge!( :userdata => userdata ) if userdata
         save = ActiveRecord::Base.include_root_in_json
         ActiveRecord::Base.include_root_in_json = false
         if colInclude
@@ -108,7 +109,6 @@ module Gridify
         end
         ActiveRecord::Base.include_root_in_json = save
         json
-
       #others...
       else #nop ?
         records.to_s

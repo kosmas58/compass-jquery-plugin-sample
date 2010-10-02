@@ -9,31 +9,31 @@ class Jqgrid::DemoController < ApplicationController
       if request.xhr?
         if params[:details_for].present?
           if params[:_search] == "true"
-            records = @object.find_for_grid(@mylist, params);
+            @data = @object.find_for_grid(@mylist, params);
+            @userdata = @object.userdata(@data)
           elsif @demo == "demo0302"
-            records = Invheader.find(params[:details_for]).invlines.find(:all);
+            @data = Invheader.find(params[:details_for]).invlines.find(:all);
           end
           case @datatype
             when :json
-              render :json => @object.grid(@mylist).encode_records(records)
+              render :json => @object.grid(@mylist).encode_records(@data, @userdata)
             when :xml
-              @data = records
               render :partial => "#{@model.downcase}.xml.builder", :layout => false
-              #render :xml => @object.grid(@mylist).encode_records(records)
+              #render :xml => @object.grid(@mylist).encode_records(@data)
           end
         elsif params[:subgrid]
-          records = Invheader.find(params[:id]).invlines.find(:all)
-          render :json => records.to_subgrid_json(params[:atr])
+          @data = Invheader.find(params[:id]).invlines.find(:all)
+          render :json => @data.to_subgrid_json(params[:atr])
         else
-          records = @object.find_for_grid(@mylist, params)
+          @data = @object.find_for_grid(@mylist, params)
+          @userdata = @object.userdata(@data)
           case @datatype
             when :json
-              render :json => @object.grid(@mylist).encode_records(records)
+              render :json => @object.grid(@mylist).encode_records(@data, @userdata)
             when :xml
               @total_count ||= @object.count
-              @data = records
               render :partial => "#{@model.downcase}.xml.builder", :layout => false
-              #render :xml => @object.grid(@mylist).encode_records(records)
+              #render :xml => @object.grid(@mylist).encode_records(@data)
           end
         end
       else

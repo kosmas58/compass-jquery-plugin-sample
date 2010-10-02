@@ -2,6 +2,17 @@ class Invheader < ActiveRecord::Base
   belongs_to :client
   has_many :invlines
 
+  def self.userdata(records)
+    userdata = {}
+    if records
+      userdata[:amount] = records.sum(:amount)
+      userdata[:tax]    = records.sum(:tax)
+      userdata[:total]  = records.sum(:total)
+      userdata['client.name']   = "Totals:"
+    end
+    userdata
+  end
+
   gridify :demo0101,
     :title          => I18n.t('txt.jqgrid.demo.20xml_data'),
     :url            => "/jqgrid/demo",

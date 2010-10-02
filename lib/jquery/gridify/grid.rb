@@ -142,38 +142,6 @@ module Gridify
         # create column with default args merged with options given for this column
         GridColumn.new args.merge( presets[ar.name]||{} )
       end.compact
-      
-      if col_include
-        col_include.each do |sub_symbol|
-          sub_model = sub_symbol.to_s
-          sub_klass = Kernel.const_get(sub_model.capitalize)
-          #sub_model = sub_model.pluralize
-          
-          self.colModel.concat(sub_klass.columns.collect do |ar|
-            next if only.present? && !only.include?("#{sub_model}.#{ar.name}")
-            next if except.present? && except.include?("#{sub_model}.#{ar.name}")
-            is_key = (ar.name=='id')
-            edit = editable && !is_key && 
-              # only edit accessible attributes
-              (sub_klass.accessible_attributes.nil? || sub_klass.accessible_attributes.include?(ar.name))
-            args = {
-              :ar_column => ar,
-              :name => "#{sub_model}.#{ar.name}",
-              :value_type => ar.type,
-              :key => is_key,
-              #:hidden => is_key,
-              :searchable => searchable,
-              :sortable => sortable,
-              :editable => edit
-            }
-            # merge column with default args merged with options given for this column
-            
-            column = colModel.find{|name| name == "#{sub_model}.#{ar.name}" }
-            
-            colModel args.merge( presets["#{sub_model}.#{ar.name}"]||{} ) if column
-          end.compact)
-        end
-      end
     end
   end
 end

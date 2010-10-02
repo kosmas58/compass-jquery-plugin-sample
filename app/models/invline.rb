@@ -1,7 +1,14 @@
 class Invline < ActiveRecord::Base
   belongs_to :invheader
-  
   before_save :serialize_invline 
+  
+  def self.userdata(records)
+    userdata = {}
+    if records
+      
+    end
+    userdata
+  end
   
   gridify :demo0302,
     :url            => "/jqgrid/demo",
