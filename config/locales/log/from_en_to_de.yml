@@ -21,11 +21,10 @@ date:
     short: "%b %d"
     long: "%B %d, %Y"
 txt: 
+  layout: 
+    navigation: 
+      browse: Browse through the examples
   hello: Hello world
-  ui: 
-    widgets: 
-      dialog: 
-        greybox: Greybox
 support: 
   array: 
     words_connector: ", "

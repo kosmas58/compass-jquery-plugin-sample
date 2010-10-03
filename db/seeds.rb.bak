@@ -1,4 +1,5 @@
 # Users
+puts "Started creating users"
 User.create!(:pseudo => "ahe", :firstname => "Anthony", :lastname => "Heukmes", :email => "ahe@ahe.be", :role => "admin")
 User.create!(:pseudo => "willd", :firstname => "Wilfried", :lastname => "Dalmat", :email => "willd@ahe.be", :role => "middlefielder")
 User.create!(:pseudo => "marcos", :firstname => "Marcos", :lastname => "Camozzato", :email => "marcos@ahe.be", :role => "defender")
@@ -23,8 +24,11 @@ User.create!(:pseudo => "bolo", :firstname => "Laszlo", :lastname => "Boloni", :
 User.create!(:pseudo => "pesto", :firstname => "Joaquim", :lastname => "Preto", :email => "ahe@ahe.be", :role => "trainer")
 User.create!(:pseudo => "pf", :firstname => "Pierre", :lastname => "Francois", :email => "pf@ahe.be", :role => "admin")
 User.create!(:pseudo => "moi", :firstname => "Moi", :lastname => "Moi", :email => "moi@ahe.be", :role => "striker")
+puts "Finished creating users"
+puts "\n"
 
 # Pets
+puts "Started creating pets"
 Pet.create!(:name => "Youpi", :user_id => 1)
 Pet.create!(:name => "Blouk", :user_id => 1)
 Pet.create!(:name => "Pif", :user_id => 1)
@@ -49,8 +53,11 @@ Pet.create!(:name => "Max", :user_id => 12)
 Pet.create!(:name => "Poop", :user_id => 12)
 Pet.create!(:name => "Bikk", :user_id => 13)
 Pet.create!(:name => "Allo", :user_id => 13) 
+puts "Finished creating pets"
+puts "\n"
 
 # Players
+puts "Started creating players"
 Player.create!(:pseudo => "ahe", :firstname => "Anthony", :lastname => "Heukmes", :email => "ahe@ahe.be", :role => "admin")
 Player.create!(:pseudo => "willd", :firstname => "Wilfried", :lastname => "Dalmat", :email => "willd@ahe.be", :role => "middlefielder")
 Player.create!(:pseudo => "marcos", :firstname => "Marcos", :lastname => "Camozzato", :email => "marcos@ahe.be", :role => "defender")
@@ -75,8 +82,11 @@ Player.create!(:pseudo => "bolo", :firstname => "Laszlo", :lastname => "Boloni",
 Player.create!(:pseudo => "pesto", :firstname => "Joaquim", :lastname => "Preto", :email => "ahe@ahe.be", :role => "trainer")
 Player.create!(:pseudo => "pf", :firstname => "Pierre", :lastname => "Francois", :email => "pf@ahe.be", :role => "admin")
 Player.create!(:pseudo => "moi", :firstname => "Moi", :lastname => "Moi", :email => "moi@ahe.be", :role => "striker")
+puts "Finished creating players"
+puts "\n"
 
 # Animals
+puts "Started creating animals"
 Animal.create!(:name => "Youpi", :player_id => 1)
 Animal.create!(:name => "Blouk", :player_id => 1)
 Animal.create!(:name => "Pif", :player_id => 1)
@@ -101,13 +111,19 @@ Animal.create!(:name => "Max", :player_id => 12)
 Animal.create!(:name => "Poop", :player_id => 12)
 Animal.create!(:name => "Bikk", :player_id => 13)
 Animal.create!(:name => "Allo", :player_id => 13) 
+puts "Finished creating animals"
+puts "\n"
 
 # Clients
+puts "Started creating clients"
 Client.create!(:name => "Client 1")
 Client.create!(:name => "Client 2")
 Client.create!(:name => "Client 3")
+puts "Finished creating clients"
+puts "\n"
 
 # Invheaders
+puts "Started creating invoice headers"
 Invheader.create!(:invdate => "2007-10-01", :client_id => 1, :amount => "100.00", :tax => "20.00", :total => "120.00", :note => "note 1" )
 Invheader.create!(:invdate => "2007-10-03", :client_id => 1, :amount => "200.00", :tax => "40.00", :total => "240.00", :note => "note 2" )
 Invheader.create!(:invdate => "2007-10-02", :client_id => 2, :amount => "300.00", :tax => "60.00", :total => "360.00", :note => "note for invoice 3" )
@@ -121,8 +137,11 @@ Invheader.create!(:invdate => "2007-10-06", :client_id => 2, :amount => "100.00"
 Invheader.create!(:invdate => "2007-10-06", :client_id => 1, :amount => "600.00", :tax => "120.00", :total => "720.00", :note => nil )
 Invheader.create!(:invdate => "2007-10-06", :client_id => 2, :amount => "700.00", :tax => "140.00", :total => "840.00", :note => nil )
 Invheader.create!(:invdate => "2007-10-06", :client_id => 3, :amount => "1000.00", :tax => "0.00", :total => "1000.00", :note => nil )
+puts "Finished creating invoice headers"
+puts "\n"
 
 # Invlines
+puts "Started creating invoice lines"
 Invline.create!( :invheader_id => 1, :num => 1, :item => "item 1", :qty => "1.00", :unit => "20.00" )
 Invline.create!( :invheader_id => 1, :num => 2, :item => "item 2", :qty => "2.00", :unit => "40.00" )
 Invline.create!( :invheader_id => 2, :num => 1, :item => "item 1", :qty => "2.00", :unit => "20.00" )
@@ -149,8 +168,12 @@ Invline.create!( :invheader_id => 11, :num => 4, :item => "item 4", :qty => "1.0
 Invline.create!( :invheader_id => 12, :num => 4, :item => "item 4", :qty => "1.00", :unit => "300.00" )
 Invline.create!( :invheader_id => 12, :num => 2, :item => "item 2", :qty => "1.00", :unit => "400.00" )
 Invline.create!( :invheader_id => 13, :num => 13, :item => "item 13", :qty => "1.00", :unit => "1000.00" )
+puts "Finished creating invoice lines"
+puts "\n"
 
 # Items
+puts "Started creating 20001 items"
+puts "Please be patient ..."
 f = File.open("#{RAILS_ROOT}/db/longtext.txt", "r") 
 wordlist = f.read.split(/ /)
 wordlist_length = wordlist.length
@@ -163,8 +186,11 @@ wordlist_length = wordlist.length
   end  
   Item.create!(:item => "#{word}", :cd => "#{number.to_s}")
 end
+puts "Finished creating items"
+puts "\n"
 
 # Accounts
+puts "Started creating accounts"
 Account.create!(:parent_id => nil, :name => "A1" , :acc_num => 100001, :debit => 11, :credit => 12, :balance => 13, :level  => 0, :lft => 1, :rgt => 14 ) 
 Account.create!(:parent_id => nil, :name => "A11" , :acc_num => 100011, :debit => 111, :credit => 112, :balance => 113, :level  => 1, :lft => 2, :rgt => 3 ) 
 Account.create!(:parent_id => nil, :name => "A12" , :acc_num => 100012, :debit => 121, :credit => 122, :balance => 123, :level  => 1, :lft => 4, :rgt => 11 ) 
@@ -172,8 +198,11 @@ Account.create!(:parent_id => nil, :name => "A13" , :acc_num => 100013, :debit =
 Account.create!(:parent_id => nil, :name => "A121" , :acc_num => 100121, :debit => 1211, :credit => 1212, :balance => 1213, :level  => 2, :lft => 5, :rgt => 8 ) 
 Account.create!(:parent_id => nil, :name => "A122" , :acc_num => 100122, :debit => 1221, :credit => 1222, :balance => 1223, :level  => 2, :lft => 9, :rgt => 10 ) 
 Account.create!(:parent_id => nil, :name => "A1211" , :acc_num => 101211, :debit => 12111, :credit => 12112, :balance => 12113, :level  => 3, :lft => 6, :rgt => 7 ) 
+puts "Finished creating accounts"
+puts "\n"
 
 # Birds
+puts "Started creating birds"
 Bird.create!(:name => "Great <em>Bittern</em>", :scientific_name => "Botaurus stellaris")
 Bird.create!(:name => "Little <em>Grebe</em>", :scientific_name => "Tachybaptus ruficollis")
 Bird.create!(:name => "Black-necked Grebe", :scientific_name => "Podiceps nigricollis")
@@ -738,16 +767,24 @@ Bird.create!(:name => "House Finch", :scientific_name => "Carpodacus mexicanus")
 Bird.create!(:name => "Green Heron", :scientific_name => "Butorides virescens")
 Bird.create!(:name => "Solitary Sandpiper", :scientific_name => "Tringa solitaria")
 Bird.create!(:name => "Heuglin's Gull", :scientific_name => "Larus heuglini")
+puts "Finished creating birds"
+puts "\n"
 
 # Calendar
+puts "Started creating calendar"
 Calendar.create!(:name => "iCal Test Calendar", :color => 16711680 )
+puts "Finished creating calendar"
+puts "\n"
 
-#Events
-
+# Events
+puts "Started creating events"
 Event.create(:calendar_id => 1, :starts_at=> 24.hours.from_now, :ends_at => 25.hours.from_now, :summary => "Normal Event", :description => "It's a test!", :location => "Test town")      
 Event.create(:calendar_id => 1, :starts_at=> 24.hours.from_now, :ends_at => 49.hours.from_now, :summary => "2 day Event", :description => "It's a test!", :location => "Test town")   
+puts "Finished creating events"
+puts "\n"
 
-#DemoTree
+# DemoTree
+puts "Started creating demo tree"
 DemoTree.create(:parent_id => 0, :position => 0, :left => 1,  :right => 14, :level => 0, :title => 'ROOT')
 DemoTree.create(:parent_id => 1, :position => 0, :left => 2,  :right => 11, :level => 1, :title => 'C:',         :ntype => 'drive')
 DemoTree.create(:parent_id => 2, :position => 0, :left => 3,  :right => 6,  :level => 2, :title => '_demo',     :ntype => 'folder')
@@ -755,3 +792,5 @@ DemoTree.create(:parent_id => 3, :position => 0, :left => 4,  :right => 5,  :lev
 DemoTree.create(:parent_id => 2, :position => 1, :left => 7,  :right => 10, :level => 2, :title => '_docs',      :ntype => 'folder')
 DemoTree.create(:parent_id => 1, :position => 1, :left => 12, :right => 13, :level => 1, :title => 'D:',         :ntype => 'drive')
 DemoTree.create(:parent_id => 5, :position => 0, :left => 8,  :right => 9,  :level => 3, :title => 'zmei.html',  :ntype => 'default')
+puts "Finished creating demo tree"
+puts "\n"

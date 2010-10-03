@@ -19,7 +19,7 @@
       .ui-state-highlight.ui-corner-all{ :style => "padding: 0pt 0.7em;" }
         %p
           %span.ui-icon.ui-icon-info{ :style => "float: left; margin-right: 0.3em" }
-          = flash[:notice]
+          = raw flash[:notice]
 
   .formrow.clearfix
     %label.span-6{:for => :title}

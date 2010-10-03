@@ -80,7 +80,7 @@ class NavigationController < ApplicationController
   
   def seed
     NavigationTree.seed()   
-    flash[:notice] = "Successfully created seed file."
+    flash[:notice] = I18n.t('txt.layout.navigation.seed')
     redirect_to :action => :index
   end  
 end

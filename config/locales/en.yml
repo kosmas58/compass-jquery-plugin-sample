@@ -196,7 +196,10 @@ en:
       delete: Delete
       from: from
       language: Language
-      conf_nav: Configure navigation
+      navigation:
+        configure: Configure navigation
+        seed: "Successfully created /db/navigation.seeds.rb."
+        browse: Browse through the examples
       show: Show
       save: Save
       footer:
@@ -204,7 +207,6 @@ en:
       create: Create
       update: Update
       until: until
-      navi: Browse through the examples
     jqgrid:
       name: jqGrid
       secret: Secret Sauce jqGrid
