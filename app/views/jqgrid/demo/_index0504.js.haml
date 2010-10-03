@@ -13,14 +13,14 @@
   
   $(document).ready(function() {
     $("#ed4").click( function() {
-    	$("#invheaders_demo0504").jqGrid('editRow',"13");
-    	this.disabled = 'true';
-    	$("#sved4").attr("disabled",false);
+      $("#invheaders_demo0504").jqGrid('editRow',"13");
+      this.disabled = 'true';
+      $("#sved4").attr("disabled",false);
     });
     $("#sved4").click( function() {
-    	$("#invheaders_demo0504").jqGrid('saveRow',"13", checksave);
-    	$("#sved4").attr("disabled",true);
-    	$("#ed4").attr("disabled",false);
+      $("#invheaders_demo0504").jqGrid('saveRow',"13", checksave);
+      $("#sved4").attr("disabled",true);
+      $("#ed4").attr("disabled",false);
     });
   });
   

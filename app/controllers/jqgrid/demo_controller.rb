@@ -114,6 +114,13 @@ class Jqgrid::DemoController < ApplicationController
     end
   end
   
+  def clients
+    @clients = Client.find(:all)
+    #if request.xhr?
+      render :partial => "clients", :layout => false
+    #end
+  end
+  
   private 
   
   def fetch_params(request)
