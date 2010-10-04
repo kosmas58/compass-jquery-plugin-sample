@@ -2559,7 +2559,6 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo1108,
     :title          => I18n.t('txt.jqgrid.demo.33function'),
-    :data_type      => "javascript: datatype",
     :colNames       => [
                         I18n.t('activerecord.attributes.invheader.id'),
                         I18n.t('activerecord.attributes.invheader.invdate'),
@@ -2577,9 +2576,8 @@ class Invheader < ActiveRecord::Base
                                         :align => :right },
                          :invdate  => { :name  => 'invdate',
                                         :width =>  90 },
-                         :client_id => { :name  => 'client.name',
-                                         :width => 100,
-                                         :sort_type => :text },
+                         :client_id => { :name  => 'client_id',
+                                         :width => 70 },
                          :amount   => { :name  => 'amount',
                                         :width =>  80,
                                         :align => :right },
@@ -2603,7 +2601,8 @@ class Invheader < ActiveRecord::Base
     :paging_choices => [10,20,30],
     :sort_by        => :id,
     :sort_order     => :desc,
-    :jqgrid_options => { :viewsortcols => [true, :horizontal,false] },
+    :jqgrid_options => { :datatype     => "javascript: dataFunction",
+                         :viewsortcols => [true, :horizontal,false] },
     :search_button  => true,
     :refresh_button => true,
     :pager          => true
@@ -2657,6 +2656,8 @@ class Invheader < ActiveRecord::Base
     :paging_choices => [10,20,30],
     :sort_by        => :id,
     :sort_order     => :desc,
+    :select_rows    => true,
+    :refresh_button => true,
     :pager          => true,
     :jqgrid_options => { :viewsortcols => [true, :horizontal,false],
                          :gridComplete => "javascript: gridComplete" }
