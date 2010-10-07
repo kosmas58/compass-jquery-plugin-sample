@@ -19,7 +19,7 @@
     });
     $("#invheaders_demo1107").jqGrid('navButtonAdd',"#invheaders_demo1107_pager",{caption:"Clear",title:"Clear Search",buttonicon:'ui-icon-refresh',
       onClickButton:function(){
-        var stat = $("#invheaders_demo1107").getGridParam('search');
+        var stat = $("#invheaders_demo1107").jqGrid('getGridParam', 'search');
         if(stat) {
           var cs = $("#filter")[0];
           cs.clearSearch();

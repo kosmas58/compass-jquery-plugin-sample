@@ -1,13 +1,13 @@
 :javascript  
   function afterInsertRow(rowid, aData){
-    switch (aData.name) {
-      case "1":
+    switch (aData.closed) {
+      case "Yes":
         $("#invheaders_demo1003").jqGrid('setCell',rowid,"total","",{color:'green'});
         break;
-      case "2":
+      case "No":
         $("#invheaders_demo1003").jqGrid('setCell',rowid,"total","",{color:'red'});
         break;
-      case "3":
+      case "Client 3":
         $("#invheaders_demo1003").jqGrid('setCell',rowid,"total","",{color:'blue'});
         break;
     }
