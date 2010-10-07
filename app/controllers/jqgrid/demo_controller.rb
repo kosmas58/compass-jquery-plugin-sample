@@ -114,6 +114,12 @@ class Jqgrid::DemoController < ApplicationController
     end
   end
   
+  def testxml
+    respond_to do |format|
+      format.xml { render :file =>  File.join(RAILS_ROOT, 'app/views/jqgrid/demo/testxml.xml' ) }
+    end
+  end
+  
   def clients
     @clients = Client.find(:all)
     #if request.xhr?

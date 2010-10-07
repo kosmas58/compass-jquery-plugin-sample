@@ -2,7 +2,7 @@
 <roots>
     <grid>
 <url>server.php?q=1</url>
-<height>150</height>
+<height>auto</height>
 <rowNum>10</rowNum>
 <pager>#xmlpager1</pager>
  <colModel>  <name>id</name>  <index>id</index>  <width>55</width>  <resizable>true</resizable></colModel>
