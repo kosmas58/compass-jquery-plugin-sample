@@ -2830,8 +2830,9 @@ class Invheader < ActiveRecord::Base
     :sort_by        => :id,
     :sort_order     => :desc,
     :jqgrid_options => { :viewsortcols => [true, :horizontal,false] },
+                         #"jsonReader" => { :repeatitems  => true, :cell => "", :id => "0" } },
     :pager          => true
-    #jsonReader: { repeatitems : true, cell:"",  id: "0" }
+    
 
   gridify :demo1205,
     :title          => I18n.t('txt.jqgrid.demo.34scroll'),
