@@ -1,0 +1,25 @@
+!!!
+%html{ "xml:lang" => "en", :lang => "en", :xmlns => "http://www.w3.org/1999/xhtml" }
+  %head
+    %meta{ :content => "text/html;charset=UTF-8", "http-equiv" => "content-type" }
+    %title
+      = raw @browser_title || 'Compass jQTouch'
+
+    = stylesheet_link_tag :jqt
+    = stylesheet_link_tag :jqt_default
+
+    = javascript_include_tag :jquery_142
+    = javascript_include_tag :jrails
+    = javascript_include_tag :jhaml
+    = javascript_include_tag :jqtouch
+
+    = javascript_include_tag 'locales'
+    = javascript_include_tag 'common'
+    = javascript_include_tag 'ajax'
+    = javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery?
+    
+    = yield :content_head
+
+  %body{body_attributes}
+    = yield
+ 
