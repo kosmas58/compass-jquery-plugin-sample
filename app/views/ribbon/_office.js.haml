@@ -1,8 +1,8 @@
 :javascript
-  $().ready(function() {
-      $().Ribbon({ theme: 'office', backStage: true });
-  
-      $('ul.ribbon-theme li').click(function() { $().Ribbon({ theme: $(this).attr('class').substring(7), backStage: true }); });
-      $('ul.ribbon-header li').click(function() { $().Ribbon({ theme: $(this).attr('class').substring(7), backStage: true }); });
-      $('.orb').click();
+  $(document).ready(function() {
+    $().Ribbon({ theme: 'office', backStage: true });
+    $('ul.ribbon-theme li').click(function() { $().Ribbon({ theme: $(this).attr('class').substring(7), backStage: true }); });
+    $('ul.ribbon-header li').click(function() { $().Ribbon({ theme: $(this).attr('class').substring(7), backStage: true }); });
+    $('.orb').click();
   });
+  

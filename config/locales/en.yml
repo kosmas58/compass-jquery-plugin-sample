@@ -445,6 +445,9 @@ en:
       html: HTML Data
       themeroller: Themeroller
       unique: Unique
+    sparklines:
+      name: Sparklines
+      default: Examples
     mobiles:
       name: jQuery on mobile devices
     jqm:

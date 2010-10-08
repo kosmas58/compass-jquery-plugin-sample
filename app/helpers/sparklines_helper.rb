@@ -1,0 +1,2 @@
+module SparklinesHelper
+end

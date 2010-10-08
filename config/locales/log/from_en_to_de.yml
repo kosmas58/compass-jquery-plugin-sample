@@ -21,9 +21,8 @@ date:
     short: "%b %d"
     long: "%B %d, %Y"
 txt: 
-  layout: 
-    navigation: 
-      browse: Browse through the examples
+  sparklines: 
+    default: Examples
   hello: Hello world
 support: 
   array: 
