@@ -434,6 +434,7 @@ de:
     sparklines: 
       name: Sparklines
       default: Probieren Sie es aus
+      examples: Beispiele
     dt: 
       name: Dynatree
       ul: Aus ul-Element initialisieren

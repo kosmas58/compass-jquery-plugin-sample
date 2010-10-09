@@ -448,6 +448,7 @@ en:
     sparklines:
       name: Sparklines
       default: Try it out
+      examples: Examples
     mobiles:
       name: jQuery on mobile devices
     jqm:

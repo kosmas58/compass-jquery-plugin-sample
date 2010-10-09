@@ -1,0 +1,106 @@
+-@title = "#{t('txt.sparklines.name')} - #{t('txt.sparklines.examples')}"
+
+- content_for :content_head do
+  = render(:partial => "examples.js.haml", :format => :js)
+
+
+.demo
+  %h3
+    =image_tag("icons/22x22/sparklines.png", :border => 0)
+    =@title
+  .span-12
+    %p
+      Mouse speed
+      %span#mousespeed
+        %canvas{:height => "16", :style => "display: inline-block; width: 60px; height: 16px; vertical-align: top;", :width => "60"}
+    %p
+      Inline
+      %span.line
+        %canvas{:height => "16", :style => "display: inline-block; width: 21px; height: 16px; vertical-align: top;", :width => "21"}
+      line graphs
+      %span.line
+        %canvas{:height => "16", :style => "display: inline-block; width: 63px; height: 16px; vertical-align: top;", :width => "63"}
+    %p
+      Bar charts
+      %span.bar
+        %canvas{:height => "16", :style => "display: inline-block; width: 34px; height: 16px; vertical-align: top;", :width => "34"}
+      negative values:
+      %span.bar
+        %canvas{:height => "16", :style => "display: inline-block; width: 29px; height: 16px; vertical-align: top;", :width => "29"}
+    %p
+      Composite inline
+      %span#compositeline
+        %canvas{:height => "16", :style => "display: inline-block; width: 63px; height: 16px; vertical-align: top;", :width => "63"}
+    %p
+      Inline with normal range
+      %span#normalline
+        %canvas{:height => "16", :style => "display: inline-block; width: 63px; height: 16px; vertical-align: top;", :width => "63"}
+    %p
+      Composite bar
+      %span#compositebar
+        %canvas{:height => "16", :style => "display: inline-block; width: 44px; height: 16px; vertical-align: top;", :width => "44"}
+    %p
+      Discrete
+      %span.discrete1
+        %canvas{:height => "16", :style => "display: inline-block; width: 36px; height: 16px; vertical-align: top;", :width => "36"}
+      %br
+        Discrete with threshold
+        %span#discrete2
+          %canvas{:height => "16", :style => "display: inline-block; width: 18px; height: 16px; vertical-align: top;", :width => "18"}
+  .span-12.last
+    %p
+      Customize size and colours
+      %span#linecustom
+        %canvas{:height => "22", :style => "display: inline-block; width: 115px; height: 22px; vertical-align: top;", :width => "115"}
+    %p
+      Tristate charts
+      %span.tristate
+        %canvas{:height => "16", :style => "display: inline-block; width: 59px; height: 16px; vertical-align: top;", :width => "59"}
+      %br
+        (think games won, lost or drawn)
+    %p
+      Tristate chart using a colour map:
+      %span.tristatecols
+        %canvas{:height => "16", :style => "display: inline-block; width: 59px; height: 16px; vertical-align: top;", :width => "59"}
+    %p
+      Box Plot:
+      %span.boxplot
+        %canvas{:height => "16", :style => "display: inline-block; width: 58px; height: 16px; vertical-align: top;", :width => "58"}
+      %br
+        Pre-computed box plot
+        %span.boxplotraw
+          %canvas{:height => "16", :style => "display: inline-block; width: 58px; height: 16px; vertical-align: top;", :width => "58"}
+    %p
+      Pie charts
+      %span.pie
+        %canvas{:height => "14", :style => "display: inline-block; width: 14px; height: 14px; vertical-align: top;", :width => "14"}
+      %span.pie
+        %canvas{:height => "14", :style => "display: inline-block; width: 14px; height: 14px; vertical-align: top;", :width => "14"}
+      %span.pie
+        %canvas{:height => "14", :style => "display: inline-block; width: 14px; height: 14px; vertical-align: top;", :width => "14"}
+    %p
+      Bullet charts
+      %br
+        %span.bullet
+          %canvas{:height => "16", :style => "display: inline-block; width: 58px; height: 16px; vertical-align: top;", :width => "58"}
+        %br
+          %span.bullet
+            %canvas{:height => "16", :style => "display: inline-block; width: 58px; height: 16px; vertical-align: top;", :width => "58"}
+          %br
+            %span.bullet
+              %canvas{:height => "16", :style => "display: inline-block; width: 58px; height: 16px; vertical-align: top;", :width => "58"}
+            %br
+
+/ End demo
+.demo-description
+  #greybox
+  %p
+    The plugin was written by
+    %a{:href => "http://omnipotent.net/" } Gareth Watts
+    for
+    %a{:href => "http://www.splunk.com/" } Splunk Inc
+    and released under the
+    = succeed "." do
+      %a{:href => "http://www.opensource.org/licenses/bsd-license.php", :class => :greybox } New BSD License
+/ End demo-description
+
