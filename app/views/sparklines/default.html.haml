@@ -6,25 +6,156 @@
 .demo
   %h3
     =@title
-  #examples
-    %a{:name => "examples"}
-    %h4
-      %span Examples
-    #ex2
-      %p
-        Pie charts
-        %span.pie
-          %canvas{:height => "14", :style => "display: inline-block; width: 14px; height: 14px; vertical-align: top;", :width => "14"}
-        %span.pie
-          %canvas{:height => "14", :style => "display: inline-block; width: 14px; height: 14px; vertical-align: top;", :width => "14"}
-        %span.pie
-          %canvas{:height => "14", :style => "display: inline-block; width: 14px; height: 14px; vertical-align: top;", :width => "14"}
-    #ex1
-      %p
-        Mouse speed
-      %span#mousespeed
-        %canvas{:height => "16", :style => "display: inline-block; width: 60px; height: 16px; vertical-align: top;", :width => "60"}
-
+  .span-10
+    %form#dynform{:action => "#"}
+      #customize.ui-widget-border.ui-corner-all.customize
+        %p#customresult
+          %span#dynamicline
+            %canvas{:height => "18", :style => "display: inline-block; width: 36px; height: 18px; vertical-align: top;", :width => "36"}
+        %ul
+          %li
+            Chart type:
+            %select#charttype{:name => "charttype"}
+              %option{:selected => "selected", :value => "line"} Line
+              %option{:value => "bar"} Bar
+              %option{:value => "tristate"} Tristate
+              %option{:value => "discrete"} Discrete
+              %option{:value => "bullet"} Bullet
+              %option{:value => "pie"} Pie
+              %option{:value => "box"} Box Plot
+          %li.coptions.lineoptions{:style => "display: list-item;"}
+            Values:
+            %input#linevals{:size => "20", :type => "text", :value => "5,6,7,9,9,5,3,2,2,4,6,7"}/
+          %li.coptions.baroptions{:style => "display: none;"}
+            Values:
+            %input#barvals{:size => "20", :type => "text", :value => "5,6,7,2,0,-4,-2,4"}/
+          %li.coptions.bulletoptions{:style => "display: none;"}
+            Values:
+            %input#bulletvals{:size => "20", :type => "text", :value => "10,12,12,9,7"}/
+          %li.coptions.tristateoptions{:style => "display: none;"}
+            Values:
+            %input#tristatevals{:size => "20", :type => "text", :value => "-1,1,1,2,0,-1,-2,1,1"}/
+          %li.coptions.discreteoptions{:style => "display: none;"}
+            Values:
+            %input#discretevals{:size => "20", :type => "text", :value => "5,6,7,9,9,5,3,2,2,4,6,7"}/
+          %li.coptions.pieoptions{:style => "display: none;"}
+            Values:
+            %input#pievals{:size => "20", :type => "text", :value => "1,2,4"}/
+          %li.coptions.boxoptions{:style => "display: none;"}
+            Values:
+            %input#boxvals{:size => "20", :type => "text", :value => "4,27,34,52,54,59,61,68,78,82,85,87,91,93,100"}/
+          %li
+            Height:
+            %input#chartheight{:size => "10", :type => "text", :value => "auto"} (css units; try 50px for pixels
+          %li
+            Width:
+            %input#chartwidth{:size => "10", :type => "text", :value => "auto"} or 2em for double the font size)
+        %ul.coptions.lineoptions.discreteoptions{:style => "display: block;"}
+          %li
+            Line Colour:
+            %input#linecol{:size => "10", :type => "text", :value => "#00f"}/
+          %li
+            Fill Colour:
+            %input#fillcol{:size => "10", :type => "text", :value => "#cdf"}/
+        %ul.coptions.lineoptions{:style => "display: block;"}
+          %li
+            Spot Colour:
+            %input#spotcol{:size => "10", :type => "text", :value => "#f80"}/
+          %li
+            Spot Size:
+            %input#spotsize{:size => "10", :type => "text", :value => "2"} (in pixels)
+          %li
+            Line Width:
+            %input#linewidth{:size => "10", :type => "text", :value => "1"} (in pixels)
+        %ul.coptions.baroptions{:style => "display: none;"}
+          %li
+            Bar Color:
+            %input#barcol{:size => "10", :type => "text", :value => "#00f"}/
+          %li
+            Negative Bar Color:
+            %input#barnegbarcol{:size => "10", :type => "text", :value => "#f44"}/
+          %li
+            Zero Color:
+            %input#zerocol{:size => "10", :type => "text"}/
+          %li
+            Bar Width:
+            %input#barbarwidth{:size => "10", :type => "text", :value => "4"}/
+          %li
+            Bar Spacing:
+            %input#barbarspacing{:size => "10", :type => "text", :value => "1"}/
+        %ul.coptions.tristateoptions{:style => "display: none;"}
+          %li
+            Positive Bar Color:
+            %input#posbarcol{:size => "10", :type => "text", :value => "#6f6"}/
+          %li
+            Negative Bar Color:
+            %input#trinegbarcol{:size => "10", :type => "text", :value => "#f44"}/
+          %li
+            Zero Bar Color:
+            %input#zerobarcol{:size => "10", :type => "text", :value => "#999"}/
+          %li
+            Bar Width:
+            %input#tribarwidth{:size => "10", :type => "text", :value => "4"}/
+          %li
+            Bar Spacing:
+            %input#tribarspacing{:size => "10", :type => "text", :value => "1"}/
+        %ul.coptions.discreteoptions{:style => "display: none;"}
+          %li
+            Line Height:
+            %input#lineheight{:size => "10", :type => "text"}/
+          %li
+            Threshold Value:
+            %input#thresholdvalue{:size => "10", :type => "text", :value => "5"}/
+          %li
+            Threshold Color:
+            %input#thresholdcolor{:size => "10", :type => "text", :value => "#f55"}/
+        %ul.coptions.bulletoptions{:style => "display: none;"}
+          %li
+            Performance Color:
+            %input#performancecolor{:size => "10", :type => "text", :value => "blue"}/
+          %li
+            Range Colors:
+            %input#rangecolors{:size => "25", :type => "text", :value => "#D3DAFE,#A8B6FF,#7F94FF"}/
+          %li
+            Target Width:
+            %input#targetwidth{:size => "10", :type => "text", :value => "3"}/
+        %ul.coptions.pieoptions{:style => "display: none;"}
+          %li
+            Slice Colors:
+            %input#slicecolors{:size => "25", :type => "text", :value => "#f00,#0f0,#00f"}/
+        %ul.coptions.boxoptions{:style => "display: none;"}
+          %li
+            Box Line Color:
+            %input#boxlinecol{:size => "10", :type => "text", :value => "black"}/
+          %li
+            Box Fill Color:
+            %input#boxfillcol{:size => "10", :type => "text", :value => "#cdf"}/
+          %li
+            Whisker Color:
+            %input#whiskercol{:size => "10", :type => "text", :value => "black"}/
+          %li
+            Outlier Line Color:
+            %input#outlierlinecol{:size => "10", :type => "text", :value => "#333"}/
+          %li
+            Outlier Fill Color:
+            %input#outlierfillcol{:size => "10", :type => "text", :value => "white"}/
+          %li
+            Median Color:
+            %input#mediancol{:size => "10", :type => "text", :value => "red"}/
+          %li
+            Show Outliers:
+            %input#showoutliers{:checked => "checked", :type => "checkbox"}/
+          %li
+            Outlier IQR:
+            %input#outlieriqr{:size => "4", :type => "text", :value => "1.5"}/
+          %li
+            Target:
+            %input#boxtarget{:size => "10", :type => "text"}/
+        %ul.coptions.boxoptions.bulletoptions{:style => "display: none;"}
+          %li
+            Target Color:
+            %input#targetcolor{:size => "10", :type => "text", :value => "#4a2"}/
+    #greybox
 / End demo
 .demo-description
   %h4

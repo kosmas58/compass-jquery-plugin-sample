@@ -22,7 +22,7 @@ date:
     long: "%B %d, %Y"
 txt: 
   sparklines: 
-    default: Examples
+    default: Try it out
   hello: Hello world
 support: 
   array: 

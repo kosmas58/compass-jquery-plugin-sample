@@ -447,7 +447,7 @@ en:
       unique: Unique
     sparklines:
       name: Sparklines
-      default: Examples
+      default: Try it out
     mobiles:
       name: jQuery on mobile devices
     jqm:

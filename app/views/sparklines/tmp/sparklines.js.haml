@@ -37,19 +37,19 @@
           #customresult { text-align: center; font-size: 1.2em}
           #newversion { float: right; margin: 5px 0px 15px 15px; font-size: 0.8em; font-weight: bold; color: black; border: 1px solid red; background: #ff9; padding: 4px; text-align: center; }
               
-            %link{:href => "jQuery%20Sparklines-Dateien/ui_003.css", :rel => "stylesheet"}
-          %link{:href => "jQuery%20Sparklines-Dateien/ui.css", :rel => "stylesheet"}
-            %link{:href => "jQuery%20Sparklines-Dateien/ui_002.css", :rel => "stylesheet"}
+            %link{:href => "Sparklines-Dateien/ui_003.css", :rel => "stylesheet"}
+          %link{:href => "Sparklines-Dateien/ui.css", :rel => "stylesheet"}
+            %link{:href => "Sparklines-Dateien/ui_002.css", :rel => "stylesheet"}
               /
                 AHA!  I *knew* you wouldn't be able to resist taking a look here to see how things are setup!
                 Good idea - There's a few comments below, but hopefully things are readable as is.
                 
                 First thing we do is load in jQuery and the jquery.sparkline plugin
                 (incidently you'd normally put all this at the END of your page to speed loading times)
-              %script{:src => "jQuery%20Sparklines-Dateien/jquery-1.js", :type => "text/javascript"}
-              %script{:src => "jQuery%20Sparklines-Dateien/ui_002.js", :type => "text/javascript"}
-              %script{:src => "jQuery%20Sparklines-Dateien/ui.js", :type => "text/javascript"}
-              %script{:src => "jQuery%20Sparklines-Dateien/jquery.js", :type => "text/javascript"}
+              %script{:src => "Sparklines-Dateien/jquery-1.4.2.min.js", :type => "text/javascript"}
+              %script{:src => "Sparklines-Dateien/ui_002.js", :type => "text/javascript"}
+              %script{:src => "Sparklines-Dateien/ui.js", :type => "text/javascript"}
+              %script{:src => "Sparklines-Dateien/jquery.sparkline.min.js", :type => "text/javascript"}
               /
                 Then we use jQuery's $(...) handler to define some javascript to run once the page is loaded
               :javascript
@@ -104,8 +104,7 @@
         $('.boxplotraw').sparkline([ 1, 3, 5, 8, 10, 15, 18 ], {type:'box', raw: true, showOutliers:true, target: 6});
 
         /** Plot the stock indexes and the latest San Francisco Giants results - The data for this is gathered by some Python scripts I have on the server **/
-        var nd = [2153.63
-,2119.97
+        var nd = [2119.97
 ,2114.03
 ,2176.84
 ,2200.01
@@ -134,6 +133,7 @@
 ,2399.83
 ,2380.66
 ,2383.67
+,2401.91
 ];
         var nd_vol = [0
 ,0
@@ -166,8 +166,7 @@
 ,0
 ,0
 ];
-        var dow = [10150.65
-,10009.73
+        var dow = [10009.73
 ,10014.72
 ,10269.47
 ,10320.10
@@ -196,9 +195,9 @@
 ,10944.72
 ,10967.65
 ,10948.58
+,11006.48
 ];
-        var dow_vol = [207764070
-,150484268
+        var dow_vol = [150484268
 ,255417995
 ,205712227
 ,149931903
@@ -227,8 +226,9 @@
 ,216244575
 ,163437377
 ,141922141
+,152279348
 ];
-        var giants = [-1,1,-1,1,1,-1,-1,1,1,-1,1,1,-1,1,1,1,1,-1,-1,1];
+        var giants = [1,-1,1,1,-1,-1,1,1,-1,1,1,-1,1,1,1,1,-1,-1,1,1];
         $('#dow').sparkline(dow_vol, {height: '1.3em', type: 'bar', barSpacing: 0, barWidth: 3, barColor: '#ddd'});
         $('#dow').sparkline(dow, {composite: true, height: '1.3em', fillColor:false, lineColor:'black'});
         $('#nasdaq').sparkline(nd_vol, {height: '1.3em', type: 'bar', barSpacing: 0, barWidth: 3,barColor: '#ddd'});
@@ -350,33 +350,33 @@
           NASDAQ:
           %span#nasdaq
             %canvas{:height => "13", :style => "display: inline-block; width: 90px; height: 13px; vertical-align: top;", :width => "90"}
-          2383.67 (close 8/27-10/7)
+          2401.91 (close 8/30-10/8)
         %p
           DOW:
           %span#dow
             %canvas{:height => "13", :style => "display: inline-block; width: 90px; height: 13px; vertical-align: top;", :width => "90"}
-          10948.58 (close 8/27-10/7)
+          11006.48 (close 8/30-10/8)
         %p
           SF Giants:
           %span#giants
             %canvas{:height => "13", :style => "display: inline-block; width: 99px; height: 13px; vertical-align: top;", :width => "99"}
-          Last game 10/3
+          Last game 10/7
       %h1
         %span jQuery Sparklines
       %ul#tabs.ui-tabs-nav.ui-helper-reset.ui-helper-clearfix.ui-widget-header.ui-corner-all
-        %li.ui-state-default.ui-corner-top
+        %li.ui-corner-top.ui-tabs-selected.ui-state-active
           %a{:href => "#about", :linkindex => "0"} About
         %li.ui-state-default.ui-corner-top
           %a{:href => "#news", :linkindex => "1"} News
         %li.ui-state-default.ui-corner-top
           %a{:href => "#docs", :linkindex => "2"} Docs
-        %li.ui-corner-top.ui-tabs-selected.ui-state-active
+        %li.ui-corner-top.ui-state-default
           %a{:href => "#download", :linkindex => "3"} Download
         %li.ui-state-default.ui-corner-top
           %a{:href => "#who", :linkindex => "4"} Users
         %li.ui-state-default.ui-corner-top
           %a{:href => "#feedback", :linkindex => "5"} Feedback
-      #about.section.ui-tabs-panel.ui-widget-content.ui-corner-bottom.ui-tabs-hide
+      #about.section.ui-tabs-panel.ui-widget-content.ui-corner-bottom
         %noscript
           %p{:style => "color: red"}
             %b You REALLY want to have Javascript turned ON to view this page!
@@ -1257,7 +1257,7 @@
           and licensed using
           the
           %a{:href => "http://www.opensource.org/licenses/bsd-license.php", :linkindex => "39"} New BSD License
-      #download.section.ui-tabs-panel.ui-widget-content.ui-corner-bottom
+      #download.section.ui-tabs-panel.ui-widget-content.ui-corner-bottom.ui-tabs-hide
         %a{:name => "download"}
         %h2
           %span Download
@@ -1403,7 +1403,7 @@
             %a{:href => "http://twitter.com/garethwatts", :linkindex => "79"} Twitter
       #footer
         © Splunk Inc. 2009-2010
-    %script{:src => "jQuery%20Sparklines-Dateien/urchin.js", :type => "text/javascript"}
+    %script{:src => "Sparklines-Dateien/urchin.js", :type => "text/javascript"}
     :javascript
       _uacct = "UA-2899795-1";
       urchinTracker();
