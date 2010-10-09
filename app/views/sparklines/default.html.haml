@@ -3,6 +3,7 @@
 - content_for :content_head do
   = render(:partial => "default.js.haml", :format => :js)
 
+
 .demo
   %h3
     =@title
@@ -156,28 +157,30 @@
             Target Color:
             %input#targetcolor{:size => "10", :type => "text", :value => "#4a2"}/
     #greybox
-/ End demo
-.demo-description
-  %h4
-    About
-  %p
-    This jQuery plugin generates
-    %a{:href => "http://en.wikipedia.org/wiki/Sparkline", :linkindex => "7", :class => :greybox } sparklines
-    (small inline charts) directly
-    in the browser using data supplied either inline in the HTML, or via javascript.
-  %p
-    The plugin is compatible with most modern browsers and has been
-    tested with Firefox 2+, Safari 3+, Opera 9, Google Chrome and Internet
-    Explorer 6, 7 &amp; 8.
-  %p
-    Each example displayed above takes just 1 line of HTML or javascript to generate.
-  %p
-    The plugin was written by
-    %a{:href => "http://omnipotent.net/", :linkindex => "8", :class => :greybox } Gareth Watts
-    for
-    %a{:href => "http://www.splunk.com/", :linkindex => "9", :class => :greybox } Splunk Inc
-    and released under the
-    = succeed "." do
-      %a{:href => "http://www.opensource.org/licenses/bsd-license.php", :linkindex => "10", :class => :greybox } New BSD License
+  .span-14.last
+    .demo-description
+      %h4
+        About
+      %p
+        This jQuery plugin generates
+        %a{:href => "http://en.wikipedia.org/wiki/Sparkline", :linkindex => "7", :class => :greybox } sparklines
+        (small inline charts) directly
+        in the browser using data supplied either inline in the HTML, or via javascript.
+      %p
+        The plugin is compatible with most modern browsers and has been
+        tested with Firefox 2+, Safari 3+, Opera 9, Google Chrome and Internet
+        Explorer 6, 7 &amp; 8.
+      %p
+        Each example displayed above takes just 1 line of HTML or javascript to generate.
+      %p
+        The plugin was written by
+        %a{:href => "http://omnipotent.net/", :linkindex => "8", :class => :greybox } Gareth Watts
+        for
+        %a{:href => "http://www.splunk.com/", :linkindex => "9", :class => :greybox } Splunk Inc
+        and released under the
+        = succeed "." do
+          %a{:href => "http://www.opensource.org/licenses/bsd-license.php", :linkindex => "10", :class => :greybox } New BSD License
+    
+    / End demo-description
 
-/ End demo-description
+  / End demo
