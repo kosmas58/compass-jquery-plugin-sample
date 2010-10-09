@@ -461,29 +461,33 @@ parent_id = node_348
 parent_id = node_215
 node_353 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.jqgrid.secret', :type => 'default', :icon => '/images/icons/16x16/grid.png', :url => '/jqgrid/widgets')
 parent_id = node_165
-node_354 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 4, :title => 'txt.jqical.name', :type => 'folder', :icon => '/images/icons/16x16/working.png')
+node_354 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 4, :title => 'txt.sparklines.name', :type => 'folder', :icon => '/images/icons/16x16/sparklines.png')
 parent_id = node_354
-node_355 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.jqical.anytime.name', :type => 'folder', :icon => '/images/icons/16x16/alarmclock.png')
-parent_id = node_355
-node_356 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.jqical.anytime.default', :type => 'default', :icon => '/images/icons/16x16/alarmclock.png', :url => '/jqical/anytime/default')
-node_357 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.jqical.anytime.inline', :type => 'default', :icon => '/images/icons/16x16/alarmclock.png', :url => '/jqical/anytime/inline')
-node_358 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.jqical.anytime.separate', :type => 'default', :icon => '/images/icons/16x16/alarmclock.png', :url => '/jqical/anytime/separate')
-node_359 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.jqical.anytime.css', :type => 'default', :icon => '/images/icons/16x16/alarmclock.png', :url => '/jqical/anytime/css')
-node_360 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 4, :title => 'txt.jqical.anytime.ajax', :type => 'default', :icon => '/images/icons/16x16/alarmclock.png', :url => '/jqical/anytime/ajax')
-node_361 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 5, :title => 'txt.jqical.anytime.convert', :type => 'default', :icon => '/images/icons/16x16/alarmclock.png', :url => '/jqical/anytime/convert')
-node_362 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 6, :title => 'txt.jqical.anytime.extend', :type => 'default', :icon => '/images/icons/16x16/alarmclock.png', :url => '/jqical/anytime/extend')
-parent_id = node_354
-node_363 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.jqical.calendar.listing', :type => 'default', :icon => '/images/icons/16x16/calendar.png', :url => '/jqical/calendars')
+node_355 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.sparklines.default', :type => 'default', :icon => '/images/icons/16x16/sparklines.png', :url => '/sparklines/default')
+parent_id = node_165
+node_356 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 5, :title => 'txt.jqical.name', :type => 'folder', :icon => '/images/icons/16x16/working.png')
+parent_id = node_356
+node_357 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.jqical.anytime.name', :type => 'folder', :icon => '/images/icons/16x16/alarmclock.png')
+parent_id = node_357
+node_358 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.jqical.anytime.default', :type => 'default', :icon => '/images/icons/16x16/alarmclock.png', :url => '/jqical/anytime/default')
+node_359 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.jqical.anytime.inline', :type => 'default', :icon => '/images/icons/16x16/alarmclock.png', :url => '/jqical/anytime/inline')
+node_360 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.jqical.anytime.separate', :type => 'default', :icon => '/images/icons/16x16/alarmclock.png', :url => '/jqical/anytime/separate')
+node_361 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.jqical.anytime.css', :type => 'default', :icon => '/images/icons/16x16/alarmclock.png', :url => '/jqical/anytime/css')
+node_362 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 4, :title => 'txt.jqical.anytime.ajax', :type => 'default', :icon => '/images/icons/16x16/alarmclock.png', :url => '/jqical/anytime/ajax')
+node_363 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 5, :title => 'txt.jqical.anytime.convert', :type => 'default', :icon => '/images/icons/16x16/alarmclock.png', :url => '/jqical/anytime/convert')
+node_364 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 6, :title => 'txt.jqical.anytime.extend', :type => 'default', :icon => '/images/icons/16x16/alarmclock.png', :url => '/jqical/anytime/extend')
+parent_id = node_356
+node_365 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.jqical.calendar.listing', :type => 'default', :icon => '/images/icons/16x16/calendar.png', :url => '/jqical/calendars')
 parent_id = node_165
 parent_id = node_1
-node_364 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.mobiles.name', :type => 'accordion', :icon => '/images/icons/16x16/iphone.png')
-parent_id = node_364
-node_365 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.jqm.name', :type => 'default', :icon => '/images/icons/16x16/drill.png', :url => 'http://jquerymobile.com/')
-node_366 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.jqt.name', :type => 'folder', :icon => '/images/icons/16x16/iphone.png')
+node_366 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.mobiles.name', :type => 'accordion', :icon => '/images/icons/16x16/iphone.png')
 parent_id = node_366
-node_367 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.jqt.demo', :type => 'default', :icon => '/images/icons/16x16/drill.png', :url => '/iphone/main')
-node_368 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.jqt.beta', :type => 'default', :icon => '/images/icons/16x16/iphone.png', :url => '/iphone/original')
-parent_id = node_364
+node_367 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.jqm.name', :type => 'default', :icon => '/images/icons/16x16/drill.png', :url => 'http://jquerymobile.com/')
+node_368 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.jqt.name', :type => 'folder', :icon => '/images/icons/16x16/iphone.png')
+parent_id = node_368
+node_369 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.jqt.demo', :type => 'default', :icon => '/images/icons/16x16/drill.png', :url => '/iphone/main')
+node_370 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.jqt.beta', :type => 'default', :icon => '/images/icons/16x16/iphone.png', :url => '/iphone/original')
+parent_id = node_366
 parent_id = node_1
 puts "Finished creating navigation tree"
 
