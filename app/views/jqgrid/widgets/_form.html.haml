@@ -1,8 +1,11 @@
-- form_for(@widget, :url => jqgrid_widgets_url) do |f|
+:css
+  form.myform { height:100px; }
+
+- form_for(@widget, :url => jqgrid_widgets_url, :html => { :class => :myform }) do |f|
   = f.error_messages
-  %p
+  %p.span-24
     = f.label :name
     = f.text_field :name
-  %p
+  %p.span-24
     = f.label :cogs
     = f.text_field :cogs

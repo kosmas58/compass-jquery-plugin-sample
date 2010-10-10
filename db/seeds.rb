@@ -1260,7 +1260,7 @@ parent_id = node_165
 node_354 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 4, :title => 'txt.sparklines.name', :type => 'folder', :icon => '/images/icons/16x16/sparklines.png')
 parent_id = node_354
 node_355 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.sparklines.default', :type => 'default', :icon => '/images/icons/16x16/sparklines.png', :url => '/sparklines/default')
-node_356 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.sparklines.examples', :type => 'default', :icon => '/images/icons/16x16/sparklines.png', :url => '/sparklines/examples')
+node_356 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.sparklines.examples', :type => 'default', :icon => '/images/icons/16x16/working.png', :url => '/sparklines/examples')
 parent_id = node_165
 node_357 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 5, :title => 'txt.jqical.name', :type => 'folder', :icon => '/images/icons/16x16/working.png')
 parent_id = node_357

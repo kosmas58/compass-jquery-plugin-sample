@@ -509,7 +509,7 @@ class Invheader < ActiveRecord::Base
   gridify :demo0304,
     :title          => I18n.t('txt.jqgrid.demo.20as_subgrid'),
     :url            => "/jqgrid/demo",
-    :data_type      => :xml,
+    :data_type      => :json,
     :colInclude     => [:client],
     :colNames       => [
                         I18n.t('activerecord.attributes.invheader.id'),
@@ -555,10 +555,25 @@ class Invheader < ActiveRecord::Base
     :sort_by        => :id,
     :sort_order     => :desc,
     :jqgrid_options => { :viewsortcols => [true, :horizontal,false] },
-    :grid_view      => false,
     :search_button  => true,
     :refresh_button => true,
-    :pager          => true
+    :pager          => true,
+    :grid_view      => false,
+    :sub_grid       => true,
+    :sub_grid_url   => "/jqgrid/demo?model=invline&subgrid=true&atr[]=num&atr[]=item&atr[]=qty&atr[]=unit&atr[]=total",
+    :sub_grid_model => [
+                         {
+                           :name  => [
+                                       I18n.t('activerecord.attributes.invline.num'),
+                                       I18n.t('activerecord.attributes.invline.item'),
+                                       I18n.t('activerecord.attributes.invline.qty'),
+                                       I18n.t('activerecord.attributes.invline.unit'),
+                                       I18n.t('activerecord.attributes.invline.total')
+                                     ],
+                           :width => [ 55, 200, 80, 80, 80],
+                           :align => [ :right, :left, :right, :right, :right ]
+                         }
+                       ]
 
   gridify :demo0305,
     :title          => I18n.t('txt.jqgrid.demo.20resizing'),
