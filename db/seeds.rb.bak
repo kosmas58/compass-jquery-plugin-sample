@@ -770,6 +770,12 @@ Bird.create!(:name => "Heuglin's Gull", :scientific_name => "Larus heuglini")
 puts "Finished creating birds"
 puts "\n"
 
+# Widgets
+puts "Started creating widgets"
+Widget.create!(:name => "kosmas58", :cogs => 1)
+puts "Finished creating widgets"
+puts "\n"
+
 # Calendar
 puts "Started creating calendar"
 Calendar.create!(:name => "iCal Test Calendar", :color => 16711680 )
