@@ -1,0 +1,65 @@
+:css
+  div.overlay { width:400px; display:none; color:#fff; padding:10px; }
+  div.overlay a.close { background-image:url(/images/jqtools/overlay/close.png); position:absolute; right:5px; top:7px; cursor:pointer; height:27px; width:27px; }
+  #overlay { height:200px; background-color:#666; -moz-border-radius:15px; }
+  #overlay1b { background-image:url(/images/jqtools/overlay/overlay.png) }
+  #overlay2 { height:200px; background-color:#666; -moz-border-radius:15px; }
+  #overlay3 { background-image:url(/images/jqtools/overlay/overlay.png) }
+  #img { position:absolute; }
+
+:javascript
+  $(function() {
+    $("a", ".demo").button();
+  });
+  
+  $(document).ready(function() { 
+    $("a.o1").overlay({
+      closeOnClick: false,
+      mask: { 
+        color: '#ccc',
+        closeSpeed: 200
+      }
+    });
+    $("a.o2").overlay({
+      top: 'center',
+      speed: 500,
+      mask: {
+        color: '#fff',
+        // load mask a little faster
+        loadSpeed: 200,
+        // very transparent
+        opacity: 0.5
+      },
+      //effect: 'apple',
+      onStart: function(e) {
+        console.info("CONF", this, e);
+        var el = e.originalTarget || e.srcElement;
+      },
+      onBeforeLoad: function(e) {
+        console.log("overlay before load", e.pageX);
+      },
+      onLoad: function(e) {
+        console.info("overlay load", e.pageX);
+      },
+      onBeforeClose: function(e) {
+        console.log("overlay beforeClose", e.pageX);
+      },
+      onClose: function(e) {
+        console.log("overlay close", e.pageX);
+      }
+    }).bind("onBeforeLoad", function() {
+      console.info("BIND", this, arguments);
+    });
+    $("a.o3").overlay({
+      effect: 'apple',
+      mask: '#561',
+      oneInstance: false, 
+      lazyload: true,
+      fixed: false,
+      onLoad: function() {
+        console.info("apple done");
+        return true;
+      }
+    });
+  });
+

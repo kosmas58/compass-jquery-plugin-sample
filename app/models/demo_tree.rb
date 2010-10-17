@@ -108,7 +108,7 @@ class DemoTree < ActiveRecord::Base
   def self.move_node(params)
     node_old = find(params[:id])
     result   = copy_node(params[:ref], node_old)
-    copy_children(result[:id], node_old)    
+    copy_children(result[:id], node_old)
     if params[:copy] == "1"   
       result = { :status => 1, :id => result[:id] }
     else

@@ -1,0 +1,40 @@
+-@title = "#{t('txt.jqtools.name')} - #{t('txt.jqtools.overlay.name')} - #{t('txt.jqtools.overlay.demo1')}"
+
+- content_for :content_head do
+  = render(:partial => "demo1.js.haml", :format => :js)
+
+
+.demo
+  %h3
+    =image_tag("icons/22x22/jqtools.png", :border => 0)
+    =@title
+  #triggers
+    %img{:rel => "#mies1", :src => "/images/jqtools/img/3445879840_7ca4b491e9_m.jpg"}
+    %img{:rel => "#mies2", :src => "/images/jqtools/img/3449388113_71a06b8548_m.jpg"}
+  #mies1.simple_overlay
+    %a.close
+    %img{:src => "/images/jqtools/img/3445879840_7ca4b491e9.jpg"}
+      .details
+        %h3 The Barcelona Pavilion
+        %h4 Barcelona, Spain
+        %p
+          The Barcelona Pavilion, designed by Ludwig Mies van der Rohe, was the German Pavilion for the 1929 International Exposition in Barcelona, Spain. It was an important building in the history of modern architecture.
+        %p
+          Several critics, historians and modernists have declared it "the most beautiful building of the century"
+  #mies2.simple_overlay
+    %a.close
+    %img{:src => "/images/jqtools/img/3449388113_71a06b8548.jpg"}
+      .details
+        %h3 The Barcelona Pavilion
+        %h4 Barcelona, Spain
+        %p
+          Another unique feature of this building is the
+          = succeed "." do
+            %em exotic materials Mies chose to use
+        %p
+          Plates of high-grade stone materials like veneers of Tinos verde antico marble and golden onyx as well as tinted glass of grey, green, white, in addition to translucent glass, perform exclusively as spatial dividers.
+/ End demo
+
+.demo-description 
+  #greybox
+/ End demo-description

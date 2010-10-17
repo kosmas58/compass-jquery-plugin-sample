@@ -1,0 +1,33 @@
+:css
+  a:active { outline:none; }
+  :focus { -moz-outline-style:none; }
+  #facebox { display:none; width:400px; border:10px solid #666; border:10px solid rgba(82, 82, 82, 0.698); -moz-border-radius:8px; -webkit-border-radius:8px; }
+  #facebox div { padding:10px; border:1px solid #3B5998; background-color:#fff; font-family:"lucida grande",tahoma,verdana,arial,sans-serif }
+  #facebox h2 { margin:-11px; margin-bottom:0px; color:#fff; background-color:#6D84B4; padding:5px 10px; border:1px solid #3B5998; font-size:20px; }
+
+:javascript
+  $(function() {
+    $("a", ".demo").button();
+  });
+  
+  $(document).ready(function() { 
+    // select the overlay element - and "make it an overlay"
+    $("#facebox").overlay({
+      // custom top position
+      top: 260,
+      // some mask tweaks suitable for facebox-looking dialogs
+      mask: {
+        // you might also consider a "transparent" color for the mask
+        color: '#fff',
+        // load mask a little faster
+        loadSpeed: 200,
+        // very transparent
+        opacity: 0.5
+      },
+      // disable this for modal dialog-type of overlays
+      closeOnClick: false,
+      // load it immediately after the construction
+      load: true
+    });
+  });
+

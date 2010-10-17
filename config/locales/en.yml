@@ -449,6 +449,35 @@ en:
       name: Sparklines
       default: Try it out
       examples: Examples
+    jqtools:
+      name: jQuery TOOLS
+      default: Default functionality
+      dateinput:
+        name: Dateinput
+      form:
+        name: Form
+      overlay:
+        name: Overlay
+        demo1: Minimal setup
+        demo2: The Apple effect
+        demo3: Modal dialogs
+        demo4: Opening programmtically
+        demo5: Different styles
+        demo6: Loading external pages
+        demo7: Multiple on the same page
+        demo8: Creating a customized
+      rangeinput:
+        name: Rangeinput
+      scrollable:
+        name: Scrollable
+      tabs:
+        name: Tabs
+      toolbox:
+        name: Toolbox
+      tooltip:
+        name: Tooltip
+      validator:
+        name: Validator
     mobiles:
       name: jQuery on mobile devices
     jqm:

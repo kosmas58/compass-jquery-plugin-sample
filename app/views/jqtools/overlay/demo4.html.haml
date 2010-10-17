@@ -1,0 +1,29 @@
+-@title = "#{t('txt.jqtools.name')} - #{t('txt.jqtools.overlay.name')} - #{t('txt.jqtools.overlay.demo4')}"
+
+- content_for :content_head do
+  = render(:partial => "demo4.js.haml", :format => :js)
+
+
+.demo
+  %h3
+    =image_tag("icons/22x22/jqtools.png", :border => 0)
+    =@title
+  #facebox{:style => "z-index: 9999; top: 260px; left: 630px; position: fixed; display: block; "}
+    %div
+      %h2 Facebox
+      %p
+        This dialog is opened programmatically when the page loads. There is no need for a trigger element.
+      %form
+        %input{:type => "file"}
+      %p{:style => "color:#666"}
+        To close, click the Close button or hit the ESC key.
+      / yes/no buttons
+      %p
+        %button.close Close
+  #exposeMask{:style => "position: absolute; top: 0px; left: 0px; z-index: 9998; background-color: rgb(255, 255, 255); display: block; opacity: 0.5; width: 1680px; height: 965px; "}
+
+/ End demo
+
+.demo-description 
+  #greybox
+/ End demo-description

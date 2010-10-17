@@ -1,0 +1,28 @@
+:css
+  a:active { outline:none; }
+  :focus { -moz-outline-style:none; }
+  .apple_overlay { display:none; background-image:url(/images/jqtools/overlay/white.png); width:640px; padding:35px; font-size:11px; }
+  .apple_overlay .close { background-image:url(/images/jqtools/overlay/close.png); position:absolute; right:5px; top:5px; cursor:pointer; height:27px; width:27px; }
+  #overlay { background-image:url(/images/jqtools/overlay/transparent.png); color:#efefef; height:450px; }
+  div.contentWrap { height:441px; overflow-y:auto; }
+
+:javascript
+  $(function() {
+    $("button", ".demo").button();
+  });
+  $(document).ready(function() {
+    // if the function argument is given to overlay,
+    // it is assumed to be the onBeforeLoad event listener
+    $("a[rel]").overlay({
+      mask: 'darkred',
+      effect: 'apple',
+      onBeforeLoad: function() {
+        // grab wrapper element inside content
+        var wrap = this.getOverlay().find(".contentWrap");
+        //load the page specified in the trigger
+        //wrap.load(this.getTrigger().attr("href"));
+        wrap.load('./external');
+      }
+    });
+  });
+  

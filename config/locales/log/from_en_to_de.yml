@@ -21,8 +21,27 @@ date:
     short: "%b %d"
     long: "%B %d, %Y"
 txt: 
-  sparklines: 
-    default: Try it out
+  jqtools: 
+    validator: 
+      name: Validator
+    toolbox: 
+      name: Toolbox
+    rangeinput: 
+      name: Rangeinput
+    dateinput: 
+      name: Dateinput
+    form: 
+      name: Form
+    tooltip: 
+      name: Tooltip
+    overlay: 
+      demo1: Minimal setup
+      demo2: The Apple effect
+      demo3: Modal dialogs
+    scrollable: 
+      name: Scrollable
+    tabs: 
+      name: Tabs
   hello: Hello world
 support: 
   array: 

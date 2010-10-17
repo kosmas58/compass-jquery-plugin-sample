@@ -1,0 +1,34 @@
+:css
+  a:active { outline:none; }
+  :focus { -moz-outline-style:none; }
+  div.overlay { width:400px; height:250px; }
+  div.overlay .close { background-image:url(/images/jqtools/overlay/close.gif); position:absolute; right:-15px; top:-15px; cursor:pointer; height:27px; width:27px; }
+
+:javascript
+  $(function() {
+    $("button", ".demo").button();
+  });
+  
+  $(document).ready(function() {
+    // positions for each overlay
+    var positions = [ 
+      [0, 	530],
+      [400, 20],
+      [400, 530],
+      [0, 	20]	   
+    ];
+    // setup triggers
+    $("button[rel]").each(function(i) {
+      $(this).overlay({
+        // common configuration for each overlay
+        oneInstance: false, 
+        closeOnClick: false, 
+        // setup custom finish position
+        top: positions[i][0],
+        left: positions[i][1],
+        // use apple effect
+        effect: 'apple'
+      });
+    });
+  });
+
