@@ -1,0 +1,43 @@
+-@title = "#{t('txt.jqtools.name')} - #{t('txt.jqtools.dateinput')} - #{t('txt.jqtools.default')}"
+
+- content_for :content_head do
+  = render(:partial => "default.js.haml", :format => :js)
+
+
+.demo
+  %h3
+    =image_tag("icons/22x22/jqtools.png", :border => 0)
+    =@title
+  %p
+    %a.o1{:href => "#", :rel => "#overlay"}
+      Show 1
+    %a.o1{:href => "#", :rel => "#overlay1b"}
+      Show 1b
+  %p
+    %a.o2{:href => "#", :rel => "#overlay2"}
+      Show 2
+    %a.o2{:href => "#", :rel => "#overlay2"}
+      Show 2b
+  %p
+    %a.o3{:href => "#", :rel => "#overlay3"}
+      Show 3
+    %a.o3{:href => "#", :rel => "#overlay3"}
+      Show 3b
+  #overlay.overlay
+    .content{:style => "background-image:url(/images/jqtools/img/6481762_3d2c7e79f7.jpg)"}
+      asdfasdfsfadasd kasdj fjhasd fljkasd flkjasd flkasdj asdfasdfsfadasd kasdj fjhasd fljkasd flkjasd flkasdj asdfasdfsfadasd kasdj fjhasd fljkasd flkjasd flkasdj asdfasdfsfadasd kasdj fjhasd fljkasd flkjasd flkasdj
+  #overlay1b.overlay
+    %div{:style => "padding:40px"}
+      asdfasdfsfadasd kasdj fjhasd fljkasd flkjasd flkasdj asdfasdfsfadasd kasdj fjhasd fljkasd flkjasd flkasdj asdfasdfsfadasd kasdj fjhasd fljkasd flkjasd flkasdj asdfasdfsfadasd kasdj fjhasd fljkasd flkjasd flkasdj
+      
+  #overlay2.overlay
+    .content{:style => "background-image:url(/images/jqtools/img/6481762_3d2c7e79f7.jpg)"}
+      asdfasdfsfadasd kasdj fjhasd fljkasd flkjasd flkasdj asdfasdfsfadasd kasdj fjhasd fljkasd flkjasd flkasdj asdfasdfsfadasd kasdj fjhasd fljkasd flkjasd flkasdj asdfasdfsfadasd kasdj fjhasd fljkasd flkjasd flkasdj
+  #overlay3.overlay
+    %div{:style => "padding:40px"}
+      asdfasdfsfadasd kasdj fjhasd fljkasd flkjasd flkasdj asdfasdfsfadasd kasdj fjhasd fljkasd flkjasd flkasdj asdfasdfsfadasd kasdj fjhasd fljkasd flkjasd flkasdj asdfasdfsfadasd kasdj fjhasd fljkasd flkjasd flkasdj
+/ End demo
+
+.demo-description 
+  #greybox
+/ End demo-description

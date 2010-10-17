@@ -1,0 +1,104 @@
+-@title = "#{t('txt.jqtools.name')} - #{t('txt.jqtools.tooltip.name')} - #{t('txt.jqtools.default')}"
+
+- content_for :content_head do
+  = render(:partial => "default.js.haml", :format => :js)
+
+.demo
+  %h3
+    =image_tag("icons/22x22/jqtools.png", :border => 0)
+    =@title
+  .span-7
+    #titled.test
+      %h4 Title attribute
+      %a.trigger{:title => "Tooltip #1 in title & more"} trigger 1
+      %a.trigger{:title => "Tooltip #2 in title & more"} trigger 2
+      %a.trigger{:title => "Tooltip #3 in title & more"} trigger 3
+    %br
+    %br
+    #same.test
+      %h4 Same tip element
+      %a.trigger{:title => "you can now use different tip"} trigger 1
+      %a.trigger{:title => "you can now truly use different tip"} trigger 2
+      %a.trigger{:title => "different tip again"} trigger 3
+      #sametip.tooltip
+        The same tooltip for multiple triggers
+  .span-7
+    #attr.test
+      %h4 Data-tooltip attribute
+      %a.trigger{"data-tooltip" => "#attr .tooltip"} trigger 1
+      %a.trigger{"data-tooltip" => "#attr .tooltip"} trigger 2
+      %a.trigger trigger 3
+      %span
+      %div
+        .tooltip Manual #3
+    %br
+    %br
+    #bare.test
+      %h4 No styling
+      %a.trigger{:title => "This is the title"} trigger 1
+      %a.trigger{:title => "This is the title"} trigger 2
+      %a.trigger{:title => "This is the title"} trigger 3
+    %br
+    %br
+    #dynamic.test
+      %h4 Dynamic
+      %table{:border => "0", :height => "100%", :width => "100%"}
+        %tr
+          %td{:valign => "top"}
+            %a.trigger{:href => "#", :title => "jotain tippi\344 #1"} jtoainv
+            %a.trigger{:href => "#", :title => "jotain tippi\344 #1"} jtoainv
+          %td{:align => "right", :valign => "top"}
+            %a.trigger{:href => "#", :title => "jotain tippi\344 #1"} jtoainv
+            %a.trigger{:href => "#", :title => "jotain tippi\344 #1"} jtoainv
+        %tr
+          %td{:valign => "bottom"}
+            %a.trigger{:href => "#", :title => "jotain tippi\344 #1"} jtoainv
+            %a.trigger{:href => "#", :title => "jotain tippi\344 #1"} jtoainv
+          %td{:align => "right", :valign => "bottom"}
+            %a.trigger{:href => "#", :title => "jotain tippi\344 #1"} jtoainv
+            %a.trigger{:href => "#", :title => "jotain tippi\344 #1"} jtoainv
+  .span-7
+    #manual.test
+      %h4 Manual tooltip
+      %a.trigger trigger 1
+      .tooltip Manual #1
+      %a.trigger trigger 2
+      .tooltip Manual #2
+      %a.trigger trigger 3
+      .tooltip Manual #3
+    %br
+    %br
+    #slide.test
+      %h4 Slide effect
+      %a.trigger{:title => "This is the title"} trigger 1
+      %a.trigger{:title => "This is the title"} trigger 2
+      %a.trigger{:title => "This is the title"} trigger 3
+  .span-2
+    #many
+      %h4 Many
+      %a.trigger{:title => "Tooltip"} trigger
+      %a.trigger{:title => "Tooltip"} trigger
+      %a.trigger{:title => "Tooltip"} trigger
+      %a.trigger{:title => "Tooltip"} trigger
+      %a.trigger{:title => "Tooltip"} trigger
+      %a.trigger{:title => "Tooltip"} trigger
+      %a.trigger{:title => "Tooltip"} trigger
+      %a.trigger{:title => "Tooltip"} trigger
+      %a.trigger{:title => "Tooltip"} trigger
+      %a.trigger{:title => "Tooltip"} trigger
+      %a.trigger{:title => "Tooltip"} trigger
+      %a.trigger{:title => "Tooltip"} trigger
+      %a.trigger{:title => "Tooltip"} trigger
+      %a.trigger{:title => "Tooltip"} trigger
+      %a.trigger{:title => "Tooltip"} trigger
+      %a.trigger{:title => "Tooltip"} trigger
+      %a.trigger{:title => "Tooltip"} trigger
+      %a.trigger{:title => "Tooltip"} trigger
+
+  #tip.tip
+
+/ End demo
+
+.demo-description 
+  #greybox
+/ End demo-description

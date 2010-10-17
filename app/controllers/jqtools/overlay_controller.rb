@@ -5,5 +5,5 @@ class Jqtools::OverlayController < ApplicationController
 
   def external
     render :partial => "external", :layout => false
-  end  
+  end
 end
