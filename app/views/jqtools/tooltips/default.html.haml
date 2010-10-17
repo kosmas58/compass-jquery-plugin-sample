@@ -22,6 +22,14 @@
       %a.trigger{:title => "different tip again"} trigger 3
       #sametip.tooltip
         The same tooltip for multiple triggers
+    %br
+    %br
+    #click.test
+      %h4 Click for tooltip
+      %a.trigger{ :href => "#", :title => "jotain tippi\344 #1" }
+        jtoainv
+      #tip1.tip
+        %a.close close
   .span-7
     #attr.test
       %h4 Data-tooltip attribute
@@ -57,6 +65,7 @@
           %td{:align => "right", :valign => "bottom"}
             %a.trigger{:href => "#", :title => "jotain tippi\344 #1"} jtoainv
             %a.trigger{:href => "#", :title => "jotain tippi\344 #1"} jtoainv
+      #tip2.tip
   .span-7
     #manual.test
       %h4 Manual tooltip
@@ -86,17 +95,20 @@
       %a.trigger{:title => "Tooltip"} trigger
       %a.trigger{:title => "Tooltip"} trigger
       %a.trigger{:title => "Tooltip"} trigger
-      %a.trigger{:title => "Tooltip"} trigger
-      %a.trigger{:title => "Tooltip"} trigger
-      %a.trigger{:title => "Tooltip"} trigger
-      %a.trigger{:title => "Tooltip"} trigger
-      %a.trigger{:title => "Tooltip"} trigger
-      %a.trigger{:title => "Tooltip"} trigger
-      %a.trigger{:title => "Tooltip"} trigger
-      %a.trigger{:title => "Tooltip"} trigger
-
-  #tip.tip
-
+  .span-21
+    #positioning{:style => "height: 200px"}
+      %h4 Positioning
+      %div{:style => "position:relative; top:10px; left: 50px"}
+        %p
+          %a{:title => "hello world"} normally floated
+        %div{:style => "position:absolute; top: 25px; left: 500px"}
+          %a{:title => "hello world"} inside absolute
+          %div{:style => "position:relative; top: 50px; left: 150px"}
+            %a{:title => "hello world"} nested absolute
+        %div{:style => "position:relative; top:30px; left: 100px"}
+          %a{:title => "hello world"} inside relative
+          %div{:style => "position:relative; top: 25px; left: 50px"}
+            %a{:title => "hello world"} nested relative
 / End demo
 
 .demo-description 

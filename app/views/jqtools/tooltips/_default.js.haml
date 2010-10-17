@@ -3,6 +3,7 @@
   .test{ clear:left; }
   .trigger{ font-size:0.8em; }
    div.tip { background:transparent url(/images/jqtools/tooltip/black.png) 0 0 no-repeat; display:none; width:165px; height:63px; position:absolute; padding:20px; color:#fff; }
+  .tip2 { border:1px solid #ccc; background-color:#000; color:#fff; padding:4px; font-size:11px; }
 
 :javascript
   $(function() {
@@ -30,9 +31,22 @@
     
     $("#many a").tooltip({ tipClass: 'tip2', position: 'center right' });
     
+    window.api = $("#click a").tooltip({
+      tip: '#tip1', 
+      position: "top",
+      effect: 'toggle',
+      cursor: true,
+      events: {
+        def: 'click,mouseout'
+      }
+    });
+    $("#click a").next().click(function() {
+      $(this).prev().tooltip().hide();			
+    });
+    
     // base configuration
     var conf = {
-      tip: '#tip', 
+      tip: '#tip2', 
       position: ['top', 'left'], 
       offset: [-10, -10]
     };
@@ -52,6 +66,6 @@
     $("#dynamic a:eq(6)").tooltip(conf);
     $("#dynamic a:eq(7)").tooltip($.extend({}, conf)).dynamic();
     
-
+    $("#positioning a").tooltip();
   });
 
