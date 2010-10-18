@@ -476,6 +476,13 @@ en:
         name: Toolbox
       tooltip:
         name: Tooltip
+        demo1: Basics of using
+        demo2: Using HTML inside
+        demo3: Imitating browser default
+        demo4: In form fields
+        demo5: Using in tables
+        demo6: Custom effects
+        demo7: Dynamic positioning
       validator:
         name: Validator
     mobiles:

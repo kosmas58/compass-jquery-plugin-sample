@@ -1,0 +1,12 @@
+:css
+  a:active { outline:none; }
+  :focus { -moz-outline-style:none; }
+  .tooltip { display:none; background:transparent url(/images/jqtools/tooltip/black_arrow.png); font-size:12px; height:70px; width:160px; padding:25px; color:#fff; }
+  #tooltip { padding-top:120px; }
+  #tooltip img { border:0; cursor:pointer; margin:0 8px; }
+
+:javascript
+  $(document).ready(function() { 
+    $("#tooltip img[title]").tooltip();
+  });
+

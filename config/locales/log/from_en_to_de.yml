@@ -22,26 +22,14 @@ date:
     long: "%B %d, %Y"
 txt: 
   jqtools: 
-    validator: 
-      name: Validator
-    toolbox: 
-      name: Toolbox
-    rangeinput: 
-      name: Rangeinput
-    dateinput: 
-      name: Dateinput
-    form: 
-      name: Form
     tooltip: 
-      name: Tooltip
-    overlay: 
-      demo1: Minimal setup
-      demo2: The Apple effect
-      demo3: Modal dialogs
-    scrollable: 
-      name: Scrollable
-    tabs: 
-      name: Tabs
+      demo1: Basics of using
+      demo2: Using HTML inside
+      demo3: Imitating browser default
+      demo4: In form fields
+      demo5: Using in tables
+      demo6: Custom effects
+      demo7: Dynamic positioning
   hello: Hello world
 support: 
   array: 

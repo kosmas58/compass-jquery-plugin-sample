@@ -1,0 +1,23 @@
+-@title = "#{t('txt.jqtools.name')} - #{t('txt.jqtools.tooltip.name')} - #{t('txt.jqtools.tooltip.demo1')}"
+
+- content_for :content_head do
+  = render(:partial => "demo1.js.haml", :format => :js)
+
+.demo
+  %h3
+    =image_tag("icons/22x22/jqtools.png", :border => 0)
+    =@title
+  #tooltip
+    %img{:src => "/images/jqtools/img/1.jpg", :title => "A must have tool for designing better layouts and more intuitive user-interfaces." }      
+    .tooltip{:style => "position: absolute; top: -62px; left:  76px; display: none; "}
+    %img{:src => "/images/jqtools/img/2.jpg", :title => "Tooltips can be positioned anywhere relative to the trigger element." }
+    .tooltip{:style => "position: absolute; top: -62px; left: 267px; display: none; "}
+    %img{:src => "/images/jqtools/img/3.jpg", :title => "Tooltips can contain any HTML such as links, images, forms, tables, etc." }
+    .tooltip{:style => "position: absolute; top: -62px; left: 458px; display: none; "}
+    %img{:src => "/images/jqtools/img/4.jpg", :title => "There are many built-in show/hide effects and you can also make your own." , :style => "margin-right:0px"}
+    .tooltip{:style => "position: absolute; top: -62px; left: 649px; display: none; "}
+/ End demo
+
+.demo-description 
+  #greybox
+/ End demo-description
