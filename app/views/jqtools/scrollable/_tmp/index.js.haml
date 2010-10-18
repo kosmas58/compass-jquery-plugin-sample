@@ -1,0 +1,55 @@
+%script{:src => "../js/jquery-1.3.2.js"}
+%script{:src => "../../src/scrollable/scrollable.js"}
+%script{:src => "../../src/scrollable/scrollable.navigator.js"}
+%script{:src => "../../src/scrollable/scrollable.autoscroll.js"}
+%script{:src => "../../src/toolbox/toolbox.history.js"}
+%link{:href => "style.css", :rel => "stylesheet", :type => "text/css"}/
+:css
+  div.cloned {
+  	background-color:#ffc !important;
+  }
+  .disabled {
+  	visibility:hidden;		
+  }
+:javascript
+  $(function() {
+  		window.api = $(".scrollable").scrollable({ mousewheel: true, size: 5})
+  		.navigator({idPrefix: 'a', history: true}).data("scrollable");  
+  		
+  	api.onBeforeSeek(function() {
+  		// return false;
+  	});
+  });
+.navi
+%a.prev prev
+.scrollable
+  .items
+    %div 0
+    %div 1
+    %div 2
+    %div 3
+    %div 4
+    %div 5
+    %div 6
+    %div 7
+    %div 8
+    %div 9
+    %div 10
+    %div 11
+    %div 12
+    %div 13
+    %div 14
+%a.next next
+%br{:clear => "all"}/
+%h2 Core methods
+%p
+  %button{:onclick => "api.begin()", :type => "button"} begin
+  %button{:onclick => "api.prevPage()", :type => "button"} prevPage
+  %button{:onclick => "api.prev()", :type => "button"} prev
+  %button{:onclick => "api.next()", :type => "button"} next
+  %button{:onclick => "api.nextPage()", :type => "button"} nextPage
+  %button{:onclick => "api.end()", :type => "button"} end
+%h2 Add / remove items
+%p
+  %button{:onclick => "$('div.items').append('<div>x</div>')", :type => "button"} add item
+  %button{:onclick => "$('div.items div:last').remove()", :type => "button"} remove item

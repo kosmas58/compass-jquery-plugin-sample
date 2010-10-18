@@ -1,0 +1,33 @@
+%script{:src => "../js/jquery-1.3.2.js"}
+%script{:src => "../../src/scrollable/scrollable.js"}
+%script{:src => "../../src/scrollable/scrollable.autoscroll.js"}
+%link{:href => "style.css", :rel => "stylesheet", :type => "text/css"}/
+:javascript
+  $(function() {
+  	$(".scrollable").scrollable({
+  		circular: true,
+  		
+  		onSeek: function() {
+  			// console.info(this.getIndex());
+  		}
+  		
+  	}).autoscroll({autoplay: true, interval: 1000}); 	
+  	
+  	window.api = $(".scrollable").data("scrollable");
+  });
+%div
+  %a.prev prev
+  .navi
+  .scrollable{:style => "width:130px"}
+    .items
+      %div 0
+      %div 1
+      %div 2
+      %div 3
+      %div 4
+      %div 5
+      %div 6
+  %a.next next
+%p
+  %button{:onclick => "api.pause();"} pause
+  %button{:onclick => "api.play();"} play

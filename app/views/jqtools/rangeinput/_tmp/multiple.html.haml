@@ -1,0 +1,31 @@
+%script{:src => "../js/jquery-1.4.2.js"}
+%script{:src => "../../src/rangeinput/rangeinput.js"}
+/ style for the range inputs only
+%link{:href => "css/small.css", :rel => "stylesheet", :type => "text/css"}/
+/ style for the "surroundings"
+%link{:href => "css/multiple.css", :rel => "stylesheet", :type => "text/css"}/
+#controls
+  .column
+    %input{:type => "range"}/
+    %input{:type => "range"}/
+    %input{:type => "range"}/
+    %input{:type => "range"}/
+  .column
+    %input{:type => "range"}/
+    %input{:type => "range"}/
+    %input{:type => "range"}/
+    %input{:type => "range"}/
+  .column.vertical
+    %input{:type => "range"}/
+    %input{:type => "range"}/
+    %input{:type => "range"}/
+    %input{:type => "range"}/
+  .column.vertical
+    %input{:type => "range"}/
+    %input{:type => "range"}/
+    %input{:type => "range"}/
+    %input{:type => "range"}/
+:javascript
+  $(".column:lt(2) :range").rangeinput({ precision: 1, value: 30.5 });
+  
+  $(".vertical :range").rangeinput({ precision: 1, vertical: true, value: 50.5 });

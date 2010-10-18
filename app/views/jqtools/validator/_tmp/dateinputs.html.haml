@@ -1,0 +1,56 @@
+!!!
+%script{:src => "../js/jquery-1.4.2.min.js"}
+%script{:src => "../../src/validator/validator.js"}
+%script{:src => "../../src/dateinput/dateinput.js"}
+%link{:href => "../dateinput/skin1.css", :rel => "stylesheet", :type => "text/css"}/
+:css
+  label {
+  	margin:10px 0;
+  	display:block;
+  }
+  
+  body {
+  	padding:100px;		
+  	font-family:sans-serif;
+  }
+  
+  .invalid {
+  	border:1px solid red;		
+  }
+  
+  .error {	
+  	border:1px solid #667;
+  	background:#eee;
+  	padding:5px;
+  }
+%form{:action => "#"}
+  %label
+    requred text
+    %input{:required => "required", :type => "text"}/
+  %label
+    pattern
+    %input{:pattern => "\\d+", :type => "text"}/
+  %label
+    URL
+    %input{:type => "url", :value => "http://www.spa.gov.sa/NewsHeadlines.php?pg=2"}/
+  %label
+    date
+    %input{:name => "day", :required => "required", :title => "Use format yyyy-mm-dd", :type => "date"}/
+  %label
+    date
+    %input{:name => "day2", :required => "required", :title => "Use format yyyy-mm-dd", :type => "date"}/
+  %label
+    email
+    %input{:type => "email"}/
+  %label
+    terms
+    %input{"data-message" => "Accept the terms", :name => "terms", :required => "required", :type => "checkbox"}/
+  %label
+    required
+    %select{:required => "required"}
+      %option{:value => ""} -- choose one --
+      %option{:value => "8"} jotain
+  %button Submit
+:javascript
+  $(":date").dateinput();
+  $("form").validator().validator(); 

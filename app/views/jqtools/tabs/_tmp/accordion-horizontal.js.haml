@@ -1,0 +1,23 @@
+%script{:src => "../js/jquery-1.4.2.js"}
+%script{:src => "../../src/tabs/tabs.js"}
+%link{:href => "css/horizontal.css", :rel => "stylesheet", :type => "text/css"}/
+/ accordion root
+#accordion
+  / accordion header #1
+  .blok
+  .pane{:style => "width:200px; display:block"}
+    %h3 First pane
+    %p
+      Consectetur adipiscing elit. Praesent bibendum eros ac nulla. Integer vel lacus ac neque viverra.
+  .blok
+  .pane
+    %h3 Second pane
+    %p
+      Cras diam. Donec dolor lacus, vestibulum at, varius in, mollis id, dolor. Aliquam erat volutpat.
+  .blok
+  .pane
+    %h3 Third pane
+    %p
+      Non lectus lacinia egestas. Nulla hendrerit, felis quis elementum viverra, purus felis egestas magna.
+:javascript
+  $("#accordion").tabs(".pane", { tabs: '.blok',  effect: 'horizontal'});

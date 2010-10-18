@@ -1,0 +1,41 @@
+!!!
+%script{:src => "../js/jquery-1.4.2.min.js"}
+%script{:src => "../../src/validator/validator.js"}
+:css
+  label {
+  	margin:10px 0;
+  	display:block;
+  }
+  
+  body {
+  	padding:100px;		
+  	font-family:sans-serif;
+  }
+  
+  .invalid {
+  	border:1px solid red;		
+  }
+  
+  .error {
+  	display:none;		
+  	border:1px solid #667;
+  	background:#eee;
+  	padding:5px;
+  }
+%form{:action => "#"}
+  %label
+    requred text
+    %input{:required => "required", :type => "text"}/
+  %label
+    %input{:checked => "", :name => "test", :type => "radio", :value => "male"}/
+    male
+  %label
+    %input{:name => "test", :type => "radio", :value => "female"}/
+    female
+  %button Submit
+:javascript
+  $.tools.validator.fn("[name=test]", "Female required (?)", function(el, val) {
+  	return val == 'female';		
+  });
+  
+  $("form").validator({position: 'top center'});

@@ -1,0 +1,24 @@
+/ /* :wrap=200: */
+%script{:src => "../js/jquery-1.4.2.js"}
+%script{:src => "../../src/rangeinput/rangeinput.js"}
+%link{:href => "css/skin1.css", :rel => "stylesheet", :type => "text/css"}/
+:css
+  .slider {
+  	height:400px;
+  	width:30px;
+  } 
+  .range {
+  	color:#000;		
+  }
+.ranger
+  %input.range{:max => "10", :min => "-10", :step => "1", :type => "range", :value => "0"}/
+.ranger
+  %input.range{:max => "1", :min => "0", :step => "0.1", :type => "range", :value => "0.2"}/
+.ranger
+  %input.range{:max => "100", :step => "1", :type => "range"}/
+.ranger
+  %input.range{:max => "1000", :min => "400", :step => "100", :type => "range", :value => "500"}/
+:javascript
+  $(".range").rangeinput( {vertical: true} );
+  
+  
