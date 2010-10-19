@@ -1,15 +1,24 @@
 :css
   a:active { outline:none; }
   :focus { -moz-outline-style:none; }
-  .simple_overlay { display:none; z-index:10000; background-color:#333; width:675px; min-height:200px; border:1px solid #666; -moz-box-shadow:0 0 90px 5px #000; -webkit-box-shadow: 0 0 90px #000; }
-  .simple_overlay .close { background-image:url(/images/jqtools/overlay/close.png); position:absolute; right:-15px; top:-15px; cursor:pointer; height:27px; width:27px; } 
-  #triggers { text-align:center; }
-  #triggers img { cursor:pointer; margin:0 5px; background-color:#fff; border:1px solid #ccc; padding:2px; -moz-border-radius:4px; -webkit-border-radius:4px; }
-  .details { position:absolute; top:15px; right:15px; font-size:11px; color:#fff; width:150px; }
-  .details h3 { color:#aba; font-size:15px; margin:0 0 -10px 0; }
-
+  .tooltip { display:none; background-color:#ffa; border:1px solid #cc9; padding:3px; font-size:13px; -moz-box-shadow: 2px 2px 11px #666; -webkit-box-shadow: 2px 2px 11px #666; }
+  #triggers { padding-top:120px; }
+  #triggers img { border:0; cursor:pointer; margin-left:11px; } 
+ 
 :javascript
-  $(document).ready(function() { 
-    $("img[rel]").overlay(); 
+  $(document).ready(function() {
+    $("#triggers img[title]").tooltip({
+      // use div.tooltip as our tooltip
+      //tip: '.tooltip',
+      // use the fade effect instead of the default
+      effect: 'fade',
+      // make fadeOutSpeed similar to the browser's default
+      fadeOutSpeed: 100,
+      // the time before the tooltip is shown
+      predelay: 400,
+      // tweak the position
+      position: "bottom right",
+      offset: [-50, -80]
+    });
   });
 

@@ -1,15 +1,32 @@
 :css
   a:active { outline:none; }
   :focus { -moz-outline-style:none; }
-  .simple_overlay { display:none; z-index:10000; background-color:#333; width:675px; min-height:200px; border:1px solid #666; -moz-box-shadow:0 0 90px 5px #000; -webkit-box-shadow: 0 0 90px #000; }
-  .simple_overlay .close { background-image:url(/images/jqtools/overlay/close.png); position:absolute; right:-15px; top:-15px; cursor:pointer; height:27px; width:27px; } 
-  #triggers { text-align:center; }
-  #triggers img { cursor:pointer; margin:0 5px; background-color:#fff; border:1px solid #ccc; padding:2px; -moz-border-radius:4px; -webkit-border-radius:4px; }
-  .details { position:absolute; top:15px; right:15px; font-size:11px; color:#fff; width:150px; }
-  .details h3 { color:#aba; font-size:15px; margin:0 0 -10px 0; }
+  .tooltip { display:none; background:transparent url(/images/jqttools/tooltip/black_arrow.png); font-size:12px; height:70px; width:160px; padding:25px; color:#fff; }
+  #demo { padding-top:120px; }
+  #demo img { border:0; cursor:pointer; margin:0 8px; }
 
 :javascript
+   // create custom animation algorithm for jQuery called "bouncy"
+  $.easing.bouncy = function (x, t, b, c, d) {
+    var s = 1.70158;
+    if ((t/=d/2) < 1) return c/2*(t*t*(((s*=(1.525))+1)*t - s)) + b;
+    return c/2*((t-=2)*t*(((s*=(1.525))+1)*t + s) + 2) + b;
+  }
+  // create custom tooltip effect for jQuery Tooltip
+  $.tools.tooltip.addEffect("bouncy",
+    // opening animation
+    function(done) {
+      this.getTip().animate({top: '+=15'}, 500, 'bouncy', done).show();
+    },    
+    // closing animation
+    function(done) {
+      this.getTip().animate({top: '-=15'}, 500, 'bouncy', function()  {
+      $(this).hide();
+      done.call();
+    });
+  });
+
   $(document).ready(function() { 
-    $("img[rel]").overlay(); 
+    $("#demo img[title]").tooltip({effect: 'bouncy'});
   });
 

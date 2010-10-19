@@ -1,15 +1,20 @@
 :css
   a:active { outline:none; }
   :focus { -moz-outline-style:none; }
-  .simple_overlay { display:none; z-index:10000; background-color:#333; width:675px; min-height:200px; border:1px solid #666; -moz-box-shadow:0 0 90px 5px #000; -webkit-box-shadow: 0 0 90px #000; }
-  .simple_overlay .close { background-image:url(/images/jqtools/overlay/close.png); position:absolute; right:-15px; top:-15px; cursor:pointer; height:27px; width:27px; } 
-  #triggers { text-align:center; }
-  #triggers img { cursor:pointer; margin:0 5px; background-color:#fff; border:1px solid #ccc; padding:2px; -moz-border-radius:4px; -webkit-border-radius:4px; }
-  .details { position:absolute; top:15px; right:15px; font-size:11px; color:#fff; width:150px; }
-  .details h3 { color:#aba; font-size:15px; margin:0 0 -10px 0; }
+  .tooltip { display:none; background:transparent url(/images/jqtools/tooltip/black_arrow.png); font-size:12px; height:70px; width:160px; padding:25px; color:#fff; }
+  #dyna { padding-top:120px; }
+  #dyna img { border:0; cursor:pointer; margin:0 8px; }
+  .tooltip.bottom { background:url(/images/jqtools/tooltip/black_arrow_bottom.png); padding-top:40px; height:55px; }
+  .tooltip.bottom { background:url(/images/jqtools/tooltip/black_arrow_bottom.png); }
 
 :javascript
   $(document).ready(function() { 
-    $("img[rel]").overlay(); 
+    $("#dyna img[title]").tooltip({
+      // tweak the position
+      offset: [10, 2],
+      // use the "slide" effect
+      effect: 'slide'
+      // add dynamic plugin with optional configuration for bottom edge
+    }).dynamic({ bottom: { direction: 'down', bounce: true } });
   });
 
