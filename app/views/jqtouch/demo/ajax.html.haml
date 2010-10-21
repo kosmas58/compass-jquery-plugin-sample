@@ -2,44 +2,43 @@
 
 - content_for :content_head do
   = render(:partial => "ajax.js.haml", :format => :js)
-
-#jqt
-  #ajax
-    .toolbar
-      %h1
-        AJAX
-      %a.back{ :href => "index", :target => "_webapp"  } 
-        Home
-    %ul.rounded
-      %li.arrow
-        %a{ :href => "#ajax-post" }
-          POST Form Example
-      %li.arrow
-        %a{ :href => "ajax_get", :target => "_webapp"  } 
-          GET Example
-      %li.arrow
-        %a{ :href => "ajax_long", :target => "_webapp"  }
-          Long GET Example
-      %li.arrow
-        %a{ :href => "#callback" }
-          With Callback
-  #callback
-    .toolbar
-      %h1
-        AJAX w/Callback
-      %a.back{ :href => "#" }
-        Back
-    #content
-  #ajax-post
-    .toolbar
-      %h1
-        Post Demo
-      %a.back{ :href => "#" }
-        Back
-    %form{ :action => "ajax_post", :method => "POST" }
+%body
+  #jqt
+    #ajax
+      .toolbar
+        %h1
+          AJAX
+        %a.back{ :href => "index", :target => "_webapp"  } 
+          Home
       %ul.rounded
-        %li
-          %input{ :name => "zip", :placeholder => "Zip Code", :type => "text", :value => "" }
-      %a.submit.whiteButton{ :style => "margin:0 10px;color:rgba(0,0,0,.9)" }
-        Submit
-        
+        %li.arrow
+          %a{ :href => "#ajax-post" }
+            POST Form Example
+        %li.arrow
+          %a{ :href => "ajax_get", :target => "_webapp"  } 
+            GET Example
+        %li.arrow
+          %a{ :href => "ajax_long", :target => "_webapp"  }
+            Long GET Example
+        %li.arrow
+          %a{ :href => "#callback" }
+            With Callback
+    #callback
+      .toolbar
+        %h1
+          AJAX w/Callback
+        %a.back{ :href => "#" }
+          Back
+      #content
+    #ajax-post
+      .toolbar
+        %h1
+          Post Demo
+        %a.back{ :href => "#" }
+          Back
+      %form{ :action => "ajax_post", :method => "POST" }
+        %ul.rounded
+          %li
+            %input{ :name => "zip", :placeholder => "Zip Code", :type => "text", :value => "" }
+        %a.submit.whiteButton{ :style => "margin:0 10px;color:rgba(0,0,0,.9)" }
+          Submit

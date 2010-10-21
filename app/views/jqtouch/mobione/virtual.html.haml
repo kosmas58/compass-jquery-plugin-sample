@@ -2,13 +2,13 @@
 
 - content_for :content_head do
   = render(:partial => "virtual.js.haml", :format => :js)
-
-#jqt.fullscreen
-  #home
-    .toolbar
-      %h1
-        Virtual Light Table
-      %a.back{ :href => "/jqtouch/demo/#mobione", :target => "_webapp"  } 
-        MobiOne Demos
-    #virtual
-      -#%script{:src => "/images/jqtouch/mobione/saved_resource"}
+%body
+  #jqt.fullscreen
+    #home
+      .toolbar
+        %h1
+          Virtual Light Table
+        %a.back{ :href => "/jqtouch/demo/#mobione", :target => "_webapp"  } 
+          MobiOne Demos
+      #virtual
+        -#%script{:src => "/images/jqtouch/mobione/saved_resource"}

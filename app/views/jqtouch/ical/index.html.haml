@@ -2,50 +2,49 @@
 
 - content_for :content_head do
   = render(:partial => "jqt.js.haml", :format => :js)
-
-#jqt
-  #about.selectable
-    %p
-      %img{:src => "/images/jqtouch/ical/jqtouch-ical.png"}
-    %p
-      %strong jQTouch iCal
-      %br/
-      Version 1.0 alpha
-      %br/
-      %a{:href => "http://www.balexandre.com"} By Bruno Alexandre
-    %p
-      %em
-        A simple iCal alike
+%body
+  #jqt
+    #about.selectable
+      %p
+        %img{:src => "/images/jqtouch/ical/jqtouch-ical.png"}
+      %p
+        %strong jQTouch iCal
         %br/
-        interface for jQTouch.
-    %p
-      %a{:href => "http://twitter.com/balexandre", :target => "_blank"} @balexandre on Twitter
-    %p
-      %br/
-      %br/
-      %a.grayButton.goback{:href => "#"} Close
-  #home.current.edgetoedge
-    .toolbar
-      %a.back{ :href => "/jqtouch/demo", :target => "_webapp" } 
-        Home    
-      %h1
-        jQTouch iCal
-      %a#infoButton.button.flip{:href => "#about"}
-        About
-    %ul.edgetoedge
-      %li.arrow
-        %a{ :href => "#month" }
-          All    
-      = render :partial => 'calendar', :collection => @calendars
-  #month
-    .toolbar
-      %a.back{ :href => "#home" } 
-        Calendars   
-      %h1
-        jQTouch iCal
-      %a#infoButton.button.flip{:href => "#about"}
-        About
-    %center
-      #ical
-        / iCall will load here
-        
+        Version 1.0 alpha
+        %br/
+        %a{:href => "http://www.balexandre.com"} By Bruno Alexandre
+      %p
+        %em
+          A simple iCal alike
+          %br/
+          interface for jQTouch.
+      %p
+        %a{:href => "http://twitter.com/balexandre", :target => "_blank"} @balexandre on Twitter
+      %p
+        %br/
+        %br/
+        %a.grayButton.goback{:href => "#"} Close
+    #home.current.edgetoedge
+      .toolbar
+        %a.back{ :href => "/jqtouch/demo", :target => "_webapp" } 
+          Home    
+        %h1
+          jQTouch iCal
+        %a#infoButton.button.flip{:href => "#about"}
+          About
+      %ul.edgetoedge
+        %li.arrow
+          %a{ :href => "#month" }
+            All    
+        = render :partial => 'calendar', :collection => @calendars
+    #month
+      .toolbar
+        %a.back{ :href => "#home" } 
+          Calendars   
+        %h1
+          jQTouch iCal
+        %a#infoButton.button.flip{:href => "#about"}
+          About
+      %center
+        #ical
+          / iCall will load here

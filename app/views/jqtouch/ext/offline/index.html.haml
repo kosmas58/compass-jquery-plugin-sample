@@ -2,13 +2,13 @@
 
 - content_for :content_head do
   = render(:partial => "jqt.js.haml", :format => :js)
-
-#jqt
-  %div
-    .toolbar
-      %h1
-        Offline
-      %a.back{ :href => "/jqtouch/demo", :target => "_webapp"  } 
-        Home
-    .info
-      This page saves all of its resources locally on your device, and can run even when offline.
+%body
+  #jqt
+    %div
+      .toolbar
+        %h1
+          Offline
+        %a.back{ :href => "/jqtouch/demo", :target => "_webapp"  } 
+          Home
+      .info
+        This page saves all of its resources locally on your device, and can run even when offline.
