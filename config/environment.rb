@@ -21,7 +21,7 @@ Rails::Initializer.run do |config|
   # config.gem "aws-s3", :lib => "aws/s3"
 
   config.gem 'haml', :version => '= 3.0.22'
-  config.gem 'compass', :version => '= 0.10.5'
+  config.gem 'compass', :version => '= 0.10.6'
   config.gem 'compass-jquery-plugin', :version => '= 0.3.0.beta.23', :lib => 'jquery'
   config.gem 'ri_cal', :version => '= 0.8.7'
 
