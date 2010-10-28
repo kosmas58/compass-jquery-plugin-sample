@@ -488,9 +488,11 @@ en:
     mobiles:
       name: jQuery on mobile devices
     jqm:
-      name: jQuery Mobile 
+      name: jQuery mobile framework
+      home: jquerymobile.com
+      default: Demo
     plugins:
-      name: jQuery plugins   
+      name: jQuery plugins
     ui:
       name: jQuery UI
       utilities:

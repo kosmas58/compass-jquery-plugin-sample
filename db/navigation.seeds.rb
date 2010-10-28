@@ -537,11 +537,15 @@ parent_id = node_165
 parent_id = node_1
 node_401 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.mobiles.name', :type => 'accordion', :icon => '/images/icons/16x16/iphone.png')
 parent_id = node_401
-node_402 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.jqm.name', :type => 'default', :icon => '/images/icons/16x16/drill.png', :url => 'http://jquerymobile.com/')
-node_403 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.jqt.name', :type => 'folder', :icon => '/images/icons/16x16/iphone.png')
-parent_id = node_403
-node_404 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.jqt.demo', :type => 'default', :icon => '/images/icons/16x16/drill.png', :url => '/iphone/main')
-node_405 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.jqt.beta', :type => 'default', :icon => '/images/icons/16x16/iphone.png', :url => '/iphone/original')
+node_402 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.jqm.name', :type => 'folder', :icon => '/images/icons/16x16/jqmobile.png')
+parent_id = node_402
+node_403 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.jqm.home', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => 'http://jquerymobile.com/')
+node_404 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.jqm.default', :type => 'default', :icon => '/images/icons/16x16/drill.png', :url => '/jqmobile/demo')
+parent_id = node_401
+node_405 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.jqt.name', :type => 'folder', :icon => '/images/icons/16x16/iphone.png')
+parent_id = node_405
+node_406 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.jqt.demo', :type => 'default', :icon => '/images/icons/16x16/drill.png', :url => '/iphone/main')
+node_407 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.jqt.beta', :type => 'default', :icon => '/images/icons/16x16/iphone.png', :url => '/iphone/original')
 parent_id = node_401
 parent_id = node_1
 puts "Finished creating navigation tree"

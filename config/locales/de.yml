@@ -40,8 +40,8 @@ de:
         qty: Menge
         total: Summe
         id: ID
-        unit: Mengeneinheit
         num: Anzahl
+        unit: Mengeneinheit
         item: Element
       invheader: 
         tax: Steuer
@@ -62,15 +62,13 @@ de:
       account: 
         name: Name
         debit: Soll
-        lft: lft
         level: Level
+        lft: lft
         credit: Haben
         parent_id: Eltern ID
         rgt: rgt
         balance: Kontostand
         acc_num: Kontonr.
-      client: 
-        name: Name
       event: 
         location: Ort
         dtend: Ende
@@ -78,6 +76,8 @@ de:
         summary: Betreff
         description: Beschreibung
         all_day: "Gant\xC3\xA4giges Ereignis"
+      client: 
+        name: Name
       user: 
         pseudo: Pseudonym
         role: Rolle
@@ -93,8 +93,8 @@ de:
         name: Name
     errors: 
       messages: 
-        greater_than_or_equal_to: "muss gr\xC3\xB6\xC3\x9Fer oder gleich {{count}} sein"
         record_invalid: "G\xC3\xBCltigkeitspr\xC3\xBCfung ist fehlgeschlagen: {{errors}}"
+        greater_than_or_equal_to: "muss gr\xC3\xB6\xC3\x9Fer oder gleich {{count}} sein"
         less_than_or_equal_to: muss kleiner oder gleich {{count}} sein
         confirmation: "stimmt nicht mit der Best\xC3\xA4tigung \xC3\xBCberein"
         blank: "muss ausgef\xC3\xBCllt werden"
@@ -108,9 +108,9 @@ de:
         less_than: muss kleiner als {{count}} sein
         equal_to: muss genau {{count}} sein
         greater_than: "muss gr\xC3\xB6\xC3\x9Fer als {{count}} sein"
-        too_long: ist zu lang (nicht mehr als {{count}} Zeichen)
         taken: ist bereits vergeben
         accepted: muss akzeptiert werden
+        too_long: ist zu lang (nicht mehr als {{count}} Zeichen)
         not_a_number: ist keine Zahl
         inclusion: "ist kein g\xC3\xBCltiger Wert"
       full_messages: 
@@ -128,64 +128,6 @@ de:
       short: "%d. %B, %H:%M Uhr"
       long: "%A, %d. %B %Y, %H:%M Uhr"
     pm: nachmittags
-  date: 
-    month_names: 
-    - 
-    - Januar
-    - Februar
-    - !binary |
-      TcOkcno=
-
-    - April
-    - Mai
-    - Juni
-    - Juli
-    - August
-    - September
-    - Oktober
-    - November
-    - Dezember
-    abbr_day_names: 
-    - So
-    - Mo
-    - Di
-    - Mi
-    - Do
-    - Fr
-    - Sa
-    order: 
-    - :day
-    - :month
-    - :year
-    formats: 
-      only_day: "%e"
-      default: "%d.%m.%Y"
-      short: "%e. %b"
-      long: "%e. %B %Y"
-    day_names: 
-    - Sonntag
-    - Montag
-    - Dienstag
-    - Mittwoch
-    - Donnerstag
-    - Freitag
-    - Samstag
-    abbr_month_names: 
-    - 
-    - Jan
-    - Feb
-    - !binary |
-      TcOkcg==
-
-    - Apr
-    - Mai
-    - Jun
-    - Jul
-    - Aug
-    - Sep
-    - Okt
-    - Nov
-    - Dez
   activemodel: 
     errors: 
       template: 
@@ -194,10 +136,35 @@ de:
           one: "Konnte {{model}} nicht speichern: ein Fehler."
           other: "Konnte {{model}} nicht speichern: {{count}} Fehler."
   txt: 
+    plugins: 
+      name: jQuery-Plugins
+    jst: 
+      html: HTML-Daten
+      name: jsTree
+      plugins: Plugins
+      themeroller: Themenwahl
+      hotkeys: Hotkeys
+      xml: XML-Daten
+      dnd: Drag'n Drop
+      radio: Umschalttasten
+      checkbox: "Auswahlk\xC3\xA4stchen"
+      demo: Demonstration
+      json: JSON-Daten
+      cookies: Cookies
+      lang: Sprachen
+      contextmenu: "Kontextmen\xC3\xBC"
+      types: Typen
+      sort: Sortieren
+      unique: Eindeutig
+      core: "Basisfunktionalit\xC3\xA4t"
+      ui: UI
+      themes: Themen
+      crrm: CRRM
+      search: Suche
     jqtools: 
+      name: jQuery TOOLS
       validator: 
         name: Validator
-      name: jQuery TOOLS
       toolbox: 
         name: Toolbox
       rangeinput: 
@@ -230,45 +197,23 @@ de:
         demo8: Erstellen eines individuellen
       tabs: 
         name: Tabs
-    jst: 
-      name: jsTree
-      html: HTML-Daten
-      plugins: Plugins
-      themeroller: Themenwahl
-      xml: XML-Daten
-      hotkeys: Hotkeys
-      dnd: Drag'n Drop
-      checkbox: "Auswahlk\xC3\xA4stchen"
-      radio: Umschalttasten
-      demo: Demonstration
-      json: JSON-Daten
-      cookies: Cookies
-      contextmenu: "Kontextmen\xC3\xBC"
-      lang: Sprachen
-      types: Typen
-      sort: Sortieren
-      unique: Eindeutig
-      ui: UI
-      core: "Basisfunktionalit\xC3\xA4t"
-      search: Suche
-      themes: Themen
-      crrm: CRRM
-    plugins: 
-      name: jQuery-Plugins
+    trees: !binary |
+      QsOkdW1l
+
     layout: 
       back: "Zur\xC3\xBCck"
       colon: ":"
       edit: Bearbeiten
-      cancel: Abbrechen
       delete: "L\xC3\xB6schen"
+      cancel: Abbrechen
       theme: Thema
       from: von
       navigation browse: Browsen Sie durch die Beispiele
       language: Sprache
-      footer: 
-        legalese: "Copyright \xC2\xA9 2009-2010 Kosmas Sch\xC3\xBCtz. N\xC3\xA4heres finden Sie unter LICENSE."
       show: Anzeigen
       save: Sichern
+      footer: 
+        legalese: "Copyright \xC2\xA9 2009-2010 Kosmas Sch\xC3\xBCtz. N\xC3\xA4heres finden Sie unter LICENSE."
       create: Anlegen
       update: Aktualisieren
       navigation: 
@@ -276,21 +221,19 @@ de:
         seed: /db/navigation.seeds.rb erfolgreich erstellt.
         browse: Browsen Sie durch die Beispiele
       until: bis
-    trees: !binary |
-      QsOkdW1l
-
-    jqt: 
-      name: "jQTouch (ben\xC3\xB6tigt eine WebKit Engine)"
-      beta: jQTouch & beta@jqtouch.com
-      demo: Compass jQTouch Demo
+    ribbon: 
+      name: Multifunktionsleiste
+      simple: jQuery Ribbon Simple Demo
+      default: jQuery Ribbon Windows 7 Demo
+      office: jQuery Ribbon Office Demo
     jqgrid: 
-      name: jqGrid
       manipulation: 
         name: Datenmanipulation
         inline: "mit Inline-\xC3\x84nderung"
         modal: "mit modaler \xC3\x84nderung"
         datepicker: mit Datumsauswahl (Nachname)
         input: mit verschiedenen Eingabetypen
+      name: jqGrid
       simple: 
         name: Einfache Datengitter
         direct: mit direkter Auswahl und automatischer Weite
@@ -377,8 +320,8 @@ de:
         37toolbar: Werkzeugleistensuche
         35view: Modus Gitteransicht
         30full: Vollzugriff
-        30hide: Spalten anzeigen/verbergen
         30events: Ereignisse nutzen
+        30hide: Spalten anzeigen/verbergen
         36srows: Sortierbare Zeilen
         38xml1: Gruppierung mit XML-Daten
         20resizing: "Gitter vergr\xC3\xB6\xC3\x9Fern"
@@ -426,18 +369,17 @@ de:
       improvements: 
         name: mit Verbesserungen der Form
       secret: Secret Sauce jqGrid
-    ribbon: 
-      name: Multifunktionsleiste
-      simple: jQuery Ribbon Simple Demo
-      default: jQuery Ribbon Windows 7 Demo
-      office: jQuery Ribbon Office Demo
+    jqt: 
+      name: "jQTouch (ben\xC3\xB6tigt eine WebKit Engine)"
+      beta: jQTouch & beta@jqtouch.com
+      demo: Compass jQTouch Demo
     jqical: 
       name: iCalendar
       anytime: 
         name: Any+Time&trade
         default: "Standardfunktionalit\xC3\xA4t"
-        inline: Eingebettet anzeigen
         separate: Datum und Uhrzeit getrennt
+        inline: Eingebettet anzeigen
         css: Benutzereigenes Layout
         ajax: Ajax Demo
         extend: "Erweiterung der Funktionalit\xC3\xA4t"
@@ -447,8 +389,8 @@ de:
         location: Ort
         default: Veranstaltung
         starts_at: Beginnt um
-        ends_at: Endet um
         listing: Termine anzeigen
+        ends_at: Endet um
         summary: Betreff
         description: Beschreibung
         all_day: "Ganzt\xC3\xA4giges Ereignis"
@@ -457,8 +399,8 @@ de:
         name: Name
         actions: 
           name: Aktionen
-          ical: Als iCalendar anzeigen
           show: Als Kalender anzeigen
+          ical: Als iCalendar anzeigen
         edit: iCalendar bearbeiten
         delete: "iCalendar l\xC3\xB6schen"
         confirm: "iCalendar wirklich l\xC3\xB6schen?"
@@ -468,20 +410,20 @@ de:
         show: " iCalendar anzeigen"
         iphone: Zeigen es auf einem iPhone
     sparklines: 
-      name: Sparklines
       examples: Beispiele
+      name: Sparklines
       default: Probieren Sie es aus
     dt: 
       name: Dynatree
       ul: Aus ul-Element initialisieren
-      lazy: Lazy
       persist: Persistenz
+      lazy: Lazy
       default: Standardeinstellungen
-      dnd2: Neues Ziehen und Ablegen
       iframe: iframe und URL-Navigation
-      api: Programmier-API
       dnd: Ziehen und Ablegen
+      api: Programmier-API
       quick: JS-Objekt initialisieren
+      dnd2: Neues Ziehen und Ablegen
       minexpand: Feste Expansionsebene
       events: Ergeignisverarbeitung
       form: In Formular integriert
@@ -496,10 +438,12 @@ de:
         crystal: Crystal
         aero: Aero
         aqua: Aqua
-    jqm: 
-      name: jQuery Mobile
     mobiles: 
       name: "jQuery auf mobilen Ger\xC3\xA4ten"
+    jqm: 
+      name: jQuery Mobile
+      default: Demonstration
+      home: jquerymobile.com
     hello: ""
     ui: 
       name: jQquery UI
@@ -516,16 +460,16 @@ de:
           display-grid: Als Gitter anzeigen
         default: Interaktionen
         draggable: 
-          handle: Position des Griffs
           snap-to: In Element oder Gitter einrasten
+          handle: Position des Griffs
           scroll: Autoscrollen
           default: Ziehbar
           sortable: Zieh- und sortierbar
-          events: Ereignisse
           constrain-movement: "Einschr\xC3\xA4nken der Bewegung"
+          events: Ereignisse
           revert: "Zur Position zur\xC3\xBCckkehren"
-          cursor-style: Cursorstil
           delay-start: "Start verz\xC3\xB6gern"
+          cursor-style: Cursorstil
           visual-feedback: Visuelles Feedback
         resizable: 
           aspect-ratio: "Seitenverh\xC3\xA4ltnis beibehalten"
@@ -555,14 +499,14 @@ de:
           revert: "R\xC3\xBCckkehr zur  Position"
           shopping-cart: Einkaufswagen
           accepted-elements: Akzeptierte Elemente
-          visual-feedback: Visuelles Feedback
           photo-manager: Einfacher Photomanager
+          visual-feedback: Visuelles Feedback
       widgets: 
         button: 
           default: "Schaltfl\xC3\xA4che"
-          checkbox: Auswahltasten
-          radio: Umschalttasten
           icon: Symbole
+          radio: Umschalttasten
+          checkbox: Auswahltasten
           toolbar: Werkzeugleiste
           splitbutton: "Geteilte Schaltfl\xC3\xA4che"
         default: Widgets
@@ -581,8 +525,8 @@ de:
           rangemin: Bereich mit festgesetztem Mininum
         panel: 
           name: Entwurf Panel
-          left: Von links einblenden
           simple: Einfaches Beispielpanel
+          left: Von links einblenden
           right1: Von rechts einblenden 1
           right2: Von rechts einblenden 2
           default: Zusammenklappbares Panel
@@ -592,19 +536,15 @@ de:
         selectmenu: 
           name: "Auswahlmen\xC3\xBC"
           maxheight: "Stil: <b>Popup</b> mit maxheight gesetzt"
-          without-id: "Stil: <b>Popup</b> ohne ID"
           custom-icons2: "Stil: <b>Dropdown</b> Sprachen mit Flaggensymbolen"
+          without-id: "Stil: <b>Popup</b> ohne ID"
           default: "Stil: <b>Popup</b>"
           icons: "Stil: <b>Popup</b> mit UI-Symbolen"
-          optgroups: "Stil: <b>Popup</b> mit optgroups"
           text-formatting: "Stil: <b>Popup</b> mit der Option Textformatierung"
+          optgroups: "Stil: <b>Popup</b> mit optgroups"
           menuwidth: "Stil: <b>Dropdown</b> mit menuWidth und Textformatierung"
           custom-icons: "Stil: <b>Popup</b> mit benutzerdefinierten Icons"
           dropdown: "Stil: <b>Popup</b>-Stil"
-        progressbar: 
-          resize: "Vergr\xC3\xB6\xC3\x9Ferbarer Fortschrittsbalken"
-          default: Fortschrittsbalken
-          animated: Animiert
         accordion: 
           hoverintent: "\xC3\x96ffnen bei hoverintent"
           default: Akkordeon
@@ -623,21 +563,29 @@ de:
           show-week: Zeige Kalanderwoche
           icon-trigger: "\xC3\x9Cber Symbol aktivieren"
           date-formats: Datum formatieren
-          animation: Animationen
           multiple-calendars: Mehrerer Monate anzeigen
-          event-search: Veranstaltungen suchen
+          animation: Animationen
           localization: " Kalender lokalisieren"
+          event-search: Veranstaltungen suchen
           dropdown-month-year: "Monat- & Jahresmen\xC3\xBCs anzeigen"
           other-months: Termine in den anderen Monaten
-        tabs: 
-          manipulation: Einfache Handhabung
-          bottom: Reiter unterhalb des Inhalts
-          default: Reiter
-          ajax: "Inhalt \xC3\xBCber Ajax"
-          sortable: Sortierbar
-          mouseover: "\xC3\x96ffnen, wenn die Maus dar\xC3\xBCberf\xC3\xA4hrt"
-          cookie: "Persistenz \xC3\xBCber Cookie"
-          collapsible: Inhalt wegklappen
+        progressbar: 
+          resize: "Vergr\xC3\xB6\xC3\x9Ferbarer Fortschrittsbalken"
+          default: Fortschrittsbalken
+          animated: Animiert
+        autocomplete: 
+          maxheight: Scrollbare Ergebnisse
+          default: "Autovervollst\xC3\xA4ndigung"
+          multiple-remote: Mehrfachwerte, entfernt
+          folding: "Akzente ber\xC3\xBCcksichtigen"
+          remote-jsonp: Entfernte JSONP-Datenquelle
+          remote-with-cache: Entfernt mit Caching
+          custom-data: Angepasste Daten und Anzeige
+          multiple: Mehrfachwerte
+          categories: Kategorien
+          remote: Entfernte Datenquelle
+          combobox: Auswahleiste
+          remote-xml: XML-Daten einmalig geparsed
         dialog: 
           greybox: Greybox
           default: Dialog
@@ -646,24 +594,20 @@ de:
           animated: Animierter Dialog
           modal-form: Modale Form
           modal-message: Modale Nachricht
-        autocomplete: 
-          maxheight: Scrollbare Ergebnisse
-          default: "Autovervollst\xC3\xA4ndigung"
-          multiple-remote: Mehrfachwerte, entfernt
-          remote-jsonp: Entfernte JSONP-Datenquelle
-          folding: "Akzente ber\xC3\xBCcksichtigen"
-          remote-with-cache: Entfernt mit Caching
-          custom-data: Angepasste Daten und Anzeige
-          multiple: Mehrfachwerte
-          categories: Kategorien
-          remote: Entfernte Datenquelle
-          remote-xml: XML-Daten einmalig geparsed
-          combobox: Auswahleiste
+        tabs: 
+          manipulation: Einfache Handhabung
+          bottom: Reiter unterhalb des Inhalts
+          default: Reiter
+          sortable: Sortierbar
+          ajax: "Inhalt \xC3\xBCber Ajax"
+          mouseover: "\xC3\x96ffnen, wenn die Maus dar\xC3\xBCberf\xC3\xA4hrt"
+          cookie: "Persistenz \xC3\xBCber Cookie"
+          collapsible: Inhalt wegklappen
       form: 
         new: Anlegen
         edit: Bearbeiten
-        cancel: Abbrechen
         delete: "L\xC3\xB6schen"
+        cancel: Abbrechen
         save: Speichern
         sure: Sind Sie sicher?
       effects: 
@@ -691,6 +635,64 @@ de:
       theme-switcher: 
         button: "Thema: "
         initial: Thema wechseln
+  date: 
+    month_names: 
+    - 
+    - Januar
+    - Februar
+    - !binary |
+      TcOkcno=
+
+    - April
+    - Mai
+    - Juni
+    - Juli
+    - August
+    - September
+    - Oktober
+    - November
+    - Dezember
+    order: 
+    - :day
+    - :month
+    - :year
+    abbr_day_names: 
+    - So
+    - Mo
+    - Di
+    - Mi
+    - Do
+    - Fr
+    - Sa
+    formats: 
+      only_day: "%e"
+      default: "%d.%m.%Y"
+      short: "%e. %b"
+      long: "%e. %B %Y"
+    day_names: 
+    - Sonntag
+    - Montag
+    - Dienstag
+    - Mittwoch
+    - Donnerstag
+    - Freitag
+    - Samstag
+    abbr_month_names: 
+    - 
+    - Jan
+    - Feb
+    - !binary |
+      TcOkcg==
+
+    - Apr
+    - Mai
+    - Jun
+    - Jul
+    - Aug
+    - Sep
+    - Okt
+    - Nov
+    - Dez
   support: 
     array: 
       words_connector: ", "
@@ -722,18 +724,15 @@ de:
       less_than_x_minutes: 
         one: weniger als eine Minute
         other: weniger als {{count}} Minuten
-      almost_x_years: 
-        one: fast ein Jahr
-        other: fast {{count}} Jahre
       x_days: 
         one: ein Tag
         other: "{{count}} Tage"
+      almost_x_years: 
+        one: fast ein Jahr
+        other: fast {{count}} Jahre
       x_seconds: 
         one: eine Sekunde
         other: "{{count}} Sekunden"
-      x_minutes: 
-        one: eine Minute
-        other: "{{count}} Minuten"
       about_x_hours: 
         one: etwa eine Stunde
         other: etwa {{count}} Stunden
@@ -743,12 +742,15 @@ de:
       x_months: 
         one: ein Monat
         other: "{{count}} Monate"
-      about_x_months: 
-        one: etwa ein Monat
-        other: etwa {{count}} Monate
+      x_minutes: 
+        one: eine Minute
+        other: "{{count}} Minuten"
       about_x_years: 
         one: etwa ein Jahr
         other: etwa {{count}} Jahre
+      about_x_months: 
+        one: etwa ein Monat
+        other: etwa {{count}} Monate
       over_x_years: 
         one: mehr als ein Jahr
         other: mehr als {{count}} Jahre
