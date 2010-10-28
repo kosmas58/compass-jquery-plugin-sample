@@ -1,0 +1,2 @@
+module Emulators::IpadLandscapeHelper
+end

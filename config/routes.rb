@@ -1,6 +1,14 @@
-ActionController::Routing::Routes.draw do |map|  
-  map.resources :iphone, :collection => { :main     => :get,
-                                          :original => :get }
+ActionController::Routing::Routes.draw do |map|
+  map.resources :emulators do |emulators|
+    emulators.resources :ipad_landsacpe, :collection => { :main     => :get,
+                                                          :original => :get }
+    emulators.resources :ipad_portrait, :collection => { :main     => :get,
+                                                         :original => :get }
+    emulators.resources :iphone_landscape, :collection => { :main     => :get,
+                                                            :original => :get }
+    emulators.resources :iphone_portrait, :collection => { :main     => :get,
+                                                           :original => :get }
+  end
 
   map.resources :navigation,
                 :collection => { :get_children=> :get,
