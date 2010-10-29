@@ -535,17 +535,19 @@ parent_id = node_391
 node_400 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.jqical.calendar.listing', :type => 'default', :icon => '/images/icons/16x16/calendar.png', :url => '/jqical/calendars')
 parent_id = node_165
 parent_id = node_1
-node_401 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.mobiles.name', :type => 'accordion', :icon => '/images/icons/16x16/iphone.png')
+node_401 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.mobiles.name', :type => 'accordion', :icon => '/images/icons/16x16/jqmobile.png')
 parent_id = node_401
-node_402 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.jqm.name', :type => 'folder', :icon => '/images/icons/16x16/jqmobile.png')
-parent_id = node_402
-node_403 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.jqm.home', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => 'http://jquerymobile.com/')
-node_404 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.jqm.default', :type => 'default', :icon => '/images/icons/16x16/drill.png', :url => '/jqmobile/demo')
+node_413 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.iph_p.name', :type => 'folder', :icon => '/images/icons/16x16/iphone_p.png')
+parent_id = node_413
+node_415 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.iph_p.jqm.default', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators/iphone_portrait/jqm')
+node_420 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.iph_p.jqm.home', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators/iphone_portrait/jqm_original')
+node_421 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.emu.iph_p.jqt.default', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators/iphone_portrait/jqt')
+node_424 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.emu.iph_p.jqt.home', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators/iphone_portrait/jqt_original')
 parent_id = node_401
-node_405 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.jqt.name', :type => 'folder', :icon => '/images/icons/16x16/iphone.png')
-parent_id = node_405
-node_406 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.jqt.demo', :type => 'default', :icon => '/images/icons/16x16/drill.png', :url => '/emulators/iphone_portrait/main')
-node_407 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.jqt.beta', :type => 'default', :icon => '/images/icons/16x16/iphone.png', :url => '/emulators/iphone_portrait/original')
+node_418 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.ipd_l.name', :type => 'folder', :icon => '/images/icons/16x16/ipad_l.png')
+parent_id = node_418
+node_422 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.ipd_l.jqm.default', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators/ipad_landscape/jqm')
+node_423 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.iph_p.jqm.home', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators/ipad_landscape/jqm_original')
 parent_id = node_401
 parent_id = node_1
 puts "Finished creating navigation tree"
