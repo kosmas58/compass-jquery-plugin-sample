@@ -544,8 +544,8 @@ node_404 = NavigationTree.create_node(:id => parent_id, :seed => true, :position
 parent_id = node_401
 node_405 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.jqt.name', :type => 'folder', :icon => '/images/icons/16x16/iphone.png')
 parent_id = node_405
-node_406 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.jqt.demo', :type => 'default', :icon => '/images/icons/16x16/drill.png', :url => '/iphone/main')
-node_407 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.jqt.beta', :type => 'default', :icon => '/images/icons/16x16/iphone.png', :url => '/iphone/original')
+node_406 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.jqt.demo', :type => 'default', :icon => '/images/icons/16x16/drill.png', :url => '/emulators/iphone_portrait/main')
+node_407 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.jqt.beta', :type => 'default', :icon => '/images/icons/16x16/iphone.png', :url => '/emulators/iphone_portrait/original')
 parent_id = node_401
 parent_id = node_1
 puts "Finished creating navigation tree"

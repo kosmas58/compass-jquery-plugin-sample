@@ -487,10 +487,22 @@ en:
         name: Validator
     mobiles:
       name: jQuery on mobile devices
+    emu:
+      ipd_l:
+        name: iPad Landscape
+        jqm:
+          home: jquerymobile.com
+          default: jQuery mobile Demo
+      iph_p:
+        name: iPhone Portrait
+        jqm:
+          home: jquerymobile.com
+          default: jQuery mobile Demo
+        jqt:
+          home: jqtouch.com
+          default: jQTouch Demo
     jqm:
       name: jQuery mobile framework
-      home: jquerymobile.com
-      default: Demo
     plugins:
       name: jQuery plugins
     ui:

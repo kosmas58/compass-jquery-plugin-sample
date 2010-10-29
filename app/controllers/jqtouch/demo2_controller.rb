@@ -71,7 +71,7 @@ class Jqtouch::Demo2Controller < ApplicationController
   
   def room
     if params[:id].present?
-      @fname = "/images/jqtouch/demo2/house_selected.png"
+      @fname = "/images/demo/jqtouch/demo2/house_selected.png"
       render(:partial => "show_image")
     else
       render :nothing => true, :status => 200
@@ -80,7 +80,7 @@ class Jqtouch::Demo2Controller < ApplicationController
   
   def art
     if params[:id].present?
-      @fname = "/images/jqtouch/demo2/palette_selected.png"
+      @fname = "/images/demo/jqtouch/demo2/palette_selected.png"
       render(:partial => "show_image")
     else
       render :nothing => true, :status => 200
@@ -126,7 +126,7 @@ class Jqtouch::Demo2Controller < ApplicationController
   def get_random_hunt
     hash = {}   
     hash["id"]      = 1
-    hash["picture"] = "/images/jqtouch/demo2/museum_startup.png"
+    hash["picture"] = "/images/demo/jqtouch/demo2/museum_startup.png"
     hash["room"]    = 1
     render :json =>  hash.to_json
   end
