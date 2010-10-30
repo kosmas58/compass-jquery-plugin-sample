@@ -1,2 +1,0 @@
-module Jqmobile::DemoHelper
-end
