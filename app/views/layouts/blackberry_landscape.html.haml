@@ -1,0 +1,24 @@
+!!!
+%html{ "xml:lang" => "en", :lang => "en", :xmlns => "http://www.w3.org/1999/xhtml" }
+  %head
+    %link{:rel=>"icon", :href=>"/favicon.ico", :type=>"image/ico"}
+    %link{:rel=>"shortcut icon", :href=>"/favicon.ico", :type=>"image/ico"}
+    %link{:rel=>"shortcut icon", :href=>"/favicon.ico"}
+    %meta{ :content => "text/html;charset=UTF-8", "http-equiv" => "content-type" }
+
+    = stylesheet_link_tag :blackberry_landscape
+
+    = javascript_include_tag :jquery_143
+    = javascript_include_tag :jrails
+    = raw jrails_javascripts(I18n.locale)
+
+    = javascript_include_tag 'locales'
+    = javascript_include_tag 'common'
+    = javascript_include_tag 'ajax'
+    = javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery?
+
+    = yield :content_head
+  
+  %body{body_attributes}
+    = yield
+    

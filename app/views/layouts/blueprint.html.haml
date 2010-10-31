@@ -37,4 +37,4 @@
           %iframe#demoframe{ :name => "contentFrame", :src => "welcome/hello", :marginwidth => "0", :frameborder => "0", :height => 852, :width => "100%", :marginheight => "0" }
             %p
               Your browser does not support iframes
-        = yield :license
+        = render :partial => "layouts/footer.blueprint"

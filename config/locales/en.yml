@@ -199,11 +199,11 @@ en:
       navigation:
         configure: Configure navigation
         seed: "Successfully created /db/navigation.seeds.rb."
-        browse: Browse through the examples
+        browse: "Browse through the examples"
       show: Show
       save: Save
       footer:
-        legalese: Copyright &copy 2009-2010 Kosmas Schuetz. See LICENSE for details.
+        legalese: Copyright &copy; 2009-2010 Kosmas Schuetz. See LICENSE for details.
       create: Create
       update: Update
       until: until
@@ -355,14 +355,10 @@ en:
       simple: jQuery Ribbon Simple theme
       default: jQuery Ribbon Windows 7 theme
       office: jQuery Ribbon Office theme
-    jqt:
-      name: "jQTouch <i>(needs a WebKit engine)</i>"
-      demo: Compass jQTouch Demo
-      beta: "jQTouch &beta @ jqtouch.com"
     jqical:
       name: iCalendar
       anytime:
-        name: Any+Time&trade
+        name: "Any+Time&trade;"
         default: Default functionality
         css: Custom stylesheet
         inline: Display inline
@@ -485,24 +481,22 @@ en:
         demo7: Dynamic positioning
       validator:
         name: Validator
-    mobiles:
-      name: jQuery on mobile devices
     emu:
-      ipd_l:
-        name: iPad Landscape
-        jqm:
-          home: jquerymobile.com
-          default: jQuery mobile Demo
-      iph_p:
-        name: iPhone Portrait
-        jqm:
-          home: jquerymobile.com
-          default: jQuery mobile Demo
-        jqt:
-          home: jqtouch.com
-          default: jQTouch Demo
-    jqm:
-      name: jQuery mobile framework
+      name: jQuery on mobile devices
+      land: Landscape
+      port: Portrait
+      ipad: iPad
+      iphone: iPhone
+      palm: Palm Pre
+      black: Blackberry Torch
+      jqm:
+        name: jQuery mobile framework
+        home: "&alpha;@jquerymobile.com"
+        default: jQuery mobile Demo
+      jqt:
+        name: "<i>(needs a WebKit engine)</i>"
+        home: "&beta;@jqtouch.com"
+        default: jQTouch Demo
     plugins:
       name: jQuery plugins
     ui:

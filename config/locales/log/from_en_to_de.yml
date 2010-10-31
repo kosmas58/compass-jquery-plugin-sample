@@ -21,9 +21,10 @@ date:
     short: "%b %d"
     long: "%B %d, %Y"
 txt: 
-  jqm: 
-    default: Demo
-    home: jquerymobile.com
+  emu: 
+    jqm: 
+      default: jQuery mobile Demo
+      home: "&alpha @ jquerymobile.com"
   hello: Hello world
 support: 
   array: 
