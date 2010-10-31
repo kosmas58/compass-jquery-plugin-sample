@@ -1,0 +1,31 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "content-type"}/
+  %body
+    %div{"data-role" => "page"}
+      %div{"data-role" => "header"}
+        %h1 jQuery.noop()
+      %div{"data-role" => "content", "data-theme" => "c", :id => "jQuery.noop1"}
+        %h2.jq-clearfix.roundTop.section-title
+          %span.name jQuery.noop()
+          %span.returns
+            Returns:
+            %a.return{:href => "http://docs.jquery.com/Types#Function"} Function
+        .entry-details
+          %p.desc
+            %strong> Description:
+            An empty function.
+          %ul.signatures
+            %li.signature{:id => "jQuery.noop"}
+              %h4.name
+                %span.versionAdded>
+                  version added:
+                  %a{:href => "/category/version/1.4/"} 1.4
+                jQuery.noop()
+          .longdesc
+            %p You can use this empty function when you wish to pass around a function that will do nothing.
+            %p
+              This is useful for plugin authors who offer optional callbacks; in the case that no callback is given, something like
+              %code jQuery.noop
+              could execute.

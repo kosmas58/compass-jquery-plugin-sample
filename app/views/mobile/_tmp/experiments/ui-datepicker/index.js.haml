@@ -1,0 +1,30 @@
+!!!
+%html
+  %head
+    %title jQuery Mobile Framework - Datepicker
+    %link{:href => "../../themes/default", :rel => "stylesheet"}/
+    %script{:src => "../../js/all", :type => "text/javascript"}
+  %body
+    %div{"data-role" => "page"}
+      %link{:href => "jquery.ui.datepicker.css", :rel => "stylesheet"}/
+      %script{:src => "jquery.ui.datepicker.js", :type => "text/javascript"}
+      :javascript
+        $(function(){
+        	/*  datepicker workaround */
+        	$('input[type=date]').hide().after( $('').datepicker() );
+        	$('.ui-datepicker-header').addClass('ui-body-c ui-corner-top').removeClass('ui-corner-all');
+        	$('.ui-datepicker-prev').buttonMarkup({iconpos: 'notext', icon: 'arrow-l', shadow: true, corners: true});
+        	$('.ui-datepicker-next').buttonMarkup({iconpos: 'notext', icon: 'arrow-r', shadow: true, corners: true});
+        	$('.ui-datepicker-calendar thead').remove();
+        	$('.ui-datepicker-calendar .ui-btn-text span').attr('class','');
+        	$('.ui-datepicker-calendar td').addClass('ui-btn-up-c');
+        	$('.ui-datepicker-calendar a').buttonMarkup({corners: false, shadow: false});
+        	/* // datepicker workaround */
+        });
+	      %div{"data-role" => "header"}
+        %h1 Datepicker Styled for mobile
+      %div{"data-role" => "content"}
+        %form{:action => "#", :method => "get"}
+          %div{"data-role" => "fieldcontain"}
+            %label{:for => "date"} Date Input (non-functional):
+            %input#date{:name => "date", :type => "date", :value => ""}/

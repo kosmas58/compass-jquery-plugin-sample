@@ -1,0 +1,38 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "content-type"}/
+  %body
+    %div{"data-role" => "page"}
+      %div{"data-role" => "header"}
+        %h1 event.isDefaultPrevented()
+      %div{"data-role" => "content", "data-theme" => "c", :id => "event.isDefaultPrevented1"}
+        %h2.jq-clearfix.roundTop.section-title
+          %span.name event.isDefaultPrevented()
+          %span.returns
+            Returns:
+            %a.return{:href => "http://docs.jquery.com/Types#Boolean"} Boolean
+        .entry-details
+          %p.desc
+            %strong> Description:
+            Returns whether event.preventDefault() was ever called on this event object.
+          %ul.signatures
+            %li.signature{:id => "event.isDefaultPrevented"}
+              %h4.name
+                %span.versionAdded>
+                  version added:
+                  %a{:href => "/category/version/1.3/"} 1.3
+                event.isDefaultPrevented()
+          %h3 Example:
+          #entry-examples.entry-examples
+            #example-0
+              %h4
+                %span.desc Checks whether event.preventDefault() was called.
+              %pre
+                %code.example
+                  :preserve
+                    $("a").click(function(event){
+                      alert( event.isDefaultPrevented() ); // false
+                      event.preventDefault();
+                      alert( event.isDefaultPrevented() ); // true
+                    });  

@@ -1,0 +1,36 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "content-type"}/
+  %body
+    %div{"data-role" => "page"}
+      %div{"data-role" => "header"}
+        %h1 event.type
+      %div{"data-role" => "content", "data-theme" => "c", :id => "event.type1"}
+        %h2.jq-clearfix.roundTop.section-title
+          %span.name event.type
+          %span.returns
+            Returns:
+            %a.return{:href => "http://docs.jquery.com/Types#String"} String
+        .entry-details
+          %p.desc
+            %strong Description:
+            Describes the nature of the event.
+          %ul.signatures
+            %li.signature{:id => "event.type"}
+              %h4.name
+                %span.versionAdded>
+                  version added:
+                  %a{:href => "/category/version/1.0/"} 1.0
+                event.type
+          %h3 Example:
+          #entry-examples.entry-examples
+            #example-0
+              %h4
+                %span.desc On all anchor clicks, alert the event type.
+              %pre
+                %code.example
+                  :preserve
+                    $("a").click(function(event) {
+                      alert(event.type); // "click"
+                    }); 

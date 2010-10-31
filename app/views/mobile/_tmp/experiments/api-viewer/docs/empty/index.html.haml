@@ -1,0 +1,79 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "content-type"}/
+  %body
+    %div{"data-role" => "page"}
+      %div{"data-role" => "header"}
+        %h1 .empty()
+      #empty1{"data-role" => "content", "data-theme" => "c"}
+        %h2.jq-clearfix.roundTop.section-title
+          %span.name .empty()
+          %span.returns
+            Returns:
+            %a.return{:href => "http://docs.jquery.com/Types#jQuery"} jQuery
+        .entry-details
+          %p.desc
+            %strong> Description:
+            Remove all child nodes of the set of matched elements from the DOM.
+          %ul.signatures
+            %li#empty.signature
+              %h4.name
+                %span.versionAdded>
+                  version added:
+                  %a{:href => "/category/version/1.0/"} 1.0
+                \.empty()
+          .longdesc
+            %p This method removes not only child (and other descendant) elements, but also any text within the set of matched elements. This is because, according to the DOM specification, any string of text within an element is considered a child node of that element. Consider the following HTML:
+            %pre
+              :preserve
+                &lt;div class="container"&gt;
+                  &lt;div class="hello"&gt;Hello&lt;/div&gt;
+                  &lt;div class="goodbye"&gt;Goodbye&lt;/div&gt;
+                &lt;/div&gt;            %p We can target any element for removal:
+            %pre $('.hello').empty();
+            %p
+              This will result in a DOM structure with the
+              %code Hello
+              text deleted:
+            %pre
+              :preserve
+                &lt;div class="container"&gt;
+                  &lt;div class="hello"&gt;&lt;/div&gt;
+                  &lt;div class="goodbye"&gt;Goodbye&lt;/div&gt;
+                &lt;/div&gt;            %p
+              If we had any number of nested elements inside
+              = succeed "," do
+                %code &lt;div class="hello"&gt;
+              they would be removed, too. Other jQuery constructs such as data or event handlers are erased as well.
+          %h3 Example:
+          #entry-examples.entry-examples
+            #example-0
+              %h4
+                %span.desc Removes all child nodes (including text nodes) from all paragraphs
+              %pre
+                %code.example.demo-code
+                  :preserve
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html&gt;
+                    &lt;head&gt;
+                      &lt;style&gt;
+                      p { background:yellow; }
+                      &lt;/style&gt;
+                      &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+                    &lt;/head&gt;
+                    &lt;body&gt;
+                    	&lt;p&gt;
+                        Hello, &lt;span&gt;Person&lt;/span&gt; &lt;a href="javascript:;"&gt;and person&lt;/a&gt;
+                      &lt;/p&gt;
+                    
+                      &lt;button&gt;Call empty() on above paragraph&lt;/button&gt;
+                    &lt;script&gt;
+                        $("button").click(function () {
+                          $("p").empty();
+                        });
+                    
+                    &lt;/script&gt;
+                    &lt;/body&gt;
+                    &lt;/html&gt;              %h4 Demo:
+              .demo.code-demo

@@ -1,0 +1,113 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "content-type"}/
+  %body
+    %div{"data-role" => "page"}
+      %div{"data-role" => "header"}
+        %h1 .scrollTop()
+      #scrollTop1{"data-role" => "content", "data-theme" => "c"}
+        %h2.jq-clearfix.roundTop.section-title
+          %span.name .scrollTop()
+          %span.returns
+            Returns:
+            %a.return{:href => "http://docs.jquery.com/Types#Integer"} Integer
+        .entry-details
+          %p.desc
+            %strong> Description:
+            Get the current vertical position of the scroll bar for the first element in the set of matched elements.
+          %ul.signatures
+            %li#scrollTop.signature
+              %h4.name
+                %span.versionAdded>
+                  version added:
+                  %a{:href => "/category/version/1.2.6/"} 1.2.6
+                \.scrollTop()
+          .longdesc
+            %p
+              The vertical scroll position is the same as the number of pixels that are hidden from view above the scrollable area. If the scroll bar is at the very top, or if the element is not scrollable, this number will be
+              = succeed "." do
+                %code 0
+          %h3 Example:
+          #entry-examples.entry-examples
+            #example-0
+              %h4
+                %span.desc Get the scrollTop of a paragraph.
+              %pre
+                %code.example.demo-code
+                  :preserve
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html&gt;
+                    &lt;head&gt;
+                      &lt;style&gt;
+                      p { margin:10px;padding:5px;border:2px solid #666; }
+                      &lt;/style&gt;
+                      &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+                    &lt;/head&gt;
+                    &lt;body&gt;
+                    	&lt;p&gt;Hello&lt;/p&gt;&lt;p&gt;&lt;/p&gt;
+                    &lt;script&gt;var p = $("p:first");
+                    $("p:last").text( "scrollTop:" + p.scrollTop() );
+                    
+                    &lt;/script&gt;
+                    &lt;/body&gt;
+                    &lt;/html&gt;              %h4 Demo:
+              .demo.code-demo
+      #scrollTop2{"data-role" => "content", "data-theme" => "c"}
+        %h2.jq-clearfix.roundTop.section-title
+          %span.name .scrollTop( value )
+          %span.returns
+            Returns:
+            %a.return{:href => "http://docs.jquery.com/Types#jQuery"} jQuery
+        .entry-details
+          %p.desc
+            %strong> Description:
+            Set the current vertical position of the scroll bar for each of the set of matched elements.
+          %ul.signatures
+            %li#scrollTop-value.signature
+              %h4.name
+                %span.versionAdded>
+                  version added:
+                  %a{:href => "/category/version/1.2.6/"} 1.2.6
+                \.scrollTop( value )
+              %p.arguement
+                %strong> value
+                An integer indicating the new position to set the scroll bar to.
+          .longdesc
+            %p
+              The vertical scroll position is the same as the number of pixels that are hidden from view above the scrollable area. Setting the
+              %code scrollTop
+              positions the vertical scroll of each matched element.
+          %h3 Example:
+          #entry-examples.entry-examples
+            #example-0
+              %h4
+                %span.desc Set the scrollTop of a div.
+              %pre
+                %code.example.demo-code
+                  :preserve
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html&gt;
+                    &lt;head&gt;
+                      &lt;style&gt;
+                    div.demo {
+                    background:#CCCCCC none repeat scroll 0 0;
+                    border:3px solid #666666;
+                    margin:5px;
+                    padding:5px;
+                    position:relative;
+                    width:200px;
+                    height:100px;
+                    overflow:auto;
+                    }
+                      p { margin:10px;padding:5px;border:2px solid #666;width:1000px;height:1000px; }
+                      &lt;/style&gt;
+                      &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+                    &lt;/head&gt;
+                    &lt;body&gt;
+                    	&lt;div class="demo"&gt;&lt;h1&gt;lalala&lt;/h1&gt;&lt;p&gt;Hello&lt;/p&gt;&lt;/div&gt;
+                    &lt;script&gt;$("div.demo").scrollTop(300);
+                    &lt;/script&gt;
+                    &lt;/body&gt;
+                    &lt;/html&gt;              %h4 Demo:
+              .demo.code-demo

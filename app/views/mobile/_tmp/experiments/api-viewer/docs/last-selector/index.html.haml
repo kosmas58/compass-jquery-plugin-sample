@@ -1,0 +1,51 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "content-type"}/
+  %body
+    %div{"data-role" => "page"}
+      %div{"data-role" => "header"}
+        %h1 :last Selector
+      #last1{"data-role" => "content", "data-theme" => "c"}
+        %h2.jq-clearfix.roundTop.section-title
+          %span.name last
+          selector
+        .entry-details
+          %h4.name
+            %span.versionAdded>
+              version added:
+              %a{:href => "/version/1.0/"} 1.0
+            jQuery(':last')
+          %p.desc
+            %strong> Description:
+            Selects the last matched element.
+          .longdesc
+            %p
+              Note that
+              %code :last
+              selects a single element by filtering  the current jQuery collection and matching the last element within it.
+          %h3 Example:
+          #entry-examples.entry-examples
+            #example-0
+              %h4
+                %span.desc Finds the last table row.
+              %pre
+                %code.example.demo-code
+                  :preserve
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html&gt;
+                    &lt;head&gt;
+                      &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+                    &lt;/head&gt;
+                    &lt;body&gt;
+                    	&lt;table&gt;
+                    
+                        &lt;tr&gt;&lt;td&gt;First Row&lt;/td&gt;&lt;/tr&gt;
+                        &lt;tr&gt;&lt;td&gt;Middle Row&lt;/td&gt;&lt;/tr&gt;
+                        &lt;tr&gt;&lt;td&gt;Last Row&lt;/td&gt;&lt;/tr&gt;
+                    
+                      &lt;/table&gt;
+                    &lt;script&gt;$("tr:last").css({backgroundColor: 'yellow', fontWeight: 'bolder'});&lt;/script&gt;
+                    &lt;/body&gt;
+                    &lt;/html&gt;              %h4 Demo:
+              .demo.code-demo

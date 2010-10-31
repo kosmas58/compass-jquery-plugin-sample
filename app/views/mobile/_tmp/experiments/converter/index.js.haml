@@ -1,0 +1,131 @@
+!!!
+%html
+  %head
+    %title jQuery Mobile Framework - Converter Demo Application
+    %link{:href => "../../themes/default", :rel => "stylesheet"}/
+    %link{:href => "converter.css", :rel => "stylesheet"}/
+    %script{:src => "../../js/all", :type => "text/javascript"}
+  %body
+    #start{"data-role" => "page", "data-theme" => "a"}
+      %script{:src => "jquery.tmpl.js", :type => "text/javascript"}
+      %script{:src => "storage.js", :type => "text/javascript"}
+      %script{:src => "application.js", :type => "text/javascript"}
+      :css
+        .field { padding: 15px; }
+	      %script#conversion-field{:type => "text/x-jquery-tmpl"}
+        %li
+          %p.currency-from
+            ${$item.symbols[from]}
+            %span.unit ${from}
+          %p.currency-to.ui-li-aside
+            ${$item.symbols[to]}
+            %span.rate{:id => "${from}${to}"} NaN
+            %span.unit ${to}
+      %script#conversion-edit-field{:type => "text/x-jquery-tmpl"}
+        %li
+          %label.ui-input-text{:class => "conversion-${type}", :for => "${from}${to}", :title => "From ${from} to ${to}"} ${$item.symbols[from]} to ${$item.symbols[to]}
+          %a.deletebutton.ui-aux{:href => "#"} Delete
+      %div{"data-role" => "header", "data-theme" => "e"}
+        %a.ui-btn-right{"data-icon" => "gear", "data-rel" => "dialog", "data-transition" => "pop", :href => "#customize"} Edit
+        %h1 Currency converter
+      .ui-bar.ui-bar-a
+        %form#curr-form{:action => "", "data-role" => "autoform", :method => "get"}
+          %label{"data-role" => "nojs", :for => "term"} Search:
+          %input#term{:name => "term", :placeholder => "Type a value...", :type => "search", :value => "25"}/
+      %div{"data-role" => "content"}
+        %ul#conversions{"data-role" => "listview", "data-theme" => "a"}
+          %li
+            %p.currency-from
+              $
+              %span.unit USD
+            %p.currency-to.ui-li-aside
+              \&euro;
+              %span#USDEUR.rate NaN
+              %span.unit EUR
+          %li
+            %p.currency-from
+              $
+              %span.unit USD
+            %p.currency-to.ui-li-aside
+              \&pound; 22.34
+              %span.unit GBP
+          %li
+            %p.currency-from
+              $
+              %span.unit USD
+            %p.currency-to.ui-li-aside
+              \&yen; 22.34
+              %span.unit JPY
+          %li
+            %p.currency-from
+              \&euro;
+              %span.unit EUR
+            %p.currency-to.ui-li-aside
+              $ 22.34
+              %span.unit USD
+          %li
+            %p.currency-from
+              \&yen;
+              %span.unit EUR
+            %p.currency-to.ui-li-aside
+              $ 22.34
+              %span.unit JPY
+    #customize.ui-body-b{"data-role" => "page"}
+      %div{"data-nobackbtn" => "true", "data-role" => "header", "data-theme" => "b"}
+        %h1 Edit conversions
+        %a.ui-btn-right{"data-icon" => "check", "data-theme" => "b", "data-transition" => "fade", :href => "#start"} Done
+      %div{"data-role" => "content"}
+        %ul{"data-inset" => "true", "data-role" => "listview", "data-theme" => "c"}
+          %li
+            %a{:href => "#add-currency-dialog"}
+              $
+              %span.unit USD
+              to &euro;
+              %span.unit EUR
+              %a{"data-icon" => "delete", "data-iconpos" => "notext", :href => "remove"} Remove
+          %li
+            %a{:href => "#add-currency-dialog"}
+              $
+              %span.unit USD
+              to &euro;
+              %span.unit EUR
+              %a{"data-icon" => "delete", "data-iconpos" => "notext", :href => "remove"} Remove
+          %li
+            %a{:href => "#add-currency-dialog"}
+              $
+              %span.unit USD
+              to &euro;
+              %span.unit EUR
+              %a{"data-icon" => "delete", "data-iconpos" => "notext", :href => "remove"} Remove
+          %li
+            %a{:href => "#add-currency-dialog"}
+              $
+              %span.unit USD
+              to &euro;
+              %span.unit EUR
+              %a{"data-icon" => "delete", "data-iconpos" => "notext", :href => "remove"} Remove
+          %li
+            %a.add-row{:href => "#add-currency-dialog"} Add new...
+      .ui-body
+        %a#restore{"data-role" => "button", "data-theme" => "c", :href => "#"} Restore defaults
+    #add-currency-dialog.ui-body-b{"data-role" => "page"}
+      %div{"data-role" => "header", "data-theme" => "a"}
+        %h1 Add new
+        %a.ui-back{"data-icon" => "arrow-l", :href => "#customize"} Cancel
+      %div{"data-role" => "content"}
+        %h2 Select currencies to convert:
+        %div{"data-role" => "fieldcontain"}
+          %label{:for => "currency-options-from"} From
+          %select#currency-options-from{"data-theme" => "c", :name => "currency-options"}
+            %option{:value => "EUR"} EUR to Euro
+            %option{:value => "USD"} USD to US Dollar
+            %option{:value => "GBP"} GBP to Great Britain Pound
+        %div{"data-role" => "fieldcontain"}
+          %label{:for => "currency-options-to"} To
+          %select#currency-options-to{"data-theme" => "c", :name => "currency-options"}
+            %option{:value => "EUR"} EUR to Euro
+            %option{:value => "USD"} USD to US Dollar
+            %option{:value => "GBP"} GBP to Great Britain Pound
+        %div{"data-role" => "fieldcontain"}
+          %a#add{"data-inline" => "true", "data-role" => "button", "data-theme" => "c", :href => "#customize"} Cancel
+          %a#add{"data-inline" => "true", "data-role" => "button", "data-theme" => "b", :href => "#customize"} Add conversion

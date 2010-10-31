@@ -1,0 +1,74 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "content-type"}/
+  %body
+    %div{"data-role" => "page"}
+      %div{"data-role" => "header"}
+        %h1 .unload()
+      #unload1{"data-role" => "content", "data-theme" => "c"}
+        %h2.jq-clearfix.roundTop.section-title
+          %span.name .unload( handler(eventObject) )
+          %span.returns
+            Returns:
+            %a.return{:href => "http://docs.jquery.com/Types#jQuery"} jQuery
+        .entry-details
+          %p.desc
+            %strong> Description:
+            Bind an event handler to the "unload" JavaScript event.
+          %ul.signatures
+            %li#unload-handlereventObject.signature
+              %h4.name
+                %span.versionAdded>
+                  version added:
+                  %a{:href => "/category/version/1.0/"} 1.0
+                \.unload( handler(eventObject) )
+              %p.arguement
+                %strong> handler(eventObject)
+                A function to execute when the event is triggered.
+          .longdesc
+            %p
+              This method is a shortcut for
+              = succeed "." do
+                %code .bind('unload', handler)
+            %p
+              The
+              %code unload
+              event is sent to the
+              %code window
+              element when the user navigates away from the page. This could mean one of many things. The user could have clicked on a link to leave the page, or typed in a new URL in the address bar. The forward and back buttons will trigger the event. Closing the browser window will cause the event to be triggered. Even a page reload will first create an
+              %code unload
+              event.
+            %blockquote
+              %p
+                The exact handling of the
+                %code unload
+                event has varied from version to version of browsers. For example, some versions of Firefox trigger the event when a link is followed, but not when the window is closed. In practical usage, behavior should be tested on all supported browsers, and contrasted with the proprietary
+                %code beforeunload
+                event.
+            %p
+              Any
+              %code unload
+              event handler should be bound to the
+              %code window
+              object:
+            %pre
+              :preserve
+                $(window).unload(function() {
+                  alert('Handler for .unload() called.');
+                });
+            %p
+              After this code executes, the alert will be displayed whenever the browser leaves the current page.
+              It is not possible to cancel the
+              %code unload
+              event with
+              = succeed "." do
+                %code .preventDefault()
+              This event is available so that scripts can perform cleanup when the user leaves the page.
+          %h3 Example:
+          #entry-examples.entry-examples
+            #example-0
+              %h4
+                %span.desc To display an alert when a page is unloaded:
+              %pre
+                %code.example $(window).unload( function () { alert("Bye now!"); } );

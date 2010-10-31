@@ -1,0 +1,64 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "content-type"}/
+  %body
+    %div{"data-role" => "page"}
+      %div{"data-role" => "header"}
+        %h1 .last()
+      #last1{"data-role" => "content", "data-theme" => "c"}
+        %h2.jq-clearfix.roundTop.section-title
+          %span.name .last()
+          %span.returns
+            Returns:
+            %a.return{:href => "http://docs.jquery.com/Types#jQuery"} jQuery
+        .entry-details
+          %p.desc
+            %strong> Description:
+            Reduce the set of matched elements to the final one in the set.
+          %ul.signatures
+            %li#last.signature
+              %h4.name
+                %span.versionAdded>
+                  version added:
+                  %a{:href => "/category/version/1.4/"} 1.4
+                \.last()
+          .longdesc
+            %p
+              Given a jQuery object that represents a set of DOM elements, the
+              %code .last()
+              method constructs a new jQuery object from the last matching element.
+            %p Consider a page with a simple list on it:
+            %pre
+              :preserve
+                
+                &lt;ul&gt;
+                  &lt;li&gt;list item 1&lt;/li&gt;
+                  &lt;li&gt;list item 2&lt;/li&gt;
+                  &lt;li&gt;list item 3&lt;/li&gt;
+                  &lt;li&gt;list item 4&lt;/li&gt;
+                  &lt;li&gt;list item 5&lt;/li&gt;
+                &lt;/ul&gt;
+            %p We can apply this method to the set of list items:
+            %pre $('li').last().css('background-color', 'red');
+            %p The result of this call is a red background for the final item.
+          %h3 Example:
+          #entry-examples.entry-examples
+            #example-0
+              %h4
+                %span.desc Highlight the last span in a paragraph.
+              %pre
+                %code.example.demo-code
+                  :preserve
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html&gt;
+                    &lt;head&gt;
+                      &lt;style&gt;.highlight{background-color: yellow}&lt;/style&gt;
+                      &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+                    &lt;/head&gt;
+                    &lt;body&gt;
+                    	&lt;p&gt;&lt;span&gt;Look:&lt;/span&gt; &lt;span&gt;This is some text in a paragraph.&lt;/span&gt; &lt;span&gt;This is a note about it.&lt;/span&gt;&lt;/p&gt;
+                    &lt;script&gt;$("p span").last().addClass('highlight');&lt;/script&gt;
+                    &lt;/body&gt;
+                    &lt;/html&gt;              %h4 Demo:
+              .demo.code-demo

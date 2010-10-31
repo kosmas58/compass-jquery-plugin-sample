@@ -1,0 +1,54 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "content-type"}/
+  %body
+    %div{"data-role" => "page"}
+      %div{"data-role" => "header"}
+        %h1 :enabled Selector
+      #enabled1{"data-role" => "content", "data-theme" => "c"}
+        %h2.jq-clearfix.roundTop.section-title
+          %span.name enabled
+          selector
+        .entry-details
+          %h4.name
+            %span.versionAdded>
+              version added:
+              %a{:href => "/version/1.0/"} 1.0
+            jQuery(':enabled')
+          %p.desc
+            %strong> Description:
+            Selects all elements that are enabled.
+          .longdesc
+            %p
+              As with other pseudo-class selectors (those that begin with a ":") it is recommended to precede it with a tag name or some other selector; otherwise, the universal selector ("*") is implied. In other words, the bare
+              %code $(':enabled')
+              is equivalent to
+              = succeed "," do
+                %code $('*:enabled')
+              so
+              %code $('input:enabled')
+              should be used instead.
+          %h3 Example:
+          #entry-examples.entry-examples
+            #example-0
+              %h4
+                %span.desc Finds all input elements that are enabled.
+              %pre
+                %code.example.demo-code
+                  :preserve
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html&gt;
+                    &lt;head&gt;
+                      &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+                    &lt;/head&gt;
+                    &lt;body&gt;
+                    	&lt;form&gt;
+                    
+                        &lt;input name="email" disabled="disabled" /&gt;
+                        &lt;input name="id" /&gt;
+                      &lt;/form&gt;
+                    &lt;script&gt;$("input:enabled").val("this is it");&lt;/script&gt;
+                    &lt;/body&gt;
+                    &lt;/html&gt;              %h4 Demo:
+              .demo.code-demo

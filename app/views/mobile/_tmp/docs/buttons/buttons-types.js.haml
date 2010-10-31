@@ -1,0 +1,72 @@
+!!!
+%html
+  %head
+    %title jQuery Mobile Docs - Lists
+    %link{:href => "../../themes/default", :rel => "stylesheet"}/
+    %script{:src => "../../js/all", :type => "text/javascript"}
+    %script{:src => "../docs/docs.js", :type => "text/javascript"}
+  %body
+    %div{"data-role" => "page"}
+      %div{"data-role" => "header"}
+        %h1 Button markup options
+      / /header
+      %div{"data-role" => "content"}
+        %p
+          Buttons that are used for navigation should be coded as anchor links, and those that submit forms as
+          %code button
+          elements &mdash; each will be styled identically by the framework.
+        %h2 Styling links as buttons
+        %p
+          In the main content block of a page, you can style any anchor link as a button by adding the
+          %code data-role="button"
+          to the link. The framework will add all necessary classes to style the link as a button. For example, this markup:
+        %code
+          \&lt;a href=&quot;index.html&quot; data-role=&quot;button&quot;&gt;Link button&lt;/a&gt;
+        %p
+          Produces this
+          %strong link-based
+          button:
+        %a{"data-role" => "button", :href => "index.html"} Link button
+        %h2 Form buttons
+        %p
+          For ease of styling, the framework automatically converts any
+          %code button
+          element or
+          %code input
+          with a
+          %code type
+          of
+          = succeed "," do
+            %code submit
+          = succeed "," do
+            %code reset
+          = succeed "," do
+            %code button
+          or
+          %code image
+          into a custom styled link-based button &mdash; there is no need to add the
+          %code data-role="button"
+          attribute.
+        %p The original form-based button is hidden, but remains in the markup.  When a click event fires on a link button, it triggers a click on the original form button.
+        %p
+          %strong Button
+          based button:
+        %button Button element
+        %p
+          %strong Input type="button"
+          based button:
+        %input{:type => "button", :value => "Input type=button"}/
+        %p
+          %strong Input type="submit"
+          based button:
+        %input{:type => "submit", :value => "Input type=submit"}/
+        %p
+          %strong Input type="reset"
+          based button:
+        %input{:type => "reset", :value => "Input type=reset"}/
+        %p
+          %strong Input type="image"
+          based button:
+        %input{:type => "image", :value => "Input type=image"}/
+      / /content
+    / /page

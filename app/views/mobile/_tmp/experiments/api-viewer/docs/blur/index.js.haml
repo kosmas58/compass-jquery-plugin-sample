@@ -1,0 +1,86 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "content-type"}/
+  %body
+    %div{"data-role" => "page"}
+      %div{"data-role" => "header"}
+        %h1 .blur()
+      #blur1{"data-role" => "content", "data-theme" => "c"}
+        %h2.jq-clearfix.roundTop.section-title
+          %span.name .blur( handler(eventObject) )
+          %span.returns
+            Returns:
+            %a.return{:href => "http://docs.jquery.com/Types#jQuery"} jQuery
+        .entry-details
+          %p.desc
+            %strong> Description:
+            Bind an event handler to the "blur" JavaScript event, or trigger that event on an element.
+          %ul.signatures
+            %li#blur-handlereventObject.signature
+              %h4.name
+                %span.versionAdded>
+                  version added:
+                  %a{:href => "/category/version/1.0/"} 1.0
+                \.blur( handler(eventObject) )
+              %p.arguement
+                %strong> handler(eventObject)
+                A function to execute each time the event is triggered.
+            %li#blur.signature
+              %h4.name
+                %span.versionAdded>
+                  version added:
+                  %a{:href => "/category/version/1.0/"} 1.0
+                \.blur()
+          .longdesc
+            %p
+              This method is a shortcut for
+              %code .bind('blur', handler)
+              in the first variation, and
+              %code .trigger('blur')
+              in the second.
+            %p
+              The
+              %code blur
+              event is sent to an element when it loses focus. Originally, this event was only applicable to form elements, such as
+              = succeed "." do
+                %code &lt;input&gt;
+              In recent browsers, the domain of the event has been extended to include all element types. An element can lose focus via keyboard commands, such as the Tab key, or by mouse clicks elsewhere on the page.
+            %p For example, consider the HTML:
+            %pre
+              :preserve
+                &lt;form&gt;
+                  &lt;input id="target" type="text" value="Field 1" /&gt;
+                  &lt;input type="text" value="Field 2" /&gt;
+                &lt;/form&gt;
+                &lt;div id="other"&gt;
+                  Trigger the handler
+                &lt;/div&gt;
+                The event handler can be bound to the first input field:
+                $('#target').blur(function() {
+                  alert('Handler for .blur() called.');
+                });            %p Now if the first field has the focus and we click elsewhere, or tab away from it, the alert is displayed:
+            %p
+              %span.output Handler for .blur() called.
+            %p We can trigger the event when another element is clicked:
+            %pre
+              :preserve
+                $('#other').click(function() {
+                  $('#target').blur();
+                });            %p
+              After this code executes, clicks on
+              %span.output Trigger the handler
+              will also alert the message.
+            %p
+              The
+              %code blur
+              event does not bubble in Internet Explorer. Therefore, scripts that rely on event delegation with the
+              %code blur
+              event will not work consistently across browsers.
+          %h3 Example:
+          #entry-examples.entry-examples
+            #example-0
+              %h4
+                %span.desc To trigger the blur event on all paragraphs:
+              %pre
+                %code.example $("p").blur();

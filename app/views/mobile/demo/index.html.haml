@@ -2,86 +2,43 @@
 
 - content_for :content_head do
   = render(:partial => "index.js.haml", :format => :js)
-%div
-  #jqm-home.ui-page.ui-body-b.ui-page-active{"data-role" => "page", "data-theme" => "b"}
-    #jqm-homeheader
-      %h1#jqm-logo
-        %img{:alt => "jQuery Mobile Framework", :height => "61", :src => "/images/demo/jqm/jquery-logo.png", :width => "235"}/
-      %p A Touch-Optimized Web Framework for Smartphones &amp; Tablets
-      %p#jqm-version Alpha Release
-    .ui-content{"data-role" => "content", :role => "main"}
-      %ul.ui-listview.ui-listview-inset.ui-corner-all.ui-controlgroup.ui-controlgroup-vertical.ui-shadow{"data-dividertheme" => "b", "data-inset" => "true", "data-role" => "listview", "data-theme" => "c", :role => "listbox"}
-        %li.ui-li.ui-li-divider.ui-btn.ui-bar-b.ui-corner-top{"data-role" => "list-divider", :role => "heading", :tabindex => "0"} Overview
-        %li.ui-li.ui-btn.ui-btn-icon-right.ui-btn-up-c{"data-theme" => "c", :role => "option", :tabindex => "-1"}
-          .ui-btn-inner
-            %span.ui-icon.ui-icon-arrow-r
-            .ui-btn-text
-              %a.ui-link-inherit{:href => "http://jquerymobile.com/demos/1.0a1/docs/about/intro.html"} Intro to jQuery Mobile
-        %li.ui-li.ui-btn.ui-btn-icon-right.ui-btn-up-c{"data-theme" => "c", :role => "option", :tabindex => "-1"}
-          .ui-btn-inner
-            %span.ui-icon.ui-icon-arrow-r
-            .ui-btn-text
-              %a.ui-link-inherit{:href => "http://jquerymobile.com/demos/1.0a1/docs/about/features.html"} Features
-        %li.ui-li.ui-btn.ui-btn-icon-right.ui-btn-up-c{"data-theme" => "c", :role => "option", :tabindex => "-1"}
-          .ui-btn-inner
-            %span.ui-icon.ui-icon-arrow-r
-            .ui-btn-text
-              %a.ui-link-inherit{:href => "http://jquerymobile.com/demos/1.0a1/docs/about/accessibility.html"} Accessibility
-        %li.ui-li.ui-btn.ui-btn-icon-right.ui-btn-up-c{"data-theme" => "c", :role => "option", :tabindex => "-1"}
-          .ui-btn-inner
-            %span.ui-icon.ui-icon-arrow-r
-            .ui-btn-text
-              %a.ui-link-inherit{:href => "http://jquerymobile.com/demos/1.0a1/docs/about/platforms.html"} Supported platforms
-        %li.ui-li.ui-btn.ui-btn-icon-right.ui-corner-bottom.ui-controlgroup-last.ui-btn-up-c{"data-theme" => "c", :role => "option", :tabindex => "-1"}
-          .ui-btn-inner.ui-corner-bottom.ui-controlgroup-last
-            %span.ui-icon.ui-icon-arrow-r
-            .ui-btn-text
-              %a.ui-link-inherit{:href => "http://jquerymobile.com/demos/1.0a1/docs/about/themes.html"} Theme system
-      %ul.ui-listview.ui-listview-inset.ui-corner-all.ui-controlgroup.ui-controlgroup-vertical.ui-shadow{"data-dividertheme" => "b", "data-inset" => "true", "data-role" => "listview", "data-theme" => "c", :role => "listbox"}
-        %li.ui-li.ui-li-divider.ui-btn.ui-bar-b.ui-corner-top{"data-role" => "list-divider", :role => "heading", :tabindex => "0"} Components
-        %li.ui-li.ui-btn.ui-btn-icon-right.ui-btn-up-c{"data-theme" => "c", :role => "option", :tabindex => "-1"}
-          .ui-btn-inner
-            %span.ui-icon.ui-icon-arrow-r
-            .ui-btn-text
-              %a.ui-link-inherit{:href => "http://jquerymobile.com/demos/1.0a1/docs/pages/index.html"} Pages &amp; dialogs
-        %li.ui-li.ui-btn.ui-btn-icon-right.ui-btn-up-c{"data-theme" => "c", :role => "option", :tabindex => "-1"}
-          .ui-btn-inner
-            %span.ui-icon.ui-icon-arrow-r
-            .ui-btn-text
-              %a.ui-link-inherit{:href => "http://jquerymobile.com/demos/1.0a1/docs/toolbars/index.html"} Toolbars
-        %li.ui-li.ui-btn.ui-btn-icon-right.ui-btn-up-c{"data-theme" => "c", :role => "option", :tabindex => "-1"}
-          .ui-btn-inner
-            %span.ui-icon.ui-icon-arrow-r
-            .ui-btn-text
-              %a.ui-link-inherit{:href => "http://jquerymobile.com/demos/1.0a1/docs/buttons/index.html"} Buttons
-        %li.ui-li.ui-btn.ui-btn-icon-right.ui-btn-up-c{"data-theme" => "c", :role => "option", :tabindex => "-1"}
-          .ui-btn-inner
-            %span.ui-icon.ui-icon-arrow-r
-            .ui-btn-text
-              %a.ui-link-inherit{:href => "http://jquerymobile.com/demos/1.0a1/docs/content/index.html"} Content formatting
-        %li.ui-li.ui-btn.ui-btn-icon-right.ui-btn-up-c{"data-theme" => "c", :role => "option", :tabindex => "-1"}
-          .ui-btn-inner
-            %span.ui-icon.ui-icon-arrow-r
-            .ui-btn-text
-              %a.ui-link-inherit{:href => "http://jquerymobile.com/demos/1.0a1/docs/forms/index.html"} Form elements
-        %li.ui-li.ui-btn.ui-btn-icon-right.ui-corner-bottom.ui-controlgroup-last.ui-btn-up-c{"data-theme" => "c", :role => "option", :tabindex => "-1"}
-          .ui-btn-inner.ui-corner-bottom.ui-controlgroup-last
-            %span.ui-icon.ui-icon-arrow-r
-            .ui-btn-text
-              %a.ui-link-inherit{:href => "http://jquerymobile.com/demos/1.0a1/docs/lists/index.html"} List views
-        / <li><a href="docs/events.html">Events</a></li>
-      %ul.ui-listview.ui-listview-inset.ui-corner-all.ui-controlgroup.ui-controlgroup-vertical.ui-shadow{"data-dividertheme" => "b", "data-inset" => "true", "data-role" => "listview", "data-theme" => "c", :role => "listbox"}
-        %li.ui-li.ui-li-divider.ui-btn.ui-bar-b.ui-corner-top{"data-role" => "list-divider", :role => "heading", :tabindex => "0"} Demos
-        %li.ui-li.ui-btn.ui-btn-icon-right.ui-corner-bottom.ui-controlgroup-last.ui-btn-up-c{"data-theme" => "c", :role => "option", :tabindex => "-1"}
-          .ui-btn-inner.ui-corner-bottom.ui-controlgroup-last
-            %span.ui-icon.ui-icon-arrow-r
-            .ui-btn-text
-              %a.ui-link-inherit{:href => "http://jquerymobile.com/demos/1.0a1/experiments/api-viewer/index.html"} jQuery API browser
-      .jqm-themeswitcher
-        %a.ui-btn.ui-btn-inline.ui-btn-icon-left.ui-btn-corner-all.ui-btn-up-d{"data-theme" => "d", :href => "http://jquerymobile.com/demos/1.0a1/#"}
-          %span.ui-btn-inner.ui-btn-corner-all
-            %span.ui-icon.ui-icon-gear
-            %span.ui-btn-text Switch theme
-  .ui-loader.ui-body-a.ui-corner-all{:style => "top: 75px; "}
-    %span.ui-icon.ui-icon-loading.spin
-    %h1 loading
+
+#jqm-home{"data-role" => "page", "data-theme" => "b"}
+  #jqm-homeheader
+    %h1#jqm-logo
+      %img{:alt => "jQuery Mobile Framework", :height => "61", :src => "/images/demo/mobile/jquery-logo.png", :width => "235"}/
+    %p A Touch-Optimized Web Framework for Smartphones &amp; Tablets
+    %p#jqm-version Alpha Release
+  %div{"data-role" => "content"}
+    %ul{"data-dividertheme" => "b", "data-inset" => "true", "data-role" => "listview", "data-theme" => "c"}
+      %li{"data-role" => "list-divider"} Overview
+      %li
+        %a{:href => "docs/about/intro"} Intro to jQuery Mobile
+      %li
+        %a{:href => "docs/about/features"} Features
+      %li
+        %a{:href => "docs/about/accessibility"} Accessibility
+      %li
+        %a{:href => "docs/about/platforms"} Supported platforms
+      %li
+        %a{:href => "docs/about/themes"} Theme system
+    %ul{"data-dividertheme" => "b", "data-inset" => "true", "data-role" => "listview", "data-theme" => "c"}
+      %li{"data-role" => "list-divider"} Components
+      %li
+        %a{:href => "docs/pages"} Pages &amp; dialogs
+      %li
+        %a{:href => "docs/toolbars"} Toolbars
+      %li
+        %a{:href => "docs/buttons"} Buttons
+      %li
+        %a{:href => "docs/content"} Content formatting
+      %li
+        %a{:href => "docs/forms"} Form elements
+      %li
+        %a{:href => "docs/lists"} List views
+      %li
+        %a{:href => "docs/events"} Events
+    %ul{"data-dividertheme" => "b", "data-inset" => "true", "data-role" => "listview", "data-theme" => "c"}
+      %li{"data-role" => "list-divider"} Demos
+      %li
+        %a{:href => "experiments/api-viewer"} jQuery API browser

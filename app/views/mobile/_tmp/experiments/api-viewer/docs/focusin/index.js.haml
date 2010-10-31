@@ -1,0 +1,68 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "content-type"}/
+  %body
+    %div{"data-role" => "page"}
+      %div{"data-role" => "header"}
+        %h1 .focusin()
+      #focusin1{"data-role" => "content", "data-theme" => "c"}
+        %h2.jq-clearfix.roundTop.section-title
+          %span.name .focusin( handler(eventObject) )
+          %span.returns
+            Returns:
+            %a.return{:href => "http://docs.jquery.com/Types#jQuery"} jQuery
+        .entry-details
+          %p.desc
+            %strong> Description:
+            Bind an event handler to the "focusin" JavaScript event.
+          %ul.signatures
+            %li#focusin-handlereventObject.signature
+              %h4.name
+                %span.versionAdded>
+                  version added:
+                  %a{:href => "/category/version/1.4/"} 1.4
+                \.focusin( handler(eventObject) )
+              %p.arguement
+                %strong> handler(eventObject)
+                A function to execute each time the event is triggered.
+          .longdesc
+            %p
+              This method is a shortcut for
+              = succeed "." do
+                %code .bind('focusin', handler)
+            %p
+              The
+              %code focusin
+              event is sent to an element when it, or any element inside of it, gains focus. This is distinct from the
+              %a{:href => "/focus"} focus
+              event in that it supports detecting the focus event on parent elements.
+            %p
+              This event will likely be used together with the
+              %a{:href => "/focusout"} focusout
+              event.
+          %h3 Example:
+          #entry-examples.entry-examples
+            #example-0
+              %h4
+                %span.desc Watch for a focus to occur within the paragraphs on the page.
+              %pre
+                %code.example.demo-code
+                  :preserve
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html&gt;
+                    &lt;head&gt;
+                      &lt;style&gt;span {display:none;}&lt;/style&gt;
+                      &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+                    &lt;/head&gt;
+                    &lt;body&gt;
+                    	&lt;p&gt;&lt;input type="text" /&gt; &lt;span&gt;focusin fire&lt;/span&gt;&lt;/p&gt;
+                    &lt;p&gt;&lt;input type="password" /&gt; &lt;span&gt;focusin fire&lt;/span&gt;&lt;/p&gt;
+                    &lt;script&gt;
+                        $("p").focusin(function() {
+                             $(this).find("span").css('display','inline').fadeOut(1000);
+                        });
+                    &lt;/script&gt;
+                    &lt;/body&gt;
+                    &lt;/html&gt;              %h4 Demo:
+              .demo.code-demo

@@ -1,0 +1,68 @@
+!!!
+/ saved from url=(0053)http://flowplayer.org/tools/demos/tooltip/imitate.htm
+%html
+  /
+    This is a jQuery Tools standalone demo. Feel free to copy/paste.
+    
+    http://flowplayer.org/tools/demos/
+    
+    Do *not* reference CSS files and images from flowplayer.org when in production
+    
+    Enjoy!
+  %head
+    %meta{:content => "text/html; charset=ISO-8859-1", "http-equiv" => "Content-Type"}
+      %title jQuery Tools standalone demo
+      / include the Tools
+      %script{:src => "./demo3_files/jquery.tools.min.js"}
+      / standalone page styling (can be removed)
+      %link{:href => "./demo3_files/standalone.css", :rel => "stylesheet", :type => "text/css"}
+        / tooltip styling
+        :css
+          .tooltip {
+          	display:none;
+          	background-color:#ffa;
+          	border:1px solid #cc9;
+          	padding:3px;
+          	font-size:13px;
+          	-moz-box-shadow: 2px 2px 11px #666;
+          	-webkit-box-shadow: 2px 2px 11px #666;
+          }
+
+          /* style the trigger elements */
+          #triggers img {
+          	border:0;
+          	cursor:pointer;
+          	margin-left:11px;
+          }
+            %body
+    / the tooltip
+    %span.tooltip &nbsp;
+    / a couple of trigger elements
+    #triggers
+      %img{:src => "./demo3_files/1.jpg", :title => "This is browser's default tooltip."}
+        %img{:src => "./demo3_files/2.jpg", :title => "Another default tooltip. It comes with a slight delay"}
+          %img{:src => "./demo3_files/3.jpg"}
+            %img{:src => "./demo3_files/4.jpg"}
+    :javascript
+      // What is $(document).ready ? See: http://flowplayer.org/tools/documentation/basics.html#document_ready
+      $(document).ready(function() {
+      	
+      	$("img[title]:gt(1)").tooltip({
+      
+      		// use div.tooltip as our tooltip
+      		tip: '.tooltip',
+      
+      		// use the fade effect instead of the default
+      		effect: 'fade',
+      
+      		// make fadeOutSpeed similar to the browser's default
+      		fadeOutSpeed: 100,
+      
+      		// the time before the tooltip is shown
+      		predelay: 400,
+      
+      		// tweak the position
+      		position: "bottom right",
+      		offset: [-50, -80]
+      	});
+      });

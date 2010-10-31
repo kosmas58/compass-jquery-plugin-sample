@@ -1,0 +1,51 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "content-type"}/
+  %body
+    %div{"data-role" => "page"}
+      %div{"data-role" => "header"}
+        %h1 jQuery.isArray()
+      %div{"data-role" => "content", "data-theme" => "c", :id => "jQuery.isArray1"}
+        %h2.jq-clearfix.roundTop.section-title
+          %span.name jQuery.isArray( obj )
+          %span.returns
+            Returns:
+            %a.return{:href => "http://docs.jquery.com/Types#boolean"} boolean
+        .entry-details
+          %p.desc
+            %strong> Description:
+            Determine whether the argument is an array.
+          %ul.signatures
+            %li.signature{:id => "jQuery.isArray-obj"}
+              %h4.name
+                %span.versionAdded>
+                  version added:
+                  %a{:href => "/category/version/1.3/"} 1.3
+                jQuery.isArray( obj )
+              %p.arguement
+                %strong> obj
+                Object to test whether or not it is an array.
+          .longdesc
+            %p
+              %code $.isArray()
+              returns a Boolean indicating whether the object is a JavaScript array (not an array-like object, such as a jQuery object).
+          %h3 Example:
+          #entry-examples.entry-examples
+            #example-0
+              %h4
+                %span.desc Finds out if the parameter is an array.
+              %pre
+                %code.example.demo-code
+                  :preserve
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html&gt;
+                    &lt;head&gt;
+                      &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+                    &lt;/head&gt;
+                    &lt;body&gt;
+                    	Is [] an Array? &lt;b&gt;&lt;/b&gt;
+                    &lt;script&gt;$("b").append( "" + $.isArray([]) );&lt;/script&gt;
+                    &lt;/body&gt;
+                    &lt;/html&gt;              %h4 Demo:
+              .demo.code-demo

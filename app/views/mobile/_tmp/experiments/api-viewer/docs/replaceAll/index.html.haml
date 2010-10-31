@@ -1,0 +1,79 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "content-type"}/
+  %body
+    %div{"data-role" => "page"}
+      %div{"data-role" => "header"}
+        %h1 .replaceAll()
+      #replaceAll1{"data-role" => "content", "data-theme" => "c"}
+        %h2.jq-clearfix.roundTop.section-title
+          %span.name .replaceAll()
+          %span.returns
+            Returns:
+            %a.return{:href => "http://docs.jquery.com/Types#jQuery"} jQuery
+        .entry-details
+          %p.desc
+            %strong> Description:
+            Replace each target element with the set of matched elements.
+          %ul.signatures
+            %li#replaceAll.signature
+              %h4.name
+                %span.versionAdded>
+                  version added:
+                  %a{:href => "/category/version/1.2/"} 1.2
+                \.replaceAll()
+          .longdesc
+            %p
+              The
+              %code .replaceAll()
+              method is corollary to
+              = succeed "," do
+                %code
+                  %a{:href => "/replaceWith"} .replaceWith()
+              but with the source and target reversed. Consider this DOM structure:
+            %pre
+              :preserve
+                &lt;div class="container"&gt;
+                  &lt;div class="inner first"&gt;Hello&lt;/div&gt;
+                  &lt;div class="inner second"&gt;And&lt;/div&gt;
+                  &lt;div class="inner third"&gt;Goodbye&lt;/div&gt;
+                &lt;/div&gt;            %p We can create an element, then replace other elements with it:
+            %pre $('&lt;h2&gt;New heading&lt;/h2&gt;').replaceAll('.inner');
+            %p This causes all of them to be replaced:
+            %pre
+              :preserve
+                &lt;div class="container"&gt;
+                  &lt;h2&gt;New heading&lt;/h2&gt;
+                  &lt;h2&gt;New heading&lt;/h2&gt;
+                  &lt;h2&gt;New heading&lt;/h2&gt;
+                &lt;/div&gt;            %p Or, we could select an element to use as the replacement:
+            %pre $('.first').replaceAll('.third');
+            %p This results in the DOM structure:
+            %pre
+              :preserve
+                &lt;div class="container"&gt;
+                  &lt;div class="inner second"&gt;And&lt;/div&gt;
+                  &lt;div class="inner first"&gt;Hello&lt;/div&gt;
+                &lt;/div&gt;            %p From this example, we can see that the selected element replaces the target by being moved from its old location, not by being cloned.
+          %h3 Example:
+          #entry-examples.entry-examples
+            #example-0
+              %h4
+                %span.desc Replace all the paragraphs with bold words.
+              %pre
+                %code.example.demo-code
+                  :preserve
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html&gt;
+                    &lt;head&gt;
+                      &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+                    &lt;/head&gt;
+                    &lt;body&gt;
+                    	&lt;p&gt;Hello&lt;/p&gt;
+                      &lt;p&gt;cruel&lt;/p&gt;
+                      &lt;p&gt;World&lt;/p&gt;
+                    &lt;script&gt;$("&lt;b&gt;Paragraph. &lt;/b&gt;").replaceAll("p"); // check replaceWith() examples&lt;/script&gt;
+                    &lt;/body&gt;
+                    &lt;/html&gt;              %h4 Demo:
+              .demo.code-demo

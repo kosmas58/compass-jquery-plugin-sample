@@ -1,0 +1,38 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "content-type"}/
+  %body
+    %div{"data-role" => "page"}
+      %div{"data-role" => "header"}
+        %h1 event.data
+      %div{"data-role" => "content", "data-theme" => "c", :id => "event.data1"}
+        %h2.jq-clearfix.roundTop.section-title
+          %span.name event.data
+          %span.returns
+            Returns:
+            %a.return{:href => "http://docs.jquery.com/Types#Anything"} Anything
+        .entry-details
+          %p.desc
+            %strong Description:
+            Contains the optional data passed to jQuery.fn.bind when the current executing handler was bound.
+          %ul.signatures
+            %li.signature{:id => "event.data"}
+              %h4.name
+                %span.versionAdded>
+                  version added:
+                  %a{:href => "/category/version/1.1/"} 1.1
+                event.data
+          %h3 Example:
+          #entry-examples.entry-examples
+            #example-0
+              %h4
+                %span.desc The description of the example.
+              %pre
+                %code.example
+                  :preserve
+                    $("a").each(function(i) {
+                      $(this).bind('click', {index:i}, function(e){
+                         alert('my index is ' + e.data.index);
+                      });
+                    });   

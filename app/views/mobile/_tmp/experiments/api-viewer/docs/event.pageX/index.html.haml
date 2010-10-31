@@ -1,0 +1,48 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "content-type"}/
+  %body
+    %div{"data-role" => "page"}
+      %div{"data-role" => "header"}
+        %h1 event.pageX
+      %div{"data-role" => "content", "data-theme" => "c", :id => "event.pageX1"}
+        %h2.jq-clearfix.roundTop.section-title
+          %span.name event.pageX
+          %span.returns
+            Returns:
+            %a.return{:href => "http://docs.jquery.com/Types#Number"} Number
+        .entry-details
+          %p.desc
+            %strong> Description:
+            The mouse position relative to the left edge of the document.
+          %ul.signatures
+            %li.signature{:id => "event.pageX"}
+              %h4.name
+                %span.versionAdded>
+                  version added:
+                  %a{:href => "/category/version/1.0.4/"} 1.0.4
+                event.pageX
+          %h3 Example:
+          #entry-examples.entry-examples
+            #example-0
+              %h4
+                %span.desc Show the mouse position relative to the left and top edges of the document (within the iframe).
+              %pre
+                %code.example.demo-code
+                  :preserve
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html&gt;
+                    &lt;head&gt;
+                      &lt;style&gt;body {background-color: #eef; }
+                    div { padding: 20px; }&lt;/style&gt;
+                      &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+                    &lt;/head&gt;
+                    &lt;body&gt;
+                    	&lt;div id="log"&gt;&lt;/div&gt;
+                    &lt;script&gt;$(document).bind('mousemove',function(e){ 
+                                $("#log").text("e.pageX: " + e.pageX + ", e.pageY: " + e.pageY); 
+                    }); &lt;/script&gt;
+                    &lt;/body&gt;
+                    &lt;/html&gt;              %h4 Demo:
+              .demo.code-demo

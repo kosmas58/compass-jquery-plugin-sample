@@ -1,0 +1,160 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "content-type"}/
+  %body
+    %div{"data-role" => "page"}
+      %div{"data-role" => "header"}
+        %h1 .parents()
+      #parents1{"data-role" => "content", "data-theme" => "c"}
+        %h2.jq-clearfix.roundTop.section-title
+          %span.name .parents( [ selector ] )
+          %span.returns
+            Returns:
+            %a.return{:href => "http://docs.jquery.com/Types#jQuery"} jQuery
+        .entry-details
+          %p.desc
+            %strong> Description:
+            Get the ancestors of each element in the current set of matched elements, optionally filtered by a selector.
+          %ul.signatures
+            %li#parents-selector.signature
+              %h4.name
+                %span.versionAdded>
+                  version added:
+                  %a{:href => "/category/version/1.0/"} 1.0
+                \.parents( [ selector ] )
+              %p.arguement
+                %strong> selector
+                A string containing a selector expression to match elements against.
+          .longdesc
+            %p
+              Given a jQuery object that represents a set of DOM elements, the
+              %code .parents()
+              method allows us to search through the ancestors of these elements in the DOM tree and construct a new jQuery object from the matching elements. The
+              %code .parents()
+              and
+              %code .parent()
+              methods are similar, except that the latter only travels a single level up the DOM tree.
+            %p
+              The method optionally accepts a selector expression of the same type that we can pass to the
+              %code $()
+              function. If the selector is supplied, the elements will be filtered by testing whether they match it.
+            %p Consider a page with a basic nested list on it:
+            %pre
+              :preserve
+                
+                &lt;ul class="level-1"&gt;
+                  &lt;li class="item-i"&gt;I&lt;/li&gt;
+                  &lt;li class="item-ii"&gt;II
+                    &lt;ul class="level-2"&gt;
+                      &lt;li class="item-a"&gt;A&lt;/li&gt;
+                      &lt;li class="item-b"&gt;B
+                        &lt;ul class="level-3"&gt;
+                          &lt;li class="item-1"&gt;1&lt;/li&gt;
+                          &lt;li class="item-2"&gt;2&lt;/li&gt;
+                          &lt;li class="item-3"&gt;3&lt;/li&gt;
+                        &lt;/ul&gt;
+                      &lt;/li&gt;
+                      &lt;li class="item-c"&gt;C&lt;/li&gt;
+                    &lt;/ul&gt;
+                  &lt;/li&gt;
+                  &lt;li class="item-iii"&gt;III&lt;/li&gt;
+                &lt;/ul&gt;
+            %p If we begin at item A, we can find its ancestors:
+            %pre $('li.item-a').parents().css('background-color', 'red');
+            %p
+              The result of this call is a red background for the level-2 list, item II, and the level-1 list (and on up the DOM tree all the way to the
+              %code &lt;html&gt;
+              element). Since we do not supply a selector expression, all of the ancestors are part of the returned jQuery object. If we had supplied one, only the matching items among these would be included.
+          %h3 Examples:
+          #entry-examples.entry-examples
+            #example-0
+              %h4
+                Example:
+                %span.desc Find all parent elements of each b.
+              %pre
+                %code.example.demo-code
+                  :preserve
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html&gt;
+                    &lt;head&gt;
+                      &lt;style&gt;
+                      b, span, p, html body {
+                        padding: .5em;
+                        border: 1px solid;
+                      }
+                      b { color:blue; }
+                      strong { color:red; }
+                      &lt;/style&gt;
+                      &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+                    &lt;/head&gt;
+                    &lt;body&gt;
+                    	&lt;div&gt;
+                        &lt;p&gt;
+                          &lt;span&gt;
+                            &lt;b&gt;My parents are: &lt;/b&gt;
+                          &lt;/span&gt;
+                    
+                        &lt;/p&gt;
+                      &lt;/div&gt;
+                    &lt;script&gt;
+                        var parentEls = $("b").parents()
+                                              .map(function () { 
+                                                    return this.tagName; 
+                                                  })
+                                              .get().join(", ");
+                        $("b").append("&lt;strong&gt;" + parentEls + "&lt;/strong&gt;");
+                    
+                    &lt;/script&gt;
+                    &lt;/body&gt;
+                    &lt;/html&gt;              %h4 Demo:
+              .demo.code-demo
+            #example-1
+              %h4
+                Example:
+                %span.desc Click to find all unique div parent elements of each span.
+              %pre
+                %code.example.demo-code
+                  :preserve
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html&gt;
+                    &lt;head&gt;
+                      &lt;style&gt;
+                    
+                      p, div, span {margin:2px; padding:1px; }
+                      div { border:2px white solid; }
+                      span { cursor:pointer; font-size:12px; }
+                      .selected { color:blue; }
+                      b { color:red; display:block; font-size:14px; }
+                      &lt;/style&gt;
+                      &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+                    &lt;/head&gt;
+                    &lt;body&gt;
+                    	&lt;p&gt;
+                        &lt;div&gt;
+                          &lt;div&gt;&lt;span&gt;Hello&lt;/span&gt;&lt;/div&gt;
+                          &lt;span&gt;Hello Again&lt;/span&gt;
+                    
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                          &lt;span&gt;And Hello Again&lt;/span&gt;
+                        &lt;/div&gt;
+                      &lt;/p&gt;
+                    
+                      &lt;b&gt;Click Hellos to toggle their parents.&lt;/b&gt;
+                    &lt;script&gt;
+                        function showParents() {
+                          $("div").css("border-color", "white");
+                          var len = $("span.selected")
+                                           .parents("div")
+                                           .css("border", "2px red solid")
+                                           .length;
+                          $("b").text("Unique div parents: " + len);
+                        }
+                        $("span").click(function () {
+                          $(this).toggleClass("selected");
+                          showParents();
+                        });&lt;/script&gt;
+                    &lt;/body&gt;
+                    &lt;/html&gt;              %h4 Demo:
+              .demo.code-demo

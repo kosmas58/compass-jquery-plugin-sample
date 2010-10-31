@@ -1,0 +1,107 @@
+!!!
+%html
+  %head
+    %title jQuery Mobile Framework - Persistent footer demo
+    %link{:href => "../../themes/default", :rel => "stylesheet"}/
+    %script{:src => "../../js/all", :type => "text/javascript"}
+  %body
+    %div{"data-role" => "page"}
+      %div{"data-position" => "fixed", "data-role" => "header"}
+        %h1 Inbox
+        %a.ui-btn-right{"data-icon" => "gear", "data-rel" => "dialog", "data-transition" => "pop", :href => "../forms/forms-all.html"} Options
+      %div{"data-role" => "content"}
+        %ul{"data-role" => "listview"}
+          %li{"data-role" => "list-divider"}
+            Friday, October 8, 2010
+            %span.ui-li-count 2
+          %li
+            %h3
+              %a{:href => "index.html"} Stephen Weber
+            %p
+              %strong You've been invited to a meeting at Filament Group in Boston, MA
+            %p Hey Stephen, if you're available at 10am tomorrow, we've got a meeting with the jQuery team.
+            %p.ui-li-aside
+              %strong> 6:24
+              PM
+          %li
+            %h3
+              %a{:href => "index.html"} jQuery Team
+            %p
+              %strong Boston Conference Planning
+            %p In preparation for the upcoming conference in Boston, we need to start gathering a list of sponsors and speakers.
+            %p.ui-li-aside
+              %strong> 9:18
+              AM
+          %li{"data-role" => "list-divider"}
+            Thursday, October 7, 2010
+            %span.ui-li-count 1
+          %li
+            %h3
+              %a{:href => "index.html"} Avery Walker
+            %p
+              %strong Re: Dinner Tonight
+            %p Sure, let's plan on meeting at Highland Kitchen at 8:00 tonight. Can't wait!
+            %p.ui-li-aside
+              %strong> 4:48
+              PM
+          %li{"data-role" => "list-divider"}
+            Wednesday, October 6, 2010
+            %span.ui-li-count 3
+          %li
+            %h3
+              %a{:href => "index.html"} Amazon.com
+            %p
+              %strong 4-for-3 Books for Kids
+            %p As someone who has purchased children's books from our 4-for-3 Store, you may be interested in these featured books.
+            %p.ui-li-aside
+              %strong> 12:47
+              PM
+          %li
+            %h3
+              %a{:href => "index.html"} Mike Taylor
+            %p
+              %strong Re: This weekend in Maine
+            %p Hey little buddy, sorry but I can't make it up to vacationland this weekend. Maybe next weekend?
+            %p.ui-li-aside
+              %strong> 6:24
+              AM
+          %li
+            %h3
+              %a{:href => "index.html"} Redfin
+            %p
+              %strong Redfin listing updates for today
+            %p There are 3 updates for the home on your watchlist: 1 updated MLS listing and 2 homes under contract.
+            %p.ui-li-aside
+              %strong> 5:52
+              AM
+          %li{"data-role" => "list-divider"}
+            Tuesday, October 5, 2010
+            %span.ui-li-count 3
+          %li
+            %h3
+              %a{:href => "index.html"} Angela Smith
+            %p
+              %strong Link Request
+            %p My name is Angela Smith, SEO Consultant. I've greatly enjoyed looking through your site and I was wondering if you'd be interested in providing a link
+            %p.ui-li-aside
+              %strong> 6:24
+              AM
+          %li
+            %h3
+              %a{:href => "index.html"} Mike Taylor
+            %p
+              %strong This weekend in Maine
+            %p Sounds good, let me check into our plans.
+            %p.ui-li-aside
+              %strong> 6:24
+              AM
+      %div{"data-id" => "foo1", "data-position" => "fixed", "data-role" => "footer"}
+        %div{"data-role" => "navbar"}
+          %ul
+            %li
+              %a{:href => "footer-persist-a.html"} Friends
+            %li
+              %a{:href => "footer-persist-b.html"} Albums
+            %li
+              %a.ui-btn-active{:href => "footer-persist-c.html"} Emails
+        / /navbar

@@ -1,0 +1,53 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "content-type"}/
+  %body
+    .ui-page
+      %div{"data-role" => "header"}
+        %h1 Attribute Contains Prefix Selector [name|=value]
+      #attributeContainsPrefix1.ui-page.ui-body.ui-body-c
+        %h2.jq-clearfix.roundTop.section-title
+          %span.name attributeContainsPrefix
+          selector
+        .entry-details
+          %h4.name
+            %span.versionAdded>
+              version added:
+              %a{:href => "/version/1.0/"} 1.0
+            jQuery('[attribute|=value]')
+          %ul.signatures
+            %li
+              %dl.arguments
+                %dt attribute
+                %dd An attribute name.
+                %dt value
+                %dd An attribute value. Quotes are optional.
+          %p.desc
+            %strong> Description:
+            Selects elements that have the specified attribute with a value either equal to a given string or starting with that string followed by a hyphen (-).
+          .longdesc
+            %p This selector was introduced into the CSS specification to handle language attributes.
+          %h3 Example:
+          #entry-examples.entry-examples
+            #example-0
+              %h4
+                %span.desc Finds all links with an hreflang attribute that is english.
+              %pre
+                %code.example.demo-code
+                  :preserve
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html&gt;
+                    &lt;head&gt;
+                      &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+                    &lt;/head&gt;
+                    &lt;body&gt;
+                    	
+                                             &lt;a href="example.html" hreflang="en"&gt;Some text&lt;/a&gt; 
+                                             
+                                              &lt;a href="example.html" hreflang="en-UK"&gt;Some other text&lt;/a&gt;
+                                            
+                    &lt;script&gt;$('a[hreflang|=en]').css('border','3px dotted green');&lt;/script&gt;
+                    &lt;/body&gt;
+                    &lt;/html&gt;              %h4 Demo:
+              .demo.code-demo

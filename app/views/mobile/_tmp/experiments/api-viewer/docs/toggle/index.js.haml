@@ -1,0 +1,270 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "content-type"}/
+  %body
+    %div{"data-role" => "page"}
+      %div{"data-role" => "header"}
+        %h1 .toggle()
+      #toggle1{"data-role" => "content", "data-theme" => "c"}
+        %h2.jq-clearfix.roundTop.section-title
+          %span.name .toggle( handler(eventObject), handler(eventObject), [ handler(eventObject) ] )
+          %span.returns
+            Returns:
+            %a.return{:href => "http://docs.jquery.com/Types#jQuery"} jQuery
+        .entry-details
+          %p.desc
+            %strong> Description:
+            Bind two or more handlers to the matched elements, to be executed on alternate clicks.
+          %ul.signatures
+            %li#toggle-handlereventObject-handlereventObject-handlereventObject.signature
+              %h4.name
+                %span.versionAdded>
+                  version added:
+                  %a{:href => "/category/version/1.0/"} 1.0
+                \.toggle( handler(eventObject), handler(eventObject), [ handler(eventObject) ] )
+              %p.arguement
+                %strong> handler(eventObject)
+                A function to execute every even time the element is clicked.
+              %p.arguement
+                %strong> handler(eventObject)
+                A function to execute every odd time the element is clicked.
+              %p.arguement
+                %strong> handler(eventObject)
+                Additional handlers to cycle through after clicks.
+          .longdesc
+            %p
+              The
+              %code .toggle()
+              method binds a handler for the
+              %code click
+              event, so the rules outlined for the triggering of
+              %code click
+              apply here as well.
+            %pre
+              :preserve
+                For example, consider the HTML:
+                &lt;div id="target"&gt;
+                  Click here
+                &lt;/div&gt;            %p.image
+              %img{:alt => "", :src => "http://api.jquery.com/images/0042_05_05.png"}/
+            %p
+              Event handlers can then be bound to the
+              = succeed ":" do
+                %code &lt;div&gt;
+            %pre
+              :preserve
+                $('#target').toggle(function() {
+                  alert('First handler for .toggle() called.');
+                }, function() {
+                  alert('Second handler for .toggle() called.');
+                });            %p As the element is clicked repeatedly, the messages alternate:
+            %p
+              %span.output First handler for .toggle() called.
+              %br
+                %span.output Second handler for .toggle() called.
+                %br
+                  %span.output First handler for .toggle() called.
+                  %br
+                    %span.output Second handler for .toggle() called.
+                    %br
+                      %span.output First handler for .toggle() called.
+            %p
+              If more than two handlers are provided,
+              %code .toggle()
+              will cycle among all of them. For example, if there are three handlers, then the first handler will be called on the first click, the fourth click, the seventh click, and so on.
+            %p
+              The
+              %code .toggle()
+              method is provided for convenience. It is relatively straightforward to implement the same behavior by hand, and this can be necessary if the assumptions built into
+              %code .toggle()
+              prove limiting. For example,
+              %code .toggle()
+              is not guaranteed to work correctly if applied twice to the same element. Since
+              %code .toggle()
+              internally uses a
+              %code click
+              handler to do its work, we must unbind
+              %code click
+              to remove a behavior attached with
+              = succeed "," do
+                %code .toggle()
+              so other
+              %code click
+              handlers can be caught in the crossfire. The implementation also calls
+              %code .preventDefault()
+              on the event, so links will not be followed and buttons will not be clicked if
+              %code .toggle()
+              has been called on the element.
+          %h3 Examples:
+          #entry-examples.entry-examples
+            #example-0
+              %h4
+                Example:
+                %span.desc Click to toggle highlight on the list item.
+              %pre
+                %code.example.demo-code
+                  :preserve
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html&gt;
+                    &lt;head&gt;
+                      &lt;style&gt;
+                      ul { margin:10px; list-style:inside circle; font-weight:bold; }
+                      li { cursor:pointer; }
+                      &lt;/style&gt;
+                      &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+                    &lt;/head&gt;
+                    &lt;body&gt;
+                    	&lt;ul&gt;
+                        &lt;li&gt;Go to the store&lt;/li&gt;
+                        &lt;li&gt;Pick up dinner&lt;/li&gt;
+                        &lt;li&gt;Debug crash&lt;/li&gt;
+                    
+                        &lt;li&gt;Take a jog&lt;/li&gt;
+                      &lt;/ul&gt;
+                    &lt;script&gt;
+                        $("li").toggle(
+                          function () {
+                            $(this).css({"list-style-type":"disc", "color":"blue"});
+                          },
+                          function () {
+                            $(this).css({"list-style-type":"disc", "color":"red"});
+                          },
+                          function () {
+                            $(this).css({"list-style-type":"", "color":""});
+                          }
+                        );
+                    
+                    &lt;/script&gt;
+                    &lt;/body&gt;
+                    &lt;/html&gt;              %h4 Demo:
+              .demo.code-demo
+            #example-1
+              %h4
+                Example:
+                %span.desc To toggle a style on table cells:
+              %pre
+                %code.example
+                  :preserve
+                    $("td").toggle(
+                      function () {
+                        $(this).addClass("selected");
+                      },
+                      function () {
+                        $(this).removeClass("selected");
+                      }
+                    );      #toggle2{"data-role" => "content", "data-theme" => "c"}
+        %h2.jq-clearfix.roundTop.section-title
+          %span.name .toggle( [ duration ], [ callback ] )
+          %span.returns
+            Returns:
+            %a.return{:href => "http://docs.jquery.com/Types#jQuery"} jQuery
+        .entry-details
+          %p.desc
+            %strong> Description:
+            Display or hide the matched elements.
+          %ul.signatures
+            %li#toggle-duration-callback.signature
+              %h4.name
+                %span.versionAdded>
+                  version added:
+                  %a{:href => "/category/version/1.0/"} 1.0
+                \.toggle( [ duration ], [ callback ] )
+              %p.arguement
+                %strong> duration
+                A string or number determining how long the animation will run.
+              %p.arguement
+                %strong> callback
+                A function to call once the animation is complete.
+            %li#toggle-showOrHide.signature
+              %h4.name
+                %span.versionAdded>
+                  version added:
+                  %a{:href => "/category/version/1.3/"} 1.3
+                \.toggle( showOrHide )
+              %p.arguement
+                %strong> showOrHide
+                A Boolean indicating whether to show or hide the elements.
+          %h3 Examples:
+          #entry-examples.entry-examples
+            #example-0
+              %h4
+                Example:
+                %span.desc Toggles all paragraphs.
+              %pre
+                %code.example.demo-code
+                  :preserve
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html&gt;
+                    &lt;head&gt;
+                      &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+                    &lt;/head&gt;
+                    &lt;body&gt;
+                    	&lt;button&gt;Toggle&lt;/button&gt;
+                    &lt;p&gt;Hello&lt;/p&gt;
+                    &lt;p style="display: none"&gt;Good Bye&lt;/p&gt;
+                    &lt;script&gt;
+                    
+                    $("button").click(function () {
+                    $("p").toggle();
+                    });
+                    &lt;/script&gt;
+                    &lt;/body&gt;
+                    &lt;/html&gt;              %h4 Demo:
+              .demo.code-demo
+            #example-1
+              %h4
+                Example:
+                %span.desc Animates all paragraphs to be shown if they are hidden and hidden if they are visible, completing the animation within 600 milliseconds.
+              %pre
+                %code.example.demo-code
+                  :preserve
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html&gt;
+                    &lt;head&gt;
+                      &lt;style&gt;
+                    p { background:#dad;
+                    font-weight:bold;
+                    font-size:16px; }
+                    &lt;/style&gt;
+                      &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+                    &lt;/head&gt;
+                    &lt;body&gt;
+                    	&lt;button&gt;Toggle 'em&lt;/button&gt;
+                    
+                    &lt;p&gt;Hiya&lt;/p&gt;
+                    &lt;p&gt;Such interesting text, eh?&lt;/p&gt;
+                    &lt;script&gt;
+                    $("button").click(function () {
+                    $("p").toggle("slow");
+                    });    
+                    &lt;/script&gt;
+                    &lt;/body&gt;
+                    &lt;/html&gt;              %h4 Demo:
+              .demo.code-demo
+            #example-2
+              %h4
+                Example:
+                %span.desc Shows all paragraphs, then hides them all, back and forth.
+              %pre
+                %code.example.demo-code
+                  :preserve
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html&gt;
+                    &lt;head&gt;
+                      &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+                    &lt;/head&gt;
+                    &lt;body&gt;
+                    	&lt;button&gt;Toggle&lt;/button&gt;
+                    &lt;p&gt;Hello&lt;/p&gt;
+                    &lt;p style="display: none"&gt;Good Bye&lt;/p&gt;
+                    &lt;script&gt;
+                    
+                    var flip = 0;
+                    $("button").click(function () {
+                    $("p").toggle( flip++ % 2 == 0 );
+                    });
+                    &lt;/script&gt;
+                    &lt;/body&gt;
+                    &lt;/html&gt;              %h4 Demo:
+              .demo.code-demo

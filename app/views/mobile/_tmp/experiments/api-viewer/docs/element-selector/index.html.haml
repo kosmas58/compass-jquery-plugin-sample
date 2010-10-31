@@ -1,0 +1,69 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "content-type"}/
+  %body
+    %div{"data-role" => "page"}
+      %div{"data-role" => "header"}
+        %h1 Element Selector (“element”)
+        .entry-meta
+          Categories:
+          %span.category
+            %a{:href => "http://api.jquery.com/category/selectors/", :title => "View all posts in Selectors"} Selectors
+            \&gt;
+            %a{:href => "http://api.jquery.com/category/selectors/basic-css-selectors/", :title => "View all posts in Basic"} Basic
+      #element1{"data-role" => "content", "data-theme" => "c"}
+        %h2.jq-clearfix.roundTop.section-title
+          %span.name element
+          selector
+        .entry-details
+          %h4.name
+            %span.versionAdded>
+              version added:
+              %a{:href => "/version/1.0/"} 1.0
+            jQuery('element')
+          %ul.signatures
+            %li
+              %dl.arguments
+                %dt element
+                %dd An element to search for. Refers to the tagName of DOM nodes.
+          %p.desc
+            %strong> Description:
+            Selects all elements with the given tag name.
+          .longdesc
+            %p
+              JavaScript's
+              %code getElementsByTagName()
+              function is called to return the appropriate elements when this expression is used.
+          %h3 Example:
+          #entry-examples.entry-examples
+            #example-0
+              %h4
+                %span.desc Finds every DIV element.
+              %pre
+                %code.example.demo-code
+                  :preserve
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html&gt;
+                    &lt;head&gt;
+                      &lt;style&gt;
+                      div,span {
+                        width: 60px;
+                        height: 60px;
+                        float:left;
+                        padding: 10px;
+                        margin: 10px;
+                        background-color: #EEEEEE;
+                      }
+                      &lt;/style&gt;
+                      &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+                    &lt;/head&gt;
+                    &lt;body&gt;
+                    	&lt;div&gt;DIV1&lt;/div&gt;
+                    
+                      &lt;div&gt;DIV2&lt;/div&gt;
+                      &lt;span&gt;SPAN&lt;/span&gt;
+                    &lt;script&gt;$("div").css("border","9px solid red");&lt;/script&gt;
+                    &lt;/body&gt;
+                    &lt;/html&gt;              %h4 Demo:
+              .demo.code-demo

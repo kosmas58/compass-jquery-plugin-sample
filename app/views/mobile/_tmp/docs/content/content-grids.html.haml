@@ -1,0 +1,127 @@
+!!!
+%html
+  %head
+    %title jQuery Mobile Docs - Content formatting
+    %link{:href => "../../themes/default", :rel => "stylesheet"}/
+    %script{:src => "../../js/all", :type => "text/javascript"}
+    %script{:src => "../docs/docs.js", :type => "text/javascript"}
+  %body
+    %div{"data-role" => "page"}
+      %div{"data-role" => "header"}
+        %h1 Layout grids
+      / /header
+      %div{"data-role" => "content"}
+        %p Using multiple column layouts isn't generally recommended on a mobile device because of the narrow screen width, but there are times where you may need to place small elements side-by-side (like buttons or navigation tabs, for example).
+        %p
+          The jQuery Mobile framework provides a simple way to build CSS-based columns through a  block style class convention called
+          = succeed "." do
+            %code ui-grid
+        %p
+          There are two preset configurations layouts &mdash; two-column (using the
+          %code class
+          of
+          = succeed ")," do
+            %code ui-grid-a
+          and three-column (using the
+          %code class
+          of
+          = succeed ")" do
+            %code ui-grid-b
+          \&mdash; that can be used in any situation that requires columns. Grids are 100% width, completely invisible (no borders or backgrounds) and don't have padding or margins, so they shouldn't interfere with the styles of elements placed inside them.
+        %h2 Two column grids
+        %p
+          To build a two-column (50/50%) layout, start with a container with a
+          %code class
+          of
+          = succeed "," do
+            %code ui-grid-a
+          and add two child containers inside it classed with
+          %code ui-block-a
+          for the first column and
+          %code ui-block-b
+          for the second:
+        %pre
+          %code
+            :preserve
+              
+              &lt;div class=&quot;ui-grid-a&quot;&gt;
+              	&lt;div class=&quot;ui-block-a&quot;&gt;&lt;strong&gt;I'm Block A&lt;/strong&gt; and text inside will wrap&lt;/div&gt;
+              	&lt;div class=&quot;ui-block-b&quot;&gt;&lt;strong&gt;I'm Block B&lt;/strong&gt; and text inside will wrap&lt;/div&gt;
+              &lt;/div&gt;&lt;!-- /grid-a --&gt;
+        %p The above markup produces the following content layout:
+        .ui-grid-a
+          .ui-block-a
+            %strong I'm Block A
+            and text inside will wrap.
+          .ui-block-b
+            %strong I'm Block B
+            and text inside will wrap.
+        / /grid-a
+        %p As you see above, by default grid blocks have no styles for appearance; they simply present content side-by-side.
+        %p
+          Grid classes can be applied to any container. In this next example, we add
+          %code ui-grid-a
+          to a
+          = succeed "," do
+            %code fieldset
+          and apply the
+          %code ui-block
+          classes to the two buttons inside to stretch them each to 50% of the screen width:
+        %pre
+          %code
+            :preserve
+              
+              &lt;fieldset class=&quot;ui-grid-a&quot;&gt;
+              	&lt;div class=&quot;ui-block-a&quot;&gt;&lt;button type=&quot;submit&quot; data-theme=&quot;c&quot;&gt;Cancel&lt;/button&gt;&lt;/div&gt;
+              	&lt;div class=&quot;ui-block-b&quot;&gt;&lt;button type=&quot;submit&quot; data-theme=&quot;b&quot;&gt;Submit&lt;/button&gt;&lt;/div&gt;	   
+              &lt;/fieldset&gt;
+        %fieldset.ui-grid-a
+          .ui-block-a
+            %button{"data-theme" => "c", :type => "submit"} Cancel
+          .ui-block-b
+            %button{"data-theme" => "b", :type => "submit"} Submit
+        %p
+          And, grid blocks can adopt presentation styles from the
+          %a{:href => "../themes/index.html"} theming system
+          \&mdash; by adding a height and color swatch reference to the grid blocks, we can achieve this style appearance:
+        .ui-grid-a
+          .ui-block-a
+            .ui-bar.ui-bar-e{:style => "height:120px"} Block A
+          .ui-block-b
+            .ui-bar.ui-bar-e{:style => "height:120px"} Block B
+        / /grid-a
+        %h2 Three-column grids
+        %p
+          The other grid layout configuration uses
+          %code class=ui-grid-b
+          on the parent, and 3 child container elements, each with its respective
+          %code ui-block-a/b/c
+          class, to create a three-column layout (33/33/33%).
+        %pre
+          %code
+            :preserve
+              
+              &lt;div class=&quot;ui-grid-b&quot;&gt;
+              	&lt;div class=&quot;ui-block-a&quot;&gt;Block A&lt;/div&gt;
+              	&lt;div class=&quot;ui-block-b&quot;&gt;Block B&lt;/div&gt;
+              	&lt;div class=&quot;ui-block-c&quot;&gt;Block C&lt;/div&gt;
+              &lt;/div&gt;&lt;!-- /grid-a --&gt;
+        %p This will produce a 33/33/33% grid for our content.
+        .ui-grid-b
+          .ui-block-a
+            .ui-bar.ui-bar-e{:style => "height:120px"} Block A
+          .ui-block-b
+            .ui-bar.ui-bar-e{:style => "height:120px"} Block B
+          .ui-block-c
+            .ui-bar.ui-bar-e{:style => "height:120px"} Block C
+        / /grid-a
+        %p And an example of a 3 column grid with buttons inside:
+        %fieldset.ui-grid-b
+          .ui-block-a
+            %button{"data-theme" => "c", :type => "submit"} Hmm
+          .ui-block-b
+            %button{"data-theme" => "a", :type => "submit"} No
+          .ui-block-b
+            %button{"data-theme" => "b", :type => "submit"} Yes
+      / /content
+    / /page

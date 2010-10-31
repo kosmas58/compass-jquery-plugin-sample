@@ -1,0 +1,53 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "content-type"}/
+  %body
+    %div{"data-role" => "page"}
+      %div{"data-role" => "header"}
+        %h1 Multiple Attribute Selector [name=value][name2=value2]
+      #attributeMultiple1{"data-role" => "content", "data-theme" => "c"}
+        %h2.jq-clearfix.roundTop.section-title
+          %span.name attributeMultiple
+          selector
+        .entry-details
+          %h4.name
+            %span.versionAdded>
+              version added:
+              %a{:href => "/version/1.0/"} 1.0
+            jQuery('[attributeFilter1][attributeFilter2][attributeFilterN]')
+          %ul.signatures
+            %li
+              %dl.arguments
+                %dt attributeFilter1
+                %dd An attribute filter.
+                %dt attributeFilter2
+                %dd Another attribute filter, reducing the selection even more
+                %dt attributeFilterN
+                %dd As many more attribute filters as necessary
+          %p.desc
+            %strong> Description:
+            Matches elements that match all of the specified attribute filters.
+          %h3 Example:
+          #entry-examples.entry-examples
+            #example-0
+              %h4
+                %span.desc Finds all inputs that have an id attribute and whose name attribute ends with man and sets the value.
+              %pre
+                %code.example.demo-code
+                  :preserve
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html&gt;
+                    &lt;head&gt;
+                      &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+                    &lt;/head&gt;
+                    &lt;body&gt;
+                    	&lt;input id="man-news" name="man-news" /&gt;
+                    
+                      &lt;input name="milkman" /&gt;
+                      &lt;input id="letterman" name="new-letterman" /&gt;
+                      &lt;input name="newmilk" /&gt;
+                    &lt;script&gt;$("input[id][name$='man']").val("only this one");&lt;/script&gt;
+                    &lt;/body&gt;
+                    &lt;/html&gt;              %h4 Demo:
+              .demo.code-demo

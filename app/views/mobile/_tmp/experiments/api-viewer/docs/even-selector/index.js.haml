@@ -1,0 +1,59 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "content-type"}/
+  %body
+    %div{"data-role" => "page"}
+      %div{"data-role" => "header"}
+        %h1 :even Selector
+      #even1{"data-role" => "content", "data-theme" => "c"}
+        %h2.jq-clearfix.roundTop.section-title
+          %span.name even
+          selector
+        .entry-details
+          %h4.name
+            %span.versionAdded>
+              version added:
+              %a{:href => "/version/1.0/"} 1.0
+            jQuery(':even')
+          %p.desc
+            %strong> Description:
+            Selects even elements, zero-indexed.  See also odd.
+          .longdesc
+            %p
+              In particular, note that the
+              %em 0-based indexing
+              means that, counter-intuitively,
+              %code :even
+              selects the first element, third element, and so on within the matched set.
+          %h3 Example:
+          #entry-examples.entry-examples
+            #example-0
+              %h4
+                %span.desc Finds even table rows, matching the first, third and so on (index 0, 2, 4 etc.).
+              %pre
+                %code.example.demo-code
+                  :preserve
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html&gt;
+                    &lt;head&gt;
+                      &lt;style&gt;
+                    
+                      table {
+                        background:#eeeeee;
+                      }
+                      &lt;/style&gt;
+                      &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+                    &lt;/head&gt;
+                    &lt;body&gt;
+                    	&lt;table border="1"&gt;
+                        &lt;tr&gt;&lt;td&gt;Row with Index #0&lt;/td&gt;&lt;/tr&gt;
+                        &lt;tr&gt;&lt;td&gt;Row with Index #1&lt;/td&gt;&lt;/tr&gt;
+                    
+                        &lt;tr&gt;&lt;td&gt;Row with Index #2&lt;/td&gt;&lt;/tr&gt;
+                        &lt;tr&gt;&lt;td&gt;Row with Index #3&lt;/td&gt;&lt;/tr&gt;
+                      &lt;/table&gt;
+                    &lt;script&gt;$("tr:even").css("background-color", "#bbbbff");&lt;/script&gt;
+                    &lt;/body&gt;
+                    &lt;/html&gt;              %h4 Demo:
+              .demo.code-demo

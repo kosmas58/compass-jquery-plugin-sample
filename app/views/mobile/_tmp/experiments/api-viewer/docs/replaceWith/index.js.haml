@@ -1,0 +1,204 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "content-type"}/
+  %body
+    %div{"data-role" => "page"}
+      %div{"data-role" => "header"}
+        %h1 .replaceWith()
+      #replaceWith1{"data-role" => "content", "data-theme" => "c"}
+        %h2.jq-clearfix.roundTop.section-title
+          %span.name .replaceWith( newContent )
+          %span.returns
+            Returns:
+            %a.return{:href => "http://docs.jquery.com/Types#jQuery"} jQuery
+        .entry-details
+          %p.desc
+            %strong> Description:
+            Replace each element in the set of matched elements with the provided new content.
+          %ul.signatures
+            %li#replaceWith-newContent.signature
+              %h4.name
+                %span.versionAdded>
+                  version added:
+                  %a{:href => "/category/version/1.2/"} 1.2
+                \.replaceWith( newContent )
+              %p.arguement
+                %strong> newContent
+                The content to insert. May be an HTML string, DOM element, or jQuery object.
+            %li#replaceWith-function.signature
+              %h4.name
+                %span.versionAdded>
+                  version added:
+                  %a{:href => "/category/version/1.4/"} 1.4
+                \.replaceWith( function )
+              %p.arguement
+                %strong> function
+                A function that returns an HTML string to replace the set of matched elements with.
+          .longdesc
+            %p
+              The
+              %code .replaceWith()
+              method allows us to remove content from the DOM and insert new content in its place with a single call. Consider this DOM structure:
+            %pre
+              :preserve
+                &lt;div class="container"&gt;
+                  &lt;div class="inner first"&gt;Hello&lt;/div&gt;
+                  &lt;div class="inner second"&gt;And&lt;/div&gt;
+                  &lt;div class="inner third"&gt;Goodbye&lt;/div&gt;
+                &lt;/div&gt;            %p
+              We can replace the second inner
+              %code &lt;div&gt;
+              with specified HTML:
+            %pre $('.second').replaceWith('&lt;h2&gt;New heading&lt;/h2&gt;');
+            %p This results in the structure:
+            %pre
+              :preserve
+                &lt;div class="container"&gt;
+                  &lt;div class="inner first"&gt;Hello&lt;/div&gt;
+                  &lt;h2&gt;New heading&lt;/h2&gt;
+                  &lt;div class="inner third"&gt;Goodbye&lt;/div&gt;
+                &lt;/div&gt;            %p
+              We could equally target all inner
+              %code &lt;div&gt;
+              elements at once:
+            %pre $('.inner').replaceWith('&lt;h2&gt;New heading&lt;/h2&gt;');
+            %p This causes all of them to be replaced:
+            %pre
+              :preserve
+                &lt;div class="container"&gt;
+                  &lt;h2&gt;New heading&lt;/h2&gt;
+                  &lt;h2&gt;New heading&lt;/h2&gt;
+                  &lt;h2&gt;New heading&lt;/h2&gt;
+                &lt;/div&gt;            %p Or, we could select an element to use as the replacement:
+            %pre $('.third').replaceWith($('.first'));
+            %p This results in the DOM structure:
+            %pre
+              :preserve
+                &lt;div class="container"&gt;
+                  &lt;div class="inner second"&gt;And&lt;/div&gt;
+                  &lt;div class="inner first"&gt;Hello&lt;/div&gt;
+                &lt;/div&gt;            %p From this example, we can see that the selected element replaces the target by being moved from its old location, not by being cloned.
+            %p
+              The
+              %code .replaceWith()
+              method, like most jQuery methods, returns the jQuery object so that other methods can be chained onto it. However, it must be noted that the
+              %emphasis{:role => "italics"} original
+              jQuery object is returned. This object refers to the element that has been removed from the DOM, not the new element that has replaced it.
+            %p In jQuery 1.4 replaceWith, before, and after will also work on disconnected DOM nodes. For example if you were to do:
+            %pre
+              $("
+              %div>
+              ").replaceWith("
+              %p>
+              ");
+            %p Then you would end up with a jQuery set that contains only a paragraph.
+          %h3 Examples:
+          #entry-examples.entry-examples
+            #example-0
+              %h4
+                Example:
+                %span.desc On click, replace the button with a div containing the same word.
+              %pre
+                %code.example.demo-code
+                  :preserve
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html&gt;
+                    &lt;head&gt;
+                      &lt;style&gt;
+                      button { display:block; margin:3px; color:red; width:200px; }
+                      div { color:red; border:2px solid blue; width:200px; 
+                            margin:3px; text-align:center; }
+                      &lt;/style&gt;
+                      &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+                    &lt;/head&gt;
+                    &lt;body&gt;
+                    	&lt;button&gt;First&lt;/button&gt;
+                      &lt;button&gt;Second&lt;/button&gt;
+                    
+                      &lt;button&gt;Third&lt;/button&gt;
+                    &lt;script&gt;
+                    
+                        $("button").click(function () {
+                          $(this).replaceWith("&lt;div&gt;" + $(this).text() + "&lt;/div&gt;");
+                        });
+                    &lt;/script&gt;
+                    &lt;/body&gt;
+                    &lt;/html&gt;              %h4 Demo:
+              .demo.code-demo
+            #example-1
+              %h4
+                Example:
+                %span.desc Replace all the paragraphs with bold words.
+              %pre
+                %code.example.demo-code
+                  :preserve
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html&gt;
+                    &lt;head&gt;
+                      &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+                    &lt;/head&gt;
+                    &lt;body&gt;
+                    	&lt;p&gt;Hello&lt;/p&gt;
+                      &lt;p&gt;cruel&lt;/p&gt;
+                    
+                      &lt;p&gt;World&lt;/p&gt;
+                    &lt;script&gt;$("p").replaceWith("&lt;b&gt;Paragraph. &lt;/b&gt;");&lt;/script&gt;
+                    &lt;/body&gt;
+                    &lt;/html&gt;              %h4 Demo:
+              .demo.code-demo
+            #example-2
+              %h4
+                Example:
+                %span.desc Replace all the paragraphs with empty div elements.
+              %pre
+                %code.example.demo-code
+                  :preserve
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html&gt;
+                    &lt;head&gt;
+                      &lt;style&gt;
+                      div { border:2px solid blue; margin:3px; }
+                      &lt;/style&gt;
+                      &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+                    &lt;/head&gt;
+                    &lt;body&gt;
+                    	&lt;p&gt;Hello&lt;/p&gt;
+                    
+                      &lt;p&gt;cruel&lt;/p&gt;
+                      &lt;p&gt;World&lt;/p&gt;
+                    &lt;script&gt;$("p").replaceWith(document.createElement("div"));&lt;/script&gt;
+                    &lt;/body&gt;
+                    &lt;/html&gt;              %h4 Demo:
+              .demo.code-demo
+            #example-3
+              %h4
+                Example:
+                %span.desc On click, replace each paragraph with a jQuery div object that is already in the DOM.  Notice it doesn't clone the object but rather moves it to replace the paragraph.
+              %pre
+                %code.example.demo-code
+                  :preserve
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html&gt;
+                    &lt;head&gt;
+                      &lt;style&gt;
+                      div { border:2px solid blue; color:red; margin:3px; }
+                      p { border:2px solid red; color:blue; margin:3px; cursor:pointer; }
+                      &lt;/style&gt;
+                      &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+                    &lt;/head&gt;
+                    &lt;body&gt;
+                    	&lt;p&gt;Hello&lt;/p&gt;
+                      &lt;p&gt;cruel&lt;/p&gt;
+                      &lt;p&gt;World&lt;/p&gt;
+                    
+                      &lt;div&gt;Replaced!&lt;/div&gt;
+                    &lt;script&gt;
+                        $("p").click(function () {
+                          $(this).replaceWith($("div"));
+                        });
+                    
+                    &lt;/script&gt;
+                    &lt;/body&gt;
+                    &lt;/html&gt;              %h4 Demo:
+              .demo.code-demo

@@ -1,0 +1,134 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "content-type"}/
+  %body
+    %div{"data-role" => "page"}
+      %div{"data-role" => "header"}
+        %h1 .ready()
+      #ready1{"data-role" => "content", "data-theme" => "c"}
+        %h2.jq-clearfix.roundTop.section-title
+          %span.name .ready( handler )
+          %span.returns
+            Returns:
+            %a.return{:href => "http://docs.jquery.com/Types#jQuery"} jQuery
+        .entry-details
+          %p.desc
+            %strong> Description:
+            Specify a function to execute when the DOM is fully loaded.
+          %ul.signatures
+            %li#ready-handler.signature
+              %h4.name
+                %span.versionAdded>
+                  version added:
+                  %a{:href => "/category/version/1.0/"} 1.0
+                \.ready( handler )
+              %p.arguement
+                %strong> handler
+                A function to execute after the DOM is ready.
+          .longdesc
+            %p
+              While JavaScript provides the
+              %code load
+              event for executing code when a page is rendered, this event does not get triggered until all assets such as images have been completely received. In most cases, the script can be run as soon as the DOM hierarchy has been fully constructed. The handler passed to
+              %code .ready()
+              is guaranteed to be executed after the DOM is ready, so this is usually the best place to attach all other event handlers and run other jQuery code.  When using scripts that rely on the value of CSS style properties, it's important to reference external stylesheets or embed style elements before referencing the scripts.
+            %p
+              In cases where code relies on loaded assets (for example, if the dimensions of an image are required), the code should be placed in a handler for the
+              %code load
+              event instead.
+            %blockquote
+              %p
+                The
+                %code .ready()
+                method is generally incompatible with the
+                %code &lt;body onload=""&gt;
+                attribute. If
+                %code load
+                must be used, either do not use
+                %code .ready()
+                or use jQuery's
+                %code .load()
+                method to attach
+                %code load
+                event handlers to the window or to more specific items, like images.
+            %p All three of the following syntaxes are equivalent:
+            %ul
+              %li
+                %code $(document).ready(handler)
+              %li
+                %code $().ready(handler)
+                (this is not recommended)
+              %li
+                %code $(handler)
+            %p
+              There is also
+              = succeed "." do
+                %code $(document).bind("ready", handler)
+              This behaves similarly to the ready method but with one exception: If the ready event has already fired and you try to
+              %code .bind("ready")
+              the bound handler will not be executed.
+            %p
+              The
+              %code .ready()
+              method can only be called on a jQuery object matching the current document, so the selector can be omitted.
+            %p
+              The
+              %code .ready()
+              method is typically used with an anonymous function:
+            %pre
+              :preserve
+                $(document).ready(function() {
+                  // Handler for .ready() called.
+                });            %p
+              If
+              %code .ready()
+              is called after the DOM has been initialized, the new handler passed in will be executed immediately.
+            %h4 Aliasing the jQuery Namespace
+            %p
+              When using another JavaScript library, we may wish to call
+              %code
+                %a{:href => "/jQuery.noConflict"} $.noConflict()
+              to avoid namespace difficulties. When this function is called, the
+              %code $
+              shortcut is no longer available, forcing us to write
+              %code jQuery
+              each time we would normally write
+              = succeed "." do
+                %code $
+              However, the handler passed to the
+              %code .ready()
+              method can take an argument, which is passed the global
+              %code jQuery
+              object. This means we can rename the object within the context of our
+              %code .ready()
+              handler without affecting other code:
+            %pre
+              :preserve
+                jQuery(document).ready(function($) {
+                  // Code using $ as usual goes here.
+                });          %h3 Example:
+          #entry-examples.entry-examples
+            #example-0
+              %h4
+                %span.desc Display a message when the DOM is loaded.
+              %pre
+                %code.example.demo-code
+                  :preserve
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html&gt;
+                    &lt;head&gt;
+                      &lt;style&gt;p { color:red; }&lt;/style&gt;
+                      &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+                      &lt;script&gt;
+                      $(document).ready(function () {
+                      $("p").text("The DOM is now loaded and can be manipulated.");
+                    });
+                      &lt;/script&gt;
+                    
+                    &lt;/head&gt;
+                    &lt;body&gt;
+                    	&lt;p&gt;Not loaded yet.&lt;/p&gt;
+                    &lt;/body&gt;
+                    &lt;/html&gt;              %h4 Demo:
+              .demo.code-demo

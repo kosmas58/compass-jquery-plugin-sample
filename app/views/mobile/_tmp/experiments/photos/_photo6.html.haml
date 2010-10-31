@@ -1,0 +1,17 @@
+!!!
+%html
+  %head
+    %title jQuery Mobile Framework - Photo 1
+    %link{:href => "../../themes/default", :rel => "stylesheet"}/
+    %script{:src => "../../js/all", :type => "text/javascript"}
+    %link{:href => "photos.css", :rel => "stylesheet"}/
+    %script{:src => "photos.js", :type => "text/javascript"}
+  %body
+    .photoview{"data-fullscreen" => "true", "data-role" => "page"}
+      %div{"data-role" => "header"}
+        %h1 Sandy beach
+      %div{"data-role" => "content"}
+        %img{:alt => "photo-sand", :src => "images/photo-sand.jpeg"}/
+      .ui-footer.ui-bar-a
+        %a.prev{:href => "_photo5.html"} Prev
+        %a.next{:href => "index.html"} First
