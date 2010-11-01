@@ -1,0 +1,85 @@
+- content_for :content_head do
+  = render(:partial => "/mobile/docs/docs.js.haml", :format => :js)
+
+%div{"data-role" => "page"}
+  %div{"data-position" => "fixed", "data-role" => "header"}
+    %h1 Friends
+    %a.ui-btn-right{"data-icon" => "gear", "data-rel" => "dialog", "data-transition" => "pop", :href => "/mobile/docs/forms/forms-all"} Options
+  %div{"data-role" => "content"}
+    %p
+      This page is a demo of a persistent footer navigation bar. At the foot of the page, you'll
+      see a persistent horizontal navigation bar. Click on any of the links, and you'll see the
+      page content transition but the footer remain fixed: The footer sticks persistently even when
+      transitioning to a new HTML page, because the footer on all four HTML pages has the same
+      %code data-id
+      attribute.
+    %ul{"data-dividertheme" => "d", "data-role" => "listview", :style => "margin-top: 0;"}
+      %li{"data-role" => "list-divider"} A
+      %li
+        %a{:href => "index.html"} Adam Kinkaid
+      %li
+        %a{:href => "index.html"} Alex Wickerham
+      %li
+        %a{:href => "index.html"} Avery Johnson
+      %li{"data-role" => "list-divider"} B
+      %li
+        %a{:href => "index.html"} Bob Cabot
+      %li{"data-role" => "list-divider"} C
+      %li
+        %a{:href => "index.html"} Caleb Booth
+      %li
+        %a{:href => "index.html"} Christopher Adams
+      %li
+        %a{:href => "index.html"} Culver James
+      %li{"data-role" => "list-divider"} D
+      %li
+        %a{:href => "index.html"} David Walsh
+      %li
+        %a{:href => "index.html"} Drake Alfred
+      %li{"data-role" => "list-divider"} E
+      %li
+        %a{:href => "index.html"} Elizabeth Bacon
+      %li
+        %a{:href => "index.html"} Emery Parker
+      %li
+        %a{:href => "index.html"} Enid Voldon
+      %li{"data-role" => "list-divider"} F
+      %li
+        %a{:href => "index.html"} Francis Wall
+      %li{"data-role" => "list-divider"} G
+      %li
+        %a{:href => "index.html"} Graham Smith
+      %li
+        %a{:href => "index.html"} Greta Peete
+      %li{"data-role" => "list-divider"} H
+      %li
+        %a{:href => "index.html"} Harvey Walls
+      %li{"data-role" => "list-divider"} M
+      %li
+        %a{:href => "index.html"} Mike Farnsworth
+      %li
+        %a{:href => "index.html"} Murray Vanderbuilt
+      %li{"data-role" => "list-divider"} N
+      %li
+        %a{:href => "index.html"} Nathan Williams
+      %li{"data-role" => "list-divider"} P
+      %li
+        %a{:href => "index.html"} Paul Baker
+      %li
+        %a{:href => "index.html"} Pete Mason
+      %li{"data-role" => "list-divider"} R
+      %li
+        %a{:href => "index.html"} Rod Tarker
+      %li{"data-role" => "list-divider"} S
+      %li
+        %a{:href => "index.html"} Sawyer Wakefield
+  %div{"data-id" => "foo1", "data-position" => "fixed", "data-role" => "footer"}
+    %div{"data-role" => "navbar"}
+      %ul
+        %li
+          %a.ui-btn-active{:href => "/mobile/docs/toolbars/footer-persist-a"} Friends
+        %li
+          %a{:href => "/mobile/docs/toolbars/footer-persist-b"} Albums
+        %li
+          %a{:href => "/mobile/docs/toolbars/footer-persist-c"} Emails
+    / /navbar

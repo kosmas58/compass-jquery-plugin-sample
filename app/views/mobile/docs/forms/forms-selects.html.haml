@@ -1,0 +1,125 @@
+- content_for :content_head do
+  = render(:partial => "/mobile/docs/docs.js.haml", :format => :js)
+
+%div{"data-role" => "page"}
+  %div{"data-role" => "header"}
+    %h1 Select Menus
+  / /header
+  %div{"data-role" => "content"}
+    %form{:action => "#", :method => "get"}
+      %h2 Select menus
+      %p
+        The select menus are driven off native
+        %code select
+        elements, but the native selects are hidden from view and replaced with more style-friendly
+        markup. The replacement buttons and menus are ARIA-enabled and are keyboard accessible on the
+        desktop as well.
+      %p
+        When clicked, if the menu has room it will appear as an overlay listbox, but if there are too
+        many options to fit in the window without scrolling, the page content is wrapped in a div and
+        hidden, and the menu is appended as a whole new page. This lets us take advantage of native
+        scrolling while the menu is in use.
+      %p
+        To add a select widget to your page, start with a standard
+        %code select
+        element populated with a set of
+        %code option
+        elements. Set the
+        %code for
+        attribute of the
+        %code label
+        to match the ID of the
+        %code select
+        so they are semantically associated. Wrap them in a
+        %code div
+        with the
+        %code data-role="fieldcontain"
+        attribute to help visually group it in a longer form.
+      %p
+        The framework will find all
+        %code select
+        elements and automatically enhance them into the custom select menus.
+      %pre
+        %code
+          :preserve
+            &lt;div data-role=&quot;fieldcontain&quot;&gt;
+              &lt;label for=&quot;select-choice-1&quot; class=&quot;select&quot;&gt;Choose shipping method:&lt;/label&gt;
+              &lt;select name=&quot;select-choice-1&quot; id=&quot;select-choice-1&quot;&gt;
+                &lt;option value=&quot;standard&quot;&gt;Standard: 7 day&lt;/option&gt;
+                &lt;option value=&quot;rush&quot;&gt;Rush: 3 days&lt;/option&gt;
+                &lt;option value=&quot;express&quot;&gt;Express: next day&lt;/option&gt;
+                &lt;option value=&quot;overnight&quot;&gt;Overnight&lt;/option&gt;
+              &lt;/select&gt;
+            &lt;/div&gt;
+      %p
+        If there is a small number of options that will fit on the device's screen, it will appear
+        as a small overlay with a pop transition.
+      %div{"data-role" => "fieldcontain"}
+        %label.select{:for => "select-choice-1"} Choose shipping method:
+        %select#select-choice-1{:name => "select-choice-1"}
+          %option{:value => "standard"} Standard: 7 day
+          %option{:value => "rush"} Rush: 3 days
+          %option{:value => "express"} Express: next day
+          %option{:value => "overnight"} Overnight
+      %p
+        If there is a select menu with too many options to show on the device's screen, the framework
+        will automatically create a new "page" populated with a standard list view that contains all
+        the options. This allows us to use the native scrolling included on the device for moving
+        through a long list. The text inside the
+        %code label
+        is used as the title for this page.
+      %div{"data-role" => "fieldcontain"}
+        %label.select{:for => "select-choice-3"} Your state:
+        %select#select-choice-3{:name => "select-choice-3"}
+          %option{:value => "AL"} Alabama
+          %option{:value => "AK"} Alaska
+          %option{:value => "AZ"} Arizona
+          %option{:value => "AR"} Arkansas
+          %option{:value => "CA"} California
+          %option{:value => "CO"} Colorado
+          %option{:value => "CT"} Connecticut
+          %option{:value => "DE"} Delaware
+          %option{:value => "FL"} Florida
+          %option{:value => "GA"} Georgia
+          %option{:value => "HI"} Hawaii
+          %option{:value => "ID"} Idaho
+          %option{:value => "IL"} Illinois
+          %option{:value => "IN"} Indiana
+          %option{:value => "IA"} Iowa
+          %option{:value => "KS"} Kansas
+          %option{:value => "KY"} Kentucky
+          %option{:value => "LA"} Louisiana
+          %option{:value => "ME"} Maine
+          %option{:value => "MD"} Maryland
+          %option{:value => "MA"} Massachusetts
+          %option{:value => "MI"} Michigan
+          %option{:value => "MN"} Minnesota
+          %option{:value => "MS"} Mississippi
+          %option{:value => "MO"} Missouri
+          %option{:value => "MT"} Montana
+          %option{:value => "NE"} Nebraska
+          %option{:value => "NV"} Nevada
+          %option{:value => "NH"} New Hampshire
+          %option{:value => "NJ"} New Jersey
+          %option{:value => "NM"} New Mexico
+          %option{:value => "NY"} New York
+          %option{:value => "NC"} North Carolina
+          %option{:value => "ND"} North Dakota
+          %option{:value => "OH"} Ohio
+          %option{:value => "OK"} Oklahoma
+          %option{:value => "OR"} Oregon
+          %option{:value => "PA"} Pennsylvania
+          %option{:value => "RI"} Rhode Island
+          %option{:value => "SC"} South Carolina
+          %option{:value => "SD"} South Dakota
+          %option{:value => "TN"} Tennessee
+          %option{:value => "TX"} Texas
+          %option{:value => "UT"} Utah
+          %option{:value => "VT"} Vermont
+          %option{:value => "VA"} Virginia
+          %option{:value => "WA"} Washington
+          %option{:value => "WV"} West Virginia
+          %option{:value => "WI"} Wisconsin
+          %option{:value => "WY"} Wyoming
+  / /content
+/ /page
