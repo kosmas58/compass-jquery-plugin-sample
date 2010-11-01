@@ -5,14 +5,16 @@
   %div{"data-position" => "inline", "data-role" => "header"}
     %h1
       Header bars
-    %a.ui-btn-right{"data-icon" => "gear", "data-rel" => "dialog", "data-transition" => "pop", :href => "/mobile/docs/forms/forms-all"} Options
+    %a.ui-btn-right{"data-icon" => "gear", "data-rel" => "dialog", "data-transition" => "pop", :href => "/mobile/docs/forms/forms-all"}
+      Options
   / /header
   %div{"data-role" => "content"}
     %h2
       Header structure
     %p
       The
-      %code header
+      %code
+        header
       is an toolbar at the top of the page that usually contains the page title text, and optional
       buttons positioned to the the left and/or right of the title for navigation or actions.
     %p
@@ -27,31 +29,40 @@
             &lt;div data-role=&quot;header&quot;&gt;
               &lt;h1&gt;Page Title&lt;/h1&gt;
             &lt;/div&gt;
-    %h2 Default header features
+    %h2
+      Default header features
     %p
       The
-      %code header
+      %code
+        header
       toolbar is themed with the "a" swatch by default (black in the default theme) but you can easily
-      = succeed "." do
-        %a{:href => "/mobile/docs/toolbars/bars-themes"} set the theme swatch color
+      %a{:href => "/mobile/docs/toolbars/bars-themes"}
+        set the theme swatch color.
     %div{"data-position" => "inline", "data-role" => "header"}
-      %h1 Page title
+      %h1
+        Page title
     %p
-      %strong See that "back" button?
+      %strong
+        See that "back" button?
       The framework automatically generates a "back" button on every page, to simplify the process
       of including this common navigation element. To prevent the back button from being added to a
       header, either add your own button to the left slot (see below) or, add this attribute:
-      %code data-nobackbtn="true"
+      %code
+        data-nobackbtn="true"
       to the header container.
-      %h2 Adding buttons
+      %h2
+        Adding buttons
       %p
         In the standard header configuration, there are slots for buttons on either side of the text
         heading. Each button is typically an
-        %code anchor
+        %code
+          anchor
         element, but any valid
-        %a{:href => "/mobile/docs/buttons/buttons-types"} button markup
+        %a{:href => "/mobile/docs/buttons/buttons-types"}
+          button markup
         will work. To save space, buttons in toolbars are set to
-        %a{:href => "/mobile/docs/buttons/buttons-inline"} inline styling
+        %a{:href => "/mobile/docs/buttons/buttons-inline"}
+          inline styling
         so the button is only as wide as the text and icons it contains.
       %h3
         Default button positioning
@@ -64,47 +75,59 @@
         %code
           :preserve
             &lt;div data-role=&quot;header&quot; data-position=&quot;inline&quot;&gt;
-              &lt;a href=&quot;index.html&quot; data-icon=&quot;delete&quot;&gt;Cancel&lt;/a&gt;
+              &lt;a href=&quot;/mobile/docs/toolbars/index&quot; data-icon=&quot;delete&quot;&gt;Cancel&lt;/a&gt;
               &lt;h1&gt;Edit Contact&lt;/h1&gt;
-              &lt;a href=&quot;index.html&quot; data-icon=&quot;check&quot;&gt;Save&lt;/a&gt;
+              &lt;a href=&quot;/mobile/docs/toolbars/index&quot; data-icon=&quot;check&quot;&gt;Save&lt;/a&gt;
             &lt;/div&gt;
       %div{"data-position" => "inline", "data-role" => "header"}
-        %a{"data-icon" => "delete", :href => "index.html"} Cancel
-        %h1 Edit Contact
-        %a{"data-icon" => "check", :href => "index.html"} Save
+        %a{"data-icon" => "delete", :href => "/mobile/docs/toolbars/index"}
+          Cancel
+        %h1
+          Edit Contact
+        %a{"data-icon" => "check", :href => "/mobile/docs/toolbars/index"}
+          Save
       %p
         Buttons automatically adopt the swatch color of the bar they sit in, so a link in a header
         bar with the "a" color will also be styled as "a" colored buttons. It's simple to make a
         button visually stand out &mdash; here, we add the
-        %code data-theme
+        %code
+          data-theme
         attribute and set the color swatch for the button to "b" to make the "Save" button pop.
       %pre
         %code
           :preserve
             &lt;div data-role=&quot;header&quot; data-position=&quot;inline&quot;&gt;
-              &lt;a href=&quot;index.html&quot; data-icon=&quot;delete&quot;&gt;Cancel&lt;/a&gt;
+              &lt;a href=&quot;/mobile/docs/toolbars/index&quot; data-icon=&quot;delete&quot;&gt;Cancel&lt;/a&gt;
               &lt;h1&gt;Edit Contact&lt;/h1&gt;
-              &lt;a href=&quot;index.html&quot; data-icon=&quot;check&quot; data-theme=&quot;b&quot;&gt;Save&lt;/a&gt;
+              &lt;a href=&quot;/mobile/docs/toolbars/index&quot; data-icon=&quot;check&quot; data-theme=&quot;b&quot;&gt;Save&lt;/a&gt;
             &lt;/div&gt;
       %div{"data-position" => "inline", "data-role" => "header"}
-        %a{"data-icon" => "delete", :href => "index.html"} Cancel
-        %h1 Edit Contact
-        %a{"data-icon" => "check", "data-theme" => "b", :href => "index.html"} Save
-      %h3 Controlling button position with classes
+        %a{"data-icon" => "delete", :href => "/mobile/docs/toolbars/index"}
+          Cancel
+        %h1
+          Edit Contact
+        %a{"data-icon" => "check", "data-theme" => "b", :href => "/mobile/docs/toolbars/index"}
+          Save
+      %h3
+        Controlling button position with classes
       %p
         The button position can also be controlled by adding classes to the button anchors, rather
         than relying on source order. This is especially useful if you only want a button in the
         right slot. To specify the button position, add the class of
-        %code ui-btn-left
+        %code
+          ui-btn-left
         or
-        %code ui-btn-right
+        %code
+          ui-btn-right
         to the anchor.
       %p
         In this example, we're adding only a single button to the right slot so the
-        %code data-nobackbtn="true"
+        %code
+          data-nobackbtn="true"
         needs to be added to the header container to suppress the automatic Back button behavior
         and the button needs the
-        %code ui-btn-right
+        %code
+          ui-btn-right
         class on the link.
       .highlight
         %pre
@@ -112,16 +135,20 @@
             :preserve
               &lt;div data-role=&quot;header&quot; data-position=&quot;inline&quot; data-nobackbtn=&quot;true&quot;&gt;
                 &lt;h1&gt;Page Title&lt;/h1&gt;
-                &lt;a href=&quot;index.html&quot; data-icon=&quot;gear&quot; class=&quot;ui-btn-right&quot;&gt;Options&lt;/a&gt;
+                &lt;a href=&quot;/mobile/docs/toolbars/index&quot; data-icon=&quot;gear&quot; class=&quot;ui-btn-right&quot;&gt;Options&lt;/a&gt;
               &lt;/div&gt;
       %div{"data-nobackbtn" => "true", "data-position" => "inline", "data-role" => "header"}
-        %h1 Page Title
-        %a.ui-btn-right{"data-icon" => "gear", :href => "index.html"} Options
-      %h2 Custom header configurations
+        %h1
+          Page Title
+        %a.ui-btn-right{"data-icon" => "gear", :href => "/mobile/docs/toolbars/index"}
+          Options
+      %h2
+        Custom header configurations
       %p
         If you need to to create a header that doesn't follow the default configuration, simply wrap
         your custom styled markup in a container
-        %code div
+        %code
+          div
         inside the header container and the plugin won't apply the automatic button logic at all.
   / /content
 / /page

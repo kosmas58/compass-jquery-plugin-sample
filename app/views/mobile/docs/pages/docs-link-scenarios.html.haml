@@ -1,38 +1,48 @@
-!!!
-%html
-  %head
-    %title jQuery Mobile Docs - Pages
-    %link{:href => "../../themes/default", :rel => "stylesheet"}/
-    %script{:src => "../../js/all", :type => "text/javascript"}
-  %body
-    %div{"data-role" => "page"}
-      %div{"data-role" => "header"}
-        %h1 Linking pages
-      / /header
-      %div{"data-role" => "content"}
-        %p jQuery Mobile is designed to work with simple page linking conventions. The following list demonstrates how different types of links will be handled, either remotely or through an Ajax Request.
-        %ul{"data-dividertheme" => "b", "data-inset" => "true", "data-role" => "listview", "data-theme" => "c"}
-          %li{"data-role" => "list-divider"} Examples of links that work within a single-page (if the page exists)
-          %li
-            %a{:href => "docs/pages/index.html"} [href="docs/pages/index.html"]
-          %li
-            %a{:href => "/docs/toolbars/index.html"} [href="/docs/toolbars/index.html"]
-          %li
-            %a{:href => "#somelocalID"} [href="#somelocalID"]
-          %li Note: an full URL to the same-domain will also work
-          %li{"data-role" => "list-divider"} Examples of links that trigger a refresh
-          %li
-            %a{:href => "docs/pages/index.html", :rel => "external"} [rel="external"]
-          %li
-            %a{:href => "docs/pages/index.html", :target => "_blank"} [target="_blank"]
-          %li
-            %a{:href => "mailto:john@doe.com"} [href="mailto:john@doe.com"]
-          %li
-            %a{:href => "tel:543-434-3454"} [href="tel:543-434-3454"]
-          %li
-            %a{:href => "http://google.com"} [href="http://google.com"]
-          %li{"data-role" => "list-divider"} Links that return false
-          %li
-            %a{:href => "#"} [href="#"]
-      / /content
-    / /page
+%div{"data-role" => "page"}
+  %div{"data-role" => "header"}
+    %h1
+      Linking pages
+  / /header
+  %div{"data-role" => "content"}
+    %p
+      jQuery Mobile is designed to work with simple page linking conventions. The following
+      list demonstrates how different types of links will be handled, either remotely or
+      through an Ajax Request.
+    %ul{"data-dividertheme" => "b", "data-inset" => "true", "data-role" => "listview", "data-theme" => "c"}
+      %li{"data-role" => "list-divider"}
+        Examples of links that work within a single-page (if the page exists)
+      %li
+        %a{:href => "/mobile/docs/pages/index"} 
+          [href="/mobile/docs/pages/index"]
+      %li
+        %a{:href => "/mobile/docs/pages/index"}
+          [href="/mobile/docs/pages/index"]
+      %li
+        %a{:href => "#somelocalID"}
+          [href="#somelocalID"]
+      %li
+        Note: an full URL to the same-domain will also work
+      %li{"data-role" => "list-divider"}
+        Examples of links that trigger a refresh
+      %li
+        %a{:href => "/mobile/docs/pages/index", :rel => "external"}
+          [rel="external"]
+      %li
+        %a{:href => "/mobile/docs/pages/index", :target => "_blank"}
+          [target="_blank"]
+      %li
+        %a{:href => "mailto:john@doe.com"}
+          [href="mailto:john@doe.com"]
+      %li
+        %a{:href => "tel:543-434-3454"}
+          [href="tel:543-434-3454"]
+      %li
+        %a{:href => "http://google.com"}
+          [href="http://google.com"]
+      %li{"data-role" => "list-divider"}
+        Links that return false
+      %li
+        %a{:href => "#"}
+          [href="#"]
+  / /content
+/ /page

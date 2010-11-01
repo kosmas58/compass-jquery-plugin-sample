@@ -1,13 +1,15 @@
 %div{"data-role" => "page"}
   %div{"data-role" => "header"}
-    %h1 Collapsible content
+    %h1
+      Collapsible content
   / /header
   %div{"data-role" => "content"}
     %h2
       Collapsible content markup
     %p
       To create a collapsible blocks of content, create a container and add the
-      %code data-role="collapsible"
+      %code
+        data-role="collapsible"
       attribute.
     %p
       Directly inside this container, add any header element (H1-H6). The framework will style the
@@ -31,12 +33,13 @@
     %p
       As the example notes, by default the content will be expanded. To collapse the content when the
       page loads, add the
-      %code data-state="collapsed"
+      %code
+        data-state="collapsed"
       attribute to the wrapper.
     %code
-      \&lt;div data-role=&quot;collapsible&quot;
-      %strong data-state=&quot;collapsed&quot;&gt;
-    %p This code will create a collapsible widget like this:
+      &lt;div data-role=&quot;collapsible&quot; ata-state=&quot;collapsed&quot;&gt;
+    %p
+      This code will create a collapsible widget like this:
     %div{"data-role" => "collapsible", "data-state" => "collapsed"}
       %h3
         I'm a header
@@ -63,7 +66,8 @@
         I'm the collapsible content.
     / /section 1
     %div{"data-role" => "collapsible"}
-      %h3 Section 2: Expanded on load
+      %h3
+        Section 2: Expanded on load
       %p
         I'm open when the page loads because I don't have the
         %code data-state="collapsed"
@@ -73,39 +77,52 @@
         I'm the collapsible content. I'm the collapsible content. I'm the collapsible content.
     / /section 2
     %div{"data-role" => "collapsible", "data-state" => "collapsed"}
-      %h3 Section 3: Form elements
+      %h3
+        Section 3: Form elements
       %form{:action => "#", :method => "get"}
         %div{"data-role" => "fieldcontain"}
           %label{:for => "textarea"} Textarea:
           %textarea#textarea{:cols => "40", :name => "textarea", :rows => "8"}
         %div{"data-role" => "fieldcontain"}
-          %label{:for => "slider"} Input slider:
+          %label{:for => "slider"}
+            Input slider:
           %input#slider{:max => "100", :min => "0", :name => "slider", :type => "range", :value => "0"}/
         %fieldset.ui-grid-a
           .ui-block-a
-            %button{"data-theme" => "c", :type => "submit"} Cancel
+            %button{"data-theme" => "c", :type => "submit"}
+              Cancel
           .ui-block-b
-            %button{"data-theme" => "b", :type => "submit"} Submit
+            %button{"data-theme" => "b", :type => "submit"}
+              Submit
     / /section 3
     %div{"data-role" => "collapsible", "data-state" => "collapsed"}
-      %h3 Section 4: Collapsed list
+      %h3
+        Section 4: Collapsed list
       %ul{"data-inset" => "true", "data-role" => "listview", "data-theme" => "d"}
         %li
-          %a{:href => "index.html"} Acura
+          %a{:href => "/mobile/docs/content/index"}
+            Acura
         %li
-          %a{:href => "index.html"} Audi
+          %a{:href => "/mobile/docs/content/index"}
+            Audi
         %li
-          %a{:href => "index.html"} BMW
+          %a{:href => "/mobile/docs/content/index"}
+            BMW
         %li
-          %a{:href => "index.html"} Cadillac
+          %a{:href => "/mobile/docs/content/index"}
+            Cadillac
         %li
-          %a{:href => "index.html"} Chrysler
+          %a{:href => "/mobile/docs/content/index"}
+            Chrysler
         %li
-          %a{:href => "index.html"} Dodge
+          %a{:href => "/mobile/docs/content/index"}
+            Dodge
         %li
-          %a{:href => "index.html"} Ferrari
+          %a{:href => "/mobile/docs/content/index"}
+            Ferrari
         %li
-          %a{:href => "index.html"} Ford
+          %a{:href => "/mobile/docs/content/index"}
+            Ford
     / /section 4
     %h2 Nested Collapsibles
     %div{"data-role" => "collapsible"}

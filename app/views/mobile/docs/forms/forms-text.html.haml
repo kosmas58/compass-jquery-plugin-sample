@@ -3,29 +3,38 @@
 
 %div{"data-role" => "page"}
   %div{"data-role" => "header", "data-theme" => "c"}
-    %h1 Text inputs
+    %h1
+      Text inputs
   / /header
   %div{"data-role" => "content"}
     %form{:action => "#", :method => "get"}
       %p
-        Text inputs and textareas are coded with standard HTML elements, then enhanced by jQuery Mobile
-        to make them more attractive and useable on a mobile.
-      %h2 Text inputs
+        Text inputs and textareas are coded with standard HTML elements, then enhanced by jQuery
+        Mobile to make them more attractive and useable on a mobile.
+      %h2
+        Text inputs
       %p
         To collect standard alphanmeric text, use an
-        %code input
+        %code
+          input
         with a
-        %code type="text"
+        %code
+          type="text"
         attribute. It's important to  set the
-        %code for
+        %code
+          for
         attribute of the
-        %code label
+        %code
+          label
         to match the ID of the
-        %code input
+        %code
+          input
         so they are semantically associated and wrap them in a
-        %code div
+        %code
+          div
         with the
-        %code data-role="fieldcontain"
+        %code
+          data-role="fieldcontain"
         attribute to group them.
       %pre
         %code
@@ -34,26 +43,36 @@
               &lt;label for=&quot;name&quot;&gt;Text Input:&lt;/label&gt;
               &lt;input type=&quot;text&quot; name=&quot;name&quot; id=&quot;name&quot; value=&quot;&quot;  /&gt;
             &lt;/div&gt;	
-      %p The text input is displayed like this:
+      %p
+        The text input is displayed like this:
       %div{"data-role" => "fieldcontain"}
-        %label{:for => "name"} Text Input:
+        %label{:for => "name"}
+          Text Input:
         %input#name{:name => "name", :type => "text", :value => ""}/
-      %h2 Password inputs
+      %h2
+        Password inputs
       %p
         For password fields, use an
-        %code input
+        %code
+          input
         with a
-        %code type="password"
+        %code
+          type="password"
         attribute. Set the
-        %code for
+        %code
+          for
         attribute of the
-        %code label
+        %code
+          label
         to match the ID of the
-        %code input
+        %code
+          input
         so they are semantically associated and wrap them in a
-        %code div
+        %code
+          div
         with the
-        %code data-role="fieldcontain"
+        %code
+          data-role="fieldcontain"
         attribute to group them.
       %pre
         %code
@@ -62,27 +81,36 @@
               &lt;label for=&quot;password&quot;&gt;Password Input:&lt;/label&gt;
               &lt;input type=&quot;password&quot; name=&quot;password&quot; id=&quot;password&quot; value=&quot;&quot; /&gt;
             &lt;/div&gt;	
-      %p The password input is displayed like this:
+      %p
+        The password input is displayed like this:
       %div{"data-role" => "fieldcontain"}
-        %label{:for => "password"} Password Input:
+        %label{:for => "password"}
+          Password Input:
         %input#password{:name => "password", :type => "password", :value => ""}/
-      %h2 Textareas
+      %h2
+        Textareas
       %p
         For multi-line text inputs, use a
-        %code textarea
+        %code
+          textarea
         element. The framework will auto-grow the height of the textarea to avoid the need for an
         internal scrollbar which is very hard to use on a mobile device.
       %p
         Set the
-        %code for
+        %code
+          for
         attribute of the
-        %code label
+        %code
+          label
         to match the ID of the
-        %code input
+        %code
+          input
         so they are semantically associated and wrap them in a
-        %code div
+        %code
+          div
         with the
-        %code data-role="fieldcontain"
+        %code
+          data-role="fieldcontain"
         attribute to group them.
       %pre
         %code
@@ -91,9 +119,11 @@
               &lt;label for=&quot;textarea&quot;&gt;Textarea:&lt;/label&gt;
               &lt;textarea cols=&quot;40&quot; rows=&quot;8&quot; name=&quot;textarea&quot; id=&quot;textarea&quot;&gt;&lt;/textarea&gt;
             &lt;/div&gt;
-      %p The textarea is displayed like this and will grow as you type:
+      %p
+        The textarea is displayed like this and will grow as you type:
       %div{"data-role" => "fieldcontain"}
-        %label{:for => "textarea"} Textarea:
+        %label{:for => "textarea"}
+          Textarea:
         %textarea#textarea{:cols => "40", :name => "textarea", :rows => "8"}
   / /content
 / /page

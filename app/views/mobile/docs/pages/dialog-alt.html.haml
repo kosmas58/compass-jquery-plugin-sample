@@ -1,18 +1,17 @@
-!!!
-%html
-  %head
-    %title jQuery Mobile Framework - Dialog Example
-    %link{:href => "../../themes/default", :rel => "stylesheet"}/
-    %script{:src => "../../js/all", :type => "text/javascript"}
-  %body
-    %div{"data-role" => "page"}
-      %div{"data-position" => "inline", "data-role" => "header", "data-theme" => "e"}
-        %h1 Dialog
-      %div{"data-role" => "content", "data-theme" => "e"}
-        %h1 I'm colorful
-        %p
-          This is a regular page, styled as a dialog. To create a dialog, just link to a normal page and include a transition and
-          %code data-rel="dialog"
-          attribute.
-        %a{"data-role" => "button", "data-theme" => "a", :href => "docs-dialogs.html"} Good for you
-        %a{"data-role" => "button", "data-theme" => "c", :href => "docs-dialogs.html"} Don't care, really
+%div{"data-role" => "page"}
+  %div{"data-position" => "inline", "data-role" => "header", "data-theme" => "e"}
+    %h1
+      Dialog
+  %div{"data-role" => "content", "data-theme" => "e"}
+    %h1
+      I'm colorful
+    %p
+      This is a regular page, styled as a dialog. To create a dialog, just link to a normal page
+      and include a transition and
+      %code
+        data-rel="dialog"
+      attribute.
+    %a{"data-role" => "button", "data-theme" => "a", :href => "/mobile/docs/pages/docs-dialogs"}
+      Good for you
+    %a{"data-role" => "button", "data-theme" => "c", :href => "/mobile/docs/pages/docs-dialogs"}
+      Don't care, really

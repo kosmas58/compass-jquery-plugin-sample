@@ -3,36 +3,48 @@
 
 %div{"data-role" => "page"}
   %div{"data-role" => "header"}
-    %h1 Slider
+    %h1
+      Slider
   / /header
   %div{"data-role" => "content"}
     %form{:action => "#", :method => "get"}
-      %h2 Sliders
+      %h2
+        Sliders
       %p
         To add a slider widget to your page, start with an
-        %code input
+        %code
+          input
         with a new HTML5
-        %code type="range"
+        %code
+          type="range"
         attribute. Specify the
-        %code value
+        %code
+          value
         (current value),
-        %code min
+        %code
+          min
         and
-        %code max
+        %code
+          max
         attribute values to configure the slider. The framework will parse these attributes to
         configure the slider.
       %p
         As you drag the slider, the input will update and vice-versa so they are always in sync so
         you can submit the slider value with form in a simple way. Set the
-        %code for
+        %code
+          for
         attribute of the
-        %code label
+        %code
+          label
         to match the ID of the
-        %code input
+        %code
+          input
         so they are semantically associated and wrap them in a
-        %code div
+        %code
+          div
         with the
-        %code data-role="fieldcontain"
+        %code
+          data-role="fieldcontain"
         attribute to group them.
       %pre
         %code
@@ -44,7 +56,8 @@
       %p
         The slider and input is displayed like this:
       %div{"data-role" => "fieldcontain"}
-        %label{:for => "slider"} Input slider:
+        %label{:for => "slider"}
+          Input slider:
         %input#slider{:max => "100", :min => "0", :name => "slider", :type => "range", :value => "0"}/
   / /content
 / /page

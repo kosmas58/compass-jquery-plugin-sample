@@ -3,29 +3,38 @@
 
 %div{"data-role" => "page"}
   %div{"data-role" => "header"}
-    %h1 Search inputs
+    %h1
+      Search inputs
   / /header
   %div{"data-role" => "content"}
     %form{:action => "#", :method => "get"}
-      %h2 Search inputs
+      %h2
+        Search inputs
       %p
         Search inputs are a new HTML type that is styled with pill-shaped corners and adds a "x" icon
         to clear the field once you start typing. Start with an
-        %code input
+        %code
+          input
         with a
-        %code type="search"
+        %code
+          type="search"
         attribute in your markup.
       %p
         Set the
-        %code for
+        %code
+          for
         attribute of the
-        %code label
+        %code
+          label
         to match the ID of the
-        %code input
+        %code
+          input
         so they are semantically associated and wrap them in a
-        %code div
+        %code
+          div
         with the
-        %code data-role="fieldcontain"
+        %code
+          data-role="fieldcontain"
         attribute to group them.
       %pre
         %code
@@ -34,9 +43,11 @@
               &lt;label for=&quot;search&quot;&gt;Search Input:&lt;/label&gt;
               &lt;input type=&quot;search&quot; name=&quot;password&quot; id=&quot;search&quot; value=&quot;&quot; /&gt;
             &lt;/div&gt;
-      %p The search input is displayed like this:
+      %p
+        The search input is displayed like this:
       %div{"data-role" => "fieldcontain"}
-        %label{:for => "search"} Search Input:
+        %label{:for => "search"}
+          Search Input:
         %input#search{:name => "password", :type => "search", :value => ""}/
   / /content
 / /page

@@ -3,7 +3,8 @@
 
 %div{"data-role" => "page"}
   %div{"data-role" => "header"}
-    %h1 Button icons
+    %h1
+      Button icons
   / /header
   %div{"data-role" => "content"}
     %h2
@@ -15,182 +16,281 @@
       any background color.
     %p
       An icon can be added to a button by adding a
-      %code data-icon
-      attribute on the anchor specifying the icon to display.  For example, the following markup:
+      %code
+        data-icon
+      attribute on the anchor specifying the icon to display. For example, the following markup:
     %code
-      \&lt;a href=&quot;index.html&quot; data-role=&quot;button&quot;
-      = succeed "&amp;gt;Delete&amp;lt;/a&amp;gt;" do
-        %strong data-icon=&quot;delete&quot;
-    %p Creates this button with an icon:
-    %a{"data-icon" => "delete", "data-role" => "button", :href => "index.html"} Delete
-    %h2 Icon set
+      &lt;a href=&quot;index.html&quot; data-role=&quot;button&quot; data-icon=&quot;delete&quot;&gt;Delete&lt;/a&gt;
+    %p
+      Creates this button with an icon:
+    %a{"data-icon" => "delete", "data-role" => "button", :href => "/mobile/docs/buttons/index"}
+      Delete
+    %h2
+      Icon set
     %p
       The following
-      %code data-icon
+      %code
+        data-icon
       attributes can be referenced to create the icons shown below:
     %p
-      %strong Left arrow
+      %strong
+        Left arrow
       \- data-icon="arrow-l"
-    %a{"data-icon" => "arrow-l", "data-role" => "button", :href => "index.html"} My button
+    %a{"data-icon" => "arrow-l", "data-role" => "button", :href => "/mobile/docs/buttons/index"}
+      My button
     %p
-      %strong Right arrow
+      %strong
+        Right arrow
       \- data-icon="arrow-r"
-    %a{"data-icon" => "arrow-r", "data-role" => "button", :href => "index.html"} My button
+    %a{"data-icon" => "arrow-r", "data-role" => "button", :href => "/mobile/docs/buttons/index"}
+      My button
     %p
-      %strong Up arrow
+      %strong
+        Up arrow
       \- data-icon="arrow-u"
-    %a{"data-icon" => "arrow-u", "data-role" => "button", :href => "index.html"} My button
+    %a{"data-icon" => "arrow-u", "data-role" => "button", :href => "/mobile/docs/buttons/index"}
+      My button
     %p
-      %strong Down arrow
+      %strong
+        Down arrow
       \- data-icon="arrow-d"
-    %a{"data-icon" => "arrow-d", "data-role" => "button", :href => "index.html"} My button
+    %a{"data-icon" => "arrow-d", "data-role" => "button", :href => "/mobile/docs/buttons/index"}
+      My button
     %p
-      %strong Delete
+      %strong
+        Delete
       \- data-icon="delete"
-    %a{"data-icon" => "delete", "data-role" => "button", :href => "index.html"} My button
+    %a{"data-icon" => "delete", "data-role" => "button", :href => "/mobile/docs/buttons/index"}
+      My button
     %p
-      %strong Plus
+      %strong
+        Plus
       \- data-icon="plus"
-    %a{"data-icon" => "plus", "data-role" => "button", :href => "index.html"} My button
+    %a{"data-icon" => "plus", "data-role" => "button", :href => "/mobile/docs/buttons/index"}
+      My button
     %p
-      %strong Minus
+      %strong
+        Minus
       \- data-icon="minus"
-    %a{"data-icon" => "minus", "data-role" => "button", :href => "index.html"} My button
+    %a{"data-icon" => "minus", "data-role" => "button", :href => "/mobile/docs/buttons/index"}
+      My button
     %p
-      %strong Check
+      %strong
+        Check
       \- data-icon="check"
-    %a{"data-icon" => "check", "data-role" => "button", :href => "index.html"} My button
+    %a{"data-icon" => "check", "data-role" => "button", :href => "/mobile/docs/buttons/index"}
+      My button
     %p
-      %strong Gear
+      %strong
+        Gear
       \- data-icon="gear"
-    %a{"data-icon" => "gear", "data-role" => "button", :href => "index.html"} My button
+    %a{"data-icon" => "gear", "data-role" => "button", :href => "/mobile/docs/buttons/index"}
+      My button
     %p
-      %strong Refresh
+      %strong
+        Refresh
       \- data-icon="refresh"
-    %a{"data-icon" => "refresh", "data-role" => "button", :href => "index.html"} My button
+    %a{"data-icon" => "refresh", "data-role" => "button", :href => "/mobile/docs/buttons/index"}
+      My button
     %p
-      %strong Forward
+      %strong
+        Forward
       \- data-icon="forward"
-    %a{"data-icon" => "forward", "data-role" => "button", :href => "index.html"} My button
+    %a{"data-icon" => "forward", "data-role" => "button", :href => "/mobile/docs/buttons/index"}
+      My button
     %p
-      %strong Back
+      %strong
+        Back
       \- data-icon="back"
-    %a{"data-icon" => "back", "data-role" => "button", :href => "index.html"} My button
+    %a{"data-icon" => "back", "data-role" => "button", :href => "/mobile/docs/buttons/index"}
+      My button
     %p
-      %strong Grid
+      %strong
+        Grid
       \- data-icon="grid"
-    %a{"data-icon" => "grid", "data-role" => "button", :href => "index.html"} My button
+    %a{"data-icon" => "grid", "data-role" => "button", :href => "/mobile/docs/buttons/index"}
+      My button
     %p
-      %strong Star
+      %strong
+        Star
       \- data-icon="star"
-    %a{"data-icon" => "star", "data-role" => "button", :href => "index.html"} My button
+    %a{"data-icon" => "star", "data-role" => "button", :href => "/mobile/docs/buttons/index"}
+      My button
     %p
-      %strong Alert
+      %strong
+        Alert
       \- data-icon="alert"
-    %a{"data-icon" => "alert", "data-role" => "button", :href => "index.html"} My button
+    %a{"data-icon" => "alert", "data-role" => "button", :href => "/mobile/docs/buttons/index"}
+      My button
     %p
-      %strong Info
+      %strong
+        Info
       \- data-icon="info"
-    %a{"data-icon" => "info", "data-role" => "button", :href => "index.html"} My button
+    %a{"data-icon" => "info", "data-role" => "button", :href => "/mobile/docs/buttons/index"}
+      My button
     / A themed
-    %h3 Swatch "A" themed buttons
+    %h3
+      Swatch "A" themed buttons
     %div{"data-role" => "controlgroup", "data-type" => "horizontal"}
-      %a{"data-icon" => "arrow-l", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "a", :href => "index.html"} My button
-      %a{"data-icon" => "arrow-r", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "a", :href => "index.html"} My button
-      %a{"data-icon" => "arrow-u", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "a", :href => "index.html"} My button
-      %a{"data-icon" => "arrow-d", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "a", :href => "index.html"} My button
-      %a{"data-icon" => "delete", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "a", :href => "index.html"} My button
-      %a{"data-icon" => "plus", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "a", :href => "index.html"} My button
-      %a{"data-icon" => "minus", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "a", :href => "index.html"} My button
-      %a{"data-icon" => "check", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "a", :href => "index.html"} My button
-      %a{"data-icon" => "gear", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "a", :href => "index.html"} My button
-      %a{"data-icon" => "refresh", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "a", :href => "index.html"} My button
-      %a{"data-icon" => "forward", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "a", :href => "index.html"} My button
-      %a{"data-icon" => "back", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "a", :href => "index.html"} My button
-      %a{"data-icon" => "grid", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "a", :href => "index.html"} My button
-      %a{"data-icon" => "star", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "a", :href => "index.html"} My button
-      %a{"data-icon" => "alert", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "a", :href => "index.html"} My button
-      %a{"data-icon" => "info", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "a", :href => "index.html"} My button
+      %a{"data-icon" => "arrow-l", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "a", :href => "/mobile/docs/buttons/index"}
+        My button
+      %a{"data-icon" => "arrow-r", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "a", :href => "/mobile/docs/buttons/index"}
+        My button
+      %a{"data-icon" => "arrow-u", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "a", :href => "/mobile/docs/buttons/index"}
+        My button
+      %a{"data-icon" => "arrow-d", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "a", :href => "/mobile/docs/buttons/index"}
+        My button
+      %a{"data-icon" => "delete", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "a", :href => "/mobile/docs/buttons/index"}
+        My button
+      %a{"data-icon" => "plus", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "a", :href => "/mobile/docs/buttons/index"}
+        My button
+      %a{"data-icon" => "minus", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "a", :href => "/mobile/docs/buttons/index"}
+        My button
+      %a{"data-icon" => "check", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "a", :href => "/mobile/docs/buttons/index"}
+        My button
+      %a{"data-icon" => "gear", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "a", :href => "/mobile/docs/buttons/index"}
+        My button
+      %a{"data-icon" => "refresh", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "a", :href => "/mobile/docs/buttons/index"}
+        My button
+      %a{"data-icon" => "forward", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "a", :href => "/mobile/docs/buttons/index"}
+        My button
+      %a{"data-icon" => "back", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "a", :href => "/mobile/docs/buttons/index"}
+        My button
+      %a{"data-icon" => "grid", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "a", :href => "/mobile/docs/buttons/index"}
+        My button
+      %a{"data-icon" => "star", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "a", :href => "/mobile/docs/buttons/index"}
+        My button
+      %a{"data-icon" => "alert", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "a", :href => "/mobile/docs/buttons/index"}
+        My button
+      %a{"data-icon" => "info", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "a", :href => "/mobile/docs/buttons/index"}
+        My button
     / B themed
-    %h3 Swatch "B" themed buttons
+    %h3
+      Swatch "B" themed buttons
     %div{"data-role" => "controlgroup", "data-type" => "horizontal"}
-      %a{"data-icon" => "arrow-l", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "b", :href => "index.html"} My button
-      %a{"data-icon" => "arrow-r", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "b", :href => "index.html"} My button
-      %a{"data-icon" => "arrow-u", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "b", :href => "index.html"} My button
-      %a{"data-icon" => "arrow-d", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "b", :href => "index.html"} My button
-      %a{"data-icon" => "delete", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "b", :href => "index.html"} My button
-      %a{"data-icon" => "plus", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "b", :href => "index.html"} My button
-      %a{"data-icon" => "minus", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "b", :href => "index.html"} My button
-      %a{"data-icon" => "check", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "b", :href => "index.html"} My button
-      %a{"data-icon" => "gear", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "b", :href => "index.html"} My button
-      %a{"data-icon" => "refresh", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "b", :href => "index.html"} My button
-      %a{"data-icon" => "forward", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "b", :href => "index.html"} My button
-      %a{"data-icon" => "back", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "b", :href => "index.html"} My button
-      %a{"data-icon" => "grid", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "b", :href => "index.html"} My button
-      %a{"data-icon" => "star", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "b", :href => "index.html"} My button
-      %a{"data-icon" => "alert", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "b", :href => "index.html"} My button
-      %a{"data-icon" => "info", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "b", :href => "index.html"} My button
+      %a{"data-icon" => "arrow-l", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "b", :href => "/mobile/docs/buttons/index"}
+        My button
+      %a{"data-icon" => "arrow-r", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "b", :href => "/mobile/docs/buttons/index"}
+        My button
+      %a{"data-icon" => "arrow-u", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "b", :href => "/mobile/docs/buttons/index"}
+        My button
+      %a{"data-icon" => "arrow-d", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "b", :href => "/mobile/docs/buttons/index"}
+        My button
+      %a{"data-icon" => "delete", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "b", :href => "/mobile/docs/buttons/index"}
+        My button
+      %a{"data-icon" => "plus", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "b", :href => "/mobile/docs/buttons/index"}
+        My button
+      %a{"data-icon" => "minus", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "b", :href => "/mobile/docs/buttons/index"}
+        My button
+      %a{"data-icon" => "check", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "b", :href => "/mobile/docs/buttons/index"}
+        My button
+      %a{"data-icon" => "gear", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "b", :href => "/mobile/docs/buttons/index"}
+        My button
+      %a{"data-icon" => "refresh", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "b", :href => "/mobile/docs/buttons/index"}
+        My button
+      %a{"data-icon" => "forward", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "b", :href => "/mobile/docs/buttons/index"}
+        My button
+      %a{"data-icon" => "back", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "b", :href => "/mobile/docs/buttons/index"}
+        My button
+      %a{"data-icon" => "grid", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "b", :href => "/mobile/docs/buttons/index"}
+        My button
+      %a{"data-icon" => "star", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "b", :href => "/mobile/docs/buttons/index"}
+        My button
+      %a{"data-icon" => "alert", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "b", :href => "/mobile/docs/buttons/index"}
+        My button
+      %a{"data-icon" => "info", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "b", :href => "/mobile/docs/buttons/index"}
+        My button
     / C themed
-    %h3 Swatch "C" themed buttons
+    %h3
+      Swatch "C" themed buttons
     %div{"data-role" => "controlgroup", "data-type" => "horizontal"}
-      %a{"data-icon" => "arrow-l", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "c", :href => "index.html"} My button
-      %a{"data-icon" => "arrow-r", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "c", :href => "index.html"} My button
-      %a{"data-icon" => "arrow-u", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "c", :href => "index.html"} My button
-      %a{"data-icon" => "arrow-d", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "c", :href => "index.html"} My button
-      %a{"data-icon" => "delete", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "c", :href => "index.html"} My button
-      %a{"data-icon" => "plus", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "c", :href => "index.html"} My button
-      %a{"data-icon" => "minus", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "c", :href => "index.html"} My button
-      %a{"data-icon" => "check", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "c", :href => "index.html"} My button
-      %a{"data-icon" => "gear", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "c", :href => "index.html"} My button
-      %a{"data-icon" => "refresh", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "c", :href => "index.html"} My button
-      %a{"data-icon" => "forward", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "c", :href => "index.html"} My button
-      %a{"data-icon" => "back", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "c", :href => "index.html"} My button
-      %a{"data-icon" => "grid", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "c", :href => "index.html"} My button
-      %a{"data-icon" => "star", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "c", :href => "index.html"} My button
-      %a{"data-icon" => "alert", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "c", :href => "index.html"} My button
-      %a{"data-icon" => "info", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "c", :href => "index.html"} My button
-    %h2 Icon positioning
+      %a{"data-icon" => "arrow-l", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "c", :href => "/mobile/docs/buttons/index"}
+        My button
+      %a{"data-icon" => "arrow-r", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "c", :href => "/mobile/docs/buttons/index"}
+        My button
+      %a{"data-icon" => "arrow-u", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "c", :href => "/mobile/docs/buttons/index"}
+        My button
+      %a{"data-icon" => "arrow-d", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "c", :href => "/mobile/docs/buttons/index"}
+        My button
+      %a{"data-icon" => "delete", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "c", :href => "/mobile/docs/buttons/index"}
+        My button
+      %a{"data-icon" => "plus", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "c", :href => "/mobile/docs/buttons/index"}
+        My button
+      %a{"data-icon" => "minus", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "c", :href => "/mobile/docs/buttons/index"}
+        My button
+      %a{"data-icon" => "check", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "c", :href => "/mobile/docs/buttons/index"}
+        My button
+      %a{"data-icon" => "gear", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "c", :href => "/mobile/docs/buttons/index"}
+        My button
+      %a{"data-icon" => "refresh", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "c", :href => "/mobile/docs/buttons/index"}
+        My button
+      %a{"data-icon" => "forward", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "c", :href => "/mobile/docs/buttons/index"}
+        My button
+      %a{"data-icon" => "back", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "c", :href => "/mobile/docs/buttons/index"}
+        My button
+      %a{"data-icon" => "grid", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "c", :href => "/mobile/docs/buttons/index"}
+        My button
+      %a{"data-icon" => "star", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "c", :href => "/mobile/docs/buttons/index"}
+        My button
+      %a{"data-icon" => "alert", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "c", :href => "/mobile/docs/buttons/index"}
+        My button
+      %a{"data-icon" => "info", "data-iconpos" => "notext", "data-inline" => "true", "data-role" => "button", "data-theme" => "c", :href => "/mobile/docs/buttons/index"}
+        My button
+    %h2
+      Icon positioning
     %p
       By default, all icons in buttons are placed to the left of the text. This default may be
       overridden using the
-      %code data-iconpos
+      %code
+        data-iconpos
       attribute.  For example, the markup:
     %code
-      \&lt;a href=&quot;index.html&quot; data-role=&quot;button&quot; data-icon=&quot;delete&quot;
-      %strong> data-iconpos=&quot;right&quot;
-      \&gt;Delete&lt;/a&gt;
-    %p Creates this button with right-aligned icon:
-    %a{"data-icon" => "delete", "data-iconpos" => "right", "data-role" => "button", :href => "index.html"} Delete
+      &lt;a href=&quot;index.html&quot; data-role=&quot;button&quot; data-icon=&quot;delete&quot;
+      data-iconpos=&quot;right&quot;&gt;Delete&lt;/a&gt;
+    %p
+      Creates this button with right-aligned icon:
+    %a{"data-icon" => "delete", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/buttons/index"}
+      Delete
     %p
       You can also create an icon-only button, by setting the
-      %code data-iconpos
+      %code
+        data-iconpos
       attribute to
-      = succeed "." do
-        %code notext
+      %code
+        notext
       The button plugin will hide the text on-screen, but add it as a
       %code title
       attribute on the link to provide context for screen readers and devices that support tooltips.
-      In this example, we're adding a plus (+) icon and positioning it to the right of the text with our
-      %code data-
+      In this example, we're adding a plus (+) icon and positioning it to the right of the text with
+      our
+      %code
+        data-
       attributes on the link.
     %code
-      \&lt;a href=&quot;index.html&quot; data-role=&quot;button&quot; data-icon=&quot;delete&quot;
-      %strong> data-iconpos=&quot;notext&quot;
-      \&gt;Delete&lt;/a&gt;
-    %p Creates this icon-only button:
-    %a{"data-icon" => "delete", "data-iconpos" => "notext", "data-role" => "button", :href => "index.html"} Delete
-    %h2 Custom Icons
+      &lt;a href=&quot;index.html&quot; data-role=&quot;button&quot; data-icon=&quot;delete&quot;
+      data-iconpos=&quot;notext&quot;&gt;Delete&lt;/a&gt;
+    %p
+      Creates this icon-only button:
+    %a{"data-icon" => "delete", "data-iconpos" => "notext", "data-role" => "button", :href => "/mobile/docs/buttons/index"}
+      Delete
+    %h2
+      Custom Icons
     %p
       To use custom icons, specify a
-      %code data-icon
+      %code
+        data-icon
       value that has a unique name like
-      %code myapp-email
+      %code
+        myapp-email
       and the button plugin will generate a class by prefixing
-      %code ui-icon-
+      %code
+        ui-icon-
       to the
-      %code data-icon
+      %code
+        data-icon
       value and apply it to the button. You can then write a CSS rule that targets the
-      %code ui-icon-myapp-email
+      %code
+        ui-icon-myapp-email
       class to specify the icon background source. To maintain visual consistency, create a white
       icon 18x18 pixels saved as a PNG-8 with alpha transparency.
   / /content

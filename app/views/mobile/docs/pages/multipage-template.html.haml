@@ -1,39 +1,43 @@
-!!!
-%html
-  %head
-    %title Page Title
-    %link{:href => "../../themes/default", :rel => "stylesheet"}/
-    %script{:src => "../../js/all", :type => "text/javascript"}
-    %script{:src => "../docs/docs.js", :type => "text/javascript"}
-  %body
-    / Start of first page
-    #foo{"data-role" => "page"}
-      %div{"data-role" => "header"}
-        %h1 Foo
-      / /header
-      %div{"data-role" => "content"}
-        %h2 Foo
-        %p I'm first in the source order so I'm shown as the page.
-        %p
-          View internal page called
-          %a{:href => "#bar"} bar
-      / /content
-      %div{"data-role" => "footer"}
-        %h4 Page Footer
-      / /header
-    / /page
-    / Start of second page
-    #bar{"data-role" => "page"}
-      %div{"data-role" => "header"}
-        %h1 Bar
-      / /header
-      %div{"data-role" => "content"}
-        %h2 Bar
-        %p I'm first in the source order so I'm shown as the page.
-        %p
-          %a{:href => "#foo"} Back to foo
-      / /content
-      %div{"data-role" => "footer"}
-        %h4 Page Footer
-      / /header
-    / /page
+- content_for :content_head do
+  = render(:partial => "/mobile/docs/docs.js.haml", :format => :js)
+
+/ Start of first page
+#foo{"data-role" => "page"}
+  %div{"data-role" => "header"}
+    %h1
+      Foo
+  / /header
+  %div{"data-role" => "content"}
+    %h2
+      Foo
+    %p
+      I'm first in the source order so I'm shown as the page.
+    %p
+      View internal page called
+      %a{:href => "#bar"}
+        bar
+  / /content
+  %div{"data-role" => "footer"}
+    %h4
+      Page Footer
+  / /header
+/ /page
+/ Start of second page
+#bar{"data-role" => "page"}
+  %div{"data-role" => "header"}
+    %h1 Bar
+  / /header
+  %div{"data-role" => "content"}
+    %h2
+      Bar
+    %p
+      I'm first in the source order so I'm shown as the page.
+    %p
+      %a{:href => "#foo"}
+        Back to foo
+  / /content
+  %div{"data-role" => "footer"}
+    %h4
+      Page Footer
+  / /header
+/ /page

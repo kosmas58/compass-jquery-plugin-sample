@@ -3,48 +3,59 @@
 
 %div{"data-role" => "page"}
   %div{"data-role" => "header"}
-    %h1 Theming content
+    %h1
+      Theming content
   / /header
   %div{"data-role" => "content"}
-    %h2 Theming the content area
+    %h2
+      Theming the content area
     %p
       The main content area of a page (container with the
-      %code data-role="content"
+      %code
+        data-role="content"
       attribute) should be themed by adding the
-      %code data-theme
+      %code
+        data-theme
       attribute to the
-      %code data-role="page"
+      %code
+        data-role="page"
       container to ensure that the background colors are applied to the full page, regardless of the
       content length. (If you add to the
-      %code data-theme
+      %code
+        data-theme
       to the content container, the background color will stop after the content so there may be a
       gap in color between the content and fixed footer.)
     %code
-      \&lt;div data-role=&quot;page&quot;
-      = succeed "&amp;gt;" do
-        %strong data-theme=&quot;a&quot;
-    %h2 Theming collapsible blocks
+      &lt;div data-role=&quot;page&quot; data-theme=&quot;a&quot;&gt;
+    %h2
+      Theming collapsible blocks
     %p
       To set the color of the collapsible header, add the
-      %code data-theme
+      %code
+        data-theme
       attribute to the collapsible container. The icon and body are not currently themable through
       data attributes, but can be styled directly with custom css.
     %code
-      \&lt;div data-role=&quot;collapsible&quot; data-state=&quot;collapsed&quot;
-      %strong data-theme=&quot;a&quot;&gt;
-    %h2 Themed examples
+      &lt;div data-role=&quot;collapsible&quot; data-state=&quot;collapsed&quot;
+      data-theme=&quot;a&quot;&gt;
+    %h2
+      Themed examples
     %p
-      %strong A
+      %strong
+        A
       theme swatch on content &amp; collapsible
     .ui-body.ui-body-a
-      %h1 H1 Heading
+      %h1
+        H1 Heading
       %p
         This is a paragraph that contains
-        = succeed "," do
-          %strong strong
-        %em emphasized
+        %strong
+          strong
+        %em
+          emphasized
         and
-        %a{:href => "index.html"} linked
+        %a{:href => "/mobile/docs/content/index"}
+          linked
         text. Here is more text so you can see how HTML markup works in content. Here is more text
         so you can see how HTML markup works in content.
       %div{"data-role" => "collapsible", "data-state" => "collapsed", "data-theme" => "a"}
@@ -52,66 +63,83 @@
           I'm an themed collapsible
         %p
           I have
-          %code data-theme
+          %code
+            data-theme
           attribute set manually on my container to set the color to match the content block I'm in.
       / /collapsible
     / /themed container
     %p
-      %strong B
+      %strong
+        B
       theme swatch on content &amp; collapsible
     .ui-body.ui-body-b
-      %h1 H1 Heading
+      %h1
+        H1 Heading
       %p
         This is a paragraph that contains
-        = succeed "," do
-          %strong strong
-        %em emphasized
+        %strong
+          strong
+        %em
+          emphasized
         and
-        %a{:href => "index.html"} linked
+        %a{:href => "/mobile/docs/content/index"}
+          linked
         text. Here is more text so you can see how HTML markup works in content. Here is more text
         so you can see how HTML markup works in content.
       %div{"data-role" => "collapsible", "data-state" => "collapsed", "data-theme" => "b"}
-        %h3 I'm an themed collapsible
+        %h3
+          I'm an themed collapsible
         %p
           I have
-          %code data-theme
+          %code
+            data-theme
           attribute set manually on my container to set the color to match the content block I'm in.
       / /collapsible
     / /themed container
     %p
-      %strong C
+      %strong
+        C
       theme swatch on content &amp; collapsible
     .ui-body.ui-body-c
-      %h1 H1 Heading
+      %h1
+        H1 Heading
       %p
         This is a paragraph that contains
-        = succeed "," do
-          %strong strong
-        %em emphasized
+        %strong
+          strong
+        %em
+          emphasized
         and
-        %a{:href => "index.html"} linked
+        %a{:href => "/mobile/docs/content/index"}
+          linked
         text. Here is more text so you can see how HTML markup works in content. Here is more text
         so you can see how HTML markup works in content.
       %div{"data-role" => "collapsible", "data-state" => "collapsed", "data-theme" => "c"}
-        %h3 I'm an themed collapsible
+        %h3
+          I'm an themed collapsible
         %p
           I have
-          %code data-theme
+          %code
+            data-theme
           attribute set manually on my container to set the color to match the content block I'm in.
       / /collapsible
     / /themed container
     %p
-      %strong D
+      %strong
+        D
       theme swatch on content &amp; collapsible
     .ui-body.ui-body-d
-      %h1 H1 Heading
+      %h1
+        H1 Heading
       %p
         This is a paragraph that contains
-        = succeed "," do
-          %strong strong
-        %em emphasized
+        %strong
+          strong
+        %em
+          emphasized
         and
-        %a{:href => "index.html"} linked
+        %a{:href => "/mobile/docs/content/index"}
+          linked
         text. Here is more text so you can see how HTML markup works in content. Here is more text
         so you can see how HTML markup works in content.
       %div{"data-role" => "collapsible", "data-state" => "collapsed", "data-theme" => "d"}
@@ -119,29 +147,36 @@
           I'm an themed collapsible
         %p
           I have
-          %code data-theme
+          %code
+            data-theme
           attribute set manually on my container to set the color to match the content block I'm in.
       / /collapsible
     / /themed container
     %p
-      %strong E
+      %strong
+        E
       theme swatch on content &amp; collapsible
     .ui-body.ui-body-e
-      %h1 H1 Heading
+      %h1
+        H1 Heading
       %p
         This is a paragraph that contains
-        = succeed "," do
-          %strong strong
-        %em emphasized
+        %strong
+          strong
+        %em
+          emphasized
         and
-        %a{:href => "index.html"} linked
+        %a{:href => "/mobile/docs/content/index"}
+          linked
         text. Here is more text so you can see how HTML markup works in content. Here is more text
         so you can see how HTML markup works in content.
       %div{"data-role" => "collapsible", "data-state" => "collapsed", "data-theme" => "e"}
-        %h3 I'm an themed collapsible
+        %h3
+          I'm an themed collapsible
         %p
           I have
-          %code data-theme
+          %code
+            data-theme
           attribute set manually on my container to set the color to match the content block I'm in.
       / /collapsible
     / /themed container
