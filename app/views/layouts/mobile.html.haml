@@ -1,18 +1,17 @@
 !!!
-%html.ui-mobile.landscape
+%html
   %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
-    %meta{:content => "width=device-width, minimum-scale=1, maximum-scale=1", :name => "viewport"}
+    %meta{:charset => "utf-8"}
     %title jQuery Mobile: Demos and Documentation
 
     = stylesheet_link_tag 'compiled/jquery.mobile/default.css', :media => 'screen, projection'
     = javascript_include_tag :mobile
+    = javascript_include_tag 'jquery.mobile.themeswitcher'
     = javascript_include_tag 'locales'
     = javascript_include_tag 'common'
     = javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery?
 
     = yield :content_head
 
-  %body{body_attributes}
-    #content
-      = yield
+  %body
+    = yield

@@ -1,5 +1,3 @@
--@title = "#{t('txt.jqm.name')} - #{t('txt.jqm.default')}"
-
 - content_for :content_head do
   = render(:partial => "index.js.haml", :format => :js)
 
@@ -7,38 +5,55 @@
   #jqm-homeheader
     %h1#jqm-logo
       %img{:alt => "jQuery Mobile Framework", :height => "61", :src => "/images/demo/mobile/jquery-logo.png", :width => "235"}/
-    %p A Touch-Optimized Web Framework for Smartphones &amp; Tablets
+    %p
+      A Touch-Optimized Web Framework for Smartphones &amp; Tablets
     %p#jqm-version Alpha Release
   %div{"data-role" => "content"}
     %ul{"data-dividertheme" => "b", "data-inset" => "true", "data-role" => "listview", "data-theme" => "c"}
-      %li{"data-role" => "list-divider"} Overview
+      %li{"data-role" => "list-divider"}
+        Overview
       %li
-        %a{:href => "docs/about/intro"} Intro to jQuery Mobile
+        %a{:href => "docs/about/intro"}
+          Intro to jQuery Mobile
       %li
-        %a{:href => "docs/about/features"} Features
+        %a{:href => "docs/about/features"}
+          Features
       %li
-        %a{:href => "docs/about/accessibility"} Accessibility
+        %a{:href => "docs/about/accessibility"}
+          Accessibility
       %li
-        %a{:href => "docs/about/platforms"} Supported platforms
+        %a{:href => "docs/about/platforms"}
+          Supported platforms
       %li
-        %a{:href => "docs/about/themes"} Theme system
+        %a{:href => "docs/about/themes"}
+          Theme system
     %ul{"data-dividertheme" => "b", "data-inset" => "true", "data-role" => "listview", "data-theme" => "c"}
-      %li{"data-role" => "list-divider"} Components
+      %li{"data-role" => "list-divider"}
+        Components
       %li
-        %a{:href => "docs/pages"} Pages &amp; dialogs
+        %a{:href => "docs/pages"}
+          Pages &amp; dialogs
       %li
-        %a{:href => "docs/toolbars"} Toolbars
+        %a{:href => "docs/toolbars"}
+          Toolbars
       %li
-        %a{:href => "docs/buttons"} Buttons
+        %a{:href => "docs/buttons"}
+          Buttons
       %li
-        %a{:href => "docs/content"} Content formatting
+        %a{:href => "docs/content"}
+          Content formatting
       %li
-        %a{:href => "docs/forms"} Form elements
+        %a{:href => "docs/forms"}
+          Form elements
       %li
-        %a{:href => "docs/lists"} List views
+        %a{:href => "docs/lists"}
+          List views
       %li
-        %a{:href => "docs/events"} Events
+        %a{:href => "docs/events"}
+          Events
     %ul{"data-dividertheme" => "b", "data-inset" => "true", "data-role" => "listview", "data-theme" => "c"}
-      %li{"data-role" => "list-divider"} Demos
+      %li{"data-role" => "list-divider"}
+        Demos
       %li
-        %a{:href => "experiments/api-viewer"} jQuery API browser
+        %a{:href => "/mobile/experiments/api_viewer"}
+        jQuery API browser

@@ -1,0 +1,1272 @@
+%div{"data-role" => "page"}
+  %div{"data-role" => "header"}
+    %h1 jQuery API
+  %div{"data-role" => "content"}
+    %ul{"data-role" => "listview"}
+      %li
+        Ajax
+        %ul
+          %li
+            %h3
+              %a{:href => "docs/jQuery.ajax/index.html"} jQuery.ajax()
+            %p Perform an asynchronous HTTP (Ajax) request.
+          %li
+            %h3
+              %a{:href => "docs/ajaxComplete/index.html"} .ajaxComplete()
+            %p Register a handler to be called when Ajax requests complete. This is an Ajax Event.
+          %li
+            %h3
+              %a{:href => "docs/ajaxError/index.html"} .ajaxError()
+            %p Register a handler to be called when Ajax requests complete with an error. This is an Ajax Event.
+          %li
+            %h3
+              %a{:href => "docs/ajaxSend/index.html"} .ajaxSend()
+            %p Show a message before an Ajax request is sent.
+          %li
+            %h3
+              %a{:href => "docs/jQuery.ajaxSetup/index.html"} jQuery.ajaxSetup()
+            %p Set default values for future Ajax requests.
+          %li
+            %h3
+              %a{:href => "docs/ajaxStart/index.html"} .ajaxStart()
+            %p Register a handler to be called when the first Ajax request begins. This is an Ajax Event.
+          %li
+            %h3
+              %a{:href => "docs/ajaxStop/index.html"} .ajaxStop()
+            %p Hide a loading message after all the Ajax requests have stopped.
+          %li
+            %h3
+              %a{:href => "docs/ajaxSuccess/index.html"} .ajaxSuccess()
+            %p Show a message when an Ajax request completes successfully.
+          %li
+            %h3
+              %a{:href => "docs/jQuery.get/index.html"} jQuery.get()
+            %p Load data from the server using a HTTP GET request.
+          %li
+            %h3
+              %a{:href => "docs/jQuery.getJSON/index.html"} jQuery.getJSON()
+            %p Load JSON-encoded data from the server using a GET HTTP request.
+          %li
+            %h3
+              %a{:href => "docs/jQuery.getScript/index.html"} jQuery.getScript()
+            %p Load a JavaScript file from the server using a GET HTTP request, then execute it.
+          %li
+            %h3
+              %a{:href => "docs/load/index.html"} .load()
+            %p Load data from the server and place the returned HTML into the matched element.
+          %li
+            %h3
+              %a{:href => "docs/jQuery.param/index.html"} jQuery.param()
+            %p Create a serialized representation of an array or object, suitable for use in a URL query string or Ajax request.
+          %li
+            %h3
+              %a{:href => "docs/jQuery.post/index.html"} jQuery.post()
+            %p Load data from the server using a HTTP POST request.
+          %li
+            %h3
+              %a{:href => "docs/serialize/index.html"} .serialize()
+            %p Encode a set of form elements as a string for submission.
+          %li
+            %h3
+              %a{:href => "docs/serializeArray/index.html"} .serializeArray()
+            %p Encode a set of form elements as an array of names and values.
+      %li
+        Attributes
+        %ul
+          %li
+            %h3
+              %a{:href => "docs/addClass/index.html"} .addClass()
+            %p Adds the specified class(es) to each of the set of matched elements.
+          %li
+            %h3
+              %a{:href => "docs/attr/index.html"} .attr()
+            %p Get the value of an attribute for the first element in the set of matched elements.
+          %li
+            %h3
+              %a{:href => "docs/hasClass/index.html"} .hasClass()
+            %p Determine whether any of the matched elements are assigned the given class.
+          %li
+            %h3
+              %a{:href => "docs/html/index.html"} .html()
+            %p Get the HTML contents of the first element in the set of matched elements.
+          %li
+            %h3
+              %a{:href => "docs/removeAttr/index.html"} .removeAttr()
+            %p Remove an attribute from each element in the set of matched elements.
+          %li
+            %h3
+              %a{:href => "docs/removeClass/index.html"} .removeClass()
+            %p Remove a single class, multiple classes, or all classes from each element in the set of matched elements.
+          %li
+            %h3
+              %a{:href => "docs/text/index.html"} .text()
+            %p Get the combined text contents of each element in the set of matched elements, including their descendants.
+          %li
+            %h3
+              %a{:href => "docs/toggleClass/index.html"} .toggleClass()
+            %p Add or remove one or more classes from each element in the set of matched elements, depending on either the class's presence or the value of the switch argument.
+          %li
+            %h3
+              %a{:href => "docs/val/index.html"} .val()
+            %p Get the current value of the first element in the set of matched elements.
+      %li
+        Core
+        %ul
+          %li
+            %h3
+              %a{:href => "docs/jQuery/index.html"} jQuery()
+            %p Accepts a string containing a CSS selector which is then used to match a set of elements.
+          %li
+            %h3
+              %a{:href => "docs/jQuery.noConflict/index.html"} jQuery.noConflict()
+            %p Relinquish jQuery's control of the $ variable.
+      %li
+        CSS
+        %ul
+          %li
+            %h3
+              %a{:href => "docs/addClass/index.html"} .addClass()
+            %p Adds the specified class(es) to each of the set of matched elements.
+          %li
+            %h3
+              %a{:href => "docs/css/index.html"} .css()
+            %p Get the value of a style property for the first element in the set of matched elements.
+          %li
+            %h3
+              %a{:href => "docs/hasClass/index.html"} .hasClass()
+            %p Determine whether any of the matched elements are assigned the given class.
+          %li
+            %h3
+              %a{:href => "docs/height/index.html"} .height()
+            %p Get the current computed height for the first element in the set of matched elements.
+          %li
+            %h3
+              %a{:href => "docs/innerHeight/index.html"} .innerHeight()
+            %p Get the current computed height for the first element in the set of matched elements, including padding but not border.
+          %li
+            %h3
+              %a{:href => "docs/innerWidth/index.html"} .innerWidth()
+            %p Get the current computed width for the first element in the set of matched elements, including padding but not border.
+          %li
+            %h3
+              %a{:href => "docs/offset/index.html"} .offset()
+            %p Get the current coordinates of the first element in the set of matched elements, relative to the document.
+          %li
+            %h3
+              %a{:href => "docs/outerHeight/index.html"} .outerHeight()
+            %p Get the current computed height for the first element in the set of matched elements, including padding and border.
+          %li
+            %h3
+              %a{:href => "docs/outerWidth/index.html"} .outerWidth()
+            %p Get the current computed width for the first element in the set of matched elements, including padding and border.
+          %li
+            %h3
+              %a{:href => "docs/position/index.html"} .position()
+            %p Get the current coordinates of the first element in the set of matched elements, relative to the offset parent.
+          %li
+            %h3
+              %a{:href => "docs/removeClass/index.html"} .removeClass()
+            %p Remove a single class, multiple classes, or all classes from each element in the set of matched elements.
+          %li
+            %h3
+              %a{:href => "docs/scrollLeft/index.html"} .scrollLeft()
+            %p Get the current horizontal position of the scroll bar for the first element in the set of matched elements.
+          %li
+            %h3
+              %a{:href => "docs/scrollTop/index.html"} .scrollTop()
+            %p Get the current vertical position of the scroll bar for the first element in the set of matched elements.
+          %li
+            %h3
+              %a{:href => "docs/toggleClass/index.html"} .toggleClass()
+            %p Add or remove one or more classes from each element in the set of matched elements, depending on either the class's presence or the value of the switch argument.
+          %li
+            %h3
+              %a{:href => "docs/width/index.html"} .width()
+            %p Get the current computed width for the first element in the set of matched elements.
+      %li
+        Data
+        %ul
+          %li
+            %h3
+              %a{:href => "docs/clearQueue/index.html"} .clearQueue()
+            %p Remove from the queue all items that have not yet been run.
+          %li
+            %h3
+              %a{:href => "docs/data/index.html"} .data()
+            %p Store arbitrary data associated with the matched elements.
+          %li
+            %h3
+              %a{:href => "docs/jQuery.data/index.html"} jQuery.data()
+            %p Store arbitrary data associated with the specified element.
+          %li
+            %h3
+              %a{:href => "docs/dequeue/index.html"} .dequeue()
+            %p Execute the next function on the queue for the matched elements.
+          %li
+            %h3
+              %a{:href => "docs/jQuery.dequeue/index.html"} jQuery.dequeue()
+            %p Execute the next function on the queue for the matched element.
+          %li
+            %h3
+              %a{:href => "docs/queue/index.html"} .queue()
+            %p Show the queue of functions to be executed on the matched elements.
+          %li
+            %h3
+              %a{:href => "docs/jQuery.queue/index.html"} jQuery.queue()
+            %p Show the queue of functions to be executed on the matched element.
+          %li
+            %h3
+              %a{:href => "docs/removeData/index.html"} .removeData()
+            %p Remove a previously-stored piece of data.
+          %li
+            %h3
+              %a{:href => "docs/jQuery.removeData/index.html"} jQuery.removeData()
+            %p Remove a previously-stored piece of data.
+      %li
+        Dimensions
+        %ul
+          %li
+            %h3
+              %a{:href => "docs/height/index.html"} .height()
+            %p Get the current computed height for the first element in the set of matched elements.
+          %li
+            %h3
+              %a{:href => "docs/innerHeight/index.html"} .innerHeight()
+            %p Get the current computed height for the first element in the set of matched elements, including padding but not border.
+          %li
+            %h3
+              %a{:href => "docs/innerWidth/index.html"} .innerWidth()
+            %p Get the current computed width for the first element in the set of matched elements, including padding but not border.
+          %li
+            %h3
+              %a{:href => "docs/outerHeight/index.html"} .outerHeight()
+            %p Get the current computed height for the first element in the set of matched elements, including padding and border.
+          %li
+            %h3
+              %a{:href => "docs/outerWidth/index.html"} .outerWidth()
+            %p Get the current computed width for the first element in the set of matched elements, including padding and border.
+          %li
+            %h3
+              %a{:href => "docs/width/index.html"} .width()
+            %p Get the current computed width for the first element in the set of matched elements.
+      %li
+        Effects
+        %ul
+          %li
+            %h3
+              %a{:href => "docs/animate/index.html"} .animate()
+            %p Perform a custom animation of a set of CSS properties.
+          %li
+            %h3
+              %a{:href => "docs/clearQueue/index.html"} .clearQueue()
+            %p Remove from the queue all items that have not yet been run.
+          %li
+            %h3
+              %a{:href => "docs/delay/index.html"} .delay()
+            %p Set a timer to delay execution of subsequent items in the queue.
+          %li
+            %h3
+              %a{:href => "docs/dequeue/index.html"} .dequeue()
+            %p Execute the next function on the queue for the matched elements.
+          %li
+            %h3
+              %a{:href => "docs/fadeIn/index.html"} .fadeIn()
+            %p Display the matched elements by fading them to opaque.
+          %li
+            %h3
+              %a{:href => "docs/fadeOut/index.html"} .fadeOut()
+            %p Hide the matched elements by fading them to transparent.
+          %li
+            %h3
+              %a{:href => "docs/fadeTo/index.html"} .fadeTo()
+            %p Adjust the opacity of the matched elements.
+          %li
+            %h3
+              %a{:href => "docs/jQuery.fx.off/index.html"} jQuery.fx.off
+            %p Globally disable all animations.
+          %li
+            %h3
+              %a{:href => "docs/hide/index.html"} .hide()
+            %p Hide the matched elements.
+          %li
+            %h3
+              %a{:href => "docs/queue/index.html"} .queue()
+            %p Show the queue of functions to be executed on the matched elements.
+          %li
+            %h3
+              %a{:href => "docs/show/index.html"} .show()
+            %p Display the matched elements.
+          %li
+            %h3
+              %a{:href => "docs/slideDown/index.html"} .slideDown()
+            %p Display the matched elements with a sliding motion.
+          %li
+            %h3
+              %a{:href => "docs/slideToggle/index.html"} .slideToggle()
+            %p Display or hide the matched elements with a sliding motion.
+          %li
+            %h3
+              %a{:href => "docs/slideUp/index.html"} .slideUp()
+            %p Hide the matched elements with a sliding motion.
+          %li
+            %h3
+              %a{:href => "docs/stop/index.html"} .stop()
+            %p Stop the currently-running animation on the matched elements.
+          %li
+            %h3
+              %a{:href => "docs/toggle/index.html"} .toggle()
+            %p Bind two or more handlers to the matched elements, to be executed on alternate clicks.
+      %li
+        Events
+        %ul
+          %li
+            %h3
+              %a{:href => "docs/bind/index.html"} .bind()
+            %p Attach a handler to an event for the elements.
+          %li
+            %h3
+              %a{:href => "docs/blur/index.html"} .blur()
+            %p Bind an event handler to the "blur" JavaScript event, or trigger that event on an element.
+          %li
+            %h3
+              %a{:href => "docs/change/index.html"} .change()
+            %p Bind an event handler to the "change" JavaScript event, or trigger that event on an element.
+          %li
+            %h3
+              %a{:href => "docs/click/index.html"} .click()
+            %p Bind an event handler to the "click" JavaScript event, or trigger that event on an element.
+          %li
+            %h3
+              %a{:href => "docs/dblclick/index.html"} .dblclick()
+            %p Bind an event handler to the "dblclick" JavaScript event, or trigger that event on an element.
+          %li
+            %h3
+              %a{:href => "docs/delegate/index.html"} .delegate()
+            %p Attach a handler to one or more events for all elements that match the selector, now or in the future, based on a specific set of root elements.
+          %li
+            %h3
+              %a{:href => "docs/die/index.html"} .die()
+            %p Remove all event handlers previously attached using .live() from the elements.
+          %li
+            %h3
+              %a{:href => "docs/error/index.html"} .error()
+            %p Bind an event handler to the "error" JavaScript event.
+          %li
+            %h3
+              %a{:href => "docs/event.currentTarget/index.html"} event.currentTarget
+            %p The current DOM element within the event bubbling phase.
+          %li
+            %h3
+              %a{:href => "docs/event.data/index.html"} event.data
+            %p Contains the optional data passed to jQuery.fn.bind when the current executing handler was bound.
+          %li
+            %h3
+              %a{:href => "docs/event.isDefaultPrevented/index.html"} event.isDefaultPrevented()
+            %p Returns whether event.preventDefault() was ever called on this event object.
+          %li
+            %h3
+              %a{:href => "docs/event.isImmediatePropagationStopped/index.html"} event.isImmediatePropagationStopped()
+            %p Returns whether event.stopImmediatePropagation() was ever called on this event object.
+          %li
+            %h3
+              %a{:href => "docs/event.isPropagationStopped/index.html"} event.isPropagationStopped()
+            %p Returns whether event.stopPropagation() was ever called on this event object.
+          %li
+            %h3
+              %a{:href => "docs/event.pageX/index.html"} event.pageX
+            %p The mouse position relative to the left edge of the document.
+          %li
+            %h3
+              %a{:href => "docs/event.pageY/index.html"} event.pageY
+            %p The mouse position relative to the top edge of the document.
+          %li
+            %h3
+              %a{:href => "docs/event.preventDefault/index.html"} event.preventDefault()
+            %p If this method is called, the default action of the event will not be triggered.
+          %li
+            %h3
+              %a{:href => "docs/event.relatedTarget/index.html"} event.relatedTarget
+            %p The other DOM element involved in the event, if any.
+          %li
+            %h3
+              %a{:href => "docs/event.result/index.html"} event.result
+            %p This attribute contains the last value returned by an event handler that was triggered by this event, unless the value was undefined.
+          %li
+            %h3
+              %a{:href => "docs/event.stopImmediatePropagation/index.html"} event.stopImmediatePropagation()
+            %p Prevents other event handlers from being called.
+          %li
+            %h3
+              %a{:href => "docs/event.stopPropagation/index.html"} event.stopPropagation()
+            %p This method prevents the event from bubbling up the DOM tree, preventing any parent handlers from being notified of the event.
+          %li
+            %h3
+              %a{:href => "docs/event.target/index.html"} event.target
+            %p The DOM element that initiated the event.
+          %li
+            %h3
+              %a{:href => "docs/event.timeStamp/index.html"} event.timeStamp
+            %p This attribute returns the number of milliseconds since January 1, 1970, when the event is triggered.
+          %li
+            %h3
+              %a{:href => "docs/event.type/index.html"} event.type
+            %p Describes the nature of the event.
+          %li
+            %h3
+              %a{:href => "docs/event.which/index.html"} event.which
+            %p For key or button events, this attribute indicates the specific button or key that was pressed.
+          %li
+            %h3
+              %a{:href => "docs/focus/index.html"} .focus()
+            %p Bind an event handler to the "focus" JavaScript event, or trigger that event on an element.
+          %li
+            %h3
+              %a{:href => "docs/focusin/index.html"} .focusin()
+            %p Bind an event handler to the "focusin" JavaScript event.
+          %li
+            %h3
+              %a{:href => "docs/focusout/index.html"} .focusout()
+            %p Bind an event handler to the "focusout" JavaScript event.
+          %li
+            %h3
+              %a{:href => "docs/hover/index.html"} .hover()
+            %p Bind two handlers to the matched elements, to be executed when the mouse pointer enters and leaves the elements.
+          %li
+            %h3
+              %a{:href => "docs/keydown/index.html"} .keydown()
+            %p Bind an event handler to the "keydown" JavaScript event, or trigger that event on an element.
+          %li
+            %h3
+              %a{:href => "docs/keypress/index.html"} .keypress()
+            %p Bind an event handler to the "keypress" JavaScript event, or trigger that event on an element.
+          %li
+            %h3
+              %a{:href => "docs/keyup/index.html"} .keyup()
+            %p Bind an event handler to the "keyup" JavaScript event, or trigger that event on an element.
+          %li
+            %h3
+              %a{:href => "docs/live/index.html"} .live()
+            %p Attach a handler to the event for all elements which match the current selector, now or in the future.
+          %li
+            %h3
+              %a{:href => "docs/load-event/index.html"} .load()
+            %p Bind an event handler to the "load" JavaScript event.
+          %li
+            %h3
+              %a{:href => "docs/mousedown/index.html"} .mousedown()
+            %p Bind an event handler to the "mousedown" JavaScript event, or trigger that event on an element.
+          %li
+            %h3
+              %a{:href => "docs/mouseenter/index.html"} .mouseenter()
+            %p Bind an event handler to be fired when the mouse enters an element, or trigger that handler on an element.
+          %li
+            %h3
+              %a{:href => "docs/mouseleave/index.html"} .mouseleave()
+            %p Bind an event handler to be fired when the mouse leaves an element, or trigger that handler on an element.
+          %li
+            %h3
+              %a{:href => "docs/mousemove/index.html"} .mousemove()
+            %p Bind an event handler to the "mousemove" JavaScript event, or trigger that event on an element.
+          %li
+            %h3
+              %a{:href => "docs/mouseout/index.html"} .mouseout()
+            %p Bind an event handler to the "mouseout" JavaScript event, or trigger that event on an element.
+          %li
+            %h3
+              %a{:href => "docs/mouseover/index.html"} .mouseover()
+            %p Bind an event handler to the "mouseover" JavaScript event, or trigger that event on an element.
+          %li
+            %h3
+              %a{:href => "docs/mouseup/index.html"} .mouseup()
+            %p Bind an event handler to the "mouseup" JavaScript event, or trigger that event on an element.
+          %li
+            %h3
+              %a{:href => "docs/one/index.html"} .one()
+            %p Attach a handler to an event for the elements. The handler is executed at most once.
+          %li
+            %h3
+              %a{:href => "docs/jQuery.proxy/index.html"} jQuery.proxy()
+            %p Takes a function and returns a new one that will always have a particular context.
+          %li
+            %h3
+              %a{:href => "docs/ready/index.html"} .ready()
+            %p Specify a function to execute when the DOM is fully loaded.
+          %li
+            %h3
+              %a{:href => "docs/resize/index.html"} .resize()
+            %p Bind an event handler to the "resize" JavaScript event, or trigger that event on an element.
+          %li
+            %h3
+              %a{:href => "docs/scroll/index.html"} .scroll()
+            %p Bind an event handler to the "scroll" JavaScript event, or trigger that event on an element.
+          %li
+            %h3
+              %a{:href => "docs/select/index.html"} .select()
+            %p Bind an event handler to the "select" JavaScript event, or trigger that event on an element.
+          %li
+            %h3
+              %a{:href => "docs/submit/index.html"} .submit()
+            %p Bind an event handler to the "submit" JavaScript event, or trigger that event on an element.
+          %li
+            %h3
+              %a{:href => "docs/toggle/index.html"} .toggle()
+            %p Bind two or more handlers to the matched elements, to be executed on alternate clicks.
+          %li
+            %h3
+              %a{:href => "docs/trigger/index.html"} .trigger()
+            %p Execute all handlers and behaviors attached to the matched elements for the given event type.
+          %li
+            %h3
+              %a{:href => "docs/triggerHandler/index.html"} .triggerHandler()
+            %p Execute all handlers attached to an element for an event.
+          %li
+            %h3
+              %a{:href => "docs/unbind/index.html"} .unbind()
+            %p Remove a previously-attached event handler from the elements.
+          %li
+            %h3
+              %a{:href => "docs/undelegate/index.html"} .undelegate()
+            %p Remove a handler from the event for all elements which match the current selector, now or in the future, based upon a specific set of root elements.
+          %li
+            %h3
+              %a{:href => "docs/unload/index.html"} .unload()
+            %p Bind an event handler to the "unload" JavaScript event.
+      %li
+        Forms
+        %ul
+          %li
+            %h3
+              %a{:href => "docs/blur/index.html"} .blur()
+            %p Bind an event handler to the "blur" JavaScript event, or trigger that event on an element.
+          %li
+            %h3
+              %a{:href => "docs/change/index.html"} .change()
+            %p Bind an event handler to the "change" JavaScript event, or trigger that event on an element.
+          %li
+            %h3
+              %a{:href => "docs/focus/index.html"} .focus()
+            %p Bind an event handler to the "focus" JavaScript event, or trigger that event on an element.
+          %li
+            %h3
+              %a{:href => "docs/jQuery.param/index.html"} jQuery.param()
+            %p Create a serialized representation of an array or object, suitable for use in a URL query string or Ajax request.
+          %li
+            %h3
+              %a{:href => "docs/select/index.html"} .select()
+            %p Bind an event handler to the "select" JavaScript event, or trigger that event on an element.
+          %li
+            %h3
+              %a{:href => "docs/serialize/index.html"} .serialize()
+            %p Encode a set of form elements as a string for submission.
+          %li
+            %h3
+              %a{:href => "docs/serializeArray/index.html"} .serializeArray()
+            %p Encode a set of form elements as an array of names and values.
+          %li
+            %h3
+              %a{:href => "docs/submit/index.html"} .submit()
+            %p Bind an event handler to the "submit" JavaScript event, or trigger that event on an element.
+          %li
+            %h3
+              %a{:href => "docs/val/index.html"} .val()
+            %p Get the current value of the first element in the set of matched elements.
+      %li
+        Manipulation
+        %ul
+          %li
+            %h3
+              %a{:href => "docs/addClass/index.html"} .addClass()
+            %p Adds the specified class(es) to each of the set of matched elements.
+          %li
+            %h3
+              %a{:href => "docs/after/index.html"} .after()
+            %p Insert content, specified by the parameter, after each element in the set of matched elements.
+          %li
+            %h3
+              %a{:href => "docs/append/index.html"} .append()
+            %p Insert content, specified by the parameter, to the end of each element in the set of matched elements.
+          %li
+            %h3
+              %a{:href => "docs/appendTo/index.html"} .appendTo()
+            %p Insert every element in the set of matched elements to the end of the target.
+          %li
+            %h3
+              %a{:href => "docs/attr/index.html"} .attr()
+            %p Get the value of an attribute for the first element in the set of matched elements.
+          %li
+            %h3
+              %a{:href => "docs/before/index.html"} .before()
+            %p Insert content, specified by the parameter, before each element in the set of matched elements.
+          %li
+            %h3
+              %a{:href => "docs/clone/index.html"} .clone()
+            %p Create a copy of the set of matched elements.
+          %li
+            %h3
+              %a{:href => "docs/css/index.html"} .css()
+            %p Get the value of a style property for the first element in the set of matched elements.
+          %li
+            %h3
+              %a{:href => "docs/detach/index.html"} .detach()
+            %p Remove the set of matched elements from the DOM.
+          %li
+            %h3
+              %a{:href => "docs/empty/index.html"} .empty()
+            %p Remove all child nodes of the set of matched elements from the DOM.
+          %li
+            %h3
+              %a{:href => "docs/hasClass/index.html"} .hasClass()
+            %p Determine whether any of the matched elements are assigned the given class.
+          %li
+            %h3
+              %a{:href => "docs/height/index.html"} .height()
+            %p Get the current computed height for the first element in the set of matched elements.
+          %li
+            %h3
+              %a{:href => "docs/html/index.html"} .html()
+            %p Get the HTML contents of the first element in the set of matched elements.
+          %li
+            %h3
+              %a{:href => "docs/innerHeight/index.html"} .innerHeight()
+            %p Get the current computed height for the first element in the set of matched elements, including padding but not border.
+          %li
+            %h3
+              %a{:href => "docs/innerWidth/index.html"} .innerWidth()
+            %p Get the current computed width for the first element in the set of matched elements, including padding but not border.
+          %li
+            %h3
+              %a{:href => "docs/insertAfter/index.html"} .insertAfter()
+            %p Insert every element in the set of matched elements after the target.
+          %li
+            %h3
+              %a{:href => "docs/insertBefore/index.html"} .insertBefore()
+            %p Insert every element in the set of matched elements before the target.
+          %li
+            %h3
+              %a{:href => "docs/offset/index.html"} .offset()
+            %p Get the current coordinates of the first element in the set of matched elements, relative to the document.
+          %li
+            %h3
+              %a{:href => "docs/outerHeight/index.html"} .outerHeight()
+            %p Get the current computed height for the first element in the set of matched elements, including padding and border.
+          %li
+            %h3
+              %a{:href => "docs/outerWidth/index.html"} .outerWidth()
+            %p Get the current computed width for the first element in the set of matched elements, including padding and border.
+          %li
+            %h3
+              %a{:href => "docs/position/index.html"} .position()
+            %p Get the current coordinates of the first element in the set of matched elements, relative to the offset parent.
+          %li
+            %h3
+              %a{:href => "docs/prepend/index.html"} .prepend()
+            %p Insert content, specified by the parameter, to the beginning of each element in the set of matched elements.
+          %li
+            %h3
+              %a{:href => "docs/prependTo/index.html"} .prependTo()
+            %p Insert every element in the set of matched elements to the beginning of the target.
+          %li
+            %h3
+              %a{:href => "docs/remove/index.html"} .remove()
+            %p Remove the set of matched elements from the DOM.
+          %li
+            %h3
+              %a{:href => "docs/removeAttr/index.html"} .removeAttr()
+            %p Remove an attribute from each element in the set of matched elements.
+          %li
+            %h3
+              %a{:href => "docs/removeClass/index.html"} .removeClass()
+            %p Remove a single class, multiple classes, or all classes from each element in the set of matched elements.
+          %li
+            %h3
+              %a{:href => "docs/replaceAll/index.html"} .replaceAll()
+            %p A selector expression indicating which element(s) to replace.
+          %li
+            %h3
+              %a{:href => "docs/replaceWith/index.html"} .replaceWith()
+            %p Replace each element in the set of matched elements with the provided new content.
+          %li
+            %h3
+              %a{:href => "docs/scrollLeft/index.html"} .scrollLeft()
+            %p Get the current horizontal position of the scroll bar for the first element in the set of matched elements.
+          %li
+            %h3
+              %a{:href => "docs/scrollTop/index.html"} .scrollTop()
+            %p Get the current vertical position of the scroll bar for the first element in the set of matched elements.
+          %li
+            %h3
+              %a{:href => "docs/text/index.html"} .text()
+            %p Get the combined text contents of each element in the set of matched elements, including their descendants.
+          %li
+            %h3
+              %a{:href => "docs/toggleClass/index.html"} .toggleClass()
+            %p Add or remove one or more classes from each element in the set of matched elements, depending on either the class's presence or the value of the switch argument.
+          %li
+            %h3
+              %a{:href => "docs/unwrap/index.html"} .unwrap()
+            %p Remove the parents of the set of matched elements from the DOM, leaving the matched elements in their place.
+          %li
+            %h3
+              %a{:href => "docs/val/index.html"} .val()
+            %p Get the current value of the first element in the set of matched elements.
+          %li
+            %h3
+              %a{:href => "docs/width/index.html"} .width()
+            %p Get the current computed width for the first element in the set of matched elements.
+          %li
+            %h3
+              %a{:href => "docs/wrap/index.html"} .wrap()
+            %p Wrap an HTML structure around each element in the set of matched elements.
+          %li
+            %h3
+              %a{:href => "docs/wrapAll/index.html"} .wrapAll()
+            %p Wrap an HTML structure around all elements in the set of matched elements.
+          %li
+            %h3
+              %a{:href => "docs/wrapInner/index.html"} .wrapInner()
+            %p Wrap an HTML structure around the content of each element in the set of matched elements.
+      %li
+        Miscellaneous
+        %ul
+          %li
+            %h3
+              %a{:href => "docs/data/index.html"} .data()
+            %p Store arbitrary data associated with the matched elements.
+          %li
+            %h3
+              %a{:href => "docs/each/index.html"} .each()
+            %p Iterate over a jQuery object, executing a function for each matched element.
+          %li
+            %h3
+              %a{:href => "docs/get/index.html"} .get()
+            %p Retrieve the DOM elements matched by the jQuery object.
+          %li
+            %h3
+              %a{:href => "docs/index/index.html"} .index()
+            %p Search for a given element from among the matched elements.
+          %li
+            %h3
+              %a{:href => "docs/jQuery.noConflict/index.html"} jQuery.noConflict()
+            %p Relinquish jQuery's control of the $ variable.
+          %li
+            %h3
+              %a{:href => "docs/jQuery.param/index.html"} jQuery.param()
+            %p Create a serialized representation of an array or object, suitable for use in a URL query string or Ajax request.
+          %li
+            %h3
+              %a{:href => "docs/removeData/index.html"} .removeData()
+            %p Remove a previously-stored piece of data.
+          %li
+            %h3
+              %a{:href => "docs/size/index.html"} .size()
+            %p Return the number of DOM elements matched by the jQuery object.
+          %li
+            %h3
+              %a{:href => "docs/toArray/index.html"} .toArray()
+            %p Retrieve all the DOM elements contained in the jQuery set, as an array.
+      %li
+        Offset
+        %ul
+          %li
+            %h3
+              %a{:href => "docs/offset/index.html"} .offset()
+            %p Get the current coordinates of the first element in the set of matched elements, relative to the document.
+          %li
+            %h3
+              %a{:href => "docs/position/index.html"} .position()
+            %p Get the current coordinates of the first element in the set of matched elements, relative to the offset parent.
+          %li
+            %h3
+              %a{:href => "docs/scrollLeft/index.html"} .scrollLeft()
+            %p Get the current horizontal position of the scroll bar for the first element in the set of matched elements.
+          %li
+            %h3
+              %a{:href => "docs/scrollTop/index.html"} .scrollTop()
+            %p Get the current vertical position of the scroll bar for the first element in the set of matched elements.
+      %li
+        Plugin Authoring
+        %ul
+          %li
+            %h3
+              %a{:href => "docs/context/index.html"} .context
+            %p The DOM node context originally passed to jQuery(); if none was passed then context will likely be the document.
+          %li
+            %h3
+              %a{:href => "docs/jQuery.error/index.html"} jQuery.error
+            %p Takes a string and throws an exception containing it.
+          %li
+            %h3
+              %a{:href => "docs/jQuery.pushStack/index.html"} jQuery.pushStack()
+            %p Add a collection of DOM elements onto the jQuery stack.
+          %li
+            %h3
+              %a{:href => "docs/selector/index.html"} .selector
+            %p A selector representing selector originally passed to jQuery().
+      %li
+        Properties
+        %ul
+          %li
+            %h3
+              %a{:href => "docs/jQuery.browser/index.html"} jQuery.browser
+            %p We recommend against using this property, please try to use feature detection instead (see jQuery.support). Contains flags for the useragent, read from navigator.userAgent. While jQuery.browser will not be removed from future versions of jQuery, every effort to use jQuery.support and proper feature detection should be made.
+          %li
+            %h3
+              %a{:href => "docs/context/index.html"} .context
+            %p The DOM node context originally passed to jQuery(); if none was passed then context will likely be the document.
+          %li
+            %h3
+              %a{:href => "docs/jQuery.fx.off/index.html"} jQuery.fx.off
+            %p Globally disable all animations.
+          %li
+            %h3
+              %a{:href => "docs/length/index.html"} .length
+            %p The number of elements in the jQuery object.
+          %li
+            %h3
+              %a{:href => "docs/selector/index.html"} .selector
+            %p A selector representing selector originally passed to jQuery().
+          %li
+            %h3
+              %a{:href => "docs/jQuery.support/index.html"} jQuery.support
+            %p A collection of properties that represent the presence of different browser features or bugs.
+      %li
+        Selectors
+        %ul
+          %li
+            %h3
+              %a{:href => "docs/all-selector/index.html"} All Selector ("*")
+            %p Selects all elements.
+          %li
+            %h3
+              %a{:href => "docs/animated-selector/index.html"} :animated Selector
+            %p Select all elements that are in the progress of an animation at the time the selector is run.
+          %li
+            %h3
+              %a{:href => "docs/attribute-contains-prefix-selector/index.html"} Attribute Contains Prefix Selector [name|=value]
+            %p Selects elements that have the specified attribute with a value either equal to a given string or starting with that string followed by a hyphen (-).
+          %li
+            %h3
+              %a{:href => "docs/attribute-contains-selector/index.html"} Attribute Contains Selector [name*=value]
+            %p Selects elements that have the specified attribute with a value containing the a given substring.
+          %li
+            %h3
+              %a{:href => "docs/attribute-contains-word-selector/index.html"} Attribute Contains Word Selector [name~=value]
+            %p Selects elements that have the specified attribute with a value containing a given word, delimited by spaces.
+          %li
+            %h3
+              %a{:href => "docs/attribute-ends-with-selector/index.html"} Attribute Ends With Selector [name$=value]
+            %p Selects elements that have the specified attribute with a value ending exactly with a given string.
+          %li
+            %h3
+              %a{:href => "docs/attribute-equals-selector/index.html"} Attribute Equals Selector [name=value]
+            %p Selects elements that have the specified attribute with a value exactly equal to a certain value.
+          %li
+            %h3
+              %a{:href => "docs/attribute-not-equal-selector/index.html"} Attribute Not Equal Selector [name!=value]
+            %p Select elements that either don't have the specified attribute, or do have the specified attribute but not with a certain value.
+          %li
+            %h3
+              %a{:href => "docs/attribute-starts-with-selector/index.html"} Attribute Starts With Selector [name^=value]
+            %p Selects elements that have the specified attribute with a value beginning exactly with a given string.
+          %li
+            %h3
+              %a{:href => "docs/button-selector/index.html"} :button Selector
+            %p Selects all button elements and elements of type button.
+          %li
+            %h3
+              %a{:href => "docs/checkbox-selector/index.html"} :checkbox Selector
+            %p Selects all elements of type checkbox.
+          %li
+            %h3
+              %a{:href => "docs/checked-selector/index.html"} :checked Selector
+            %p Matches all elements that are checked.
+          %li
+            %h3
+              %a{:href => "docs/child-selector/index.html"} Child Selector ("parent &gt; child")
+            %p Selects all direct child elements specified by "child" of elements specified by "parent".
+          %li
+            %h3
+              %a{:href => "docs/class-selector/index.html"} Class Selector (".class")
+            %p Selects all elements with the given class.
+          %li
+            %h3
+              %a{:href => "docs/contains-selector/index.html"} :contains() Selector
+            %p Select all elements that contain the specified text.
+          %li
+            %h3
+              %a{:href => "docs/descendant-selector/index.html"} Descendant Selector ("ancestor descendant")
+            %p Selects all elements that are descendants of a given ancestor.
+          %li
+            %h3
+              %a{:href => "docs/disabled-selector/index.html"} :disabled Selector
+            %p Selects all elements that are disabled.
+          %li
+            %h3
+              %a{:href => "docs/element-selector/index.html"} Element Selector ("element")
+            %p Selects all elements with the given tag name.
+          %li
+            %h3
+              %a{:href => "docs/empty-selector/index.html"} :empty Selector
+            %p Select all elements that have no children (including text nodes).
+          %li
+            %h3
+              %a{:href => "docs/enabled-selector/index.html"} :enabled Selector
+            %p Selects all elements that are enabled.
+          %li
+            %h3
+              %a{:href => "docs/eq-selector/index.html"} :eq() Selector
+            %p Select the element at index n within the matched set.
+          %li
+            %h3
+              %a{:href => "docs/even-selector/index.html"} :even Selector
+            %p Selects even elements, zero-indexed.  See also odd.
+          %li
+            %h3
+              %a{:href => "docs/file-selector/index.html"} :file Selector
+            %p Selects all elements of type file.
+          %li
+            %h3
+              %a{:href => "docs/first-child-selector/index.html"} :first-child Selector
+            %p Selects all elements that are the first child of their parent.
+          %li
+            %h3
+              %a{:href => "docs/first-selector/index.html"} :first Selector
+            %p Selects the first matched element.
+          %li
+            %h3
+              %a{:href => "docs/gt-selector/index.html"} :gt() Selector
+            %p Select all elements at an index greater than index within the matched set.
+          %li
+            %h3
+              %a{:href => "docs/has-attribute-selector/index.html"} Has Attribute Selector [name]
+            %p Selects elements that have the specified attribute, with any value.
+          %li
+            %h3
+              %a{:href => "docs/has-selector/index.html"} :has() Selector
+            %p Selects elements which contain at least one element that matches the specified selector.
+          %li
+            %h3
+              %a{:href => "docs/header-selector/index.html"} :header Selector
+            %p Selects all elements that are headers, like h1, h2, h3 and so on.
+          %li
+            %h3
+              %a{:href => "docs/hidden-selector/index.html"} :hidden Selector
+            %p Selects all elements that are hidden.
+          %li
+            %h3
+              %a{:href => "docs/id-selector/index.html"} ID Selector ("#id")
+            %p Selects a single element with the given id attribute.
+          %li
+            %h3
+              %a{:href => "docs/image-selector/index.html"} :image Selector
+            %p Selects all elements of type image.
+          %li
+            %h3
+              %a{:href => "docs/input-selector/index.html"} :input Selector
+            %p Selects all input, textarea, select and button elements.
+          %li
+            %h3
+              %a{:href => "docs/last-child-selector/index.html"} :last-child Selector
+            %p Selects all elements that are the last child of their parent.
+          %li
+            %h3
+              %a{:href => "docs/last-selector/index.html"} :last Selector
+            %p Selects the last matched element.
+          %li
+            %h3
+              %a{:href => "docs/lt-selector/index.html"} :lt() Selector
+            %p Select all elements at an index less than index within the matched set.
+          %li
+            %h3
+              %a{:href => "docs/multiple-attribute-selector/index.html"} Multiple Attribute Selector [name=value][name2=value2]
+            %p Matches elements that match all of the specified attribute filters.
+          %li
+            %h3
+              %a{:href => "docs/multiple-selector/index.html"} Multiple Selector ("selector1, selector2, selectorN")
+            %p Selects the combined results of all the specified selectors.
+          %li
+            %h3
+              %a{:href => "docs/next-adjacent-Selector/index.html"} Next Adjacent Selector ("prev + next")
+            %p Selects all next elements matching "next" that are immediately preceded by a sibling "prev".
+          %li
+            %h3
+              %a{:href => "docs/next-siblings-selector/index.html"} Next Siblings Selector ("prev ~ siblings")
+            %p Selects all sibling elements that follow after the "prev" element, have the same parent, and match the filtering "siblings" selector.
+          %li
+            %h3
+              %a{:href => "docs/not-selector/index.html"} :not() Selector
+            %p Selects all elements that do not match the given selector.
+          %li
+            %h3
+              %a{:href => "docs/nth-child-selector/index.html"} :nth-child Selector
+            %p Selects all elements that are the nth-child of their parent.
+          %li
+            %h3
+              %a{:href => "docs/odd-selector/index.html"} :odd Selector
+            %p Selects odd elements, zero-indexed.  See also even.
+          %li
+            %h3
+              %a{:href => "docs/only-child-selector/index.html"} :only-child Selector
+            %p Selects all elements that are the only child of their parent.
+          %li
+            %h3
+              %a{:href => "docs/parent-selector/index.html"} :parent Selector
+            %p Select all elements that are the parent of another element, including text nodes.
+          %li
+            %h3
+              %a{:href => "docs/password-selector/index.html"} :password Selector
+            %p Selects all elements of type password.
+          %li
+            %h3
+              %a{:href => "docs/radio-selector/index.html"} :radio Selector
+            %p Selects all  elements of type radio.
+          %li
+            %h3
+              %a{:href => "docs/reset-selector/index.html"} :reset Selector
+            %p Selects all elements of type reset.
+          %li
+            %h3
+              %a{:href => "docs/selected-selector/index.html"} :selected Selector
+            %p Selects all elements that are selected.
+          %li
+            %h3
+              %a{:href => "docs/submit-selector/index.html"} :submit Selector
+            %p Selects all elements of type submit.
+          %li
+            %h3
+              %a{:href => "docs/text-selector/index.html"} :text Selector
+            %p Selects all elements of type text.
+          %li
+            %h3
+              %a{:href => "docs/visible-selector/index.html"} :visible Selector
+            %p Selects all elements that are visible.
+      %li
+        Traversing
+        %ul
+          %li
+            %h3
+              %a{:href => "docs/add/index.html"} .add()
+            %p Add elements to the set of matched elements.
+          %li
+            %h3
+              %a{:href => "docs/andSelf/index.html"} .andSelf()
+            %p Add the previous set of elements on the stack to the current set.
+          %li
+            %h3
+              %a{:href => "docs/children/index.html"} .children()
+            %p Get the children of each element in the set of matched elements, optionally filtered by a selector.
+          %li
+            %h3
+              %a{:href => "docs/closest/index.html"} .closest()
+            %p Get the first element that matches the selector, beginning at the current element and progressing up through the DOM tree.
+          %li
+            %h3
+              %a{:href => "docs/contents/index.html"} .contents()
+            %p Get the children of each element in the set of matched elements, including text nodes.
+          %li
+            %h3
+              %a{:href => "docs/end/index.html"} .end()
+            %p End the most recent filtering operation in the current chain and return the set of matched elements to its previous state.
+          %li
+            %h3
+              %a{:href => "docs/eq/index.html"} .eq()
+            %p Reduce the set of matched elements to the one at the specified index.
+          %li
+            %h3
+              %a{:href => "docs/filter/index.html"} .filter()
+            %p Reduce the set of matched elements to those that match the selector or pass the function's test.
+          %li
+            %h3
+              %a{:href => "docs/find/index.html"} .find()
+            %p Get the descendants of each element in the current set of matched elements, filtered by a selector.
+          %li
+            %h3
+              %a{:href => "docs/first/index.html"} .first()
+            %p Reduce the set of matched elements to the first in the set.
+          %li
+            %h3
+              %a{:href => "docs/has/index.html"} .has()
+            %p Reduce the set of matched elements to those that have a descendant that matches the selector or DOM element.
+          %li
+            %h3
+              %a{:href => "docs/is/index.html"} .is()
+            %p Check the current matched set of elements against a selector and return true if at least one of these elements matches the selector.
+          %li
+            %h3
+              %a{:href => "docs/last/index.html"} .last()
+            %p Reduce the set of matched elements to the final one in the set.
+          %li
+            %h3
+              %a{:href => "docs/map/index.html"} .map()
+            %p Pass each element in the current matched set through a function, producing a new jQuery object containing the return values.
+          %li
+            %h3
+              %a{:href => "docs/next/index.html"} .next()
+            %p Get the immediately following sibling of each element in the set of matched elements, optionally filtered by a selector.
+          %li
+            %h3
+              %a{:href => "docs/nextAll/index.html"} .nextAll()
+            %p Get all following siblings of each element in the set of matched elements, optionally filtered by a selector.
+          %li
+            %h3
+              %a{:href => "docs/nextUntil/index.html"} .nextUntil()
+            %p Get all following siblings of each element up to but not including the element matched by the selector.
+          %li
+            %h3
+              %a{:href => "docs/not/index.html"} .not()
+            %p Remove elements from the set of matched elements.
+          %li
+            %h3
+              %a{:href => "docs/offsetParent/index.html"} .offsetParent()
+            %p Get the closest ancestor element that is positioned.
+          %li
+            %h3
+              %a{:href => "docs/parent/index.html"} .parent()
+            %p Get the parent of each element in the current set of matched elements, optionally filtered by a selector.
+          %li
+            %h3
+              %a{:href => "docs/parents/index.html"} .parents()
+            %p Get the ancestors of each element in the current set of matched elements, optionally filtered by a selector.
+          %li
+            %h3
+              %a{:href => "docs/parentsUntil/index.html"} .parentsUntil()
+            %p Get the ancestors of each element in the current set of matched elements, up to but not including the element matched by the selector.
+          %li
+            %h3
+              %a{:href => "docs/prev/index.html"} .prev()
+            %p Get the immediately preceding sibling of each element in the set of matched elements, optionally filtered by a selector.
+          %li
+            %h3
+              %a{:href => "docs/prevAll/index.html"} .prevAll()
+            %p Get all preceding siblings of each element in the set of matched elements, optionally filtered by a selector.
+          %li
+            %h3
+              %a{:href => "docs/prevUntil/index.html"} .prevUntil()
+            %p Get all preceding siblings of each element up to but not including the element matched by the selector.
+          %li
+            %h3
+              %a{:href => "docs/siblings/index.html"} .siblings()
+            %p Get the siblings of each element in the set of matched elements, optionally filtered by a selector.
+          %li
+            %h3
+              %a{:href => "docs/slice/index.html"} .slice()
+            %p Reduce the set of matched elements to a subset specified by a range of indices.
+      %li
+        Utilities
+        %ul
+          %li
+            %h3
+              %a{:href => "docs/jQuery.boxModel/index.html"} jQuery.boxModel
+            %p Deprecated in jQuery 1.3 (see jQuery.support). States if the current page, in the user's browser, is being rendered using the W3C CSS Box Model.
+          %li
+            %h3
+              %a{:href => "docs/jQuery.browser/index.html"} jQuery.browser
+            %p We recommend against using this property, please try to use feature detection instead (see jQuery.support). Contains flags for the useragent, read from navigator.userAgent. While jQuery.browser will not be removed from future versions of jQuery, every effort to use jQuery.support and proper feature detection should be made.
+          %li
+            %h3
+              %a{:href => "docs/clearQueue/index.html"} .clearQueue()
+            %p Remove from the queue all items that have not yet been run.
+          %li
+            %h3
+              %a{:href => "docs/jQuery.contains/index.html"} jQuery.contains()
+            %p Check to see if a DOM node is within another DOM node.
+          %li
+            %h3
+              %a{:href => "docs/jQuery.data/index.html"} jQuery.data()
+            %p Store arbitrary data associated with the specified element.
+          %li
+            %h3
+              %a{:href => "docs/dequeue/index.html"} .dequeue()
+            %p Execute the next function on the queue for the matched elements.
+          %li
+            %h3
+              %a{:href => "docs/jQuery.dequeue/index.html"} jQuery.dequeue()
+            %p Execute the next function on the queue for the matched element.
+          %li
+            %h3
+              %a{:href => "docs/jQuery.each/index.html"} jQuery.each()
+            %p Iterates through the array displaying each number as both a word and numeral
+          %li
+            %h3
+              %a{:href => "docs/jQuery.extend/index.html"} jQuery.extend()
+            %p Merge the contents of two or more objects together into the first object.
+          %li
+            %h3
+              %a{:href => "docs/jQuery.globalEval/index.html"} jQuery.globalEval()
+            %p Execute some JavaScript code globally.
+          %li
+            %h3
+              %a{:href => "docs/jQuery.grep/index.html"} jQuery.grep()
+            %p Finds the elements of an array which satisfy a filter function. The original array is not affected.
+          %li
+            %h3
+              %a{:href => "docs/jQuery.inArray/index.html"} jQuery.inArray()
+            %p Search for a specified value within an array and return its index (or -1 if not found).
+          %li
+            %h3
+              %a{:href => "docs/jQuery.isArray/index.html"} jQuery.isArray()
+            %p Determine whether the argument is an array.
+          %li
+            %h3
+              %a{:href => "docs/jQuery.isEmptyObject/index.html"} jQuery.isEmptyObject()
+            %p Check to see if an object is empty (contains no properties).
+          %li
+            %h3
+              %a{:href => "docs/jQuery.isFunction/index.html"} jQuery.isFunction()
+            %p Determine if the argument passed is a Javascript function object.
+          %li
+            %h3
+              %a{:href => "docs/jQuery.isPlainObject/index.html"} jQuery.isPlainObject()
+            %p Check to see if an object is a plain object (created using "{}" or "new Object").
+          %li
+            %h3
+              %a{:href => "docs/jQuery.isXMLDoc/index.html"} jQuery.isXMLDoc()
+            %p Check to see if a DOM node is within an XML document (or is an XML document).
+          %li
+            %h3
+              %a{:href => "docs/jQuery.makeArray/index.html"} jQuery.makeArray()
+            %p Convert an array-like object into a true JavaScript array.
+          %li
+            %h3
+              %a{:href => "docs/jQuery.map/index.html"} jQuery.map()
+            %p Translate all items in an array or array-like object to another array of items.
+          %li
+            %h3
+              %a{:href => "docs/jQuery.merge/index.html"} jQuery.merge()
+            %p Merge the contents of two arrays together into the first array.
+          %li
+            %h3
+              %a{:href => "docs/jQuery.noop/index.html"} jQuery.noop()
+            %p An empty function.
+          %li
+            %h3
+              %a{:href => "docs/jQuery.parseJSON/index.html"} jQuery.parseJSON
+            %p Takes a well-formed JSON string and returns the resulting JavaScript object.
+          %li
+            %h3
+              %a{:href => "docs/jQuery.proxy/index.html"} jQuery.proxy()
+            %p Takes a function and returns a new one that will always have a particular context.
+          %li
+            %h3
+              %a{:href => "docs/queue/index.html"} .queue()
+            %p Show the queue of functions to be executed on the matched elements.
+          %li
+            %h3
+              %a{:href => "docs/jQuery.queue/index.html"} jQuery.queue()
+            %p Show the queue of functions to be executed on the matched element.
+          %li
+            %h3
+              %a{:href => "docs/jQuery.removeData/index.html"} jQuery.removeData()
+            %p Remove a previously-stored piece of data.
+          %li
+            %h3
+              %a{:href => "docs/jQuery.support/index.html"} jQuery.support
+            %p A collection of properties that represent the presence of different browser features or bugs.
+          %li
+            %h3
+              %a{:href => "docs/jQuery.trim/index.html"} jQuery.trim()
+            %p Remove the whitespace from the beginning and end of a string.
+          %li
+            %h3
+              %a{:href => "docs/jQuery.unique/index.html"} jQuery.unique()
+            %p Sorts an array of DOM elements, in place, with the duplicates removed. Note that this only works on arrays of DOM elements, not strings or numbers.
