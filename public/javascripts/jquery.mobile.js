@@ -2410,8 +2410,6 @@ jQuery.widget( "mobile.listview", jQuery.mobile.widget, {
 			}
 				
 			if ( pos === 0 ) {
-				item.find( "img" ).addClass( "ui-corner-tl" );
-
 				if ( o.inset ) {
 					itemClass += " ui-corner-top";
 
@@ -2425,7 +2423,6 @@ jQuery.widget( "mobile.listview", jQuery.mobile.widget, {
 				}
 
 			} else if ( pos === li.length - 1 ) {
-				item.find( "img" ).addClass( "ui-corner-bl" );
 
 				if ( o.inset ) {
 					itemClass += " ui-corner-bottom";
@@ -2859,7 +2856,7 @@ $.fn.grid = function(options){
 		}
 		activeClickedLink = null;
 	}
-	
+
 
 	//for getting or creating a new page 
 	function changePage( to, transition, back, changeHash){
@@ -2871,13 +2868,16 @@ $.fn.grid = function(options){
 			url = fileUrl = $.type(to) === "string" ? to.replace( /^#/, "" ) : null,
 			data = undefined,
 			type = 'get',
+			isFormRequest = false,
+			duplicateCachedPage = null,
 			back = (back !== undefined) ? back : ( urlStack.length > 1 && urlStack[ urlStack.length - 2 ].url === url ),
 			transition = (transition !== undefined) ? transition :  ( pageTransition || "slide" );
 		
 		if( $.type(to) === "object" ){
 			url = to.url,
 			data = to.data,
-			type = to.type;
+			type = to.type,
+			isFormRequest = true;
 			//make get requests bookmarkable
 			if( data && type == 'get' ){
 				url += "?" + data;
@@ -2924,6 +2924,11 @@ $.fn.grid = function(options){
 					}, 500);
 				}
 				removeActiveLinkClass();
+				
+				//if there's a duplicateCachedPage, remove it from the DOM now that it's hidden
+				if( duplicateCachedPage != null ){
+					duplicateCachedPage.remove();
+				}
 			}
 			
 			if(transition){		
@@ -2974,13 +2979,18 @@ $.fn.grid = function(options){
 		}
 		
 		// find the "to" page, either locally existing in the dom or by creating it through ajax
-		if ( to.length ) {
+		if ( to.length && !isFormRequest ) {
 			if( fileUrl ){
 				setBaseURL(fileUrl);
 			}	
 			enhancePage();
 			transitionPages();
 		} else { 
+		
+			//if to exists in DOM, save a reference to it in duplicateCachedPage for removal after page change
+			if( to.length ){
+				duplicateCachedPage = to;
+			}
 			
 			pageLoading();
 
@@ -3184,6 +3194,8 @@ $.fn.grid = function(options){
 		$html.addClass( jQuery.event.special.orientationchange.orientation( $window ) );
 	});
 	
-	$window.load(hideBrowserChrome);
+	$window
+		.load(hideBrowserChrome)
+		.unload(removeActiveLinkClass);
 	
 })( jQuery, this );
