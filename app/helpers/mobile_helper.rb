@@ -1,0 +1,2 @@
+module MobileDemoHelper
+end
