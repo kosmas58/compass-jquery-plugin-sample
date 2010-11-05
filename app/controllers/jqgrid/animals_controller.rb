@@ -3,7 +3,7 @@ class Jqgrid::AnimalsController < ApplicationController
   
   protect_from_forgery
   
-   def index
+  def index
     @example = (params[:example] || "05")
     mylist = "example#{@example}".to_sym
     if request.xhr?

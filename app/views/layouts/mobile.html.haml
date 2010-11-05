@@ -6,7 +6,6 @@
 
     = stylesheet_link_tag 'compiled/jquery/mobile/default.css', :media => 'screen, projection'
     = javascript_include_tag :mobile
-    = javascript_include_tag 'jquery.mobile.themeswitcher'
     = javascript_include_tag 'locales'
     = javascript_include_tag 'common'
     = javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery?

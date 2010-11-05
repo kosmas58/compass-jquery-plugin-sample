@@ -19,25 +19,29 @@
       attribute to the
       %code
         data-role="page"
-      container to ensure that the background colors are applied to the full page, regardless of the
-      content length. (If you add to the
+      container to ensure that the background colors are applied to the full page, regardless of the content
+      length. (If you add to the
       %code
         data-theme
-      to the content container, the background color will stop after the content so there may be a
-      gap in color between the content and fixed footer.)
+      to the content container, the background color will stop after the content so there may be a gap in
+      color between the content and fixed footer.)
     %code
-      &lt;div data-role=&quot;page&quot; data-theme=&quot;a&quot;&gt;
+      &lt;div data-role=&quot;page&quot;
+      = succeed "&amp;gt;" do
+        %strong
+          data-theme=&quot;a&quot;
     %h2
       Theming collapsible blocks
     %p
       To set the color of the collapsible header, add the
       %code
         data-theme
-      attribute to the collapsible container. The icon and body are not currently themable through
-      data attributes, but can be styled directly with custom css.
+      attribute to the collapsible container. The icon and body are not currently themable through data
+      attributes, but can be styled directly with custom css.
     %code
-      &lt;div data-role=&quot;collapsible&quot; data-state=&quot;collapsed&quot;
-      data-theme=&quot;a&quot;&gt;
+      &lt;div data-role=&quot;collapsible&quot; data-collapsed=&quot;true&quot;
+      %strong
+        data-theme=&quot;a&quot;&gt;
     %h2
       Themed examples
     %p
@@ -49,16 +53,17 @@
         H1 Heading
       %p
         This is a paragraph that contains
-        %strong
-          strong
+        = succeed "," do
+          %strong
+            strong
         %em
           emphasized
         and
-        %a{:href => "/mobile/docs/content/index"}
+        %a{:href => "/mobile/docs/content"}
           linked
-        text. Here is more text so you can see how HTML markup works in content. Here is more text
-        so you can see how HTML markup works in content.
-      %div{"data-role" => "collapsible", "data-state" => "collapsed", "data-theme" => "a"}
+        text. Here is more text so you can see how HTML markup works in content. Here is more text so you
+        can see how HTML markup works in content.
+      %div{"data-collapsed" => "true", "data-role" => "collapsible", "data-theme" => "a"}
         %h3
           I'm an themed collapsible
         %p
@@ -77,16 +82,16 @@
         H1 Heading
       %p
         This is a paragraph that contains
-        %strong
-          strong
-        %em
-          emphasized
+        = succeed "," do
+          %strong
+            strong
+        %ememphasized
         and
-        %a{:href => "/mobile/docs/content/index"}
+        %a{:href => "/mobile/docs/content"}
           linked
-        text. Here is more text so you can see how HTML markup works in content. Here is more text
-        so you can see how HTML markup works in content.
-      %div{"data-role" => "collapsible", "data-state" => "collapsed", "data-theme" => "b"}
+        text. Here is more text so you can see how HTML markup works in content. Here is more text so you
+        can see how HTML markup works in content.
+      %div{"data-collapsed" => "true", "data-role" => "collapsible", "data-theme" => "b"}
         %h3
           I'm an themed collapsible
         %p
@@ -105,16 +110,17 @@
         H1 Heading
       %p
         This is a paragraph that contains
-        %strong
-          strong
+        = succeed "," do
+          %strong
+            strong
         %em
           emphasized
         and
-        %a{:href => "/mobile/docs/content/index"}
+        %a{:href => "/mobile/docs/content"}
           linked
-        text. Here is more text so you can see how HTML markup works in content. Here is more text
-        so you can see how HTML markup works in content.
-      %div{"data-role" => "collapsible", "data-state" => "collapsed", "data-theme" => "c"}
+        text. Here is more text so you can see how HTML markup works in content. Here is more text so you
+        can see how HTML markup works in content.
+      %div{"data-collapsed" => "true", "data-role" => "collapsible", "data-theme" => "c"}
         %h3
           I'm an themed collapsible
         %p
@@ -133,16 +139,17 @@
         H1 Heading
       %p
         This is a paragraph that contains
-        %strong
-          strong
+        = succeed "," do
+          %strong
+            strong
         %em
           emphasized
         and
-        %a{:href => "/mobile/docs/content/index"}
+        %a{:href => "/mobile/docs/content"}
           linked
-        text. Here is more text so you can see how HTML markup works in content. Here is more text
-        so you can see how HTML markup works in content.
-      %div{"data-role" => "collapsible", "data-state" => "collapsed", "data-theme" => "d"}
+        text. Here is more text so you can see how HTML markup works in content. Here is more text so you
+        can see how HTML markup works in content.
+      %div{"data-collapsed" => "true", "data-role" => "collapsible", "data-theme" => "d"}
         %h3
           I'm an themed collapsible
         %p
@@ -161,16 +168,16 @@
         H1 Heading
       %p
         This is a paragraph that contains
-        %strong
-          strong
+        = succeed "," do
+          %strong
+            strong
         %em
           emphasized
         and
-        %a{:href => "/mobile/docs/content/index"}
+        %a{:href => "/mobile/docs/content"}
           linked
-        text. Here is more text so you can see how HTML markup works in content. Here is more text
-        so you can see how HTML markup works in content.
-      %div{"data-role" => "collapsible", "data-state" => "collapsed", "data-theme" => "e"}
+        text. Here is more text so you can see how HTML markup works in content. Here is more text so you can see how HTML markup works in content.
+      %div{"data-collapsed" => "true", "data-role" => "collapsible", "data-theme" => "e"}
         %h3
           I'm an themed collapsible
         %p

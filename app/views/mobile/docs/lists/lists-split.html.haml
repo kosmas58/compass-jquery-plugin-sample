@@ -1,110 +1,111 @@
 - content_for :content_head do
   = render(:partial => "/mobile/docs/docs.js.haml", :format => :js)
 
-%div{"data-role" => "page"}
+#album-list{"data-role" => "page"}
   %div{"data-role" => "header"}
     %h1
       List formatting
   / /header
   %div{"data-role" => "content"}
-    %ul{"data-role" => "listview"}
+    %ul{"data-role" => "listview", "data-split-icon" => "gear", "data-split-theme" => "b"}
       %li
-        %img{:src => "/images/demo/mobile/album/album-bb.jpg"}/
+        %img{:src => "images/album-bb.jpg"}/
         %h3
-          %a{:href => "/mobile/docs/lists/index"}
+          %a{:href => "/mobile/docs/lists"}
             Broken Bells
         %p
           Broken Bells
-        %a{:href => "/mobile/docs/lists/index"}
+        %a{"data-transition" => "flip", :href => "/mobile/docs/lists/lists-split-purchase"}
           Purchase album
       %li
-        %img{:src => "/images/demo/mobile/album/album-hc.jpg"}/
+        %img{:src => "images/album-hc.jpg"}/
         %h3
-          %a{:href => "/mobile/docs/lists/index"}
+          %a{:href => "/mobile/docs/lists"}
             Warning
         %p
           Hot Chip
-        %a{:href => "/mobile/docs/lists/index"}
+        %a{"data-transition" => "flip", :href => "/mobile/docs/lists/lists-split-purchase"}
           Purchase album
       %li
-        %img{:src => "/images/demo/mobile/album/album-p.jpg"}/
+        %img{:src => "images/album-p.jpg"}/
         %h3
-          %a{:href => "/mobile/docs/lists/index"}
+          %a{:href => "/mobile/docs/lists"}
             Wolfgang Amadeus Phoenix
         %p
           Phoenix
-        %a{:href => "/mobile/docs/lists/index"}
+        %a{"data-transition" => "flip", :href => "/mobile/docs/lists/lists-split-purchase"}
           Purchase album
       %li
-        %img{:src => "/images/demo/mobile/album/album-ok.jpg"}/
+        %img{:src => "images/album-ok.jpg"}/
         %h3
-          %a{:href => "/mobile/docs/lists/index"}
+          %a{:href => "/mobile/docs/lists"}
             Of The Blue Colour Of The Sky
         %p
           Ok Go
-        %a{:href => "/mobile/docs/lists/index"} Purchase album
+        %a{"data-transition" => "flip", :href => "/mobile/docs/lists/lists-split-purchase"}
+          Purchase album
       %li
-        %img{:src => "/images/demo/mobile/album/album-ws.jpg"}/
+        %img{:src => "images/album-ws.jpg"}/
         %h3
-          %a{:href => "/mobile/docs/lists/index"}
+          %a{:href => "/mobile/docs/lists"}
             Elephant
         %p
           The White Stripes
-        %a{:href => "/mobile/docs/lists/index"}
+        %a{"data-transition" => "flip", :href => "/mobile/docs/lists/lists-split-purchase"}
           Purchase album
       %li
-        %img{:src => "/images/demo/mobile/album/album-rh.jpg"}/
+        %img{:src => "images/album-rh.jpg"}/
         %h3
-          %a{:href => "/mobile/docs/lists/index"}
+          %a{:href => "/mobile/docs/lists"}
             Kid A
         %p
           Radiohead
-        %a{:href => "/mobile/docs/lists/index"}
+        %a{"data-transition" => "flip", :href => "/mobile/docs/lists/lists-split-purchase"}
           Purchase album
       %li
-        %img{:src => "/images/demo/mobile/album/album-xx.jpg"}/
+        %img{:src => "images/album-xx.jpg"}/
         %h3
-          %a{:href => "/mobile/docs/lists/index"}
+          %a{:href => "/mobile/docs/lists"}
             XX
         %p
           XX
-        %a{:href => "/mobile/docs/lists/index"}
+        %a{"data-transition" => "flip", :href => "/mobile/docs/lists/lists-split-purchase"}
           Purchase album
       %li
-        %img{:src => "/images/demo/mobile/album/album-mg.jpg"}/
+        %img{:src => "images/album-mg.jpg"}/
         %h3
-          %a{:href => "/mobile/docs/lists/index"}
+          %a{:href => "/mobile/docs/lists"}
             Congratulations
         %p
           MGMT
-        %a{:href => "/mobile/docs/lists/index"}
+        %a{"data-transition" => "flip", :href => "/mobile/docs/lists/lists-split-purchase"}
           Purchase album
       %li
-        %img{:src => "/images/demo/mobile/album/album-ag.jpg"}/
+        %img{:src => "images/album-ag.jpg"}/
         %h3
-          %a{:href => "/mobile/docs/lists/index"}
+          %a{:href => "/mobile/docs/lists"}
             Ashes Grammar
         %p
           A Sunny Day in Glasgow
-        %a{:href => "/mobile/docs/lists/index"}
+        %a{"data-transition" => "flip", :href => "/mobile/docs/lists/lists-split-purchase"}
           Purchase album
       %li
-        %img{:src => "/images/demo/mobile/album/album-k.jpg"}/
+        %img{:src => "images/album-k.jpg"}/
         %h3
-          %a{:href => "/mobile/docs/lists/index"}
+          %a{:href => "/mobile/docs/lists"}
             Hot Fuss
         %p
           Killers
-        %a{:href => "/mobile/docs/lists/index"}
+        %a{"data-transition" => "flip", :href => "/mobile/docs/lists/lists-split-purchase"}
           Purchase album
       %li
-        %img{:src => "/images/demo/mobile/album/album-af.jpg"}/
+        %img{:src => "images/album-af.jpg"}/
         %h3
-          %a{:href => "/mobile/docs/lists/index"}
+          %a{:href => "/mobile/docs/lists"}
             The Suburbs
         %p
           Arcade Fire
-        %a{:href => "/mobile/docs/lists/index"}
+        %a{"data-transition" => "flip", :href => "/mobile/docs/lists/lists-split-purchase"}
           Purchase album
   / /content
 / /page
