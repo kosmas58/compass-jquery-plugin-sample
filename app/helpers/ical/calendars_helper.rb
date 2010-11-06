@@ -1,0 +1,2 @@
+module Ical::CalendarsHelper
+end

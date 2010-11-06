@@ -1,0 +1,13 @@
+= stylesheet_link_tag :ical
+= stylesheet_link_tag :farbtastic
+= javascript_include_tag :ical
+= javascript_include_tag :farbtastic
+
+:javascript
+  $(function() {
+    $("input:submit, .buttons").button();
+  });
+
+  $(document).ready(function() {
+    $('#picker').farbtastic('#color');
+  });

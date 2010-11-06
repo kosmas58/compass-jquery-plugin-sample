@@ -1,0 +1,22 @@
+-@title = t('txt.ical.calendar.edit')
+
+- content_for :content_head do
+  = render(:partial => "form.js.haml", :format => :js)
+
+.demo
+  %h3
+    =image_tag("icons/22x22/calendar.png", :border => 0)
+    =@title
+  
+  = error_messages_for :calendar
+  
+  - form_for(:calendar, :url => ical_calendar_url, :html => { :method => :put }) do |f|
+    = render :partial => "form", :locals => {:f => f}
+    %br
+    %p
+      = submit_tag t('txt.layout.update')
+  %p.buttons
+    = link_to t('txt.ical.calendar.show'), ical_calendar_path
+  %p.buttons
+    = link_to t('txt.layout.back'), ical_calendars_path
+  

@@ -65,8 +65,8 @@ ActionController::Routing::Routes.draw do |map|
     jqtouch.resources :demo => { :ajax_post => :post }  
   end                                          
   
-  map.namespace :jqical do |jqical|
-    jqical.resources :calendars,
+  map.namespace :ical do |ical|
+    ical.resources :calendars,
                      :collection => { :iphone => :get } do |calendar|
       calendar.resources :events,
                          :collection => { :index_reload  => :get,

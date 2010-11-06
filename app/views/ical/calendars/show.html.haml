@@ -1,0 +1,17 @@
+-@title = t('txt.ical.calendar.show')
+
+- content_for :content_head do
+  = render(:partial => "show.js.haml", :format => :js)
+
+.demo
+  %h3
+    =image_tag("icons/22x22/calendar.png", :border => 0)
+    = @title
+  %p{ :style => "color: #" + ("%x" % @current_object.color).rjust(6,'0') + ";" }
+    = @current_object.name
+  %p.buttons
+    = link_to t('txt.ical.calendar.edit'), edit_ical_calendar_path
+  %p.buttons
+    = link_to t('txt.ical.calendar.delete'), ical_calendar_path, :confirm => t('txt.ical.calendar.confirm'), :method => :delete
+  %p.buttons
+    = link_to t('txt.layout.back'), ical_calendars_path

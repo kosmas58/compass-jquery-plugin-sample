@@ -1,0 +1,23 @@
+-@title = t('txt.ical.calendar.listing')
+
+- content_for :content_head do
+  = render(:partial => "index.js.haml", :format => :js)
+
+.demo
+  %h3
+    =image_tag("icons/22x22/calendar.png", :border => 0)
+    =@title
+  
+  .ui-widget-content.ui-corner-all
+    %table.calendars
+      %tr.ui-widget-header.ui-corner-all
+        %th{ :style => "width: 20px;" }
+        %th
+          = t('txt.ical.calendar.name')  
+        %th
+          = t('txt.ical.calendar.actions.name')
+      = render :partial => 'calendar', :collection => current_objects
+  %br
+  %p.buttons
+    = link_to t('txt.ical.calendar.new'), new_ical_calendar_path
+    = link_to t('txt.ical.calendar.iphone'), iphone_ical_calendars_path

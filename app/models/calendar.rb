@@ -4,7 +4,7 @@ class Calendar < ActiveRecord::Base
   has_many :events
   attr_accessor :ics
   
-  include Jqical::Calendar
+  include Ical::Calendar
   
   def to_full(reload = false)
     if !@ics || reload

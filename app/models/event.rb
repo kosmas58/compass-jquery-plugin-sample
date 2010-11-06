@@ -5,7 +5,7 @@ class Event < ActiveRecord::Base
   #validates_presence_of :dtstart
   #validates_presence_of :dtend
   
-  include Jqical::Event
+  include Ical::Event
   
   before_save :serialize_ical_event
   

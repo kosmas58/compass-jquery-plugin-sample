@@ -1,0 +1,20 @@
+-@title =  "#{t('txt.ical.anytime.name')} - #{t('txt.ical.anytime.ajax')}" 
+
+- content_for :content_head do
+  = render(:partial => "ajax.js.haml", :format => :js)
+
+.demo
+  %h3
+    =image_tag("icons/22x22/alarmclock.png", :border => 0)
+    =raw @title
+  %p
+    Options to pass to jQuery's $.ajax() method whenever the user dismisses a popup picker or selects a value
+    in an inline picker. The input's name (or id) and value are passed to the server (appended to
+    ajaxOptions.data, if present), and the "success" handler sets the input's value to the responseText.
+    Therefore, the text returned by the server must be valid for the input's date/time
+    format, and the server must either echo or correct the value chosen by the user.
+    For example, the server for the following AJAX-enabled picker always changes the day-of-the-month to 1
+    after the component is dismissed, no matter what day the user actually selects: 
+  %p
+    First-of-month:
+    %input#AjaxDemo{:type => "text", :value => "Apr 1, '10"}

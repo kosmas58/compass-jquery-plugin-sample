@@ -1,2 +1,0 @@
-module Jqical::EventsHelper
-end

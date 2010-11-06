@@ -355,7 +355,7 @@ en:
       simple: jQuery Ribbon Simple theme
       default: jQuery Ribbon Windows 7 theme
       office: jQuery Ribbon Office theme
-    jqical:
+    ical:
       name: iCalendar
       anytime:
         name: "Any+Time&trade;"
@@ -445,7 +445,7 @@ en:
       name: Sparklines
       default: Try it out
       examples: Examples
-    jqtools:
+    tools:
       name: jQuery TOOLS
       default: Default functionality
       dateinput:

@@ -1,0 +1,34 @@
+-@title = "#{t('txt.tools.name')} - #{t('txt.tools.tooltip.name')} - #{t('txt.tools.tooltip.demo2')}"
+
+- content_for :content_head do
+  = render(:partial => "demo2.js.haml", :format => :js)
+
+.demo
+  %h3
+    =image_tag("icons/22x22/tools.png", :border => 0)
+    =@title
+  %div{ :style => "margin:200px 0 0 200px;" }
+    %a#download_now
+      Download now
+  .tooltip
+    -#%img{:alt => "Flying screens", :src => "/images/demo/tools/img/eye.png", :style => "float:left;margin:0 15px 20px 0;"}
+    %table{:style => "margin:0;f"}
+      %tbody
+        %tr
+          %td.label File
+          %td flowplayer-3.2.5.zip
+        %tr
+          %td.label Date
+          %td 2010-10-01
+        %tr
+          %td.label Size
+          %td 112 kB
+        %tr
+          %td.label OS
+          %td all
+    %a{:href => "http://flowplayer.org/3.2/"} What's new in 3.2
+/ End demo
+
+.demo-description 
+  #greybox
+/ End demo-description

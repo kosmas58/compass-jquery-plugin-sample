@@ -1,0 +1,15 @@
+:css
+  a:active { outline:none; }
+  :focus { -moz-outline-style:none; }
+  .simple_overlay { display:none; z-index:10000; background-color:#333; width:675px; min-height:200px; border:1px solid #666; -moz-box-shadow:0 0 90px 5px #000; -webkit-box-shadow: 0 0 90px #000; }
+  .simple_overlay .close { background-image:url(/images/demo/tools/overlay/close.png); position:absolute; right:-15px; top:-15px; cursor:pointer; height:27px; width:27px; } 
+  #triggers { text-align:center; }
+  #triggers img { cursor:pointer; margin:0 5px; background-color:#fff; border:1px solid #ccc; padding:2px; -moz-border-radius:4px; -webkit-border-radius:4px; }
+  .details { position:absolute; top:15px; right:15px; font-size:11px; color:#fff; width:150px; }
+  .details h3 { color:#aba; font-size:15px; margin:0 0 -10px 0; }
+
+:javascript
+  $(document).ready(function() { 
+    $("img[rel]").overlay(); 
+  });
+

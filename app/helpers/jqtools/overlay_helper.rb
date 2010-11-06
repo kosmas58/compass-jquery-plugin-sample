@@ -1,2 +1,0 @@
-module Jqtools::OverlayHelper
-end

@@ -1,0 +1,23 @@
+:javascript
+  $(function() {
+    $("button, a", ".buttons").button();
+  });
+  
+= ui_event_for :event, :url => ical_calendar_events_path, :actions => {:update => "/edit", :create => "/new", :delete => "/delete", :reload => "/index_reload"} 
+
+:css
+  div.AnyTime-win {
+    z-index: 20000;
+    width: 480;
+  }
+  #event_start_date, #event_end_date { 
+    background-image:url("/images/jquery.ui/ical/calendar.png");
+    background-position:right center;
+    background-repeat:no-repeat;
+  }
+  #event_start_time, #event_end_time { 
+    background-image:url("/images/jquery.ui/ical/clock.png");
+    background-position:right center;
+    background-repeat:no-repeat;
+  }
+  

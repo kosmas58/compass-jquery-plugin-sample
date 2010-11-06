@@ -1,0 +1,11 @@
+-@title = 'Full calendar demo'
+
+- content_for :content_head do
+  = render(:partial => "full_calendar.js.haml", :format => :js)
+
+.demo  
+  #calendar
+    %br
+    %p.buttons
+      = link_to 'Back', ical_calendars_path
+      

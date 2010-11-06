@@ -1,0 +1,14 @@
+-@title =  "#{t('txt.ical.anytime.name')} - #{t('txt.ical.anytime.separate')}" 
+
+- content_for :content_head do
+  = render(:partial => "separate.js.haml", :format => :js)
+
+.demo
+  %h3
+    =image_tag("icons/22x22/alarmclock.png", :border => 0)
+    =raw @title
+  %div{ :style => "float: left;" }
+    %input#Demo1
+  %div{ :style => "float: left; padding-left: 1em;" }
+    %input#Demo2
+  

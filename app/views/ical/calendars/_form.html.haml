@@ -1,0 +1,23 @@
+.formrow.clearfix 
+  .span-2 
+    %strong
+      %label{:for => :name} 
+        = t('txt.ical.calendar.name')
+  .span-8
+    = f.text_field :name
+%br
+.formrow.clearfix 
+  .span-2 
+    %strong
+      %label{:for => :color} 
+        = t('txt.ical.calendar.color')
+  .span-8
+    %input#color{ :name => :color, :type => :text, :value => @color }
+%br
+.formrow.clearfix 
+  .span-2
+    _  
+  .span-8
+    #picker    
+      
+  

@@ -129,7 +129,7 @@ de:
       long: "%A, %d. %B %Y, %H:%M Uhr"
     pm: nachmittags
   txt: 
-    jqtools: 
+    tools: 
       name: jQuery TOOLS
       validator: 
         name: Validator
@@ -377,7 +377,7 @@ de:
         default: jQuery mobile Demonstration
         home: "&alpha;@jquerymobile.com"
       iphone: iPhone
-    jqical: 
+    ical: 
       name: iCalendar
       anytime: 
         name: "Any+Time&trade;"

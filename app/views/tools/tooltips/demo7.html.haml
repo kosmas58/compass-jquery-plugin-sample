@@ -1,0 +1,19 @@
+-@title = "#{t('txt.tools.name')} - #{t('txt.tools.tooltip.name')} - #{t('txt.tools.tooltip.demo7')}"
+
+- content_for :content_head do
+  = render(:partial => "demo7.js.haml", :format => :js)
+
+.demo
+  %h3
+    =image_tag("icons/22x22/tools.png", :border => 0)
+    =@title
+  #dyna
+    %img{:src => "/images/tools/img/1.jpg" }
+    %img{:src => "/images/tools/img/2.jpg" }
+    %img{:src => "/images/tools/img/3.jpg" }
+    %img{:src => "/images/tools/img/4.jpg", :style => "margin-right:0px" }
+/ End demo
+
+.demo-description 
+  #greybox
+/ End demo-description
