@@ -1,0 +1,59 @@
+%div{"data-role" => "page"}
+  %div{"data-role" => "header"}
+    %h1 .unwrap()
+  #unwrap1{"data-role" => "content", "data-theme" => "c"}
+    %h2.jq-clearfix.roundTop.section-title
+      %span.name .unwrap()
+      %span.returns
+        Returns:
+        %a.return{:href => "http://docs.jquery.com/Types#jQuery"} jQuery
+    .entry-details
+      %p.desc
+        %strong> Description:
+        Remove the parents of the set of matched elements from the DOM, leaving the matched elements in their place.
+      %ul.signatures
+        %li#unwrap.signature
+          %h4.name
+            %span.versionAdded>
+              version added:
+              %a{:href => "/category/version/1.4/"} 1.4
+            \.unwrap()
+      .longdesc
+        %p
+          The
+          %code .unwrap()
+          method removes the element's parent. This is effectively the inverse of the
+          %code
+            %a{:href => "/wrap"} .wrap()
+          method. The matched elements (and their siblings, if any) replace their parents within the DOM structure.
+      %h3 Example:
+      #entry-examples.entry-examples
+        #example-0
+          %h4
+            %span.desc Wrap/unwrap a div around each of the paragraphs.
+          %pre
+            %code.example.demo-code
+              :preserve
+                &lt;!DOCTYPE html&gt;
+                &lt;html&gt;
+                &lt;head&gt;
+                  &lt;style&gt;
+                  div { border: 2px solid blue; }
+                  p { background:yellow; margin:4px; }
+                  &lt;/style&gt;
+                  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                	&lt;button&gt;wrap/unwrap&lt;/button&gt;
+                &lt;p&gt;Hello&lt;/p&gt;
+                &lt;p&gt;cruel&lt;/p&gt;
+                &lt;p&gt;World&lt;/p&gt;
+                &lt;script&gt;
+                $("button").toggle(function(){
+                  $("p").wrap("&lt;div&gt;&lt;/div&gt;");
+                }, function(){
+                  $("p").unwrap();
+                });&lt;/script&gt;
+                &lt;/body&gt;
+                &lt;/html&gt;          %h4 Demo:
+          .demo.code-demo

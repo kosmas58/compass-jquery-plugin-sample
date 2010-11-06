@@ -1,0 +1,225 @@
+%div{"data-role" => "page"}
+  %div{"data-role" => "header"}
+    %h1 .hide()
+  #hide1{"data-role" => "content", "data-theme" => "c"}
+    %h2.jq-clearfix.roundTop.section-title
+      %span.name .hide(  )
+      %span.returns
+        Returns:
+        %a.return{:href => "http://docs.jquery.com/Types#jQuery"} jQuery
+    .entry-details
+      %p.desc
+        %strong> Description:
+        Hide the matched elements.
+      %ul.signatures
+        %li#hide.signature
+          %h4.name
+            %span.versionAdded>
+              version added:
+              %a{:href => "/category/version/1.0/"} 1.0
+            \.hide()
+        %li#hide-duration-callback.signature
+          %h4.name
+            %span.versionAdded>
+              version added:
+              %a{:href => "/category/version/1.0/"} 1.0
+            \.hide( duration, [ callback ] )
+          %p.arguement
+            %strong> duration
+            A string or number determining how long the animation will run.
+          %p.arguement
+            %strong> callback
+            A function to call once the animation is complete.
+      .longdesc
+        %p
+          With no parameters, the
+          %code .hide()
+          method is the simplest way to hide an element:
+        %pre
+          :preserve
+            $('.target').hide();
+        %p
+          The matched elements will be hidden immediately, with no animation. This is roughly equivalent to calling
+          = succeed "," do
+            %code .css('display', 'none')
+          except that the value of the
+          %code display
+          property is saved in jQuery's data cache so that
+          %code display
+          can later be restored to its initial value. If an element has a
+          %code display
+          value of
+          = succeed "," do
+            %code inline
+          then is hidden and shown, it will once again be displayed
+          = succeed "." do
+            %code inline
+        %p
+          When a duration is provided,
+          %code .hide()
+          becomes an animation method. The
+          %code .hide()
+          method animates the width, height, and opacity of the matched elements simultaneously. When these properties reach 0, the
+          %code display
+          style property is set to
+          %code none
+          to ensure that the element no longer affects the layout of the page.
+        %p
+          Durations are given in milliseconds; higher values indicate slower animations, not faster ones. The strings
+          %code 'fast'
+          and
+          %code 'slow'
+          can be supplied to indicate durations of
+          %code 200
+          and
+          %code 600
+          milliseconds, respectively.
+        %p
+          If supplied, the callback is fired once the animation is complete. This can be useful for stringing different animations together in sequence. The callback is not sent any arguments, but
+          %code this
+          is set to the DOM element being animated. If multiple elements are animated, it is important to note that the callback is executed once per matched element, not once for the animation as a whole.
+        %p We can animate any element, such as a simple image:
+        %pre
+          :preserve
+            &lt;div id="clickme"&gt;
+              Click here
+            &lt;/div&gt;
+            &lt;img id="book" src="book.png" alt="" width="100" height="123" /&gt;
+            With the element initially shown, we can hide it slowly:
+            $('#clickme').click(function() {
+              $('#book').hide('slow', function() {
+                $.print('Animation complete.');
+              });
+            });        %p.image.four-across
+          %img{:alt => "", :src => "http://api.jquery.com/images/0042_06_05.png"}
+            %img{:alt => "", :src => "http://api.jquery.com/images/0042_06_06.png"}
+              %img{:alt => "", :src => "http://api.jquery.com/images/0042_06_07.png"}
+                %img{:alt => "", :src => "http://api.jquery.com/images/0042_06_08.png"}/
+      %h3 Examples:
+      #entry-examples.entry-examples
+        #example-0
+          %h4
+            Example:
+            %span.desc Hides all paragraphs then the link on click.
+          %pre
+            %code.example.demo-code
+              :preserve
+                &lt;!DOCTYPE html&gt;
+                &lt;html&gt;
+                &lt;head&gt;
+                  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                	&lt;p&gt;Hello&lt;/p&gt;
+                  &lt;a href="#"&gt;Click to hide me too&lt;/a&gt;
+                  &lt;p&gt;Here is another paragraph&lt;/p&gt;
+                &lt;script&gt;
+                
+                    $("p").hide();
+                    $("a").click(function () {
+                      $(this).hide();
+                      return true;
+                    });
+                &lt;/script&gt;
+                &lt;/body&gt;
+                &lt;/html&gt;          %h4 Demo:
+          .demo.code-demo
+        #example-1
+          %h4
+            Example:
+            %span.desc Animates all shown paragraphs to hide slowly, completing the animation within 600 milliseconds.
+          %pre
+            %code.example.demo-code
+              :preserve
+                &lt;!DOCTYPE html&gt;
+                &lt;html&gt;
+                &lt;head&gt;
+                  &lt;style&gt;
+                  p { background:#dad; font-weight:bold; }
+                  &lt;/style&gt;
+                  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                	&lt;button&gt;Hide 'em&lt;/button&gt;
+                
+                  &lt;p&gt;Hiya&lt;/p&gt;
+                  &lt;p&gt;Such interesting text, eh?&lt;/p&gt;
+                &lt;script&gt;
+                    $("button").click(function () {
+                      $("p").hide("slow");
+                    });    
+                &lt;/script&gt;
+                &lt;/body&gt;
+                &lt;/html&gt;          %h4 Demo:
+          .demo.code-demo
+        #example-2
+          %h4
+            Example:
+            %span.desc Animates all spans (words in this case) to hide fastly, completing each animation within 200 milliseconds. Once each animation is done, it starts the next one.
+          %pre
+            %code.example.demo-code
+              :preserve
+                &lt;!DOCTYPE html&gt;
+                &lt;html&gt;
+                &lt;head&gt;
+                  &lt;style&gt;
+                  span { background:#def3ca; padding:3px; float:left; }
+                  &lt;/style&gt;
+                  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                	&lt;button id="hidr"&gt;Hide&lt;/button&gt;
+                  &lt;button id="showr"&gt;Show&lt;/button&gt;
+                  &lt;div&gt;
+                
+                    &lt;span&gt;Once&lt;/span&gt; &lt;span&gt;upon&lt;/span&gt; &lt;span&gt;a&lt;/span&gt; 
+                    &lt;span&gt;time&lt;/span&gt; &lt;span&gt;there&lt;/span&gt; &lt;span&gt;were&lt;/span&gt; 
+                    &lt;span&gt;three&lt;/span&gt; &lt;span&gt;programmers...&lt;/span&gt;
+                
+                  &lt;/div&gt;
+                &lt;script&gt;
+                    $("#hidr").click(function () {
+                      $("span:last-child").hide("fast", function () {
+                        // use callee so don't have to name the function
+                        $(this).prev().hide("fast", arguments.callee); 
+                      });
+                    });
+                    $("#showr").click(function () {
+                      $("span").show(2000);
+                    });
+                
+                &lt;/script&gt;
+                &lt;/body&gt;
+                &lt;/html&gt;          %h4 Demo:
+          .demo.code-demo
+        #example-3
+          %h4
+            Example:
+            %span.desc Hides the divs when clicked over 2 seconds, then removes the div element when its hidden.  Try clicking on more than one box at a time.
+          %pre
+            %code.example.demo-code
+              :preserve
+                &lt;!DOCTYPE html&gt;
+                &lt;html&gt;
+                &lt;head&gt;
+                  &lt;style&gt;
+                  div { background:#ece023; width:30px; 
+                        height:40px; margin:2px; float:left; }
+                  &lt;/style&gt;
+                  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                	&lt;div&gt;&lt;/div&gt;
+                &lt;script&gt;
+                    for (var i = 0; i &lt; 5; i++) {
+                      $("&lt;div&gt;").appendTo(document.body);
+                    }
+                    $("div").click(function () {
+                      $(this).hide(2000, function () {
+                        $(this).remove();
+                      });
+                    });
+                &lt;/script&gt;
+                &lt;/body&gt;
+                &lt;/html&gt;          %h4 Demo:
+          .demo.code-demo

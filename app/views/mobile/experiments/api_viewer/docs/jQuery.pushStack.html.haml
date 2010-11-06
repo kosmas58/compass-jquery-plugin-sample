@@ -1,0 +1,50 @@
+%div{"data-role" => "page"}
+  %div{"data-role" => "header"}
+    %h1 jQuery.pushStack()
+  %div{"data-role" => "content", "data-theme" => "c", :id => "jQuery.pushStack1"}
+    %h2.jq-clearfix.roundTop.section-title
+      %span.name jQuery.pushStack( elements )
+      %span.returns
+        Returns:
+        %a.return{:href => "http://docs.jquery.com/Types#jQuery"} jQuery
+    .entry-details
+      %p.desc
+        %strong> Description:
+        Add a collection of DOM elements onto the jQuery stack.
+      %ul.signatures
+        %li.signature{:id => "jQuery.pushStack-elements"}
+          %h4.name
+            %span.versionAdded>
+              version added:
+              %a{:href => "/category/version/1.0/"} 1.0
+            jQuery.pushStack( elements )
+          %p.arguement
+            %strong> elements
+            An array of elements to push onto the stack and make into a new jQuery object.
+        %li.signature{:id => "jQuery.pushStack-elements-name-arguments"}
+          %h4.name
+            %span.versionAdded>
+              version added:
+              %a{:href => "/category/version/1.3/"} 1.3
+            jQuery.pushStack( elements, name, arguments )
+          %p.arguement
+            %strong> elements
+            An array of elements to push onto the stack and make into a new jQuery object.
+          %p.arguement
+            %strong> name
+            The name of a jQuery method that generated the array of elements.
+          %p.arguement
+            %strong> arguments
+            The arguments that were passed in to the jQuery method (for serialization).
+      %h3 Example:
+      #entry-examples.entry-examples
+        #example-0
+          %h4
+            %span.desc Add some elements onto the jQuery stack, then pop back off again.
+          %pre
+            %code.example
+              :preserve
+                jQuery([])
+                    .pushStack( document.getElementsByTagName("div") )
+                        .remove()
+                    .end();

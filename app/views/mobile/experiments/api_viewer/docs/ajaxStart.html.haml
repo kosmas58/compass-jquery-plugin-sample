@@ -1,0 +1,64 @@
+%div{"data-role" => "page"}
+  %div{"data-role" => "header"}
+    %h1 .ajaxStart()
+  #ajaxStart1{"data-role" => "content", "data-theme" => "c"}
+    %h2.jq-clearfix.roundTop.section-title
+      %span.name .ajaxStart( handler() )
+      %span.returns
+        Returns:
+        %a.return{:href => "http://docs.jquery.com/Types#jQuery"} jQuery
+    .entry-details
+      %p.desc
+        %strong> Description:
+        Register a handler to be called when the first Ajax request begins. This is an Ajax Event.
+      %ul.signatures
+        %li#ajaxStart-handler.signature
+          %h4.name
+            %span.versionAdded>
+              version added:
+              %a{:href => "/category/version/1.0/"} 1.0
+            \.ajaxStart( handler() )
+          %p.arguement
+            %strong> handler()
+            The function to be invoked.
+      .longdesc
+        %p
+          Whenever an Ajax request is about to be sent, jQuery checks whether there are any other outstanding Ajax requests. If none are in progress, jQuery triggers the
+          %code ajaxStart
+          event. Any and all handlers that have been registered with the
+          %code .ajaxStart()
+          method are executed at this time.
+        %p To observe this method in action, we can set up a basic Ajax load request:
+        %pre
+          :preserve
+            &lt;div class="trigger"&gt;Trigger&lt;/div&gt;
+            &lt;div class="result"&gt;&lt;/div&gt;
+            &lt;div class="log"&gt;&lt;/div&gt;        %p We can attach our event handler to any element:
+        %pre
+          :preserve
+            $('.log').ajaxStart(function() {
+              $(this).text('Triggered ajaxStart handler.');
+            });        %p Now, we can make an Ajax request using any jQuery method:
+        %pre
+          :preserve
+            $('.trigger').click(function() {
+              $('.result').load('ajax/test.html');
+            });        %p When the user clicks the button and the Ajax request is sent, the log message is displayed.
+        %p
+          %strong Note:
+          Because
+          %code .ajaxStart()
+          is implemented as a method of jQuery object instances, we can use the
+          %code this
+          keyword as we do here to refer to the selected elements within the callback function.
+      %h3 Example:
+      #entry-examples.entry-examples
+        #example-0
+          %h4
+            %span.desc Show a loading message whenever an Ajax request starts (and none is already active).
+          %pre
+            %code.example
+              :preserve
+                $("#loading").ajaxStart(function(){
+                   $(this).show();
+                 });

@@ -1,0 +1,141 @@
+%div{"data-role" => "page"}
+  %div{"data-role" => "header"}
+    %h1 jQuery.getJSON()
+  %div{"data-role" => "content", "data-theme" => "c", :id => "jQuery.getJSON1"}
+    %h2.jq-clearfix.roundTop.section-title
+      %span.name jQuery.getJSON( url, [ data ], [ callback(data, textStatus) ] )
+      %span.returns
+        Returns:
+        %a.return{:href => "http://docs.jquery.com/Types#XMLHttpRequest"} XMLHttpRequest
+    .entry-details
+      %p.desc
+        %strong> Description:
+        Load JSON-encoded data from the server using a GET HTTP request.
+      %ul.signatures
+        %li.signature{:id => "jQuery.getJSON-url-data-callbackdata, textStatus"}
+          %h4.name
+            %span.versionAdded>
+              version added:
+              %a{:href => "/category/version/1.0/"} 1.0
+            jQuery.getJSON( url, [ data ], [ callback(data, textStatus) ] )
+          %p.arguement
+            %strong> url
+            A string containing the URL to which the request is sent.
+          %p.arguement
+            %strong> data
+            A map or string that is sent to the server with the request.
+          %p.arguement
+            %strong> callback(data, textStatus)
+            A callback function that is executed if the request succeeds.
+      .longdesc
+        %p This is a shorthand Ajax function, which is equivalent to:
+        %pre
+          $.ajax({
+          url:
+          = succeed "," do
+            %em url
+          dataType: 'json',
+          data:
+          = succeed "," do
+            %em data
+          success:
+          %em success
+          });
+        %p
+          The callback is passed the returned data, which will be a JavaScript object or array as defined by the JSON structure and parsed using the
+          %code
+            %a{:href => "/jQuery.parseJSON"} $.parseJSON()
+          method.
+        %p
+          %strong Note:
+          For details on the JSON format, see
+          = succeed "." do
+            %a{:href => "http://json.org/"} http://json.org/
+        %p Most implementations will specify a success handler:
+        %pre
+          :preserve
+            $.getJSON('ajax/test.json', function(data) {
+              $('.result').html('&lt;p&gt;' + data.foo + '&lt;/p&gt;'
+                + '&lt;p&gt;' + data.baz[1] + '&lt;/p&gt;');
+            });
+        %p This example, of course, relies on the structure of the JSON file:
+        %pre
+          :preserve
+            {
+              "foo": "The quick brown fox jumps over the lazy dog.",
+              "bar": "ABCDEFG",
+              "baz": [52, 97]
+            }
+        %p Using this structure, the example inserts the first string and second number from the file onto the page.
+        %p If there is a syntax error in the JSON file, the request will usually fail silently. Avoid frequent hand-editing of JSON data for this reason.
+        %p
+          If the specified URL is on a remote server, the request is treated as JSONP instead. See the discussion of the
+          %code jsonp
+          data type in
+          %code
+            %a{:href => "/jQuery.ajax"} $.ajax()
+          for more details.
+      %h3 Examples:
+      #entry-examples.entry-examples
+        #example-0
+          %h4
+            Example:
+            %span.desc Loads the four most recent cat pictures from the Flickr JSONP API.
+          %pre
+            %code.example.demo-code
+              :preserve
+                &lt;!DOCTYPE html&gt;
+                &lt;html&gt;
+                &lt;head&gt;
+                  &lt;style&gt;img{ height: 100px; float: left; }&lt;/style&gt;
+                  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                	&lt;div id="images"&gt;
+                
+                &lt;/div&gt;
+                &lt;script&gt;$.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?tags=cat&amp;tagmode=any&amp;format=json&amp;jsoncallback=?",
+                        function(data){
+                          $.each(data.items, function(i,item){
+                            $("&lt;img/&gt;").attr("src", item.media.m).appendTo("#images");
+                            if ( i == 3 ) return false;
+                          });
+                        });&lt;/script&gt;
+                &lt;/body&gt;
+                &lt;/html&gt;          %h4 Demo:
+          .demo.code-demo
+        #example-1
+          %h4
+            Example:
+            %span.desc Load the JSON data from test.js and access a name from the returned JSON data.
+          %pre
+            %code.example
+              :preserve
+                $.getJSON("test.js", function(json){
+                   alert("JSON Data: " + json.users[3].name);
+                 });        #example-2
+          %h4
+            Example:
+            %span.desc Load the JSON data from test.js, passing along additional data, and access a name from the returned JSON data.
+          %pre
+            %code.example
+              :preserve
+                $.getJSON("test.js", { name: "John", time: "2pm" }, function(json){
+                    alert("JSON Data: " + json.users[3].name);
+                    });        #example-3
+          %h4
+            Example:
+            %span.desc List the result of a consultation of pages.php in HTML as an array. By Manuel Gonzalez.
+          %pre
+            %code.example
+              :preserve
+                
+                
+                var id=$("#id").attr("value");
+                $.getJSON("pages.php",{id:id},dates);
+                
+                function dates(datos) {
+                    
+                  $("#list").html("Name:"+datos[1].name+"&lt;br&gt;"+"Last Name:"+datos[1].lastname+"&lt;br&gt;"+"Address:"+datos[1].address);
+                }
+                

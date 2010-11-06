@@ -1,0 +1,66 @@
+%div{"data-role" => "page"}
+  %div{"data-role" => "header"}
+    %h1 .outerHeight()
+  #outerHeight1{"data-role" => "content", "data-theme" => "c"}
+    %h2.jq-clearfix.roundTop.section-title
+      %span.name .outerHeight( [ includeMargin ] )
+      %span.returns
+        Returns:
+        %a.return{:href => "http://docs.jquery.com/Types#Integer"} Integer
+    .entry-details
+      %p.desc
+        %strong> Description:
+        Get the current computed height for the first element in the set of matched elements, including padding and border.
+      %ul.signatures
+        %li#outerHeight-includeMargin.signature
+          %h4.name
+            %span.versionAdded>
+              version added:
+              %a{:href => "/category/version/1.2.6/"} 1.2.6
+            \.outerHeight( [ includeMargin ] )
+          %p.arguement
+            %strong> includeMargin
+            A Boolean indicating whether to include the element's margin in the calculation.
+      .longdesc
+        %p
+          If
+          %code includeMargin
+          is omitted or
+          = succeed "," do
+            %code false
+          the padding and border are included in the calculation; if
+          = succeed "," do
+            %code true
+          the margin is also included.
+        %p
+          This method is not applicable to
+          %code window
+          and
+          %code document
+          objects; for these, use
+          %code
+            %a{:href => "/height"} .height()
+          instead.
+        %p.image
+          %img{:src => "http://api.jquery.com/images/0042_04_03.png"}/
+      %h3 Example:
+      #entry-examples.entry-examples
+        #example-0
+          %h4
+            %span.desc Get the outerHeight of a paragraph.
+          %pre
+            %code.example.demo-code
+              :preserve
+                &lt;!DOCTYPE html&gt;
+                &lt;html&gt;
+                &lt;head&gt;
+                  &lt;style&gt;p { margin:10px;padding:5px;border:2px solid #666; } &lt;/style&gt;
+                  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                	&lt;p&gt;Hello&lt;/p&gt;&lt;p&gt;&lt;/p&gt;
+                &lt;script&gt;var p = $("p:first");
+                $("p:last").text( "outerHeight:" + p.outerHeight() + " , outerHeight(true):" + p.outerHeight(true) );&lt;/script&gt;
+                &lt;/body&gt;
+                &lt;/html&gt;          %h4 Demo:
+          .demo.code-demo

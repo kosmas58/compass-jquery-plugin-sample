@@ -1,0 +1,62 @@
+%div{"data-role" => "page"}
+  %div{"data-role" => "header"}
+    %h1 .ajaxStop()
+  #ajaxStop1{"data-role" => "content", "data-theme" => "c"}
+    %h2.jq-clearfix.roundTop.section-title
+      %span.name .ajaxStop( handler() )
+      %span.returns
+        Returns:
+        %a.return{:href => "http://docs.jquery.com/Types#jQuery"} jQuery
+    .entry-details
+      %p.desc
+        %strong Description:
+      %ul.signatures
+        %li#ajaxStop-handler.signature
+          %h4.name
+            %span.versionAdded>
+              version added:
+              %a{:href => "/category/version/1.0/"} 1.0
+            \.ajaxStop( handler() )
+          %p.arguement
+            %strong> handler()
+            The function to be invoked.
+      .longdesc
+        %p
+          Whenever an Ajax request completes, jQuery checks whether there are any other outstanding Ajax requests. If none remain, jQuery triggers the
+          %code ajaxStop
+          event. Any and all handlers that have been registered with the
+          %code .ajaxStop()
+          method are executed at this time.
+        %p To observe this method in action, we can set up a basic Ajax load request:
+        %pre
+          :preserve
+            &lt;div class="trigger"&gt;Trigger&lt;/div&gt;
+            &lt;div class="result"&gt;&lt;/div&gt;
+            &lt;div class="log"&gt;&lt;/div&gt;        %p We can attach our event handler to any element:
+        %pre
+          :preserve
+            $('.log').ajaxStop(function() {
+              $(this).text('Triggered ajaxStop handler.');
+            });        %p Now, we can make an Ajax request using any jQuery method:
+        %pre
+          :preserve
+            $('.trigger').click(function() {
+              $('.result').load('ajax/test.html');
+            });        %p When the user clicks the button and the Ajax request completes, the log message is displayed.
+        %p
+          Because
+          %code .ajaxStop()
+          is implemented as a method of jQuery object instances, we can use the
+          %code this
+          keyword as we do here to refer to the selected elements within the callback function.
+      %h3 Example:
+      #entry-examples.entry-examples
+        #example-0
+          %h4
+            %span.desc Hide a loading message after all the Ajax requests have stopped.
+          %pre
+            %code.example
+              :preserve
+                $("#loading").ajaxStop(function(){
+                      $(this).hide();
+                      });

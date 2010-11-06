@@ -1,0 +1,150 @@
+%div{"data-role" => "page"}
+  %div{"data-role" => "header"}
+    %h1 .die()
+  #die1{"data-role" => "content", "data-theme" => "c"}
+    %h2.jq-clearfix.roundTop.section-title
+      %span.name .die()
+      %span.returns
+        Returns:
+        %a.return{:href => "http://docs.jquery.com/Types#jQuery"} jQuery
+    .entry-details
+      %p.desc
+        %strong> Description:
+        Remove all event handlers previously attached using .live() from the elements.
+      %ul.signatures
+        %li#die.signature
+          %h4.name
+            %span.versionAdded>
+              version added:
+              %a{:href => "/category/version/1.4.1/"} 1.4.1
+            \.die()
+      .longdesc
+        %p
+          Any handler that has been attached with
+          %code .live()
+          can be removed with
+          = succeed "." do
+            %code .die()
+          This method is analogous to calling
+          %code .unbind()
+          with no arguments, which is used to remove all handlers attached with
+          = succeed "." do
+            %code .bind()
+          See the discussions of
+          %code .live()
+          and
+          %code .unbind()
+          for further details.
+  #die2{"data-role" => "content", "data-theme" => "c"}
+    %h2.jq-clearfix.roundTop.section-title
+      %span.name .die( eventType, [ handler ] )
+      %span.returns
+        Returns:
+        %a.return{:href => "http://docs.jquery.com/Types#jQuery"} jQuery
+    .entry-details
+      %p.desc
+        %strong> Description:
+        Remove an event handler previously attached using .live() from the elements.
+      %ul.signatures
+        %li#die-eventType-handler.signature
+          %h4.name
+            %span.versionAdded>
+              version added:
+              %a{:href => "/category/version/1.3/"} 1.3
+            \.die( eventType, [ handler ] )
+          %p.arguement
+            %strong> eventType
+            A string containing a JavaScript event type, such as
+            %code click
+            or
+            = succeed "." do
+              %code keydown
+          %p.arguement
+            %strong> handler
+            The function that is to be no longer executed.
+      .longdesc
+        %p
+          Any handler that has been attached with
+          %code .live()
+          can be removed with
+          = succeed "." do
+            %code .die()
+          This method is analogous to
+          = succeed "," do
+            %code .unbind()
+          which is used to remove handlers attached with
+          = succeed "." do
+            %code .bind()
+          See the discussions of
+          %code .live()
+          and
+          %code .unbind()
+          for further details.
+      %h3 Examples:
+      #entry-examples.entry-examples
+        #example-0
+          %h4
+            Example:
+            %span.desc Can bind and unbind events to the colored button.
+          %pre
+            %code.example.demo-code
+              :preserve
+                &lt;!DOCTYPE html&gt;
+                &lt;html&gt;
+                &lt;head&gt;
+                  &lt;style&gt;
+                button { margin:5px; }
+                button#theone { color:red; background:yellow; }
+                &lt;/style&gt;
+                  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                	&lt;button id="theone"&gt;Does nothing...&lt;/button&gt;
+                &lt;button id="bind"&gt;Bind Click&lt;/button&gt;
+                &lt;button id="unbind"&gt;Unbind Click&lt;/button&gt;
+                
+                &lt;div style="display:none;"&gt;Click!&lt;/div&gt;
+                &lt;script&gt;
+                
+                function aClick() {
+                  $("div").show().fadeOut("slow");
+                }
+                $("#bind").click(function () {
+                  $("#theone").live("click", aClick)
+                              .text("Can Click!");
+                });
+                $("#unbind").click(function () {
+                  $("#theone").die("click", aClick)
+                              .text("Does nothing...");
+                });
+                
+                &lt;/script&gt;
+                &lt;/body&gt;
+                &lt;/html&gt;          %h4 Demo:
+          .demo.code-demo
+        #example-1
+          %h4
+            Example:
+            %span.desc To unbind all live events from all paragraphs, write:
+          %pre
+            %code.example $("p").die()
+        #example-2
+          %h4
+            Example:
+            %span.desc To unbind all live click events from all paragraphs, write:
+          %pre
+            %code.example $("p").die( "click" )
+        #example-3
+          %h4
+            Example:
+            %span.desc To unbind just one previously bound handler, pass the function in as the second argument:
+          %pre
+            %code.example
+              :preserve
+                var foo = function () {
+                // code to handle some kind of event
+                };
+                
+                $("p").live("click", foo); // ... now foo will be called when paragraphs are clicked ...
+                
+                $("p").die("click", foo); // ... foo will no longer be called.

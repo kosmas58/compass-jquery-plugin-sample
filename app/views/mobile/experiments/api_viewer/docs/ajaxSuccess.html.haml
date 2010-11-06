@@ -1,0 +1,77 @@
+%div{"data-role" => "page"}
+  %div{"data-role" => "header"}
+    %h1 .ajaxSuccess()
+  #ajaxSuccess1{"data-role" => "content", "data-theme" => "c"}
+    %h2.jq-clearfix.roundTop.section-title
+      %span.name .ajaxSuccess( handler(event, XMLHttpRequest, ajaxOptions) )
+      %span.returns
+        Returns:
+        %a.return{:href => "http://docs.jquery.com/Types#jQuery"} jQuery
+    .entry-details
+      %p.desc
+        %strong Description:
+      %ul.signatures
+        %li.signature{:id => "ajaxSuccess-handlerevent, XMLHttpRequest, ajaxOptions"}
+          %h4.name
+            %span.versionAdded>
+              version added:
+              %a{:href => "/category/version/1.0/"} 1.0
+            \.ajaxSuccess( handler(event, XMLHttpRequest, ajaxOptions) )
+          %p.arguement
+            %strong> handler(event, XMLHttpRequest, ajaxOptions)
+            The function to be invoked.
+      .longdesc
+        %p
+          Whenever an Ajax request completes successfully, jQuery triggers the
+          %code ajaxSuccess
+          event. Any and all handlers that have been registered with the
+          %code .ajaxSuccess()
+          method are executed at this time.
+        %p To observe this method in action, we can set up a basic Ajax load request:
+        %pre
+          :preserve
+            &lt;div class="trigger"&gt;Trigger&lt;/div&gt;
+            &lt;div class="result"&gt;&lt;/div&gt;
+            &lt;div class="log"&gt;&lt;/div&gt;        %p We can attach our event handler to any element:
+        %pre
+          :preserve
+            $('.log').ajaxSuccess(function() {
+              $(this).text('Triggered ajaxSuccess handler.');
+            });        %p Now, we can make an Ajax request using any jQuery method:
+        %pre
+          :preserve
+            $('.trigger').click(function() {
+              $('.result').load('ajax/test.html');
+            });        %p When the user clicks the button and the Ajax request completes successfully, the log message is displayed.
+        %p
+          %strong Note:
+          Because
+          %code .ajaxSuccess()
+          is implemented as a method of jQuery object instances, we can use the
+          %code this
+          keyword as we do here to refer to the selected elements within the callback function.
+        %p
+          All
+          %code ajaxSuccess
+          handlers are invoked, regardless of what Ajax request was completed. If we must differentiate between the requests, we can use the parameters passed to the handler. Each time an
+          %code ajaxSuccess
+          handler is executed, it is passed the event object, the
+          %code XMLHttpRequest
+          object, and the settings object that was used in the creation of the request. For example, we can restrict our callback to only handling events dealing with a particular URL:
+        %pre
+          :preserve
+            $('.log').ajaxSuccess(function(e, xhr, settings) {
+              if (settings.url == 'ajax/test.html') {
+                $(this).text('Triggered ajaxSuccess handler.');
+              }
+            });      %h3 Example:
+      #entry-examples.entry-examples
+        #example-0
+          %h4
+            %span.desc Show a message when an Ajax request completes successfully.
+          %pre
+            %code.example
+              :preserve
+                $("#msg").ajaxSuccess(function(evt, request, settings){
+                      $(this).append("&lt;li&gt;Successful Request!&lt;/li&gt;");
+                      });

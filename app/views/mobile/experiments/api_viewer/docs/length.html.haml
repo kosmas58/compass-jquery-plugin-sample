@@ -1,0 +1,57 @@
+%div{"data-role" => "page"}
+  %div{"data-role" => "header"}
+    %h1 .length
+  #length1{"data-role" => "content", "data-theme" => "c"}
+    %h2.jq-clearfix.roundTop.section-title
+      %span.name length
+      %span.returns
+        Returns:
+        %a.return{:href => "http://docs.jquery.com/Types#Number"} Number
+    .entry-details
+      %p.desc
+        %strong> Description:
+        The number of elements in the jQuery object.
+      %ul.signatures
+        %li#length.signature
+          %h4.name
+            %span.versionAdded>
+              version added:
+              %a{:href => "/category/version/1.0/"} 1.0
+            length
+      .longdesc
+        %p
+          The number of elements currently matched. The .
+          %a{:href => "/size"} size()
+          method will return the same value.
+      %h3 Example:
+      #entry-examples.entry-examples
+        #example-0
+          %h4
+            %span.desc Count the divs.  Click to add more.
+          %pre
+            %code.example.demo-code
+              :preserve
+                &lt;!DOCTYPE html&gt;
+                &lt;html&gt;
+                &lt;head&gt;
+                  &lt;style&gt;
+                
+                  body { cursor:pointer; }
+                  div { width:50px; height:30px; margin:5px; float:left;
+                        background:green; }
+                  span { color:red; }
+                  &lt;/style&gt;
+                  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                	&lt;span&gt;&lt;/span&gt;
+                  &lt;div&gt;&lt;/div&gt;
+                &lt;script&gt;$(document.body).click(function () {
+                      $(document.body).append($("&lt;div&gt;"));
+                      var n = $("div").length;
+                      $("span").text("There are " + n + " divs." +
+                                     "Click to add more.");
+                    }).trigger('click'); // trigger the click to start&lt;/script&gt;
+                &lt;/body&gt;
+                &lt;/html&gt;          %h4 Demo:
+          .demo.code-demo

@@ -1,0 +1,286 @@
+%div{"data-role" => "page"}
+  %div{"data-role" => "header"}
+    %h1 .index()
+  #index1{"data-role" => "content", "data-theme" => "c"}
+    %h2.jq-clearfix.roundTop.section-title
+      %span.name .index(  )
+      %span.returns
+        Returns:
+        %a.return{:href => "http://docs.jquery.com/Types#Number"} Number
+    .entry-details
+      %p.desc
+        %strong> Description:
+        Search for a given element from among the matched elements.
+      %ul.signatures
+        %li#index.signature
+          %h4.name
+            %span.versionAdded>
+              version added:
+              %a{:href => "/category/version/1.4/"} 1.4
+            \.index()
+        %li#index-selector.signature
+          %h4.name
+            %span.versionAdded>
+              version added:
+              %a{:href => "/category/version/1.4/"} 1.4
+            \.index( selector )
+          %p.arguement
+            %strong> selector
+            A selector representing a jQuery collection in which to look for an element.
+        %li#index-element.signature
+          %h4.name
+            %span.versionAdded>
+              version added:
+              %a{:href => "/category/version/1.0/"} 1.0
+            \.index( element )
+          %p.arguement
+            %strong> element
+            The DOM element or first element within the jQuery object to look for.
+      .longdesc
+        %h4 Return Values
+        %p
+          If no argument is passed to the
+          %code .index()
+          method, the return value is an integer indicating the position of the first element within the jQuery object relative to its sibling elements.
+        %p
+          If
+          %code .index()
+          is called on a collection of elements and a DOM element or jQuery object is passed in,
+          %code .index()
+          returns an integer indicating the position of the passed element relative to the original collection.
+        %p
+          If a selector string is passed as an argument,
+          %code .index()
+          returns an integer indicating the position of the original element relative to the elements matched by the selector. If the element is not found,
+          %code .index()
+          will return -1.
+        %h4 Detail
+        %p
+          The complementary operation to
+          = succeed "," do
+            %code .get()
+          which accepts an index and returns a DOM node,
+          %code .index()
+          can take a DOM node and returns an index. Suppose we have a simple unordered list on the page:
+        %pre
+          :preserve
+            
+            &lt;ul&gt;
+              &lt;li id="foo"&gt;foo&lt;/li&gt;
+              &lt;li id="bar"&gt;bar&lt;/li&gt;
+              &lt;li id="baz"&gt;baz&lt;/li&gt;
+            &lt;/ul&gt;
+        %p
+          If we retrieve one of the three list items (for example, through a DOM function or as the context to an event handler),
+          %code .index()
+          can search for this list item within the set of matched elements:
+        %pre
+          :preserve
+            
+            var listItem = document.getElementById('bar');
+            alert('Index: ' + $('li').index(listItem));
+            We get back the zero-based position of the list item:
+        %p
+          %span.output Index: 1
+        %p
+          Similarly, if we retrieve a jQuery object consisting of one of the three list items,
+          %code .index()
+          will search for that list item:
+        %pre
+          :preserve
+            
+            var listItem = $('#bar');
+            alert('Index: ' + $('li').index(listItem));
+        %p We get back the zero-based position of the list item:
+        %p
+          %span.output Index: 1
+        %p
+          Note that if the jQuery collection used as the
+          %code .index()
+          method's argument contains more than one element, the first element within the matched set of elements will be used.
+        %pre
+          :preserve
+            
+            var listItems = $('li:gt(0)');
+            alert('Index: ' + $('li').index(listItems));
+        %p We get back the zero-based position of the first list item within the matched set:
+        %p
+          %span.output Index: 1
+        %p
+          If we use a string as the
+          %code .index()
+          method's argument, it is interpreted as a jQuery selector string. The first element among the object's matched elements which also matches this selector is located.
+        %pre
+          :preserve
+            
+            var listItem = $('#bar');
+            alert('Index: ' + listItem.index('li'));
+        %p We get back the zero-based position of the list item:
+        %p
+          %span.output Index: 1
+        %p
+          If we omit the argument,
+          %code .index()
+          will return the position of the first element within the set of matched elements in relation to its siblings:
+        %pre alert('Index: ' + $('#bar').index();
+        %p Again, we get back the zero-based position of the list item:
+        %p
+          %span.output Index: 1
+      %h3 Examples:
+      #entry-examples.entry-examples
+        #example-0
+          %h4
+            Example:
+            %span.desc On click, returns the index (based zero) of that div in the page.
+          %pre
+            %code.example.demo-code
+              :preserve
+                &lt;!DOCTYPE html&gt;
+                &lt;html&gt;
+                &lt;head&gt;
+                  &lt;style&gt;
+                div { background:yellow; margin:5px; }
+                span { color:red; }
+                &lt;/style&gt;
+                  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                	&lt;span&gt;Click a div!&lt;/span&gt;
+                &lt;div&gt;First div&lt;/div&gt;
+                &lt;div&gt;Second div&lt;/div&gt;
+                &lt;div&gt;Third div&lt;/div&gt;
+                &lt;script&gt;
+                $("div").click(function () {
+                  // this is the dom element clicked
+                  var index = $("div").index(this);
+                  $("span").text("That was div index #" + index);
+                });
+                &lt;/script&gt;
+                &lt;/body&gt;
+                &lt;/html&gt;          %h4 Demo:
+          .demo.code-demo
+        #example-1
+          %h4
+            Example:
+            %span.desc Returns the index for the element with ID bar.
+          %pre
+            %code.example.demo-code
+              :preserve
+                &lt;!DOCTYPE html&gt;
+                &lt;html&gt;
+                &lt;head&gt;
+                  &lt;style&gt;div { font-weight: bold; color: #090; }&lt;/style&gt;
+                  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                	&lt;ul&gt;
+                  &lt;li id="foo"&gt;foo&lt;/li&gt;
+                  &lt;li id="bar"&gt;bar&lt;/li&gt;
+                  &lt;li id="baz"&gt;baz&lt;/li&gt;
+                &lt;/ul&gt;
+                &lt;div&gt;&lt;/div&gt;
+                &lt;script&gt;var listItem = $('#bar');
+                    $('div').html( 'Index: ' + $('li').index(listItem) );&lt;/script&gt;
+                &lt;/body&gt;
+                &lt;/html&gt;          %h4 Demo:
+          .demo.code-demo
+        #example-2
+          %h4
+            Example:
+            %span.desc Returns the index for the first item in the jQuery collection.
+          %pre
+            %code.example.demo-code
+              :preserve
+                &lt;!DOCTYPE html&gt;
+                &lt;html&gt;
+                &lt;head&gt;
+                  &lt;style&gt;div { font-weight: bold; color: #090; }&lt;/style&gt;
+                  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                	&lt;ul&gt;
+                  &lt;li id="foo"&gt;foo&lt;/li&gt;
+                  &lt;li id="bar"&gt;bar&lt;/li&gt;
+                  &lt;li id="baz"&gt;baz&lt;/li&gt;
+                &lt;/ul&gt;
+                &lt;div&gt;&lt;/div&gt;
+                &lt;script&gt;var listItems = $('li:gt(0)');
+                $('div').html( 'Index: ' + $('li').index(listItems) );
+                &lt;/script&gt;
+                &lt;/body&gt;
+                &lt;/html&gt;          %h4 Demo:
+          .demo.code-demo
+        #example-3
+          %h4
+            Example:
+            %span.desc Returns the index for the element with ID bar in relation to all &lt;li&gt; elements.
+          %pre
+            %code.example.demo-code
+              :preserve
+                &lt;!DOCTYPE html&gt;
+                &lt;html&gt;
+                &lt;head&gt;
+                  &lt;style&gt;div { font-weight: bold; color: #090; }&lt;/style&gt;
+                  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                	&lt;ul&gt;
+                  &lt;li id="foo"&gt;foo&lt;/li&gt;
+                  &lt;li id="bar"&gt;bar&lt;/li&gt;
+                  &lt;li id="baz"&gt;baz&lt;/li&gt;
+                &lt;/ul&gt;
+                &lt;div&gt;&lt;/div&gt;
+                &lt;script&gt;$('div').html('Index: ' +  $('#bar').index('li') );&lt;/script&gt;
+                &lt;/body&gt;
+                &lt;/html&gt;          %h4 Demo:
+          .demo.code-demo
+        #example-4
+          %h4
+            Example:
+            %span.desc Returns the index for the element with ID bar in relation to its siblings.
+          %pre
+            %code.example.demo-code
+              :preserve
+                &lt;!DOCTYPE html&gt;
+                &lt;html&gt;
+                &lt;head&gt;
+                  &lt;style&gt;div { font-weight: bold; color: #090; }&lt;/style&gt;
+                  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                	&lt;ul&gt;
+                  &lt;li id="foo"&gt;foo&lt;/li&gt;
+                  &lt;li id="bar"&gt;bar&lt;/li&gt;
+                  &lt;li id="baz"&gt;baz&lt;/li&gt;
+                &lt;/ul&gt;
+                &lt;div&gt;&lt;/div&gt;
+                &lt;script&gt;var barIndex = $('#bar').index();
+                $('div').html( 'Index: ' +  barIndex );&lt;/script&gt;
+                &lt;/body&gt;
+                &lt;/html&gt;          %h4 Demo:
+          .demo.code-demo
+        #example-5
+          %h4
+            Example:
+            %span.desc Returns -1, as there is no element with ID foobar.
+          %pre
+            %code.example.demo-code
+              :preserve
+                &lt;!DOCTYPE html&gt;
+                &lt;html&gt;
+                &lt;head&gt;
+                  &lt;style&gt;div { font-weight: bold; color: #090; }&lt;/style&gt;
+                  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                	&lt;ul&gt;
+                  &lt;li id="foo"&gt;foo&lt;/li&gt;
+                  &lt;li id="bar"&gt;bar&lt;/li&gt;
+                  &lt;li id="baz"&gt;baz&lt;/li&gt;
+                &lt;/ul&gt;
+                &lt;div&gt;&lt;/div&gt;
+                &lt;script&gt;var foobar = $("li").index( $('#foobar') );
+                $('div').html('Index: ' + foobar);&lt;/script&gt;
+                &lt;/body&gt;
+                &lt;/html&gt;          %h4 Demo:
+          .demo.code-demo

@@ -1,0 +1,30 @@
+%div{"data-role" => "page"}
+  %div{"data-role" => "header"}
+    %h1 jQuery.error
+  %div{"data-role" => "content", "data-theme" => "c", :id => "jQuery.error1"}
+    %h2.jq-clearfix.roundTop.section-title
+      %span.name jQuery.error( message )
+      %span.returns
+    .entry-details
+      %p.desc
+        %strong> Description:
+        Takes a string and throws an exception containing it.
+      %ul.signatures
+        %li.signature{:id => "jQuery.error-message"}
+          %h4.name
+            %span.versionAdded>
+              version added:
+              %a{:href => "/category/version/1.4.1/"} 1.4.1
+            jQuery.error( message )
+          %p.arguement
+            %strong> message
+            The message to send out.
+      .longdesc
+        %p This method exists primarily for plugin developers who wish to override it and provide a better display (or more information) for the error messages.
+      %h3 Example:
+      #entry-examples.entry-examples
+        #example-0
+          %h4
+            %span.desc Override jQuery.error for display in Firebug.
+          %pre
+            %code.example jQuery.error = console.error;

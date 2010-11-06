@@ -1,0 +1,155 @@
+%div{"data-role" => "page"}
+  %div{"data-role" => "header"}
+    %h1 .mouseenter()
+  #mouseenter1{"data-role" => "content", "data-theme" => "c"}
+    %h2.jq-clearfix.roundTop.section-title
+      %span.name .mouseenter( handler(eventObject) )
+      %span.returns
+        Returns:
+        %a.return{:href => "http://docs.jquery.com/Types#jQuery"} jQuery
+    .entry-details
+      %p.desc
+        %strong> Description:
+        Bind an event handler to be fired when the mouse enters an element, or trigger that handler on an element.
+      %ul.signatures
+        %li#mouseenter-handlereventObject.signature
+          %h4.name
+            %span.versionAdded>
+              version added:
+              %a{:href => "/category/version/1.0/"} 1.0
+            \.mouseenter( handler(eventObject) )
+          %p.arguement
+            %strong> handler(eventObject)
+            A function to execute each time the event is triggered.
+        %li#mouseenter.signature
+          %h4.name
+            %span.versionAdded>
+              version added:
+              %a{:href => "/category/version/1.0/"} 1.0
+            \.mouseenter()
+      .longdesc
+        %p
+          This method is a shortcut for
+          %code .bind('mouseenter', handler)
+          in the first variation, and
+          %code .trigger('mouseenter')
+          in the second.
+        %p
+          The
+          %code mouseenter
+          JavaScript event is proprietary to Internet Explorer. Because of the event's general utility, jQuery simulates this event so that it can be used regardless of browser. This event sent to an element when the mouse pointer enters the element. Any HTML element can receive this event.
+        %p For example, consider the HTML:
+        %pre
+          :preserve
+            &lt;div id="outer"&gt;
+              Outer
+              &lt;div id="inner"&gt;
+                Inner
+              &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div id="other"&gt;
+              Trigger the handler
+            &lt;/div&gt;
+            &lt;div id="log"&gt;&lt;/div&gt;        %p.image
+          %img{:alt => "", :src => "http://api.jquery.com/images/0042_05_08.png"}/
+        %p The event handler can be bound to any element:
+        %pre
+          :preserve
+            $('#outer').mouseenter(function() {
+              $('#log').append('&lt;div&gt;Handler for .mouseenter() called.&lt;/div&gt;');
+            });        %p
+          Now when the mouse pointer moves over the
+          %span.output Outer
+          = succeed "," do
+            %code &lt;div&gt;
+          the message is appended to
+          = succeed "." do
+            %code &lt;div id="log"&gt;
+          We can also trigger the event when another element is clicked:
+        %pre
+          :preserve
+            $('#other').click(function() {
+              $('#outer').mouseenter();
+            });        %p
+          After this code executes, clicks on
+          %span.output Trigger the handler
+          will also append the message.
+        %p
+          The
+          %code mouseenter
+          event differs from
+          %code mouseover
+          in the way it handles event bubbling. If
+          %code mouseover
+          were used in this example, then when the mouse pointer moved over the
+          %span.output Inner
+          element, the handler would be triggered. This is usually undesirable behavior. The
+          %code mouseenter
+          event, on the other hand, only triggers its handler when the mouse enters the element it is bound to, not a descendant. So in this example, the handler is triggered when the mouse enters the
+          %span.output Outer
+          element, but not the
+          %span.output Inner
+          element.
+      %h3 Example:
+      #entry-examples.entry-examples
+        #example-0
+          %h4
+            %span.desc
+              Show texts when mouseenter and mouseout event triggering.
+              mouseover fires when the pointer moves into the child element as well, while mouseenter fires only when the pointer moves into the bound element.
+          %pre
+            %code.example.demo-code
+              :preserve
+                &lt;!DOCTYPE html&gt;
+                &lt;html&gt;
+                &lt;head&gt;
+                  &lt;style&gt;
+                div.out {
+                width:40%;
+                height:120px;
+                margin:0 15px;
+                background-color:#D6EDFC;
+                float:left;
+                }
+                div.in {
+                width:60%;
+                height:60%;
+                background-color:#FFCC00;
+                margin:10px auto;
+                }
+                p {
+                line-height:1em;
+                margin:0;
+                padding:0;
+                }
+                &lt;/style&gt;
+                  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                	
+                &lt;div class="out overout"&gt;&lt;p&gt;move your mouse&lt;/p&gt;&lt;div class="in overout"&gt;&lt;p&gt;move your mouse&lt;/p&gt;&lt;p&gt;0&lt;/p&gt;&lt;/div&gt;&lt;p&gt;0&lt;/p&gt;&lt;/div&gt;
+                
+                &lt;div class="out enterleave"&gt;&lt;p&gt;move your mouse&lt;/p&gt;&lt;div class="in enterleave"&gt;&lt;p&gt;move your mouse&lt;/p&gt;&lt;p&gt;0&lt;/p&gt;&lt;/div&gt;&lt;p&gt;0&lt;/p&gt;&lt;/div&gt;
+                
+                
+                &lt;script&gt;
+                    var i = 0;
+                    $("div.overout").mouseover(function(){
+                      $("p:first",this).text("mouse over");
+                      $("p:last",this).text(++i);
+                    }).mouseout(function(){
+                      $("p:first",this).text("mouse out");
+                    });
+                
+                    var n = 0;
+                    $("div.enterleave").mouseenter(function(){
+                      $("p:first",this).text("mouse enter");
+                      $("p:last",this).text(++n);
+                    }).mouseleave(function(){
+                      $("p:first",this).text("mouse leave");
+                    });
+                
+                &lt;/script&gt;
+                &lt;/body&gt;
+                &lt;/html&gt;          %h4 Demo:
+          .demo.code-demo

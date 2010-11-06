@@ -1,0 +1,67 @@
+%div{"data-role" => "page"}
+  %div{"data-role" => "header"}
+    %h1 .size()
+  #size1{"data-role" => "content", "data-theme" => "c"}
+    %h2.jq-clearfix.roundTop.section-title
+      %span.name .size()
+      %span.returns
+        Returns:
+        %a.return{:href => "http://docs.jquery.com/Types#Number"} Number
+    .entry-details
+      %p.desc
+        %strong> Description:
+        Return the number of DOM elements matched by the jQuery object.
+      %ul.signatures
+        %li#size.signature
+          %h4.name
+            %span.versionAdded>
+              version added:
+              %a{:href => "/category/version/1.0/"} 1.0
+            \.size()
+      .longdesc
+        %pre
+          :preserve
+            
+            &lt;ul&gt;
+              &lt;li&gt;foo&lt;/li&gt;
+              &lt;li&gt;bar&lt;/li&gt;
+            &lt;/ul&gt;
+        %p
+          We can determine the number of list items by calling
+          = succeed ":" do
+            %code .size()
+        %pre alert('Size: ' + $('li').size());
+        %p This will alert the count of items:
+        %p
+          %span.output Size: 2
+        %p
+          The
+          %a{:href => "/length/"} .length
+          property is a slightly faster way to get this information.
+      %h3 Example:
+      #entry-examples.entry-examples
+        #example-0
+          %h4
+            %span.desc Count the divs. Click to add more.
+          %pre
+            %code.example.demo-code
+              :preserve
+                &lt;!DOCTYPE html&gt;
+                &lt;html&gt;
+                &lt;head&gt;
+                  &lt;style&gt;body { cursor:pointer; }
+                 div { width:50px; height:30px; margin:5px; float:left; background:blue; }
+                 span { color:red; }
+                 &lt;/style&gt;
+                  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                	&lt;span&gt;&lt;/span&gt;
+                
+                 &lt;div&gt;&lt;/div&gt;
+                &lt;script&gt;$(document.body).click(function () { $(document.body).append($("&lt;div&gt;"));
+                var n = $("div").size();
+                $("span").text("There are " + n + " divs." + "Click to add more.");}).click(); // trigger the click to start&lt;/script&gt;
+                &lt;/body&gt;
+                &lt;/html&gt;          %h4 Demo:
+          .demo.code-demo

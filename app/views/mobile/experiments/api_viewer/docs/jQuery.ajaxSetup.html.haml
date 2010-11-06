@@ -1,0 +1,86 @@
+%div{"data-role" => "page"}
+  %div{"data-role" => "header"}
+    %h1 jQuery.ajaxSetup()
+  %div{"data-role" => "content", "data-theme" => "c", :id => "jQuery.ajaxSetup1"}
+    %h2.jq-clearfix.roundTop.section-title
+      %span.name jQuery.ajaxSetup( options )
+      %span.returns
+    .entry-details
+      %p.desc
+        %strong> Description:
+        Set default values for future Ajax requests.
+      %ul.signatures
+        %li.signature{:id => "jQuery.ajaxSetup-options"}
+          %h4.name
+            %span.versionAdded>
+              version added:
+              %a{:href => "/category/version/1.1/"} 1.1
+            jQuery.ajaxSetup( options )
+          %p.arguement
+            %strong> options
+            A set of key/value pairs that configure the default Ajax request. All options are optional.
+      .longdesc
+        %p
+          For details on the settings available for
+          = succeed "," do
+            %code $.ajaxSetup()
+          see
+          = succeed "." do
+            %code
+              %a{:href => "/jQuery.ajax"} $.ajax()
+        %p
+          All subsequent Ajax calls using any function will use the new settings, unless overridden by the individual calls, until the next invocation of
+          = succeed "." do
+            %code $.ajaxSetup()
+        %p For example, we could set a default for the URL parameter before pinging the server repeatedly:
+        %pre
+          :preserve
+            $.ajaxSetup({
+              url: 'ping.php',
+            });        %p Now each time an Ajax request is made, this URL will be used automatically:
+        %pre
+          :preserve
+            
+            $.ajax({
+              data: {'name': 'Tim'},
+            });        %blockquote
+          %p
+            Note: Global callback functions should be set with their respective global Ajax event handler methods-
+            %code>
+              %a{:href => "/ajaxStart"} .ajaxStart()
+            ,
+            = succeed "," do
+              %code
+                %a{:href => "/ajaxStop"} .ajaxStop()
+            = succeed "," do
+              %code
+                %a{:href => "/ajaxComplete"} .ajaxComplete()
+            = succeed "," do
+              %code
+                %a{:href => "/ajaxError"} .ajaxError()
+            = succeed "," do
+              %code
+                %a{:href => "/ajaxSuccess"} .ajaxSuccess()
+            = succeed "-rather" do
+              %code
+                %a{:href => "/ajaxSend"} .ajaxSend()
+            than within the
+            %code settings
+            object for
+            = succeed "." do
+              %code $.ajaxSetup()
+      %h3 Example:
+      #entry-examples.entry-examples
+        #example-0
+          %h4
+            %span.desc Sets the defaults for Ajax requests to the url "/xmlhttp/", disables global handlers and uses POST instead of GET. The following Ajax requests then sends some data without having to set anything else.
+          %pre
+            %code.example
+              :preserve
+                $.ajaxSetup({
+                   url: "/xmlhttp/",
+                   global: false,
+                   type: "POST"
+                
+                 });
+                 $.ajax({ data: myData });

@@ -1,0 +1,62 @@
+%div{"data-role" => "page"}
+  %div{"data-role" => "header"}
+    %h1 Attribute Not Equal Selector [name!=value]
+  #attributeNotEqual1{"data-role" => "content", "data-theme" => "c"}
+    %h2.jq-clearfix.roundTop.section-title
+      %span.name attributeNotEqual
+      selector
+    .entry-details
+      %h4.name
+        %span.versionAdded>
+          version added:
+          %a{:href => "/version/1.0/"} 1.0
+        jQuery('[attribute!=value]')
+      %ul.signatures
+        %li
+          %dl.arguments
+            %dt attribute
+            %dd An attribute name.
+            %dt value
+            %dd An attribute value. Quotes are optional.
+      %p.desc
+        %strong> Description:
+        Select elements that either don't have the specified attribute, or do have the specified attribute but not with a certain value.
+      .longdesc
+        %p
+          This selector is equivalent to
+          = succeed "." do
+            %code :not([attr=value])
+      %h3 Example:
+      #entry-examples.entry-examples
+        #example-0
+          %h4
+            %span.desc Finds all inputs that don't have the name 'newsletter' and appends text to the span next to it.
+          %pre
+            %code.example.demo-code
+              :preserve
+                &lt;!DOCTYPE html&gt;
+                &lt;html&gt;
+                &lt;head&gt;
+                  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                	&lt;div&gt;
+                
+                    &lt;input type="radio" name="newsletter" value="Hot Fuzz" /&gt;
+                    &lt;span&gt;name is newsletter&lt;/span&gt;
+                
+                  &lt;/div&gt;
+                  &lt;div&gt;
+                    &lt;input type="radio" value="Cold Fusion" /&gt;
+                    &lt;span&gt;no name&lt;/span&gt;
+                
+                  &lt;/div&gt;
+                  &lt;div&gt;
+                    &lt;input type="radio" name="accept" value="Evil Plans" /&gt;
+                
+                    &lt;span&gt;name is accept&lt;/span&gt;
+                  &lt;/div&gt;
+                &lt;script&gt;$("input[name!=newsletter]").next().append("&lt;b&gt;; not newsletter&lt;/b&gt;");&lt;/script&gt;
+                &lt;/body&gt;
+                &lt;/html&gt;          %h4 Demo:
+          .demo.code-demo

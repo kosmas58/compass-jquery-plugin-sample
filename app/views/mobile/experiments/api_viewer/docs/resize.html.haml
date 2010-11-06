@@ -1,0 +1,67 @@
+%div{"data-role" => "page"}
+  %div{"data-role" => "header"}
+    %h1 .resize()
+  #resize1{"data-role" => "content", "data-theme" => "c"}
+    %h2.jq-clearfix.roundTop.section-title
+      %span.name .resize( handler(eventObject) )
+      %span.returns
+        Returns:
+        %a.return{:href => "http://docs.jquery.com/Types#jQuery"} jQuery
+    .entry-details
+      %p.desc
+        %strong> Description:
+        Bind an event handler to the "resize" JavaScript event, or trigger that event on an element.
+      %ul.signatures
+        %li#resize-handlereventObject.signature
+          %h4.name
+            %span.versionAdded>
+              version added:
+              %a{:href => "/category/version/1.0/"} 1.0
+            \.resize( handler(eventObject) )
+          %p.arguement
+            %strong> handler(eventObject)
+            A function to execute each time the event is triggered.
+        %li#resize.signature
+          %h4.name
+            %span.versionAdded>
+              version added:
+              %a{:href => "/category/version/1.0/"} 1.0
+            \.resize()
+      .longdesc
+        %p
+          This method is a shortcut for
+          %code .bind('resize', handler)
+          in the first variation, and
+          %code .trigger('resize')
+          in the second.
+        %p
+          The
+          %code resize
+          event is sent to the
+          %code window
+          element when the size of the browser window changes:
+        %pre
+          :preserve
+            $(window).resize(function() {
+              $('#log').append('&lt;div&gt;Handler for .resize() called.&lt;/div&gt;');
+            });
+        %p Now whenever the browser window's size is changed, the message is appended to &lt;div id="log"&gt; one or more times, depending on the browser.
+        %p
+          Code in a
+          %code resize
+          handler should never rely on the number of times the handler is called. Depending on implementation,
+          %code resize
+          events can be sent continuously as the resizing is in progress (the typical behavior in Internet Explorer and WebKit-based browsers such as Safari and Chrome), or only once at the end of the resize operation (the typical behavior in Firefox).
+      %h3 Example:
+      #entry-examples.entry-examples
+        #example-0
+          %h4
+            %span.desc To see the window width while (or after) it is resized, try:
+          %pre
+            %code.example
+              :preserve
+                
+                $(window).resize(function() {
+                  $('body').prepend('&lt;div&gt;' + $(window).width() + '&lt;/div&gt;');
+                });
+                  

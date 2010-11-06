@@ -1,0 +1,340 @@
+%div{"data-role" => "page"}
+  %div{"data-role" => "header"}
+    %h1 jQuery()
+  #jQuery1{"data-role" => "content", "data-theme" => "c"}
+    %h2.jq-clearfix.roundTop.section-title
+      %span.name jQuery( selector, [ context ] )
+      %span.returns
+        Returns:
+        %a.return{:href => "http://docs.jquery.com/Types#jQuery"} jQuery
+    .entry-details
+      %p.desc
+        %strong> Description:
+        Accepts a string containing a CSS selector which is then used to match a set of elements.
+      %ul.signatures
+        %li#jQuery-selector-context.signature
+          %h4.name
+            %span.versionAdded>
+              version added:
+              %a{:href => "/category/version/1.0/"} 1.0
+            jQuery( selector, [ context ] )
+          %p.arguement
+            %strong> selector
+            A string containing a selector expression
+          %p.arguement
+            %strong> context
+            A DOM Element, Document, or jQuery to use as context
+        %li#jQuery-element.signature
+          %h4.name
+            %span.versionAdded>
+              version added:
+              %a{:href => "/category/version/1.0/"} 1.0
+            jQuery( element )
+          %p.arguement
+            %strong> element
+            A DOM element to wrap in a jQuery object.
+        %li#jQuery-elementArray.signature
+          %h4.name
+            %span.versionAdded>
+              version added:
+              %a{:href => "/category/version/1.0/"} 1.0
+            jQuery( elementArray )
+          %p.arguement
+            %strong> elementArray
+            An array containing a set of DOM elements to wrap in a jQuery object.
+        %li.signature{:id => "jQuery-jQuery object"}
+          %h4.name
+            %span.versionAdded>
+              version added:
+              %a{:href => "/category/version/1.0/"} 1.0
+            jQuery( jQuery object )
+          %p.arguement
+            %strong> jQuery object
+            An existing jQuery object to clone.
+        %li#jQuery.signature
+          %h4.name
+            %span.versionAdded>
+              version added:
+              %a{:href => "/category/version/1.4/"} 1.4
+            jQuery()
+      .longdesc
+        %p
+          In the first formulation listed above,
+          %code jQuery()
+          — which can also be written as
+          %code $()
+          — searches through the DOM for any elements that match the provided selector and creates a new jQuery object that references these elements:
+        %pre $('div.foo');
+        %h4#selector-context Selector Context
+        %p
+          By default, selectors perform their searches within the DOM starting at the document root. However, an alternate context can be given for the search by using the optional second parameter to the
+          %code $()
+          function. For example, if within a callback function we wish to do a search for an element, we can restrict that search:
+        %pre
+          :preserve
+            
+            $('div.foo').click(function() {
+              $('span', this).addClass('bar');
+            });
+        %p
+          Since we've restricted the span selector to the context of
+          = succeed "," do
+            %code this
+          only spans within the clicked element will get the additional class.
+        %p
+          Internally, selector context is implemented with the
+          %code .find()
+          method, so
+          %code $('span', this)
+          is equivalent to
+          = succeed "." do
+            %code $(this).find('span')
+        %h4#using-dom-elements Using DOM elements
+        %p
+          The second and third formulations of this function allow us to create a jQuery object using a DOM element or elements that we have already found in some other way. A common use of this facility is to call jQuery methods on an element that has been passed to a callback function through the keyword
+          = succeed ":" do
+            %code this
+        %pre
+          :preserve
+            
+            $('div.foo').click(function() {
+              $(this).slideUp();
+            });
+        %p
+          This example causes elements to be hidden with a sliding animation when clicked. Because the handler receives the clicked item in the
+          %code this
+          keyword as a bare DOM element, the element must be wrapped in a jQuery object before we can call jQuery methods on it.
+        %p
+          When XML data is returned from an Ajax call, we can use the
+          %code $()
+          function to wrap it in a jQuery object that we can easily work with. Once this is done, we can retrieve individual elements of the XML structure using
+          %code .find()
+          and other DOM traversal methods.
+        %h4#cloning-jquery-objects Cloning jQuery Objects
+        %p
+          When a jQuery object is passed as a parameter to the
+          %code $()
+          function, a clone of the object is created. This new jQuery object references the same DOM elements as the initial one.
+        %h4#returning-empty-set Returning an Empty Set
+        %p
+          As of jQuery 1.4, if you pass no arguments in to the
+          %code jQuery()
+          method, an empty jQuery set will be returned. In previous versions of jQuery, a set containing the document node would be returned.
+      %h3 Examples:
+      #entry-examples.entry-examples
+        #example-0
+          %h4
+            Example:
+            %span.desc Finds all p elements that are children of a div element.
+          %pre
+            %code.example.demo-code
+              :preserve
+                &lt;!DOCTYPE html&gt;
+                &lt;html&gt;
+                &lt;head&gt;
+                  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                	&lt;p&gt;one&lt;/p&gt; &lt;div&gt;&lt;p&gt;two&lt;/p&gt;&lt;/div&gt; &lt;p&gt;three&lt;/p&gt;
+                &lt;script&gt;$("div &gt; p").css("border", "1px solid gray");&lt;/script&gt;
+                &lt;/body&gt;
+                &lt;/html&gt;          %h4 Demo:
+          .demo.code-demo
+          %h4 Result:
+          %pre
+            %code.results [ &lt;p&gt;two&lt;/p&gt; ]
+        #example-1
+          %h4
+            Example:
+            %span.desc Finds all inputs of type radio within the first form in the document.
+          %pre
+            %code.example $("input:radio", document.forms[0]);
+        #example-2
+          %h4
+            Example:
+            %span.desc Finds all div elements within an XML document from an Ajax response.
+          %pre
+            %code.example $("div", xml.responseXML);
+        #example-3
+          %h4
+            Example:
+            %span.desc Sets the background color of the page to black.
+          %pre
+            %code.example $(document.body).css( "background", "black" );
+        #example-4
+          %h4
+            Example:
+            %span.desc Hides all the input elements within a form.
+          %pre
+            %code.example $(myForm.elements).hide()
+  #jQuery2{"data-role" => "content", "data-theme" => "c"}
+    %h2.jq-clearfix.roundTop.section-title
+      %span.name jQuery( html, [ ownerDocument ] )
+      %span.returns
+        Returns:
+        %a.return{:href => "http://docs.jquery.com/Types#jQuery"} jQuery
+    .entry-details
+      %p.desc
+        %strong> Description:
+        Creates DOM elements on the fly from the provided string of raw HTML.
+      %ul.signatures
+        %li#jQuery-html-ownerDocument.signature
+          %h4.name
+            %span.versionAdded>
+              version added:
+              %a{:href => "/category/version/1.0/"} 1.0
+            jQuery( html, [ ownerDocument ] )
+          %p.arguement
+            %strong> html
+            A string of HTML to create on the fly. Note that this parses HTML,
+            %strong not
+            XML.
+          %p.arguement
+            %strong> ownerDocument
+            A document in which the new elements will be created
+        %li#jQuery-html-props.signature
+          %h4.name
+            %span.versionAdded>
+              version added:
+              %a{:href => "/category/version/1.4/"} 1.4
+            jQuery( html, props )
+          %p.arguement
+            %strong> html
+            A string defining a single, standalone, HTML element (e.g. &lt;div/&gt; or &lt;div&gt;).
+          %p.arguement
+            %strong> props
+            Attributes, events, and methods to call on the newly-created element.
+      .longdesc
+        %h4#creating-new-elements Creating New Elements
+        %p
+          If a string is passed as the parameter to
+          = succeed "," do
+            %code $()
+          jQuery examines the string to see if it looks like HTML (i.e., it has
+          %code &lt;tag ... &gt;
+          somewhere within the string). If not, the string is interpreted as a selector expression, as explained above. But if the string appears to be an HTML snippet, jQuery attempts to create new DOM elements as described by the HTML. Then a jQuery object is created and returned that refers to these elements. We can perform any of the usual jQuery methods on this object:
+        %pre $('&lt;p id="test"&gt;My &lt;em&gt;new&lt;/em&gt; text&lt;/p&gt;').appendTo('body');
+        %p
+          When the HTML is more complex than a single tag without attributes, as it is in the above example, the actual creation of the elements is handled by the browser's
+          %code innerHTML
+          mechanism. Specifically, jQuery creates a new &lt;div&gt; element and sets the innerHTML property of the element to the HTML snippet that was passed in. When the parameter has a single tag, such as
+          %code $('&lt;img /&gt;')
+          or
+          = succeed "," do
+            %code $('&lt;a&gt;&lt;/a&gt;')
+          jQuery creates the element using the native JavaScript
+          %code createElement()
+          function.
+        %p To ensure cross-platform compatibility, the snippet must be well-formed. Tags that can contain other elements should be paired with a closing tag:
+        %pre $('&lt;a href="http://jquery.com"&gt;&lt;/a&gt;');
+        %p Alternatively, jQuery allows XML-like tag syntax (with or without a space before the slash):
+        %pre $('&lt;a/&gt;');
+        %p Tags that cannot contain elements may be quick-closed or not:
+        %pre
+          :preserve
+            $('&lt;img /&gt;');
+            $('&lt;input&gt;');
+        %p
+          As of jQuery 1.4, we can pass a map of properties to the second argument. This argument accepts a superset of properties that can be passed to the
+          %a{:href => "/attr"} .attr()
+          method. Furthermore, any
+          %a{:href => "/category/events/"} event type
+          can be passed in, and the following jQuery methods can be called:
+          = succeed "," do
+            %a{:href => "/val"} val
+          = succeed "," do
+            %a{:href => "/css"} css
+          = succeed "," do
+            %a{:href => "/html"} html
+          = succeed "," do
+            %a{:href => "/text"} text
+          = succeed "," do
+            %a{:href => "/data"} data
+          = succeed "," do
+            %a{:href => "/width"} width
+          = succeed "," do
+            %a{:href => "/height"} height
+          or
+          = succeed "." do
+            %a{:href => "/offset"} offset
+      %h3 Examples:
+      #entry-examples.entry-examples
+        #example-0
+          %h4
+            Example:
+            %span.desc Creates a div element (and all of its contents) dynamically, and appends it to the body element. Internally, an element is created and its innerHTML property set to the given markup. It is therefore both quite flexible and limited.
+          %pre
+            %code.example $("&lt;div&gt;&lt;p&gt;Hello&lt;/p&gt;&lt;/div&gt;").appendTo("body")
+        #example-1
+          %h4
+            Example:
+            %span.desc Create some DOM elements.
+          %pre
+            %code.example
+              :preserve
+                $("&lt;div/&gt;", {
+                  "class": "test",
+                  text: "Click me!",
+                  click: function(){
+                    $(this).toggleClass("test");
+                  }
+                }).appendTo("body");
+                
+                $("&lt;input&gt;", {
+                  type: "text",
+                  val: "Test",
+                  focusin: function() {
+                    $(this).addClass("active");
+                  },
+                  focusout: function() {
+                    $(this).removeClass("active");
+                  }
+                }).appendTo("form");  #jQuery3{"data-role" => "content", "data-theme" => "c"}
+    %h2.jq-clearfix.roundTop.section-title
+      %span.name jQuery( callback )
+      %span.returns
+        Returns:
+        %a.return{:href => "http://docs.jquery.com/Types#jQuery"} jQuery
+    .entry-details
+      %p.desc
+        %strong> Description:
+        Binds a function to be executed when the DOM has finished loading.
+      %ul.signatures
+        %li#jQuery-callback.signature
+          %h4.name
+            %span.versionAdded>
+              version added:
+              %a{:href => "/category/version/1.0/"} 1.0
+            jQuery( callback )
+          %p.arguement
+            %strong> callback
+            The function to execute when the DOM is ready.
+      .longdesc
+        %p
+          This function behaves just like
+          = succeed "," do
+            %code $(document).ready()
+          in that it should be used to wrap other
+          %code $()
+          operations on your page that depend on the DOM being ready. While this function is, technically, chainable, there really isn't much use for chaining against it.
+      %h3 Examples:
+      #entry-examples.entry-examples
+        #example-0
+          %h4
+            Example:
+            %span.desc Executes the function when the DOM is ready to be used.
+          %pre
+            %code.example
+              :preserve
+                $(function(){
+                  // Document is ready
+                });        #example-1
+          %h4
+            Example:
+            %span.desc Uses both the shortcut for $(document).ready() and the argument to write failsafe jQuery code using the $ alias, without relying on the global alias.
+          %pre
+            %code.example
+              :preserve
+                jQuery(function($) {
+                  // Your code using failsafe $ alias here...
+                });

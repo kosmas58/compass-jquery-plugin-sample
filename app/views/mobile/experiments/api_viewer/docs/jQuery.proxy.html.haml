@@ -1,0 +1,60 @@
+%div{"data-role" => "page"}
+  %div{"data-role" => "header"}
+    %h1 jQuery.proxy()
+  %div{"data-role" => "content", "data-theme" => "c", :id => "jQuery.proxy1"}
+    %h2.jq-clearfix.roundTop.section-title
+      %span.name jQuery.proxy( function, context )
+      %span.returns
+        Returns:
+        %a.return{:href => "http://docs.jquery.com/Types#Function"} Function
+    .entry-details
+      %p.desc
+        %strong> Description:
+        Takes a function and returns a new one that will always have a particular context.
+      %ul.signatures
+        %li.signature{:id => "jQuery.proxy-function-context"}
+          %h4.name
+            %span.versionAdded>
+              version added:
+              %a{:href => "/category/version/1.4/"} 1.4
+            jQuery.proxy( function, context )
+          %p.arguement
+            %strong> function
+            The function whose context will be changed.
+          %p.arguement
+            %strong> context
+            The object to which the context (`this`) of the function should be set.
+        %li.signature{:id => "jQuery.proxy-context-name"}
+          %h4.name
+            %span.versionAdded>
+              version added:
+              %a{:href => "/category/version/1.4/"} 1.4
+            jQuery.proxy( context, name )
+          %p.arguement
+            %strong> context
+            The object to which the context of the function should be set.
+          %p.arguement
+            %strong> name
+            The name of the function whose context will be changed (should be a property of the 'context' object.
+      .longdesc
+        %p This method is most useful for attaching event handlers to an element where the context is pointing back to a different object. Additionally, jQuery makes sure that even if you bind the function returned from jQuery.proxy() it will still unbind the correct function, if passed the original.
+      %h3 Example:
+      #entry-examples.entry-examples
+        #example-0
+          %h4
+            %span.desc Enforce the context of the function.
+          %pre
+            %code.example
+              :preserve
+                var obj = {
+                  name: "John",
+                  test: function() {
+                    alert( this.name );
+                    $("#test").unbind("click", obj.test);
+                  }
+                };
+                
+                $("#test").click( jQuery.proxy( obj, "test" ) );
+                
+                // This also works:
+                // $("#test").click( jQuery.proxy( obj.test, obj ) );

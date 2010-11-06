@@ -1,0 +1,47 @@
+%div{"data-role" => "page"}
+  %div{"data-role" => "header"}
+    %h1 event.timeStamp
+  %div{"data-role" => "content", "data-theme" => "c", :id => "event.timeStamp1"}
+    %h2.jq-clearfix.roundTop.section-title
+      %span.name event.timeStamp
+      %span.returns
+        Returns:
+        %a.return{:href => "http://docs.jquery.com/Types#Number"} Number
+    .entry-details
+      %p.desc
+        %strong Description:
+        This attribute returns the number of milliseconds since January 1, 1970, when the event is triggered.
+      %ul.signatures
+        %li.signature{:id => "event.timeStamp"}
+          %h4.name
+            %span.versionAdded>
+              version added:
+              %a{:href => "/category/version/1.2.6/"} 1.2.6
+            event.timeStamp
+      %h3 Example:
+      #entry-examples.entry-examples
+        #example-0
+          %h4
+            %span.desc Alert the time since click handler last executed.
+          %pre
+            %code.example.demo-code
+              :preserve
+                &lt;!DOCTYPE html&gt;
+                &lt;html&gt;
+                &lt;head&gt;
+                  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                	
+                &lt;script&gt;var last;
+                $(document.body).click(function(event) {
+                   if( last )
+                      alert( "time since last event " + event.timeStamp - last );
+                   last = event.timeStamp;
+                });  &lt;/script&gt;
+                &lt;/body&gt;
+                &lt;/html&gt;          %h4 Demo:
+          .demo.code-demo
+          %h4 Result:
+          %pre
+            %code.results

@@ -1,0 +1,69 @@
+%div{"data-role" => "page"}
+  %div{"data-role" => "header"}
+    %h1 Descendant Selector (“ancestor descendant”)
+    .entry-meta
+      Categories:
+      %span.category
+        %a{:href => "http://api.jquery.com/category/selectors/", :title => "View all posts in Selectors"} Selectors
+        \&gt;
+        %a{:href => "http://api.jquery.com/category/selectors/hierarchy-selectors/", :title => "View all posts in Hierarchy"} Hierarchy
+  #descendant1{"data-role" => "content", "data-theme" => "c"}
+    %h2.jq-clearfix.roundTop.section-title
+      %span.name descendant
+      selector
+    .entry-details
+      %h4.name
+        %span.versionAdded>
+          version added:
+          %a{:href => "/version/1.0/"} 1.0
+        jQuery('ancestor descendant')
+      %ul.signatures
+        %li
+          %dl.arguments
+            %dt ancestor
+            %dd Any valid selector.
+            %dt descendant
+            %dd A selector to filter the descendant elements.
+      %p.desc
+        %strong> Description:
+        Selects all elements that are descendants of a given ancestor.
+      .longdesc
+        %p A descendant of an element could be a child, grandchild, great-grandchild, and so on, of that element.
+      %h3 Example:
+      #entry-examples.entry-examples
+        #example-0
+          %h4
+            %span.desc Finds all input descendants of forms.
+          %pre
+            %code.example.demo-code
+              :preserve
+                &lt;!DOCTYPE html&gt;
+                &lt;html&gt;
+                &lt;head&gt;
+                  &lt;style&gt;
+                
+                  body { font-size:14px; }
+                  form { border:2px green solid; padding:2px; margin:0; 
+                         background:#efe; }
+                  div { color:red; }
+                  fieldset { margin:1px; padding:3px; }
+                  &lt;/style&gt;
+                  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                	&lt;form&gt;
+                    &lt;div&gt;Form is surrounded by the green outline&lt;/div&gt;
+                    &lt;label&gt;Child:&lt;/label&gt;
+                    &lt;input name="name" /&gt;
+                
+                    &lt;fieldset&gt;
+                      &lt;label&gt;Grandchild:&lt;/label&gt;
+                      &lt;input name="newsletter" /&gt;
+                    &lt;/fieldset&gt;
+                
+                  &lt;/form&gt;
+                  Sibling to form: &lt;input name="none" /&gt;
+                &lt;script&gt;$("form input").css("border", "2px dotted blue");&lt;/script&gt;
+                &lt;/body&gt;
+                &lt;/html&gt;          %h4 Demo:
+          .demo.code-demo

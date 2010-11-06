@@ -1,0 +1,125 @@
+%div{"data-role" => "page"}
+  %div{"data-role" => "header"}
+    %h1 .click()
+  #click1{"data-role" => "content", "data-theme" => "c"}
+    %h2.jq-clearfix.roundTop.section-title
+      %span.name .click( handler(eventObject) )
+      %span.returns
+        Returns:
+        %a.return{:href => "http://docs.jquery.com/Types#jQuery"} jQuery
+    .entry-details
+      %p.desc
+        %strong> Description:
+        Bind an event handler to the "click" JavaScript event, or trigger that event on an element.
+      %ul.signatures
+        %li#click-handlereventObject.signature
+          %h4.name
+            %span.versionAdded>
+              version added:
+              %a{:href => "/category/version/1.0/"} 1.0
+            \.click( handler(eventObject) )
+          %p.arguement
+            %strong> handler(eventObject)
+            A function to execute each time the event is triggered.
+        %li#click.signature
+          %h4.name
+            %span.versionAdded>
+              version added:
+              %a{:href => "/category/version/1.0/"} 1.0
+            \.click()
+      .longdesc
+        %p
+          This method is a shortcut for
+          %code .bind('click', handler)
+          in the first variation, and
+          %code .trigger('click')
+          in the second.
+        %p
+          The
+          %code click
+          event is sent to an element when the mouse pointer is over the element, and the mouse button is pressed and released. Any HTML element can receive this event.
+        %pre
+          :preserve
+            For example, consider the HTML:
+            &lt;div id="target"&gt;
+              Click here
+            &lt;/div&gt;
+            &lt;div id="other"&gt;
+              Trigger the handler
+            &lt;/div&gt;        %p.image
+          %img{:alt => "", :src => "http://api.jquery.com/images/0042_05_03.png"}/
+        %p
+          The event handler can be bound to any
+          = succeed ":" do
+            %code &lt;div&gt;
+        %pre
+          :preserve
+            $('#target').click(function() {
+              alert('Handler for .click() called.');
+            });        %p Now if we click on this element, the alert is displayed:
+        %p
+          %span.output Handler for .click() called.
+        %p We can also trigger the event when a different element is clicked:
+        %pre
+          :preserve
+            $('#other').click(function() {
+              $('#target').click();
+            });        %p
+          After this code executes, clicks on
+          %span.output Trigger the handler
+          will also alert the message.
+        %p
+          The
+          %code click
+          event is only triggered after this exact series of events:
+        %ul
+          %li The mouse button is depressed while the pointer is inside the element.
+          %li The mouse button is released while the pointer is inside the element.
+        %p
+          This is usually the desired sequence before taking an action. If this is not required, the
+          %code mousedown
+          or
+          %code mouseup
+          event may be more suitable.
+      %h3 Examples:
+      #entry-examples.entry-examples
+        #example-0
+          %h4
+            Example:
+            %span.desc To hide paragraphs on a page when they are clicked:
+          %pre
+            %code.example.demo-code
+              :preserve
+                &lt;!DOCTYPE html&gt;
+                &lt;html&gt;
+                &lt;head&gt;
+                  &lt;style&gt;
+                  p { color:red; margin:5px; cursor:pointer; }
+                  p.hilite { background:yellow; }
+                  &lt;/style&gt;
+                  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                	&lt;p&gt;First Paragraph&lt;/p&gt;
+                
+                  &lt;p&gt;Second Paragraph&lt;/p&gt;
+                  &lt;p&gt;Yet one more Paragraph&lt;/p&gt;
+                &lt;script&gt;
+                    $("p").click(function () { 
+                      $(this).slideUp(); 
+                    });
+                    $("p").hover(function () {
+                      $(this).addClass("hilite");
+                    }, function () {
+                      $(this).removeClass("hilite");
+                    });
+                &lt;/script&gt;
+                &lt;/body&gt;
+                &lt;/html&gt;          %h4 Demo:
+          .demo.code-demo
+        #example-1
+          %h4
+            Example:
+            %span.desc To trigger the click event on all of the paragraphs on the page:
+          %pre
+            %code.example $("p").click();

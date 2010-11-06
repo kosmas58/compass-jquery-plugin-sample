@@ -1,0 +1,52 @@
+%div{"data-role" => "page"}
+  %div{"data-role" => "header"}
+    %h1 :animated Selector
+  #animated1{"data-role" => "content", "data-theme" => "c"}
+    %h2.jq-clearfix.roundTop.section-title
+      %span.name animated
+      selector
+    .entry-details
+      %h4.name
+        %span.versionAdded>
+          version added:
+          %a{:href => "/version/1.2/"} 1.2
+        jQuery(':animated')
+      %p.desc
+        %strong> Description:
+        Select all elements that are in the progress of an animation at the time the selector is run.
+      %h3 Example:
+      #entry-examples.entry-examples
+        #example-0
+          %h4
+            %span.desc Change the color of any div that is animated.
+          %pre
+            %code.example.demo-code
+              :preserve
+                &lt;!DOCTYPE html&gt;
+                &lt;html&gt;
+                &lt;head&gt;
+                  &lt;style&gt;
+                  div { background:yellow; border:1px solid #AAA; width:80px; height:80px; margin:5px; float:left; }
+                  div.colored { background:green; }
+                  &lt;/style&gt;
+                  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                	&lt;button id="run"&gt;Run&lt;/button&gt;
+                
+                  &lt;div&gt;&lt;/div&gt;
+                  &lt;div id="mover"&gt;&lt;/div&gt;
+                  &lt;div&gt;&lt;/div&gt;
+                &lt;script&gt;
+                
+                    $("#run").click(function(){
+                      $("div:animated").toggleClass("colored");
+                    });
+                    function animateIt() {
+                      $("#mover").slideToggle("slow", animateIt);
+                    }
+                    animateIt();
+                &lt;/script&gt;
+                &lt;/body&gt;
+                &lt;/html&gt;          %h4 Demo:
+          .demo.code-demo

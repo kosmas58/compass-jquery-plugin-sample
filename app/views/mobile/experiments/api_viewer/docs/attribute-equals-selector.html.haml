@@ -1,0 +1,57 @@
+%div{"data-role" => "page"}
+  %div{"data-role" => "header"}
+    %h1 Attribute Equals Selector [name=value]
+  #attributeEquals1{"data-role" => "content", "data-theme" => "c"}
+    %h2.jq-clearfix.roundTop.section-title
+      %span.name attributeEquals
+      selector
+    .entry-details
+      %h4.name
+        %span.versionAdded>
+          version added:
+          %a{:href => "/version/1.0/"} 1.0
+        jQuery('[attribute=value]')
+      %ul.signatures
+        %li
+          %dl.arguments
+            %dt attribute
+            %dd An attribute name.
+            %dt value
+            %dd An attribute value. Quotes are optional.
+      %p.desc
+        %strong> Description:
+        Selects elements that have the specified attribute with a value exactly equal to a certain value.
+      %h3 Example:
+      #entry-examples.entry-examples
+        #example-0
+          %h4
+            %span.desc Finds all inputs with name 'newsletter' and changes the text of the span next to it.
+          %pre
+            %code.example.demo-code
+              :preserve
+                &lt;!DOCTYPE html&gt;
+                &lt;html&gt;
+                &lt;head&gt;
+                  &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                	&lt;div&gt;
+                
+                    &lt;input type="radio" name="newsletter" value="Hot Fuzz" /&gt;
+                    &lt;span&gt;name?&lt;/span&gt;
+                
+                  &lt;/div&gt;
+                  &lt;div&gt;
+                    &lt;input type="radio" name="newsletters" value="Cold Fusion" /&gt;
+                
+                    &lt;span&gt;name?&lt;/span&gt;
+                  &lt;/div&gt;
+                  &lt;div&gt;
+                    &lt;input type="radio" name="accept" value="Evil Plans" /&gt;
+                
+                    &lt;span&gt;name?&lt;/span&gt;
+                  &lt;/div&gt;
+                &lt;script&gt;$("input[name='newsletter']").next().text(" is newsletter");&lt;/script&gt;
+                &lt;/body&gt;
+                &lt;/html&gt;          %h4 Demo:
+          .demo.code-demo
