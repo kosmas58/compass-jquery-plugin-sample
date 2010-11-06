@@ -1,5 +1,6 @@
 - content_for :content_head do
   = render(:partial => "/mobile/docs/docs.js.haml", :format => :js)
+  = render(:partial => "/mobile/docs/content/content.js.haml", :format => :js)
 
 %div{"data-role" => "page"}
   %div{"data-role" => "header"}
@@ -7,11 +8,6 @@
       HTML Formatting
   / /header
   %div{"data-role" => "content"}
-    :css
-      table { width:100%; }
-      table caption { text-align:left;  }
-      table thead th { text-align:left; border-bottom-width:1px; border-top-width:1px; }
-      table th, td { text-align:left; padding:6px;} 
     %p
       The default approach to styling content in jQuery Mobile is simple: Use a light hand.
       Our goal is to let the browser's native rendering take precedence; we add a bit of padding
