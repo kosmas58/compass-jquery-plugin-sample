@@ -13,7 +13,7 @@
     return -c * (Math.sqrt(1 - (t/=d)*t) - 1) + b;
   };
   // loading animation
-  $.tools.overlay.addEffect("drop", function(css, done) {
+  $.tools.ui.overlay.addEffect("drop", function(css, done) {
     // use Overlay API to gain access to crucial elements
     var conf = this.getConf(),
         overlay = this.getOverlay();

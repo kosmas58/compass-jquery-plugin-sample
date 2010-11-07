@@ -448,39 +448,105 @@ en:
     tools:
       name: jQuery TOOLS
       default: Default functionality
-      dateinput:
-        name: Dateinput
+      ui:
+        name: UI Tools
+        tabs:
+          name: Tabs
+          demo01: Minimal setup for Tabs
+          demo02: Naming the tabs
+          demo03: 4 different skins with CSS
+          demo04: Using mouseover to switch tabs
+          demo05: Making Wizards with the Tabs
+          demo06: Making Accordions with the Tabs
+          demo07: Customizing the Accordion effect
+          demo08: Horizontal Accordion using the Tabs
+          demo09: Mutliple Tabs and Accordion instances
+          demo10: Handling browsers back button
+          demo11: Loading tab contents with AJAX
+          demo12: AJAX:ed tabs with History support
+          demo13: Slideshow plugin for the Tabs
+        tooltip:
+          name: Tooltip
+          demo01: Basics of using the tooltip
+          demo02: Using any HTML inside the tooltip
+          demo03: Imitating browsers default tooltip
+          demo04: Using tooltips in form fields
+          demo05: Using tooltips in tables or lists
+          demo06: Custom tooltip effect
+          demo07: Dynamic positioning of the tooltip
+        overlay:
+          name: Overlay
+          demo01: Minimal setup for overlay
+          demo02: The Apple effect for overlay
+          demo03: Creating modal dialogs with overlay
+          demo04: Opening overlays programmatically
+          demo05: Overlays with different styles
+          demo06: Loading external pages into overlay
+          demo07: Multiple overlays on a same page
+          demo08: Creating a customized Overlay effect
+        scrollable:
+          name: Scrollable
+          demo01: Minimal setup for scrollable
+          demo02: A vertical scrollable
+          demo03: A simple scrollable image gallery
+          demo04: Another gallery with many scrollables
+          demo05: A scrollable registration wizard
+          demo06: Scrollable plugins in action
+          demo07: Navigation with browser\s back button
+          demo08: jQuery Tools home page setup
+          demo09: A complete scrollable navigational system
+          demo10: Add and remove items from scrollable
+          demo11: Customizing the scrolling animation
       form:
-        name: Form
-      overlay:
-        name: Overlay
-        demo1: Minimal setup
-        demo2: The Apple effect
-        demo3: Modal dialogs
-        demo4: Opening programmtically
-        demo5: Different styles
-        demo6: Loading external pages
-        demo7: Multiple on the same page
-        demo8: Creating a customized
-      rangeinput:
-        name: Rangeinput
-      scrollable:
-        name: Scrollable
-      tabs:
-        name: Tabs
+        name: Form Tools
+        validator:
+          name: Validator
+          demo01: Minimal setup for Validator
+          demo02: Custom input types and attributes
+          demo03: Combined server and client-side validation
+          demo04: Displaying all errors inside a single DIV
+          demo05: Validator events in action
+          demo06: Localizing the Validator (finnish)
+        stylable:
+          name: Stylable
+          demo01: Minimal setup for Styleable
+          demo02: Scripting styleable Forms
+          demo03: Alternate form skin
+        rangeinput:
+          name: Rangeinput
+          demo01: Minimal setup for rangeinput
+          demo02: A couple of vertical ranges
+          demo03: Multiple small ranges
+          demo04: A custom scrollbar for a DIV
+        dateinput:
+          name: Dateinput
+          demo01: Minimal setup for Dateinput
+          demo02: A large skin for Dateinput
+          demo03: Customizing Dateinput behaviour
+          demo04: Prompting for start and end dates
+          demo05: Calendar that is always visible
+          demo06: Localizing the Dateinput (french)
       toolbox:
         name: Toolbox
-      tooltip:
-        name: Tooltip
-        demo1: Basics of using
-        demo2: Using HTML inside
-        demo3: Imitating browser default
-        demo4: In form fields
-        demo5: Using in tables
-        demo6: Custom effects
-        demo7: Dynamic positioning
-      validator:
-        name: Validator
+        expose:
+          name: Expose
+          demo01: Minimal setup for expose
+          demo02: Styling the mask with a background image
+          demo03: Exposing a form
+          demo04: Exposing videos with a custom mask
+        flashembed:
+          name: Flashembed
+          demo01: Basics of Flash embedding
+          demo02: Flashembed and jQuery
+          demo03: Loading Flash on mouse click
+          demo04: Placing HTML on top of a Flash object
+          demo05: Handling old Flash versions
+          demo06: Flashembed and Flowplayer
+        combinations:
+          name: Combinations
+          demo01: HTML5 form inside an overlay
+          demo02: An artist\s portfolio
+          demo03: Speeding up the portfolio
     emu:
       name: jQuery on mobile devices
       land: Landscape

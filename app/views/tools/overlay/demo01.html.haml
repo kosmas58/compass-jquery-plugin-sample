@@ -1,18 +1,18 @@
--@title = "#{t('txt.tools.name')} - #{t('txt.tools.overlay.name')} - #{t('txt.tools.overlay.demo8')}"
+-@title = "#{t('txt.tools.name')} - #{t('txt.tools.ui.overlay.name')} - #{t('txt.tools.ui.overlay.demo01')}"
 
 - content_for :content_head do
-  = render(:partial => "demo8.js.haml", :format => :js)
+  = render(:partial => "demo01.js.haml", :format => :js)
 
 .demo
   %h3
     =image_tag("icons/22x22/tools.png", :border => 0)
     =@title
   #triggers
-    %img{:rel => "#mies1", :src => "/images/tools/img/3445879840_7ca4b491e9_m.jpg"}
-    %img{:rel => "#mies2", :src => "/images/tools/img/3449388113_71a06b8548_m.jpg"}
+    %img{:rel => "#mies1", :src => "/images/demo/tools/img/3445879840_7ca4b491e9_m.jpg"}
+    %img{:rel => "#mies2", :src => "/images/demo/tools/img/3449388113_71a06b8548_m.jpg"}
   #mies1.simple_overlay
     %a.close
-    %img{:src => "/images/tools/img/3445879840_7ca4b491e9.jpg"}
+    %img{:src => "/images/demo/tools/img/3445879840_7ca4b491e9.jpg"}
       .details
         %h3 The Barcelona Pavilion
         %h4 Barcelona, Spain
@@ -22,7 +22,7 @@
           Several critics, historians and modernists have declared it "the most beautiful building of the century"
   #mies2.simple_overlay
     %a.close
-    %img{:src => "/images/tools/img/3449388113_71a06b8548.jpg"}
+    %img{:src => "/images/demo/tools/img/3449388113_71a06b8548.jpg"}
       .details
         %h3 The Barcelona Pavilion
         %h4 Barcelona, Spain

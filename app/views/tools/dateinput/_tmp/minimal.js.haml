@@ -1,8 +1,0 @@
-%script{:src => "../js/jquery-1.4.2.js"}
-%script{:src => "../../src/dateinput/dateinput.js"}
-%link{:href => "skin1.css", :rel => "stylesheet", :type => "text/css"}/
-/ HTML5 date input
-%input{:name => "mydate", :type => "date"}/
-/ make it happen
-:javascript
-  $(":date").dateinput({ selectors: true, yearRange: [-10, 10] }).data("dateinput").show();
