@@ -7,12 +7,18 @@
   %h3
     =image_tag("icons/22x22/tools.png", :border => 0)
     =@title
+  %p
+    Tooltip content can be any HTML, not just plain text. Move your mouse over the Download button and
+    you'll see a tooltip that contains an image, table and a link element. You can also see the
+    %samp
+      slide effect
+    in action.
   %div{ :style => "margin:200px 0 0 200px;" }
     %a#download_now
       Download now
   .tooltip
-    -#%img{:alt => "Flying screens", :src => "/images/demo/tools/img/eye.png", :style => "float:left;margin:0 15px 20px 0;"}
-    %table{:style => "margin:0;f"}
+    %img{:alt => "Flying screens", :src => "/images/demo/tools/img/eye.png", :style => "float:left;margin:0 15px 20px 0;"}
+    %table{:style => "margin:0;"}
       %tbody
         %tr
           %td.label File

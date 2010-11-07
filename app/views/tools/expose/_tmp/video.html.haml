@@ -1,0 +1,37 @@
+<%-- :mode=jsp: --%>
+<%@ include file="../../header.jsf" %>
+%p
+  Here we have customized the mask with a logo. Click on the video and you can see it above the video. We have also customized the close effect on the expose by giving it a fierce magenta colored "flash" effect. Click on the following video and wait for it to finish (or press the ESC key).
+<%@ include file="video.htm" %>
+%h3 CSS code
+%p
+  By default, the Expose tool uses the
+  %samp id
+  "mask" for the mask. You can customize it by simply adjusting its CSS properties. Here are our customizations for this demo:
+%pii:code{:lang => "css"}
+  ${css}
+%h3 HTML code
+%p
+  This time we are exposing our video player and this is the only relevant HTML code. The player is surrounded with an additional box that is styled with a black background color and gradient. The styling is, of course, done with CSS:
+%pii:code{:lang => "html"} ${html}
+%h3 The configuration
+%p
+  We have tweaked quite a few of the configuration variables and each one is commented. We have also set two callback functions
+  %samp onBeforeClose
+  and
+  %samp onBeforeLoad
+  to achieve the magenta colored "flash" effect when the exposing closes. Note that the player is paused when the exposing is closed. Upon construction, the
+  %a{:href => "${jqt}/toolbox/expose.html#api"} expose API
+  is returned by enabling the
+  %samp api
+  variable. We use this variable in the Flowplayer configuration below:
+%p
+  Here we call the
+  %samp load
+  and
+  %samp close
+  methods of the Expose API at the proper places:
+%pii:code ${js}
+.box.petrol
+  Show this demo as a
+  %a{:href => "video.htm"} standalone page

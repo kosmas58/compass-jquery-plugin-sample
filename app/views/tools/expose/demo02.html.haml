@@ -1,0 +1,21 @@
+-@title = "#{t('txt.tools.name')} - #{t('txt.tools.toolbox.expose.name')} - #{t('txt.tools.toolbox.expose.demo02')}"
+
+- content_for :content_head do
+  = render(:partial => "demo02.js.haml", :format => :js)
+
+.demo
+  %h3
+    =image_tag("icons/22x22/tools.png", :border => 0)
+    =@title
+  %p
+    %strong
+      Click on the ball
+    to see a highly visual exposing experience! The background image can really make a difference.
+      
+  %div{:style => "margin:0 auto;width:300px"}
+    %img#ball{:src => "/images/demo/tools/mask/ball_large.png", :style => "width:130px"}
+/ End demo
+
+.demo-description 
+  #greybox
+/ End demo-description

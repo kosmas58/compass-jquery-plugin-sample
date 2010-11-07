@@ -1,0 +1,33 @@
+-@title = "#{t('txt.tools.name')} - #{t('txt.tools.toolbox.expose.name')} - #{t('txt.tools.toolbox.expose.demo04')}"
+
+- content_for :content_head do
+  = render(:partial => "demo05.js.haml", :format => :js)
+
+.demo
+  %h3
+    =image_tag("icons/22x22/tools.png", :border => 0)
+    =@title
+  %p
+    Exposed elements are simple
+    = succeed "s" do
+      %samp
+        DIV
+    that are styled with CSS:
+  #e1.exposed
+    Exposed element #1
+  #e2.exposed
+    Exposed element #2
+  %div{:style => "position:relative;z-index:10000;text-align:center"}
+    %button{:onClick => "api1.load()", :type => "button"}
+      Load 1
+    %button{:onClick => "api1.close()", :type => "button"}
+      Close 1
+    %button{:onClick => "api2.load()", :type => "button"}
+      Load 2
+    %button{:onClick => "api2.close()", :type => "button"}
+      Close 2
+/ End demo
+
+.demo-description 
+  #greybox
+/ End demo-description

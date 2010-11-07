@@ -534,6 +534,7 @@ en:
           demo02: Styling the mask with a background image
           demo03: Exposing a form
           demo04: Exposing videos with a custom mask
+          demo05: Exposing multiple elements
         flashembed:
           name: Flashembed
           demo01: Basics of Flash embedding

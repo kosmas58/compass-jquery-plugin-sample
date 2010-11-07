@@ -1,0 +1,29 @@
+-@title = "#{t('txt.tools.name')} - #{t('txt.tools.toolbox.expose.name')} - #{t('txt.tools.toolbox.expose.demo03')}"
+
+- content_for :content_head do
+  = render(:partial => "demo03.js.haml", :format => :js)
+
+.demo
+  %h3
+    =image_tag("icons/22x22/tools.png", :border => 0)
+    =@title
+  %p
+    This time we use a PNG image as the mask's background. It allows us to change the background color
+    and everything still works. Here we use the color
+    %samp
+      #678
+    and the background is positioned so that the form will be centered inside the white "halo".
+  %form.expose
+    %label{:for => "username"}
+      Username
+    %input#username
+    %br
+    %label{:for => "password"}
+      Password
+    %input#password{:type => "password"}
+    %br
+/ End demo
+
+.demo-description 
+  #greybox
+/ End demo-description

@@ -7,7 +7,7 @@
  
 :javascript
   $(document).ready(function() {
-    $("#triggers img[title]").tooltip({
+    $("#triggers img[title]:gt(1)").tooltip({
       // use div.tooltip as our tooltip
       //tip: '.tooltip',
       // use the fade effect instead of the default
@@ -21,4 +21,3 @@
       offset: [-50, -80]
     });
   });
-

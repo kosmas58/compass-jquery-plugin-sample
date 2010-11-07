@@ -7,6 +7,17 @@
   %h3
     =image_tag("icons/22x22/tools.png", :border => 0)
     =@title
+  %p
+    Here we have four
+    %samp
+      img
+    tags and their
+    %samp
+      title
+    attribute working as the tooltip. This kind of simple syntax will also show the browser's standard
+    tooltips even though JavaScript is not enabled. This whole setup can be enabled with one JavaScript
+    one-liner.
+    
   #tooltip
     %img{:src => "/images/demo/tools/img/1.jpg", :title => "A must have tool for designing better layouts and more intuitive user-interfaces." }      
     .tooltip{:style => "position: absolute; top: -62px; left:  76px; display: none; "}

@@ -23,10 +23,6 @@ date:
 txt: 
   tools: 
     form: 
-      validator: 
-        demo03: Combined server and client-side validation
-      rangeinput: 
-        name: Rangeinput
       stylable: 
         name: Stylable
         demo01: Minimal setup for Styleable

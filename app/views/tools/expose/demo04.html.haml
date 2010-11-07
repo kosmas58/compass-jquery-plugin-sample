@@ -1,0 +1,21 @@
+-@title = "#{t('txt.tools.name')} - #{t('txt.tools.toolbox.expose.name')} - #{t('txt.tools.toolbox.expose.demo04')}"
+
+- content_for :content_head do
+  = render(:partial => "demo04.js.haml", :format => :js)
+
+.demo
+  %h3
+    =image_tag("icons/22x22/tools.png", :border => 0)
+    =@title
+  %p
+    Here we have customized the mask with a logo. Click on the video and you can see it above the video.
+    We have also customized the close effect on the expose by giving it a fierce magenta colored "flash"
+    effect. Click on the following video and wait for it to finish (or press the ESC key).
+  #player_wrap.black.box
+    %a#player{:href => "/images/demo/tools/video/flowplayer-960.mp4"}
+      %img{:alt => "Show me", :src => "/images/demo/tools/img/play_text_large.png"}
+/ End demo
+
+.demo-description 
+  #greybox
+/ End demo-description

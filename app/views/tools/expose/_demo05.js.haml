@@ -1,0 +1,19 @@
+:css
+  div.exposed {
+    border:1px solid #ccc;
+    background:#fff url(/images/demo/tools/gradient/h150.png);
+    padding:30px 20px;
+    font-size:25px;
+    margin:20px auto;
+    text-align:center;
+    width:450px;
+    margin-top:15px;
+    -moz-border-radius:10px;	
+  }
+  
+:javascript
+  $(document).ready(function() {
+    var api1 = $("#e1").expose({api:true, lazy:true, color: '#78c'});
+    var api2 = $("#e2").expose({api:true, lazy:true, color: '#7a1'});
+  });
+
