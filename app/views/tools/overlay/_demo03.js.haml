@@ -22,6 +22,10 @@
   }
 
 :javascript
+  $(function() {
+    $("button.modalInput").button();
+  });
+  
   $(document).ready(function() {
     var triggers = $(".modalInput").overlay({
       // some mask tweaks suitable for modal dialogs

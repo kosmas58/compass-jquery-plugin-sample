@@ -12,15 +12,20 @@
     can be visible together:
 
   %p
-    %button{:rel => "div.apple_overlay:eq(0)", :type => "button"} first
-    %button{:rel => "div.apple_overlay:eq(1)", :type => "button"} second
-    %button{:rel => "div.apple_overlay:eq(2)", :type => "button"} third
-    %button{:rel => "div.apple_overlay:eq(3)", :type => "button"} fourth
+    %button{:rel => "div.apple_overlay:eq(0)", :type => "button"}
+      first
+    %button{:rel => "div.apple_overlay:eq(1)", :type => "button"}
+      second
+    %button{:rel => "div.apple_overlay:eq(2)", :type => "button"}
+      third
+    %button{:rel => "div.apple_overlay:eq(3)", :type => "button"}
+      fourth
   .apple_overlay
     %a.close
     %h2{:style => "margin:10px 0"}
       Overlay
-      %me #1
+      %me
+        #1
     %p{:style => "float: left; margin:0px 20px 20px 0;"}
       %img{:src => "/images/demo/tools/overlay/tools24.png"}
     %p
@@ -31,7 +36,8 @@
     %a.close
     %h2{:style => "margin:10px 0"}
       Overlay
-      %me #2
+      %me
+        #2
     %p{:style => "float: left; margin:0px 20px 20px 0;"}
       %img{:src => "/images/demo/tools/overlay/tools24.png"}
     %p
@@ -42,7 +48,8 @@
     %a.close
     %h2{:style => "margin:10px 0"}
       Overlay
-      %me #3
+      %me
+        #3
     %p{:style => "float: left; margin:0px 20px 20px 0;"}
       %img{:src => "/images/demo/tools/overlay/tools24.png"}
     %p
@@ -53,7 +60,8 @@
     %a.close
     %h2{:style => "margin:10px 0"}
       Overlay
-      %me #4
+      %me
+        #4
     %p{:style => "float: left; margin:0px 20px 20px 0;"}
       %img{:src => "/images/demo/tools/overlay/tools24.png"}
     %p

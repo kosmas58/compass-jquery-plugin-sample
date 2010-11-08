@@ -13,32 +13,38 @@
     %samp
       prompt()
     call in JavaScript. Now let's get into the modern world and use JavaScript more innovatively:
-
-
   %p
-    %button.modalInput{:rel => "#yesno"} You clicked no
-    %button.modalInput{:rel => "#prompt"} User input
+    %button.modalInput{:rel => "#yesno"}
+      You clicked no
+    %button.modalInput{:rel => "#prompt"}
+      User input
   / yes/no dialog
   #yesno.modal{:style => "top: 92.2px; left: 648px; position: fixed; display: none; z-index: 0; "}
-    %h2 This is a modal dialog
+    %h2
+      This is a modal dialog
     %p
-      You can only interact with elements that are inside this dialog.
-      To close it click a button or use the ESC key.
+      You can only interact with elements that are inside this dialog. To close it click a button or
+      use the ESC key.
     / yes/no buttons
     %p
-      %button.close Yes
-      %button.close No
+      %button.close
+        Yes
+      %button.close
+        No
   / user input dialog
   #prompt.modal
-    %h2 This is a modal dialog
+    %h2
+      This is a modal dialog
     %p
-      You can only interact with elements that are inside this dialog.
-      To close it click a button or use the ESC key.
+      You can only interact with elements that are inside this dialog. To close it click a button or
+      use the ESC key.
     / input form. you can press enter too
     %form
       %input
-        %button{:type => "submit"} OK
-        %button.close{:type => "button"} Cancel
+        %button{:type => "submit"}
+          OK
+        %button.close{:type => "button"}
+          Cancel
     %br
   #exposeMask{:style => "position: absolute; top: 0px; left: 0px; z-index: 9998; background-color: rgb(235, 236, 255); width: 1680px; height: 922px; display: none; opacity: 0.9; "}
   %p
