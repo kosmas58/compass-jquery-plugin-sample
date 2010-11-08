@@ -427,13 +427,13 @@ de:
           demo05: Kalender, der immer sichtbar ist
       ui: 
         name: UI-Tools
-        tooltip: 
+        tooltips: 
           demo06: Benutzerdefinierter Tooltip-Effekt
-          name: Tooltip
-          demo07: Dynamische Positionierung des Tooltip
-          demo01: Grundlagen der Verwendung der Tooltip
+          name: Tooltips
+          demo07: Dynamische Positionierung der Tooltips
+          demo01: Grundlagen der Verwendung von Tooltips
           demo02: Mit einem beliebigen HTML im Tooltip
-          demo03: Browsern Standard-Tooltip imitieren
+          demo03: Browser-Standard-Tooltips imitieren
           demo04: Tooltips in Formularfeldern
           demo05: Tooltips in Tabellen oder Listen
         overlay: 

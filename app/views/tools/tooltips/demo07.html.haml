@@ -1,4 +1,4 @@
--@title = "#{t('txt.tools.name')} - #{t('txt.tools.ui.tooltip.name')} - #{t('txt.tools.ui.tooltip.demo07')}"
+-@title = "#{t('txt.tools.name')} - #{t('txt.tools.ui.tooltips.name')} - #{t('txt.tools.ui.tooltips.demo07')}"
 
 - content_for :content_head do
   = render(:partial => "demo07.js.haml", :format => :js)
@@ -7,11 +7,37 @@
   %h3
     =image_tag("icons/22x22/tools.png", :border => 0)
     =@title
-  #dyna
-    %img{:src => "/images/demo/tools/img/1.jpg" }
-    %img{:src => "/images/demo/tools/img/2.jpg" }
-    %img{:src => "/images/demo/tools/img/3.jpg" }
-    %img{:src => "/images/demo/tools/img/4.jpg", :style => "margin-right:0px" }
+  %p
+    Below you can see triggers whose tooltip is centered on the top edge of the trigger.
+    We are using dynamic plugin which repositions our tooltips so that it is always visible
+    on the viewport.
+  
+  #tooltip
+    %img{:src => "/images/demo/tools/img/1.jpg", :title => "A must have tool for designing better layouts and more intuitive user-interfaces." }      
+    .tooltip{:style => "position: absolute; top: -62px; left:  76px; display: none; "}
+    %img{:src => "/images/demo/tools/img/2.jpg", :title => "Tooltips can be positioned anywhere relative to the trigger element." }
+    .tooltip{:style => "position: absolute; top: -62px; left: 267px; display: none; "}
+    %img{:src => "/images/demo/tools/img/3.jpg", :title => "Tooltips can contain any HTML such as links, images, forms, tables, etc." }
+    .tooltip{:style => "position: absolute; top: -62px; left: 458px; display: none; "}
+    %img{:src => "/images/demo/tools/img/4.jpg", :title => "There are many built-in show/hide effects and you can also make your own." , :style => "margin-right:0px"}
+    .tooltip{:style => "position: absolute; top: -62px; left: 649px; display: none; "}
+  %br
+  %p
+    If there is no room on the top edge then the tooltip is shown on the bottom edge. The same happens on
+    every edge of the tooltip: top, bottom, left and right. When there is no room then the opposite edge
+    is used. Note that this demo is only for vertical repositioning.
+  %p
+    It is possible to change the style, effect and other configuration variables whenever the dynamic
+    repositioning occurs. You can see that in the above example the "slide" effect goes downwards when it is displayed from the bottom edge and we are using a different background image where the arrow points upwards.
+  %p
+    We are using the
+    %samp
+      offset
+    option to position the tooltip a little higher by default. When using the dynamic effect this value is
+    inverted. Higher means lower and further right means further left.
+  %p
+    The dynamic plugin can be used together with any effect. The above configuration uses the custom
+    slide effect.
 / End demo
 
 .demo-description

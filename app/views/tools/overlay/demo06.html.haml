@@ -7,12 +7,14 @@
   %h3
     =image_tag("icons/22x22/tools.png", :border => 0)
     =@title
+  %p
+    The following button opens an overlay whose contents are loaded from an external URL:
   / external page is given in the href attribute (as it should be)
-  %a{:href => "http://flowplayer.org/tools/demos/overlay/external-content.htm", :rel => "#overlay", :style => "text-decoration:none"}
+  %a{:href => "content", :rel => "#overlay", :style => "text-decoration:none"}
     / remember that you can use any element inside the trigger
     %button{:type => "button"} Show external page in overlay
   / another link. uses the same overlay
-  %a{:href => "http://flowplayer.org/tools/demos/overlay/external-content2.htm", :rel => "#overlay", :style => "text-decoration:none"}
+  %a{:href => "content2", :rel => "#overlay", :style => "text-decoration:none"}
     %button{:type => "button"} Show another page
   / overlayed element
   #overlay.apple_overlay

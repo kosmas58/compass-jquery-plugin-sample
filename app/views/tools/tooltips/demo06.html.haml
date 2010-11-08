@@ -1,4 +1,4 @@
--@title = "#{t('txt.tools.name')} - #{t('txt.tools.ui.tooltip.name')} - #{t('txt.tools.ui.tooltip.demo06')}"
+-@title = "#{t('txt.tools.name')} - #{t('txt.tools.ui.tooltips.name')} - #{t('txt.tools.ui.tooltips.demo06')}"
 
 - content_for :content_head do
   = render(:partial => "demo06.js.haml", :format => :js)
@@ -7,11 +7,19 @@
   %h3
     =image_tag("icons/22x22/tools.png", :border => 0)
     =@title
-  #demo
-    %img{:src => "/images/demo/tools/img/1.jpg" }
-    %img{:src => "/images/demo/tools/img/2.jpg" }
-    %img{:src => "/images/demo/tools/img/3.jpg" }
-    %img{:src => "/images/demo/tools/img/4.jpg", :style => "margin-right:0px" }
+  %p
+    Here you can see a customized "bouncy" tooltip effect. We set up things similarly as in the
+    basic setup, but we have modified the sliding effect with our own:    
+   
+  #tooltip
+    %img{:src => "/images/demo/tools/img/1.jpg", :title => "A must have tool for designing better layouts and more intuitive user-interfaces." }      
+    .tooltip{:style => "position: absolute; top: -62px; left:  76px; display: none; "}
+    %img{:src => "/images/demo/tools/img/2.jpg", :title => "Tooltips can be positioned anywhere relative to the trigger element." }
+    .tooltip{:style => "position: absolute; top: -62px; left: 267px; display: none; "}
+    %img{:src => "/images/demo/tools/img/3.jpg", :title => "Tooltips can contain any HTML such as links, images, forms, tables, etc." }
+    .tooltip{:style => "position: absolute; top: -62px; left: 458px; display: none; "}
+    %img{:src => "/images/demo/tools/img/4.jpg", :title => "There are many built-in show/hide effects and you can also make your own." , :style => "margin-right:0px"}
+    .tooltip{:style => "position: absolute; top: -62px; left: 649px; display: none; "}
 / End demo
 
 .demo-description

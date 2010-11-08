@@ -13,7 +13,11 @@
   
 :javascript
   $(document).ready(function() {
-    var api1 = $("#e1").expose({api:true, lazy:true, color: '#78c'});
-    var api2 = $("#e2").expose({api:true, lazy:true, color: '#7a1'});
+    $("#e1").click(function(){
+      $("#e1").expose({api:true, lazy:true, color: '#78c'}).load();
+    });
+    $("#e2").click(function(){
+      $("#e2").expose({api:true, lazy:true, color: '#7a1'}).load();
+    });
   });
 

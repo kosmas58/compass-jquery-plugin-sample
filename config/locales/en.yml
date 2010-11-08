@@ -465,15 +465,15 @@ en:
           demo11: Loading tab contents with AJAX
           demo12: AJAX:ed tabs with History support
           demo13: Slideshow plugin for the Tabs
-        tooltip:
-          name: Tooltip
-          demo01: Basics of using the tooltip
-          demo02: Using any HTML inside the tooltip
-          demo03: Imitating browsers default tooltip
+        tooltips:
+          name: Tooltips
+          demo01: Basics of using the tooltips
+          demo02: Using any HTML inside a tooltip
+          demo03: Imitating browsers default tooltips
           demo04: Using tooltips in form fields
           demo05: Using tooltips in tables or lists
-          demo06: Custom tooltip effect
-          demo07: Dynamic positioning of the tooltip
+          demo06: Custom tooltips effect
+          demo07: Dynamic positioning of the tooltips
         overlay:
           name: Overlay
           demo01: Minimal setup for overlay
@@ -546,7 +546,7 @@ en:
         combinations:
           name: Combinations
           demo01: HTML5 form inside an overlay
-          demo02: An artist\s portfolio
+          demo02: "An artist's portfolio"
           demo03: Speeding up the portfolio
     emu:
       name: jQuery on mobile devices

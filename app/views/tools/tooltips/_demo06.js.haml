@@ -1,9 +1,8 @@
 :css
   a:active { outline:none; }
   :focus { -moz-outline-style:none; }
-  .tooltip { display:none; background:transparent url(/images/jqttools/tooltip/black_arrow.png); font-size:12px; height:70px; width:160px; padding:25px; color:#fff; }
-  #demo { padding-top:120px; }
-  #demo img { border:0; cursor:pointer; margin:0 8px; }
+  .tooltip { display:none; background:transparent url(/images/demo/tools/tooltips/black_arrow.png); font-size:12px; height:70px; width:160px; padding:25px; color:#fff; }
+   #tooltip img { border:0; cursor:pointer; margin:0 8px; }
 
 :javascript
    // create custom animation algorithm for jQuery called "bouncy"
@@ -27,6 +26,5 @@
   });
 
   $(document).ready(function() { 
-    $("#demo img[title]").tooltip({effect: 'bouncy'});
+    $("#tooltip img[title]").tooltip({effect: 'bouncy'});
   });
-

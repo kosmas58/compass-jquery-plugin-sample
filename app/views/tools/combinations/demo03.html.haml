@@ -1,0 +1,15 @@
+-@title = "#{t('txt.tools.name')} - #{t('txt.tools.toolbox.combinations.name')} - #{t('txt.tools.toolbox.combinations.demo03')}"
+
+- content_for :content_head do
+  = render(:partial => "demo03.js.haml", :format => :js)
+
+.demo
+  %h3
+    =image_tag("icons/22x22/tools.png", :border => 0)
+    =@title
+
+/ End demo
+
+.demo-description 
+  #greybox
+/ End demo-description

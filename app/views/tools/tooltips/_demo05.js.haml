@@ -1,21 +1,86 @@
 :css
-  a:active { outline:none; }
-  :focus { -moz-outline-style:none; }
-  .tooltip { background-color:#000; border:1px solid #fff; padding:10px 15px; width:200px; display:none; color:#fff; text-align:left; font-size:12px; -moz-box-shadow:0 0 10px #000; -webkit-box-shadow:0 0 10px #000; }
-  #mytable { width: 745px; padding: 0; margin: 0; border-collapse:separate; }
-  #mytable { font-size:11px !important; }
-  caption { padding: 0 0 5px 0; width: 700px; text-align: right; color: #4f6b72; font-size:16px; }
-  th { color: #4f6b72; border-right: 1px solid #C1DAD7; border-bottom: 1px solid #C1DAD7; border-top: 1px solid #C1DAD7; letter-spacing: 2px; text-transform: uppercase; text-align: left; padding: 6px 6px 6px 12px; background: #CAE8EA url(bg_header.jpg) no-repeat; font-weight:bold; }
-  th.nobg { border-top: 0; border-left: 0; border-right: 1px solid #C1DAD7; background: none; }
-  td { border-right: 1px solid #C1DAD7; border-bottom: 1px solid #C1DAD7; background: #fff; padding: 6px 6px 6px 12px; color: #4f6b72; }
-  td img { cursor:pointer; }
-  th.spec { border-left: 1px solid #C1DAD7; border-top: 0; background: #fff url(bullet1.gif) no-repeat; font: bold 10px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif; }
-  #tooltip { width:100px; background-color:#3d7483; padding:5px; font-size:11px; }
+  /* simple css-based tooltip */
+  .tooltip {
+    background-color:#000;
+    border:1px solid #fff;
+    padding:10px 15px;
+    width:200px;
+    display:none;
+    color:#fff;
+    text-align:left;
+    font-size:12px;
+    /* outline radius for mozilla/firefox only */
+    -moz-box-shadow:0 0 10px #000;
+    -webkit-box-shadow:0 0 10px #000;
+  }
+
+  #mytable {
+      width: 745px;
+      padding: 0;
+      margin: 0;
+      border-collapse:separate;
+  }
+  
+  #mytable {		
+      font-size:11px !important;		
+  }
+  
+  caption {
+      padding: 0 0 5px 0;
+      width: 700px;	 
+      text-align: right;
+      color: #4f6b72;
+      font-size:16px;
+  }
+  
+  th {
+      color: #4f6b72;
+      border-right: 1px solid #C1DAD7;
+      border-bottom: 1px solid #C1DAD7;
+      border-top: 1px solid #C1DAD7;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-align: left;
+      padding: 6px 6px 6px 12px;
+      background: #CAE8EA url(/images/demo/tools/tooltips/bg_header.jpg) no-repeat;
+      font-weight:bold;
+  }
+  
+  th.nobg {
+      border-top: 0;
+      border-left: 0;
+      border-right: 1px solid #C1DAD7;
+      background: none;
+  }
+  
+  td {
+      border-right: 1px solid #C1DAD7;
+      border-bottom: 1px solid #C1DAD7;
+      background: #fff;
+      padding: 6px 6px 6px 12px;
+      color: #4f6b72;
+  }
+  
+  td img {
+      cursor:pointer;		
+  }
+  
+  th.spec {
+      border-left: 1px solid #C1DAD7;
+      border-top: 0;
+      background: #fff url(/images/demo/tools/tooltips/bullet1.gif) no-repeat;
+      font: bold 10px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+  }
+
+  #tooltip {
+    width:100px;
+    background-color:#3d7483;
+    padding:5px;
+    font-size:11px;
+  }
 
 :javascript
-  $(document).ready(function() { 
-  });
-
+  // execute your scripts when the DOM is ready. this is a good habit
   $(function() {
     // setup tooltip for a single DIV element
     $("#mytable img").tooltip({
@@ -28,6 +93,7 @@
       // there is no delay when the mouse is moved away from the trigger
       delay: 0
     });
+    
     $("#mytable img").click(function() {
       // get handle to the current image (trashcan)
       var img = $(this);
@@ -37,5 +103,5 @@
         img.data("tooltip").hide();
       });
     });
+    //${remove}
   });
-

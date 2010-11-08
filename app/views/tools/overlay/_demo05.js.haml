@@ -1,13 +1,47 @@
 :css
-  a:active { outline:none; }
-  :focus { -moz-outline-style:none; }
-  .apple_overlay { display:none; background-image:url(/images/demo/tools/overlay/white.png); width:640px; padding:35px; font-size:11px; }
-  .apple_overlay .close { background-image:url(/images/demo/tools/overlay/close.png); position:absolute; right:5px; top:5px; cursor:pointer; height:27px; width:27px; }
-  #custom { background-image:url(/images/demo/tools/overlay/box-512.png); width:512px; height:531px; padding:0px; }
-  #custom div.close { right:-15px; top:-10px; }
-  #petrol { background-image:url(/images/demo/tools/overlay/petrol.png); color:#fff; }
-  #apple { background-image:url(/images/demo/tools/overlay/apple.png); color:#fff; padding:50px 70px; }
-
+  /* the overlayed element */
+  .apple_overlay {
+    /* initially overlay is hidden */
+    display:none;    
+    /* growing background image */
+    background-image:url(/images/demo/tools/overlay/white.png); 
+    width:640px;
+    /* some padding to layout nested elements nicely  */
+    padding:35px;
+    /* a little styling */	
+    font-size:11px;
+  }
+  
+  /* default close button positioned on upper right corner */
+  .apple_overlay .close {
+    background-image:url(/images/demo/tools/overlay/close.png);
+    position:absolute; right:5px; top:5px;
+    cursor:pointer;
+    height:35px;
+    width:35px;
+  }
+  #custom {
+    background-image:url(/images/demo/tools/overlay/box-512.png);
+    width:512px;
+    height:531px;
+    padding:0px;
+  }
+  
+  #custom div.close {
+    right:-15px;
+    top:-10px;
+  }
+  
+  #petrol {
+    background-image:url(/images/demo/tools/overlay/petrol.png);
+    color:#fff;
+  }
+  
+  #apple {
+    background-image:url(/images/demo/tools/overlay/apple.png);
+    color:#fff;
+    padding:50px 70px;
+  }
 :javascript
   $(function() {
     $("button", ".demo").button();

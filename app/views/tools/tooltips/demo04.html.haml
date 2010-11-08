@@ -1,4 +1,4 @@
--@title = "#{t('txt.tools.name')} - #{t('txt.tools.ui.tooltip.name')} - #{t('txt.tools.ui.tooltip.demo04')}"
+-@title = "#{t('txt.tools.name')} - #{t('txt.tools.ui.tooltips.name')} - #{t('txt.tools.ui.tooltips.demo04')}"
 
 - content_for :content_head do
   = render(:partial => "demo04.js.haml", :format => :js)
@@ -7,6 +7,47 @@
   %h3
     =image_tag("icons/22x22/tools.png", :border => 0)
     =@title
+  %p
+    Here you can see a tooltip when you put your focus on any of the following form fields. You can move
+    between fields with your keyboard (using the TAB key) or with your mouse.
+  %form#myform{:action => "#"}
+    %h3
+      Registration Form
+    #inputs
+      / username
+      %label{:for => "username"}
+        Username
+      %input#username{:title => "Must be at least 8 characters."}/
+      %br/
+      / password
+      %label{:for => "password"}
+        Password
+      %input#password{:title => "Try to make it hard to guess.", :type => "password"}/
+      %br/
+      / email
+      %label{:for => "email"}
+        Email
+      %input#email{:title => "We won't send you any marketing material."}/
+      %br/
+      / message
+      %label{:for => "body"} Message
+      %textarea#body{:title => "What's on your mind?"}
+      %br/
+      / message
+      %label{:for => "where"}
+        Select one
+      %select#where{:title => "Select one of these options"}
+        %option -- first option --
+        %option -- second option --
+        %option -- third option --
+      %br/
+    / email
+    %label
+      I accept the terms and conditions
+      %input#check{:title => "Required to proceed", :type => "checkbox"}/
+    %p
+      %button{:title => "This button won't do anything", :type => "button"}
+        Proceed
 / End demo
 
 .demo-description

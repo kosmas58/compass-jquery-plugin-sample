@@ -8,6 +8,14 @@
     =image_tag("icons/22x22/tools.png", :border => 0)
     =@title
   %p
+    This demo shows you how you can use the overlay tool to prompt for user input. You may be familiar
+    with the old school
+    %samp
+      prompt()
+    call in JavaScript. Now let's get into the modern world and use JavaScript more innovatively:
+
+
+  %p
     %button.modalInput{:rel => "#yesno"} You clicked no
     %button.modalInput{:rel => "#prompt"} User input
   / yes/no dialog
@@ -33,6 +41,17 @@
         %button.close{:type => "button"} Cancel
     %br
   #exposeMask{:style => "position: absolute; top: 0px; left: 0px; z-index: 9998; background-color: rgb(235, 236, 255); width: 1680px; height: 922px; display: none; opacity: 0.9; "}
+  %p
+    The "Modal dialog" is an overlay that requires the user to interact with it before they can return to
+    using the main document. This feature can be achieved with the Expose tool which is tightly integrated
+    with this overlay tool.
+  %p
+    There are two major advantages over the default JavaScript prompts:
+  %ol
+    %li
+      You can tweak the look and feel of the dialog box
+    %li
+      You can ask any kind of questions and have multiple input fields.
 / End demo
 
 .demo-description 

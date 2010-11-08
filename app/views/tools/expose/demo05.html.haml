@@ -1,4 +1,4 @@
--@title = "#{t('txt.tools.name')} - #{t('txt.tools.toolbox.expose.name')} - #{t('txt.tools.toolbox.expose.demo04')}"
+-@title = "#{t('txt.tools.name')} - #{t('txt.tools.toolbox.expose.name')} - #{t('txt.tools.toolbox.expose.demo05')}"
 
 - content_for :content_head do
   = render(:partial => "demo05.js.haml", :format => :js)
@@ -14,18 +14,9 @@
         DIV
     that are styled with CSS:
   #e1.exposed
-    Exposed element #1
+    Click on this element # 1 to expose it.
   #e2.exposed
-    Exposed element #2
-  %div{:style => "position:relative;z-index:10000;text-align:center"}
-    %button{:onClick => "api1.load()", :type => "button"}
-      Load 1
-    %button{:onClick => "api1.close()", :type => "button"}
-      Close 1
-    %button{:onClick => "api2.load()", :type => "button"}
-      Load 2
-    %button{:onClick => "api2.close()", :type => "button"}
-      Close 2
+    Click on this element # 2 to expose it.
 / End demo
 
 .demo-description 

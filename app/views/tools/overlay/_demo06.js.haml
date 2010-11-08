@@ -1,11 +1,39 @@
 :css
-  a:active { outline:none; }
-  :focus { -moz-outline-style:none; }
-  .apple_overlay { display:none; background-image:url(/images/demo/tools/overlay/white.png); width:640px; padding:35px; font-size:11px; }
-  .apple_overlay .close { background-image:url(/images/demo/tools/overlay/close.png); position:absolute; right:5px; top:5px; cursor:pointer; height:27px; width:27px; }
-  #overlay { background-image:url(/images/demo/tools/overlay/transparent.png); color:#efefef; height:450px; }
-  div.contentWrap { height:441px; overflow-y:auto; }
-
+  /* the overlayed element */
+  .apple_overlay {
+    /* initially overlay is hidden */
+    display:none;    
+    /* growing background image */
+    background-image:url(/images/demo/tools/overlay/white.png); 
+    width:640px;
+    /* some padding to layout nested elements nicely  */
+    padding:35px;
+    /* a little styling */	
+    font-size:11px;
+  }
+  
+  /* default close button positioned on upper right corner */
+  .apple_overlay .close {
+    background-image:url(/images/demo/tools/overlay/close.png);
+    position:absolute; right:5px; top:5px;
+    cursor:pointer;
+    height:35px;
+    width:35px;
+  }
+  
+  /* use a semi-transparent image for the overlay */
+  #overlay {
+    background-image:url(/images/demo/tools/overlay/transparent.png);
+    color:#efefef;
+    height:450px;
+  }
+  
+  /* container for external content. uses vertical scrollbar, if needed */
+  div.contentWrap {
+    height:441px;
+    overflow-y:auto;
+  }  
+  
 :javascript
   $(function() {
     $("button", ".demo").button();

@@ -7,28 +7,41 @@
   %h3
     =image_tag("icons/22x22/tools.png", :border => 0)
     =@title
+  %p
+    Here you can see an Apple effect in action:
   #triggers
     %img{:rel => "#photo1", :src => "/images/demo/tools/img/gustavohouse.jpg"}
-      %img{:rel => "#photo2", :src => "/images/demo/tools/img/alexanderplatz-station.jpg"}
+    %img{:rel => "#photo2", :src => "/images/demo/tools/img/alexanderplatz-station.jpg"}
   / overlayed element, which is styled with external stylesheet
   #photo1.apple_overlay.black
     %a.close
     %img{:src => "/images/demo/tools/img/gustavohouse-medium.jpg"}
-      .details
-        %h2
-          Berlin Gustavohouse
-        %p
-          The Gustavo House in Storkower Strasse. It was built in 1978 and reconstructed in
-          1998 by the Spanish artist Gustavo.
+    .details
+      %h2
+        Berlin Gustavohouse
+      %br
+      %p
+        The Gustavo House in Storkower Strasse. It was built in 1978 and reconstructed in
+        1998 by the Spanish artist Gustavo.
   #photo2.apple_overlay
     %a.close
     %img{:src => "/images/demo/tools/img/alexanderplatz-station-medium.jpg"}
-      .details
-        %h2
-          Berlin Alexanderplatz Station
-        %p
-          Berlin Alexanderplatz is a railway station in the Berlin city centre and is one
-          of the city's most important interchange points for local public transport.
+    .details
+      %h2
+        Berlin Alexanderplatz Station
+      %br
+      %p
+        Berlin Alexanderplatz is a railway station in the Berlin city centre and is one
+        of the city's most important interchange points for local public transport.
+  %br
+  %p
+    Apple effect performs overlaying in a visually appealing manner by growing a background image from 0 to
+    the desired size. This differs from "regular" overlaying solutions that do overlaying with static
+    = succeed "s." do
+      %samp
+        DIV
+    The downside is that you are tied to the dimensions of the image. You can change the width but the height
+    scales accordingly so that the aspect ratio remains constant.
 / End demo
 
 .demo-description 

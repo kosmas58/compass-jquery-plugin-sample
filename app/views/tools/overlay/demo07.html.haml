@@ -7,13 +7,16 @@
   %h3
     =image_tag("icons/22x22/tools.png", :border => 0)
     =@title
+  %p
+    The following buttons will open multiple overlays side-by-side so that all overlays
+    can be visible together:
 
   %p
-    %button{:rel => "div.overlay:eq(0)", :type => "button"} first
-    %button{:rel => "div.overlay:eq(1)", :type => "button"} second
-    %button{:rel => "div.overlay:eq(2)", :type => "button"} third
-    %button{:rel => "div.overlay:eq(3)", :type => "button"} fourth
-  .overlay
+    %button{:rel => "div.apple_overlay:eq(0)", :type => "button"} first
+    %button{:rel => "div.apple_overlay:eq(1)", :type => "button"} second
+    %button{:rel => "div.apple_overlay:eq(2)", :type => "button"} third
+    %button{:rel => "div.apple_overlay:eq(3)", :type => "button"} fourth
+  .apple_overlay
     %a.close
     %h2{:style => "margin:10px 0"}
       Overlay
@@ -24,7 +27,7 @@
       Class aptent taciti sociosqu ad litora torquent per conubia nostra,
       per inceptos himenaeos. Donec lorem ligula, elementum vitae,
       imperdiet a, posuere nec, ante. Quisque mattis massa id metus.
-  .overlay
+  .apple_overlay
     %a.close
     %h2{:style => "margin:10px 0"}
       Overlay
@@ -35,7 +38,7 @@
       Class aptent taciti sociosqu ad litora torquent per conubia nostra,
       per inceptos himenaeos. Donec lorem ligula, elementum vitae,
       imperdiet a, posuere nec, ante. Quisque mattis massa id metus.
-  .overlay
+  .apple_overlay
     %a.close
     %h2{:style => "margin:10px 0"}
       Overlay
@@ -46,7 +49,7 @@
       Class aptent taciti sociosqu ad litora torquent per conubia nostra,
       per inceptos himenaeos. Donec lorem ligula, elementum vitae,
       imperdiet a, posuere nec, ante. Quisque mattis massa id metus.
-  .overlay
+  .apple_overlay
     %a.close
     %h2{:style => "margin:10px 0"}
       Overlay
