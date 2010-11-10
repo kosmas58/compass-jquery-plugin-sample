@@ -32,7 +32,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :navigation,
                 :collection => { :get_children=> :get,
-                                 :search      => :get,                               
+                                 :search      => :get,
                                  :analyze     => :get,
                                  :configure   => :get,
                                  :test        => :get,
@@ -49,18 +49,6 @@ ActionController::Routing::Routes.draw do |map|
                              :analyze     => :get,
                              :rebuild     => :post }  
 
-  map.namespace :jqgrid do |jqgrid|
-    jqgrid.resources :animals
-    jqgrid.resources :demo, :collection => { :books   => :get,
-                                             :clients => :get,
-                                             :testxml => :get } 
-    jqgrid.resources :players
-    jqgrid.resources :sprockets
-    jqgrid.resources :users, :collection => { :pets      => :get,
-                                              :post_data => :post }  
-    jqgrid.resources :widgets 
-  end
-  
   map.namespace :jqtouch do |jqtouch|
     jqtouch.resources :demo => { :ajax_post => :post }  
   end                                          
