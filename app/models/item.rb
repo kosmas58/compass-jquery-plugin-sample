@@ -20,7 +20,7 @@ class Item < ActiveRecord::Base
                               { :name  => 'id',
                                 :width =>  20, 
                                 :align => :right },
-                              { :name  => 'name',
+                              { :name  => 'item',
                                 :width => 150 },
                               { :name  => 'cd',
                                 :width =>  100 }
@@ -49,7 +49,7 @@ class Item < ActiveRecord::Base
                               { :name  => 'id',
                                 :width =>  20, 
                                 :align => :right },
-                              { :name  => 'name',
+                              { :name  => 'item',
                                 :width => 150 },
                               { :name  => 'cd',
                                 :width =>  100 }
@@ -79,7 +79,7 @@ class Item < ActiveRecord::Base
                               { :name  => 'id',
                                 :width =>  20, 
                                 :align => :right },
-                              { :name  => 'name',
+                              { :name  => 'item',
                                 :width => 150 },
                               { :name  => 'cd',
                                 :width =>  100 }
@@ -110,7 +110,7 @@ class Item < ActiveRecord::Base
                               { :name  => 'id',
                                 :width =>  20, 
                                 :align => :right },
-                              { :name  => 'name',
+                              { :name  => 'item',
                                 :width => 150 },
                               { :name  => 'cd',
                                 :width =>  100 }
@@ -139,7 +139,7 @@ class Item < ActiveRecord::Base
                               { :name  => 'id',
                                 :width =>  20, 
                                 :align => :right },
-                              { :name  => 'name',
+                              { :name  => 'item',
                                 :width => 150 },
                               { :name  => 'cd',
                                 :width =>  100 }
@@ -170,11 +170,11 @@ class Item < ActiveRecord::Base
                               { :name  => 'id',
                                 :width =>  20, 
                                 :align => :right },
-                              { :name  => 'name',
+                              { :name  => 'item',
                                 :width => 150 },
                               { :name  => 'cd',
                                 :width =>  100 }
-                           ],                          
+                           ], 
     :row_numbers         => 40,
     :rows_per_page       => 50,
     :total_rows          => 2000,
@@ -202,7 +202,7 @@ class Item < ActiveRecord::Base
                               { :name  => 'id',
                                 :width =>  20, 
                                 :align => :right },
-                              { :name  => 'name',
+                              { :name  => 'item',
                                 :width => 150 },
                               { :name  => 'cd',
                                 :width =>  100 }
@@ -235,7 +235,7 @@ class Item < ActiveRecord::Base
                               { :name  => 'id',
                                 :width =>  20, 
                                 :align => :right },
-                              { :name  => 'name',
+                              { :name  => 'item',
                                 :width => 150 },
                               { :name  => 'cd',
                                 :width =>  100 }

@@ -522,7 +522,7 @@ class Player < ActiveRecord::Base
                            :label => "Firstname", 
                            :form_options => { :rowpos => 4,
                                               :label => "A label" },
-                           :edit_options => { :size => 22 } }, },
+                           :edit_options => { :size => 22 } },
                          { :name  => "lastname",
                            :label => "Lastname",
                            :form_options => { :rowpos => 5 },
