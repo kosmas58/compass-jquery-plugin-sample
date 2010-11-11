@@ -1,0 +1,191 @@
+%div{"data-role" => "page"}
+  %div{"data-role" => "header"}
+    %h1 Navbar
+  / /header
+  %div{"data-role" => "content"}
+    %h2 Simple navbar
+    %p jQuery Mobile has a very basic navbar widget that is useful for providing up to 5 buttons with optional icons in a bar  , typically within a header or footer.
+    %p
+      A navbar is coded as an unordered list of links wrapped in a container element that has the
+      %code data-role="navbar"
+      attribute. To set one of links to the active (selected) state, add
+      %code class="ui-btn-active"
+      to the anchor. In this example, we have a two-button navbar in the footer with the "One" item set to active:
+    %pre
+      %code
+        :preserve
+          
+          &lt;div data-role=&quot;footer&quot;&gt;
+          	&lt;div data-role=&quot;navbar&quot;&gt;
+          		&lt;ul&gt;
+          			&lt;li&gt;&lt;a href=&quot;a.html&quot; class=&quot;ui-btn-active&quot;&gt;One&lt;/a&gt;&lt;/li&gt;
+          			&lt;li&gt;&lt;a href=&quot;b.html&quot;&gt;Two&lt;/a&gt;&lt;/li&gt;
+          		&lt;/ul&gt;
+          	&lt;/div&gt;&lt;!-- /navbar --&gt;
+          &lt;/div&gt;&lt;!-- /footer --&gt;
+    %p The navbar items are set to divide the space evenly so in this case, each button is 1/2 the width of the browser window:
+    %div{"data-role" => "footer"}
+      %div{"data-role" => "navbar"}
+        %ul
+          %li
+            %a.ui-btn-active{:href => "a.html"} One
+          %li
+            %a{:href => "b.html"} Two
+      / /navbar
+    / /footer
+    %p Adding a third item will automatically make each button 1/3 the width of the browser window:
+    %div{"data-role" => "footer"}
+      %div{"data-role" => "navbar"}
+        %ul
+          %li
+            %a.ui-btn-active{:href => "a.html"} One
+          %li
+            %a{:href => "b.html"} Two
+          %li
+            %a{:href => "c.html"} Three
+      / /navbar
+    / /footer
+    %p Adding a fourth more item will automatically make each button 1/4 the width of the browser window:
+    %div{"data-role" => "footer"}
+      %div{"data-role" => "navbar"}
+        %ul
+          %li
+            %a.ui-btn-active{:href => "a.html"} One
+          %li
+            %a{:href => "b.html"} Two
+          %li
+            %a{:href => "c.html"} Three
+          %li
+            %a{:href => "d.html"} Four
+      / /navbar
+    / /footer
+    %p The navbar maxes out with 5 items, each 1/5 the width of the browser window:
+    %div{"data-role" => "footer"}
+      %div{"data-role" => "navbar"}
+        %ul
+          %li
+            %a.ui-btn-active{:href => "a.html"} One
+          %li
+            %a{:href => "b.html"} Two
+          %li
+            %a{:href => "c.html"} Three
+          %li
+            %a{:href => "d.html"} Four
+          %li
+            %a{:href => "e.html"} Five
+      / /navbar
+    / /footer
+    %p If more than 5 items are added, the navbar will simply wrap to multiple lines:
+    %div{"data-role" => "footer"}
+      %div{"data-role" => "navbar"}
+        %ul
+          %li
+            %a.ui-btn-active{:href => "a.html"} One
+          %li
+            %a{:href => "b.html"} Two
+          %li
+            %a{:href => "c.html"} Three
+          %li
+            %a{:href => "d.html"} Four
+          %li
+            %a{:href => "e.html"} Five
+          %li
+            %a{:href => "f.html"} Six
+          %li
+            %a{:href => "g.html"} Seven
+          %li
+            %a{:href => "h.html"} Eight
+          %li
+            %a{:href => "i.html"} Nine
+          %li
+            %a{:href => "j.html"} Ten
+      / /navbar
+    / /footer
+    %h2 Icons in navbars
+    %p
+      Icons can be added to navbar items by adding the
+      %code data-icon
+      attribute specifying a
+      %a{:href => "/mobile/docs/buttons/buttons-icons"} standard mobile icon
+      to each anchor.
+    %div{"data-role" => "footer"}
+      %div{"data-role" => "navbar"}
+        %ul
+          %li
+            %a{"data-icon" => "grid", :href => "a.html"} Summary
+          %li
+            %a.ui-btn-active{"data-icon" => "star", :href => "b.html"} Favs
+          %li
+            %a{"data-icon" => "gear", :href => "c.html"} Setup
+      / /navbar
+    / /footer
+    %p
+      Icons can be stacked above the labels by adding the
+      %code data-iconpos="top"
+      attribute to each anchor.
+    %div{"data-role" => "footer"}
+      %div{"data-role" => "navbar"}
+        %ul
+          %li
+            %a{"data-icon" => "grid", "data-iconpos" => "top", :href => "a.html"} Summary
+          %li
+            %a.ui-btn-active{"data-icon" => "star", "data-iconpos" => "top", :href => "b.html"} Favs
+          %li
+            %a{"data-icon" => "gear", "data-iconpos" => "top", :href => "c.html"} Setup
+      / /navbar
+    / /footer
+    %h2 Using 3rd party icon sets
+    %p
+      You can add any of the popular icon libraries like
+      %a{:href => "http://glyphish.com/"} Glyphish
+      to achieve the iOS style tab tab that has large icons stacked on top of text labels. All that is required is a bit of custom styles to link to the icons and position them in the navbar. Here is an example using Glyphish icons and custom styles (view page source for styles) in our navbar:
+    :css
+      .nav-glyphish-example .ui-btn .ui-btn-inner { padding-top: 40px !important; }
+      .ui-navbar-expanded ul .ui-btn .ui-btn-inner { padding-top: 55px !important; }
+      .nav-glyphish-example .ui-btn .ui-icon, .ui-navbar-expanded ul .ui-btn .ui-icon { width: 30px!important; height: 30px!important; margin-left: -15px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: none !important; border-radius: none !important; }
+      .ui-navbar-expanded ul .ui-btn .ui-icon { top: 20px; }
+      #chat .ui-icon { background:  url(glyphish-icons/09-chat2.png) 50% 50% no-repeat; }
+      #email .ui-icon { background:  url(glyphish-icons/18-envelope.png) 50% 50% no-repeat; }
+      .nav-glyphish-example .ui-navbar-toggle .ui-icon { background:  url(glyphish-icons/19-gear.png) 50% 50% no-repeat !important; }
+      #login .ui-icon { background:  url(glyphish-icons/30-key.png) 50% 50% no-repeat; }
+      #beer .ui-icon { background:  url(glyphish-icons/88-beermug.png) 50% 50% no-repeat; }
+      #coffee .ui-icon { background:  url(glyphish-icons/100-coffee.png) 50% 50% no-repeat; }
+      #skull .ui-icon { background:  url(glyphish-icons/21-skull.png) 50% 50% no-repeat; }
+      .nav-glyphish-example{"data-role" => "footer"}
+      .nav-glyphish-example{"data-role" => "navbar"}
+        %ul
+          %li
+            %a#chat{"data-icon" => "custom", :href => "a.html"} Chat
+          %li
+            %a#email{"data-icon" => "custom", :href => "b.html"} Email
+          %li
+            %a#skull{"data-icon" => "custom", :href => "c.html"} Danger
+          %li
+            %a#beer{"data-icon" => "custom", :href => "d.html"} Beer
+          %li
+            %a#coffee{"data-icon" => "custom", :href => "e.html"} Coffee
+    %p
+      Icons by Joseph Wain /
+      = succeed "." do
+        %a{:href => "http://glyphish.com/"} glyphish.com
+      Licensed under the
+      = succeed "." do
+        %a{:href => "http://creativecommons.org/licenses/by/3.0/us/"} Creative Commons Attribution 3.0 United States License
+    %h2 Theming navbars
+    %p
+      Navbars can be set to any theme color by
+      %code data-theme
+      attribute to the links and specifying any theme swatch.
+    %div{"data-role" => "footer"}
+      %div{"data-role" => "navbar", "data-theme" => "e"}
+        %ul
+          %li
+            %a{"data-icon" => "grid", "data-iconpos" => "top", "data-theme" => "e", :href => "a.html"} Summary
+          %li
+            %a.ui-btn-active{"data-icon" => "star", "data-iconpos" => "top", "data-theme" => "e", :href => "b.html"} Favs
+          %li
+            %a{"data-icon" => "gear", "data-iconpos" => "top", "data-theme" => "e", :href => "c.html"} Setup
+      / /navbar
+    / /footer
+  / /content
+/ /page
