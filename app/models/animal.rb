@@ -12,17 +12,19 @@ class Animal < ActiveRecord::Base
   gridify :example05,
     :url            => "/jqgrid/animals",
     :data_type      => :json,
-    :only           => [:id, :name],
-    :colModel       => {
-                         :id    => { :name      => "id",
-                                     :label     => "ID",
-                                     :width     =>  35,
-                                     :resizable => false }, 
-                         :name  => { :name  => "name",
-                                     :label => "Name",
-                                     :width => 365,
-                                     :align => :center }
-                       }, 
+    :only           => [
+                         :id,
+                         :name],
+    :colModel       => [
+                         { :name      => "id",
+                           :label     => "ID",
+                           :width     =>  35,
+                           :resizable => false }, 
+                         { :name  => "name",
+                           :label => "Name",
+                           :width => 365,
+                           :align => :center }
+                       ], 
     :width          => 400,
     :width_fit      => :fitted,
     :height         => :auto,

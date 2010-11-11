@@ -13,7 +13,13 @@ class Invline < ActiveRecord::Base
   gridify :demo0302,
     :url            => "/jqgrid/demo",
     :data_type      => :json,
-    :only           => [:num, :item, :qty, :unit, :total],
+    :only           => [
+                         :num,
+                         :item,
+                         :qty,
+                         :unit,
+                         :total
+                       ],
     :colNames       => [
                          I18n.t('activerecord.attributes.invline.num'),
                          I18n.t('activerecord.attributes.invline.item'),

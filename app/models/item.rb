@@ -16,15 +16,15 @@ class Item < ActiveRecord::Base
                               'Name', 
                               'Code'
                             ],
-    :colModel            => {
-                              :id       => { :name  => 'id',
-                                             :width =>  20, 
-                                             :align => :right },
-                              :name     => { :name  => 'name',
-                                             :width => 150 },
-                              :cd       => { :name  => 'cd',
-                                             :width =>  100 }
-                            },  
+    :colModel            => [
+                              { :name  => 'id',
+                                :width =>  20, 
+                                :align => :right },
+                              { :name  => 'name',
+                                :width => 150 },
+                              { :name  => 'cd',
+                                :width =>  100 }
+                           ],  
     :width               => 700,
     :height              => :auto,
     :rows_per_page       => 12,
@@ -45,15 +45,15 @@ class Item < ActiveRecord::Base
                               'Name', 
                               'Code'
                             ],
-    :colModel            => {
-                              :id       => { :name  => 'id',
-                                             :width =>  20, 
-                                             :align => :right },
-                              :name     => { :name  => 'name',
-                                             :width => 150 },
-                              :cd       => { :name  => 'cd',
-                                             :width =>  100 }
-                            },                            
+    :colModel            => [
+                              { :name  => 'id',
+                                :width =>  20, 
+                                :align => :right },
+                              { :name  => 'name',
+                                :width => 150 },
+                              { :name  => 'cd',
+                                :width =>  100 }
+                           ],
     :row_numbers         => 40,
     :width               => 700,
     :height              => :auto,
@@ -75,15 +75,15 @@ class Item < ActiveRecord::Base
                               'Name', 
                               'Code'
                             ],
-    :colModel            => {
-                              :id       => { :name  => 'id',
-                                             :width =>  20, 
-                                             :align => :right },
-                              :name     => { :name  => 'name',
-                                             :width => 150 },
-                              :cd       => { :name  => 'cd',
-                                             :width =>  100 }
-                            },                            
+    :colModel            => [
+                              { :name  => 'id',
+                                :width =>  20, 
+                                :align => :right },
+                              { :name  => 'name',
+                                :width => 150 },
+                              { :name  => 'cd',
+                                :width =>  100 }
+                           ],
     :row_numbers         => 40,
     :width               => 700,
     :height              => 255,
@@ -106,15 +106,15 @@ class Item < ActiveRecord::Base
                               'Name', 
                               'Code'
                             ],
-    :colModel            => {
-                              :id       => { :name  => 'id',
-                                             :width =>  20, 
-                                             :align => :right },
-                              :name     => { :name  => 'name',
-                                             :width => 150 },
-                              :cd       => { :name  => 'cd',
-                                             :width =>  100 }
-                            },                            
+    :colModel            => [
+                              { :name  => 'id',
+                                :width =>  20, 
+                                :align => :right },
+                              { :name  => 'name',
+                                :width => 150 },
+                              { :name  => 'cd',
+                                :width =>  100 }
+                           ],
     :row_numbers         => 40,
     :rows_per_page       => 50,
     :total_rows          => 2000,
@@ -135,15 +135,15 @@ class Item < ActiveRecord::Base
                               'Name', 
                               'Code'
                             ],
-    :colModel            => {
-                              :id       => { :name  => 'id',
-                                             :width =>  20, 
-                                             :align => :right },
-                              :name     => { :name  => 'name',
-                                             :width => 150 },
-                              :cd       => { :name  => 'cd',
-                                             :width =>  100 }
-                            },                           
+    :colModel            => [
+                              { :name  => 'id',
+                                :width =>  20, 
+                                :align => :right },
+                              { :name  => 'name',
+                                :width => 150 },
+                              { :name  => 'cd',
+                                :width =>  100 }
+                           ],
     :row_numbers         => 40,
     :rows_per_page       => 50,
     :total_rows          => 2000,
@@ -166,15 +166,15 @@ class Item < ActiveRecord::Base
                               'Name', 
                               'Code'
                             ],
-    :colModel            => {
-                              :id       => { :name  => 'id',
-                                             :width =>  20, 
-                                             :align => :right },
-                              :name     => { :name  => 'name',
-                                             :width => 150 },
-                              :cd       => { :name  => 'cd',
-                                             :width =>  100 }
-                            },                           
+    :colModel            => [
+                              { :name  => 'id',
+                                :width =>  20, 
+                                :align => :right },
+                              { :name  => 'name',
+                                :width => 150 },
+                              { :name  => 'cd',
+                                :width =>  100 }
+                           ],                          
     :row_numbers         => 40,
     :rows_per_page       => 50,
     :total_rows          => 2000,
@@ -198,15 +198,15 @@ class Item < ActiveRecord::Base
                               'Name', 
                               'Code'
                             ],
-    :colModel            => {
-                              :id       => { :name  => 'id',
-                                             :width =>  20, 
-                                             :align => :right },
-                              :name     => { :name  => 'name',
-                                             :width => 150 },
-                              :cd       => { :name  => 'cd',
-                                             :width =>  100 }
-                            },                           
+    :colModel            => [
+                              { :name  => 'id',
+                                :width =>  20, 
+                                :align => :right },
+                              { :name  => 'name',
+                                :width => 150 },
+                              { :name  => 'cd',
+                                :width =>  100 }
+                           ],
     :row_numbers         => 40,
     :rows_per_page       => 50,
     :total_rows          => 2000,
@@ -231,15 +231,15 @@ class Item < ActiveRecord::Base
                               'Name', 
                               'Code'
                             ],
-    :colModel            => {
-                              :id       => { :name  => 'id',
-                                             :width =>  20, 
-                                             :align => :right },
-                              :name     => { :name  => 'name',
-                                             :width => 150 },
-                              :cd       => { :name  => 'cd',
-                                             :width =>  100 }
-                            },                           
+    :colModel            => [
+                              { :name  => 'id',
+                                :width =>  20, 
+                                :align => :right },
+                              { :name  => 'name',
+                                :width => 150 },
+                              { :name  => 'cd',
+                                :width =>  100 }
+                           ],
     :row_numbers         => 40,
     :rows_per_page       => 50,
     :total_rows          => 2000,
