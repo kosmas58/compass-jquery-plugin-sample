@@ -1,5 +1,17 @@
+- content_for :content_head do
+  = render(:partial => "/mobile/index.js.haml", :format => :js)
+
 %div{"data-role" => "page", "data-theme" => "b"}
   %div{"data-position" => "inline", "data-role" => "header"}
-    %h1
-      Theme system
+    %h1 About jQuery Mobile
   %div{"data-role" => "content"}
+    %ul{"data-dividertheme" => "b", "data-inset" => "true", "data-role" => "listview", "data-theme" => "c"}
+      %li{"data-role" => "list-divider"} Overview
+      %li
+        %a{:href => "/mobile/docs/about/intro"} Intro to jQuery Mobile
+      %li
+        %a{:href => "/mobile/docs/about/features"} Features
+      %li
+        %a{:href => "/mobile/docs/about/accessibility"} Accessibility
+      %li
+        %a{:href => "/mobile/docs/about/platforms"} Supported platforms

@@ -1,62 +1,50 @@
 - content_for :content_head do
-  = render(:partial => "index.js.haml", :format => :js)
+  = render(:partial => "/mobile/index.js.haml", :format => :js)
 
 #jqm-home{"data-role" => "page", "data-theme" => "b"}
   #jqm-homeheader
     %h1#jqm-logo
       %img{:alt => "jQuery Mobile Framework", :height => "61", :src => "/images/demo/mobile/jquery-logo.png", :width => "235"}/
-    %p
-      A Touch-Optimized Web Framework for Smartphones &amp; Tablets
+    %p A Touch-Optimized Web Framework for Smartphones &amp; Tablets
     %p#jqm-version Alpha Release
   %div{"data-role" => "content"}
     %ul{"data-dividertheme" => "b", "data-inset" => "true", "data-role" => "listview", "data-theme" => "c"}
-      %li{"data-role" => "list-divider"}
-        Overview
+      %li{"data-role" => "list-divider"} Overview
       %li
-        %a{:href => "/mobile/docs/about/intro"}
-          Intro to jQuery Mobile
+        %a{:href => "/mobile/docs/about/intro"} Intro to jQuery Mobile
       %li
-        %a{:href => "/mobile/docs/about/features"}
-          Features
+        %a{:href => "/mobile/docs/about/features"} Features
       %li
-        %a{:href => "/mobile/docs/about/accessibility"}
-          Accessibility
+        %a{:href => "/mobile/docs/about/accessibility"} Accessibility
       %li
-        %a{:href => "/mobile/docs/about/platforms"}
-          Supported platforms
-      %li
-        %a{:href => "/mobile/docs/about/themes"}
-          Theme system
+        %a{:href => "/mobile/docs/about/platforms"} Supported platforms
     %ul{"data-dividertheme" => "b", "data-inset" => "true", "data-role" => "listview", "data-theme" => "c"}
-      %li{"data-role" => "list-divider"}
-        Components
+      %li{"data-role" => "list-divider"} API
       %li
-        %a{:href => "/mobile/docs/pages"}
-          Pages &amp; dialogs
+        %a{:href => "/mobile/docs/api/globalconfig"} Configuring defaults
       %li
-        %a{:href => "/mobile/docs/toolbars"}
-          Toolbars
+        %a{:href => "/mobile/docs/api/events"} Events
       %li
-        %a{:href => "/mobile/docs/buttons"}
-          Buttons
+        %a{:href => "/mobile/docs/api/methods"} Methods &amp; Utilities
       %li
-        %a{:href => "/mobile/docs/content"}
-          Content formatting
+        %a{:href => "/mobile/docs/api/mediahelpers"} Responsive Layout
       %li
-        %a{:href => "/mobile/docs/forms"}
-          Form elements
-      %li
-        %a{:href => "/mobile/docs/lists"}
-          List views
-      %li
-        %a{:href => "/mobile/docs/events"}
-          Events
+        %a{:href => "/mobile/docs/api/themes"} Theme framework
     %ul{"data-dividertheme" => "b", "data-inset" => "true", "data-role" => "listview", "data-theme" => "c"}
-      %li{"data-role" => "list-divider"}
-        Demos
+      %li{"data-role" => "list-divider"} Components
       %li
-        %a{:href => "/mobile/experiments/api_viewer"}
-        jQuery API browser
+        %a{:href => "/mobile/docs/pages"} Pages &amp; dialogs
       %li
-        %a{:href => "/mobile/speed"}
-        Speed
+        %a{:href => "/mobile/docs/toolbars"} Toolbars
+      %li
+        %a{:href => "/mobile/docs/buttons"} Buttons
+      %li
+        %a{:href => "/mobile/docs/content"} Content formatting
+      %li
+        %a{:href => "/mobile/docs/forms"} Form elements
+      %li
+        %a{:href => "/mobile/docs/lists"} List views
+    %ul{"data-dividertheme" => "b", "data-inset" => "true", "data-role" => "listview", "data-theme" => "c"}
+      %li{"data-role" => "list-divider"} Demos
+      %li
+        %a{:href => "experiments/api-viewer"} jQuery API browser
