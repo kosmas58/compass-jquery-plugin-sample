@@ -1,0 +1,44 @@
+!!!
+%html
+  %head
+    %meta{:charset => "utf-8"}/
+    %title jQuery Mobile Docs - Pages
+    %link{:href => "../../themes/default", :rel => "stylesheet"}/
+    %link{:href => "../_assets/css/jqm-docs.css", :rel => "stylesheet"}/
+    %script{:src => "../../js/", :type => "text/javascript"}
+  %body
+    %div{"data-role" => "page"}
+      %div{"data-role" => "header"}
+        %h1 Transitions
+      / /header
+      %div{"data-role" => "content"}
+        %h2 Page transitions
+        %p The jQuery Mobile framework includes a set of six CSS-based transition effects that can be applied to any object or page change event, which apply the chosen transition when navigating to a new page and the reverse transition for the Back button. By default, the framework applies the right to left slide transition.
+        %p
+          To set a custom transition effect, add the
+          %code data-transition
+          attribute to the link. Possible values include:
+        %code
+          %code
+            \&lt;a href=&quot;index.html&quot; data-transition=&quot;pop&quot;&gt;I'll pop&lt;/a&gt;
+        %p
+          %a{"data-rel" => "dialog", "data-role" => "button", "data-transition" => "slide", :href => "transition-success.html"} slide
+          %a{"data-rel" => "dialog", "data-role" => "button", "data-transition" => "slideup", :href => "transition-success.html"} slideup
+          %a{"data-rel" => "dialog", "data-role" => "button", "data-transition" => "slidedown", :href => "transition-success.html"} slidedown
+          %a{"data-rel" => "dialog", "data-role" => "button", "data-transition" => "pop", :href => "transition-success.html"} pop
+          %a{"data-rel" => "dialog", "data-role" => "button", "data-transition" => "fade", :href => "transition-success.html"} fade
+          %a{"data-rel" => "dialog", "data-role" => "button", "data-transition" => "flip", :href => "transition-success.html"} flip
+        %p
+          In addition, you can also force a "backwards" transition by specifying
+          %code data-back="true"
+          on your link.
+        .ui-body.ui-body-e
+          %p
+            %strong
+              Transitions from
+              %a{:href => "http://www.jqtouch.com/"} jQtouch
+            (
+            %em> with small modifications
+            ): Built by David Kaneda and maintained by Jonathan Stark.
+      / /content
+    / /page

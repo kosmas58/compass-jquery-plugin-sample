@@ -1,0 +1,92 @@
+!!!
+%html
+  %head
+    %meta{:charset => "utf-8"}/
+    %title jQuery Mobile Framework - Toolbars demo
+    %link{:href => "../../themes/default", :rel => "stylesheet"}/
+    %link{:href => "../_assets/css/jqm-docs.css", :rel => "stylesheet"}/
+    %script{:src => "../../js/", :type => "text/javascript"}
+  %body
+    %div{"data-role" => "page"}
+      %div{"data-position" => "inline", "data-role" => "header"}
+        %h1 Bar theming
+      %div{"data-role" => "content"}
+        %p Both the header and footer bars will be styled by default with the theme's "a" color swatch (black in the default theme) because these bars are typically primary in the visual hierarchy of a page.
+        %h2 Theming headers and footers
+        %p
+          To set the header or footer bars to a different color in your theme, add the
+          %code data-theme
+          attribute and specify the letter of the theme swatch (a, b, c, etc.). For example, this will set the bar to swatch "b" (blue in the default theme):
+        .highlight
+          %pre
+            %span.nt &lt;div
+            %span.na data-role=
+            %span.s "header"
+            %span.na data-theme=
+            %span.s "b"
+            %span.nt &gt;
+            = succeed "Page" do
+              %span.nt &lt;h1&gt;
+            Title
+            %span.nt &lt;/h1&gt;
+            %span.nt &lt;/div&gt;
+        %h2 Theming buttons in toolbars
+        %p
+          Any link added inside the header block will be automatically styled as a button that matches the color of the bar's theme swatch. To make a button stand out as a primary call to action, the
+          %code data-theme
+          attribute can be used to specify a contrasting button color from a different theme swatch. For example, if we set the header to theme "c" (light gray), both buttons would be styled as the "c" button by default. If we wanted the Save button to visually pop, we can override the color by setting the
+          %code data-theme
+          attribute to "b" (blue in our default theme) on the Save button's anchor.
+        .highlight
+          %pre
+            %span.nt &lt;a
+            %span.na href=
+            %span.s "add-user.php"
+            %span.na data-theme=
+            %span.s "b"
+            = succeed "Save" do
+              %span.nt &gt;
+            %span.nt &lt;/a&gt;
+        %h2 Theme variations
+        %p This is a demo of the variation that can be achieved by tweaking the theme swatches and buttons inside the headers and footers.
+        %h3 Headers
+      %div{"data-position" => "inline", "data-role" => "header"}
+        %h1 Bar theme "a"
+        %a{"data-icon" => "plus", "data-theme" => "c", :href => "index.html"} New
+      %div{"data-position" => "inline", "data-role" => "header"}
+        %a{"data-icon" => "delete", :href => "index.html", :iconpos => "notext"} Cancel
+        %h1 Bar theme "a"
+        %a{"data-icon" => "arrow-r", "data-iconpos" => "right", "data-theme" => "b", :href => "index.html"} Save
+      %div{"data-position" => "inline", "data-role" => "header", "data-theme" => "b"}
+        %h1 Bar theme "b"
+        %a{"data-icon" => "plus", "data-theme" => "a", :href => "index.html"} New
+      %div{"data-position" => "inline", "data-role" => "header", "data-theme" => "b"}
+        %a{"data-icon" => "delete", :href => "index.html", :iconpos => "notext"} Cancel
+        %h1 Bar theme "b"
+        %a{"data-icon" => "arrow-r", "data-iconpos" => "right", "data-theme" => "d", :href => "index.html"} Save
+      %div{"data-position" => "inline", "data-role" => "header", "data-theme" => "c"}
+        %h1 Bar theme "c"
+        %a{"data-icon" => "plus", "data-theme" => "a", :href => "index.html"} New
+      %div{"data-position" => "inline", "data-role" => "header", "data-theme" => "c"}
+        %a{"data-icon" => "delete", :href => "index.html", :iconpos => "notext"} Cancel
+        %h1 Bar theme "c"
+        %a{"data-icon" => "arrow-r", "data-iconpos" => "right", "data-theme" => "b", :href => "index.html"} Save
+      %div{"data-position" => "inline", "data-role" => "header", "data-theme" => "d"}
+        %h1 Bar theme "d"
+        %a{"data-icon" => "plus", "data-theme" => "a", :href => "index.html"} New
+      %div{"data-position" => "inline", "data-role" => "header", "data-theme" => "d"}
+        %a{"data-icon" => "delete", :href => "index.html", :iconpos => "notext"} Cancel
+        %h1 Bar theme "d"
+        %a{"data-icon" => "arrow-r", "data-iconpos" => "right", "data-theme" => "b", :href => "index.html"} Save
+      .ui-body{"data-role" => "content"}
+        %h3 Footers
+      %div{"data-position" => "inline", "data-role" => "footer"}
+        %div
+          %a{"data-icon" => "arrow-l", "data-iconpos" => "right", :href => "index.html"} left
+          %a{"data-icon" => "arrow-r", "data-iconpos" => "right", :href => "index.html"} right
+          %a{"data-icon" => "arrow-u", "data-iconpos" => "right", :href => "index.html"} up
+          %a{"data-icon" => "arrow-d", "data-iconpos" => "right", :href => "index.html"} down
+          %a{"data-icon" => "plus", "data-iconpos" => "right", :href => "index.html"} plus
+          %a{"data-icon" => "minus", "data-iconpos" => "right", :href => "index.html"} minus
+          %a{"data-icon" => "delete", "data-iconpos" => "right", :href => "index.html"} delete
+      %p

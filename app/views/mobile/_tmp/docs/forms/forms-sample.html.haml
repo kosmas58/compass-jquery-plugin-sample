@@ -1,0 +1,44 @@
+!!!
+%html
+  %head
+    %meta{:charset => "utf-8"}/
+    %title jQuery Mobile Docs - Forms
+    %link{:href => "../../themes/default", :rel => "stylesheet"}/
+    %link{:href => "../_assets/css/jqm-docs.css", :rel => "stylesheet"}/
+    %script{:src => "../../js/", :type => "text/javascript"}
+  %body
+    %div{"data-role" => "page", "data-theme" => "c"}
+      %div{"data-role" => "header"}
+        %h1 Forms
+      / /header
+      %div{"data-role" => "content"}
+        %h2 Form submission
+        %p
+          In jQuery Mobile, form submissions are automatically handled using Ajax whenever possible, creating a smooth transition between the form and the result page. To ensure your form submits as intended, be sure to specify
+          %code action
+          and
+          %code method
+          properties on your form element.
+        %p
+          This page demonstrates automated ajax handling of form submissions. The form below is configured to send regular a
+          %code get
+          request to
+          = succeed "." do
+            %code forms-sample-response.php
+          On submit, jQuery Mobile will make sure that the Url specified is able to be retrieved via Ajax, and handle it appropriately. Keep in mind that just like ordinary HTTP form submissions, jQuery Mobile allows
+          %code get
+          result pages to be bookmarked by updating the Url hash when the response returns successfully. Also like ordinary form submissions,
+          %code post
+          requests do not contain query parameters in the hash, so they are not bookmarkable.
+        %form{:action => "forms-sample-response.php", :method => "get"}
+          %fieldset
+            %div{"data-role" => "fieldcontain"}
+              %label.select{:for => "shipping"} Choose shipping method:
+              %select#shipping{:name => "shipping"}
+                %option{:value => "Standard shipping"} Standard: 7 day
+                %option{:value => "Rush shipping"} Rush: 3 days
+                %option{:value => "Express shipping"} Express: next day
+                %option{:value => "Overnight shipping"} Overnight
+            %button{"data-theme" => "a", :type => "submit"} Submit
+      / /content
+    / /page

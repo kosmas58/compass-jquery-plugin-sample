@@ -1,0 +1,63 @@
+!!!
+%html
+  %head
+    %meta{:charset => "utf-8"}/
+    %title jQuery Mobile Docs - Forms
+    %link{:href => "../../themes/default", :rel => "stylesheet"}/
+    %link{:href => "../_assets/css/jqm-docs.css", :rel => "stylesheet"}/
+    %script{:src => "../../js/", :type => "text/javascript"}
+    %script{:src => "../docs/docs.js", :type => "text/javascript"}
+  %body
+    %div{"data-role" => "page"}
+      %div{"data-role" => "header", "data-theme" => "d"}
+        %h1 Forms
+      / /header
+      %div{"data-role" => "content"}
+        %p jQuery Mobile provides a complete set of finger-friendly form elements that are based on native HTML form elements.
+        %h2 Form structure
+        %p
+          All forms should be wrapped in a
+          %code form
+          tag that has an
+          %code action
+          and
+          %code method
+          that will handle the form data processing on the server.
+        %code
+          \&lt;form action=&quot;form.php&quot; method=&quot;post&quot;&gt;
+          \...
+          \&lt;/form&gt;
+        %h2 Markup Conventions
+        %p
+          When constructing forms to be used in jQuery Mobile, most of the standard guidelines used to create forms that submit via normal HTTP post or get still apply. However, one thing to keep in mind is that the
+          %code id
+          attributes of form controls need to be not only unique on a given page, but also unique across the pages in a site. This is because jQuery Mobile's single-page navigation model allows many different "pages" to be present in the DOM at the same time, so you must be careful to use unique
+          %code id
+          attributes so there will be only one of each in the DOM (and of course, be sure to pair them properly with
+          %code label
+          elements via the
+          %code for
+          attribute).
+        %h2 Dynamic form layout
+        %p In jQuery Mobile, all form elements are designed to be a flexible width so they will comfortably fit the width of any mobile device. One optimization built into the framework is that we present labels and form elements differently based on screen width.
+        %p If a page is fairly narrow (~480px), the labels are styled as block-level elements so they will stack on top of the form element to save horizontal space.
+        %p On wider screens, the labels and form elements are styled to be on the same line in a 2-column layout to take advantage of the screen real estate.
+        %h2 Field containers
+        %p
+          To improve the styling to labels and form elements on wider screens, we recommend wrapping a
+          %code div
+          or
+          = succeed "with" do
+            %code fieldset
+          the
+          %code data-role="fieldcontain"
+          attribute around each label/form element. The framework will add a thin vertical bottom border on this container to act as a field separator and visually align the label and form elements for quick scanning.
+        %pre
+          %code
+            :preserve
+              				
+              &lt;div data-role=&quot;fieldcontain&quot;&gt;
+              	...label/input code goes here...
+              &lt;/div&gt;
+      / /content
+    / /page

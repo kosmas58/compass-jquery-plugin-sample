@@ -1,0 +1,141 @@
+!!!
+%html
+  %head
+    %meta{:charset => "utf-8"}/
+    %title jQuery Mobile Docs - Methods
+    %link{:href => "../../themes/default", :rel => "stylesheet"}/
+    %link{:href => "../_assets/css/jqm-docs.css", :rel => "stylesheet"}/
+    %script{:src => "../../js/", :type => "text/javascript"}
+  %body
+    %div{"data-role" => "page"}
+      %div{"data-role" => "header"}
+        %h1 Methods
+      / /header
+      %div{"data-role" => "content"}
+        %p jQuery Mobile exposes several methods and properties on the $.mobile object for use in your applications.
+        %dl
+          %dt
+            %code $.mobile.changePage
+            (
+            %em> method
+            )
+          %dd Programmatically change from one page to another. This method is used internally for transitions that occur as a result of clicking a link or submitting a form, when those features are enabled.
+          %dd
+            %dl
+              %dt Arguments
+              %dd
+                %code to
+                %ul
+                  %li
+                    String, url to transition to (
+                    %code> "about/us.html"
+                    )
+                  %li
+                    jQuery object (
+                    %code> $("#about")
+                    )
+                  %li Array specifying two page references [from,to] for transitioning from a known page. From is otherwise assumed to be the current page in view (or $.mobile.activePage ).
+                  %li
+                    Object for sending form data. (
+                    %code {to: url, data: serialized form data, type: "get" or "post"}
+              %dd
+                %code transition
+                (
+                %em> string
+                , examples: "pop", "slide"," "none")
+              %dd
+                %code back
+                (
+                %em> boolean
+                , default: false). True will cause a reverse-direction transition.
+              %dd
+                %code changeHash
+                (
+                %em> boolean
+                , default: true). Update the hash to the to page's URL when page change is complete.
+          %dd
+            Examples:
+            %pre
+              %code
+                %strong //transition to the "about us" page with a slideup transition
+                $.mobile.changePage("about/us.html", "slideup");
+                %strong //transition to the "search results" page, using data from a form with an ID of "search""
+                $.mobile.changePage({
+                url: "searchresults.php",
+                type: "get",
+                data: $("form#search").serialize()
+                });
+                %strong //transition to the "confirm" page with a "pop" transition without tracking it in history
+                $.mobile.changePage("../alerts/confirm.html", "pop", false, false);
+          %dt
+            %code $.mobile.pageLoading
+            (
+            %em> method
+            )
+          %dd Show or hide the page loading message, which is configurable via $.mobile.loadingMessage.
+          %dd
+            %dl
+              %dt Arguments:
+              %dd
+                %code Done
+                (
+                %em> boolean
+                , defaults to false, meaning loading has started). True will hide the loading message.
+          %dd
+            Examples:
+            %pre
+              %code
+                %strong //cue the page loader
+                $.mobile.pageLoading();
+                %strong //hide the page loader
+                $.mobile.pageLoading( true );
+          %dt
+            %code $.mobile.silentScroll
+            (
+            %em> method
+            )
+          %dd Scroll to a particular Y position without triggering scroll event listeners.
+          %dd
+            %dl
+              %dt Arguments:
+              %dd
+                %code yPos
+                (
+                %em> number
+                , defaults to 0). Pass any number to scroll to that Y location.
+          %dd
+            Examples:
+            %pre
+              %code
+                %strong //scroll to Y 100px
+                $.mobile.silentScroll(100);
+          %dt
+            %code $.mobile.addResolutionBreakpoints
+            (
+            %em> method
+            )
+          %dd Add width breakpoints to the min/max width classes that are added to the HTML element.
+          %dd
+            %dl
+              %dt Arguments:
+              %dd
+                %code values
+                (
+                %em> number or array
+                ). Pass any number or array of numbers to add to the resolution classes. Read more about this feature here:
+                = succeed "." do
+                  %a{:href => "mediahelpers.html"} Orientation &amp; resolution targeting
+          %dd
+            Examples:
+            %pre
+              %code
+                %strong //scroll to Y 100px
+                $.mobile.silentScroll(100);
+          %dt
+            %code $.mobile.activePage
+            (
+            %em> property
+            )
+          %dd Reference to the page currently in view.
+      / /content
+    / /page
