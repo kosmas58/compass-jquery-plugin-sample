@@ -2,7 +2,7 @@ require 'uri'
 require 'net/http'
 
 class Mobile::TutsController < ApplicationController
-  layout 'mobile'
+  layout 'tuts'
   protect_from_forgery
   
   def site

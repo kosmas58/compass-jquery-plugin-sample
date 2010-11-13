@@ -1,0 +1,17 @@
+!!!
+%html
+  %head
+    %meta{:charset => "utf-8"}
+    %meta{:content => "IE=edge,chrome=1", "http-equiv" => "X-UA-Compatible"}
+    %link{:href => "/images/demo/mobile/tutsTouchIcon.jpg", :rel => "apple-touch-icon"}
+    %title Tuts+
+    = stylesheet_link_tag 'compiled/jquery/mobile/default.css', :media => 'screen, projection'
+    = javascript_include_tag :mobile
+    = javascript_include_tag 'locales'
+    = javascript_include_tag 'common'
+    = javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery?
+
+    = yield :content_head
+
+  %body
+    = yield
