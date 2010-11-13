@@ -1,0 +1,22 @@
+- content_for :content_head do
+  = render(:partial => "index.js.haml", :format => :js)
+  = render(:partial => "article.js.haml", :format => :js)
+
+%div{"data-role" => "page"}
+  %header{:class => [@siteName], "data-role" => "header"}
+    %h1
+      = @siteName.capitalize + "+"
+  / /header
+  %div{"data-role" => "content"}
+    %h1
+      #{@feed['title']}
+    %div
+      = raw @feed['description']
+  / /content
+  %footer{:class => [@siteName], "data-position" => "fixed", "data-role" => "footer"}
+    %h4
+      %a{"data-icon" => "forward", :href => [@feed['guid']['content']]}
+        Read on
+        #{@siteName}
+  / /footer
+/ /page

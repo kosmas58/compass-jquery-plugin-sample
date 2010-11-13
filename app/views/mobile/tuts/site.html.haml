@@ -1,0 +1,24 @@
+- content_for :content_head do
+  = render(:partial => "index.js.haml", :format => :js)
+
+%div{"data-role" => "page"}
+  %header{:class => [@siteName], "data-role" => "header"}
+    %h1
+      = @siteName.capitalize + "+"
+  / /header
+  %div{"data-role" => "content"}
+    %ul{"data-counttheme" => "e", "data-dividertheme" => "d", "data-role" => "listview", "data-theme" => "c"}
+      - cache("#{@siteName}_cache", :time_to_live => 3.hours) do
+        - @feed.each do |item|
+          %li
+            %h2
+              %a{:href => "/mobile/tuts/article?siteName=#{@siteName}&origLink=#{item[:uri]}"}
+                #{item[:title]}
+            %span.ui-li-count
+              #{item[:comments]}
+  / /content
+  %footer{:class => [@siteName], "data-role" => "footer"}
+    %h4
+      www.tutsplus.com
+  / /footer
+/ /page
