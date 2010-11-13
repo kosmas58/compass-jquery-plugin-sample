@@ -1,3 +1,6 @@
+- content_for :content_head do
+  = render(:partial => "/mobile/index.js.haml", :format => :js)
+
 %div{"data-role" => "page"}
   %div{"data-role" => "header"}
     %h1 Navbar
@@ -28,9 +31,9 @@
       %div{"data-role" => "navbar"}
         %ul
           %li
-            %a.ui-btn-active{:href => "a.html"} One
+            %a.ui-btn-active{:href => "#"} One
           %li
-            %a{:href => "b.html"} Two
+            %a{:href => "#"} Two
       / /navbar
     / /footer
     %p Adding a third item will automatically make each button 1/3 the width of the browser window:
@@ -38,41 +41,41 @@
       %div{"data-role" => "navbar"}
         %ul
           %li
-            %a.ui-btn-active{:href => "a.html"} One
+            %a.ui-btn-active{:href => "#"} One
           %li
-            %a{:href => "b.html"} Two
+            %a{:href => "#"} Two
           %li
-            %a{:href => "c.html"} Three
+            %a{:href => "#"} Three
       / /navbar
     / /footer
     %p Adding a fourth more item will automatically make each button 1/4 the width of the browser window:
     %div{"data-role" => "footer"}
-      %div{"data-role" => "navbar"}
+      %div{"data-grid" => "c", "data-role" => "navbar"}
         %ul
           %li
-            %a.ui-btn-active{:href => "a.html"} One
+            %a.ui-btn-active{:href => "#"} One
           %li
-            %a{:href => "b.html"} Two
+            %a{:href => "#"} Two
           %li
-            %a{:href => "c.html"} Three
+            %a{:href => "#"} Three
           %li
-            %a{:href => "d.html"} Four
+            %a{:href => "#"} Four
       / /navbar
     / /footer
     %p The navbar maxes out with 5 items, each 1/5 the width of the browser window:
     %div{"data-role" => "footer"}
-      %div{"data-role" => "navbar"}
+      %div{"data-grid" => "d", "data-role" => "navbar"}
         %ul
           %li
-            %a.ui-btn-active{:href => "a.html"} One
+            %a.ui-btn-active{:href => "#"} One
           %li
-            %a{:href => "b.html"} Two
+            %a{:href => "#"} Two
           %li
-            %a{:href => "c.html"} Three
+            %a{:href => "#"} Three
           %li
-            %a{:href => "d.html"} Four
+            %a{:href => "#"} Four
           %li
-            %a{:href => "e.html"} Five
+            %a{:href => "#"} Five
       / /navbar
     / /footer
     %p If more than 5 items are added, the navbar will simply wrap to multiple lines:
@@ -80,27 +83,42 @@
       %div{"data-role" => "navbar"}
         %ul
           %li
-            %a.ui-btn-active{:href => "a.html"} One
+            %a.ui-btn-active{:href => "#"} One
           %li
-            %a{:href => "b.html"} Two
+            %a{:href => "#"} Two
           %li
-            %a{:href => "c.html"} Three
+            %a{:href => "#"} Three
           %li
-            %a{:href => "d.html"} Four
+            %a{:href => "#"} Four
           %li
-            %a{:href => "e.html"} Five
+            %a{:href => "#"} Five
           %li
-            %a{:href => "f.html"} Six
+            %a{:href => "#"} Six
           %li
-            %a{:href => "g.html"} Seven
+            %a{:href => "#"} Seven
           %li
-            %a{:href => "h.html"} Eight
+            %a{:href => "#"} Eight
           %li
-            %a{:href => "i.html"} Nine
+            %a{:href => "#"} Nine
           %li
-            %a{:href => "j.html"} Ten
+            %a{:href => "#"} Ten
       / /navbar
     / /footer
+    %h2 Navbars in headers
+    %p If you want to add a navbar to the top of the page, you can still have a page title and buttons. Just add the navbar container inside the header block, right after the title and buttons in the source order.
+    %div{"data-role" => "header"}
+      %h1 I'm a header
+      %a.ui-btn-right{"data-icon" => "gear", :href => "/mobile/docs/toolbars"} Options
+      %div{"data-role" => "navbar"}
+        %ul
+          %li
+            %a{:href => "#"} One
+          %li
+            %a{:href => "#"} Two
+          %li
+            %a{:href => "#"} Three
+      / /navbar
+    / /header
     %h2 Icons in navbars
     %p
       Icons can be added to navbar items by adding the
@@ -112,11 +130,11 @@
       %div{"data-role" => "navbar"}
         %ul
           %li
-            %a{"data-icon" => "grid", :href => "a.html"} Summary
+            %a{"data-icon" => "grid", :href => "#"} Summary
           %li
-            %a.ui-btn-active{"data-icon" => "star", :href => "b.html"} Favs
+            %a.ui-btn-active{"data-icon" => "star", :href => "#"} Favs
           %li
-            %a{"data-icon" => "gear", :href => "c.html"} Setup
+            %a{"data-icon" => "gear", :href => "#"} Setup
       / /navbar
     / /footer
     %p
@@ -127,11 +145,11 @@
       %div{"data-role" => "navbar"}
         %ul
           %li
-            %a{"data-icon" => "grid", "data-iconpos" => "top", :href => "a.html"} Summary
+            %a{"data-icon" => "grid", "data-iconpos" => "top", :href => "#"} Summary
           %li
-            %a.ui-btn-active{"data-icon" => "star", "data-iconpos" => "top", :href => "b.html"} Favs
+            %a.ui-btn-active{"data-icon" => "star", "data-iconpos" => "top", :href => "#"} Favs
           %li
-            %a{"data-icon" => "gear", "data-iconpos" => "top", :href => "c.html"} Setup
+            %a{"data-icon" => "gear", "data-iconpos" => "top", :href => "#"} Setup
       / /navbar
     / /footer
     %h2 Using 3rd party icon sets
@@ -141,29 +159,26 @@
       to achieve the iOS style tab tab that has large icons stacked on top of text labels. All that is required is a bit of custom styles to link to the icons and position them in the navbar. Here is an example using Glyphish icons and custom styles (view page source for styles) in our navbar:
     :css
       .nav-glyphish-example .ui-btn .ui-btn-inner { padding-top: 40px !important; }
-      .ui-navbar-expanded ul .ui-btn .ui-btn-inner { padding-top: 55px !important; }
-      .nav-glyphish-example .ui-btn .ui-icon, .ui-navbar-expanded ul .ui-btn .ui-icon { width: 30px!important; height: 30px!important; margin-left: -15px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: none !important; border-radius: none !important; }
-      .ui-navbar-expanded ul .ui-btn .ui-icon { top: 20px; }
-      #chat .ui-icon { background:  url(glyphish-icons/09-chat2.png) 50% 50% no-repeat; }
-      #email .ui-icon { background:  url(glyphish-icons/18-envelope.png) 50% 50% no-repeat; }
-      .nav-glyphish-example .ui-navbar-toggle .ui-icon { background:  url(glyphish-icons/19-gear.png) 50% 50% no-repeat !important; }
-      #login .ui-icon { background:  url(glyphish-icons/30-key.png) 50% 50% no-repeat; }
-      #beer .ui-icon { background:  url(glyphish-icons/88-beermug.png) 50% 50% no-repeat; }
-      #coffee .ui-icon { background:  url(glyphish-icons/100-coffee.png) 50% 50% no-repeat; }
-      #skull .ui-icon { background:  url(glyphish-icons/21-skull.png) 50% 50% no-repeat; }
+      .nav-glyphish-example .ui-btn .ui-icon { width: 30px!important; height: 30px!important; margin-left: -15px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: none !important; border-radius: none !important; }
+      #chat .ui-icon { background:  url(/images/glyphish/icons-white/09-chat2.png) 50% 50% no-repeat; background-size: 24px 22px; }
+      #email .ui-icon { background:  url(/images/glyphish/icons-white/18-envelope.png) 50% 50% no-repeat; background-size: 24px 16px;  }
+      #login .ui-icon { background:  url(/images/glyphish/icons-white/30-key.png) 50% 50% no-repeat;  background-size: 12px 26px; }
+      #beer .ui-icon { background:  url(/images/glyphish/icons-white/88-beermug.png) 50% 50% no-repeat;  background-size: 22px 27px; }
+      #coffee .ui-icon { background:  url(/images/glyphish/icons-white/100-coffee.png) 50% 50% no-repeat;  background-size: 20px 24px; }
+      #skull .ui-icon { background:  url(/images/glyphish/icons-white/21-skull.png) 50% 50% no-repeat;  background-size: 22px 24px; }
       .nav-glyphish-example{"data-role" => "footer"}
-      .nav-glyphish-example{"data-role" => "navbar"}
+      .nav-glyphish-example{"data-grid" => "d", "data-role" => "navbar"}
         %ul
           %li
-            %a#chat{"data-icon" => "custom", :href => "a.html"} Chat
+            %a#chat{"data-icon" => "custom", :href => "#"} Chat
           %li
-            %a#email{"data-icon" => "custom", :href => "b.html"} Email
+            %a#email{"data-icon" => "custom", :href => "#"} Email
           %li
-            %a#skull{"data-icon" => "custom", :href => "c.html"} Danger
+            %a#skull{"data-icon" => "custom", :href => "#"} Danger
           %li
-            %a#beer{"data-icon" => "custom", :href => "d.html"} Beer
+            %a#beer{"data-icon" => "custom", :href => "#"} Beer
           %li
-            %a#coffee{"data-icon" => "custom", :href => "e.html"} Coffee
+            %a#coffee{"data-icon" => "custom", :href => "#"} Coffee
     %p
       Icons by Joseph Wain /
       = succeed "." do
@@ -180,11 +195,11 @@
       %div{"data-role" => "navbar", "data-theme" => "e"}
         %ul
           %li
-            %a{"data-icon" => "grid", "data-iconpos" => "top", "data-theme" => "e", :href => "a.html"} Summary
+            %a{"data-icon" => "grid", "data-iconpos" => "top", "data-theme" => "b", :href => "#"} Summary
           %li
-            %a.ui-btn-active{"data-icon" => "star", "data-iconpos" => "top", "data-theme" => "e", :href => "b.html"} Favs
+            %a.ui-btn-active{"data-icon" => "star", "data-iconpos" => "top", "data-theme" => "b", :href => "#"} Favs
           %li
-            %a{"data-icon" => "gear", "data-iconpos" => "top", "data-theme" => "e", :href => "c.html"} Setup
+            %a{"data-icon" => "gear", "data-iconpos" => "top", "data-theme" => "b", :href => "#"} Setup
       / /navbar
     / /footer
   / /content

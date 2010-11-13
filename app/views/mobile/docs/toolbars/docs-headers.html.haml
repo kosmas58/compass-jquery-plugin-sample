@@ -1,3 +1,6 @@
+- content_for :content_head do
+  = render(:partial => "/mobile/index.js.haml", :format => :js)
+
 %div{"data-role" => "page"}
   %div{"data-position" => "inline", "data-role" => "header"}
     %h1 Header bars
@@ -50,9 +53,9 @@
           :preserve
             			
             &lt;div data-role=&quot;header&quot; data-position=&quot;inline&quot;&gt;
-            	&lt;a href=&quot;index.html&quot; data-icon=&quot;delete&quot;&gt;Cancel&lt;/a&gt;
+            	&lt;a href=&quot;/mobile/docs/toolbars&quot; data-icon=&quot;delete&quot;&gt;Cancel&lt;/a&gt;
             	&lt;h1&gt;Edit Contact&lt;/h1&gt;
-            	&lt;a href=&quot;index.html&quot; data-icon=&quot;check&quot;&gt;Save&lt;/a&gt;
+            	&lt;a href=&quot;/mobile/docs/toolbars&quot; data-icon=&quot;check&quot;&gt;Save&lt;/a&gt;
             &lt;/div&gt;
       %div{"data-position" => "inline", "data-role" => "header"}
         %a{"data-icon" => "delete", :href => "/mobile/docs/toolbars"} Cancel
@@ -67,9 +70,9 @@
           :preserve
             			
             &lt;div data-role=&quot;header&quot; data-position=&quot;inline&quot;&gt;
-            	&lt;a href=&quot;index.html&quot; data-icon=&quot;delete&quot;&gt;Cancel&lt;/a&gt;
+            	&lt;a href=&quot;/mobile/docs/toolbars&quot; data-icon=&quot;delete&quot;&gt;Cancel&lt;/a&gt;
             	&lt;h1&gt;Edit Contact&lt;/h1&gt;
-            	&lt;a href=&quot;index.html&quot; data-icon=&quot;check&quot; data-theme=&quot;b&quot;&gt;Save&lt;/a&gt;
+            	&lt;a href=&quot;/mobile/docs/toolbars&quot; data-icon=&quot;check&quot; data-theme=&quot;b&quot;&gt;Save&lt;/a&gt;
             &lt;/div&gt;
       %div{"data-position" => "inline", "data-role" => "header"}
         %a{"data-icon" => "delete", :href => "/mobile/docs/toolbars"} Cancel
@@ -95,11 +98,19 @@
               
               &lt;div data-role=&quot;header&quot; data-position=&quot;inline&quot; data-nobackbtn=&quot;true&quot;&gt;
               	&lt;h1&gt;Page Title&lt;/h1&gt;
-              	&lt;a href=&quot;index.html&quot; data-icon=&quot;gear&quot; class=&quot;ui-btn-right&quot;&gt;Options&lt;/a&gt;
+              	&lt;a href=&quot;/mobile/docs/toolbars&quot; data-icon=&quot;gear&quot; class=&quot;ui-btn-right&quot;&gt;Options&lt;/a&gt;
               &lt;/div&gt;
       %div{"data-nobackbtn" => "true", "data-position" => "inline", "data-role" => "header"}
         %h1 Page Title
         %a.ui-btn-right{"data-icon" => "gear", :href => "/mobile/docs/toolbars"} Options
+      %h2 Customizing the back button text
+      %p
+        If you'd like to configure the back button text, you can either use the
+        %code data-back-btn-text="previous"
+        attribute on your page element, or set it programmatically via the page plugin's options:
+        = succeed "." do
+          %code $.mobile.page.prototype.options.backBtnText = "previous";
+        If you're doing this programmatically, set this option inside the mobileinit event handler.
       %h2 Custom header configurations
       %p
         If you need to to create a header that doesn't follow the default configuration, simply wrap your custom styled markup in a container

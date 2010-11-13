@@ -1,74 +1,46 @@
-- content_for :content_head do
-  = render(:partial => "/mobile/docs/docs.js.haml", :format => :js)
-
 %div{"data-role" => "page"}
   %div{"data-role" => "header"}
-    %h1
-      Grouped buttons
+    %h1 Grouped buttons
   / /header
   %div{"data-role" => "content"}
     %p
-      Occasionally, you may want to visually group a set of buttons together to form a single block
-      that looks contained like a navigation component. To get this effect, wrap a set of buttons in
-      a container with the
-      %code
-        data-role="controlgroup"
-      attribute &mdash; the framework will create a vertical button group, remove all margins and drop
-      shadows between the buttons, and only round the first and last buttons of the set to create the
-      effect that they are grouped together.
+      Occasionally, you may want to visually group a set of buttons together to form a single block that looks contained like a navigation component. To get this effect, wrap a set of buttons in a container with the
+      %code data-role="controlgroup"
+      attribute &mdash; the framework will create a vertical button group, remove all margins and drop shadows between the buttons, and only round the first and last buttons of the set to create the effect that they are grouped together.
     %pre
       %code
         :preserve
+          
           &lt;div data-role=&quot;controlgroup&quot;&gt;
-            &lt;a href=&quot;index.html&quot; data-role=&quot;button&quot;&gt;Yes&lt;/a&gt;
-            &lt;a href=&quot;index.html&quot; data-role=&quot;button&quot;&gt;No&lt;/a&gt;
-            &lt;a href=&quot;index.html&quot; data-role=&quot;button&quot;&gt;Maybe&lt;/a&gt;
+          &lt;a href=&quot;/mobile/docs/buttons&quot; data-role=&quot;button&quot;&gt;Yes&lt;/a&gt;
+          &lt;a href=&quot;/mobile/docs/buttons&quot; data-role=&quot;button&quot;&gt;No&lt;/a&gt;
+          &lt;a href=&quot;/mobile/docs/buttons&quot; data-role=&quot;button&quot;&gt;Maybe&lt;/a&gt;
           &lt;/div&gt;
-    %p
-      By default, grouped buttons are presented as a vertical list:
+    %p By default, grouped buttons are presented as a vertical list:
     %div{"data-role" => "controlgroup"}
-      %a{"data-role" => "button", :href => "/mobile/docs/buttons/index"}
-        Yes
-      %a{"data-role" => "button", :href => "/mobile/docs/buttons/index"}
-        No
-      %a{"data-role" => "button", :href => "/mobile/docs/buttons/index"}
-        Maybe
+      %a{"data-role" => "button", :href => "/mobile/docs/buttons"} Yes
+      %a{"data-role" => "button", :href => "/mobile/docs/buttons"} No
+      %a{"data-role" => "button", :href => "/mobile/docs/buttons"} Maybe
     %p
       By adding the
-      %code
-        data-type="horizontal"
+      %code data-type="horizontal"
       attribute to the
-      %code
-        controlgroup
-      container, you can swap to a horizontal-style group that floats the buttons side-by-side and
-      sets the width to only be large enough to fit the content. (Be aware that these will wrap to
-      multiple lines if the number of buttons or the overall text length is too wide for the screen.)
-      %p
-        Horizontal grouped buttons:
+      %code controlgroup
+      container, you can swap to a horizontal-style group that floats the buttons side-by-side and sets the width to only be large enough to fit the content. (Be aware that these will wrap to multiple lines if the number of buttons or the overall text length is too wide for the screen.)
+      %p Horizontal grouped buttons:
       %div{"data-role" => "controlgroup", "data-type" => "horizontal"}
-        %a{"data-role" => "button", :href => "/mobile/docs/buttons/index"}
-          Yes
-        %a{"data-role" => "button", :href => "/mobile/docs/buttons/index"}
-          No
-        %a{"data-role" => "button", :href => "/mobile/docs/buttons/index"}
-          Maybe
-      %p
-        Horizontal grouped buttons with icons:
+        %a{"data-role" => "button", :href => "/mobile/docs/buttons"} Yes
+        %a{"data-role" => "button", :href => "/mobile/docs/buttons"} No
+        %a{"data-role" => "button", :href => "/mobile/docs/buttons"} Maybe
+      %p Horizontal grouped buttons with icons:
       %div{"data-role" => "controlgroup", "data-type" => "horizontal"}
-        %a{"data-icon" => "arrow-u", "data-role" => "button", :href => "/mobile/docs/buttons/index"}
-          Up
-        %a{"data-icon" => "arrow-d", "data-role" => "button", :href => "/mobile/docs/buttons/index"}
-          Down
-        %a{"data-icon" => "delete", "data-role" => "button", :href => "/mobile/docs/buttons/index"}
-          Delete
-      %p
-        Horizontal grouped buttons, icon only:
+        %a{"data-icon" => "arrow-u", "data-role" => "button", :href => "/mobile/docs/buttons"} Up
+        %a{"data-icon" => "arrow-d", "data-role" => "button", :href => "/mobile/docs/buttons"} Down
+        %a{"data-icon" => "delete", "data-role" => "button", :href => "/mobile/docs/buttons"} Delete
+      %p Horizontal grouped buttons, icon only:
       %div{"data-role" => "controlgroup", "data-type" => "horizontal"}
-        %a{"data-icon" => "arrow-u", "data-iconpos" => "notext", "data-role" => "button", :href => "/mobile/docs/buttons/index"}
-          Up
-        %a{"data-icon" => "arrow-d", "data-iconpos" => "notext", "data-role" => "button", :href => "/mobile/docs/buttons/index"}
-          Down
-        %a{"data-icon" => "delete", "data-iconpos" => "notext", "data-role" => "button", :href => "/mobile/docs/buttons/index"}
-          Delete
+        %a{"data-icon" => "arrow-u", "data-iconpos" => "notext", "data-role" => "button", :href => "/mobile/docs/buttons"} Up
+        %a{"data-icon" => "arrow-d", "data-iconpos" => "notext", "data-role" => "button", :href => "/mobile/docs/buttons"} Down
+        %a{"data-icon" => "delete", "data-iconpos" => "notext", "data-role" => "button", :href => "/mobile/docs/buttons"} Delete
   / /content
 / /page

@@ -1,152 +1,95 @@
 - content_for :content_head do
-  = render(:partial => "/mobile/docs/docs.js.haml", :format => :js)
+  = render(:partial => "/mobile/index.js.haml", :format => :js)
 
 %div{"data-role" => "page"}
   %div{"data-role" => "header"}
-    %h1
-      Theming buttons
+    %h1 Theming buttons
   / /header
   %div{"data-role" => "content"}
-    %h2
-      Theming
+    %h2 Theming
     %p
       jQuery Mobile has a rich
-      %a{:href => "/mobile/docs/about/themes"}
-        theming system
-      that gives you full control of how buttons are styled. When a link is added to a container,
-      it is automatically assigned a theme swatch letter that matches it's parent bar or content box
-      to visually integrate the button into the parent container, like a chameleon. So a button placed
-      inside a content container with a theme of "a" (black in the default theme) will be automatically
-      assigned the button theme of "a" (charcoal in the default theme). Here are examples of the
-      button theme pairings in the default theme. All buttons have the same HTML markup:
+      %a{:href => "../themes//mobile/docs/buttons"} theming system
+      that gives you full control of how buttons are styled. When a link is added to a container, it is automatically assigned a theme swatch letter that matches it's parent bar or content box to visually integrate the button into the parent container, like a chameleon. So a button placed inside a content container with a theme of "a" (black in the default theme) will be automatically assigned the button theme of "a" (charcoal in the default theme). Here are examples of the button theme pairings in the default theme. All buttons have the same HTML markup:
     %div{"data-role" => "content", "data-theme" => "a"}
-      %h4
-        A swatch
-      %a{"data-role" => "button", :href => "/mobile/docs/buttons/index"}
-        Button
+      %h4 A swatch
+      %a{"data-role" => "button", :href => "/mobile/docs/buttons"} Button
     %div{"data-role" => "content", "data-theme" => "b"}
-      %h4
-        B swatch
-      %a{"data-role" => "button", :href => "/mobile/docs/buttons/index"}
-        Button
+      %h4 B swatch
+      %a{"data-role" => "button", :href => "/mobile/docs/buttons"} Button
     %div{"data-role" => "content", "data-theme" => "c"}
-      %h4
-        C swatch
-      %a{"data-role" => "button", :href => "/mobile/docs/buttons/index"}
-        Button
+      %h4 C swatch
+      %a{"data-role" => "button", :href => "/mobile/docs/buttons"} Button
     %div{"data-role" => "content", "data-theme" => "d"}
-      %h4
-        D swatch
-      %a{"data-role" => "button", :href => "/mobile/docs/buttons/index"}
-        Button
+      %h4 D swatch
+      %a{"data-role" => "button", :href => "/mobile/docs/buttons"} Button
     %div{"data-role" => "content", "data-theme" => "e"}
-      %h4
-        E swatch
-      %a{"data-role" => "button", :href => "/mobile/docs/buttons/index"}
-        Button
-    %h2
-      Assigning theme swatches
+      %h4 E swatch
+      %a{"data-role" => "button", :href => "/mobile/docs/buttons"} Button
+    %h2 Assigning theme swatches
     %p
-      Button can be manually assigned any of the button color swatches from the theme to add visual
-      contrast with the container they sit inside by adding the
-      %code
-        data-theme
+      Button can be manually assigned any of the button color swatches from the theme to add visual contrast with the container they sit inside by adding the
+      %code data-theme
       attribute on the button markup and specifying a swatch letter.
     %pre
       %code
         :preserve
-          &lt;a href=&quot;index.html&quot; data-role=&quot;button&quot; data-theme=&quot;a&quot;&gt;Theme a&lt;/a&gt;
+          			
+          &lt;a href=&quot;/mobile/docs/buttons&quot; data-role=&quot;button&quot; data-theme=&quot;a&quot;&gt;Theme a&lt;/a&gt;			
     %p
       Here are 4 buttons with icons that have a different swatch letter assigned via the
-      %code
-        data-theme
+      %code data-theme
       attribute.
-    %a{"data-icon" => "arrow-l", "data-inline" => "true", "data-role" => "button", "data-theme" => "a", :href => "/mobile/docs/buttons/index"}
-      Theme a
-    %a{"data-icon" => "arrow-l", "data-inline" => "true", "data-role" => "button", "data-theme" => "b", :href => "/mobile/docs/buttons/index"}
-      Theme b
-    %a{"data-icon" => "arrow-l", "data-inline" => "true", "data-role" => "button", "data-theme" => "c", :href => "/mobile/docs/buttons/index"}
-      Theme c
-    %a{"data-icon" => "arrow-l", "data-inline" => "true", "data-role" => "button", "data-theme" => "d", :href => "/mobile/docs/buttons/index"}
-      Theme d
-    %a{"data-icon" => "arrow-l", "data-inline" => "true", "data-role" => "button", "data-theme" => "e", :href => "/mobile/docs/buttons/index"}
-      Theme e
-    %h2
-      Theme variations
+    %a{"data-icon" => "arrow-l", "data-inline" => "true", "data-role" => "button", "data-theme" => "a", :href => "/mobile/docs/buttons"} Theme a
+    %a{"data-icon" => "arrow-l", "data-inline" => "true", "data-role" => "button", "data-theme" => "b", :href => "/mobile/docs/buttons"} Theme b
+    %a{"data-icon" => "arrow-l", "data-inline" => "true", "data-role" => "button", "data-theme" => "c", :href => "/mobile/docs/buttons"} Theme c
+    %a{"data-icon" => "arrow-l", "data-inline" => "true", "data-role" => "button", "data-theme" => "d", :href => "/mobile/docs/buttons"} Theme d
+    %a{"data-icon" => "arrow-l", "data-inline" => "true", "data-role" => "button", "data-theme" => "e", :href => "/mobile/docs/buttons"} Theme e
+    %h2 Theme variations
     %p
-      %strong
-        "a" theme
+      %strong "a" theme
       on container with themed buttons inside
     %div{"data-role" => "content", "data-theme" => "a"}
-      %a{"data-icon" => "arrow-l", "data-inline" => "true", "data-role" => "button", "data-theme" => "a", :href => "/mobile/docs/buttons/index"}
-        Theme a
-      %a{"data-icon" => "arrow-l", "data-inline" => "true", "data-role" => "button", "data-theme" => "b", :href => "/mobile/docs/buttons/index"}
-        Theme b
-      %a{"data-icon" => "arrow-l", "data-inline" => "true", "data-role" => "button", "data-theme" => "c", :href => "/mobile/docs/buttons/index"}
-        Theme c
-      %a{"data-icon" => "arrow-l", "data-inline" => "true", "data-role" => "button", "data-theme" => "d", :href => "/mobile/docs/buttons/index"}
-        Theme d
-      %a{"data-icon" => "arrow-l", "data-inline" => "true", "data-role" => "button", "data-theme" => "e", :href => "/mobile/docs/buttons/index"}
-        Theme e
+      %a{"data-icon" => "arrow-l", "data-inline" => "true", "data-role" => "button", "data-theme" => "a", :href => "/mobile/docs/buttons"} Theme a
+      %a{"data-icon" => "arrow-l", "data-inline" => "true", "data-role" => "button", "data-theme" => "b", :href => "/mobile/docs/buttons"} Theme b
+      %a{"data-icon" => "arrow-l", "data-inline" => "true", "data-role" => "button", "data-theme" => "c", :href => "/mobile/docs/buttons"} Theme c
+      %a{"data-icon" => "arrow-l", "data-inline" => "true", "data-role" => "button", "data-theme" => "d", :href => "/mobile/docs/buttons"} Theme d
+      %a{"data-icon" => "arrow-l", "data-inline" => "true", "data-role" => "button", "data-theme" => "e", :href => "/mobile/docs/buttons"} Theme e
     %p
-      %strong
-        "b" theme
+      %strong "b" theme
       on container with themed buttons inside
     %div{"data-role" => "content", "data-theme" => "b"}
-      %a{"data-icon" => "arrow-l", "data-inline" => "true", "data-role" => "button", "data-theme" => "a", :href => "/mobile/docs/buttons/index"}
-        Theme a
-      %a{"data-icon" => "arrow-l", "data-inline" => "true", "data-role" => "button", "data-theme" => "b", :href => "/mobile/docs/buttons/index"}
-        Theme b
-      %a{"data-icon" => "arrow-l", "data-inline" => "true", "data-role" => "button", "data-theme" => "c", :href => "/mobile/docs/buttons/index"}
-        Theme c
-      %a{"data-icon" => "arrow-l", "data-inline" => "true", "data-role" => "button", "data-theme" => "d", :href => "/mobile/docs/buttons/index"}
-        Theme d
-      %a{"data-icon" => "arrow-l", "data-inline" => "true", "data-role" => "button", "data-theme" => "e", :href => "/mobile/docs/buttons/index"}
-        Theme e
+      %a{"data-icon" => "arrow-l", "data-inline" => "true", "data-role" => "button", "data-theme" => "a", :href => "/mobile/docs/buttons"} Theme a
+      %a{"data-icon" => "arrow-l", "data-inline" => "true", "data-role" => "button", "data-theme" => "b", :href => "/mobile/docs/buttons"} Theme b
+      %a{"data-icon" => "arrow-l", "data-inline" => "true", "data-role" => "button", "data-theme" => "c", :href => "/mobile/docs/buttons"} Theme c
+      %a{"data-icon" => "arrow-l", "data-inline" => "true", "data-role" => "button", "data-theme" => "d", :href => "/mobile/docs/buttons"} Theme d
+      %a{"data-icon" => "arrow-l", "data-inline" => "true", "data-role" => "button", "data-theme" => "e", :href => "/mobile/docs/buttons"} Theme e
     %p
-      %strong
-        "c" theme
+      %strong "c" theme
       on container with themed buttons inside
     %div{"data-role" => "content", "data-theme" => "c"}
-      %a{"data-icon" => "arrow-l", "data-inline" => "true", "data-role" => "button", "data-theme" => "a", :href => "/mobile/docs/buttons/index"}
-        Theme a
-      %a{"data-icon" => "arrow-l", "data-inline" => "true", "data-role" => "button", "data-theme" => "b", :href => "/mobile/docs/buttons/index"}
-        Theme b
-      %a{"data-icon" => "arrow-l", "data-inline" => "true", "data-role" => "button", "data-theme" => "c", :href => "/mobile/docs/buttons/index"}
-        Theme c
-      %a{"data-icon" => "arrow-l", "data-inline" => "true", "data-role" => "button", "data-theme" => "d", :href => "/mobile/docs/buttons/index"}
-        Theme d
-      %a{"data-icon" => "arrow-l", "data-inline" => "true", "data-role" => "button", "data-theme" => "e", :href => "/mobile/docs/buttons/index"}
-        Theme e
+      %a{"data-icon" => "arrow-l", "data-inline" => "true", "data-role" => "button", "data-theme" => "a", :href => "/mobile/docs/buttons"} Theme a
+      %a{"data-icon" => "arrow-l", "data-inline" => "true", "data-role" => "button", "data-theme" => "b", :href => "/mobile/docs/buttons"} Theme b
+      %a{"data-icon" => "arrow-l", "data-inline" => "true", "data-role" => "button", "data-theme" => "c", :href => "/mobile/docs/buttons"} Theme c
+      %a{"data-icon" => "arrow-l", "data-inline" => "true", "data-role" => "button", "data-theme" => "d", :href => "/mobile/docs/buttons"} Theme d
+      %a{"data-icon" => "arrow-l", "data-inline" => "true", "data-role" => "button", "data-theme" => "e", :href => "/mobile/docs/buttons"} Theme e
     %p
-      %strong
-        "d" theme
+      %strong "d" theme
       on container with themed buttons inside
     %div{"data-role" => "content", "data-theme" => "d"}
-      %a{"data-icon" => "arrow-l", "data-inline" => "true", "data-role" => "button", "data-theme" => "a", :href => "/mobile/docs/buttons/index"}
-        Theme a
-      %a{"data-icon" => "arrow-l", "data-inline" => "true", "data-role" => "button", "data-theme" => "b", :href => "/mobile/docs/buttons/index"}
-        Theme b
-      %a{"data-icon" => "arrow-l", "data-inline" => "true", "data-role" => "button", "data-theme" => "c", :href => "/mobile/docs/buttons/index"}
-        Theme c
-      %a{"data-icon" => "arrow-l", "data-inline" => "true", "data-role" => "button", "data-theme" => "d", :href => "/mobile/docs/buttons/index"}
-        Theme d
-      %a{"data-icon" => "arrow-l", "data-inline" => "true", "data-role" => "button", "data-theme" => "e", :href => "/mobile/docs/buttons/index"}
-        Theme e
+      %a{"data-icon" => "arrow-l", "data-inline" => "true", "data-role" => "button", "data-theme" => "a", :href => "/mobile/docs/buttons"} Theme a
+      %a{"data-icon" => "arrow-l", "data-inline" => "true", "data-role" => "button", "data-theme" => "b", :href => "/mobile/docs/buttons"} Theme b
+      %a{"data-icon" => "arrow-l", "data-inline" => "true", "data-role" => "button", "data-theme" => "c", :href => "/mobile/docs/buttons"} Theme c
+      %a{"data-icon" => "arrow-l", "data-inline" => "true", "data-role" => "button", "data-theme" => "d", :href => "/mobile/docs/buttons"} Theme d
+      %a{"data-icon" => "arrow-l", "data-inline" => "true", "data-role" => "button", "data-theme" => "e", :href => "/mobile/docs/buttons"} Theme e
     %p
-      %strong
-        "e" theme
+      %strong "d" theme
       on container with themed buttons inside
     %div{"data-role" => "content", "data-theme" => "e"}
-      %a{"data-icon" => "arrow-l", "data-inline" => "true", "data-role" => "button", "data-theme" => "a", :href => "/mobile/docs/buttons/index"}
-        Theme a
-      %a{"data-icon" => "arrow-l", "data-inline" => "true", "data-role" => "button", "data-theme" => "b", :href => "/mobile/docs/buttons/index"}
-        Theme b
-      %a{"data-icon" => "arrow-l", "data-inline" => "true", "data-role" => "button", "data-theme" => "c", :href => "/mobile/docs/buttons/index"}
-        Theme c
-      %a{"data-icon" => "arrow-l", "data-inline" => "true", "data-role" => "button", "data-theme" => "d", :href => "/mobile/docs/buttons/index"}
-        Theme d
-      %a{"data-icon" => "arrow-l", "data-inline" => "true", "data-role" => "button", "data-theme" => "e", :href => "/mobile/docs/buttons/index"}
-        Theme e
+      %a{"data-icon" => "arrow-l", "data-inline" => "true", "data-role" => "button", "data-theme" => "a", :href => "/mobile/docs/buttons"} Theme a
+      %a{"data-icon" => "arrow-l", "data-inline" => "true", "data-role" => "button", "data-theme" => "b", :href => "/mobile/docs/buttons"} Theme b
+      %a{"data-icon" => "arrow-l", "data-inline" => "true", "data-role" => "button", "data-theme" => "c", :href => "/mobile/docs/buttons"} Theme c
+      %a{"data-icon" => "arrow-l", "data-inline" => "true", "data-role" => "button", "data-theme" => "d", :href => "/mobile/docs/buttons"} Theme d
+      %a{"data-icon" => "arrow-l", "data-inline" => "true", "data-role" => "button", "data-theme" => "e", :href => "/mobile/docs/buttons"} Theme e
   / /content
 / /page

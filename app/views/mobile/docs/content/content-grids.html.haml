@@ -1,5 +1,5 @@
 - content_for :content_head do
-  = render(:partial => "/mobile/docs/docs.js.haml", :format => :js)
+  = render(:partial => "/mobile/index.js.haml", :format => :js)
 
 %div{"data-role" => "page"}
   %div{"data-role" => "header"}
@@ -77,7 +77,7 @@
         %button{"data-theme" => "b", :type => "submit"} Submit
     %p
       And, grid blocks can adopt presentation styles from the
-      %a{:href => "/mobile/docs/about/themes"} theming system
+      %a{:href => "../themes/index.html"} theming system
       \&mdash; by adding a height and color swatch reference to the grid blocks, we can achieve this style appearance:
     .ui-grid-a
       .ui-block-a

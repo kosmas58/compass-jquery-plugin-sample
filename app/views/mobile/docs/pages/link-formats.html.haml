@@ -1,3 +1,6 @@
+- content_for :content_head do
+  = render(:partial => "/mobile/index.js.haml", :format => :js)
+
 %div{"data-role" => "page"}
   %div{"data-role" => "header"}
     %h1 Link formats
@@ -28,9 +31,9 @@
       %li
         %a{:href => "http://www.jquery.com"} External domain
       %li
-        %a{:href => "/mobile/docs/pages", :rel => "external"} Link with rel="external"
+        %a{:href => "/mobile", :rel => "external"} Link with rel="external"
       %li
-        %a{:href => "/mobile/docs/pages", :target => "foo"} Link with target="foo"
+        %a{:href => "/mobile", :target => "foo"} Link with target="foo"
       %li{"data-role" => "list-divider"} Email links
       %li
         %a{:href => "mailto:jdoe@foo.com"} Basic email: mailto:jdoe@foo.com

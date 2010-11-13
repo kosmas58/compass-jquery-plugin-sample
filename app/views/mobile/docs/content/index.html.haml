@@ -1,30 +1,21 @@
 - content_for :content_head do
-  = render(:partial => "/mobile/docs/docs.js.haml", :format => :js)
+  = render(:partial => "/mobile/index.js.haml", :format => :js)
 
 %div{"data-role" => "page", "data-theme" => "b"}
   %div{"data-role" => "header", "data-theme" => "b"}
-    %h1
-      Content formatting
+    %h1 Content formatting
   / /header
   %div{"data-role" => "content"}
-    %p
-      The content of pages in jQuery Mobile is completely open-ended, but the jQuery Mobile
-      framework provides a number of helpful tools and widgets &mdash; such as collapsible panels
-      and multiple-column grid layouts &mdash; to make it easy to format your content for mobile
-      devices.
+    %p The content of pages in jQuery Mobile is completely open-ended, but the jQuery Mobile framework provides a number of helpful tools and widgets &mdash; such as collapsible panels and multiple-column grid layouts &mdash; to make it easy to format your content for mobile devices.
     %ul{"data-inset" => "true", "data-role" => "listview"}
       %li
-        %a{:href => "/mobile/docs/content/content-html"}
-          Basic HTML styles
+        %a{:href => "/mobile/docs/content/content-html"} Basic HTML styles
       %li
-        %a{:href => "/mobile/docs/content/content-grids"}
-          Layout grids (columns)
+        %a{:href => "/mobile/docs/content/content-grids"} Layout grids (columns)
       %li
-        %a{:href => "/mobile/docs/content/content-collapsible"}
-          Collapsible content blocks
+        %a{:href => "/mobile/docs/content/content-collapsible"} Collapsible content blocks
       %li
-        %a{:href => "/mobile/docs/content/content-themes"}
-          Theming content
+        %a{:href => "/mobile/docs/content/content-themes"} Theming content
       / <li><a href="api-content.html">API documentation</a></li>
   / /ui-body wrapper
 / /page

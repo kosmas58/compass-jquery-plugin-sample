@@ -1,5 +1,5 @@
 - content_for :content_head do
-  = render(:partial => "/mobile/docs/docs.js.haml", :format => :js)
+  = render(:partial => "/mobile/index.js.haml", :format => :js)
 
 %div{"data-role" => "page"}
   %div{"data-role" => "header"}
@@ -13,7 +13,7 @@
       %code data-icon
       attribute on the anchor specifying the icon to display.  For example, the following markup:
     %code
-      \&lt;a href=&quot;index.html&quot; data-role=&quot;button&quot;
+      \&lt;a href=&quot;/mobile/docs/buttons&quot; data-role=&quot;button&quot;
       = succeed "&amp;gt;Delete&amp;lt;/a&amp;gt;" do
         %strong data-icon=&quot;delete&quot;
     %p Creates this button with an icon:
@@ -95,7 +95,7 @@
       %code data-iconpos
       attribute to set the icon to the right, above (top) or below (bottom) the text. For example, the markup:
     %code
-      \&lt;a href=&quot;index.html&quot; data-role=&quot;button&quot; data-icon=&quot;delete&quot;
+      \&lt;a href=&quot;/mobile/docs/buttons&quot; data-role=&quot;button&quot; data-icon=&quot;delete&quot;
       %strong> data-iconpos=&quot;right&quot;
       \&gt;Delete&lt;/a&gt;
     %p Creates this button with right-aligned icon:
@@ -122,7 +122,7 @@
       = succeed ":" do
         %code data-iconpos="notext"
     %code
-      \&lt;a href=&quot;index.html&quot; data-role=&quot;button&quot; data-icon=&quot;delete&quot;
+      \&lt;a href=&quot;/mobile/docs/buttons&quot; data-role=&quot;button&quot; data-icon=&quot;delete&quot;
       %strong> data-iconpos=&quot;notext&quot;
       \&gt;Delete&lt;/a&gt;
     %p Creates this icon-only button:

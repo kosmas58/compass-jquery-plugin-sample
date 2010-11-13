@@ -1,10 +1,9 @@
+- content_for :content_head do
+  = render(:partial => "/mobile/index.js.haml", :format => :js)
+
 %div{"data-role" => "page"}
   %div{"data-role" => "content", "data-theme" => "b"}
-    %p
-      Flickr upload:
-    %h3
-      Photos posted successfully
-    %a{"data-role" => "button", "data-theme" => "b", :href => "/mobile/docs/pages/docs-dialogs"}
-      View photo page
-    %a{"data-role" => "button", "data-theme" => "c", :href => "/mobile/docs/pages/docs-dialogs"}
-      Done
+    %p Flickr upload:
+    %h3 Photos posted successfully
+    %a{"data-role" => "button", "data-theme" => "b", :href => "/mobile/docs/pages/docs-dialogs"} View photo page
+    %a{"data-role" => "button", "data-theme" => "c", :href => "/mobile/docs/pages/docs-dialogs"} Done

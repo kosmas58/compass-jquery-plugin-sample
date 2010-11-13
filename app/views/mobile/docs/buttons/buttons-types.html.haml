@@ -1,89 +1,66 @@
 - content_for :content_head do
-  = render(:partial => "/mobile/docs/docs.js.haml", :format => :js)
+  = render(:partial => "/mobile/index.js.haml", :format => :js)
 
 %div{"data-role" => "page"}
   %div{"data-role" => "header"}
-    %h1
-      Button markup options
+    %h1 Button markup options
   / /header
   %div{"data-role" => "content"}
     %p
-      Buttons that are used for navigation should be coded as anchor links, and those that submit
-      forms as
-      %code
-        button
+      Buttons that are used for navigation should be coded as anchor links, and those that submit forms as
+      %code button
       elements &mdash; each will be styled identically by the framework.
-    %h2
-      Styling links as buttons
+    %h2 Styling links as buttons
     %p
       In the main content block of a page, you can style any anchor link as a button by adding the
-      %code
-        data-role="button"
-      to the link. The framework will add all necessary classes to style the link as a button. For
-      example, this markup:
+      %code data-role="button"
+      to the link. The framework will add all necessary classes to style the link as a button. For example, this markup:
     %code
-      &lt;a href=&quot;index.html&quot; data-role=&quot;button&quot;&gt;Link button&lt;/a&gt;
+      \&lt;a href=&quot;/mobile/docs/buttons&quot; data-role=&quot;button&quot;&gt;Link button&lt;/a&gt;
     %p
       Produces this
-      %strong
-        link-based
+      %strong link-based
       button:
-    %a{"data-role" => "button", :href => "/mobile/docs/buttons/index"}
-      Link button
-    %h2
-      Form buttons
+    %a{"data-role" => "button", :href => "/mobile/docs/buttons"} Link button
+    %h2 Form buttons
     %p
       For ease of styling, the framework automatically converts any
-      %code
-        button
+      %code button
       element or
-      %code
-        input
+      %code input
       with a
-      %code
-        type
+      %code type
       of
-      %code
-        submit
-      ,
-      %code
-        reset
-      ,
-      %code
-        button
+      = succeed "," do
+        %code submit
+      = succeed "," do
+        %code reset
+      = succeed "," do
+        %code button
       or
-      %code
-        image
+      %code image
       into a custom styled link-based button &mdash; there is no need to add the
-      %code
-        data-role="button"
+      %code data-role="button"
       attribute.
+    %p The original form-based button is hidden, but remains in the markup.  When a click event fires on a link button, it triggers a click on the original form button.
     %p
-      The original form-based button is hidden, but remains in the markup.  When a click event
-      fires on a link button, it triggers a click on the original form button.
-    %p
-      %strong
-        Button
+      %strong Button
       based button:
     %button Button element
     %p
-      %strong
-        Input type="button"
+      %strong Input type="button"
       based button:
     %input{:type => "button", :value => "Input type=button"}/
     %p
-      %strong
-        Input type="submit"
+      %strong Input type="submit"
       based button:
     %input{:type => "submit", :value => "Input type=submit"}/
     %p
-      %strong
-        Input type="reset"
+      %strong Input type="reset"
       based button:
     %input{:type => "reset", :value => "Input type=reset"}/
     %p
-      %strong
-        Input type="image"
+      %strong Input type="image"
       based button:
     %input{:type => "image", :value => "Input type=image"}/
   / /content

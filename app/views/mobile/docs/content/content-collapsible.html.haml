@@ -1,171 +1,112 @@
+- content_for :content_head do
+  = render(:partial => "/mobile/index.js.haml", :format => :js)
+
 %div{"data-role" => "page"}
   %div{"data-role" => "header"}
-    %h1
-      Collapsible content
+    %h1 Collapsible content
   / /header
   %div{"data-role" => "content"}
-    %h2
-      Collapsible content markup
+    %h2 Collapsible content markup
     %p
       To create a collapsible blocks of content, create a container and add the
-      %code
-        data-role="collapsible"
+      %code data-role="collapsible"
       attribute.
-    %p
-      Directly inside this container, add any header element (H1-H6). The framework will style the header
-      to look like a clickable button and add a "+" icon to the left to indicate it's expandable.
-    %p
-      After the header, add any HTML markup you want to be collapsible. The framework will wrap this markup
-      in a container that will be hidden/shown when the heading is clicked.
+    %p Directly inside this container, add any header element (H1-H6). The framework will style the header to look like a clickable button and add a "+" icon to the left to indicate it's expandable.
+    %p After the header, add any HTML markup you want to be collapsible. The framework will wrap this markup in a container that will be hidden/shown when the heading is clicked.
     %pre
       %code
         :preserve
-          &lt;div data-role=&quot;collapsible&quot;&gt;
-          &lt;h3&gt;I&#x27;m a header&lt;/h3&gt;
-          &lt;p&gt;I&#x27;m the collapsible content. By default I'm open and displayed on the page, but you
-          can click the header to hide me.&lt;/p&gt;
-          &lt;/div&gt;
-    %div{"data-role" => "collapsible"}
-      %h3
-        I'm a header
-      %p
-        I'm the collapsible content. By default I'm open and displayed on the page, but you can click the
-        header to hide me.
+          		
+          	&lt;div data-role=&quot;collapsible&quot;&gt;
+          	&lt;h3&gt;I&#x27;m a header&lt;/h3&gt;
+          	&lt;p&gt;I&#x27;m the collapsible content. By default I'm open and displayed on the page, but you can click the header to hide me.&lt;/p&gt;
+          	&lt;/div&gt;
+          	        %div{"data-role" => "collapsible"}
+      %h3 I'm a header
+      %p I'm the collapsible content. By default I'm open and displayed on the page, but you can click the header to hide me.
     %p
-      As the example notes, by default the content will be expanded. To collapse the content when the page
-      loads, add the
-      %code
-        data-collapsed="true"
+      As the example notes, by default the content will be expanded. To collapse the content when the page loads, add the
+      %code data-collapsed="true"
       attribute to the wrapper.
     %code
-      &lt;div data-role=&quot;collapsible&quot;
-      %strong
-        data-collapsed=&quot;true&quot;&gt;
-    %p
-      This code will create a collapsible widget like this:
+      \&lt;div data-role=&quot;collapsible&quot;
+      %strong data-collapsed=&quot;true&quot;&gt;
+    %p This code will create a collapsible widget like this:
     %div{"data-collapsed" => "true", "data-role" => "collapsible"}
-      %h3
-        I'm a header
-      %p
-        I'm the collapsible content. I'm hidden by default because I have the "collapsed" state; you need
-        to expand the header to see me.
-    %p
-      Collapsible content is minimally styled &mdash; we add only a bit of margin between the bar and
-      content, and the header adopts the default Theme styles of the container it sits within.
-    %h2
-      Collapsible example
-    %p
-      This page has 4 collapsible containers with different types of content inside.
+      %h3 I'm a header
+      %p I'm the collapsible content. I'm hidden by default because I have the "collapsed" state; you need to expand the header to see me.
+    %p Collapsible content is minimally styled &mdash; we add only a bit of margin between the bar and content, and the header adopts the default Theme styles of the container it sits within.
+    %h2 Collapsible example
+    %p This page has 4 collapsible containers with different types of content inside.
     %div{"data-collapsed" => "true", "data-role" => "collapsible"}
-      %h3
-        Section 1: Collapsed text block
+      %h3 Section 1: Collapsed text block
       %p
         I'm closed when the page loads because I have the
-        %code
-          data-collapsed="true"
+        %code data-collapsed="true"
         attribute on my container.
-      %p
-        I'm the collapsible content. I'm the collapsible content. I'm the collapsible content. I'm the
-        collapsible content. I'm the collapsible content. I'm the collapsible content. I'm the collapsible
-        content.
+      %p I'm the collapsible content. I'm the collapsible content. I'm the collapsible content. I'm the collapsible content. I'm the collapsible content. I'm the collapsible content. I'm the collapsible content.
     / /section 1
     %div{"data-role" => "collapsible"}
-      %h3
-        Section 2: Expanded on load
+      %h3 Section 2: Expanded on load
       %p
         I'm open when the page loads because I don't have the
-        %code
-          data-collapsed="true"
+        %code data-collapsed="true"
         attribute on my container.
-      %p
-        I'm the collapsible content. I'm the collapsible content. I'm the collapsible content. I'm the
-        collapsible content. I'm the collapsible content. I'm the collapsible content.
+      %p I'm the collapsible content. I'm the collapsible content. I'm the collapsible content. I'm the collapsible content. I'm the collapsible content. I'm the collapsible content.
     / /section 2
     %div{"data-collapsed" => "true", "data-role" => "collapsible"}
-      %h3
-        Section 3: Form elements
+      %h3 Section 3: Form elements
       %form{:action => "#", :method => "get"}
         %div{"data-role" => "fieldcontain"}
           %label{:for => "textarea"} Textarea:
           %textarea#textarea{:cols => "40", :name => "textarea", :rows => "8"}
         %div{"data-role" => "fieldcontain"}
-          %label{:for => "slider"}
-          Input slider:
+          %label{:for => "slider"} Input slider:
           %input#slider{:max => "100", :min => "0", :name => "slider", :type => "range", :value => "0"}/
         %fieldset.ui-grid-a
           .ui-block-a
-            %button{"data-theme" => "c", :type => "submit"}
-              Cancel
+            %button{"data-theme" => "c", :type => "submit"} Cancel
           .ui-block-b
-            %button{"data-theme" => "b", :type => "submit"}
-              Submit
+            %button{"data-theme" => "b", :type => "submit"} Submit
     / /section 3
     %div{"data-collapsed" => "true", "data-role" => "collapsible"}
-      %h3
-        Section 4: Collapsed list
+      %h3 Section 4: Collapsed list
       %ul{"data-inset" => "true", "data-role" => "listview", "data-theme" => "d"}
         %li
-          %a{:href => "/mobile/docs/content"}
-            Acura
+          %a{:href => "/mobile/docs/content"} Acura
         %li
-          %a{:href => "/mobile/docs/content"}
-            Audi
+          %a{:href => "/mobile/docs/content"} Audi
         %li
-          %a{:href => "/mobile/docs/content"}
-            BMW
+          %a{:href => "/mobile/docs/content"} BMW
         %li
-          %a{:href => "/mobile/docs/content"}
-            Cadillac
+          %a{:href => "/mobile/docs/content"} Cadillac
         %li
-          %a{:href => "/mobile/docs/content"}
-            Chrysler
+          %a{:href => "/mobile/docs/content"} Chrysler
         %li
-          %a{:href => "/mobile/docs/content"}
-            Dodge
+          %a{:href => "/mobile/docs/content"} Dodge
         %li
-          %a{:href => "/mobile/docs/content"}
-            Ferrari
+          %a{:href => "/mobile/docs/content"} Ferrari
         %li
-          %a{:href => "/mobile/docs/content"}
-            Ford
+          %a{:href => "/mobile/docs/content"} Ford
     / /section 4
-    %h2
-      Nested Collapsibles
+    %h2 Nested Collapsibles
     %div{"data-role" => "collapsible"}
-      %h3
-        I'm a header
-      %p
-        I'm the collapsible content. By default I'm open and displayed on the page, but you can click the
-        header to hide me.
+      %h3 I'm a header
+      %p I'm the collapsible content. By default I'm open and displayed on the page, but you can click the header to hide me.
       %div{"data-role" => "collapsible"}
-        %h3
-          I'm a nested collapsible header
-        %p
-          I'm the collapsible content. By default I'm open and displayed on the page, but you can click the
-          header to hide me.
-    %h2
-      Collapsible sets
-    %p
-      By giving a parent element a data-role of collapsible-set, you can cause other collapsibles within
-      that parent to close whenever a new one is opened, acting like an accordion widget:
+        %h3 I'm a nested collapsible header
+        %p I'm the collapsible content. By default I'm open and displayed on the page, but you can click the header to hide me.
+    %h2 Collapsible sets
+    %p By giving a parent element a data-role of collapsible-set, you can cause other collapsibles within that parent to close whenever a new one is opened, acting like an accordion widget:
     %div{"data-role" => "collapsible-set"}
       %div{"data-role" => "collapsible"}
-        %h3
-          I'm a header in a set of collapsibles
-        %p
-          I'm the collapsible content. I'm hidden by default because I have the "collapsed" state; you need
-          to expand the header to see me.
+        %h3 I'm a header in a set of collapsibles
+        %p I'm the collapsible content. I'm hidden by default because I have the "collapsed" state; you need to expand the header to see me.
       %div{"data-collapsed" => "true", "data-role" => "collapsible"}
-        %h3
-          I'm a header in a set of collapsibles
-        %p
-          I'm the collapsible content. I'm hidden by default because I have the "collapsed" state; you need
-          to expand the header to see me.
+        %h3 I'm a header in a set of collapsibles
+        %p I'm the collapsible content. I'm hidden by default because I have the "collapsed" state; you need to expand the header to see me.
       %div{"data-collapsed" => "true", "data-role" => "collapsible"}
-        %h3
-          I'm a header in a set of collapsibles
-        %p
-          I'm the collapsible content. I'm hidden by default because I have the "collapsed" state; you need
-          to expand the header to see me.
+        %h3 I'm a header in a set of collapsibles
+        %p I'm the collapsible content. I'm hidden by default because I have the "collapsed" state; you need to expand the header to see me.
   / /content
 / /page

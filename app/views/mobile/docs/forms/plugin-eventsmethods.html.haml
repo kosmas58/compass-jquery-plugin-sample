@@ -1,0 +1,114 @@
+- content_for :content_head do
+  = render(:partial => "/mobile/index.js.haml", :format => :js)
+
+%div{"data-role" => "page"}
+  %div{"data-role" => "header"}
+    %h1 Form Plugin Methods
+  / /header
+  %div{"data-role" => "content"}
+    %p After jQuery Mobile auto-enhances form controls into custom controls, you can manipulate many of their properties via plugin methods. The currently available methods are listed below. Check Github for updates - we're working on complete coverage.
+    %h2 Selectmenu
+    %dl
+      %dt Methods
+      %dd
+        %code open
+        open a closed select menu
+      %dd
+        %pre
+          %code
+            :preserve
+              
+              $('select').selectmenu('open');			
+              			          %dd
+        %code close
+        close an open select menu
+      %dd
+        %pre
+          %code
+            :preserve
+              
+              $('select').selectmenu('close');			
+              			          %dd
+        %code> refresh
+        \: Update the custom menu to reflect the native select element's value. If the number of options in the select are different than the number of items in the custom menu, it'll rebuild the custom menu. Also, if you pass a true argument you can force the rebuild to happen.
+      %dd
+        %pre
+          %code
+            :preserve
+              
+              //refresh value			
+              $('select').selectmenu('refresh');
+              
+              //refresh and force rebuild
+              $('select').selectmenu('refresh', true);
+              			          %dd
+        %code> enable
+        \: enable a disabled select.
+      %dd
+        %pre
+          %code
+            :preserve
+              
+              $('select').selectmenu('enable');			
+              			          %dd
+        %code> disable
+        \: disable a select.
+      %dd
+        %pre
+          %code
+            :preserve
+              
+              $('select').selectmenu('disable');			
+              			        %h2 Textinput
+    %dl
+      %dt Methods
+      %dd
+        %code> enable
+        \: enable a disabled textinput/textarea.
+      %dd
+        %pre
+          %code
+            :preserve
+              
+              $('input').textinput('enable');			
+              			          %dd
+        %code> disable
+        \: disable a textinput/textarea.
+      %dd
+        %pre
+          %code
+            :preserve
+              
+              $('textarea').textinput('disable');			
+              			        %h2 checkboxradio
+    %dl
+      %dt Methods
+      %dd
+        %code> enable
+        \: enable a disabled checkboxradio.
+      %dd
+        %pre
+          %code
+            :preserve
+              
+              $('input').checkboxradio('enable');			
+              			          %dd
+        %code> disable
+        \: disable a checkboxradio.
+      %dd
+        %pre
+          %code
+            :preserve
+              
+              $('textarea').checkboxradio('disable');			
+              			          %dd
+        %code> refresh
+        \: refresh a checkboxradio's value.
+      %dd
+        %pre
+          %code
+            :preserve
+              
+              $('textarea').checkboxradio('refresh');			
+              			      / /content
+/ /page

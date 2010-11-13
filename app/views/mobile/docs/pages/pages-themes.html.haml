@@ -1,263 +1,176 @@
 - content_for :content_head do
-  = render(:partial => "/mobile/docs/docs.js.haml", :format => :js)
+  = render(:partial => "/mobile/index.js.haml", :format => :js)
 
 %div{"data-role" => "page"}
   %div{"data-role" => "header"}
-    %h1
-      Theming pages
+    %h1 Theming pages
   / /header
   %div{"data-role" => "content"}
-    %h2
-      Page Theming
+    %h2 Page Theming
     %p
       jQuery Mobile has a rich
-      %a{:href => "/mobile/docs/about/themes"}
-        theming system
-      that gives you full control of how pages are styled. There is detailed theming
-      documentation within each page widget, but let's look at a few high-level examples
-      of how theming is applied.
+      %a{:href => "/mobile/docs/api/themes"} theming system
+      that gives you full control of how pages are styled. There is detailed theming documentation within each page widget, but let's look at a few high-level examples of how theming is applied.
     %p
       The
-      %code
-        data-theme
-      attribute can be applied to the header and footer containers to apply any of the lettered
-      theme color swatches. While the
-      %code
-        data-theme
+      %code data-theme
+      attribute can be applied to the header and footer containers to apply any of the lettered theme color swatches. While the
+      %code data-theme
       attribute could be added to the content container, we recommend adding it instead to
-      %code
-        div
+      %code div
       or container that has been assigned the
-      %code
-        data-role="page"
+      %code data-role="page"
       attribute to ensure that the background color is applied to the full page.
-    %p
-      The default Theme mixes styles from multiple swatches to create visual texture and present
-      the various elements in optimal contrast to one another:
+    %p The default Theme mixes styles from multiple swatches to create visual texture and present the various elements in optimal contrast to one another:
     %div{"data-role" => "header"}
       %h1 Default Theme
     .ui-bar.ui-bar-c
       %div{"data-role" => "controlgroup", "data-type" => "horizontal"}
-        %a{"data-icon" => "gear", "data-inline" => "true", "data-role" => "button", :href => "#"}
-          Tools
-        %a{"data-icon" => "star", "data-inline" => "true", "data-role" => "button", :href => "#"}
-          Like
-        %a{"data-icon" => "refresh", "data-inline" => "true", "data-role" => "button", :href => "#"}
-          Refresh
+        %a{"data-icon" => "gear", "data-inline" => "true", "data-role" => "button", :href => "#"} Tools
+        %a{"data-icon" => "star", "data-inline" => "true", "data-role" => "button", :href => "#"} Like
+        %a{"data-icon" => "refresh", "data-inline" => "true", "data-role" => "button", :href => "#"} Refresh
       / /controlgroup
     .ui-body.ui-body-c
-      %h3
-        Default Theme Content Header
+      %h3 Default Theme Content Header
       %p
         This is the default content color swatch and a preview of a
-        %a.ui-link{:href => "#"}
-          link
-        \.
-      %label{:for => "slider1"}
-        Input slider:
+        = succeed "." do
+          %a.ui-link{:href => "#"} link
+      %label{:for => "slider1"} Input slider:
       %input#slider1{:max => "100", :min => "0", :name => "slider1", :type => "range", :value => "50"}/
       %fieldset{"data-role" => "fieldcontain", "data-type" => "horizontal"}
-        %legend
-          Cache settings:
+        %legend Cache settings:
         %input#radio-choice-y1{:checked => "checked", :name => "radio-choice-y1", :type => "radio", :value => "on"}/
-        %label{:for => "radio-choice-y1"}
-          On
+        %label{:for => "radio-choice-y1"} On
         %input#radio-choice-z1{:name => "radio-choice-z1", :type => "radio", :value => "off"}/
-        %label{:for => "radio-choice-z1"}
-          Off
-      %a{"data-inline" => "true", "data-role" => "button", :href => "#"}
-        Button
+        %label{:for => "radio-choice-z1"} Off
+      %a{"data-inline" => "true", "data-role" => "button", :href => "#"} Button
     .ui-bar.ui-bar-a
       %div{"data-role" => "controlgroup", "data-type" => "horizontal"}
-        %a{"data-inline" => "true", :href => "#"}
-          Button
-        %a{"data-inline" => "true", :href => "#"}
-          Button
-        %a{"data-inline" => "true", :href => "#"}
-          Button
+        %a{"data-inline" => "true", :href => "#"} Button
+        %a{"data-inline" => "true", :href => "#"} Button
+        %a{"data-inline" => "true", :href => "#"} Button
       / /controlgroup
-    %p
-      And each of the five "swatches" applies its style consistently across all page elements,
-      as shown below:
-    %h2
-      Swatch A
+    %p And each of the five "swatches" applies its style consistently across all page elements, as shown below:
+    %h2 Swatch A
     %div{"data-position" => "inline", "data-role" => "header"}
-      %h1
-        Header A
+      %h1 Header A
     .ui-body.ui-body-a
-      %h3
-        Header
+      %h3 Header
       %p
         This is content color swatch "A" and a preview of a
-        %a.ui-link{:href => "#"}
-          link
-        \.
-      %label{:for => "slider1"}
-        Input slider:
+        = succeed "." do
+          %a.ui-link{:href => "#"} link
+      %label{:for => "slider1"} Input slider:
       %input#slider1{"data-theme" => "a", :max => "100", :min => "0", :name => "slider1", :type => "range", :value => "50"}/
       %fieldset{"data-role" => "fieldcontain", "data-type" => "horizontal"}
-        %legend
-          Cache settings:
+        %legend Cache settings:
         %input#radio-choice-a1{:checked => "checked", :name => "radio-choice-a1", :type => "radio", :value => "on"}/
-        %label{:for => "radio-choice-a1"}
-          On
+        %label{:for => "radio-choice-a1"} On
         %input#radio-choice-b1{:name => "radio-choice-a1", :type => "radio", :value => "off"}/
-        %label{:for => "radio-choice-b1"}
-          Off
-      %a{"data-inline" => "true", "data-role" => "button", :href => "#"}
-        Button
+        %label{:for => "radio-choice-b1"} Off
+      %a{"data-inline" => "true", "data-role" => "button", :href => "#"} Button
     .ui-bar.ui-bar-a
       %div{"data-role" => "controlgroup", "data-type" => "horizontal"}
-        %a{"data-inline" => "true", :href => "#"}
-          Button
-        %a{"data-inline" => "true", :href => "#"}
-          Button
-        %a{"data-inline" => "true", :href => "#"}
-          Button
+        %a{"data-inline" => "true", :href => "#"} Button
+        %a{"data-inline" => "true", :href => "#"} Button
+        %a{"data-inline" => "true", :href => "#"} Button
       / /controlgroup
-    %h2
-      Swatch B
+    %h2 Swatch B
     %div{"data-role" => "header", "data-theme" => "b"}
-      %h1
-        Header B
+      %h1 Header B
     .ui-body.ui-body-b
-      %h3
-        Header
+      %h3 Header
       %p
         This is content color swatch "B" and a preview of a
-        %a.ui-link{:href => "#"}
-          link
-        \.
-      %label{:for => "slider1"}
-        Input slider:
+        = succeed "." do
+          %a.ui-link{:href => "#"} link
+      %label{:for => "slider1"} Input slider:
       %input#slider1{"data-theme" => "b", :max => "100", :min => "0", :name => "slider1", :type => "range", :value => "50"}/
       %fieldset{"data-role" => "fieldcontain", "data-type" => "horizontal"}
-        %legend
-          Cache settings:
+        %legend Cache settings:
         %input#radio-choice-a2{:checked => "checked", :name => "radio-choice-a2", :type => "radio", :value => "on"}/
-        %label{:for => "radio-choice-a2"}
-          On
+        %label{:for => "radio-choice-a2"} On
         %input#radio-choice-b2{:name => "radio-choice-a2", :type => "radio", :value => "off"}/
-        %label{:for => "radio-choice-b2"}
-          Off
-      %a{"data-inline" => "true", "data-role" => "button", :href => "#"}
-        Button
+        %label{:for => "radio-choice-b2"} Off
+      %a{"data-inline" => "true", "data-role" => "button", :href => "#"} Button
     .ui-bar.ui-bar-b
       %div{"data-role" => "controlgroup", "data-type" => "horizontal"}
-        %a{"data-inline" => "true", :href => "#"}
-          Button
-        %a{"data-inline" => "true", :href => "#"}
-          Button
-        %a{"data-inline" => "true", :href => "#"}
-          Button
+        %a{"data-inline" => "true", :href => "#"} Button
+        %a{"data-inline" => "true", :href => "#"} Button
+        %a{"data-inline" => "true", :href => "#"} Button
       / /controlgroup
-    %h2
-      Swatch C
+    %h2 Swatch C
     %div{"data-role" => "header", "data-theme" => "c"}
-      %h1
-        Header C
+      %h1 Header C
     .ui-body.ui-body-c
-      %h3
-        Header
+      %h3 Header
       %p
         This is content color swatch "C" and a preview of a
-        %a.ui-link{:href => "#"}
-          link
-        \.
-      %label{:for => "slider1"}
-        Input slider:
+        = succeed "." do
+          %a.ui-link{:href => "#"} link
+      %label{:for => "slider1"} Input slider:
       %input#slider1{"data-theme" => "c", :max => "100", :min => "0", :name => "slider1", :type => "range", :value => "50"}/
       %fieldset{"data-role" => "fieldcontain", "data-type" => "horizontal"}
-        %legend
-          Cache settings:
+        %legend Cache settings:
         %input#radio-choice-a3{:checked => "checked", :name => "radio-choice-a3", :type => "radio", :value => "on"}/
-        %label{:for => "radio-choice-a3"}
-          On
+        %label{:for => "radio-choice-a3"} On
         %input#radio-choice-b3{:name => "radio-choice-a3", :type => "radio", :value => "off"}/
-        %label{:for => "radio-choice-b3"}
-          Off
-      %a{"data-inline" => "true", "data-role" => "button", :href => "#"}
-        Button
+        %label{:for => "radio-choice-b3"} Off
+      %a{"data-inline" => "true", "data-role" => "button", :href => "#"} Button
     .ui-bar.ui-bar-c
       %div{"data-role" => "controlgroup", "data-type" => "horizontal"}
-        %a{"data-inline" => "true", :href => "#"}
-          Button
-        %a{"data-inline" => "true", :href => "#"}
-          Button
-        %a{"data-inline" => "true", :href => "#"}
-          Button
+        %a{"data-inline" => "true", :href => "#"} Button
+        %a{"data-inline" => "true", :href => "#"} Button
+        %a{"data-inline" => "true", :href => "#"} Button
       / /controlgroup
-    %h2
-      Swatch D
+    %h2 Swatch D
     %div{"data-role" => "header", "data-theme" => "d"}
-      %h1
-        Header D
+      %h1 Header D
     .ui-body.ui-body-d
-      %h3
-        Header
+      %h3 Header
       %p
         This is content color swatch "D" and a preview of a
-        %a.ui-link{:href => "#"}
-          link
-        \.
-      %label{:for => "slider1"}
-        Input slider:
+        = succeed "." do
+          %a.ui-link{:href => "#"} link
+      %label{:for => "slider1"} Input slider:
       %input#slider1{"data-theme" => "d", :max => "100", :min => "0", :name => "slider1", :type => "range", :value => "50"}/
       %fieldset{"data-role" => "fieldcontain", "data-type" => "horizontal"}
-        %legend
-          Cache settings:
+        %legend Cache settings:
         %input#radio-choice-a4{:checked => "checked", :name => "radio-choice-a4", :type => "radio", :value => "on"}/
-        %label{:for => "radio-choice-a4"}
-          On
+        %label{:for => "radio-choice-a4"} On
         %input#radio-choice-b4{:name => "radio-choice-a4", :type => "radio", :value => "off"}/
-        %label{:for => "radio-choice-b4"}
-          Off
-      %a{"data-inline" => "true", "data-role" => "button", :href => "#"}
-        Button
+        %label{:for => "radio-choice-b4"} Off
+      %a{"data-inline" => "true", "data-role" => "button", :href => "#"} Button
     .ui-bar.ui-bar-d
       %div{"data-role" => "controlgroup", "data-type" => "horizontal"}
-        %a{"data-inline" => "true", :href => "#"}
-          Button
-        %a{"data-inline" => "true", :href => "#"}
-          Button
-        %a{"data-inline" => "true", :href => "#"}
-          Button
+        %a{"data-inline" => "true", :href => "#"} Button
+        %a{"data-inline" => "true", :href => "#"} Button
+        %a{"data-inline" => "true", :href => "#"} Button
       / /controlgroup
-    %h2
-      Swatch E
+    %h2 Swatch E
     %div{"data-role" => "header", "data-theme" => "e"}
-      %h1
-        Header E
+      %h1 Header E
     .ui-body.ui-body-e
-      %h3
-        Header
+      %h3 Header
       %p
         This is content color swatch "D" and a preview of a
-        %a.ui-link{:href => "#"}
-          link
-        \.
-      %label{:for => "slider1"}
-        Input slider:
+        = succeed "." do
+          %a.ui-link{:href => "#"} link
+      %label{:for => "slider1"} Input slider:
       %input#slider1{"data-theme" => "e", :max => "100", :min => "0", :name => "slider1", :type => "range", :value => "50"}/
       %fieldset{"data-role" => "fieldcontain", "data-type" => "horizontal"}
-        %legend
-          Cache settings:
+        %legend Cache settings:
         %input#radio-choice-a5{:checked => "checked", :name => "radio-choice-a5", :type => "radio", :value => "on"}/
-        %label{:for => "radio-choice-a5"}
-          On
+        %label{:for => "radio-choice-a5"} On
         %input#radio-choice-b5{:name => "radio-choice-a5", :type => "radio", :value => "off"}/
-        %label{:for => "radio-choice-b5"}
-          Off
-      %a{"data-inline" => "true", "data-role" => "button", :href => "#"}
-        Button
+        %label{:for => "radio-choice-b5"} Off
+      %a{"data-inline" => "true", "data-role" => "button", :href => "#"} Button
     .ui-bar.ui-bar-e
       %div{"data-role" => "controlgroup", "data-type" => "horizontal"}
-        %a{"data-inline" => "true", :href => "#"}
-          Button
-        %a{"data-inline" => "true", :href => "#"}
-          Button
-        %a{"data-inline" => "true", :href => "#"}
-          Button
+        %a{"data-inline" => "true", :href => "#"} Button
+        %a{"data-inline" => "true", :href => "#"} Button
+        %a{"data-inline" => "true", :href => "#"} Button
       / /controlgroup
   / /content
 / /page

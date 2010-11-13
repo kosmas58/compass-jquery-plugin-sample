@@ -1,0 +1,19 @@
+- content_for :content_head do
+  = render(:partial => "/mobile/index.js.haml", :format => :js)
+
+%div{"data-role" => "page", "data-theme" => "b"}
+  %div{"data-position" => "inline", "data-role" => "header"}
+    %h1 API
+  %div{"data-role" => "content"}
+    %ul{"data-dividertheme" => "b", "data-inset" => "true", "data-role" => "listview", "data-theme" => "c"}
+      %li{"data-role" => "list-divider"} API
+      %li
+        %a{:href => "/mobile/docs/api/globalconfig"} Configuring defaults
+      %li
+        %a{:href => "/mobile/docs/api/events"} Events
+      %li
+        %a{:href => "/mobile/docs/api/methods"} Methods &amp; Utilities
+      %li
+        %a{:href => "/mobile/docs/api/mediahelpers"} Responsive Layout
+      %li
+        %a{:href => "/mobile/docs/api/themes"} Theme framework

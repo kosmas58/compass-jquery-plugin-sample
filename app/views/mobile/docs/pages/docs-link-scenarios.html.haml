@@ -1,48 +1,34 @@
+- content_for :content_head do
+  = render(:partial => "/mobile/index.js.haml", :format => :js)
+
 %div{"data-role" => "page"}
   %div{"data-role" => "header"}
-    %h1
-      Linking pages
+    %h1 Linking pages
   / /header
   %div{"data-role" => "content"}
-    %p
-      jQuery Mobile is designed to work with simple page linking conventions. The following
-      list demonstrates how different types of links will be handled, either remotely or
-      through an Ajax Request.
+    %p jQuery Mobile is designed to work with simple page linking conventions. The following list demonstrates how different types of links will be handled, either remotely or through an Ajax Request.
     %ul{"data-dividertheme" => "b", "data-inset" => "true", "data-role" => "listview", "data-theme" => "c"}
-      %li{"data-role" => "list-divider"}
-        Examples of links that work within a single-page (if the page exists)
+      %li{"data-role" => "list-divider"} Examples of links that work within a single-page (if the page exists)
       %li
-        %a{:href => "/mobile/docs/pages/index"} 
-          [href="/mobile/docs/pages/index"]
+        %a{:href => "/mobile/docs/pages"} [href="index.hml"]
       %li
-        %a{:href => "/mobile/docs/pages/index"}
-          [href="/mobile/docs/pages/index"]
+        %a{:href => "/mobile/docs/pages"} [href="index.html"]
       %li
-        %a{:href => "#somelocalID"}
-          [href="#somelocalID"]
+        %a{:href => "#somelocalID"} [href="#somelocalID"]
+      %li Note: an full URL to the same-domain will also work
+      %li{"data-role" => "list-divider"} Examples of links that trigger a refresh
       %li
-        Note: an full URL to the same-domain will also work
-      %li{"data-role" => "list-divider"}
-        Examples of links that trigger a refresh
+        %a{:href => "/mobile/docs/pages", :rel => "external"} [rel="external"]
       %li
-        %a{:href => "/mobile/docs/pages/index", :rel => "external"}
-          [rel="external"]
+        %a{:href => "/mobile/docs/pages", :target => "_blank"} [target="_blank"]
       %li
-        %a{:href => "/mobile/docs/pages/index", :target => "_blank"}
-          [target="_blank"]
+        %a{:href => "mailto:john@doe.com"} [href="mailto:john@doe.com"]
       %li
-        %a{:href => "mailto:john@doe.com"}
-          [href="mailto:john@doe.com"]
+        %a{:href => "tel:543-434-3454"} [href="tel:543-434-3454"]
       %li
-        %a{:href => "tel:543-434-3454"}
-          [href="tel:543-434-3454"]
+        %a{:href => "http://google.com"} [href="http://google.com"]
+      %li{"data-role" => "list-divider"} Links that return false
       %li
-        %a{:href => "http://google.com"}
-          [href="http://google.com"]
-      %li{"data-role" => "list-divider"}
-        Links that return false
-      %li
-        %a{:href => "#"}
-          [href="#"]
+        %a{:href => "#"} [href="#"]
   / /content
 / /page

@@ -1,3 +1,6 @@
+- content_for :content_head do
+  = render(:partial => "/mobile/index.js.haml", :format => :js)
+
 %div{"data-role" => "page"}
   %div{"data-position" => "fixed", "data-role" => "header"}
     %h1 Inbox
@@ -9,7 +12,7 @@
         %span.ui-li-count 2
       %li
         %h3
-          %a{:href => "/mobile/docs/toolsbars"} Stephen Weber
+          %a{:href => "/mobile/docs/toolbars"} Stephen Weber
         %p
           %strong You've been invited to a meeting at Filament Group in Boston, MA
         %p Hey Stephen, if you're available at 10am tomorrow, we've got a meeting with the jQuery team.
@@ -18,7 +21,7 @@
           PM
       %li
         %h3
-          %a{:href => "/mobile/docs/toolsbars"} jQuery Team
+          %a{:href => "/mobile/docs/toolbars"} jQuery Team
         %p
           %strong Boston Conference Planning
         %p In preparation for the upcoming conference in Boston, we need to start gathering a list of sponsors and speakers.
@@ -30,7 +33,7 @@
         %span.ui-li-count 1
       %li
         %h3
-          %a{:href => "/mobile/docs/toolsbars"} Avery Walker
+          %a{:href => "/mobile/docs/toolbars"} Avery Walker
         %p
           %strong Re: Dinner Tonight
         %p Sure, let's plan on meeting at Highland Kitchen at 8:00 tonight. Can't wait!
@@ -42,7 +45,7 @@
         %span.ui-li-count 3
       %li
         %h3
-          %a{:href => "/mobile/docs/toolsbars"} Amazon.com
+          %a{:href => "/mobile/docs/toolbars"} Amazon.com
         %p
           %strong 4-for-3 Books for Kids
         %p As someone who has purchased children's books from our 4-for-3 Store, you may be interested in these featured books.
@@ -51,7 +54,7 @@
           PM
       %li
         %h3
-          %a{:href => "/mobile/docs/toolsbars"} Mike Taylor
+          %a{:href => "/mobile/docs/toolbars"} Mike Taylor
         %p
           %strong Re: This weekend in Maine
         %p Hey little buddy, sorry but I can't make it up to vacationland this weekend. Maybe next weekend?
@@ -60,7 +63,7 @@
           AM
       %li
         %h3
-          %a{:href => "/mobile/docs/toolsbars"} Redfin
+          %a{:href => "/mobile/docs/toolbars"} Redfin
         %p
           %strong Redfin listing updates for today
         %p There are 3 updates for the home on your watchlist: 1 updated MLS listing and 2 homes under contract.
@@ -72,7 +75,7 @@
         %span.ui-li-count 3
       %li
         %h3
-          %a{:href => "/mobile/docs/toolsbars"} Angela Smith
+          %a{:href => "/mobile/docs/toolbars"} Angela Smith
         %p
           %strong Link Request
         %p My name is Angela Smith, SEO Consultant. I've greatly enjoyed looking through your site and I was wondering if you'd be interested in providing a link
@@ -81,7 +84,7 @@
           AM
       %li
         %h3
-          %a{:href => "/mobile/docs/toolsbars"} Mike Taylor
+          %a{:href => "/mobile/docs/toolbars"} Mike Taylor
         %p
           %strong This weekend in Maine
         %p Sounds good, let me check into our plans.
@@ -92,11 +95,11 @@
     %div{"data-role" => "navbar"}
       %ul
         %li
-          %a{:href => "/mobile/docs/toolsbars/footer-persist-a"} Friends
+          %a{:href => "/mobile/docs/toolbars/footer-persist-a"} Friends
         %li
-          %a{:href => "/mobile/docs/toolsbars/footer-persist-b"} Albums
+          %a{:href => "/mobile/docs/toolbars/footer-persist-b"} Albums
         %li
-          %a.ui-btn-active{:href => "/mobile/docs/toolsbars/footer-persist-c"} Emails
+          %a.ui-btn-active{:href => "/mobile/docs/toolbars/footer-persist-c"} Emails
     / /navbar
   / /footer
 / /page

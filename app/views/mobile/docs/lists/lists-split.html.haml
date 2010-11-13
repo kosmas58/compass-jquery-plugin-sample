@@ -1,107 +1,77 @@
 - content_for :content_head do
-  = render(:partial => "/mobile/docs/docs.js.haml", :format => :js)
+  = render(:partial => "/mobile/index.js.haml", :format => :js)
 
 #album-list{"data-role" => "page"}
   %div{"data-role" => "header"}
-    %h1
-      List formatting
+    %h1 List formatting
   / /header
   %div{"data-role" => "content"}
     %ul{"data-role" => "listview", "data-split-icon" => "gear", "data-split-theme" => "d"}
       %li
         %img{:src => "/images/demo/mobile/album/album-bb.jpg"}/
         %h3
-          %a{:href => "/mobile/docs/lists"}
-            Broken Bells
-        %p
-          Broken Bells
-        %a{"data-rel" => "dialog", "data-transition" => "slideup", :href => "/mobile/docs/lists/lists-split-purchase"}
-          Purchase album
+          %a{:href => "/mobile/docs/lists"} Broken Bells
+        %p Broken Bells
+        %a{"data-rel" => "dialog", "data-transition" => "slideup", :href => "/mobile/docs/lists/lists-split-purchase"} Purchase album
       %li
         %img{:src => "/images/demo/mobile/album/album-hc.jpg"}/
         %h3
-          %a{:href => "/mobile/docs/lists"}
-            Warning
-        %p
-          Hot Chip
-        %a{"data-rel" => "dialog", "data-transition" => "slideup", :href => "/mobile/docs/lists/lists-split-purchase"}
-          Purchase album
+          %a{:href => "/mobile/docs/lists"} Warning
+        %p Hot Chip
+        %a{"data-rel" => "dialog", "data-transition" => "slideup", :href => "/mobile/docs/lists/lists-split-purchase"} Purchase album
       %li
         %img{:src => "/images/demo/mobile/album/album-p.jpg"}/
         %h3
-          %a{:href => "/mobile/docs/lists"}
-            Wolfgang Amadeus Phoenix
-        %p
-          Phoenix
-        %a{"data-rel" => "dialog", "data-transition" => "slideup", :href => "/mobile/docs/lists/lists-split-purchase"}
-          Purchase album
+          %a{:href => "/mobile/docs/lists"} Wolfgang Amadeus Phoenix
+        %p Phoenix
+        %a{"data-rel" => "dialog", "data-transition" => "slideup", :href => "/mobile/docs/lists/lists-split-purchase"} Purchase album
       %li
         %img{:src => "/images/demo/mobile/album/album-ok.jpg"}/
         %h3
-          %a{:href => "/mobile/docs/lists"}  Of The Blue Colour Of The Sky
-        %p
-          Ok Go
-        %a{"data-rel" => "dialog", "data-transition" => "slideup", :href => "/mobile/docs/lists/lists-split-purchase"}
-          Purchase album
+          %a{:href => "/mobile/docs/lists"} Of The Blue Colour Of The Sky
+        %p Ok Go
+        %a{"data-rel" => "dialog", "data-transition" => "slideup", :href => "/mobile/docs/lists/lists-split-purchase"} Purchase album
       %li
         %img{:src => "/images/demo/mobile/album/album-ws.jpg"}/
         %h3
-          %a{:href => "/mobile/docs/lists"}  Elephant
-        %p
-          The White Stripes
-        %a{"data-rel" => "dialog", "data-transition" => "slideup", :href => "/mobile/docs/lists/lists-split-purchase"}
-          Purchase album
+          %a{:href => "/mobile/docs/lists"} Elephant
+        %p The White Stripes
+        %a{"data-rel" => "dialog", "data-transition" => "slideup", :href => "/mobile/docs/lists/lists-split-purchase"} Purchase album
       %li
         %img{:src => "/images/demo/mobile/album/album-rh.jpg"}/
         %h3
-          %a{:href => "/mobile/docs/lists"}  Kid A
-        %p
-          Radiohead
-        %a{"data-rel" => "dialog", "data-transition" => "slideup", :href => "/mobile/docs/lists/lists-split-purchase"}
-          Purchase album
+          %a{:href => "/mobile/docs/lists"} Kid A
+        %p Radiohead
+        %a{"data-rel" => "dialog", "data-transition" => "slideup", :href => "/mobile/docs/lists/lists-split-purchase"} Purchase album
       %li
         %img{:src => "/images/demo/mobile/album/album-xx.jpg"}/
         %h3
-          %a{:href => "/mobile/docs/lists"}  XX
-        %p
-          XX
-        %a{"data-rel" => "dialog", "data-transition" => "slideup", :href => "/mobile/docs/lists/lists-split-purchase"}
-          Purchase album
+          %a{:href => "/mobile/docs/lists"} XX
+        %p XX
+        %a{"data-rel" => "dialog", "data-transition" => "slideup", :href => "/mobile/docs/lists/lists-split-purchase"} Purchase album
       %li
         %img{:src => "/images/demo/mobile/album/album-mg.jpg"}/
         %h3
-          %a{:href => "/mobile/docs/lists"}
-            Congratulations
-        %p
-          MGMT
-        %a{"data-rel" => "dialog", "data-transition" => "slideup", :href => "/mobile/docs/lists/lists-split-purchase"}
-          Purchase album
+          %a{:href => "/mobile/docs/lists"} Congratulations
+        %p MGMT
+        %a{"data-rel" => "dialog", "data-transition" => "slideup", :href => "/mobile/docs/lists/lists-split-purchase"} Purchase album
       %li
         %img{:src => "/images/demo/mobile/album/album-ag.jpg"}/
         %h3
-          %a{:href => "/mobile/docs/lists"}
-            Ashes Grammar
-        %p
-          A Sunny Day in Glasgow
-        %a{"data-rel" => "dialog", "data-transition" => "slideup", :href => "/mobile/docs/lists/lists-split-purchase"}
-          Purchase album
+          %a{:href => "/mobile/docs/lists"} Ashes Grammar
+        %p A Sunny Day in Glasgow
+        %a{"data-rel" => "dialog", "data-transition" => "slideup", :href => "/mobile/docs/lists/lists-split-purchase"} Purchase album
       %li
         %img{:src => "/images/demo/mobile/album/album-k.jpg"}/
         %h3
-          %a{:href => "/mobile/docs/lists"}
-            Hot Fuss
-        %p
-          Killers
-        %a{"data-rel" => "dialog", "data-transition" => "slideup", :href => "/mobile/docs/lists/lists-split-purchase"}
-          Purchase album
+          %a{:href => "/mobile/docs/lists"} Hot Fuss
+        %p Killers
+        %a{"data-rel" => "dialog", "data-transition" => "slideup", :href => "/mobile/docs/lists/lists-split-purchase"} Purchase album
       %li
         %img{:src => "/images/demo/mobile/album/album-af.jpg"}/
         %h3
-          %a{:href => "/mobile/docs/lists"}
-            The Suburbs
-        %p
-          Arcade Fire
-        %a{"data-rel" => "dialog", "data-transition" => "slideup", :href => "/mobile/docs/lists/lists-split-purchase"}
-          Purchase album
+          %a{:href => "/mobile/docs/lists"} The Suburbs
+        %p Arcade Fire
+        %a{"data-rel" => "dialog", "data-transition" => "slideup", :href => "/mobile/docs/lists/lists-split-purchase"} Purchase album
   / /content
 / /page

@@ -1,14 +1,14 @@
+- content_for :content_head do
+  = render(:partial => "/mobile/index.js.haml", :format => :js)
+
 %div{"data-role" => "page"}
   %div{"data-role" => "header"}
-    %h1
-      Page Title
+    %h1 Page Title
   / /header
   %div{"data-role" => "content"}
-    %p
-      Page content goes here.
+    %p Page content goes here.
   / /content
   %div{"data-role" => "footer"}
-    %h4
-      Page Footer
-  / /header
+    %h4 Page Footer
+  / /footer
 / /page

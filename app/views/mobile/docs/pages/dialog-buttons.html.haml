@@ -1,14 +1,11 @@
+- content_for :content_head do
+  = render(:partial => "/mobile/index.js.haml", :format => :js)
+
 %div{"data-role" => "page"}
   %div{"data-role" => "content", "data-theme" => "a"}
-    %h3
-      Share Photos
-    %a{"data-role" => "button", "data-theme" => "b", :href => "/mobile/docs/pages/dialog-success"}
-      Email
-    %a{"data-role" => "button", "data-theme" => "b", :href => "/mobile/docs/pages/dialog-success"}
-      Upload to flickr
-    %a{"data-role" => "button", "data-theme" => "b", :href => "/mobile/docs/pages/dialog-success"}
-      Share on Facebook
-    %a{"data-role" => "button", "data-theme" => "b", :href => "/mobile/docs/pages/dialog-success"}
-      Tweet photo
-    %a{"data-role" => "button", "data-theme" => "a", :href => "/mobile/docs/pages/index"}
-      Cancel
+    %h3 Share Photos
+    %a{"data-role" => "button", "data-theme" => "b", :href => "/mobile/docs/pages/dialog-success"} Email
+    %a{"data-role" => "button", "data-theme" => "b", :href => "/mobile/docs/pages/dialog-success"} Upload to flickr
+    %a{"data-role" => "button", "data-theme" => "b", :href => "/mobile/docs/pages/dialog-success"} Share on Facebook
+    %a{"data-role" => "button", "data-theme" => "b", :href => "/mobile/docs/pages/dialog-success"} Tweet photo
+    %a{"data-role" => "button", "data-theme" => "a", :href => "/mobile/docs/pages"} Cancel

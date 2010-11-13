@@ -1,0 +1,228 @@
+- content_for :content_head do
+  = render(:partial => "/mobile/index.js.haml", :format => :js)
+
+%div{"data-role" => "page"}
+  %div{"data-role" => "header"}
+    %h1 Themes
+  %div{"data-role" => "content"}
+    %h2 Theming overview
+    %p Every layout and widget in jQuery Mobile is designed around a new object-oriented CSS framework that makes it possible to apply a complete unified visual design Theme to sites and applications. The theming system is similar to the ThemeRoller system in jQuery UI, but adds a few important improvements:
+    %ul
+      %li
+        It takes advantage of
+        %strong CSS3 properties
+        to add rounded corners, box and text shadow and gradients instead of images, allowing the theme file to be very lightweight and reducing server requests.
+      %li
+        Themes include multiple
+        %strong color "swatches"
+        \&mdash; each consisting of a header bar, content body, and button states that can be freely mixed and matched to create visual texture &mdash; to make richer designs possible
+      %li
+        %strong Open-ended theming
+        allows for up to 26 unique swatches per theme, to add almost unlimited variety to designs
+      %li
+        All backgrounds now use
+        %strong CSS3 gradients
+        to dramatically reduce file size and number of server requests
+      %li
+        A
+        %strong simplified icon set
+        including those most commonly used for mobile, in a sprite to reduce image weight
+    %h2 Themes &amp; swatches
+    %p The key to the Theme system is separation of color and texture, from structural styles that define things like padding and dimensions. This allows theme colors and textures to be defined once in the stylesheet and be mixed, matched and combined to achieve a wide range of visual effects.
+    %p
+      Each Theme includes several global settings, including font family, drop shadows for overlays, and corner radius values for buttons and boxes. In addition, the Theme can include multiple color "swatches", each with color values for bars, content blocks, buttons and list items, and font
+      = succeed "." do
+        %code text-shadow
+    %p jQuery Mobile's default Theme includes 5 swatches that are given letters (a, b, c, d, e) for quick reference. To make mapping of color swatches consistent across our widgets, we have followed the convention that swatch "a" is the highest level of visual priority (black in our default theme), "b" is secondary level (blue) and "c" is the baseline level (gray) that we use by default in many situations, "d" for an alternate secondary level and "e" as an accent swatch.  Themes may have additional swatches for accent colors or specific situations. For example, you could add a new theme swatch "f" that has a red bar and button for use in error situations.
+    %p A new ThemeRoller tool will launched with the jQuery Mobile 1.0 release in 2011. In the meantime, it's simple to manually edit the base swatches in the default theme and/or add additional swatches by editing the theme css file: copy a block of swatch styles, rename the classes with the new swatch letter name, and tweak colors.
+    %h3 Bars
+    %p The default theme contains the following five Bar styles:
+    .swatch-preview
+      .ui-bar.ui-bar-a Bar A
+      .ui-bar.ui-bar-b Bar B
+      .ui-bar.ui-bar-c Bar C
+      .ui-bar.ui-bar-d Bar D
+      .ui-bar.ui-bar-e Bar E
+    / end swatch-bars
+    %p
+      By default, the framework assigns the "a" swatch to all headers and footers, because these are typically given high visual priority in an application. To set the color of a bar to a different swatch color, simply add the
+      %code data-theme
+      attribute to your header or footer and specify an alternate swatch letter ('b' or 'd', for example) and the specified theme swatch color will be applied. Learn more about
+      = succeed "." do
+        %a{:href => "/mobile/docs/toolbars/bars-themes"} toolbar theming
+    %h3 Content Blocks
+    %p The default theme also includes color swatch values for use in content blocks, designed to coordinate with the header color swatches in the theme.
+    .swatch-preview
+      .ui-body.ui-body-a Block A
+      .ui-body.ui-body-b Block B
+      .ui-body.ui-body-c Block C
+      .ui-body.ui-body-d Block D
+      .ui-body.ui-body-e Block E
+    / end swatch-bars
+    %p If a theme isn't specified on a content block, the framework will default to "c" to maximize contrast against the default header "a", as shown here:
+    %div{"data-position" => "inline", "data-role" => "header"}
+      %a{"data-icon" => "arrow-l", :href => "#"} Back
+      %h1 Default Header
+    .ui-body.ui-body-c
+      %h3 Default Theme Content Header
+      %p
+        This is the default content color swatch and a preview of a
+        = succeed "." do
+          %a.ui-link{:href => "#"} link
+      %label{:for => "slider1"} Input slider:
+      %input#slider1{:max => "100", :min => "0", :name => "slider1", :type => "range", :value => "50"}/
+      %fieldset{"data-role" => "fieldcontain", "data-type" => "horizontal"}
+        %legend Cache settings:
+        %input#radio-choice-a1{:checked => "checked", :name => "radio-choice-a1", :type => "radio", :value => "on"}/
+        %label{:for => "radio-choice-a1"} On
+        %input#radio-choice-b1{:name => "radio-choice-a1", :type => "radio", :value => "off"}/
+        %label{:for => "radio-choice-b1"} Off
+      %a{"data-inline" => "true", "data-role" => "button", :href => "#"} Button
+    .ui-bar.ui-bar-a
+      %div{"data-role" => "controlgroup", "data-type" => "horizontal"}
+        %a{"data-inline" => "true", :href => "#"} Button
+        %a{"data-inline" => "true", :href => "#"} Button
+        %a{"data-inline" => "true", :href => "#"} Button
+      / /controlgroup
+    %p
+      Learn more about
+      = succeed "." do
+        %a{:href => "/mobile/docs/content/content-themes"} content theming
+    %h2 Lists &amp; Buttons
+    %p Each swatch also includes default styles for interactive elements like list items and buttons.
+    %ul{"data-inset" => "true", "data-role" => "listview", "data-theme" => "a"}
+      %li
+        %a{:href => "/mobile/docs/api"} List item
+      %li
+        %a{:href => "/mobile/docs/api"} List item
+    %ul{"data-inset" => "true", "data-role" => "listview", "data-theme" => "b"}
+      %li
+        %a{:href => "/mobile/docs/api"} List item
+      %li
+        %a{:href => "/mobile/docs/api"} List item
+    %ul{"data-inset" => "true", "data-role" => "listview", "data-theme" => "c"}
+      %li
+        %a{:href => "/mobile/docs/api"} List item
+      %li
+        %a{:href => "/mobile/docs/api"} List item
+    %ul{"data-inset" => "true", "data-role" => "listview", "data-theme" => "d"}
+      %li
+        %a{:href => "/mobile/docs/api"} List item
+      %li
+        %a{:href => "/mobile/docs/api"} List item
+    %ul{"data-inset" => "true", "data-role" => "listview", "data-theme" => "e"}
+      %li
+        %a{:href => "/mobile/docs/api"} List item
+      %li
+        %a{:href => "/mobile/docs/api"} List item
+    %p A button is included for each swatch in the theme. Each button has styles for normal, hover/focus and pressed states.
+    .swatch-preview
+      %a{"data-icon" => "arrow-l", "data-role" => "button", "data-theme" => "a", :href => "/mobile/docs/api"} Button A
+      %a{"data-icon" => "arrow-l", "data-role" => "button", "data-theme" => "b", :href => "/mobile/docs/api"} Button B
+      %a{"data-icon" => "arrow-l", "data-role" => "button", "data-theme" => "c", :href => "/mobile/docs/api"} Button C
+      %a{"data-icon" => "arrow-l", "data-role" => "button", "data-theme" => "d", :href => "/mobile/docs/api"} Button D
+      %a{"data-icon" => "arrow-l", "data-role" => "button", "data-theme" => "e", :href => "/mobile/docs/api"} Button E
+    / end swatch-bars
+    %p By default, any button that's placed in a bar is automatically assigned a swatch letter that matches its parent bar or content box, to visually integrate the button into the parent theme like a chameleon, as shown here:
+    .swatch-preview
+      %div{"data-role" => "header", "data-theme" => "a"}
+        %h1 Bar A
+        %a{"data-icon" => "arrow-l", :href => "/mobile/docs/api"} Button A
+      %div{"data-role" => "header", "data-theme" => "b"}
+        %h1 Bar B
+        %a{"data-icon" => "arrow-l", :href => "/mobile/docs/api"} Button B
+      %div{"data-role" => "header", "data-theme" => "c"}
+        %h1 Bar C
+        %a{"data-icon" => "arrow-l", :href => "/mobile/docs/api"} Button C
+      %div{"data-role" => "header", "data-theme" => "d"}
+        %h1 Bar D
+        %a{"data-icon" => "arrow-l", :href => "/mobile/docs/api"} Button D
+      %div{"data-role" => "header", "data-theme" => "e"}
+        %h1 Bar E
+        %a{"data-icon" => "arrow-l", :href => "/mobile/docs/api"} Button E
+    / end swatch-bars
+    %p This default behavior makes it easy to ripple a theme change through a page by setting a theme swatch on a parent because you know the buttons will maintain the same relative visual weight across themes. Since form elements use the button styles, they will also adapt to their parent container too.
+    %p
+      If you want to add visual emphasis to a button and help it stand out visually from its parent toolbar, an alternate swatch color can be set by adding a
+      %code data-theme="a"
+      to the anchor. Once an alternate swatch color is set on a button in the markup, the framework won't override that color if the parent theme is changed, because you made a conscious decision to set it.
+    .swatch-bars
+      .ui-bar{"data-nobackbtn" => "true", "data-role" => "header", "data-theme" => "a"}
+        %div
+          / wrapper div to have control over butttons
+          %a{"data-icon" => "arrow-l", "data-theme" => "a", :href => "/mobile/docs/api"} A
+          %a{"data-icon" => "arrow-l", "data-theme" => "b", :href => "/mobile/docs/api"} B
+          %a{"data-icon" => "arrow-l", "data-theme" => "c", :href => "/mobile/docs/api"} C
+          %a{"data-icon" => "arrow-l", "data-theme" => "d", :href => "/mobile/docs/api"} D
+          %a{"data-icon" => "arrow-l", "data-theme" => "e", :href => "/mobile/docs/api"} E
+      .ui-bar{"data-nobackbtn" => "true", "data-role" => "header", "data-theme" => "b"}
+        %div
+          / wrapper div to have control over butttons
+          %a{"data-icon" => "arrow-l", "data-theme" => "a", :href => "/mobile/docs/api"} A
+          %a{"data-icon" => "arrow-l", "data-theme" => "b", :href => "/mobile/docs/api"} B
+          %a{"data-icon" => "arrow-l", "data-theme" => "c", :href => "/mobile/docs/api"} C
+          %a{"data-icon" => "arrow-l", "data-theme" => "d", :href => "/mobile/docs/api"} D
+          %a{"data-icon" => "arrow-l", "data-theme" => "e", :href => "/mobile/docs/api"} E
+      .ui-bar{"data-nobackbtn" => "true", "data-role" => "header", "data-theme" => "c"}
+        %div
+          / wrapper div to have control over butttons
+          %a{"data-icon" => "arrow-l", "data-theme" => "a", :href => "/mobile/docs/api"} A
+          %a{"data-icon" => "arrow-l", "data-theme" => "b", :href => "/mobile/docs/api"} B
+          %a{"data-icon" => "arrow-l", "data-theme" => "c", :href => "/mobile/docs/api"} C
+          %a{"data-icon" => "arrow-l", "data-theme" => "d", :href => "/mobile/docs/api"} D
+          %a{"data-icon" => "arrow-l", "data-theme" => "e", :href => "/mobile/docs/api"} E
+      .ui-bar{"data-nobackbtn" => "true", "data-role" => "header", "data-theme" => "d"}
+        %div
+          / wrapper div to have control over butttons
+          %a{"data-icon" => "arrow-l", "data-theme" => "a", :href => "/mobile/docs/api"} A
+          %a{"data-icon" => "arrow-l", "data-theme" => "b", :href => "/mobile/docs/api"} B
+          %a{"data-icon" => "arrow-l", "data-theme" => "c", :href => "/mobile/docs/api"} C
+          %a{"data-icon" => "arrow-l", "data-theme" => "d", :href => "/mobile/docs/api"} D
+          %a{"data-icon" => "arrow-l", "data-theme" => "e", :href => "/mobile/docs/api"} E
+      .ui-bar{"data-nobackbtn" => "true", "data-role" => "header", "data-theme" => "e"}
+        %div
+          / wrapper div to have control over butttons
+          %a{"data-icon" => "arrow-l", "data-theme" => "a", :href => "/mobile/docs/api"} A
+          %a{"data-icon" => "arrow-l", "data-theme" => "b", :href => "/mobile/docs/api"} B
+          %a{"data-icon" => "arrow-l", "data-theme" => "c", :href => "/mobile/docs/api"} C
+          %a{"data-icon" => "arrow-l", "data-theme" => "d", :href => "/mobile/docs/api"} D
+          %a{"data-icon" => "arrow-l", "data-theme" => "e", :href => "/mobile/docs/api"} E
+    / end swatch-bars
+    %p
+      Learn more about
+      %a{:href => "/mobile/docs/lists/lists-themes"} list theming
+      and
+      = succeed "." do
+        %a{:href => "/mobile/docs/buttons/buttons-themes"} button theming
+    %h3 Global "Active" state
+    %p
+      The jQuery Mobile framework uses a single Theme-level swatch called "active" (bright blue in the default theme) to consistently indicate the selected state, regardless of the individual swatch of the given widget. We apply this in navigation and form controls whenever there is a need to indicate what is currently selected. Because this theme swatch is designed for clear, consistent user feedback, it cannot be overridden via the markup; it is set once in the Theme and applied by the framework whenever a selected or active state is needed. The styling for this state is in the theme stylesheet under the
+      %code ui-btn-active
+      style rules.
+    %fieldset{"data-role" => "fieldcontain", "data-type" => "horizontal"}
+      %legend Active is used for the on state of these toggles:
+      %input#radio-choice-a{:checked => "checked", :name => " radio-choice-a", :type => "radio", :value => "on"}/
+      %label{:for => "radio-choice-a"} On
+      %input#radio-choice-b{:name => " radio-choice-a", :type => "radio", :value => "off"}/
+      %label{:for => "radio-choice-b"} Off
+    %h3 Icons
+    %p
+      There a core set of
+      %a{:href => "/mobile/docs/buttons/buttons-icons"} standard icons
+      included in the framework that can be assigned to any button. To minimize the download size of the core icons, jQuery Mobile only includes these icons in white and automatically adds a semi-transparent black circle behind the icon to make sure it has good contrast on all background colors.
+    %p
+      %strong Learn more
+      about theming individual components:
+    %ul{"data-inset" => "true", "data-role" => "listview"}
+      %li
+        %a{:href => "/mobile/docs/pages/pages-themes"} Page theming
+      %li
+        %a{:href => "/mobile/docs/toolbars/bars-themes"} Toolbar theming
+      %li
+        %a{:href => "/mobile/docs/content/content-themes"} Content theming
+      %li
+        %a{:href => "/mobile/docs/buttons/buttons-themes"} Button theming
+      %li
+        %a{:href => "/mobile/docs/lists/lists-themes"} List theming
+  / end content
+/ end page
