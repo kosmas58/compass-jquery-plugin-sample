@@ -29,7 +29,8 @@ txt:
         demo02: Scripting styleable Forms
         demo03: Alternate form skin
   dt: 
-    external: Init from external data
+    lazy: Lazy loading
+    lazy_persist: Lazy loading
   hello: Hello world
 support: 
   array: 
