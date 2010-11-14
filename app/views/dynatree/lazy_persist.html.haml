@@ -2,21 +2,21 @@
 
 - content_for :content_head do
   = render(:partial => "lazy_persist.js.haml", :format => :js)
+  = render(:partial => "skin.js.haml", :format => :js)
 
 .demo
   %h3
     =image_tag("icons/22x22/tree.png", :border => 0)
     =@title
-  
+  = render(:partial => "skin_form")
   #tree
     / When using initAjax, it may be nice to put a throbber here, that spins until the initial content is loaded:
     Loading...
-  %br
   %div
     Active node:
     %span#echoActive
-      -
-  %p
+  %br
+  .toolbar.ui-widget-header.ui-corner-all
     %button#btnReload
       Reload tree
     %button#btnReloadNode
@@ -32,8 +32,7 @@
     %code isLazy
     option set, so that they are also
     loaded 'on demand', when expanded.
-    %br
-    %br
+  %p
     Using
     %code persist: true
     and

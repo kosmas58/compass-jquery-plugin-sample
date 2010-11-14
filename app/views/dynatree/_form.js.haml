@@ -1,6 +1,23 @@
+:css
+  .ui-button{ font-size: 0.9em; } 
+
 :javascript
   $(function(){
+    $("button, input:submit", ".demo").button();
+    
     $("#tree").dynatree({
+      noLink: true
       // using default options
+    });
+    $("form").submit(function() {
+      var tree = $("#tree").dynatree("getTree");
+      //alert("TODO: Submit\n" + tree.toDict());
+      //alert($(this).serializeArray());
+      alert($(this).serialize());
+      return false;
+    });
+    $("#btn1").click(function(){
+      alert("Thank you for clicking.");
+      return false;
     });
   });

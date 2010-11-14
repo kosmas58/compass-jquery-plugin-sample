@@ -1,28 +1,35 @@
+:css
+  .ui-button{ font-size: 0.9em; } 
+
 :javascript
   function drawCanvas() {
     var canvas = document.getElementById("canvas1");
     if(canvas && canvas.getContext) {
       canvas = canvas.getContext("2d");
-      var lingrad = canvas.createLinearGradient( 0, 0, 0, 150 );  
-      lingrad.addColorStop( 0, "#0099cc" );  
-      lingrad.addColorStop( 0.5, "#fff" );  
-      lingrad.addColorStop( 0.5, "#99cc00");  
-      lingrad.addColorStop( 1, "#0099ff");  
-      canvas.fillStyle = lingrad;  
-      canvas.fillRect(0, 0, 400 ,100 );              
+      var lingrad = canvas.createLinearGradient( 0, 0, 0, 150 );
+      lingrad.addColorStop( 0, "#0099cc" );
+      lingrad.addColorStop( 0.5, "#fff" );
+      lingrad.addColorStop( 0.5, "#99cc00");
+      lingrad.addColorStop( 1, "#0099ff");
+      canvas.fillStyle = lingrad;
+      canvas.fillRect(0, 0, 400 ,100 );
       canvas.fillStyle = "rgb(200,0,0)";
       canvas.fillRect( 10, 10, 55, 55 );
-    }  
-  }  
-
+    }
+  }
+  
   $(function(){
+    $("button", ".demo").button();
+
     // Initialize the tree inside the element.
     // The tree structure is read from the contained  tag.
     $("#tree").dynatree({
-      onActivate: function(dtnode) {
-        $("#echoActive").text(dtnode.data.title);
+      onActivate: function(node) {
+        $("#echoActive").text(node.data.title);
+        if(node.data.key == "canvasNode1")
+          drawCanvas();
       },
-      onDeactivate: function(dtnode) {
+      onDeactivate: function(node) {
         $("#echoSelected").text("-");
       }
     });
@@ -48,7 +55,5 @@
       ];
       $("#tree").dynatree("getRoot").addChild(obj);
     });
-    
     drawCanvas();
   });
-  

@@ -1,21 +1,27 @@
 :css
-  #tree { vertical-align: top; width: 250px; }
-  iframe { border: 1px dotted gray; }
+  #tree {
+    vertical-align: top;
+    width: 250px;
+  }
+  iframe {
+    border: 1px dotted gray;
+  }
 
 :javascript
   $(function(){
-    // Attach the dynatree widget to an existing <div id="tree"> element
+    // Attach the dynatree widget to an existing  element
     // and pass the tree options as an argument to the dynatree() function:
     $("#tree").dynatree({
       // autoCollapse: true,
+      minExpandLevel: 1,
       persist: true,
       onPostInit: function(isReloading, isError) {
-        this.reactivate();
+         this.reactivate();
       },
-      onActivate: function(dtnode) {
+      onActivate: function(node) {
         // Use our custom attribute to load the new target content:
-        if( dtnode.data.url )
-          $("[name=contentFrame]").attr("src", dtnode.data.url);
+        if( node.data.url )
+          $("[name=contentFrame]").attr("src", node.data.url);
       },
       children: [
         {title: "Search engines", isFolder: true, expand: true,
@@ -34,7 +40,7 @@
         },
         {title: "Misc", isFolder: true, expand: true,
           children: [
-            {title: "Welcome", url: "iframe_1"}
+            {title: "Welcome", url: "sample-iframe-1.html"}
           ]
         }
       ]

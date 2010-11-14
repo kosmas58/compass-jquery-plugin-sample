@@ -2,66 +2,59 @@
 
 - content_for :content_head do
   = render(:partial => "form.js.haml", :format => :js)
+  = render(:partial => "skin.js.haml", :format => :js)
 
 .demo
   %h3
     =image_tag("icons/22x22/tree.png", :border => 0)
     =@title
+  = render(:partial => "skin_form")
   %form{:action => "http://127.0.0.1:8001/submit_data", :method => "POST"}
-    #tree{ :style => "padding: 20px;" }
+    #tree
       %ul#treeData{:style => "display: none;"}
         %li#id1{:title => "Look, a tool tip!"}
           item1 with key and tooltip
-        %li#id2
-          %span
-            %input{:name => "id2"}
-        %li#id2b
-          %button{:name => "as"}
-            click me
-        %li#id2c
-          Name:
-          %input{:name => "name", :type => "text"}
-          %br
-          Comment:
-          %textarea{:name => "comment"}
-        %li#id3.folder
-          Folder with some children
-          %ul
-            %li{:id => "id3.1"}
-              Sub-item 3.1
-              %ul
-                %li{:id => "id3.1.1"}
-                  Sub-item 3.1.1
-                  %li{:id => "id3.1.2"}
-                    Sub-item 3.1.2
-              %li{:id => "id3.2"}
-                Sub-item 3.2
-                %ul
-                  %li{:id => "id3.2.1"}
-                    Sub-item 3.2.1
-                    %li{:id => "id3.2.2"}
-                      Sub-item 3.2.2
-        %li#id4.expanded
-          Document with some children (expanded on init)
-          %ul
-            %li.active.focused{:id => "id4.1"}
-              Sub-item 4.1 (active and focus on init)
-              %ul
-                %li{:id => "id4.1.1"}
-                  Sub-item 4.1.1
-                  %li{:id => "id4.1.2"}
-                    Sub-item 4.1.2
-              %li{:id => "id4.2"}
-                Sub-item 4.2
-                %ul
-                  %li{:id => "id4.2.1"}
-                    Sub-item 4.2.1
-                    %li{:id => "id4.2.2"}
-                      Sub-item 4.2.2
-  %input{:type => "submit", :value => "Send data"}    
+          %li#id2
+            %span
+              %input{:name => "id2"}
+            %li#id2b
+              %button#btn1 click me
+              %li#id2c
+                Name:
+                %input{:name => "name", :type => "text"}/
+                %br
+                  %li#id2c
+                    Comment:
+                    %textarea{:name => "comment"}
+                    %li
+                      %span
+                        %input{:checked => "", :name => "rb1", :type => "radio", :value => "v1"}
+                          Umschlag 1
+                          %br
+                            %input{:name => "rb1", :type => "radio", :value => "v2"}
+                              Umschlag 2
+                              %br
+                                %input{:name => "rb1", :type => "radio", :value => "v3"}
+                                  Umschlag 3
+                      %li#id3.folder
+                        Some more options here:
+                        %ul
+                          %li
+                            %span
+                              Name:
+                              %input{:name => "name2", :type => "text"}/
+                            %li
+                              %span
+                                Comment:
+                                %textarea{:name => "comment2"}
+    %input{:type => "submit", :value => "Send data"}
 / End demo
 .demo-description
   %p
     This tree is embedded in a form and uses a [Submit] button to POST the
-    tree status. It also uses form input elements.
+    tree status.
+    %br
+    It also uses form input elements.
+    %br
+    The 'noLink' tree-option is used to make the form and HTML5 elements clickable.
 / End demo-description

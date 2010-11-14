@@ -2,11 +2,13 @@
 
 - content_for :content_head do
   = render(:partial => "iframe.js.haml", :format => :js)
+  = render(:partial => "skin.js.haml", :format => :js)
 
 .demo
   %h3
     =image_tag("icons/22x22/tree.png", :border => 0)
     =@title
+  = render(:partial => "skin_form")
   
   %table
     %colgroup
@@ -33,8 +35,7 @@
     %code
       src
     for the embedded &lt;iframe>.
-    %br
-    %br
+  %p
     The [Toggle tree] button in the embedded welcome page also gives an example on
     how to access a tree that exists outside the own frame.
 / End demo-description
