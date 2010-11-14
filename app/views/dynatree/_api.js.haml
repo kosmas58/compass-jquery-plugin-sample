@@ -9,7 +9,6 @@
     // Initialize the tree inside the element.
     // The tree structure is read from the contained  tag.
     $("#tree").dynatree({
-      title: "Programming Sample",
       onActivate: function(node) {
         $("#echoActive").text(node.data.title);
         // alert(node.getKeyPath());
