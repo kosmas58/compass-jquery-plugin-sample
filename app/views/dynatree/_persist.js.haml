@@ -1,24 +1,23 @@
 :javascript
-	$(function(){
-		$("#tree").dynatree({
-			persist: true,
-			checkbox: true,
-			selectMode: 3,
-			onPostInit: function(isReloading, isError) {
-			   //logMsg("onPostInit(%o, %o)", isReloading, isError);
-			   // Re-fire onActivate, so the text is update  
-			   this.reactivate();
-			}, 
-			onActivate: function(dtnode) {
-				$("#echoActive").text(dtnode.data.title);
-			},
-			onDeactivate: function(dtnode) {
-				$("#echoActive").text("-");
-			},
-			onDblClick: function(dtnode, event) {
-				//logMsg("onDblClick(%o, %o)", dtnode, event);
-				dtnode.toggleExpand();
-			}
-		});
-	});
-	
+  $(function(){
+    $("#tree").dynatree({
+      persist: true,
+      checkbox: true,
+      selectMode: 3,
+      onPostInit: function(isReloading, isError) {
+         logMsg("onPostInit(%o, %o)", isReloading, isError);
+         // Re-fire onActivate, so the text is update
+         this.reactivate();
+      },
+      onActivate: function(node) {
+        $("#echoActive").text(node.data.title);
+      },
+      onDeactivate: function(node) {
+        $("#echoActive").text("-");
+      },
+      onDblClick: function(node, event) {
+        logMsg("onDblClick(%o, %o)", node, event);
+        node.toggleExpand();
+      }
+    });
+  });

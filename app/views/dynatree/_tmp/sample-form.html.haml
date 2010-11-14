@@ -1,0 +1,93 @@
+!!! Strict
+%html
+  %head
+    %meta{:content => "text/html; charset=ISO-8859-1", "http-equiv" => "content-type"}
+      %title Dynatree - Example
+      %script{:src => "../jquery/jquery.js", :type => "text/javascript"}
+      %script{:src => "../jquery/jquery-ui.custom.js", :type => "text/javascript"}
+      %script{:src => "../jquery/jquery.cookie.js", :type => "text/javascript"}
+      %link{:href => "../src/skin/ui.dynatree.css", :rel => "stylesheet", :type => "text/css"}
+        %script{:src => "../src/jquery.dynatree.js", :type => "text/javascript"}
+        / Start_Exclude: This block is not part of the sample code
+        %link{:href => "prettify.css", :rel => "stylesheet"}
+          %script{:src => "prettify.js", :type => "text/javascript"}
+          %link{:href => "sample.css", :rel => "stylesheet", :type => "text/css"}
+            %script{:src => "sample.js", :type => "text/javascript"}
+            / End_Exclude
+            / Add code to initialize the tree when the document is loaded:
+            :javascript
+              $(function(){
+                $("#tree").dynatree({
+                  noLink: true
+                  // using default options
+                });
+                $("form").submit(function() {
+                  var tree = $("#tree").dynatree("getTree");
+                  //alert("TODO: Submit\n" + tree.toDict());
+                  //alert($(this).serializeArray());
+                  alert($(this).serialize());
+                  return false;
+                });
+                $("#btn1").click(function(){
+                  alert("Thank you for clicking.");
+                  return false;
+                });
+              });
+  %body.example
+    %h1 Example: Form
+    %p.description
+      This tree is embedded in a form and uses a [Submit] button to POST the
+      tree status.
+      %br
+        It also uses form input elements.
+        %br
+          The 'noLink' tree-option is used to make the form and HTML5 elements clickable.
+    /
+      <form action="http://127.0.0.1:8001/submit_data" method="POST">
+    %form
+      #tree
+        %ul#treeData{:style => "display: none;"}
+          %li#id1{:title => "Look, a tool tip!"}
+            item1 with key and tooltip
+            %li#id2
+              %span
+                %input{:name => "id2"}
+              %li#id2b
+                %button#btn1 click me
+                %li#id2c
+                  Name:
+                  %input{:name => "name", :type => "text"}/
+                  %br
+                    %li#id2c
+                      Comment:
+                      %textarea{:name => "comment"}
+                      %li
+                        %span
+                          %input{:checked => "", :name => "rb1", :type => "radio", :value => "v1"}
+                            Umschlag 1
+                            %br
+                              %input{:name => "rb1", :type => "radio", :value => "v2"}
+                                Umschlag 2
+                                %br
+                                  %input{:name => "rb1", :type => "radio", :value => "v3"}
+                                    Umschlag 3
+                        %li#id3.folder
+                          Some more options here:
+                          %ul
+                            %li
+                              %span
+                                Name:
+                                %input{:name => "name2", :type => "text"}/
+                              %li
+                                %span
+                                  Comment:
+                                  %textarea{:name => "comment2"}
+      %input{:type => "submit", :value => "Send data"}
+    / Start_Exclude: This block is not part of the sample code
+    %hr
+      %p.sample-links.no_code
+        %a.hideInsideFS{:href => "http://dynatree.googlecode.com"} jquery.dynatree.js project home
+        %a.hideOutsideFS{:href => "#"} Link to this page
+        %a.hideInsideFS{:href => "samples.html"} Example Browser
+        %a.codeExample{:href => "#"} View source code
+      / End_Exclude

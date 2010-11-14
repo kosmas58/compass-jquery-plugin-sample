@@ -1,0 +1,62 @@
+!!! Strict
+%html
+  %head
+    %meta{:content => "text/html; charset=ISO-8859-1", "http-equiv" => "content-type"}
+      %title Dynatree - Example
+      %script{:src => "../jquery/jquery.js", :type => "text/javascript"}
+      %script{:src => "../jquery/jquery-ui.custom.js", :type => "text/javascript"}
+      %script{:src => "../jquery/jquery.cookie.js", :type => "text/javascript"}
+      %link#skinSheet{:href => "../src/skin/ui.dynatree.css", :rel => "stylesheet", :type => "text/css"}
+        %script{:src => "../src/jquery.dynatree.js", :type => "text/javascript"}
+        / Start_Exclude: This block is not part of the sample code
+        %link{:href => "prettify.css", :rel => "stylesheet"}
+          %script{:src => "prettify.js", :type => "text/javascript"}
+          %link{:href => "sample.css", :rel => "stylesheet", :type => "text/css"}
+            %script{:src => "sample.js", :type => "text/javascript"}
+            / End_Exclude
+            :javascript
+    $("#skinCombo")
+    .val(0) // set state to prevent caching
+    .change(function(){
+      var href = "../src/"
+        + $(this).val()
+        + "/ui.dynatree.css"
+        + "?reload=" + new Date().getTime();
+      $("#skinSheet").attr("href", href);
+    });
+    
+  });
+  %body.example
+    %h1 Example: Lazy loading
+    %p.description
+      Using 'lazy' option to load the tree and to load the
+      branches.
+      %br
+        %br
+          You may want to try this
+          %a{:href => "sample-lazy-persist.html"} live example
+          of
+          a lazy tree that uses a simple test server.
+    %div
+      Skin:
+      %select#skinCombo{:size => "1"}
+        %option{:value => "skin"} Standard ('/skin/')
+        %option{:value => "skin-vista"} Vista ('/skin-vista/')
+    #tree
+      / When using initAjax, it may be nice to put a throbber here, that spins until the initial content is loaded:
+    %div
+      Active node:
+      %span#echoActive -
+    %p
+      %button#btnReloadActive Reload active node...
+      %button#btnLoadKeyPath Load node by path '/folder4/_23/_26/_27'...
+    / Start_Exclude: This block is not part of the sample code
+    %hr
+      %p.sample-links.no_code
+        %a.hideInsideFS{:href => "http://dynatree.googlecode.com"} jquery.dynatree.js project home
+        %a.hideOutsideFS{:href => "#"} Link to this page
+        %a.hideInsideFS{:href => "samples.html"} Example Browser
+        %a.codeExample{:href => "#"}
+          View
+          source code
+      / End_Exclude

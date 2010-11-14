@@ -6,35 +6,35 @@
   $(function () {
     $("button", ".demo").button();
     
-  	$("#search").click(function () {
-  		$("#demo1").jstree("search","TARGEt");
-  	});
-  	$("#demo1")
-  		.jstree({ 
-  			"json_data" : {
-  				"data" : [
-  					{ 
-  						"attr" : { "id" : "root_node" },
-  						"data" : "A closed node", 
-  						"state" : "closed"
-  					}
-  				],
-  				"ajax" : {
-  					"url" : "search?format=json&search_str=_data",
-  					"data" : function (n) { 
-  						return { id : n.attr ? n.attr("id") : 0 }; 
-  					}
-  				}
-  			},
-  			"search" : {
-  				"case_insensitive" : true,
-  				"ajax" : {
-  					"url" : "search?format=json&search_str=_result"
-  				}
-  			},
-  			"plugins" : [ "themes", "json_data", "search" ]
-  		})
-  		.bind("search.jstree", function (e, data) {
-  			alert("Found " + data.rslt.nodes.length + " nodes matching '" + data.rslt.str + "'.");
-  		});
+    $("#search").click(function () {
+      $("#demo1").jstree("search","TARGEt");
+    });
+    $("#demo1")
+      .jstree({ 
+        "json_data" : {
+          "data" : [
+            { 
+              "attr" : { "id" : "root_node" },
+              "data" : "A closed node", 
+              "state" : "closed"
+            }
+          ],
+          "ajax" : {
+            "url" : "search?format=json&search_str=_data",
+            "data" : function (n) { 
+              return { id : n.attr ? n.attr("id") : 0 }; 
+            }
+          }
+        },
+        "search" : {
+          "case_insensitive" : true,
+          "ajax" : {
+            "url" : "search?format=json&search_str=_result"
+          }
+        },
+        "plugins" : [ "themes", "json_data", "search" ]
+      })
+      .bind("search.jstree", function (e, data) {
+        alert("Found " + data.rslt.nodes.length + " nodes matching '" + data.rslt.str + "'.");
+      });
   });

@@ -1,15 +1,15 @@
 -@title = "#{t('txt.dt.name')} - #{t('txt.dt.api')}"
--@dynatree_theme = 'start'
--@dynatree_skin = 'aero.css'
 
 - content_for :content_head do
   = render(:partial => "api.js.haml", :format => :js)
+  = render(:partial => "skin.js.haml", :format => :js)
 
 .demo
   %h3
     =image_tag("icons/22x22/tree.png", :border => 0)
     =@title
-  %p
+  = render(:partial => "skin_form")
+  .toolbar.ui-widget-header.ui-corner-all
     %button#btnExpandAll{ :href => "#" }
       Expand all
     %button#btnCollapseAll{ :href => "#" }
@@ -22,6 +22,7 @@
       Sort current node
     %button#btnDisable{ :href => "#" }
       Disable
+  %br
   #tree
     %ul
       %li
@@ -79,15 +80,19 @@
     %span#echoFocused
       -
   %br
-  %p
+  .toolbar.ui-widget-header.ui-corner-all
     %button#btnAddCode
       Add nodes programmatically
     %button#btnAddObject
       Add nodes using arrays
     %button#btnActiveNode
-      Activate item id4.3.2
+      Activate item id 4.3.2
     %button#btnShowActive
       Show active node...
+    %button#btnSetTitle
+      Set active node title
+    %button#btnFromDict
+      Modify active node fom dict
 / End demo
 
 .demo-description

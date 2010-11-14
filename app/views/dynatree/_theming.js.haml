@@ -1,12 +1,13 @@
 :javascript
   $(function(){
     $("#tree").dynatree({
-      imagePath: "/images/jquery/dynatree/aero/", // Image folder used for data.icon attribute.      
-      initAjax: { 
-        url: "data3?format=json"
-      },
-      onSelect: function(dtnode) {
-        alert ("You selected " + dtnode);
+      title: "Sample Theming",
+      imagePath: "/images/jquery/dynatree/#{@dynatree_skin.gsub(/\.css$/, '')}/", // Image folder used for data.icon attribute.      
+      //initAjax: { 
+      //  url: "data3?format=json"
+      //},
+      onSelect: function(node) {
+        alert ("You selected " + node);
       }
     });
   });

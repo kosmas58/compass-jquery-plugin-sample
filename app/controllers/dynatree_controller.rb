@@ -1,6 +1,5 @@
 class DynatreeController < ApplicationController
   layout 'dynatree', :except => [:iframe_1] 
-  
   protect_from_forgery
   
   def iframe_1
@@ -8,6 +7,7 @@ class DynatreeController < ApplicationController
       format.html { render :layout => 'dynatree_iframe' }
     end
   end
+  
   
   def data1
     json1 = 
@@ -91,4 +91,10 @@ class DynatreeController < ApplicationController
     end   
   end
   
+  def get_skin
+    @dynatree_theme = "start"
+    @dynatree_skin = params[:dynatree_skin] || "aero.css" 
+  end
+  
+  before_filter :get_skin, :except => [ :data1, :data2, :data3 ] 
 end

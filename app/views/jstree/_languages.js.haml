@@ -6,24 +6,24 @@
   $(function () {
     $("button", ".demo").button();
     
-  	$("#en_1").click(function () { 
-  		$("#demo1").jstree("set_lang", "en");
-  	});
+    $("#en_1").click(function () { 
+      $("#demo1").jstree("set_lang", "en");
+    });
     
-  	$("#bg_1").click(function () { 
-  		$("#demo1").jstree("set_lang", "bg");
-  	});
-  	
-  	$("#rename_1").click(function () { 
-  		$("#demo1").jstree("rename_node", "#phtml_1", "Rename visible lang");
-  	});
-  	
-  	$("#rename_2").click(function () { 
-  		$("#demo1").jstree("rename_node", "#phtml_1", "Rename 'bg'", "bg");
-  	});
-  	
-  	$("#demo1").jstree({ 
-  		"languages" : [ "en", "bg" ],
-  		"plugins" : [ "themes", "html_data", "languages"]
-  	});
+    $("#bg_1").click(function () { 
+      $("#demo1").jstree("set_lang", "bg");
+    });
+    
+    $("#rename_1").click(function () { 
+      $("#demo1").jstree("rename_node", "#phtml_1", "Rename visible lang");
+    });
+    
+    $("#rename_2").click(function () { 
+      $("#demo1").jstree("rename_node", "#phtml_1", "Rename 'bg'", "bg");
+    });
+    
+    $("#demo1").jstree({ 
+      "languages" : [ "en", "bg" ],
+      "plugins" : [ "themes", "html_data", "languages"]
+    });
   });

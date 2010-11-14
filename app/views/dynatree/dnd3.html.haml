@@ -1,0 +1,44 @@
+-@title = "#{t('txt.dt.name')} - #{t('txt.dt.dnd2')}"
+
+- content_for :content_head do
+  = render(:partial => "dnd2.js.haml", :format => :js)
+
+.demo
+  %h3
+    =image_tag("icons/22x22/tree.png", :border => 0)
+    =@title
+  %table
+    %thead
+      %tr
+        %th
+          %p This tree allows dragging.
+        %th
+          %p This tree allows dropping.
+    %tbody
+      %tr
+        %td
+          #tree
+        %td
+          #tree2
+      %tr
+        %td
+          %div
+            Active node:
+            %span#echoActive -
+        %td
+          %div
+            Active node:
+            %span#echoActive2 -
+      %tr
+        %td
+          #draggableSample
+            %p Drag me around
+        %td
+          #droppableSample
+            %p Drop something here
+/ End demo
+
+.demo-description
+  %p
+    This sample uses the standard jQuery draggable and droppable.
+/ End demo-description

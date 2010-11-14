@@ -1,43 +1,15 @@
--@title = "#{t('txt.dt.name')} - #{t('txt.dt.dnd2')}"
--@dynatree_theme = 'start'
--@dynatree_skin = 'xp.css'
+-@title = "#{t('txt.dt.name')} - #{t('txt.dt.dnd')}"
 
 - content_for :content_head do
-  = render(:partial => "dnd2.js.haml", :format => :js)
+  = render(:partial => "dnd.js.haml", :format => :js)
+  = render(:partial => "skin.js.haml", :format => :js)
 
 .demo
   %h3
     =image_tag("icons/22x22/tree.png", :border => 0)
     =@title
-  %table
-    %thead
-      %tr
-        %th
-          %p This tree allows dragging.
-        %th
-          %p This tree allows dropping.
-    %tbody
-      %tr
-        %td
-          #tree
-        %td
-          #tree2
-      %tr
-        %td
-          %div
-            Active node:
-            %span#echoActive -
-        %td
-          %div
-            Active node:
-            %span#echoActive2 -
-      %tr
-        %td
-          #draggableSample
-            %p Drag me around
-        %td
-          #droppableSample
-            %p Drop something here
+  = render(:partial => "skin_form")
+  #tree
 / End demo
 
 .demo-description

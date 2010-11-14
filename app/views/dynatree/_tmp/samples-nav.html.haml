@@ -1,0 +1,87 @@
+!!! Strict
+%html
+  %head
+    %meta{:content => "text/html; charset=ISO-8859-1", "http-equiv" => "content-type"}
+      %meta{:content => "noindex,follow", :name => "robots"}
+        %title Dynatree - Example Browser
+        :css
+          body {
+            background-color: #39414A;
+            color: white;
+            padding: 3px 10px;
+            font-family: sans-serif;
+            font-size: smaller;
+            background-image: url("nav_bg.png");
+            background-repeat: repeat-x;
+          }
+          a {
+            color: white;
+            text-decoration: none;
+          }
+          a:hover {
+            text-decoration: underline;
+          }
+          
+          h4 {
+            margin-top: 2px;
+          }
+          ul {
+            list-style-type: square;
+            padding-left: 10px;
+            margin-left: 0px;
+          }
+          p {
+            margin-top: 3px;
+            margin-bottom: 3px;
+          }
+          hr {
+          }
+          
+  %body
+    %h4 Examples:
+    %ul
+      %li
+        %a{:href => "sample-default.html", :target => "content"} Default options
+        %li
+        %a{:href => "sample-quick.html", :target => "content"} Init from JS object
+        %li
+        %a{:href => "sample-init-lazy.html", :target => "content"} Init from external data
+        / <li><a target="content" href="sample-ul.html">Init from &amp;lt;ul> element</a>
+        %li
+        %a{:href => "sample-api.html", :target => "content"} Programming API
+        %li
+        %a{:href => "sample-select.html", :target => "content"} Checkbox &amp; select
+        %li
+        %a{:href => "sample-theming.html", :target => "content"} Theming
+        %li
+        %a{:href => "sample-persist.html", :target => "content"} Persistence
+        %li
+        %a{:href => "sample-events.html", :target => "content"} Event handling
+        %li
+        %a{:href => "sample-effects.html", :target => "content"} Effects
+        %li
+        %a{:href => "sample-dnd.html", :target => "content"} Drag'n'drop
+        %li
+        %a{:href => "sample-dnd2.html", :target => "content"} Drag'n'drop 2
+        %li
+        %a{:href => "sample-dnd3.html", :target => "content"} Drag'n'drop 3
+        %li
+        %a{:href => "sample-contextmenu.html", :target => "content"} Context menu, Copy/paste
+        %li
+        %a{:href => "sample-minexpand.html", :target => "content"} Fixed expand level
+        %li
+        %a{:href => "sample-lazy.html", :target => "content"} Lazy loading
+        %li
+        %a{:href => "sample-iframe.html", :target => "content"} &lt;iframe> and url navigation
+        %li
+        %a{:href => "test-bench.html", :target => "content"} Benchmark large trees
+        %li
+        %a{:href => "sample-form.html", :target => "content"} Embed in forms
+        %li
+        %a{:href => "sample-multiline.html", :target => "content"} Large nodes
+%hr
+      %p
+        %a{:href => "dynatree-doc.html", :target => "_blank"} Documentation
+      %hr
+        %p
+          %a{:href => "http://dynatree.googlecode.com", :target => "_blank"} jquery.dynatree.js

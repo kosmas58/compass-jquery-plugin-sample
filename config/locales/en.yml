@@ -394,13 +394,14 @@ en:
     dt:
       name: Dynatree
       ul: Init from ul element
-      lazy: Lazy loading
+      lazy_persist: Lazy loading
       persist: Persistence
       default: Default options
       dnd: Drag'n'drop
       api: Programming API
       quick: Init from JS object
       dnd2: New drag'n'drop
+      dnd3: New drag'n'drop 2
       iframe: iframe and url navigation
       events: Event handling
       minexpand: Fixed expand level
@@ -410,6 +411,7 @@ en:
       multiline: Large nodes
       select: Checkbox & select
       benchmark: Benchmark large trees
+      lazy: Init from external data
       theming:
         name: Theming
         xp: XP

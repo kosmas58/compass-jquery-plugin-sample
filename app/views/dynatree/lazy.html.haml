@@ -1,0 +1,23 @@
+-@title = "#{t('txt.dt.name')} - #{t('txt.dt.lazy')}"
+
+- content_for :content_head do
+  = render(:partial => "lazy.js.haml", :format => :js)
+  = render(:partial => "skin.js.haml", :format => :js)
+
+.demo
+  %h3
+    =image_tag("icons/22x22/tree.png", :border => 0)
+    =@title
+  = render(:partial => "skin_form")
+  #tree
+  %br
+  %div
+    Active node:
+    %span#echoActive
+      -
+
+/ End demo
+.demo-description
+  %p
+    This sample initializes the tree from a JSON request.
+/ End demo-description   

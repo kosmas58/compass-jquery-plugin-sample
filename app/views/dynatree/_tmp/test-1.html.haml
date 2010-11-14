@@ -1,0 +1,35 @@
+!!! Strict
+%html
+  %head
+    %meta{:content => "text/html; charset=ISO-8859-1", "http-equiv" => "content-type"}
+      %title dynatree - temporary tests
+      / Include the required JavaScript libraries:
+      %script{:src => "../jquery/jquery.js", :type => "text/javascript"}
+      %script{:src => "../jquery/jquery-ui.custom.js", :type => "text/javascript"}
+      %script{:src => "../jquery/jquery.cookie.js", :type => "text/javascript"}
+      %link{:href => "../src/skin/ui.dynatree.css", :rel => "stylesheet", :type => "text/css"}
+        %script{:src => "../src/jquery.dynatree.js", :type => "text/javascript"}
+        / Add code to initialize the tree when the document is loaded:
+        :javascript
+            %body
+    %P This file is only temporarily used to reproduce issues.
+    %p{:style => "color: red;"} Using doctype HTML 4.01 Strict.
+    #tree{:style => "width: 100px; "}     %div
+      Selected node:
+      %span#echoSelected -
+    %div
+      Focused node:
+      %span#echoFocused -
+    %p
+      %button#btnRemoveDiv Remove main div
+      %button#btn50 issue #50
+      %button#btnDiv dynamic div issue
+      %button#btn21 remove 1.2 children
+      %button#btn22 remove 1.2.2
+      %button#btnUnbind unbind
+    #tree2
+      %ul
+        %li{:data => "{title: 'node1'}"} node1
+        %li{:data => "{title: 'node2'}"} node2
+    %p
+      %a{:href => "http://dynatree.googlecode.com"} jquery.dynatree.js

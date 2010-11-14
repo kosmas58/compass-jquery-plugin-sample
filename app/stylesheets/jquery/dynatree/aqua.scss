@@ -80,7 +80,7 @@ span {
     background-position: left;
     margin-left: 3px;
     background-image: image_url("jquery/dynatree/aqua/document.png"); }
-  &.dynatree-checkbox {
+  &.dynatree-checkbox, &.dynatree-radio {
     width: 16px;
     height: 16px;
     display: -moz-inline-box;
@@ -89,9 +89,9 @@ span {
     background-repeat: no-repeat;
     background-position: left;
     margin-left: 3px;
-    background-image: image_url("jquery/dynatree/aqua/cbUnchecked.png");
-    &:hover {
-      background-image: image_url("jquery/dynatree/aqua/cbUnchecked_hover.png"); } }
+    background-image: image_url("jquery/dynatree/aqua/cbUnchecked.png"); }
+  &.dynatree-checkbox:hover {
+    background-image: image_url("jquery/dynatree/aqua/cbUnchecked_hover.png"); }
   &.dynatree-radio {
     margin-left: 3px;
     background-image: image_url("jquery/dynatree/aqua/rbUnchecked.png");

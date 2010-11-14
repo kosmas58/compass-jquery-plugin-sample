@@ -1,74 +1,74 @@
 :javascript
   $(function () {
-  	$("#demo4").jstree({ 
-  		"json_data" : {
-  			"data" : [
-  				{ 
-  					"data" : "A node", 
-  					"state" : "closed"
-  				},
-  				{ 
-  					"attr" : { "id" : "li.node.id" }, 
-  					"data" : { 
-  						"title" : "Long format demo", 
-  						"attr" : { "href" : "#" } 
-  					} 
-  				}
-  			],
-  			"ajax" : { "url" : "data?format=json" }
-  		},
-  		"plugins" : [ "themes", "json_data" ]
-  	});
-	
-  	$("#demo3").jstree({ 
-  		"json_data" : {
-  			"data" : [
-  				{ 
-  					"data" : "A node", 
-  					"children" : [ "Child 1", "Child 2" ]
-  				},
-  				{ 
-  					"attr" : { "id" : "li.node.id" }, 
-  					"data" : { 
-  						"title" : "Long format demo", 
-  						"attr" : { "href" : "#" } 
-  					} 
-  				}
-  			],
-  			"progressive_render" : true
-  		},
-  		"plugins" : [ "themes", "json_data" ]
-  	});
+    $("#demo4").jstree({ 
+      "json_data" : {
+        "data" : [
+          { 
+            "data" : "A node", 
+            "state" : "closed"
+          },
+          { 
+            "attr" : { "id" : "li.node.id" }, 
+            "data" : { 
+              "title" : "Long format demo", 
+              "attr" : { "href" : "#" } 
+            } 
+          }
+        ],
+        "ajax" : { "url" : "data?format=json" }
+      },
+      "plugins" : [ "themes", "json_data" ]
+    });
+  
+    $("#demo3").jstree({ 
+      "json_data" : {
+        "data" : [
+          { 
+            "data" : "A node", 
+            "children" : [ "Child 1", "Child 2" ]
+          },
+          { 
+            "attr" : { "id" : "li.node.id" }, 
+            "data" : { 
+              "title" : "Long format demo", 
+              "attr" : { "href" : "#" } 
+            } 
+          }
+        ],
+        "progressive_render" : true
+      },
+      "plugins" : [ "themes", "json_data" ]
+    });
 
-  	$("#demo2").jstree({ 
-  		"json_data" : {
-  			"ajax" : {
-  				"url" : "data?format=json",
-  				"data" : function (n) { 
-  					return { id : n.attr ? n.attr("id") : 0 }; 
-  				}
-  			}
-  		},
-  		"plugins" : [ "themes", "json_data" ]
-  	});
+    $("#demo2").jstree({ 
+      "json_data" : {
+        "ajax" : {
+          "url" : "data?format=json",
+          "data" : function (n) { 
+            return { id : n.attr ? n.attr("id") : 0 }; 
+          }
+        }
+      },
+      "plugins" : [ "themes", "json_data" ]
+    });
 
-  	$("#demo1").jstree({ 
-  		"json_data" : {
-  			"data" : [
-  				{ 
-  					"data" : "A node", 
-  					"children" : [ "Child 1", "Child 2" ]
-  				},
-  				{ 
-  					"attr" : { "id" : "li.node.id" }, 
-  					"data" : { 
-  						"title" : "Long format demo", 
-  						"attr" : { "href" : "#" } 
-  					} 
-  				}
-  			]
-  		},
-  		"plugins" : [ "themes", "json_data" ]
-  	});
+    $("#demo1").jstree({ 
+      "json_data" : {
+        "data" : [
+          { 
+            "data" : "A node", 
+            "children" : [ "Child 1", "Child 2" ]
+          },
+          { 
+            "attr" : { "id" : "li.node.id" }, 
+            "data" : { 
+              "title" : "Long format demo", 
+              "attr" : { "href" : "#" } 
+            } 
+          }
+        ]
+      },
+      "plugins" : [ "themes", "json_data" ]
+    });
   });
 

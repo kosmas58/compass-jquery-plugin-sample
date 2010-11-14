@@ -1,15 +1,11 @@
 :javascript
-	$(function(){
-		$("#tree").dynatree({
-		  initAjax: { 
-		    url: "data3?format=json"
-		  },
-			onActivate: function(dtnode) {
-				$("#echoActive").text(dtnode.data.title);
-			},
-			onDeactivate: function(dtnode) {
-				$("#echoActive").text("-");
-			}
-		});
-	});
-	
+  $(function(){
+    $("#tree").dynatree({
+      onActivate: function(node) {
+        $("#echoActive").text(node.data.title);
+      },
+      onDeactivate: function(node) {
+        $("#echoActive").text("-");
+      }
+    });
+  });
