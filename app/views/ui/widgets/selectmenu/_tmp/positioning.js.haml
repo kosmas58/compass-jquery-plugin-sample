@@ -1,0 +1,218 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=utf-8", "http-equiv" => "content-type"}/
+    %title Positioning Demos for jQuery UI selectmenu
+    %link{:href => "../../themes/base/jquery.ui.all.css", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "../../themes/base/jquery.ui.selectmenu.css", :rel => "stylesheet", :type => "text/css"}/
+    %script{:src => "../../jquery-1.4.4.js", :type => "text/javascript"}
+    %script{:src => "../../ui/jquery.ui.core.js", :type => "text/javascript"}
+    %script{:src => "../../ui/jquery.ui.widget.js", :type => "text/javascript"}
+    %script{:src => "../../ui/jquery.ui.position.js", :type => "text/javascript"}
+    %script{:src => "../../ui/jquery.ui.selectmenu.js", :type => "text/javascript"}
+    :css
+      /*demo styles*/
+      body {font-size: 62.5%; font-family:"Verdana",sans-serif; }
+      fieldset { border:0; }	
+      label,select,.ui-select-menu { float: left; margin-right: 10px; }
+      select { width: 200px; }
+      
+      /*select with custom icons*/
+      body a.customicons { height: 2.8em;}
+      body .customicons li a, body a.customicons span.ui-selectmenu-status { line-height: 2em; padding-left: 30px !important; }
+      body .video .ui-selectmenu-item-icon, body .podcast .ui-selectmenu-item-icon, body .rss .ui-selectmenu-item-icon { height: 24px; width: 24px; }
+      body .video .ui-selectmenu-item-icon { background: url(images/24-video-square.png) 0 0 no-repeat; }
+      body .podcast .ui-selectmenu-item-icon { background: url(images/24-podcast-square.png) 0 0 no-repeat; }
+      body .rss .ui-selectmenu-item-icon { background: url(images/24-rss-square.png) 0 0 no-repeat; }
+
+      /*select with avatar icons*/
+      body a.avatars { height: 2.8em;}
+      body .avatars li a, body a.avatars span.ui-selectmenu-status { line-height: 2em; padding-left: 30px !important; }
+      body .avatar .ui-selectmenu-item-icon { height: 25px; width: 25px; }
+      
+      .scroller {overflow: auto; height: 100px; background-color: #aed6f1;}
+      
+	    :javascript
+      $(function(){			
+      	$('select#positionA, select#positionB, select#positionD, select#positionE').selectmenu({
+      		maxHeight: 150,
+      	});			
+
+      	$('select#positionC').selectmenu({
+      		style: "popup",
+      		maxHeight: 150,
+      		menuWidth: "300px",
+      		icons: [
+      			{find: '.video'},
+      			{find: '.podcast'},
+      			{find: '.rss'}
+      		]
+      	});			
+      	
+      	$('#scrollerB').scroll(function() {
+      		$("select#positionE").selectmenu("close");
+      	})
+
+      });		
+	    %script{:src => "http://ui.jquery.com/applications/themeroller/themeswitchertool/", :type => "text/javascript"}
+    :javascript
+      $(function(){ $('').appendTo('body').themeswitcher(); });   %body
+    %form{:action => "#"}
+      %h2 Set maxHeight to 150px with lots of content
+      %p
+        Select something besides the default and the menu appears correctly the next time you open it.
+        If you add some &lt;BR&gt; tags before the &lt;FORM&gt; tag, then this selectmenu doesn't work
+        correctly either. NOTE: This is now fixed and should work correctly. See an older version of
+        selectmenu to see it not work properly.
+      %fieldset
+        %label{:for => "positionA"} Select Media:
+        %select#positionA.customicons{:name => "positionA"}
+          %optgroup{:label => "Podcasts"}
+            %option.podcast{:value => "p1"} Podcast 1
+            %option.podcast{:value => "p2"} Podcast 2
+            %option.podcast{:value => "p3"} Podcast 3
+            %option.podcast{:value => "p4"} Podcast 4
+            %option.podcast{:value => "p5"} Podcast 5
+            %option.podcast{:value => "p6"} Podcast 6
+          %optgroup{:label => "Videos"}
+            %option.video{:value => "v1"} Video 1
+            %option.video{:value => "v2"} Video 2
+            %option.video{:value => "v3"} Video 3
+            %option.video{:value => "v4"} Video 4
+            %option.video{:value => "v5"} Video 5
+            %option.video{:value => "v6"} Video 6
+            %option.video{:value => "v7"} Video 7
+            %option.video{:value => "v8"} Video 8
+            %option.video{:value => "v9"} Video 9
+          %optgroup{:label => "RSS Feeds"}
+            %option.rss{:value => "r1"} Feed 1
+            %option.rss{:value => "r2"} Feed 2
+            %option.rss{:value => "r3"} Feed 3
+            %option.rss{:value => "r4"} Feed 4
+            %option.rss{:value => "r5"} Feed 5
+            %option.rss{:value => "r6"} Feed 6
+            %option.rss{:value => "r7"} Feed 7
+            %option.rss{:value => "r8"} Feed 8
+            %option.rss{:value => "r9"} Feed 9
+            %option.rss{:value => "r10"} Feed 10
+            %option.rss{:value => "r11"} Feed 11
+            %option.rss{:value => "r12"} Feed 12
+      %h2 Exactly the same as previous: Set maxHeight to 150px with lots of content
+      %p
+        Select something besides the default and the menu appears in the wrong place next time you open it. NOTE:
+        This is now fixed and should work correctly. See an older version of
+        selectmenu to see it not work properly.
+      %fieldset
+        %label{:for => "positionB"} Select Media:
+        %select#positionB.customicons{:name => "positionB"}
+          %optgroup{:label => "Podcasts"}
+            %option.podcast{:value => "p1"} Podcast 1
+            %option.podcast{:value => "p2"} Podcast 2
+            %option.podcast{:value => "p3"} Podcast 3
+            %option.podcast{:value => "p4"} Podcast 4
+            %option.podcast{:value => "p5"} Podcast 5
+            %option.podcast{:value => "p6"} Podcast 6
+          %optgroup{:label => "Videos"}
+            %option.video{:value => "v1"} Video 1
+            %option.video{:value => "v2"} Video 2
+            %option.video{:value => "v3"} Video 3
+            %option.video{:value => "v4"} Video 4
+            %option.video{:value => "v5"} Video 5
+            %option.video{:value => "v6"} Video 6
+            %option.video{:value => "v7"} Video 7
+            %option.video{:value => "v8"} Video 8
+            %option.video{:value => "v9"} Video 9
+          %optgroup{:label => "RSS Feeds"}
+            %option.rss{:value => "r1"} Feed 1
+            %option.rss{:value => "r2"} Feed 2
+            %option.rss{:value => "r3"} Feed 3
+            %option.rss{:value => "r4"} Feed 4
+            %option.rss{:value => "r5"} Feed 5
+            %option.rss{:value => "r6"} Feed 6
+            %option.rss{:value => "r7"} Feed 7
+            %option.rss{:value => "r8"} Feed 8
+            %option.rss{:value => "r9"} Feed 9
+            %option.rss{:value => "r10"} Feed 10
+            %option.rss{:value => "r11"} Feed 11
+            %option.rss{:value => "r12"} Feed 12
+      %h2 Set maxHeight to 150px, using optgroups and custom icons
+      %fieldset
+        %label{:for => "positionC"} Select Media:
+        %select#positionC.customicons{:name => "positionC"}
+          %optgroup{:label => "Podcasts"}
+            %option.podcast{:value => "p1"} Podcast 1
+            %option.podcast{:value => "p2"} Podcast 2
+            %option.podcast{:value => "p3"} Podcast 3
+            %option.podcast{:value => "p4"} Podcast 4
+            %option.podcast{:value => "p5"} Podcast 5
+            %option.podcast{:value => "p6"} Podcast 6
+          %optgroup{:label => "Videos"}
+            %option.video{:value => "v1"} Video 1
+            %option.video{:value => "v2"} Video 2
+            %option.video{:value => "v3"} Video 3
+            %option.video{:value => "v4"} Video 4
+            %option.video{:value => "v5"} Video 5
+            %option.video{:value => "v6"} Video 6
+            %option.video{:value => "v7"} Video 7
+            %option.video{:value => "v8"} Video 8
+            %option.video{:value => "v9"} Video 9
+          %optgroup{:label => "RSS Feeds"}
+            %option.rss{:value => "r1"} Feed 1
+            %option.rss{:value => "r2"} Feed 2
+            %option.rss{:value => "r3"} Feed 3
+            %option.rss{:value => "r4"} Feed 4
+            %option.rss{:value => "r5"} Feed 5
+            %option.rss{:value => "r6"} Feed 6
+            %option.rss{:value => "r7"} Feed 7
+            %option.rss{:value => "r8"} Feed 8
+            %option.rss{:value => "r9"} Feed 9
+            %option.rss{:value => "r10"} Feed 10
+            %option.rss{:value => "r11"} Feed 11
+            %option.rss{:value => "r12"} Feed 12
+      %h2 Inside of a scrolling container
+      %p Not working correctly: Scroll down, open the selectmenu, then use scroll wheel over blue area. Note that blue area scrolls and selectmenu stays visible in same position.
+      %fieldset
+        #scrollerA.scroller
+          %p Scroll down
+          %p Scroll down
+          %p Scroll down
+          %p Scroll down
+          %p Scroll down
+          %p Scroll down
+          %label{:for => "positionD"} Select Media:
+          %select#positionD.customicons{:name => "positionD"}
+            %option.podcast{:value => "p1"} Podcast 1
+            %option.podcast{:value => "p2"} Podcast 2
+            %option.podcast{:value => "p3"} Podcast 3
+            %option.podcast{:value => "p4"} Podcast 4
+            %option.podcast{:value => "p5"} Podcast 5
+            %option.podcast{:value => "p6"} Podcast 6
+          %p Scroll up
+          %p Scroll up
+          %p Scroll up
+          %p Scroll up
+          %p Scroll up
+      %h2 Inside of a scrolling container - close selectmenu on scroll
+      %p Working correctly: Scroll down, open the selectmenu, then use scroll wheel over blue area. Note that blue area scrolls and selectmenu immediately closes on scroll.
+      %fieldset
+        #scrollerB.scroller
+          %p Scroll down
+          %p Scroll down
+          %p Scroll down
+          %p Scroll down
+          %p Scroll down
+          %p Scroll down
+          %label{:for => "positionE"} Select Media:
+          %select#positionE.customicons{:name => "positionE"}
+            %option.podcast{:value => "p1"} Podcast 1
+            %option.podcast{:value => "p2"} Podcast 2
+            %option.podcast{:value => "p3"} Podcast 3
+            %option.podcast{:value => "p4"} Podcast 4
+            %option.podcast{:value => "p5"} Podcast 5
+            %option.podcast{:value => "p6"} Podcast 6
+          %p Scroll up
+          %p Scroll up
+          %p Scroll up
+          %p Scroll up
+          %p Scroll up
+    #output

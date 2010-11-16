@@ -42,90 +42,90 @@
       %dt
         %code scrollstart
       %dd Triggers when a scroll begins. Note that iOS devices freeze DOM manipulation during scroll, queuing them to apply when the scroll finishes. We're currently investigating ways to allow DOM manipulations to apply before a scroll starts.
-      %dl
-        %dt
-          %code scrollstop
-        %dd Triggers when a scroll finishes.
-      %h2 Page show/hide events
-      %p Whenever a page is shown or hidden in jQuery Mobile, two events are triggered on that page. The events triggered depend on whether that page is being shown or hidden, so when a page transition occurs, there are actually 4 events triggered: 2 for each page.
-      %dl
-        %dt
-          %code pagebeforeshow
-        %dd Triggered on the page being shown, before its transition begins.
-        %dt
-          %code pagebeforehide
-        %dd Triggered on the page being hidden, before its transition begins.
-        %dt
-          %code pageshow
-        %dd Triggered on the page being shown, after its transition completes.
-        %dt
-          %code pagehide
-        %dd Triggered on the page being hidden, after its transition completes.
-      %p
-        Note that all four of these events expose a reference to either the next page (
-        %code> nextPage
-        ) or previous page (
-        %code> prevPage
-        ), depending on whether the page is being shown or hidden, and whether that next or previous page exists (the first ever page shown does not have a previous page to reference, but an empty jQuery object is provided just the same). You can access this reference via the second argument of a bound callback function. For example:
-      %pre
-        %code
-          :preserve
-            
-            $('div').live('pageshow',function(event, ui){
-              alert('This page was just hidden: '+ ui.prevPage);
-            });
-            
-            $('div').live('pagehide',function(event, ui){
-              alert('This page was just shown: '+ ui.nextPage);
-            });
-            		          %h2 Page initialization events
-      %p
-        Internally, jQuery Mobile auto-initializes plugins based on the markup conventions found in a given "page". For example, an
-        %code input
-        element with a
-        %code type
-        of
-        %code range
-        will automatically generate a custom slider control.
-      %p This auto-initialization is controlled by the "page" plugin, which dispatches events before and after it executes, allowing you to manipulate a page either pre-or-post initialization, or even provide your own intialization behavior and prevent the auto-initializations from occuring. Note that these events will only fire once per "page", as opposed to the show/hide events, which fire every time a page is shown and hidden.
-      %dl
-        %dt
-          %code pagebeforecreate
-        %dd Triggered on the page being initialized, before initialization occurs.
-        %dt
-          %code pagecreate
-        %dd Triggered on the page being initialized, after initialization occurs.
-      %p
-        Note that by binding to
+    %dl
+      %dt
+        %code scrollstop
+      %dd Triggers when a scroll finishes.
+    %h2 Page show/hide events
+    %p Whenever a page is shown or hidden in jQuery Mobile, two events are triggered on that page. The events triggered depend on whether that page is being shown or hidden, so when a page transition occurs, there are actually 4 events triggered: 2 for each page.
+    %dl
+      %dt
+        %code pagebeforeshow
+      %dd Triggered on the page being shown, before its transition begins.
+      %dt
+        %code pagebeforehide
+      %dd Triggered on the page being hidden, before its transition begins.
+      %dt
+        %code pageshow
+      %dd Triggered on the page being shown, after its transition completes.
+      %dt
+        %code pagehide
+      %dd Triggered on the page being hidden, after its transition completes.
+    %p
+      Note that all four of these events expose a reference to either the next page (
+      %code> nextPage
+      ) or previous page (
+      %code> prevPage
+      ), depending on whether the page is being shown or hidden, and whether that next or previous page exists (the first ever page shown does not have a previous page to reference, but an empty jQuery object is provided just the same). You can access this reference via the second argument of a bound callback function. For example:
+    %pre
+      %code
+        :preserve
+          
+          $('div').live('pageshow',function(event, ui){
+            alert('This page was just hidden: '+ ui.prevPage);
+          });
+          
+          $('div').live('pagehide',function(event, ui){
+            alert('This page was just shown: '+ ui.nextPage);
+          });
+          		        %h2 Page initialization events
+    %p
+      Internally, jQuery Mobile auto-initializes plugins based on the markup conventions found in a given "page". For example, an
+      %code input
+      element with a
+      %code type
+      of
+      %code range
+      will automatically generate a custom slider control.
+    %p This auto-initialization is controlled by the "page" plugin, which dispatches events before and after it executes, allowing you to manipulate a page either pre-or-post initialization, or even provide your own intialization behavior and prevent the auto-initializations from occuring. Note that these events will only fire once per "page", as opposed to the show/hide events, which fire every time a page is shown and hidden.
+    %dl
+      %dt
         %code pagebeforecreate
-        and returning
-        = succeed "," do
-          %code false
-        you can prevent the page plugin from making its manipulations.
-      .ui-body.ui-body-e
-        %p
-          %strong Note on Page IDs:
-          Page elements in jQuery Mobile utilize the
-          %code ID
-          attribute for storing the location from which they came. When you place an
-          %code ID
-          attribute on a page that is brought into jQuery Mobile's single-page environment through Ajax, jQuery Mobile wraps that page with a new "page"
-          %code div
-          element, preserving any CSS references to your
-          = succeed "." do
-            %code ID
-          However, this means that your
-          %code ID
-          attribute is no longer on the "page" element, so you must keep this in mind when binding to page events (
-          %code> pagebeforecreate
-          ,
-          = succeed "," do
-            %code pagecreate
-          etc). To avoid issues, try using a class if possible.
-      %h2 Animation Events
+      %dd Triggered on the page being initialized, before initialization occurs.
+      %dt
+        %code pagecreate
+      %dd Triggered on the page being initialized, after initialization occurs.
+    %p
+      Note that by binding to
+      %code pagebeforecreate
+      and returning
+      = succeed "," do
+        %code false
+      you can prevent the page plugin from making its manipulations.
+    .ui-body.ui-body-e
       %p
-        jQuery Mobile exposes the
-        %code animationComplete
-        plugin, which you can utilize after adding or removing a class that applies a CSS transition.
+        %strong Note on Page IDs:
+        Page elements in jQuery Mobile utilize the
+        %code ID
+        attribute for storing the location from which they came. When you place an
+        %code ID
+        attribute on a page that is brought into jQuery Mobile's single-page environment through Ajax, jQuery Mobile wraps that page with a new "page"
+        %code div
+        element, preserving any CSS references to your
+        = succeed "." do
+          %code ID
+        However, this means that your
+        %code ID
+        attribute is no longer on the "page" element, so you must keep this in mind when binding to page events (
+        %code> pagebeforecreate
+        ,
+        = succeed "," do
+          %code pagecreate
+        etc). To avoid issues, try using a class if possible.
+    %h2 Animation Events
+    %p
+      jQuery Mobile exposes the
+      %code animationComplete
+      plugin, which you can utilize after adding or removing a class that applies a CSS transition.
   / /content
 / /page

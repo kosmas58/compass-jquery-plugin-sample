@@ -1,0 +1,139 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=utf-8", "http-equiv" => "content-type"}/
+    %title Demo Page for jQuery UI selectmenu
+    %link{:href => "../../themes/base/jquery.ui.all.css", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "../../themes/base/jquery.ui.selectmenu.css", :rel => "stylesheet", :type => "text/css"}/
+    %script{:src => "../../jquery-1.4.4.js", :type => "text/javascript"}
+    %script{:src => "../../ui/jquery.ui.core.js", :type => "text/javascript"}
+    %script{:src => "../../ui/jquery.ui.widget.js", :type => "text/javascript"}
+    %script{:src => "../../ui/jquery.ui.position.js", :type => "text/javascript"}
+    %script{:src => "../../ui/jquery.ui.selectmenu.js", :type => "text/javascript"}
+    :css
+      /* demo styles */
+      body {font-size: 62.5%; font-family:"Verdana",sans-serif; }
+      fieldset { border:0; }	
+      label,select,.ui-select-menu { float: left; margin-right: 10px; }
+      select { width: 200px; }
+      			
+      /* select with custom icons */
+      body a.customicons { height: 2.8em;}
+      body .customicons li a, body a.customicons span.ui-selectmenu-status { line-height: 2em; padding-left: 30px !important; }
+      body .video .ui-selectmenu-item-icon, body .podcast .ui-selectmenu-item-icon, body .rss .ui-selectmenu-item-icon { height: 24px; width: 24px; }
+      body .video .ui-selectmenu-item-icon { background: url(images/24-video-square.png) 0 0 no-repeat; }
+      body .podcast .ui-selectmenu-item-icon { background: url(images/24-podcast-square.png) 0 0 no-repeat; }
+      body .rss .ui-selectmenu-item-icon { background: url(images/24-rss-square.png) 0 0 no-repeat; }
+      
+      /* select with CSS avatar icons */
+      option.css-avatar { background-repeat: no-repeat !important; padding-left: 20px;}
+      
+      /* select with big avatar icons */
+      a.avatar-big { height: 5em; }
+      .avatar-big .ui-selectmenu-item-icon { height: 50px; width: 50px; }		
+      .ui-selectmenu-menu li.avatar-big a, a.avatar-big span.ui-selectmenu-status { padding-left: 5em !important; height: 50px; }
+	    :javascript
+      $(function(){
+      	$('select#files').selectmenu({
+      		icons: [
+      			{find: '.script', icon: 'ui-icon-script'},
+      			{find: '.image', icon: 'ui-icon-image'}
+      		]
+      	});	
+      	
+      	$('select#filesB').selectmenu({
+      		icons: [
+      			{find: '.video'},
+      			{find: '.podcast'},
+      			{find: '.rss'}
+      		]
+      	});			
+      	
+      	$('select#peopleA').selectmenu({
+      		style:'dropdown',
+      		icons: [
+      			{find: '.avatar'}
+      		],
+      		bgImage: function() {
+      			return 'url(' + $(this).attr("title") + ')';
+      		}
+      	});
+
+      	$('select#peopleB').selectmenu({
+      		style:'dropdown',
+      		icons: [
+      			{find: '.css-avatar'}
+      		],
+      		bgImage: function() {
+      			return $(this).css("background-image");
+      		}
+      	});
+
+      	$('select#peopleC').selectmenu({
+      		icons: [
+      			{find: '.avatar-big'}
+      		],
+      		bgImage: function() {
+      			return 'url(' + $(this).attr("title") + ')';
+      		},
+      		menuWidth: "300px"
+      	});
+      });
+      
+      //a custom format option callback
+      var addressFormatting = function(text){
+      	var newText = text;
+      	//array of find replaces
+      	var findreps = [
+      		{find:/^([^\-]+) \- /g, rep: '$1'},
+      		{find:/([^\|><]+) \| /g, rep: '$1'},
+      		{find:/([^\|><\(\)]+) (\()/g, rep: '$1$2'},
+      		{find:/([^\|><\(\)]+)$/g, rep: '$1'},
+      		{find:/(\([^\|><]+\))$/g, rep: '$1'}
+      	];
+      	
+      	for(var i in findreps){
+      		newText = newText.replace(findreps[i].find, findreps[i].rep);
+      	}
+      	return newText;
+      }		
+	  %body
+    %form{:action => "#"}
+      %h2 Default: "popup" Style with framework icons
+      %fieldset
+        %label{:for => "files"} Select a File:
+        %select#files{:name => "files"}
+          %option.script{:value => "jquery"} jQuery.js
+          %option.image{:value => "jquerylogo"} jQuery Logo
+          %option.script{:value => "jqueryui"} ui.jQuery.js
+          %option.image{:selected => "selected", :value => "jqueryuilogo"} jQuery UI Logo
+          %option{:value => "somefile"} Some unknown file
+      %h2 Default: "popup" Style with custom icon images
+      %fieldset
+        %label{:for => "filesB"} Select a File:
+        %select#filesB.customicons{:name => "filesB"}
+          %option.podcast{:value => "mypodcast"} John Resig Podcast
+          %option.video{:value => "myvideo"} Scott Gonzales Video
+          %option.rss{:value => "myrss"} jQuery RSS XML
+      %h2 "dropdown" Style with custom avatar 16x16 images
+      %fieldset
+        %label{:for => "peopleA"} Select a Person:
+        %select#peopleA{:name => "peopleA"}
+          %option.avatar{:title => "http://www.gravatar.com/avatar/b3e04a46e85ad3e165d66f5d927eb609?d=monsterid&r=g&s=16", :value => "1"} John Resig
+          %option.avatar{:title => "http://www.gravatar.com/avatar/e42b1e5c7cfd2be0933e696e292a4d5f?d=monsterid&r=g&s=16", :value => "2"} Tauren Mills
+          %option.avatar{:title => "http://www.gravatar.com/avatar/bdeaec11dd663f26fa58ced0eb7facc8?d=monsterid&r=g&s=16", :value => "3"} Jane Doe
+      %h2 "dropdown" Style with custom avatar 16x16 images as CSS background
+      %fieldset
+        %label{:for => "peopleB"} Select a Person:
+        %select#peopleB{:name => "peopleB"}
+          %option.css-avatar{:style => "background-image: url(http://www.gravatar.com/avatar/b3e04a46e85ad3e165d66f5d927eb609?d=monsterid&r=g&s=16);", :value => "1"} John Resig
+          %option.css-avatar{:style => "background-image: url(http://www.gravatar.com/avatar/e42b1e5c7cfd2be0933e696e292a4d5f?d=monsterid&r=g&s=16);", :value => "2"} Tauren Mills
+          %option.css-avatar{:style => "background-image: url(http://www.gravatar.com/avatar/bdeaec11dd663f26fa58ced0eb7facc8?d=monsterid&r=g&s=16);", :value => "3"} Jane Doe
+      %h2 "dropdown" Style with custom avatar 50x50 images
+      %fieldset
+        %label{:for => "peopleC"} Select an Address:
+        %select#peopleC{:name => "peopleC"}
+          %option.avatar-big{:title => "http://www.gravatar.com/avatar/bdeaec11dd663f26fa58ced0eb7facc8?d=monsterid&r=g&s=50"} John Doe - 78 West Main St Apt 3A | Bloomsburg, PA 12345 (footer text)
+          %option.avatar-big{:selected => "selected", :title => "http://www.gravatar.com/avatar/bdeaec11dd663f26fa58ced0eb7facc8?d=monsterid&r=g&s=50"} Jane Doe - 78 West Main St Apt 3A | Bloomsburg, PA 12345 (footer text)
+          %option.avatar-big{:title => "http://www.gravatar.com/avatar/bdeaec11dd663f26fa58ced0eb7facc8?d=monsterid&r=g&s=50"} Joseph Doe - 78 West Main St Apt 3A | Bloomsburg, PA 12345 (footer text)
+          %option.avatar-big{:title => "http://www.gravatar.com/avatar/bdeaec11dd663f26fa58ced0eb7facc8?d=monsterid&r=g&s=50"} Mad Doe Kiiid - 78 West Main St Apt 3A | Bloomsburg, PA 12345 (footer text)
