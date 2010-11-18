@@ -114,7 +114,7 @@ class Translate::Keys
   # }
   def self.to_deep_hash(hash)    
     hash.inject({}) do |deep_hash, (key, value)|
-      keys = key.split('.').reverse
+      keys = key.to_s.split('.').reverse
       leaf_key = keys.shift
       key_hash = keys.inject({leaf_key.to_sym => value}) { |hash, key| {key.to_sym => hash} }
       deep_merge!(deep_hash, key_hash)

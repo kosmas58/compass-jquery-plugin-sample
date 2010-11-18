@@ -8,7 +8,6 @@ describe Translate::Keys do
     Translate::Storage.stub!(:root_dir).and_return(i18n_files_dir)
   end
   
-  
   describe "to_a" do
     it "extracts keys from I18n lookups in .rb, .html.erb, and .rhtml files" do
       @keys.to_a.map(&:to_s).sort.should == ['article.key1', 'article.key2', 'article.key3', 'article.key4', 'article.key5',
@@ -29,47 +28,8 @@ describe Translate::Keys do
     
     it "should return all keys in the I18n backend translations hash" do
       I18n.backend.should_receive(:translations).and_return(translations)
-      @keys.i18n_keys(:en).should == ['articles.new.page_title', 'categories.flash.created', 'home.about']
-    end
-    
-    it 'should scope keys by partial' do
-      path       = 'app/views/my_controller/my_view.html.erb'
-      key        = '.scoped'
-      scoped_key = 'my_controller.my_view.scoped'
-      
-      @keys.send(:scope_key_by_partial, key, path).should == scoped_key
-    end
-    
-    def translations
-      {
-        :en => {
-          :home => {
-            :about => "This site is about making money"
-          },
-          :articles => {
-           :new => {
-             :page_title => "New Article"
-            }
-          },
-          :categories => {
-            :flash => {
-             :created => "Category created"  
-            }
-          },
-          :empty => nil
-        }
-      }
-    end
-  enddescribe "i18n_keys" do
-    before(:each) do
-      I18n.backend.send(:init_translations) unless I18n.backend.initialized?
-    end
-    
-    it "should return all keys in the I18n backend translations hash" do
-      I18n.backend.should_receive(:translations).and_return(translations)
       @keys.i18n_keys(:en).should == ['articles.new.page_title', 'categories.flash.created', 'empty', 'home.about']
     end
-  end
     
   describe "untranslated_keys" do
     before(:each) do
@@ -145,7 +105,7 @@ describe Translate::Keys do
       Translate::Keys.translated_locales.should == [:sv, :no]
     end
   end
-
+  
   describe "to_deep_hash" do
     it "convert shallow hash with dot separated keys to deep hash" do
       Translate::Keys.to_deep_hash(shallow_hash).should == deep_hash
