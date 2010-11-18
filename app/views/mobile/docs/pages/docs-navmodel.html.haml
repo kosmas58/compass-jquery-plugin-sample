@@ -38,7 +38,13 @@
     %p Hash values created by jQuery Mobile are normalized as full paths relative to the URL of the first "real" page that was loaded.  The hash is always maintained as a valid URL, so any "page" in jQuery mobile can be bookmarked or referenced in a link. To retrieve a non-hash-based URL, simply remove the # from the address and refresh the page.
     %p In general, hash changes are created whenever a link is clicked in jQuery mobile. When a link is clicked, jQuery mobile will make sure the link is referencing a local URL, and if so, it'll prevent the link's default click behavior from occurring and request the referenced url via Ajax instead. When the page returns successfully, it will set the location.hash to the new page's relative url.
     %p
-      Within the framework, page changes - both for pages already in the DOM and for pages that need to be loaded via Ajax - use the $.changePage function. $.changePage contains all of the logic for finding pages to transition to and from, and how to handle various response conditions such as a page not found. $.changePage can be called externally and accepts the following arguments (to, transition, back, changeHash). The
+      Within the framework, page changes - both for pages already in the DOM and for pages that need to be loaded via Ajax - use the
+      %code $.mobile.changePage()
+      function.
+      %code $.mobile.changePage()
+      contains all of the logic for finding pages to transition to and from, and how to handle various response conditions such as a page not found.
+      %code $.mobile.changePage()
+      can be called externally and accepts the following arguments (to, transition, back, changeHash). The
       %code to
       argument can accept either a string (such as a file url or local element's ID), an array (in which the first array item is any local page you'd like to transition from, and the second array item is the
       %code to
@@ -49,7 +55,17 @@
       argument accepts a boolean representing whether the transition should go forward or in reverse. Lastly, the
       %code changeHash
       argument accepts a boolean for whether you'd like the url to be updated upon a successful page change.
-    %p The $.changePage function is used in a number of places in jQuery Mobile. For example, when a link is clicked, its href attribute is normalized and then $.changePage handles the rest. When forms are submitted, jQuery Mobile simply gathers a few of the form's attributes, serializes its data, and once again, $.changePage is used to handle the submission and response. Also, links that create dialogs use $.changePage to open a referenced page without updating the hash, which is useful for keeping dialogs out of history tracking.
+    %p
+      The
+      %code $.mobile.changePage()
+      function is used in a number of places in jQuery Mobile. For example, when a link is clicked, its href attribute is normalized and then
+      %code $.mobile.changePage()
+      handles the rest. When forms are submitted, jQuery Mobile simply gathers a few of the form's attributes, serializes its data, and once again,
+      %code $.mobile.changePage()
+      is used to handle the submission and response. Also, links that create dialogs use
+      = succeed "to" do
+        %code $.mobile.changePage()
+      open a referenced page without updating the hash, which is useful for keeping dialogs out of history tracking.
     %p
       Another key ingredient to jQuery Mobile's page navigation model is the
       %code base
@@ -58,9 +74,14 @@
       and modified on every page change to ensure that any assets (css,images,js,etc) referenced on that page will be requested from a proper path. In browsers that don't support dynamic updates to the
       %code base
       element (such as Firefox 3.6), jQuery Mobile loops through all of the referenced assets on the page and prefixes their href and src attributes with the base path.
-    %p Hash changes that occur independently of a click, such as when a user clicks the back button, are handled through the hashchange event, which is bound to the window object using Ben Alman's hashchange special event plugin (included in jQuery Mobile). When a hash change occurs (and also when the first page loads), the hashchange event handler will send the location.hash to the $.changePage function, which in turn either loads or reveals the referenced page.
     %p
-      Once the referenced page is present in the DOM, the $.changePage function applies a transition between the current active page and the new page. Page transitions happen through adding and removing classes that apply CSS animations. For example, in a slide-left transition, the exiting page is given the classes "slideleft" and "out", and the entering page is given the classes
+      Hash changes that occur independently of a click, such as when a user clicks the back button, are handled through the hashchange event, which is bound to the window object using Ben Alman's hashchange special event plugin (included in jQuery Mobile). When a hash change occurs (and also when the first page loads), the hashchange event handler will send the location.hash to the
+      %code $.mobile.changePage()
+      function, which in turn either loads or reveals the referenced page.
+    %p
+      Once the referenced page is present in the DOM, the
+      %code $.mobile.changePage()
+      function applies a transition between the current active page and the new page. Page transitions happen through adding and removing classes that apply CSS animations. For example, in a slide-left transition, the exiting page is given the classes "slideleft" and "out", and the entering page is given the classes
       %code "slideleft"
       and
       = succeed "," do
@@ -114,7 +135,9 @@
       = succeed "." do
         %code location.pathname
     %p
-      Whenever a link with a relative URL is clicked, the $.changePage function will prefixed that link's href with the value of
+      Whenever a link with a relative URL is clicked, the
+      %code $.mobile.changePage()
+      function will prefixed that link's href with the value of
       = succeed "," do
         %code getBaseURL()
       which creates a full path to that file, relative to the document.
@@ -156,7 +179,7 @@
     %p The non-standard environment created by jQuery Mobile's page navigation model introduces some conditions for which you should be aware when building pages:
     %ul
       %li
-        %p When linking to directories, without a filename url, (such as href="typesofcats/" instead of href="typesofcats//mobile/docs/pages"), you must provide a trailing slash. This is because jQuery Mobile assumes the section after the last "/" character in a url is a filename, and it will remove that section when creating base urls from which future pages will be referenced.
+        %p When linking to directories, without a filename url, (such as href="typesofcats/" instead of href="typesofcats/index.html"), you must provide a trailing slash. This is because jQuery Mobile assumes the section after the last "/" character in a url is a filename, and it will remove that section when creating base urls from which future pages will be referenced.
       %li
         %p Any unique assets referenced by pages in a jQuery Mobile-driven site should be placed inside the "page" element (the element with a data-role attribute of "page"). For example, links to styles and scripts that are specific to a particular page can be referenced inside that div. However, a better approach is to use jQuery Mobile's page events to trigger specific scripting when certain pages load.
       %li
