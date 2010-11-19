@@ -22,7 +22,7 @@
           $(document).bind("mobileinit", function(){
             //apply overrides here
           });
-          				        %p
+          %p
       Because the
       %code mobileinit
       event is triggered immediately upon execution, you'll need to bind your event handler before jQuery Mobile is loaded. Thus, we recommend linking to your JavaScript files in the following order:
@@ -93,11 +93,6 @@
         %em> boolean
         , default: true):
       %dd jQuery Mobile will automatically handle form submissions through Ajax, when possible.
-      %dt
-        transitions (
-        %em> array
-        , default: ['slide', 'slideup', 'slidedown', 'pop', 'flip', 'fade']):
-      %dd Available CSS transitions in the CSS.
       %dt
         defaultTransition (
         %em> string

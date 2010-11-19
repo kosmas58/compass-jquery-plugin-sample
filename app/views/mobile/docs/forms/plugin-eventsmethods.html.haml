@@ -18,8 +18,8 @@
           %code
             :preserve
               
-              $('select').selectmenu('open');			
-              			          %dd
+              $('select').selectmenu('open');
+              %dd
         %code close
         close an open select menu
       %dd
@@ -27,8 +27,8 @@
           %code
             :preserve
               
-              $('select').selectmenu('close');			
-              			          %dd
+              $('select').selectmenu('close');
+              %dd
         %code> refresh
         \: Update the custom menu to reflect the native select element's value. If the number of options in the select are different than the number of items in the custom menu, it'll rebuild the custom menu. Also, if you pass a true argument you can force the rebuild to happen.
       %dd
@@ -36,12 +36,12 @@
           %code
             :preserve
               
-              //refresh value			
+              //refresh value
               $('select').selectmenu('refresh');
               
               //refresh and force rebuild
               $('select').selectmenu('refresh', true);
-              			          %dd
+              %dd
         %code> enable
         \: enable a disabled select.
       %dd
@@ -49,8 +49,8 @@
           %code
             :preserve
               
-              $('select').selectmenu('enable');			
-              			          %dd
+              $('select').selectmenu('enable');
+              %dd
         %code> disable
         \: disable a select.
       %dd
@@ -58,8 +58,8 @@
           %code
             :preserve
               
-              $('select').selectmenu('disable');			
-              			        %h2 Textinput
+              $('select').selectmenu('disable')
+              %h2 Textinput
     %dl
       %dt Methods
       %dd
@@ -70,8 +70,8 @@
           %code
             :preserve
               
-              $('input').textinput('enable');			
-              			          %dd
+              $('input').textinput('enable');
+              %dd
         %code> disable
         \: disable a textinput/textarea.
       %dd
@@ -79,8 +79,8 @@
           %code
             :preserve
               
-              $('textarea').textinput('disable');			
-              			        %h2 checkboxradio
+              $('textarea').textinput('disable');
+              %h2 checkboxradio
     %dl
       %dt Methods
       %dd
@@ -91,8 +91,8 @@
           %code
             :preserve
               
-              $('input').checkboxradio('enable');			
-              			          %dd
+              $('input').checkboxradio('enable');
+              %dd
         %code> disable
         \: disable a checkboxradio.
       %dd
@@ -100,8 +100,8 @@
           %code
             :preserve
               
-              $('textarea').checkboxradio('disable');			
-              			          %dd
+              $('textarea').checkboxradio('disable');
+              %dd
         %code> refresh
         \: refresh a checkboxradio's value.
       %dd
@@ -109,6 +109,67 @@
           %code
             :preserve
               
-              $('textarea').checkboxradio('refresh');			
-              			      / /content
+              $('textarea').checkboxradio('refresh');
+              %h2 slider
+    %dl
+      %dt Methods
+      %dd
+        %code> enable
+        \: enable a disabled slider.
+      %dd
+        %pre
+          %code
+            :preserve
+              
+              $('input').slider('enable');
+              %dd
+        %code> disable
+        \: disable a slider.
+      %dd
+        %pre
+          %code
+            :preserve
+              
+              $('input').slider('disable');
+              %dd
+        %code> refresh
+        \: refresh a slider's value.
+      %dd
+        %pre
+          %code
+            :preserve
+              
+              $('input').slider('refresh');
+              %h2 Form buttons
+    %dl
+      %dt Methods
+      %dd
+        %code> enable
+        \: enable a disabled button.
+      %dd
+        %pre
+          %code
+            :preserve
+              
+              $('input').button('enable');
+              %dd
+        %code> disable
+        \: disable a slider.
+      %dd
+        %pre
+          %code
+            :preserve
+              
+              $('input').button('disable');
+              %h2 Degraded Form Input Types
+    %p jQuery Mobile degrades several HTML5 input types back to type=text, or type=number after adding enhanced controls. For example, inputs with a type of range are enhanced with a custom slider control, and their type is set to number to offer a usable form input alongside that slider. Inputs with a type of search are degraded back to type=text after we add our own themable search input styling.
+    %p The page plugin contains a list of input types that are set to either true which means they'll degrade to type=text, false which means they'll be left alone, or a string such as "number", which means they'll be converted to that type (such as the case of type=range).
+    %p
+      You can configure which types are changed via the page plugin's
+      %code degradeInputs
+      option, which can be manipulated externally via
+      = succeed "," do
+        %code $.mobile.page.prototype.options.degradeInputs
+      which has properties: color, date, datetime, "datetime-local", email, month, number, range, search, tel, time, url, and week.
+  / /content
 / /page

@@ -123,8 +123,10 @@
         Examples:
         %pre
           %code
-            %strong //scroll to Y 100px
-            $.mobile.silentScroll(100);
+            %strong //add a 400px breakpoint
+            $.mobile.addResolutionBreakpoints(400);
+            %strong //add 2 more breakpoints
+            $.mobile.addResolutionBreakpoints([600,800]);
       %dt
         %code $.mobile.activePage
         (
