@@ -1,38 +1,46 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :emulators do |emulators|
-    emulators.resources :blackberry_landscape, :collection => { :jqm          => :get,
-                                                                :jqm_original => :get,
-                                                                :jqt          => :get,
-                                                                :jqt_original => :get }
-    emulators.resources :blackberry_portrait, :collection => { :jqm          => :get,
-                                                               :jqm_original => :get,
-                                                               :jqt          => :get,
-                                                               :jqt_original => :get }
-    emulators.resources :ipad_landsacpe, :collection => { :jqm          => :get,
-                                                          :jqm_original => :get }
-    emulators.resources :ipad_portrait, :collection => { :jqm          => :get,
-                                                         :jqm_original => :get }
-    emulators.resources :iphone_landscape, :collection => { :jqm          => :get,
-                                                            :jqm_original => :get,
-                                                            :jqt          => :get,
-                                                            :jqt_original => :get }
-    emulators.resources :iphone_portrait, :collection => { :jqm          => :get,
-                                                           :jqm_original => :get,
-                                                           :jqt          => :get,
-                                                           :jqt_original => :get }
-    emulators.resources :palm_landscape, :collection => { :jqm          => :get,
-                                                          :jqm_original => :get,
-                                                          :jqt          => :get,
-                                                          :jqt_original => :get }
-    emulators.resources :palm_portrait, :collection => { :jqm          => :get,
-                                                         :jqm_original => :get,
-                                                         :jqt          => :get,
-                                                         :jqt_original => :get }
+    emulators.resources :blackberry_landscape, 
+                        :collection => { :jqm          => :get,
+                                         :jqm_original => :get,
+                                         :jqt          => :get,
+                                         :jqt_original => :get }
+    emulators.resources :blackberry_portrait,
+                        :collection => { :jqm          => :get,
+                                         :jqm_original => :get,
+                                         :jqt          => :get,
+                                         :jqt_original => :get }
+    emulators.resources :ipad_landsacpe, 
+                        :collection => { :jqm          => :get,
+                                         :jqm_original => :get }
+    emulators.resources :ipad_portrait, 
+                        :collection => { :jqm          => :get,
+                                         :jqm_original => :get }
+    emulators.resources :iphone_landscape, 
+                        :collection => { :jqm          => :get,
+                                         :jqm_original => :get,
+                                         :jqt          => :get,
+                                         :jqt_original => :get }
+    emulators.resources :iphone_portrait,
+                        :collection => { :jqm          => :get,
+                                         :jqm_original => :get,
+                                         :jqt          => :get,
+                                         :jqt_original => :get }
+    emulators.resources :palm_landscape, 
+                        :collection => { :jqm          => :get,
+                                         :jqm_original => :get,
+                                         :jqt          => :get,
+                                         :jqt_original => :get }
+    emulators.resources :palm_portrait,
+                        :collection => { :jqm          => :get,
+                                         :jqm_original => :get,
+                                         :jqt          => :get,
+                                         :jqt_original => :get }
   end
 
   map.resources :navigation,
                 :collection => { :get_children=> :get,
-                                 :search      => :get,                               
+                                 :search      => :get,
                                  :analyze     => :get,
                                  :configure   => :get,
                                  :test        => :get,
@@ -51,12 +59,14 @@ ActionController::Routing::Routes.draw do |map|
 
   map.namespace :jqgrid do |jqgrid|
     jqgrid.resources :animals
-    jqgrid.resources :demo, :collection => { :books   => :get,
+    jqgrid.resources :demo,
+    :collection => { :books   => :get,
                                              :clients => :get,
                                              :testxml => :get } 
     jqgrid.resources :players
     jqgrid.resources :sprockets
-    jqgrid.resources :users, :collection => { :pets      => :get,
+    jqgrid.resources :users,
+    :collection => { :pets      => :get,
                                               :post_data => :post }  
     jqgrid.resources :widgets 
   end
@@ -67,7 +77,7 @@ ActionController::Routing::Routes.draw do |map|
   
   map.namespace :ical do |ical|
     ical.resources :calendars,
-                     :collection => { :iphone => :get } do |calendar|
+                   :collection => { :iphone => :get } do |calendar|
       calendar.resources :events,
                          :collection => { :index_reload  => :get,
                                           :full_calendar => :get },
