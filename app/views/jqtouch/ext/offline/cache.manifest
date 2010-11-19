@@ -1,14 +1,17 @@
 CACHE MANIFEST
 # Rev 17
 
-/jqtouch/ext/offline
-/images/jquery/touch/jqtouch.png
-/stylesheets/compiled/jquery/touch/jqtouch.css
-/stylesheets/compiled/jquery/touch/jqt.css
-/javascripts/jquery.min.js
-/javascripts/jquery.jqtouch.min.js
-/javascripts/locales.js
-/javascripts/commons.js
-/images/jquery/touch/jqt/toolbar.png
-/images/jquery/touch/jqt/back_button.png
-/images/jquery/touch/jqt/toolbar.png
+jqtouch/ext/offline
+images/jquery/touch/jqtouch.png
+images/jquery/touch/jqt/toolbar.png
+images/jquery/touch/jqt/back_button.png
+images/jquery/touch/jqt/toolbar.png
+stylesheets/compiled/jquery/touch/jqtouch.css
+stylesheets/compiled/jquery/touch/jqt.css
+javascripts/jquery.min.js
+javascripts/jquery.jqtouch.min.js
+javascripts/locales.js
+javascripts/commons.js
+
+NETWORK:
+/
