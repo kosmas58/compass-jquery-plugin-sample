@@ -1,0 +1,13 @@
+-@title = "jQuery Mobile Framework - Photo 1"
+
+- content_for :content_head do
+  = render(:partial => "index.js.haml", :format => :js)
+
+.photoview{"data-fullscreen" => "true", "data-role" => "page"}
+  %div{"data-role" => "header"}
+    %h1 Sandy beach
+  %div{"data-role" => "content"}
+    %img{:alt => "photo-sand", :src => "/images/demo/mobile/photos/photo-sand.jpeg"}/
+  .ui-footer.ui-bar-a
+    %a.prev{:href => "/mobile/experiments/photos/photo5"} Prev
+    %a.next{:href => "/mobile/experiments/photos"} First

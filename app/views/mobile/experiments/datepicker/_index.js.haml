@@ -1,0 +1,15 @@
+%link{:href => "/images/demo/mobile/homeicon.png", :rel => "apple-touch-icon"}/
+
+:javascript
+  $(function(){
+    /*  datepicker workaround */
+    $('input[data-type=date]').hide().after( $('').datepicker() );
+    $('.ui-datepicker-header').addClass('ui-body-c ui-corner-top').removeClass('ui-corner-all');
+    $('.ui-datepicker-prev').buttonMarkup({iconpos: 'notext', icon: 'arrow-l', shadow: true, corners: true});
+    $('.ui-datepicker-next').buttonMarkup({iconpos: 'notext', icon: 'arrow-r', shadow: true, corners: true});
+    $('.ui-datepicker-calendar thead').remove();
+    $('.ui-datepicker-calendar .ui-btn-text span').attr('class','');
+    $('.ui-datepicker-calendar td').addClass('ui-btn-up-c');
+    $('.ui-datepicker-calendar a').buttonMarkup({corners: false, shadow: false});
+    /* // datepicker workaround */
+  });

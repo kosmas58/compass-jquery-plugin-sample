@@ -1,0 +1,13 @@
+-@title = "jQuery Mobile Framework - Static Progressbar Example"
+
+- content_for :content_head do
+  = render(:partial => "index.js.haml", :format => :js)
+  
+.ui-body-c{"data-role" => "page"}
+  %div{"data-role" => "header"}
+    %h1 Static Progressbar
+  %div{"data-role" => "content"}
+    %h2 Just a simple static progressbar, for future reference.
+    .progress.ui-bar-c.ui-btn-corner-all
+      .progress-filled.ui-btn-up-b.ui-btn-corner-left{:style => "width: 30%;"}
+  
