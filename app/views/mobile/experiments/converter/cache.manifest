@@ -1,0 +1,12 @@
+CACHE MANIFEST
+
+mobile/experiments/converter
+stylesheets/compiled/jquery/mobile/default.css
+javascripts/jquery.min.js
+javascripts/jquery.tmpl.min.js
+javascripts/jquery.mobile.min.js
+javascripts/locales.js
+javascripts/commons.js
+
+NETWORK:
+/

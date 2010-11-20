@@ -87,7 +87,8 @@ ActionController::Routing::Routes.draw do |map|
   
   Translate::Routes.translation_ui(map) if RAILS_ENV != "production "
 
-  map.connect "/application.manifest", :controller => Rails::Offline
+  map.connect "application.manifest", :controller => Rails::Offline
+  map.connect "cache.manifest", :controller => Rails::Offline
 
   map.root :controller => "welcome"
 
