@@ -1,11 +1,11 @@
-!!!
-%html{ "xml:lang" => "en", :lang => "en", :xmlns => "http://www.w3.org/1999/xhtml" }
+<!doctype html>
+%html
   %head
+    %meta{:charset => "UTF-8"}
     %link{:rel=>"icon", :href=>"/favicon.ico", :type=>"image/ico"}
     %link{:rel=>"shortcut icon", :href=>"/favicon.ico", :type=>"image/ico"}
     %link{:rel=>"shortcut icon", :href=>"/favicon.ico"}
-    %meta{ :content => "text/html;charset=UTF-8", "http-equiv" => "content-type" }
-
+    
     = stylesheet_link_tag :ipad_landscape
 
     = javascript_include_tag :jquery_ui

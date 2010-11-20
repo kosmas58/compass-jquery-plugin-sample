@@ -1,8 +1,7 @@
-!!!
-%html{ "xml:lang" => "en", :lang => "en", :xmlns => "http://www.w3.org/1999/xhtml" }
+<!doctype html>
+%html
   %head
-    %meta{ :content => "text/html;charset=UTF-8", "http-equiv" => "content-type" }
-    %title
+    %meta{:charset => "UTF-8"}
       = raw @browser_title || 'Compass jQTouch'
 
     = stylesheet_link_tag :jqt
