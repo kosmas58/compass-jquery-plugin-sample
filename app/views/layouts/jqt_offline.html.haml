@@ -1,7 +1,7 @@
 <!doctype html>
-%html{:manifest => "cache.manifest"}
+%html{:manifest => "#{@manifest}"}
   %head
-    %meta{:charset => "UTF-8"}/
+    %meta{:charset => "UTF-8"}
     %title
       = raw @browser_title || 'Compass jQTouch'
 

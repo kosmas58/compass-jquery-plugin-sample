@@ -87,9 +87,9 @@ ActionController::Routing::Routes.draw do |map|
   
   Translate::Routes.translation_ui(map) if RAILS_ENV != "production "
 
-  map.manifest '/manifest', :controller => 'manifest', :action => 'show'
-
   map.root :controller => "welcome"
+
+  #map.manifest '/manifest', :controller => :manifest
 
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
