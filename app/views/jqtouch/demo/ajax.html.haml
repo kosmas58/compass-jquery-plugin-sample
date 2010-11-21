@@ -8,7 +8,7 @@
     .toolbar
       %h1
         AJAX
-      %a.button.backRemote{ :href => "/jqtouch/demo", :target => "_webapp" } 
+      %a.button.backRemote{ :href => "/jqtouch/demo", :target => "_webapp" }
         Home
     %ul.rounded
       %li.arrow
@@ -36,9 +36,10 @@
         Post Demo
       %a.back{ :href => "#" }
         Back
-    %form{ :action => "ajax_post", :method => "POST" }
-      %ul.rounded
-        %li
-          %input{ :name => "zip", :placeholder => "Zip Code", :type => "text", :value => "" }
-      %a.submit.whiteButton{ :style => "margin:0 10px;color:rgba(0,0,0,.9)" }
-        Submit
+      %form{ :action => "ajax_post", :method => "POST" }
+        %ul.rounded
+          %li
+            %input{ :name => "zip", :placeholder => "Zip Code", :type => "text", :value => "" }
+        %a.submit.whiteButton{ :style => "margin:0 10px;color:rgba(0,0,0,.9)" }
+          Submit
+          

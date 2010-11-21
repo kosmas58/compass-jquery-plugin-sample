@@ -33,11 +33,11 @@
         Completed
       %ul.complete
         %li
-          %input{ :checked => "", :type => "checkbox" }
+          %input{ :checked => "", :type => :checkbox }
           %span
             Do something
         %li
-          %input{ :checked => "", :type => "checkbox" }
+          %input{ :checked => "", :type => :checkbox }
           %span
             Write eblast
   #add.edit
@@ -49,7 +49,7 @@
           Cancel
       %ul.rounded
         %li
-          %input#todo{ :placeholder => "Enter your todo...", :type => "text" }
+          %input#todo{ :placeholder => "Enter your todo...", :type => :text }
         /
           <li><textarea id="description" placeholder="Descripton"></textarea></li>
       %a.whiteButton{ :href => "#", :style => "margin: 10px" }

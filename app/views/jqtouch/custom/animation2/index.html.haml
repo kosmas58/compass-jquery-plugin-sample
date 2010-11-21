@@ -4,21 +4,23 @@
   = render(:partial => "jqt.js.haml", :format => :js)
 
 #jqt
-  #page1.touch
+  #page1
     .toolbar
       %h1
         Swipe animation
       %a.button.backRemote{ :href => "/jqtouch/demo", :target => "_webapp" }
         Back 
-    .swipe
-      Swipe left to go to the next page.
-      %img{ :src => "/images/demo/jqtouch/animations/swipe-left.gif" }
-  #page2.touch
+    #swipe
+      %a#swipeLeft
+        Swipe left to go to the next page.
+        %img{ :src => "/images/demo/jqtouch/animations/swipe-left.gif" }
+  #page2
     .toolbar
       %h1
         Swipe animation
       %a.button.backRemote{ :href => "/jqtouch/demo", :target => "_webapp" }
         Back 
-    .swipe
-      Swipe right to go back.
-      %img{ :src => "/images/demo/jqtouch/animations/swipe-right.gif" }
+    %div#swipe
+      %a#swipeRight
+        Swipe right to go back.
+        %img{ :src => "/images/demo/jqtouch/animations/swipe-right.gif" }
