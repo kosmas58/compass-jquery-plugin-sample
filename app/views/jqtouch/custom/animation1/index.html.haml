@@ -2,20 +2,20 @@
 
 - content_for :content_head do
   = render(:partial => "jqt.js.haml", :format => :js)
-%body
-  #jqt
-    #test
-      .toolbar
-        %h1
-          Reveal animation
-        %a.back{ :href => "/jqtouch/demo", :target => "_webapp" }
-          Back 
-      %ul.rounded
-        %li
-          %a.norevealme{ :href => "#page2" }
-            Test Reveal
-    #page2
-      %div{ :style => "font-size: 1.5em; text-align: center; margin: 160px 0 160px; font-family: Marker felt;" }
-        Pretty smooth, eh?
-      %a.whiteButton.goback{ :href => "#", :style => "margin:0 10px;color:rgba(0,0,0,.9)" }
-        Go back
+
+#jqt
+  #test
+    .toolbar
+      %h1
+        Reveal animation
+      %a.button.backRemote{ :href => "/jqtouch/demo", :target => "_webapp" }
+        Back 
+    %ul.rounded
+      %li
+        %a.norevealme{ :href => "#page2" }
+          Test Reveal
+  #page2
+    %div{ :style => "font-size: 1.5em; text-align: center; margin: 160px 0 160px; font-family: Marker felt;" }
+      Pretty smooth, eh?
+    %a.whiteButton.goback{ :href => "#", :style => "margin:0 10px;color:rgba(0,0,0,.9)" }
+      Go back

@@ -2,17 +2,17 @@
 
 - content_for :content_head do
   = render(:partial => "demo1.js.haml", :format => :js)
-%body
-  #jqt
-    #home
-      .toolbar
-        %h1
-          Demo 1
-        %a.back{ :href => "/jqtouch/demo/#mobiones", :target => "_webapp"  } 
-          MobiOne Demos
-        %a.button{ :href => "http://rossboucher.com/2008/08/19/iphone-touch-events-in-javascript/", :target => "_blank" }
-          Full Details
-      #area
-        %div.box1 Drag
-        %div.box2 Drop
-        %div.box2 Drop
+
+#jqt
+  #home
+    .toolbar
+      %h1
+        Demo 1
+      %a.button.backRemote{ :href => "/jqtouch/demo", :target => "_webapp" }
+        MobiOne Demos
+      %a.button{ :href => "http://rossboucher.com/2008/08/19/iphone-touch-events-in-javascript/", :target => "_blank" }
+        Full Details
+    #area
+      %div.box1 Drag
+      %div.box2 Drop
+      %div.box2 Drop

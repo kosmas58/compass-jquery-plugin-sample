@@ -2,664 +2,693 @@
 
 - content_for :content_head do
   = render(:partial => "jqt.js.haml", :format => :js)
-%body
-  #jqt
-    #about.selectable
-      %p
-        %img{ :src => "/images/jquery/touch/jqtouch.png" }
-      %p
-        %strong
-          jQTouch
+
+#jqt
+  #about.selectable
+    %p
+      %img{ :src => "/images/jquery/touch/jqtouch.png" }
+    %p
+      %strong
+        jQTouch
+      %br
+      Version 1.0 beta
+      %br
+      %a{ :href => "http://www.davidkaneda.com" }
+        By David Kaneda
+    %p
+      %em
+        Create powerful mobile apps with
         %br
-        Version 1.0 beta
-        %br
-        %a{ :href => "http://www.davidkaneda.com" }
-          By David Kaneda
-      %p
-        %em
-          Create powerful mobile apps with
-          %br
-          just HTML, CSS, and jQuery.
-      %p
-        %a{ :href => "http://twitter.com/jqtouch", :target => "_blank" }
-          @jQTouch on Twitter
-      %p
-        %br
-        %br
-        %a.grayButton.goback{ :href => "#" }
-          Close
-    #animations
-      .toolbar
-        %h1
-          Animations
-        %a.back{ :href => "#" }
-          Home
-      %ul.rounded
+        just HTML, CSS, and jQuery.
+    %p
+      %a{ :href => "http://twitter.com/jqtouch", :target => "_blank" }
+        @jQTouch on Twitter
+    %p
+      %br
+      %br
+      %a.grayButton.goback{ :href => "#" }
+        Close
+  #animations
+    .toolbar
+      %h1
         Animations
+      %a.back{ :href => "#" }
+        Home
+    %ul.rounded
+      Animations
+      %li
+        %a{ :href => "#animdemo" }
+          Slide
+      %li
+        %a.slideup{ :href => "#animdemo" }
+          Slide Up
+      %li
+        %a.dissolve{ :href => "#animdemo" }
+          Dissolve
+      %li
+        %a.fade{ :href => "#animdemo" }
+          Fade
+      %li
+        %a.flip{ :href => "#animdemo" }
+          Flip
+      %li
+        %a.pop{ :href => "#animdemo" }
+          Pop
+      %li
+        %a.swap{ :href => "#animdemo" }
+          Swap
+      %li
+        %a.cube{ :href => "#animdemo" }
+          Cube
+      %li
+        %a.slideup.reverse{ :href => "#animdemo" }
+          Reverse animations&hellip;
+    %ul.rounded
+      Custom animations
+      %li
+        %a{ :href => "/jqtouch/custom/animation1", :target => "_webapp" }
+          Test Reveal
+      %li
+        %a{ :href => "/jqtouch/custom/animation2", :target => "_webapp" }
+          Swipe
+    .info
+      Custom animations are also
+      %a{ :href => "http://code.google.com/p/jqtouch/wiki/Animations", :target => "_blank" }
+        easy to write
+      \.
+      %br
+      View the source in
+      %code
+        demos/customanimation
+      to see how.
+  #animdemo
+    %div{ :style => "font-size: 1.5em; text-align: center; margin: 160px 0 160px; font-family: Marker felt;" }
+      Pretty smooth, eh?
+    %a.whiteButton.goback{ :href => "#animations", :style => "margin:0 10px;color:rgba(0,0,0,.9)" }
+      Go back
+  #buttons
+    .toolbar
+      %h1
+        Buttons!
+      %a.back{ :href => "#" }
+        Home
+    %div{ :style => "margin: 10px;" }
+      %a.whiteButton{ :href => "#" }
+        White
+      %br
+      %a.grayButton{ :href => "#" }
+        Gray
+      %br
+      %a.redButton{ :href => "#" }
+        Red
+      %br
+      %a.greenButton{ :href => "#" }
+        Green
+  #callbacks
+    .toolbar
+      %h1
+        Events
+      %a.back{ :href => "#home" }
+        Home
+    %ul.rounded
+      %li#orient
+        Orientation:
+        %strong
+          profile
+      %li
+        %a{ :href => "#pageevents" }
+          Page events
+      %li
+        %a#swipeme{:href => "#"}
+          Swipe me!
+      %li
+        %a#tapme{:href => "#"}
+          Tap me!      
+  #chain
+    .toolbar
+      %h1
+        Cool App
+      %a.back{ :href => "#demos" }
+        Demos
+    %ul#friends
+      %li
+        %a{:href => "#details", :onClick => "friendclick(event)"}
+          %span.firstName
+          %span.lastName
+  #databases
+    .toolbar
+      %h1
+        Database
+      %a.back{ :href => "#demos" }
+        Demos
+    %ul#database.rounded         
+  #demos
+    .toolbar
+      %h1
+        Demos
+      %a.back{ :href => "#home" }
+        Home
+    .info
+      These apps open in a new window. Don’t forget to save them to your home screen to enable full-screen mode.
+    %ul.rounded
+      %li.forward
+        %a{ :href => "/jqtouch/clocks", :target => "_webapp" }
+          Clock app
+      %li.forward
+        %a{ :href => "/jqtouch/ical", :target => "_webapp" }
+          iCal app
+      %li.forward
+        %a{ :href => "/jqtouch/mail", :target => "_webapp" }
+          Mail app
+      %li.forward
+        %a{ :href => "/jqtouch/todo", :target => "_webapp" }
+          To-Do app
+      %li.arrow
+        %a{ :href => "#mobione" }
+          MobiOne Demos
+        %small.counter
+          6
+      %li.arrow
+        %a{ :href => "#jonathan" }
+          Jonathan Stark Demos
+        %small.counter
+          6
+  #details
+    .toolbar
+      %h1 Details?!
+      %a.back.cancel{:href => "#chain"} Back
+    #thedetails
+      %span.firstName
+      %span.lastName   
+  #edge
+    .toolbar
+      %h1
+        Edge to Edge
+      %a.back{ :href => "#" }
+        Back
+    %ul.edgetoedge
+      %li.sep
+        F
+      %li
+        %a{ :href => "#" }
+          Flintstone,
+          %em
+            Fred
+      %li
+        %a{ :href => "#" }
+          Flintstone,
+          %em
+            Pebble
+      %li
+        %a{ :href => "#" }
+          Flintstone,
+          %em
+            Wilma
+      %li.sep
+        J
+      %li
+        %a{ :href => "#" }
+          Jetson,
+          %em
+            Elroy
+      %li
+        %a{ :href => "#" }
+          Jetson,
+          %em
+            George
+      %li
+        %a{ :href => "#" }
+          Jetson,
+          %em
+            Jane
+      %li
+        %a{ :href => "#" }
+          Jetson,
+          %em
+            Judy
+      %li.sep
+        R
+      %li
+        %a{ :href => "#" }
+          Rubble,
+          %em
+            Bambam
+      %li
+        %a{ :href => "#" }
+          Rubble,
+          %em
+            Barney
+      %li
+        %a{ :href => "#" }
+          Rubble,
+          %em
+            Betty
+  #edge2
+    .toolbar
+      %h1 Fixed Bottom Toolbar
+      %a.back{:href => "#"} Back
+    .vertical-scroll.use-bottom-toolbar
+      %div
+        %ul.edgetoedge
+          %li.sep F
+          %li
+            %a{:href => "#"}
+              Flintstone,
+              %em Fred
+          %li
+            %a{:href => "#"}
+              Flintstone,
+              %em Pebble
+          %li
+            %a{:href => "#"}
+              Flintstone,
+              %em Wilma
+          %li.sep J
+          %li
+            %a{:href => "#"}
+              Jetson,
+              %em Elroy
+          %li
+            %a{:href => "#"}
+              Jetson,
+              %em George
+          %li
+            %a{:href => "#"}
+              Jetson,
+              %em Jane
+          %li
+            %a{:href => "#"}
+              Jetson,
+              %em Judy
+          %li.sep R
+          %li
+            %a{:href => "#"}
+              Rubble,
+              %em Bambam
+          %li
+            %a{:href => "#"}
+              Rubble,
+              %em Barney
+          %li
+            %a{:href => "#"}
+              Rubble,
+              %em Betty
+          %li.sep F
+          %li
+            %a{:href => "#"}
+              Flintstone,
+              %em Fred
+          %li
+            %a{:href => "#"}
+              Flintstone,
+              %em Pebble
+          %li
+            %a{:href => "#"}
+              Flintstone,
+              %em Wilma
+          %li.sep J
+          %li
+            %a{:href => "#"}
+              Jetson,
+              %em Elroy
+          %li
+            %a{:href => "#"}
+              Jetson,
+              %em George
+          %li
+            %a{:href => "#"}
+              Jetson,
+              %em Jane
+          %li
+            %a{:href => "#"}
+              Jetson,
+              %em Judy
+          %li.sep R
+          %li
+            %a{:href => "#"}
+              Rubble,
+              %em Bambam
+          %li
+            %a{:href => "#"}
+              Rubble,
+              %em Barney
+          %li
+            %a{:href => "#"}
+              Rubble,
+              %em Betty
+          %li.sep F
+          %li
+            %a{:href => "#"}
+              Flintstone,
+              %em Fred
+          %li
+            %a{:href => "#"}
+              Flintstone,
+              %em Pebble
+          %li
+            %a{:href => "#"}
+              Flintstone,
+              %em Wilma
+          %li.sep J
+          %li
+            %a{:href => "#"}
+              Jetson,
+              %em Elroy
+          %li
+            %a{:href => "#"}
+              Jetson,
+              %em George
+          %li
+            %a{:href => "#"}
+              Jetson,
+              %em Jane
+          %li
+            %a{:href => "#"}
+              Jetson,
+              %em Judy
+          %li.sep R
+          %li
+            %a{:href => "#"}
+              Rubble,
+              %em Bambam
+          %li
+            %a{:href => "#"}
+              Rubble,
+              %em Barney
+          %li
+            %a{:href => "#"}
+              Rubble,
+              %em Betty
+    .toolbar
+      %h1 Bottom Toolbar
+  #extensions
+    .toolbar
+      %h1
+        Extensions
+      %a.back{ :href => "#home" }
+        Home
+    .info
+      These apps open in a new window. Don’t forget to save them to your home screen to enable full-screen mode.
+    %ul.rounded
+      %li.forward
+        %a{ :href => "/jqtouch/ext/location", :target => "_webapp" }
+          Geo Location
+      %li.forward
+        %a{ :href => "/jqtouch/ext/offline", :target => "_webapp" }
+          Offline Utility
+      %li.forward
+        %a{ :href => "/jqtouch/ext/floaty", :target => "_webapp" }
+          Floaty Bar
+      %li.forward
+        %a{ :href => "/jqtouch/ext/autotitles", :target => "_webapp" }
+          Auto Titles
+      %li.forward
+        %a{ :href => "/jqtouch/ext/gestures", :target => "_webapp" }
+          Gestures
+      %li.arrow
+        %a{:href => "#databases"}
+          Database Example
+        %small.counter 2
+      %li.arrow
+        %a{ :href => "#chain" }
+          Chain Demo
+      %li.forward
+        %a{ :href => "/jqtouch/demo2/", :target => "_webapp" }
+          Image handling
+  #forms
+    .toolbar
+      %h1
+        Forms
+      %a.back{ :href => "#" }
+        Back
+    %form
+      %ul.edit.rounded
         %li
-          %a{ :href => "#animdemo" }
-            Slide
+          %input#some_name{ :name => "name", :placeholder => "Text", :type => "text" }
         %li
-          %a.slideup{ :href => "#animdemo" }
-            Slide Up
+          %input#some_name{ :name => "search", :placeholder => "Search", :type => "search" }
         %li
-          %a.dissolve{ :href => "#animdemo" }
-            Dissolve
+          %input#some_name{ :name => "phone", :placeholder => "Phone", :type => "tel" }
         %li
-          %a.fade{ :href => "#animdemo" }
-            Fade
+          %input#some_name{ :name => "zip", :placeholder => "Numbers", :type => "number" }
         %li
-          %a.flip{ :href => "#animdemo" }
-            Flip
+          %input#some_name{ :name => "email", :placeholder => "Email", :type => "email" }
         %li
-          %a.pop{ :href => "#animdemo" }
-            Pop
+          %input#some_name{ :name => "url", :placeholder => "Url", :type => "url" }
         %li
-          %a.swap{ :href => "#animdemo" }
-            Swap
+          %textarea{ :placeholder => "Textarea" }
         %li
-          %a.cube{ :href => "#animdemo" }
-            Cube
+          Sample Toggle
+          %span.toggle
+            %input{ :type => "checkbox" }
         %li
-          %a.slideup.reverse{ :href => "#animdemo" }
-            Reverse animations&hellip;
+          %select#lol
+            %optgroup{ :label => "Swedish Cars" }
+              %option{ :value => "volvo" }
+                Volvo
+              %option{ :value => "saab" }
+                Saab
+            %optgroup{ :label => "German Cars" }
+              %option{ :value => "mercedes" }
+                Mercedes
+              %option{ :value => "audi" }
+                Audi
+        %li
+          %input#some_name{ :name => "some_name", :type => "password", :value => "iphonedelcopon" }
+        %li
+          %input{ :name => "food", :title => "Punch", :type => "checkbox", :value => "punch" }
+        %li
+          %input{ :name => "food", :checked => "checked", :title => "Pie", :type => "checkbox", :value => "pie" }
+        %li
+          %input{ :name => "bag", :title => "Paper", :type => "radio", :value => "paper" }
+        %li
+          %input{ :name => "bag", :title => "Plastic", :type => "radio", :value => "plastic" }
+  #home.current
+    .toolbar
+      %h1
+        jQTouch
+      %a#infoButton.button.slideup{ :href => "#about" }
+        About
+    %div
       %ul.rounded
-        Custom animations
-        %li
-          %a{ :href => "/jqtouch/custom/animation1", :target => "_webapp" }
-            Test Reveal
-        %li
-          %a{ :href => "/jqtouch/custom/animation2", :target => "_webapp" }
-            Swipe
-      .info
-        Custom animations are also
-        %a{ :href => "http://code.google.com/p/jqtouch/wiki/Animations", :target => "_blank" }
-          easy to write
-        \.
-        %br
-        View the source in
-        %code
-          demos/customanimation
-        to see how.
-    #animdemo
-      %div{ :style => "font-size: 1.5em; text-align: center; margin: 160px 0 160px; font-family: Marker felt;" }
-        Pretty smooth, eh?
-      %a.whiteButton.goback{ :href => "#animations", :style => "margin:0 10px;color:rgba(0,0,0,.9)" }
-        Go back
-    #buttons
-      .toolbar
-        %h1
-          Buttons!
-        %a.back{ :href => "#" }
-          Home
-      %div{ :style => "margin: 10px;" }
-        %a.whiteButton{ :href => "#" }
-          White
-        %br
-        %a.grayButton{ :href => "#" }
-          Gray
-        %br
-        %a.redButton{ :href => "#" }
-          Red
-        %br
-        %a.greenButton{ :href => "#" }
-          Green
-    #callbacks
-      .toolbar
-        %h1
-          Events
-        %a.back{ :href => "#home" }
-          Home
-      %ul.rounded
-        %li#orient
-          Orientation:
-          %strong
-            profile
-        %li
-          %a{ :href => "#pageevents" }
-            Page events
-        %li
-          %a#swipeme{:href => "#"}
-            Swipe me!
-        %li
-          %a#tapme{:href => "#"}
-            Tap me!      
-    #chain
-      .toolbar
-        %h1
-          Cool App
-        %a.back{ :href => "#demos" }
-          Demos
-      %ul#friends
-        %li
-          %a{:href => "#details", :onClick => "friendclick(event)"}
-            %span.firstName
-            %span.lastName
-    #databases
-      .toolbar
-        %h1
-          Database
-        %a.back{ :href => "#demos" }
-          Demos
-      %ul#database.rounded         
-    #demos
-      .toolbar
-        %h1
-          Demos
-        %a.back{ :href => "#home" }
-          Home
-      .info
-        These apps open in a new window. Don’t forget to save them to your home screen to enable full-screen mode.
-      %ul.rounded
-        %li.forward
-          %a{ :href => "/jqtouch/clocks", :target => "_webapp" }
-            Clock app
-        %li.forward
-          %a{ :href => "/jqtouch/ical", :target => "_webapp" }
-            iCal app
-        %li.forward
-          %a{ :href => "/jqtouch/mail", :target => "_webapp" }
-            Mail app
-        %li.forward
-          %a{ :href => "/jqtouch/todo", :target => "_webapp" }
-            To-Do app
         %li.arrow
-          %a{ :href => "#mobione" }
-            MobiOne Demos
+          %a{ :href => "#ui" }
+            User Interface
           %small.counter
             6
-    #details
-      .toolbar
-        %h1 Details?!
-        %a.back.cancel{:href => "#chain"} Back
-      #thedetails
-        %span.firstName
-        %span.lastName   
-    #edge
-      .toolbar
-        %h1
-          Edge to Edge
-        %a.back{ :href => "#" }
-          Back
-      %ul.edgetoedge
-        %li.sep
-          F
-        %li
-          %a{ :href => "#" }
-            Flintstone,
-            %em
-              Fred
-        %li
-          %a{ :href => "#" }
-            Flintstone,
-            %em
-              Pebble
-        %li
-          %a{ :href => "#" }
-            Flintstone,
-            %em
-              Wilma
-        %li.sep
-          J
-        %li
-          %a{ :href => "#" }
-            Jetson,
-            %em
-              Elroy
-        %li
-          %a{ :href => "#" }
-            Jetson,
-            %em
-              George
-        %li
-          %a{ :href => "#" }
-            Jetson,
-            %em
-              Jane
-        %li
-          %a{ :href => "#" }
-            Jetson,
-            %em
-              Judy
-        %li.sep
-          R
-        %li
-          %a{ :href => "#" }
-            Rubble,
-            %em
-              Bambam
-        %li
-          %a{ :href => "#" }
-            Rubble,
-            %em
-              Barney
-        %li
-          %a{ :href => "#" }
-            Rubble,
-            %em
-              Betty
-    #edge2
-      .toolbar
-        %h1 Fixed Bottom Toolbar
-        %a.back{:href => "#"} Back
-      .vertical-scroll.use-bottom-toolbar
-        %div
-          %ul.edgetoedge
-            %li.sep F
-            %li
-              %a{:href => "#"}
-                Flintstone,
-                %em Fred
-            %li
-              %a{:href => "#"}
-                Flintstone,
-                %em Pebble
-            %li
-              %a{:href => "#"}
-                Flintstone,
-                %em Wilma
-            %li.sep J
-            %li
-              %a{:href => "#"}
-                Jetson,
-                %em Elroy
-            %li
-              %a{:href => "#"}
-                Jetson,
-                %em George
-            %li
-              %a{:href => "#"}
-                Jetson,
-                %em Jane
-            %li
-              %a{:href => "#"}
-                Jetson,
-                %em Judy
-            %li.sep R
-            %li
-              %a{:href => "#"}
-                Rubble,
-                %em Bambam
-            %li
-              %a{:href => "#"}
-                Rubble,
-                %em Barney
-            %li
-              %a{:href => "#"}
-                Rubble,
-                %em Betty
-            %li.sep F
-            %li
-              %a{:href => "#"}
-                Flintstone,
-                %em Fred
-            %li
-              %a{:href => "#"}
-                Flintstone,
-                %em Pebble
-            %li
-              %a{:href => "#"}
-                Flintstone,
-                %em Wilma
-            %li.sep J
-            %li
-              %a{:href => "#"}
-                Jetson,
-                %em Elroy
-            %li
-              %a{:href => "#"}
-                Jetson,
-                %em George
-            %li
-              %a{:href => "#"}
-                Jetson,
-                %em Jane
-            %li
-              %a{:href => "#"}
-                Jetson,
-                %em Judy
-            %li.sep R
-            %li
-              %a{:href => "#"}
-                Rubble,
-                %em Bambam
-            %li
-              %a{:href => "#"}
-                Rubble,
-                %em Barney
-            %li
-              %a{:href => "#"}
-                Rubble,
-                %em Betty
-            %li.sep F
-            %li
-              %a{:href => "#"}
-                Flintstone,
-                %em Fred
-            %li
-              %a{:href => "#"}
-                Flintstone,
-                %em Pebble
-            %li
-              %a{:href => "#"}
-                Flintstone,
-                %em Wilma
-            %li.sep J
-            %li
-              %a{:href => "#"}
-                Jetson,
-                %em Elroy
-            %li
-              %a{:href => "#"}
-                Jetson,
-                %em George
-            %li
-              %a{:href => "#"}
-                Jetson,
-                %em Jane
-            %li
-              %a{:href => "#"}
-                Jetson,
-                %em Judy
-            %li.sep R
-            %li
-              %a{:href => "#"}
-                Rubble,
-                %em Bambam
-            %li
-              %a{:href => "#"}
-                Rubble,
-                %em Barney
-            %li
-              %a{:href => "#"}
-                Rubble,
-                %em Betty
-      .toolbar
-        %h1 Bottom Toolbar
-    #extensions
-      .toolbar
-        %h1
-          Extensions
-        %a.back{ :href => "#home" }
-          Home
-      .info
-        These apps open in a new window. Don’t forget to save them to your home screen to enable full-screen mode.
+        %li.arrow
+          %a{ :href => "#animations" }
+            Animations
+          %small.counter
+            11
+        %li.arrow
+          %a{ :href => "/jqtouch/demo/ajax", :target => "_webapp" }
+            AJAX
+          %small.counter
+            4
+        %li.arrow
+          %a{ :href => "#callbacks" }
+            Callback Events
+          %small.counter
+            4
+        %li.arrow
+          %a{ :href => "#extensions" }
+            Extensions
+          %small.counter
+            8
+        %li.arrow
+          %a{ :href => "#video" }
+            Video
+        %li.arrow
+          %a{ :href => "#demos" }
+            Demos
+          %small.counter
+            6
+      %h2
+        External Links
       %ul.rounded
         %li.forward
-          %a{ :href => "/jqtouch/ext/location", :target => "_webapp" }
-            Geo Location
+          %a{ :href => "http://www.jqtouch.com", :target => "_blank" }
+            Homepage
         %li.forward
-          %a{ :href => "/jqtouch/ext/offline", :target => "_webapp" }
-            Offline Utility
+          %a{ :href => "http://www.twitter.com/jqtouch", :target => "_blank" }
+            Twitter
         %li.forward
-          %a{ :href => "/jqtouch/ext/floaty", :target => "_webapp" }
-            Floaty Bar
-        %li.forward
-          %a{ :href => "/jqtouch/ext/autotitles", :target => "_webapp" }
-            Auto Titles
-        %li.forward
-          %a{ :href => "/jqtouch/ext/gestures", :target => "_webapp" }
-            Gestures
-        %li.arrow
-          %a{:href => "#databases"}
-            Database Example
-          %small.counter 2
-        %li.arrow
-          %a{ :href => "#chain" }
-            Chain Demo
-        %li.forward
-          %a{ :href => "/jqtouch/demo2/", :target => "_webapp" }
-            Image handling
-    #forms
-      .toolbar
-        %h1
-          Forms
-        %a.back{ :href => "#" }
-          Back
-      %form
-        %ul.edit.rounded
-          %li
-            %input#some_name{ :name => "name", :placeholder => "Text", :type => "text" }
-          %li
-            %input#some_name{ :name => "search", :placeholder => "Search", :type => "search" }
-          %li
-            %input#some_name{ :name => "phone", :placeholder => "Phone", :type => "tel" }
-          %li
-            %input#some_name{ :name => "zip", :placeholder => "Numbers", :type => "number" }
-          %li
-            %input#some_name{ :name => "email", :placeholder => "Email", :type => "email" }
-          %li
-            %input#some_name{ :name => "url", :placeholder => "Url", :type => "url" }
-          %li
-            %textarea{ :placeholder => "Textarea" }
-          %li
-            Sample Toggle
-            %span.toggle
-              %input{ :type => "checkbox" }
-          %li
-            %select#lol
-              %optgroup{ :label => "Swedish Cars" }
-                %option{ :value => "volvo" }
-                  Volvo
-                %option{ :value => "saab" }
-                  Saab
-              %optgroup{ :label => "German Cars" }
-                %option{ :value => "mercedes" }
-                  Mercedes
-                %option{ :value => "audi" }
-                  Audi
-          %li
-            %input#some_name{ :name => "some_name", :type => "password", :value => "iphonedelcopon" }
-          %li
-            %input{ :name => "food", :title => "Punch", :type => "checkbox", :value => "punch" }
-          %li
-            %input{ :name => "food", :checked => "checked", :title => "Pie", :type => "checkbox", :value => "pie" }
-          %li
-            %input{ :name => "bag", :title => "Paper", :type => "radio", :value => "paper" }
-          %li
-            %input{ :name => "bag", :title => "Plastic", :type => "radio", :value => "plastic" }
-    #home.current
-      .toolbar
-        %h1
-          jQTouch
-        %a#infoButton.button.slideup{ :href => "#about" }
-          About
-      %div
-        %ul.rounded
-          %li.arrow
-            %a{ :href => "#ui" }
-              User Interface
-            %small.counter
-              6
-          %li.arrow
-            %a{ :href => "#animations" }
-              Animations
-            %small.counter
-              11
-          %li.arrow
-            %a{ :href => "/jqtouch/demo/ajax", :target => "_webapp" }
-              AJAX
-            %small.counter
-              4
-          %li.arrow
-            %a{ :href => "#callbacks" }
-              Callback Events
-            %small.counter
-              4
-          %li.arrow
-            %a{ :href => "#extensions" }
-              Extensions
-            %small.counter
-              8
-          %li.arrow
-            %a{ :href => "#video" }
-              Video
-          %li.arrow
-            %a{ :href => "#demos" }
-              Demos
-            %small.counter
-              5
-        %h2
-          External Links
-        %ul.rounded
-          %li.forward
-            %a{ :href => "http://www.jqtouch.com", :target => "_blank" }
-              Homepage
-          %li.forward
-            %a{ :href => "http://www.twitter.com/jqtouch", :target => "_blank" }
-              Twitter
-          %li.forward
-            %a{ :href => "http://code.google.com/p/jqtouch/w/list", :target => "_blank" }
-              Google Code
-        %ul.individual
-          %li
-            %a{ :href => "mailto:dk@morfunk.com" }
-              Email
-          %li
-            %a{ :href => "http://tinyurl.com/support-jqt", :target => "_blank" }
-              Donate
-        .info
-          %p
-            Add this page to your home screen to view the custom icon, startup screen, and full screen mode.
-    #metal
-      .toolbar
-        %h1
-          Metal Lists
-        %a.back{ :href => "#" }
-          Back
-      %ul.metal
-        %li.arrow
-          %a{ :href => "#" }
-            %small
-              AM
-            9:40
-            %em
-              Buenos Aires
-        %li.arrow
-          %a{ :href => "#" }
-            %small
-              PM
-            19:40
-            %em
-              Singapur
-        %li.arrow
-          %a{ :href => "#" }
-            %small
-              PM
-            22:40
-            %em
-              Japan
-        %li.arrow
-          %a{ :href => "#" }
-            %small
-              PM
-            11:40
-            %em
-              New York
-        %li.arrow
-          %a{ :href => "#" }
-            %small
-              PM
-            9:40
-            %em
-              Ontario
-    #mobione
-      .toolbar
-        %h1
-          MobiOneDemos
-        %a.back{ :href => "#demos" }
-          Demos
-      .info
-        These apps open in a new window. Don’t forget to save them to your home screen to enable full-screen mode.
-      %ul.rounded
-        %li.forward
-          %a{ :href => "/jqtouch/mobione/events", :target => "_webapp" }
-            Touch Debug Log
-        %li.forward
-          %a{ :href => "/jqtouch/mobione/demo1", :target => "_webapp" }
-            Touch Demo 1
-        %li.forward
-          %a{ :href => "/jqtouch/mobione/demo2", :target => "_webapp" }
-            Touch Demo 2
-        %li.forward
-          %a{ :href => "/jqtouch/mobione/demo3", :target => "_webapp" }
-            Touch Demo 3
-        %li.forward
-          %a{ :href => "/jqtouch/mobione/demo4", :target => "_webapp" }
-            Touch Demo 4
-        %li.forward
-          %a{ :href => "/jqtouch/mobione/virtual", :target => "_webapp" }
-            Virtual Light Table
-    #pageevents
-      .toolbar
-        %h1
-          Page Events
-        %a.back{ :href => "#" }
-          Events
-      .info{ :style => "font-weight: normal;" }
-    #plastic
-      .toolbar
-        %h1
-          Plastic Lists
-        %a.back{ :href => "#" }
-          Back
-      %ul.plastic
-        %li.arrow
-          %a{ :href => "#" }
-            Simple list
-        %li.arrow
-          %a{ :href => "#" }
-            Contact list
-        %li.arrow
-          %a{ :href => "#" }
-            Content List
-        %li.arrow
-          %a{ :href => "#" }
-            Metal list
+          %a{ :href => "http://code.google.com/p/jqtouch/w/list", :target => "_blank" }
+            Google Code
+      %ul.individual
+        %li
+          %a{ :href => "mailto:dk@morfunk.com" }
+            Email
+        %li
+          %a{ :href => "http://tinyurl.com/support-jqt", :target => "_blank" }
+            Donate
       .info
         %p
-          %strong
-            Best enjoyed on a real iPhone
-    #ui
-      .toolbar
-        %h1
-          UI Demos
-        %a.back{ :href => "#" }
-          Home
-      %h2
-        Lists
-      %ul.rounded
-        %li.arrow
-          %a{ :href => "#edge" }
-            Edge to Edge
-        %li.arrow
-          %a{ :href => "#edge2" }
-            Fixed Bottom Toolbar
-        %li.arrow
-          %a{ :href => "#plastic" }
-            Plastic
-        %li.arrow
-          %a{ :href => "#metal" }
-            Metal
-      %h2
-        Buttons
-      %ul.rounded
-        %li.arrow
-          %a{ :href => "#buttons" }
-            Buttons
-      %h2
-        Forms
-      %ul.rounded
-        %li.arrow
-          %a{ :href => "#forms" }
-            Form
-            
-    #video
-      .toolbar
-        %h1
-          Video
-        %a.back{ :href => "#" }
-          Home   
-      %center
-        %video#movie{ :src => "/videos/fireworks-iPhone.m4v", :poster => "/videos/fireworks.jpg", :height => "426", :width => "320", :controls => '' }
-        %a#play_movie.whiteButton{:href => "#video", :style => "margin: 10px;"} Play Movie
+          Add this page to your home screen to view the custom icon, startup screen, and full screen mode.
+  #jonathan
+    .toolbar
+      %h1
+        Jonathan Stark Demos
+      %a.back{ :href => "#demos" }
+        Demos
+    .info
+      These apps open in a new window. Don’t forget to save them to your home screen to enable full-screen mode.
+    %ul.rounded
+      %li.forward
+        %a{ :href => "/jqtouch/jonathan_stark/chapter2", :target => "_webapp" }
+          Basic iPhone Styling
+      %li.forward
+        %a{ :href => "/jqtouch/jonathan_stark/chapter3", :target => "_webapp" }
+          Advanced iPhone Styling
+      %li.forward
+        %a{ :href => "/jqtouch/jonathan_stark/chapter4", :target => "_webapp" }
+          Animation
+      %li.forward
+        %a{ :href => "/jqtouch/jonathan_stark/chapter5", :target => "_webapp" }
+          Client-Side Data Storage
+      %li.forward
+        %a{ :href => "/jqtouch/jonathan_stark/chapter6", :target => "_webapp" }
+          Going Offline
+  #metal
+    .toolbar
+      %h1
+        Metal Lists
+      %a.back{ :href => "#" }
+        Back
+    %ul.metal
+      %li.arrow
+        %a{ :href => "#" }
+          %small
+            AM
+          9:40
+          %em
+            Buenos Aires
+      %li.arrow
+        %a{ :href => "#" }
+          %small
+            PM
+          19:40
+          %em
+            Singapur
+      %li.arrow
+        %a{ :href => "#" }
+          %small
+            PM
+          22:40
+          %em
+            Japan
+      %li.arrow
+        %a{ :href => "#" }
+          %small
+            PM
+          11:40
+          %em
+            New York
+      %li.arrow
+        %a{ :href => "#" }
+          %small
+            PM
+          9:40
+          %em
+            Ontario
+  #mobione
+    .toolbar
+      %h1
+        MobiOneDemos
+      %a.back{ :href => "#demos" }
+        Demos
+    .info
+      These apps open in a new window. Don’t forget to save them to your home screen to enable full-screen mode.
+    %ul.rounded
+      %li.forward
+        %a{ :href => "/jqtouch/mobione/events", :target => "_webapp" }
+          Touch Debug Log
+      %li.forward
+        %a{ :href => "/jqtouch/mobione/demo1", :target => "_webapp" }
+          Touch Demo 1
+      %li.forward
+        %a{ :href => "/jqtouch/mobione/demo2", :target => "_webapp" }
+          Touch Demo 2
+      %li.forward
+        %a{ :href => "/jqtouch/mobione/demo3", :target => "_webapp" }
+          Touch Demo 3
+      %li.forward
+        %a{ :href => "/jqtouch/mobione/demo4", :target => "_webapp" }
+          Touch Demo 4
+      %li.forward
+        %a{ :href => "/jqtouch/mobione/virtual", :target => "_webapp" }
+          Virtual Light Table
+  #pageevents
+    .toolbar
+      %h1
+        Page Events
+      %a.back{ :href => "#" }
+        Events
+    .info{ :style => "font-weight: normal;" }
+  #plastic
+    .toolbar
+      %h1
+        Plastic Lists
+      %a.back{ :href => "#" }
+        Back
+    %ul.plastic
+      %li.arrow
+        %a{ :href => "#" }
+          Simple list
+      %li.arrow
+        %a{ :href => "#" }
+          Contact list
+      %li.arrow
+        %a{ :href => "#" }
+          Content List
+      %li.arrow
+        %a{ :href => "#" }
+          Metal list
+    .info
+      %p
+        %strong
+          Best enjoyed on a real iPhone
+  #ui
+    .toolbar
+      %h1
+        UI Demos
+      %a.back{ :href => "#" }
+        Home
+    %h2
+      Lists
+    %ul.rounded
+      %li.arrow
+        %a{ :href => "#edge" }
+          Edge to Edge
+      %li.arrow
+        %a{ :href => "#edge2" }
+          Fixed Bottom Toolbar
+      %li.arrow
+        %a{ :href => "#plastic" }
+          Plastic
+      %li.arrow
+        %a{ :href => "#metal" }
+          Metal
+    %h2
+      Buttons
+    %ul.rounded
+      %li.arrow
+        %a{ :href => "#buttons" }
+          Buttons
+    %h2
+      Forms
+    %ul.rounded
+      %li.arrow
+        %a{ :href => "#forms" }
+          Form
+          
+  #video
+    .toolbar
+      %h1
+        Video
+      %a.back{ :href => "#" }
+        Home   
+    %center
+      %video#movie{ :src => "/videos/fireworks-iPhone.m4v", :poster => "/videos/fireworks.jpg", :height => "426", :width => "320", :controls => '' }
+      %a#play_movie.whiteButton{:href => "#video", :style => "margin: 10px;"} Play Movie

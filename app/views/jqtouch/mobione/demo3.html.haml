@@ -2,36 +2,36 @@
 
 - content_for :content_head do
   = render(:partial => "demo3.js.haml", :format => :js)
-%body
-  #jqt.fullscreen
-    #home
-      .toolbar
-        %h1
-          MobiOne Demo 3
-        %a.back{ :href => "/jqtouch/demo/#mobiones", :target => "_webapp"  } 
-          MobiOne Demos
+
+#jqt.fullscreen
+  #home
+    .toolbar
+      %h1
+        MobiOne Demo 3
+      %a.button.backRemote{ :href => "/jqtouch/demo", :target => "_webapp" }
+        MobiOne Demos
+        
+    %div 
+      %div#touchme1.largetouchbox
+        %span #1
+        %b Touch Me :)
+      %div#touchme2.largetouchbox
+        %span #2
+        %b No, Touch Me :)
+    %div{:style => "clear: both;"}
+      %div#touch1.smalltouchbox.dragx{:style => "left: 35px; top:240px;"}
+        %span #3
+      %div#touch2.smalltouchbox.dragx{:style => "left: 95px; top:270px;"}
+        %span #4
+      %div#touch3.smalltouchbox.dragy{:style => "left: 155px; top:270px;"}
+        %span #5
+      %div#touch4.smalltouchbox.dragy{:style => "left: 215px; top:240px;"}
+        %span #6
           
-      %div 
-        %div#touchme1.largetouchbox
-          %span #1
-          %b Touch Me :)
-        %div#touchme2.largetouchbox
-          %span #2
-          %b No, Touch Me :)
-      %div{:style => "clear: both;"}
-        %div#touch1.smalltouchbox.dragx{:style => "left: 35px; top:240px;"}
-          %span #3
-        %div#touch2.smalltouchbox.dragx{:style => "left: 95px; top:270px;"}
-          %span #4
-        %div#touch3.smalltouchbox.dragy{:style => "left: 155px; top:270px;"}
-          %span #5
-        %div#touch4.smalltouchbox.dragy{:style => "left: 215px; top:240px;"}
-          %span #6
-            
-      %div#notes
-        %p
-          %b
-            TASK:
-          %br
-          Click, Drag, Throw, Rotate &amp; Scale these naughty boxes. You can see each box numbers settings
-          below.
+    %div#notes
+      %p
+        %b
+          TASK:
+        %br
+        Click, Drag, Throw, Rotate &amp; Scale these naughty boxes. You can see each box numbers settings
+        below.
