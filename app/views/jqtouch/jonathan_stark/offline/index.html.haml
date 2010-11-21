@@ -1,0 +1,16 @@
+-@browser_title = "Offline App Cache Demo"
+-@manifest = "offline/manifest"
+
+- content_for :content_head do
+  = render(:partial => "jqt.js.haml", :format => :js)
+  
+#jqt
+  #home
+    .toolbar
+      %h1 Offline App Cache Demo
+      %a.button.backRemote{ :href => "/jqtouch/demo", :target => "_webapp" } 
+        Home
+    %center
+      %img{:src => "/images/demo/touch/jonathan_stark/logo.jpg"}/
+      %img{:src => "/images/demo/touch/jonathan_stark/logo2.jpg"}/
+  

@@ -84,5 +84,5 @@ div#jqt .edgetoedge h4 {
     padding: 0;
     max-width: 55px;
     border-width: 0 8px 0 14px;
-    -webkit-border-image: url("/images/demo/jqtouch/todo/back_button.png") 0 8 0 14;
+    -webkit-border-image: url("/images/demo/touch/todo/back_button.png") 0 8 0 14;
 }
