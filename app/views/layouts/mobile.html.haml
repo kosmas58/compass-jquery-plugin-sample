@@ -4,7 +4,7 @@
     %meta{:charset => "UTF-8"}
     %title
       = @title || 'jQuery Mobile Framework'
-    = stylesheet_link_tag 'compiled/jquery/mobile/default.css', :media => 'screen, projection'
+    = stylesheet_link_tag :mobile_default, :media => 'screen, projection'
     = javascript_include_tag :mobile
     = javascript_include_tag 'locales'
     = javascript_include_tag 'common'
