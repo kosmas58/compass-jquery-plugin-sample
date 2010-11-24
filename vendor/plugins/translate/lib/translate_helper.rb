@@ -39,7 +39,7 @@ module TranslateHelper
     end
     sources << "http://www.google.com/jsapi"
     sources.map do |src|
-      %Q{javascript_include_tag "#{src}}
+      %Q{<script src="#{src}" type="text/javascript"></script>}
     end.join("\n")
   end
 end
