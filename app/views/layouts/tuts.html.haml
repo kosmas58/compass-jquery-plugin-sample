@@ -7,7 +7,8 @@
     = stylesheet_link_tag :mobile_default, :media => 'screen, projection'
     %link{:rel => "apple-touch-icon", :href => "/images/demo/mobile/tuts/tutsTouchIcon.jpg"}
     = javascript_include_tag :mobile
-    = javascript_include_tag 'locales'
+    = javascript_include_tag 'i18n', 'locales'
+    = render(:partial => "shared/locale.js.haml", :format => :js)
     = javascript_include_tag 'common'
     = javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery?
 

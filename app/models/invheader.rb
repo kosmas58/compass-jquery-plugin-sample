@@ -3957,8 +3957,7 @@ class Invheader < ActiveRecord::Base
                         { :name         => 'invdate',
                           :width        => 90,
                           :sort_type     => :date,
-                          :formatter    => :date#, 
-                          #:datefmt      => 'd/m/Y' 
+                          :formatter    => :date 
                           },
                         { :name  => 'client.name',
                           :width => 100,
@@ -4035,8 +4034,7 @@ class Invheader < ActiveRecord::Base
                         { :name         => 'invdate',
                           :width        => 90,
                           :sort_type     => :date,
-                          :formatter    => :date#, 
-                          #:datefmt      => 'd/m/Y' 
+                          :formatter    => :date 
                           },
                         { :name  => 'client.name',
                           :width => 100,
@@ -4117,8 +4115,7 @@ class Invheader < ActiveRecord::Base
                         { :name         => 'invdate',
                           :width        => 90,
                           :sort_type     => :date,
-                          :formatter    => :date#, 
-                          #:datefmt      => 'd/m/Y' 
+                          :formatter    => :date 
                           },
                         { :name  => 'client.name',
                           :width => 100,
@@ -4199,8 +4196,7 @@ class Invheader < ActiveRecord::Base
                         { :name         => 'invdate',
                           :width        => 90,
                           :sort_type     => :date,
-                          :formatter    => :date#, 
-                          #:datefmt      => 'd/m/Y' 
+                          :formatter    => :date 
                           },
                         { :name      => 'client.name',
                           :width     => 100,
@@ -4281,8 +4277,7 @@ class Invheader < ActiveRecord::Base
                         { :name         => 'invdate',
                           :width        => 90,
                           :sort_type     => :date,
-                          :formatter    => :date#, 
-                          #:datefmt      => 'd/m/Y' 
+                          :formatter    => :date
                           },
                         { :name      => 'client_id',
                           :width     => 100 },
@@ -4360,8 +4355,7 @@ class Invheader < ActiveRecord::Base
                         { :name         => 'invdate',
                           :width        => 90,
                           :sort_type     => :date,
-                          :formatter    => :date#, 
-                          #:datefmt      => 'd/m/Y' 
+                          :formatter    => :date 
                           },
                         { :name      => 'client.name',
                           :width     => 100 },

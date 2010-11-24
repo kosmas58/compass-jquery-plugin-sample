@@ -1,5 +1,6 @@
 # Filters added to this controller apply to all controllers in the application.
 # Likewise, all the methods added will be available for all controllers.
+require "i18n-js"
 
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
@@ -17,6 +18,9 @@ class ApplicationController < ActionController::Base
 
     # set locale based on session or default 
     I18n.locale = session[:locale] || I18n.default_locale
+    
+    # for i18n-js
+    SimplesIdeias::I18n.export! if RAILS_ENV == "development"
   end
 
   def set_theme

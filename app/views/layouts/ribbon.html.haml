@@ -19,7 +19,8 @@
     = raw jrails_javascripts(I18n.locale)
     = javascript_include_tag :ribbon
 
-    = javascript_include_tag 'locales'
+    = javascript_include_tag 'i18n', 'locales'
+    = render(:partial => "shared/locale.js.haml", :format => :js)
     = javascript_include_tag 'common'
     = javascript_include_tag 'content'
     = javascript_include_tag 'ajax'
