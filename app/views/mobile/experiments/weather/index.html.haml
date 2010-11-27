@@ -6,23 +6,40 @@
 
 %div{"data-role" => "page", "data-theme" => "a"}
   %form.ui-body.ui-body-a{:action => "", :method => "get"}
-    %label{:for => "location"} Change zip code:
-    %input#location{"data-theme" => "a", :name => "location", :placeholder => "zip code...", :type => "search", :value => "<?=$location; ?>"}/
+    %label{:for => "location"}
+      Change city:
+    %input#location{"data-theme" => "a", :name => "location", :placeholder => "city name...", :type => "search", :value => "#{@location}"}/
     %input{"data-role" => "nojs", :type => "submit", :value => "submit"}/
+  / / header
   %div{"data-role" => "content"}
-    %h1 Currently in <?=$information[0]->city['data']; ?>:
+    %h1
+      Currently in
+      %br
+      #{@information[:city]}:
     .current.ui-body.ui-bar-a.ui-corner-all
-      %img{:alt => "weather", :src => "<?= 'http://www.google.com' . $current[0]->icon['data']?>"}
-        %p.condition
-          <?= $current[0]->temp_f['data'] ?>&deg; F,
-          <?= $current[0]->condition['data'] ?>
+      - # 'condition','temp_c','icon','humidity','wind_condition']
+      .ui-grid-a{}
+        .ui-block-a{:style => "width:25%;"}
+          %img{:alt => "weather", :src => "http://www.google.com#{@information[:icon]}"}
+        .ui-block-b{:style => "width:75%;"}
+          %p.condition
+            #{@information[:temp_c]} &#8451;,
+            #{@information[:condition]}
+            %br
+            #{@information[:wind_condition]}
+            %br
+            #{@information[:humidity]}
     %ul{"data-inset" => "true", "data-role" => "listview", "data-theme" => "a"}
       %li{"data-role" => "list-divider"} This week's forecast
-      <? foreach ($forecast_list as $forecast) : ?>
-      %li
-        %img{:src => "<?= 'http://www.google.com' . $forecast->icon['data']?>"}
-          %h3 <?= $forecast->day_of_week['data']; ?>
+      - @forecast_list.each do |item|
+        %li
+          %img{:src => "http://www.google.com#{item[:icon]}"}
+          %h3
+            %a
+              #{item[:day_of_week]}
           %p
-            <?= $forecast->low['data'] ?>&deg; F - <?= $forecast->high['data'] ?>&deg; F,
-            <?= $forecast->condition['data'] ?>
-      <? endforeach ?>
+            #{item[:low]} &#8451;,
+            #{item[:high]} &#8451;,
+            #{item[:condition]}
+  / / content
+/ / page
