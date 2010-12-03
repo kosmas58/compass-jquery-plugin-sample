@@ -1,7 +1,19 @@
 -@title = "jQuery Mobile: Demos and Documentation"
 
 - content_for :content_head do
-  = render(:partial => "scrollview.js.haml", :format => :js)
+  = render(:partial => "scrollview1.js.haml", :format => :js)
+  :css
+    .ui-content.ui-scrollview-clip {
+      padding: 0;
+    }
+    .ui-content.ui-scrollview-clip > div.ui-scrollview-view {
+      margin: 0;
+      padding: 15px;
+    }
+    .ui-content.ui-scrollview-clip > .ui-listview.ui-scrollview-view {
+      margin: 0;
+    }
+  = render(:partial => "scrollview2.js.haml", :format => :js)
 
 #jqm-home{"data-role" => "page", "data-theme" => "b"}
   #jqm-homeheader
@@ -22,6 +34,10 @@
       %li{"data-role" => "list-divider"} List Views
       %li
         %a{:href => "/mobile/experiments/scrollview/lists-divider"} Sticky list dividers
+      %li
+        %a{:href => "/mobile/experiments/scrollview/direction"} Direction
+      %li
+        %a{:href => "/mobile/experiments/scrollview/nested"} Nested
     %ul{"data-dividertheme" => "b", "data-inset" => "true", "data-role" => "listview", "data-theme" => "c"}
       %li{"data-role" => "list-divider"} Forms
       %li

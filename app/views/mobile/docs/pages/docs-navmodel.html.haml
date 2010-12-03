@@ -15,7 +15,7 @@
       attribute set to
       = succeed "," do
         %code "page"
-      within which there generally tends to be
+      which generally contains
       %code div
       elements with roles of
       = succeed "," do
@@ -103,6 +103,8 @@
       %code &lt;base&gt;
       element's href attribute. The combination of these two approaches allows us to create URLs that contain full path information for loading pages, and a base element to properly direct asset requests made by those loaded pages (such as images and stylesheets).
     %p jQuery Mobile core contains 4 internal functions for manipulating a base url to be used in normalizing relative http requests:
+    %p
+      %strong Note: These functions have changed - docs will be updated soon!
     %ul
       %li
         %p getPathDir: function that returns a path with the last "/"-split segment removed (which is assumed to be a file url).

@@ -1,8 +1,20 @@
 -@title = "jQuery Mobile: Demos and Documentation"
 
 - content_for :content_head do
-  = render(:partial => "scrollview.js.haml", :format => :js)
-
+  = render(:partial => "scrollview1.js.haml", :format => :js)
+  :css
+    .ui-content.ui-scrollview-clip {
+      padding: 0;
+    }
+    .ui-content.ui-scrollview-clip > div.ui-scrollview-view {
+      margin: 0;
+      padding: 15px;
+    }
+    .ui-content.ui-scrollview-clip > .ui-listview.ui-scrollview-view {
+      margin: 0;
+    }
+  = render(:partial => "scrollview2.js.haml", :format => :js)
+  
 %div{"data-role" => "page"}
   %div{"data-role" => "header"}
     %h1 List dividers
@@ -67,6 +79,65 @@
         %a{:href => "/mobile/docs/lists"} Rod Tarker
       %li{"data-role" => "list-divider"} S
       %li
-        %a{:href => "/mobile/docs/lists"} Sawyer Wakefield  
+        %a{:href => "/mobile/docs/lists"} Sawyer Wakefield
+      %li{"data-role" => "list-divider"} A
+      %li
+        %a{:href => "/mobile/docs/lists"} Adam Kinkaid
+      %li
+        %a{:href => "/mobile/docs/lists"} Alex Wickerham
+      %li
+        %a{:href => "/mobile/docs/lists"} Avery Johnson
+      %li{"data-role" => "list-divider"} B
+      %li
+        %a{:href => "/mobile/docs/lists"} Bob Cabot
+      %li{"data-role" => "list-divider"} C
+      %li
+        %a{:href => "/mobile/docs/lists"} Caleb Booth
+      %li
+        %a{:href => "/mobile/docs/lists"} Christopher Adams
+      %li
+        %a{:href => "/mobile/docs/lists"} Culver James
+      %li{"data-role" => "list-divider"} D
+      %li
+        %a{:href => "/mobile/docs/lists"} David Walsh
+      %li
+        %a{:href => "/mobile/docs/lists"} Drake Alfred
+      %li{"data-role" => "list-divider"} E
+      %li
+        %a{:href => "/mobile/docs/lists"} Elizabeth Bacon
+      %li
+        %a{:href => "/mobile/docs/lists"} Emery Parker
+      %li
+        %a{:href => "/mobile/docs/lists"} Enid Voldon
+      %li{"data-role" => "list-divider"} F
+      %li
+        %a{:href => "/mobile/docs/lists"} Francis Wall
+      %li{"data-role" => "list-divider"} G
+      %li
+        %a{:href => "/mobile/docs/lists"} Graham Smith
+      %li
+        %a{:href => "/mobile/docs/lists"} Greta Peete
+      %li{"data-role" => "list-divider"} H
+      %li
+        %a{:href => "/mobile/docs/lists"} Harvey Walls
+      %li{"data-role" => "list-divider"} M
+      %li
+        %a{:href => "/mobile/docs/lists"} Mike Farnsworth
+      %li
+        %a{:href => "/mobile/docs/lists"} Murray Vanderbuilt
+      %li{"data-role" => "list-divider"} N
+      %li
+        %a{:href => "/mobile/docs/lists"} Nathan Williams
+      %li{"data-role" => "list-divider"} P
+      %li
+        %a{:href => "/mobile/docs/lists"} Paul Baker
+      %li
+        %a{:href => "/mobile/docs/lists"} Pete Mason
+      %li{"data-role" => "list-divider"} R
+      %li
+        %a{:href => "/mobile/docs/lists"} Rod Tarker
+      %li{"data-role" => "list-divider"} S
+      %li
+        %a{:href => "/mobile/docs/lists"} Sawyer Wakefield
   / /content
 / /page

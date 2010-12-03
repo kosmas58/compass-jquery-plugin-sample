@@ -33,6 +33,47 @@
       elements via the
       %code for
       attribute).
+    %h2 Auto-initialization of form elements
+    %p
+      By default, jQuery Mobile will automatically enhance certain native form controls into rich touch-friendly components. This is handled internally by finding form elements by tag name and running a plugin method on them, so for instance, a
+      %code select
+      element will be found and initialized with the "selectmenu" plugin, while an
+      %code input
+      element with a
+      %code type="checkbox"
+      will be enhanced with the "checkboxradio" plugin. Once initialized, you can address these enhanced components programmatically through their jQuery UI widget API methods (see documentation on available methods here:
+      = succeed ")." do
+        %a{:href => "/mobile/docs/forms/plugin-eventsmethods"} Form Plugin Methods
+    %h2 Preventing auto-initialization of form elements
+    %p
+      If you'd prefer that a particular form control be left untouched by jQuery Mobile, simply give that element the attribute
+      = succeed "." do
+        %code data-role="none"
+      For example:
+    %pre
+      %code
+        \&lt;label for=&quot;foo&quot;&gt;
+        \&lt;select name=&quot;foo&quot; id=&quot;foo&quot;
+        = succeed "&amp;gt;" do
+          %strong data-role=&quot;none&quot;
+        \&lt;option value="a" &gt;A&lt;/option&gt;
+        \&lt;option value="b" &gt;B&lt;/option&gt;
+        \&lt;option value="c" &gt;C&lt;/option&gt;
+        \&lt;/select&gt;
+    %p
+      Or, if you'd like to prevent auto-initialization without adding attributes to your markup, you can customize the selector that is used for preventing auto-initialization by setting the page plugin's
+      %code keepNative
+      option (which defaults to
+      = succeed "." do
+        %code "[data-role="none"]
+      Be sure to configure this option inside an event handler bound to the
+      %code mobileinit
+      event, so that it applies to the first page as well as subsequent pages that are loaded.
+    %pre
+      %code
+        $(document).bind('mobileinit',function(){
+        %strong $.mobile.page.prototype.options.keepNative = "select, input.foo, textarea.bar";
+        });
     %h2 Dynamic form layout
     %p In jQuery Mobile, all form elements are designed to be a flexible width so they will comfortably fit the width of any mobile device. One optimization built into the framework is that we present labels and form elements differently based on screen width.
     %p If a page is fairly narrow (~480px), the labels are styled as block-level elements so they will stack on top of the form element to save horizontal space.
