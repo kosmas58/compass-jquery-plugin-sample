@@ -20,9 +20,10 @@ jQuery(document).ready(function() {
     var head = $("#demoframe").contents().find("head");
     head.append(cssLink);
     
-    //	if( $("link.ui-theme").size() > 3){
-    //	$("link.ui-theme:first").remove();
-    //}
+    if( $("link.ui-theme").size() > 3){
+      $("link.ui-theme:first").remove();
+    }
+    window.location.reload();
   };
 
   $("#switcher").themeswitcher({

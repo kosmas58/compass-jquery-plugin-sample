@@ -1436,13 +1436,11 @@ $.each({
 			
 			function loadComplete(){
 				$.mobile.pageLoading( true );
-				//trigger show/hide events, allow preventing focus change through return false		
-				if( from.data("page")._trigger("hide", null, {nextPage: to}) !== false && to.data("page")._trigger("show", null, {prevPage: from}) !== false ){
-					$.mobile.activePage = to;
-				}
+				
 				reFocus( to );
+				
 				if( changeHash !== false && url ){
-					path.set(url, true);
+					path.set(url, (back !== true));
 				}
 				removeActiveLinkClass();
 				
@@ -1453,6 +1451,11 @@ $.each({
 				
 				//jump to top or prev scroll, if set
 				$.mobile.silentScroll( to.data( 'lastScroll' ) );
+				
+				//trigger show/hide events, allow preventing focus change through return false		
+				if( from.data("page")._trigger("hide", null, {nextPage: to}) !== false && to.data("page")._trigger("show", null, {prevPage: from}) !== false ){
+					$.mobile.activePage = to;
+				}
 			};
 			
 			if(transition && (transition !== 'none')){	
@@ -1738,12 +1741,14 @@ $.widget( "mobile.page", $.mobile.widget, {
 			url: false,
 			week: false
 		},
-		keepNative: "[data-role='none'], .ui-nojs"
+		keepNative: null
 	},
 	
 	_create: function() {
 		var $elem = this.element,
-			o = this.options;	
+			o = this.options;
+			
+		this.keepNative = "[data-role='none'], [data-role='nojs']" + (o.keepNative ? ", " + o.keepNative : ""); 	
 
 		if ( this._trigger( "beforeCreate" ) === false ) {
 			return;
@@ -1837,7 +1842,7 @@ $.widget( "mobile.page", $.mobile.widget, {
 		//links in bars, or those with data-role become buttons
 		$elem.find( "[data-role='button'], .ui-bar a, .ui-header a, .ui-footer a" )
 			.not( ".ui-btn" )
-			.not(o.keepNative)
+			.not(this.keepNative)
 			.buttonMarkup();
 
 		$elem	
@@ -1846,7 +1851,7 @@ $.widget( "mobile.page", $.mobile.widget, {
 		
 		//links within content areas
 		$elem.find( "a:not(.ui-btn):not(.ui-link-inherit)" )
-			.not(o.keepNative)
+			.not(this.keepNative)
 			.addClass( "ui-link" );	
 		
 		//fix toolbars
@@ -1857,7 +1862,7 @@ $.widget( "mobile.page", $.mobile.widget, {
 		var o = this.options;
 			
 		// degrade inputs to avoid poorly implemented native functionality
-		this.element.find( "input" ).not(o.keepNative).each(function() {
+		this.element.find( "input" ).not(this.keepNative).each(function() {
 			var type = this.getAttribute( "type" ),
 				optType = o.degradeInputs[ type ] || "text";
 			
@@ -1871,29 +1876,29 @@ $.widget( "mobile.page", $.mobile.widget, {
 		// enchance form controls
 		this.element
 			.find( "[type='radio'], [type='checkbox']" )
-			.not(o.keepNative)
+			.not(this.keepNative)
 			.checkboxradio();
 
 		this.element
 			.find( "button, [type='button'], [type='submit'], [type='reset'], [type='image']" )
-			.not(o.keepNative)
+			.not(this.keepNative)
 			.button();
 
 		this.element
 			.find( "input, textarea" )
 			.not( "[type='radio'], [type='checkbox'], button, [type='button'], [type='submit'], [type='reset'], [type='image']" )
-			.not(o.keepNative)
+			.not(this.keepNative)
 			.textinput();
 
 		this.element
 			.find( "input, select" )
-			.not(o.keepNative)
+			.not(this.keepNative)
 			.filter( "[data-role='slider'], [data-type='range']" )
 			.slider();
 
 		this.element
 			.find( "select:not([data-role='slider'])" )
-			.not(o.keepNative)
+			.not(this.keepNative)
 			.selectmenu();
 	}
 });
@@ -2583,7 +2588,8 @@ $.widget( "mobile.selectmenu", $.mobile.widget, {
 		shadow: true,
 		iconshadow: true,
 		menuPageTheme: 'b',
-		overlayTheme: 'a'
+		overlayTheme: 'a',
+		hidePlaceholderMenuItems: true
 	},
 	_create: function(){
 	
@@ -2691,13 +2697,13 @@ $.widget( "mobile.selectmenu", $.mobile.widget, {
 		//button events
 		button.bind( $.support.touch ? "touchstart" : "click", function(event){
 			self.open();
-			return false;
+			event.preventDefault();
 		});
 		
 		//events for list items
-		list.delegate("li",'click', function(){
+		list.delegate("li:not(.ui-disabled, .ui-li-divider)", "click", function(event){
 				//update select	
-				var newIndex = list.find( "li" ).index( this ),
+				var newIndex = list.find( "li:not(.ui-li-divider)" ).index( this ),
 					prevIndex = select[0].selectedIndex;
 
 				select[0].selectedIndex = newIndex;
@@ -2711,30 +2717,64 @@ $.widget( "mobile.selectmenu", $.mobile.widget, {
 				
 				//hide custom select
 				self.close();
-				return false;
+				event.preventDefault();
 			});	
 	
 		//events on "screen" overlay
-		screen.click(function(){
+		screen.click(function(event){
 			self.close();
-			return false;
-		});	
+			event.preventDefault();
+		});
 	},
 	
 	_buildList: function(){
-		var self = this;
+		var self = this, 
+			optgroups = [],
+			o = this.options;
 		
 		self.list.empty().filter('.ui-listview').listview('destroy');
 		
 		//populate menu with options from select element
 		self.select.find( "option" ).each(function( i ){
-				var anchor = $("<a>", { 
-							"role": "option", 
-							"href": "#"
-						})
-						.text( $(this).text() );
+			var $this = $(this),
+				$parent = $this.parent();
 			
-			$( "<li>", {"data-icon": "checkbox-on"})
+			// are we inside an optgroup?
+			if( $parent.is("optgroup") ){
+				var optLabel = $parent.attr("label");
+				
+				// has this optgroup already been built yet?
+				if( $.inArray(optLabel, optgroups) === -1 ){
+					var optgroup = $('<li data-role="list-divider"></li>')
+						.text( optLabel )
+						.appendTo( self.list );
+					
+					optgroups.push( optLabel );
+				}
+			}
+
+			var anchor = $("<a>", { 
+				"role": "option", 
+				"href": "#",
+				"text": $(this).text()
+			}),
+		
+			item = $( "<li>", {"data-icon": "checkbox-on"});
+			
+			// support disabled option tags
+			if( this.disabled ){
+				item
+					.addClass("ui-disabled")
+					.attr("aria-disabled", true);
+			}
+			
+			if( o.hidePlaceholderMenuItems ){
+				if( !this.getAttribute('value') || $(this).text().length == 0 || $(this).data('placeholder')){
+					item.addClass('ui-selectmenu-placeholder');
+				}
+			}
+
+			item
 				.append( anchor )
 				.appendTo( self.list );
 		});
@@ -2754,7 +2794,7 @@ $.widget( "mobile.selectmenu", $.mobile.widget, {
 			
 		self.button.find( ".ui-btn-text" ).text( $(select[0].options.item(selected)).text() ); 
 		self.list
-			.find('li').removeClass( $.mobile.activeBtnClass ).attr('aria-selected', false)
+			.find('li:not(.ui-li-divider)').removeClass( $.mobile.activeBtnClass ).attr('aria-selected', false)
 			.eq(selected).addClass( $.mobile.activeBtnClass ).find('a').attr('aria-selected', true);		
 	},
 	
@@ -2942,7 +2982,7 @@ $.fn.buttonMarkup.defaults = {
 };
 
 var attachEvents = function() {
-	$(".ui-btn").live({
+	$(".ui-btn:not(.ui-disabled)").live({
 		mousedown: function() {
 			var theme = $(this).attr( "data-theme" );
 			$(this).removeClass( "ui-btn-up-" + theme ).addClass( "ui-btn-down-" + theme );
@@ -3000,12 +3040,21 @@ $.widget( "mobile.button", $.mobile.widget, {
 			} )
 			.text( $el.text() || $el.val() )
 			.insertBefore( $el )
-			.click(function(){
+			.click(function(e){
 				if(!o.disabled){
-					$el.click(); 
+				if ( $el.attr("type") !== "reset" ){
+					var $buttonPlaceholder = $("<input>", 
+							{type: "hidden", name: $el.attr("name"), value: $el.attr("value")})
+							.insertBefore($el);
+							
+					}
+					$el.submit();	
+					$buttonPlaceholder.remove();				
 				}
-
-				return false;
+				else{
+					$el.trigger("click")
+				}
+				e.preventDefault();
 			})
 			.buttonMarkup({
 				theme: o.theme, 
@@ -3684,8 +3733,9 @@ $.widget( "mobile.listview", $.mobile.widget, {
 							.end()
 							.find( ".ui-li-thumb" )
 								.addClass( "ui-corner-tl" );
-						
-						self._removeCorners( item.next() );		
+						if(item.next().next().length){
+							self._removeCorners( item.next() );		
+						}
 	
 				} else if ( pos === li.length - 1 ) {
 						itemClass += " ui-corner-bottom";
@@ -3698,7 +3748,9 @@ $.widget( "mobile.listview", $.mobile.widget, {
 							.find( ".ui-li-thumb" )
 								.addClass( "ui-corner-bl" );
 						
-						self._removeCorners( item.prev() );		
+						if(item.prev().prev().length){
+							self._removeCorners( item.prev() );		
+						}	
 				}
 			}
 
