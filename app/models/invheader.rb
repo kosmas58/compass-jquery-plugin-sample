@@ -4024,8 +4024,8 @@ class Invheader < ActiveRecord::Base
                           :summary_tpl  => '({0}) total' },
                         { :name         => 'invdate',
                           :width        => 90,
-                          :sort_type     => :date,
-                          :formatter    => :date 
+                          :sort_type    => :date,
+                          :formatter    => :date
                           },
                         { :name  => 'client.name',
                           :width => 100,
@@ -4422,8 +4422,8 @@ class Invheader < ActiveRecord::Base
                           :summary_tpl  => '({0}) total' },
                         { :name         => 'invdate',
                           :width        => 90,
-                          :sort_type     => :date,
-                          :formatter    => :date 
+                          :sort_type    => :date,
+                          :formatter    => :date
                           },
                         { :name      => 'client.name',
                           :width     => 100 },

@@ -1,14 +1,14 @@
 :javascript  
   $(document).ready(function() {  
     $("#chngroup").change(function(){
-    	var vl = $(this).val();
-    	if(vl) {
-    		if(vl == "clear") {
-    			jQuery("#invheaders_demo1610").jqGrid('groupingRemove',true);
-    		} else {
-    			jQuery("#invheaders_demo1610").jqGrid('groupingGroupBy',vl);
-    		}
-    	}
+      var vl = $(this).val();
+      if(vl) {
+        if(vl == "clear") {
+          jQuery("#invheaders_demo1610").jqGrid('groupingRemove',true);
+        } else {
+          jQuery("#invheaders_demo1610").jqGrid('groupingGroupBy',vl);
+        }
+      }
     });
   });
      
