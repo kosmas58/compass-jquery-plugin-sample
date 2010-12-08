@@ -80,79 +80,84 @@
           $('div').live('pagehide',function(event, ui){
             alert('This page was just shown: '+ ui.nextPage);
           });
-    %h2 Page initialization events
-    %p
-      Internally, jQuery Mobile auto-initializes plugins based on the markup conventions found in a given "page". For example, an
-      %code input
-      element with a
-      %code type
-      of
-      %code range
-      will automatically generate a custom slider control.
-    %p This auto-initialization is controlled by the "page" plugin, which dispatches events before and after it executes, allowing you to manipulate a page either pre-or-post initialization, or even provide your own intialization behavior and prevent the auto-initializations from occuring. Note that these events will only fire once per "page", as opposed to the show/hide events, which fire every time a page is shown and hidden.
-    %dl
-      %dt
-        %code pagebeforecreate
-      %dd Triggered on the page being initialized, before initialization occurs.
-      %dt
-        %code pagecreate
-      %dd Triggered on the page being initialized, after initialization occurs.
-    %pre
-      %code
-        :preserve
-          
-          $('#aboutPage').live('pagebeforecreate',function(event){
-            alert('This page was just inserted into the dom!');
-          });
-          
-          $('#aboutPage').live('pagecreate',function(event){
-            alert('This page was just enhanced by jQuery Mobile!');
-          });
-          		        %p
-      Note that by binding to
-      %code pagebeforecreate
-      and returning
-      = succeed "," do
-        %code false
-      you can prevent the page plugin from making its manipulations.
-    %pre
-      %code
-        :preserve
-          
-          $('#aboutPage').live('pagebeforecreate',function(event){
-            //run your own enhancement scripting here...
-            return false;
-          });
-          
-          		        .ui-body.ui-body-e
       %p
-        %strong
-          Note on Page IDs in Alpha 2 release (
-          %em> no longer an issue
-          ):
-        In jQuery Mobile Alpha 2 and older, page elements utilized the
-        %code ID
-        attribute for storing the location from which they came. When you place an
-        %code ID
-        attribute on a page that is brought into jQuery Mobile's single-page environment through Ajax, jQuery Mobile wraps that page with a new "page"
-        %code div
-        element, preserving any CSS references to your
-        = succeed "." do
-          %code ID
-        However, this means that your
-        %code ID
-        attribute is no longer on the "page" element, so you must keep this in mind when binding to page events (
-        %code> pagebeforecreate
-        ,
-        = succeed "," do
+        Also, for these handlers to be invoked during the initial page load, you must bind them before jQuery Mobile executes.  This can be done in the
+        %code mobileinit
+        handler, as described on the
+        %a{:href => "globalconfig.html"} global config
+        page.
+      %h2 Page initialization events
+      %p
+        Internally, jQuery Mobile auto-initializes plugins based on the markup conventions found in a given "page". For example, an
+        %code input
+        element with a
+        %code type
+        of
+        %code range
+        will automatically generate a custom slider control.
+      %p This auto-initialization is controlled by the "page" plugin, which dispatches events before and after it executes, allowing you to manipulate a page either pre-or-post initialization, or even provide your own intialization behavior and prevent the auto-initializations from occuring. Note that these events will only fire once per "page", as opposed to the show/hide events, which fire every time a page is shown and hidden.
+      %dl
+        %dt
+          %code pagebeforecreate
+        %dd Triggered on the page being initialized, before initialization occurs.
+        %dt
           %code pagecreate
-        etc). To avoid issues, try using a class if possible.
-    %h2 Animation Events
-    %p
-      jQuery Mobile exposes the
-      %code animationComplete
-      plugin, which you can utilize after adding or removing a class that applies a CSS transition.
+        %dd Triggered on the page being initialized, after initialization occurs.
+      %pre
+        %code
+          :preserve
+            
+            $('#aboutPage').live('pagebeforecreate',function(event){
+              alert('This page was just inserted into the dom!');
+            });
+            
+            $('#aboutPage').live('pagecreate',function(event){
+              alert('This page was just enhanced by jQuery Mobile!');
+            });
+            		          %p
+        Note that by binding to
+        %code pagebeforecreate
+        and returning
+        = succeed "," do
+          %code false
+        you can prevent the page plugin from making its manipulations.
+      %pre
+        %code
+          :preserve
+            
+            $('#aboutPage').live('pagebeforecreate',function(event){
+              //run your own enhancement scripting here...
+              return false;
+            });
+            
+      .ui-body.ui-body-e
+        %p
+          %strong
+            Note on Page IDs in Alpha 2 release (
+            %em> no longer an issue
+            ):
+          In jQuery Mobile Alpha 2 and older, page elements utilized the
+          %code ID
+          attribute for storing the location from which they came. When you place an
+          %code ID
+          attribute on a page that is brought into jQuery Mobile's single-page environment through Ajax, jQuery Mobile wraps that page with a new "page"
+          %code div
+          element, preserving any CSS references to your
+          = succeed "." do
+            %code ID
+          However, this means that your
+          %code ID
+          attribute is no longer on the "page" element, so you must keep this in mind when binding to page events (
+          %code> pagebeforecreate
+          ,
+          = succeed "," do
+            %code pagecreate
+          etc). To avoid issues, try using a class if possible.
+      %h2 Animation Events
+      %p
+        jQuery Mobile exposes the
+        %code animationComplete
+        plugin, which you can utilize after adding or removing a class that applies a CSS transition.
   / /content
 / /page
 
-  
