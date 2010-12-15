@@ -1,0 +1,27 @@
+!!! Strict
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title jQuery History Plugin Ajax Sample
+    %script{:src => "../../jquery.min.js", :type => "text/javascript"}
+    %script{:src => "../../jquery.history.js", :type => "text/javascript"}
+    %script{:src => "./mvc.js", :type => "text/javascript"}
+    %link{:href => "style.css", :rel => "stylesheet", :type => "text/css"}/
+  %body
+    %h1 jQuery History Plugin MVC Sample
+    .container
+      %ul.ajax-links
+        %li
+          %a.default-content{:href => "#1"} load 1.html
+        %li
+          %a{:href => "#2"} load 2.html
+        %li
+          %a{:href => "#3"} load 3.html
+      .content
+    %hr/
+    %p
+      [
+      %a{:href => "../"}> All samples
+      ] [
+      %a{:href => "http://github.com/tkyk/jquery-history-plugin"}> Project home
+      ]
