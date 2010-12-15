@@ -11,6 +11,7 @@
   
   jQuery.fn.hashValue = function() {
     var href = this.attr('href');
+    alert(href);
     return href ? href.replace(/^.*#/, '') : href;
   }
   
@@ -66,11 +67,11 @@
     }
 
     // ----- Controllers -----
-    $('.container .ajax-links a').live('click', clickHandler);
+    $('.demo .ajax-links a').live('click', clickHandler);
 
     function clickHandler(e) {
       var page = $(this).hashValue();
-      var level = $(this).parents('.container').length - 1;
+      var level = $(this).parents('.demo').length - 1;
       Model.setPage(level, page, true);
       return false;
     }
@@ -107,13 +108,12 @@
     }
 
     function getElement(level, className) {
-      var selector = strRepeat(".container ", level + 1) + className;
+      var selector = strRepeat(".demo ", level + 1) + className;
       return $(selector).first();
     }
 
     function getDefaultPage(level) {
       return getElement(level, '.ajax-links .default-content').hashValue();
     }
-
   });
   

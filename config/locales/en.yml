@@ -448,6 +448,9 @@ en:
       name: Sparklines
       default: Try it out
       examples: Examples
+    history:
+      name: History
+      default: jQuery History Plugin Ajax Sample
     tools:
       name: jQuery TOOLS
       default: Default functionality

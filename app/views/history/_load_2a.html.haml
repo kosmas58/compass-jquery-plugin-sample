@@ -9,11 +9,12 @@
     });
   });
 
-#tabs-2a
-  %ul
-    %li
-      %a{:href => "#2aA"}
-        load 2aA.html
-    %li
-      %a{:href => "#2aB"}
-        load 2aB.html
+.demo
+  #tabs-2a
+    %ul.ajax-links
+      %li
+        %a{:href => "load_2aA"}
+          load 2aA.html
+      %li
+        %a{:href => "load_2aB"}
+          load 2aB.html

@@ -1,15 +1,15 @@
--@title = "jQuery History Plugin Ajax Sample"
+-@title = "#{t('txt.history.default')}"
 
 - content_for :content_head do
   = render(:partial => "default.js.haml", :format => :js)
 
 .demo
   %h3
-    =image_tag("icons/22x22/sparklines.png", :border => 0)
+    =image_tag("icons/22x22/history.png", :border => 0)
     =@title
   
   #tabs
-    %ul
+    %ul.ajax-links
       %li
         %a.default-content{ :href => "load_1" }
           load 1.html
@@ -19,8 +19,14 @@
       %li
         %a{ :href => "load_3" }
           load 3.html
-  %hr/
+/ End demo
+.demo-description
+  #greybox
   %p
-    [
-    %a{:href => "http://github.com/tkyk/jquery-history-plugin"}> Project home
-    ]
+    The plugin was written by
+    %a{:href => "http://github.com/tkyk/jquery-history-plugin/" } Takayuki Miwa
+    and released under the
+    = succeed "." do
+      %a{:href => "http://tkyk.github.com/jquery-history-plugin/#license", :class => :greybox } MIT License
+/ End demo-description
+

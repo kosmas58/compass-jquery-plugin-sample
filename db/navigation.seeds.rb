@@ -515,6 +515,10 @@ parent_id = node_389
 node_390 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.sparklines.default', :type => 'default', :icon => '/images/icons/16x16/sparklines.png', :url => '/sparklines/default')
 node_391 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.sparklines.examples', :type => 'default', :icon => '/images/icons/16x16/working.png', :url => '/sparklines/examples')
 parent_id = node_165
+node_433 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 7, :title => 'txt.history.name', :type => 'folder', :icon => '/images/icons/16x16/history.png')
+parent_id = node_433
+node_435 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.history.default', :type => 'default', :icon => '/images/icons/16x16/history.png', :url => '/history/default')
+parent_id = node_165
 parent_id = node_1
 node_392 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.emu.name', :type => 'accordion', :icon => '/images/icons/16x16/jqmobile.png')
 parent_id = node_392
@@ -583,5 +587,6 @@ node_432 = NavigationTree.create_node(:id => parent_id, :seed => true, :position
 parent_id = node_422
 parent_id = node_392
 parent_id = node_1
+node_434 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'New node', :type => 'default')
 puts "Finished creating navigation tree"
 

@@ -21,6 +21,9 @@ date:
     short: "%b %d"
     long: "%B %d, %Y"
 txt: 
+  history: 
+    name: History
+    default: jQuery History Plugin Ajax Sample
   tools: 
     form: 
       stylable: 
@@ -29,7 +32,6 @@ txt:
         demo02: Scripting styleable Forms
         demo03: Alternate form skin
   dt: 
-    lazy: Lazy loading
     lazy_persist: Lazy loading
   hello: Hello world
 support: 
