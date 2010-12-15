@@ -1,0 +1,67 @@
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="default.aspx.cs" Inherits="GridTest.examples.functionality.custom_formatter._default" %>
+!!!
+%html{:xmlns => "http://www.w3.org/1999/xhtml"}
+  %head#Head1{:runat => "server"}
+    %title
+    / The jQuery UI theme that will be used by the grid
+    %link{:href => "/themes/redmond/jquery-ui-1.8.2.custom.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}/
+    / The jQuery UI theme extension jqGrid needs
+    %link{:href => "/themes/ui.jqgrid.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}/
+    / jQuery runtime minified
+    %script{:src => "/js/jquery-1.4.2.min.js", :type => "text/javascript"}
+    / The localization file we need, English in this case
+    %script{:src => "/js/trirand/i18n/grid.locale-en.js", :type => "text/javascript"}
+    / The jqGrid client-side javascript
+    %script{:src => "/js/trirand/jquery.jqGrid.min.js", :type => "text/javascript"}
+    / This jQuery UI reference is needed only for the demo (code tabs). jqGrid per se does not need it.
+    :css
+      body, html { font-size: 80%; }    
+      %body
+    %form#form1{:runat => "server"}
+      %div
+        %trirand:JQGrid{:Height => "350", :ID => "JQGrid1", :Width => "400px", :runat => "server"}
+          %Columns
+            %trirand:JQGridColumn{:DataField => "ID", :Width => "50"}/
+            %trirand:JQGridColumn{:DataField => "PhotoFileName", :Width => "100"}/
+            %trirand:JQGridColumn{:DataField => "Photo", :Width => "100"}
+              %Formatter
+                %trirand:CustomFormatter{:FormatFunction => "formatImage", :UnFormatFunction => "unformatImage"}/
+            %trirand:JQGridColumn{:DataField => "Rating", :TextAlign => "Center"}
+              %Formatter
+                %trirand:CustomFormatter{:FormatFunction => "formatRating", :UnFormatFunction => "unformatRating"}/
+        :javascript
+          // The FormatFunction for CustomFormatter gets three parameters           
+          // cellValue - the original value of the cell
+          // options - as set of options, e.g
+          //   options.rowId - the primary key of the row
+          //   options.colModel - colModel of the column
+          // rowData - array of cell data for the row, so you can access other cells in the row if needed
+          
+          function formatImage(cellValue, options, rowObject) {               
+              var imageHtml = "";
+              return imageHtml;
+          }
+
+          // The FormatFunction for CustomFormatter gets three parameters           
+          // cellValue - the original value of the cell
+          // options - as set of options, e.g
+          //   options.rowId - the primary key of the row
+          //   options.colModel - colModel of the column
+          // cellObject - the HMTL of the cell (td) holding the actual value
+          function unformatImage(cellValue, options, cellObject) {
+              return $(cellObject.html()).attr("originalValue");
+          }
+
+          function formatRating(cellValue, options, rowObject) {
+              var color = (parseInt(cellValue) > 0) ? "green" : "red";
+              var cellHtml = "" + cellValue + "";
+              
+              return cellHtml;
+          }
+
+          function unformatRating(cellValue, options, cellObject) {
+              return $(cellObject.html()).attr("originalValue");
+          }
+               %br/
+        %br/
+        %trirand:codetabs#DataTableCodeTabs{:runat => "server"}
