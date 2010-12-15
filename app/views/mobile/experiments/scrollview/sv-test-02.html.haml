@@ -12,7 +12,6 @@
     #evtCatcher .ui-scrollview-view {
       padding: 10px;
     }
-    }
   = render(:partial => "scrollview2.js.haml", :format => :js)
   :javascript
     $("[data-role=page]").live("pageshow", function(event) {
@@ -40,6 +39,19 @@
       });
     });
     
+    function changeScrollMethod()
+    {
+      var val = $("#s_method").val();
+      var $sv = $("#evtCatcher").scrollview("scrollTo", 0, 0);
+      if (val == "scroll") {
+          $sv.css("overflow", "scroll");
+      }
+      else {
+          $sv.css("overflow", "hidden");
+      }
+      $sv.data("scrollview").options.scrollMethod = val;
+    }
+    
     var cb_hd_pd,
         cb_hd_sp,
         cb_hm_pd,
@@ -53,12 +65,6 @@
     
     function getDummyEvent(o)
     {
-    /*
-      var obj = new Object;
-      for (var k in o)
-          obj[k] = o[k];
-      return obj;
-    */
       return { _pd: false, _sp: false, preventDefault: function(){ this._pd = true; }, stopPropagation: function(){ this._sp = true; }};
     }
     
@@ -104,6 +110,12 @@
   %div{"data-role" => "content"}
     %h3 Test
     %p This page wraps the _handleDragStart, _handleDragMove, and _handleDragStop events of the scrollview widget so that the checkboxes below can determine how the native event is treated. You can use this page to figure out what events need to be caught and what special treatment is necessary to prevent native scrolling. You can also test the effect of that treatment on form elements within the sample scrollview.
+    %div{"data-role" => "fieldcontain"}
+      %label.select{:for => "s_method"} Scrolling Method:
+      %select#s_method{:name => "s_method", :onchange => "changeScrollMethod();"}
+        %option{:value => "translate"} CSS3 Transform/Translate
+        %option{:value => "position"} CSS Top/Left Positioning
+        %option{:value => "scroll"} scrollTop/scrollLeft
     %div{"data-role" => "fieldcontain"}
       %fieldset{"data-role" => "controlgroup"}
         %input#cb_hd_pd{:name => "cb_hd_pd", :type => "checkbox"}/

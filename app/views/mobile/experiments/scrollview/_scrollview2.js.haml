@@ -224,7 +224,7 @@
       moveThreshold:   10,   // User must move this many pixels in any direction to trigger a scroll.
       moveIntervalThreshold:   100,   // Time between mousemoves must not exceed this threshold.
     
-      useCSSTransform:   true,  // Use CSS "transform" property instead of "top" and "left" for positioning.
+      scrollMethod:    "translate",  // "translate", "position", "scroll"
     
       startEventName:  "scrollstart",
       updateEventName:   "scrollupdate",
@@ -252,16 +252,22 @@
       }
       this._$view = $child.addClass("ui-scrollview-view");
   
-      this._$clip.css("overflow", "hidden");
+      this._$clip.css("overflow", this.options.scrollMethod == "scroll" ? "scroll" : "hidden");
       this._makePositioned(this._$clip);
   
       this._$view.css("overflow", "hidden");
   
-      if (!this.options.useCSSTransform)
-      {
-        this._makePositioned(this._$view);
-        this._$view.css({ left: 0, top: 0 });
-      }
+      // Turn off our faux scrollbars if we are using native scrolling
+      // to position the view.
+  
+      this.options.showScrollBars = this.options.scrollMethod == "scroll" ? false : this.options.showScrollBars;
+  
+      // We really don't need this if we are using a translate transformation
+      // for scrolling. We set it just in case the user wants to switch methods
+      // on the fly.
+  
+      this._makePositioned(this._$view);
+      this._$view.css({ left: 0, top: 0 });
   
       this._sx = 0;
       this._sy = 0;
@@ -370,35 +376,42 @@
   
       var $v = this._$view;
   
-      var uct = this.options.useCSSTransform;
+      var sm = this.options.scrollMethod;
   
-      if (uct)
-        setElementTransform($v, x + "px", y + "px");
-      else
-        $v.css({left: x + "px", top: y + "px"});
+      switch (sm)
+      {
+        case "translate":
+          setElementTransform($v, x + "px", y + "px");
+          break;
+        case "position":
+          $v.css({left: x + "px", top: y + "px"});
+          break;
+        case "scroll":
+          var c = this._$clip[0];
+          c.scrollLeft = -x;
+          c.scrollTop = -y;
+          break;
+      }
   
       var $vsb = this._$vScrollBar;
       var $hsb = this._$hScrollBar;
   
-      if ($vsb || $hsb)
+      if ($vsb)
       {
-        if ($vsb)
-        {
-          var $sbt = $vsb.find(".ui-scrollbar-thumb");
-          if (uct)
-            setElementTransform($sbt, "0px", -y/$v.height() * $sbt.parent().height() + "px");
-          else
-            $sbt.css("top", -y/$v.height()*100 + "%");
-        }
-    
-        if ($hsb)
-        {
-          var $sbt = $hsb.find(".ui-scrollbar-thumb");
-          if (uct)
-            setElementTransform($sbt,  -x/$v.width() * $sbt.parent().width() + "px", "0px");
-          else
-            $sbt.css("left", -x/$v.width()*100 + "%");
-        }
+        var $sbt = $vsb.find(".ui-scrollbar-thumb");
+        if (sm == "translate")
+          setElementTransform($sbt, "0px", -y/$v.height() * $sbt.parent().height() + "px");
+        else
+          $sbt.css("top", -y/$v.height()*100 + "%");
+      }
+  
+      if ($hsb)
+      {
+        var $sbt = $hsb.find(".ui-scrollbar-thumb");
+        if (sm == "translate")
+          setElementTransform($sbt,  -x/$v.width() * $sbt.parent().width() + "px", "0px");
+        else
+          $sbt.css("left", -x/$v.width()*100 + "%");
       }
     },
   
@@ -436,9 +449,9 @@
       this._timerID = setTimeout(tfunc, this._timerInterval);
     },
   
-    _getScrollPosition: function(x, y)
+    getScrollPosition: function()
     {
-      return { x: this._sx, y: this._sy };
+      return { x: -this._sx, y: -this._sy };
     },
   
     _getScrollHierarchy: function()
@@ -995,7 +1008,16 @@
   
   $("[data-role=page]").live("pageshow", function(event) {
     var $page = $(this);
+  
+    // For the demos that use this script, we want the content area of each
+    // page to be scrollable in the 'y' direction.
+  
     $page.find(".ui-content").attr("data-scroll", "y");
+  
+    // This code that looks for [data-scroll] will eventually be folded
+    // into the jqm page processing code when scrollview support is "official"
+    // instead of "experimental".
+  
     $page.find("[data-scroll]:not(.ui-scrollview-clip)").each(function(){
       var $this = $(this);
       // XXX: Remove this check for ui-scrolllistview once we've
@@ -1014,9 +1036,17 @@
         if (paging)
           opts.pagingEnabled = true;
   
+        var method = $this.data("scroll-method");
+        if (method)
+          opts.scrollMethod = method;
+  
         $this.scrollview(opts);
       }
     });
+  
+    // For the demos, we want to make sure the page being shown has a content
+    // area that is sized to fit completely within the viewport. This should
+    // also handle the case where pages are loaded dynamically.
   
     ResizePageContentHeight(event.target);
   });
@@ -1024,4 +1054,4 @@
   $(document).live("orientationchange", function(event) {
     ResizePageContentHeight($(".ui-page"));
   });
-  
+

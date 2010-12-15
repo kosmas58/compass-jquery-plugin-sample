@@ -1,0 +1,26 @@
+-@title = "jQuery History Plugin Ajax Sample"
+
+- content_for :content_head do
+  = render(:partial => "default.js.haml", :format => :js)
+
+.demo
+  %h3
+    =image_tag("icons/22x22/sparklines.png", :border => 0)
+    =@title
+  
+  #tabs
+    %ul
+      %li
+        %a.default-content{ :href => "load_1" }
+          load 1.html
+      %li
+        %a{ :href => "load_2" }
+          load 2.html
+      %li
+        %a{ :href => "load_3" }
+          load 3.html
+  %hr/
+  %p
+    [
+    %a{:href => "http://github.com/tkyk/jquery-history-plugin"}> Project home
+    ]
