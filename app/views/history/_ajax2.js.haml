@@ -1,0 +1,41 @@
+:javascript
+  $(function() {
+    $("#tabs").tabs({
+      ajaxOptions: {
+        error: function(xhr, status, index, anchor) {
+          $(anchor.hash).html("Couldn't load this tab. We'll try to fix this as soon as possible. If this wouldn't be a demo.");
+        }
+      }
+    });
+  });
+  
+  jQuery(document).ready(function($) {
+    $(".pager") .live('click', function() {
+      $("#tabs").tabs("select", eval($(this).val()));
+    });
+    
+    //$.address.change(function(event){
+    //  $("#tabs").tabs( "select" , window.location.hash )
+    //})
+    
+    // when the tab is selected update the url with the hash
+    $("#tabs").live("tabsselect", function(event, ui) { 
+      url = ui.tab.hash.replace(/^.*#/, '');
+      alert(url);
+      //window.location.hash = ui.tab.hash;
+      $.history.load(url);
+      //return false;
+    })
+
+    $.history.init(function(url) {
+      load(url == "" ? "ajax_1" : url);
+    });
+
+    $('#ajax-links a').live('click', function(e) {
+      var url = $(this).attr('href');
+      url = url.replace(/^.*#/, '');
+      $.history.load(url);
+      return false;
+    });
+  });
+

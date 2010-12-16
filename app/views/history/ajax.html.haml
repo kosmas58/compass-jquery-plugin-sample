@@ -1,24 +1,22 @@
--@title = "#{t('txt.history.default')}"
+-@title = "#{t('txt.history.name')} - #{t('txt.history.ajax')}"
 
 - content_for :content_head do
-  = render(:partial => "default.js.haml", :format => :js)
+  = render(:partial => "ajax.js.haml", :format => :js)
 
 .demo
   %h3
     =image_tag("icons/22x22/history.png", :border => 0)
     =@title
   
-  #tabs
-    %ul.ajax-links
+  #ajax-links
+    %ul
       %li
-        %a.default-content{ :href => "load_1" }
-          load 1.html
+        %a{:href => "ajax_1"} load 1.html
       %li
-        %a{ :href => "load_2" }
-          load 2.html
+        %a{:href => "ajax_2"} load 2.html
       %li
-        %a{ :href => "load_3" }
-          load 3.html
+        %a{:href => "ajax_3"} load 3.html
+    #the-content
 / End demo
 .demo-description
   #greybox

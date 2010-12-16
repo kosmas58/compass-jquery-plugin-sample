@@ -37,19 +37,26 @@
               $this.scrollview(opts);
           }
       });
+    
+      changeDelayFormElementClick();
     });
     
     function changeScrollMethod()
     {
       var val = $("#s_method").val();
       var $sv = $("#evtCatcher").scrollview("scrollTo", 0, 0);
-      if (val == "scroll") {
+      if (val === "scroll") {
           $sv.css("overflow", "scroll");
       }
       else {
           $sv.css("overflow", "hidden");
       }
       $sv.data("scrollview").options.scrollMethod = val;
+    }
+    
+    function changeDelayFormElementClick()
+    {
+      $("#evtCatcher").data("scrollview").options.delayedClickEnabled = ($("#s_delay").val() === "yes");
     }
     
     var cb_hd_pd,
@@ -117,12 +124,17 @@
         %option{:value => "position"} CSS Top/Left Positioning
         %option{:value => "scroll"} scrollTop/scrollLeft
     %div{"data-role" => "fieldcontain"}
+      %label.select{:for => "s_delay"} Delay Form Element Click:
+      %select#s_delay{:name => "s_delay", :onchange => "changeDelayFormElementClick();"}
+        %option{:value => "yes"} Yes
+        %option{:selected => "selected", :value => "no"} No
+    %div{"data-role" => "fieldcontain"}
       %fieldset{"data-role" => "controlgroup"}
         %input#cb_hd_pd{:name => "cb_hd_pd", :type => "checkbox"}/
         %label{:for => "cb_hd_pd"} touchstart - Prevent Default
         %input#cb_hd_sp{:name => "cb_hd_sp", :type => "checkbox"}/
         %label{:for => "cb_hd_sp"} touchstart - Stop Propagation
-        %input#cb_hm_pd{:name => "cb_hm_pd", :type => "checkbox"}/
+        %input#cb_hm_pd{:checked => "checked", :name => "cb_hm_pd", :type => "checkbox"}/
         %label{:for => "cb_hm_pd"} touchmove - Prevent Default
         %input#cb_hm_sp{:name => "cb_hm_sp", :type => "checkbox"}/
         %label{:for => "cb_hm_sp"} touchmove - Stop Propagation
@@ -279,3 +291,4 @@
       %p
   / /content
 / /page
+  

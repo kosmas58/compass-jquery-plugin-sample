@@ -449,8 +449,10 @@ en:
       default: Try it out
       examples: Examples
     history:
-      name: History
-      default: jQuery History Plugin Ajax Sample
+      name: jQuery History Plugin
+      ajax: Ajax Sample
+      ajax2: Ajax Sample 2
+      mvc: MVC Sample History
     tools:
       name: jQuery TOOLS
       default: Default functionality

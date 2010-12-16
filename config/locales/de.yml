@@ -401,8 +401,10 @@ de:
       default: jQuery Ribbon Windows 7 Demo
       office: jQuery Ribbon Office Demo
     history: 
-      name: History
-      default: jQuery History Plugin Ajax Besispiel
+      name: jQuery History Plugin
+      ajax: Ajax-Beispiel
+      ajax2: Ajax-Beispiel 2
+      mvc: MVC Bespielhistorie
     sparklines: 
       name: Sparklines
       examples: Beispiele

@@ -1,6 +1,6 @@
 :javascript
   $(function() {
-    $("#tabs-2a").tabs({
+    $("#tabs-1").tabs({
       ajaxOptions: {
         error: function(xhr, status, index, anchor) {
           $(anchor.hash).html("Couldn't load this tab. We'll try to fix this as soon as possible. If this wouldn't be a demo.");
@@ -10,11 +10,14 @@
   });
 
 .demo
-  #tabs-2a
+  #tabs-1
     %ul.ajax-links
       %li
-        %a{:href => "load_2aA"}
-          load 2aA.html
+        %a.default-content{ :href => "mvc_1a" }
+          load 1a.html
       %li
-        %a{:href => "load_2aB"}
-          load 2aB.html
+        %a{ :href => "mvc_1b" }
+          load 1b.html
+      %li
+        %a{ :href => "mvc_1c" }
+          load 1c.html

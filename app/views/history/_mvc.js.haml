@@ -61,7 +61,7 @@
     function render() {
       if(Model.pages[Model.currentLevel]) {
         var elm = getElement(Model.currentLevel, '.content');
-        var url = "pages/"+ Model.pages[Model.currentLevel] + ".html";
+        var url = "pages/"+ Model.pages[Model.currentLevel];
         elm.load(url, loadHandler);
       }
     }
