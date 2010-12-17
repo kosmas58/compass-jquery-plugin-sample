@@ -1317,6 +1317,12 @@ parent_id = node_389
 node_390 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.sparklines.default', :type => 'default', :icon => '/images/icons/16x16/sparklines.png', :url => '/sparklines/default')
 node_391 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.sparklines.examples', :type => 'default', :icon => '/images/icons/16x16/working.png', :url => '/sparklines/examples')
 parent_id = node_165
+node_433 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 7, :title => 'txt.history.name', :type => 'folder', :icon => '/images/icons/16x16/history.png')
+parent_id = node_433
+node_434 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.history.ajax', :type => 'default', :icon => '/images/icons/16x16/history.png', :url => '/history/ajax')
+node_437 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.history.ajax2', :type => 'default', :icon => '/images/icons/16x16/history.png', :url => '/history/ajax2')
+node_438 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.history.mvc', :type => 'default', :icon => '/images/icons/16x16/history.png', :url => '/history/mvc')
+parent_id = node_165
 parent_id = node_1
 node_392 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.emu.name', :type => 'accordion', :icon => '/images/icons/16x16/jqmobile.png')
 parent_id = node_392

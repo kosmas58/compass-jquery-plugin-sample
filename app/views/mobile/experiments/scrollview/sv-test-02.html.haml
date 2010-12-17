@@ -72,7 +72,7 @@
     
     function getDummyEvent(o)
     {
-      return { _pd: false, _sp: false, preventDefault: function(){ this._pd = true; }, stopPropagation: function(){ this._sp = true; }};
+      return { target: o.target, _pd: false, _sp: false, preventDefault: function(){ this._pd = true; }, stopPropagation: function(){ this._sp = true; }};
     }
     
     function updateEvent(e, cb_pd, cb_sp)
@@ -291,4 +291,3 @@
       %p
   / /content
 / /page
-  
