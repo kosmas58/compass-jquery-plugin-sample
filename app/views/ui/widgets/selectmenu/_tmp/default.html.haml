@@ -16,13 +16,17 @@
       fieldset { border:0; }	
       label,select,.ui-select-menu { float: left; margin-right: 10px; }
       select { width: 200px; }		
+      .wrap span.ui-selectmenu-item-header,
+      .wrap ul.ui-selectmenu-menu li a	
+      { color: black !important; }
 	    :javascript
       $(function(){			
       	$('select#speedA').selectmenu({style:'popup'});
       	
       	$('select#speedAa').selectmenu({
       		style:'popup', 
-      		maxHeight: 150
+      		maxHeight: 150,
+      		wrapperElement: ""
       	});
       	
       	$('select#speedB').selectmenu({
@@ -65,9 +69,19 @@
       	}
       	return newText;
       }		
-	    %script{:src => "http://ui.jquery.com/applications/themeroller/themeswitchertool/", :type => "text/javascript"}
-    :javascript
-      $(function(){ $('').appendTo('body').themeswitcher(); });   %body
+      
+      // add themeswitcher
+      $(function(){ 
+      	var ts = $('Click here to add Themeswitcher!')
+      	.appendTo('body')
+      	.bind("click", function() {
+      		ts.text("Loading Themeswitcher...");
+      		$.getScript('http://ui.jquery.com/applications/themeroller/themeswitchertool/', function() {
+      			ts.removeClass("ui-button ui-widget ui-state-default ui-corner-all").text("").unbind("click").themeswitcher(); 
+      		});
+      	}); 
+      });
+      	  %body
     %br/
     %br/
     %form{:action => "#"}
@@ -80,7 +94,7 @@
           %option{:value => "Medium"} Medium
           %option{:value => "Fast"} Fast
           %option{:value => "Faster"} Faster
-      %h2 "default popup" Style with maxHeight set
+      %h2 "default popup" Style with maxHeight set and custom wrapper
       %fieldset
         %label{:for => "speedAa"} Select a Speed:
         %select#speedAa{:name => "speedAa"}
