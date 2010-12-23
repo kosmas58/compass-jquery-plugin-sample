@@ -57,7 +57,7 @@
           %option{:value => "express"} Express: next day
           %option{:value => "overnight"} Overnight
       %p
-        If there is a select menu with too many options to show on the device's screen, the framework will automatically create a new "page" populated with a standard list view that contains all the options. This allows us to use the native scrolling included on the device for moving through a long list. The text inside the
+        If there is a select menu with too many options to show on the device's screen, the framework will automatically create a new &quot;page&quot; populated with a standard list view that contains all the options. This allows us to use the native scrolling included on the device for moving through a long list. The text inside the
         %code label
         is used as the title for this page.
       %div{"data-role" => "fieldcontain"}
@@ -121,7 +121,7 @@
           %option{:value => "edit"} Edit
           %option{:value => "delete"} Delete
       %h2 Placeholder options
-      %p It's common for developers to include a "null" option in their select element to force a user to choose an option. jQuery Mobile detects these null options and hides them in the overlay menu, showing only valid choices to the user. Examples of null options are either:
+      %p It's common for developers to include a &quot;null&quot; option in their select element to force a user to choose an option. If a placeholder option is present in your markup, jQuery Mobile will hide them in the overlay menu, showing only valid choices to the user, and display the placeholder text inside the menu as a header.  Examples of null options are either:
       %ul
         %li An option with no value attribute (or an empty value attribute)
         %li An option with no text node
@@ -137,7 +137,7 @@
         %code
           :preserve
             
-            $.mobile.selectmenu.prototype.options.hidePlaceholderMenuItems = false;		
+            $.mobile.selectmenu.prototype.options.hidePlaceholderMenuItems = false;
             	          %p Here's a demo of various placeholder options:
       %div{"data-role" => "fieldcontain"}
         %label.select{:for => "select-choice-4"} Choose shipping method:
@@ -166,7 +166,7 @@
       %h2 Disabled options
       %p
         jQuery Mobile will automatically disable and style option tags with the
-        %code disabled=&quot;disabled&quot;
+        %code disabled
         attribute.  In the demo below, the second option &quot;Rush: 3 days&quot; has been set to disabled.
       %div{"data-role" => "fieldcontain"}
         %label.select{:for => "select-choice-7"} Choose shipping method:
@@ -179,9 +179,9 @@
       %p
         If a select menu contains
         %code optgroup
-        elements, jQuery Mobile will create a divider based on their
+        elements, jQuery Mobile will create a divider &amp; group items based on the
         %code label
-        attribute:
+        attribute's text:
       %div{"data-role" => "fieldcontain"}
         %label.select{:for => "select-choice-8"} Choose shipping method:
         %select#select-choice-8{:name => "select-choice-8"}
@@ -191,8 +191,88 @@
             %option{:value => "express"} Express: next day
             %option{:value => "overnight"} Overnight
           %optgroup{:label => "FedEx"}
-            %option{:value => "sameday"} First Overnight
-            %option{:value => "sameday"} Express Saver
-            %option{:value => "sameday"} Ground
+            %option{:value => "firstOvernight"} First Overnight
+            %option{:value => "expressSaver"} Express Saver
+            %option{:value => "ground"} Ground
+      %h2 Multiple selects
+      %p
+        If the
+        %code multiple
+        attribute is present in your markup, jQuery Mobile will enhance the element with a few extra considerations:
+      %ul
+        %li A header element will be created inside the menu and display the placeholder text and a close button.
+        %li Clicking on an item inside the overlay menu will not close the widget.
+        %li A ghosted, unchecked icon will appear adjacent to each unselected item.  When the item is selected the icon will change to a checkbox.  Neither icon will appear inside a single select box.
+        %li Once 2+ items are selected, a counter element with the total number of selected items will appear inside the button.
+        %li The text of each selected item will appear inside the button as a list.  If the button is not wide enough to display the entire list, it is truncated with an ellipses.
+        %li If no items are selected, the button's text will default to the placeholder text.
+        %li If no placeholder element exists, the default button text will be blank and the header will appear with just a close button. Because this isn't a friendly user experience, we recommended that you always specify a placeholder element when using multiple select boxes.
+      %div{"data-role" => "fieldcontain"}
+        %label.select{:for => "select-choice-9"} Choose shipping method(s):
+        %select#select-choice-9{:multiple => "multiple", :name => "select-choice-9"}
+          %option Choose options
+          %option{:value => "standard"} Standard: 7 day
+          %option{:value => "rush"} Rush: 3 days
+          %option{:value => "express"} Express: next day
+          %option{:value => "overnight"} Overnight
+      %p
+        When a select is large enough to where the menu will open in a new page, the placeholder text is displayed in the button when no items are selected, and the
+        %code label
+        text is displayed in the menu's header.  This differs from smaller overlay menus where the placeholder text is displayed in both the button and the header, and from full-page single selects where the placeholder text is not used at all.
+      %div{"data-role" => "fieldcontain"}
+        %label.select{:for => "select-choice-10"} Choose state(s):
+        %select#select-choice-10{:multiple => "multiple", :name => "select-choice-10"}
+          %option Choose options
+          %option{:value => "AL"} Alabama
+          %option{:value => "AK"} Alaska
+          %option{:value => "AZ"} Arizona
+          %option{:value => "AR"} Arkansas
+          %option{:value => "CA"} California
+          %option{:value => "CO"} Colorado
+          %option{:value => "CT"} Connecticut
+          %option{:value => "DE"} Delaware
+          %option{:value => "FL"} Florida
+          %option{:value => "GA"} Georgia
+          %option{:value => "HI"} Hawaii
+          %option{:value => "ID"} Idaho
+          %option{:value => "IL"} Illinois
+          %option{:value => "IN"} Indiana
+          %option{:value => "IA"} Iowa
+          %option{:value => "KS"} Kansas
+          %option{:value => "KY"} Kentucky
+          %option{:value => "LA"} Louisiana
+          %option{:value => "ME"} Maine
+          %option{:value => "MD"} Maryland
+          %option{:value => "MA"} Massachusetts
+          %option{:value => "MI"} Michigan
+          %option{:value => "MN"} Minnesota
+          %option{:value => "MS"} Mississippi
+          %option{:value => "MO"} Missouri
+          %option{:value => "MT"} Montana
+          %option{:value => "NE"} Nebraska
+          %option{:value => "NV"} Nevada
+          %option{:value => "NH"} New Hampshire
+          %option{:value => "NJ"} New Jersey
+          %option{:value => "NM"} New Mexico
+          %option{:value => "NY"} New York
+          %option{:value => "NC"} North Carolina
+          %option{:value => "ND"} North Dakota
+          %option{:value => "OH"} Ohio
+          %option{:value => "OK"} Oklahoma
+          %option{:value => "OR"} Oregon
+          %option{:value => "PA"} Pennsylvania
+          %option{:value => "RI"} Rhode Island
+          %option{:value => "SC"} South Carolina
+          %option{:value => "SD"} South Dakota
+          %option{:value => "TN"} Tennessee
+          %option{:value => "TX"} Texas
+          %option{:value => "UT"} Utah
+          %option{:value => "VT"} Vermont
+          %option{:value => "VA"} Virginia
+          %option{:value => "WA"} Washington
+          %option{:value => "WV"} West Virginia
+          %option{:value => "WI"} Wisconsin
+          %option{:value => "WY"} Wyoming
   / /content
 / /page
+

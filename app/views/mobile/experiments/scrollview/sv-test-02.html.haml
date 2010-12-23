@@ -120,19 +120,19 @@
     %div{"data-role" => "fieldcontain"}
       %label.select{:for => "s_method"} Scrolling Method:
       %select#s_method{:name => "s_method", :onchange => "changeScrollMethod();"}
-        %option{:value => "translate"} CSS3 Transform/Translate
+        %option{:selected => "selected", :value => "translate"} CSS3 Transform/Translate
         %option{:value => "position"} CSS Top/Left Positioning
         %option{:value => "scroll"} scrollTop/scrollLeft
     %div{"data-role" => "fieldcontain"}
       %label.select{:for => "s_delay"} Delay Form Element Click:
       %select#s_delay{:name => "s_delay", :onchange => "changeDelayFormElementClick();"}
-        %option{:value => "yes"} Yes
-        %option{:selected => "selected", :value => "no"} No
+        %option{:selected => "selected", :value => "yes"} Yes
+        %option{:value => "no"} No
     %div{"data-role" => "fieldcontain"}
       %fieldset{"data-role" => "controlgroup"}
-        %input#cb_hd_pd{:name => "cb_hd_pd", :type => "checkbox"}/
+        %input#cb_hd_pd{:checked => "checked", :name => "cb_hd_pd", :type => "checkbox"}/
         %label{:for => "cb_hd_pd"} touchstart - Prevent Default
-        %input#cb_hd_sp{:name => "cb_hd_sp", :type => "checkbox"}/
+        %input#cb_hd_sp{:checked => "checked", :name => "cb_hd_sp", :type => "checkbox"}/
         %label{:for => "cb_hd_sp"} touchstart - Stop Propagation
         %input#cb_hm_pd{:checked => "checked", :name => "cb_hm_pd", :type => "checkbox"}/
         %label{:for => "cb_hm_pd"} touchmove - Prevent Default
@@ -145,14 +145,14 @@
     #evtCatcher{"data-scroll" => "y"}
       %div{"data-role" => "fieldcontain"}
         %label{:for => "tf1"} Textfield
-        %input#tf1{:name => "tf1", :type => "textfield"}/
+        %input#tf1{:name => "tf1", :type => "text"}/
       %div{"data-role" => "fieldcontain"}
         %label{:for => "ta1"} Textarea
         %textarea#ta1{:cols => "10", :name => "ta1", :rows => "5"}
       %div{"data-role" => "fieldcontain"}
         %label{:for => "ta1"} Select
-        %select#s1{:name => "s1", :value => "1"}
-          %option{:value => "1"} Option 1
+        %select#s1{:name => "s1"}
+          %option{:selected => "selected", :value => "1"} Option 1
           %option{:value => "2"} Option 2
           %option{:value => "3"} Option 3
           %option{:value => "4"} Option 4
