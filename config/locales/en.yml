@@ -566,7 +566,8 @@ en:
       black: Blackberry Torch
       jqm:
         name: jQuery mobile framework
-        home: "&alpha;@jquerymobile.com"
+        home: "&alpha;2@jquerymobile.com"
+        experiments: Additional demos
         default: jQuery mobile Demo
       jqt:
         name: "<i>(needs a WebKit engine)</i>"

@@ -1,0 +1,33 @@
+- content_for :content_head do
+  = render(:partial => "index.js.haml", :format => :js)
+
+#jqm-home{"data-role" => "page", "data-theme" => "b"}
+  #jqm-homeheader
+    %h1#jqm-logo
+      %img{:alt => "jQuery Mobile Framework", :height => "61", :src => "/images/demo/mobile/jquery-logo.png", :width => "235"}/
+    %p A Touch-Optimized Web Framework for Smartphones &amp; Tablets
+    %p#jqm-version Alpha Release
+  %div{"data-role" => "content"}
+    %ul{"data-dividertheme" => "b", "data-inset" => "true", "data-role" => "listview", "data-theme" => "c"}
+      %li{"data-role" => "list-divider"} Experiments
+      %li
+        %a{:href => "/mobile/experiments/converter"} Offline Converter Application
+      %li
+        %a{:href => "/mobile/experiments/datepicker"} Datepicker
+      %li
+        %a{:href => "/mobile/experiments/google_maps"} Google Maps
+      %li
+        %a{:href => "/mobile/experiments/navbar_glyphish"} Navbar with Glyphish icons
+      %li
+        %a{:href => "/mobile/experiments/photos"} Photos
+      %li
+        %a{:href => "/mobile/experiments/progressbar"} Progressbar
+      %li
+        %a{:href => "/mobile/experiments/scrollview"} Scrollview
+      %li
+        %a{:href => "/mobile/speed"} Speed tests
+      %li
+        %a{:href => "/mobile/experiments/weather"} Weather forecast
+      %li
+        %img.ui-li-icon{:alt => "Tuts+", :src => "/images/demo/mobile/tuts/tutsLogo2.jpg"}/
+        %a{:href => "/mobile/tuts"} Tuts+

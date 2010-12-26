@@ -1,2 +1,0 @@
-module Jqtouch::MailHelper
-end
