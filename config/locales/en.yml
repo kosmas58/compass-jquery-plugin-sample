@@ -391,6 +391,8 @@ en:
         listing: Listing iCalendars
         show: Show iCalendar
         iphone: Show it on a iPhone
+    tree:
+      name: Tree widgets
     dt:
       name: Dynatree
       ul: Init from ul element

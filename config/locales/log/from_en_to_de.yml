@@ -21,9 +21,6 @@ date:
     short: "%b %d"
     long: "%B %d, %Y"
 txt: 
-  emu: 
-    jqm: 
-      experiments: Additional demos
   tools: 
     form: 
       stylable: 
@@ -32,6 +29,8 @@ txt:
         demo02: Scripting styleable Forms
         demo03: Alternate form skin
   hello: Hello world
+  tree: 
+    name: Tree widgets
 support: 
   array: 
     words_connector: ", "
