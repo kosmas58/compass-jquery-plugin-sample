@@ -7,4 +7,4 @@ $.address.change(function(event){
 $("#tabs").bind("tabsselect", function(event, ui) { 
   window.location.hash = ui.tab.hash;
   })
-}
+});
