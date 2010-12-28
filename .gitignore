@@ -10,4 +10,4 @@ public/javascripts/locales.js
 public/stylesheets/*.sass
 public/stylesheets/compiled/*
 tmp/*
-
+Gemfile.lock
