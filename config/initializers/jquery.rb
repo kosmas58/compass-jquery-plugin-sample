@@ -14,8 +14,8 @@ ActionView::Helpers::PrototypeHelper::JQUERY_VAR = 'jQuery'
 # ActionView::Helpers::PrototypeHelper::DISABLE_JQUERY_FORGERY_PROTECTION = true
 # ====
 
-ActionView::Helpers::AssetTagHelper::JAVASCRIPT_DEFAULT_SOURCES = ['jquery.min', 'jquery-ui.min', 'jrails.min']
-ActionView::Helpers::AssetTagHelper::reset_javascript_include_default
+#ActionView::Helpers::AssetTagHelper::JAVASCRIPT_DEFAULT_SOURCES = ['jquery.min', 'jquery-ui.min', 'jrails.min']
+#ActionView::Helpers::AssetTagHelper::reset_javascript_include_default
 
 ActionView::Helpers::AssetTagHelper.register_javascript_expansion :jquery => ['jquery.min']
 ActionView::Helpers::AssetTagHelper.register_javascript_expansion :jquery_ui => ['jquery.min', 'jquery.cookie.min', 'jquery.form.min', 'jquery.layout.min', 'jquery-ui.min']
