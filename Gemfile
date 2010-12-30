@@ -19,7 +19,7 @@ group :development do
   gem "open3", :platforms => :ruby
   gem "win32-open3", :platforms => :mswin
   # bundler requires these gems in development
-  gem "rails-footnotes"
+  # gem "rails-footnotes"
 end
 
 group :test do
