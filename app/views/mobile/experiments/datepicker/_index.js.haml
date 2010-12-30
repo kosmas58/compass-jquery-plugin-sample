@@ -1,6 +1,6 @@
 %link{:href => "/images/demo/mobile/homeicon.png", :rel => "apple-touch-icon"}/
-  = stylesheet_link_tag "compiled/jquery/ui/#{session[:theme]}", :media => 'screen, projection'
-  = javascript_include_tag :jquery_ui
+= stylesheet_link_tag "compiled/jquery/ui/#{session[:theme]}", :media => 'screen, projection'
+= javascript_include_tag 'jquery-ui.min'
 
 :css
   .ui-datepicker-calendar th { padding-top: .3em; padding-bottom: .3em; }
@@ -28,7 +28,8 @@
     };
       
     /* create the datepicker as usual */
-    $('input[type=date]').after( $('').datepicker({ altField: '#date', showOtherMonths: true }) );
+    //$('input[type=date]').after( $('').datepicker({ altField: '#date', showOtherMonths: true }) );
+    $('#date').datepicker({ altField: '#date', showOtherMonths: true });
       
     /* update the datepicker when it loads, or whenever it's clicked (required because it's redrawn) */
     updateDatepicker(); // if you show the datepicker on input focus, call updateDatepicker on the focus event instead
