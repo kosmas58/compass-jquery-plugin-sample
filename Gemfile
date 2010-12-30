@@ -14,7 +14,8 @@ gem "compass-jquery-plugin", "= 0.3.2.pre.1", :require => 'jquery'
 # gem "geokit"
 
 group :development do
-  gem "sqlite3-ruby", :require => "sqlite3" 
+  gem "sqlite3-ruby", :require => "sqlite3"
+  gem "compass-validator"
   # bundler requires these gems in development
   # gem "rails-footnotes"
 end
