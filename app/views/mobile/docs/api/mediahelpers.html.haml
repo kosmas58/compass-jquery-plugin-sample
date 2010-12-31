@@ -20,14 +20,13 @@
     %pre
       %code
         :preserve
-          
           .portrait {
-          	/* portrait orientation changes go here! */
+            /* portrait orientation changes go here! */
           }
           .landscape {
-          	/* landscape orientation changes go here! */
-          }			
-          			        %h3 Min/Max Width Breakpoint Classes
+            /* landscape orientation changes go here! */
+          }
+    %h3 Min/Max Width Breakpoint Classes
     %p
       By default, we create min and max breakpoint classes at the following widths:
       = succeed "," do
@@ -42,25 +41,23 @@
     %pre
       %code
         :preserve
-          
           .myelement { 
-          	float: none;
-          }			
+            float: none;
+          }
           .min-width-480px .myelement {
-          	float: left;
-          }		
-          			        %p Many plugins in jQuery Mobile leverage these width breakpoints. For example, form elements float beside their labels when the browser is wider than 480 pixels. The CSS to support this behavior for form text inputs looks like this:
+            float: left;
+          }
+    %p Many plugins in jQuery Mobile leverage these width breakpoints. For example, form elements float beside their labels when the browser is wider than 480 pixels. The CSS to support this behavior for form text inputs looks like this:
     %pre
       %code
         :preserve
-          
           label.ui-input-text { 
-          	display: block; 
+            display: block; 
           }
           .min-width-480px label.ui-input-text { 
-          	display: inline-block; 
+            display: inline-block; 
           }
-          			        %h3 Adding Width Breakpoints
+    %h3 Adding Width Breakpoints
     %p
       To utilize width breakpoints of your own, jQuery Mobile exposes the
       %code $.mobile.addResolutionBreakpoints
@@ -68,13 +65,12 @@
     %pre
       %code
         :preserve
-          
           //add a min/max class for 1200 pixel widths			
           $.mobile.addResolutionBreakpoints(1200);
           
-          //add min/max classes for 1200, and 1440 pixel widths			
+          //add min/max classes for 1200, and 1440 pixel widths
           $.mobile.addResolutionBreakpoints([1200, 1440]);
-          			        %h3 Running Media Queries
+    %h3 Running Media Queries
     %p
       jQuery Mobile provides a function that allows you to test whether a particular CSS Media Query applies. Simple call
       %code $.mobile.media()
@@ -82,7 +78,6 @@
     %pre
       %code
         :preserve
-          
           //test for screen media type
           $.mobile.media("screen");
           
@@ -91,6 +86,5 @@
           
           //test for iOS retina display
           $.mobile.media("screen and (-webkit-min-device-pixel-ratio: 2)");
-          
-          			      / /content
+  / /content
 / /page

@@ -53,16 +53,19 @@
         Examples:
         %pre
           %code
-            %strong //transition to the "about us" page with a slideup transition
-            $.mobile.changePage("about/us.html", "slideup");
-            %strong //transition to the "search results" page, using data from a form with an ID of "search""
-            $.mobile.changePage({
-            url: "searchresults.php",
-            type: "get",
-            data: $("form#search").serialize()
-            });
-            %strong //transition to the "confirm" page with a "pop" transition without tracking it in history
-            $.mobile.changePage("../alerts/confirm.html", "pop", false, false);
+            :preserve
+              //transition to the "about us" page with a slideup transition
+              $.mobile.changePage("about/us.html", "slideup");
+              
+              //transition to the "search results" page, using data from a form with an ID of "search""
+              $.mobile.changePage({
+                url: "searchresults.php",
+                type: "get",
+                data: $("form#search").serialize()
+              });
+            
+              //transition to the "confirm" page with a "pop" transition without tracking it in history
+              $.mobile.changePage("../alerts/confirm.html", "pop", false, false);
       %dt
         %code $.mobile.pageLoading
         (
@@ -81,10 +84,12 @@
         Examples:
         %pre
           %code
-            %strong //cue the page loader
-            $.mobile.pageLoading();
-            %strong //hide the page loader
-            $.mobile.pageLoading( true );
+            :preserve
+              //cue the page loader
+              $.mobile.pageLoading();
+              
+              //hide the page loader
+              $.mobile.pageLoading( true );
       %dt
         %code $.mobile.silentScroll
         (
@@ -103,8 +108,9 @@
         Examples:
         %pre
           %code
-            %strong //scroll to Y 100px
-            $.mobile.silentScroll(100);
+            :preserve
+              //scroll to Y 100px
+              $.mobile.silentScroll(100);
       %dt
         %code $.mobile.addResolutionBreakpoints
         (
@@ -125,10 +131,12 @@
         Examples:
         %pre
           %code
-            %strong //add a 400px breakpoint
-            $.mobile.addResolutionBreakpoints(400);
-            %strong //add 2 more breakpoints
-            $.mobile.addResolutionBreakpoints([600,800]);
+            :preserve
+              //add a 400px breakpoint
+              $.mobile.addResolutionBreakpoints(400);
+              
+              //add 2 more breakpoints
+              $.mobile.addResolutionBreakpoints([600,800]);
       %dt
         %code $.mobile.activePage
         (

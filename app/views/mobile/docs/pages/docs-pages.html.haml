@@ -15,7 +15,6 @@
     %pre
       %code
         :preserve
-          
           &lt;!DOCTYPE html&gt; 
           &lt;html&gt; 
             &lt;head&gt; 
@@ -41,12 +40,11 @@
       attribute:
     .highlight
       %pre
-        %span.nt &lt;div
-        %span.na data-role=
-        %span.s "page"
-        %span.nt &gt;
-        \...
-        %span.nt &lt;/div&gt;
+        %code
+          :preserve
+            &lt;div data-role=&quot;page&quot;&gt;
+              ...
+            &lt;/div&gt;
     %p
       Within the "page" container, any valid HTML markup can be used, but for typical pages in jQuery Mobile, the immediate children of a "page" are divs with data-roles of
       = succeed "," do
@@ -58,35 +56,18 @@
         %code "footer"
     .highlight
       %pre
-        %span.nt &lt;div
-        %span.na data-role=
-        %span.s "page"
-        %span.nt &gt;
-        %span.nt &lt;div
-        %span.na data-role=
-        %span.s "header"
-        = succeed "..." do
-          %span.nt &gt;
-        %span.nt &lt;/div&gt;
-        %span.nt &lt;div
-        %span.na data-role=
-        %span.s "content"
-        = succeed "..." do
-          %span.nt &gt;
-        %span.nt &lt;/div&gt;
-        %span.nt &lt;div
-        %span.na data-role=
-        %span.s "footer"
-        = succeed "..." do
-          %span.nt &gt;
-        %span.nt &lt;/div&gt;
-        %span.nt &lt;/div&gt;
+        %code
+          :preserve
+            &lt;div data-role=&quot;page&quot;&gt;
+              &lt;div data-role=&quot;header&quot;&gt;...&lt;/div&gt;
+              &lt;div data-role=&quot;content&quot;&gt;...&lt;/div&gt;
+              &lt;div data-role=&quot;footer&quot;&gt;...&lt;/div&gt;
+            &lt;/div&gt;
     %h2 Complete single page template
     %p Putting it all together, this is the standard boilerplate page template you should start with:
     %pre
       %code
         :preserve
-          
           &lt;!DOCTYPE html&gt; 
           &lt;html&gt; 
             &lt;head&gt; 
@@ -94,11 +75,11 @@
             &lt;link rel=&quot;stylesheet&quot; href=&quot;http://code.jquery.com/mobile/1.0a2/jquery.mobile-1.0a2.min.css&quot; /&gt;
             &lt;script src=&quot;http://code.jquery.com/jquery-1.4.3.min.js&quot;&gt;&lt;/script&gt;
             &lt;script src=&quot;http://code.jquery.com/mobile/1.0a2/jquery.mobile-1.0a2.min.js&quot;&gt;&lt;/script&gt;
-          &lt;/head&gt; 
+          &lt;/head&gt;
+          
           &lt;body&gt; 
           
           &lt;div data-role=&quot;page&quot;&gt;
-          
             &lt;div data-role=&quot;header&quot;&gt;
                 &lt;h1&gt;Page Title&lt;/h1&gt;
             &lt;/div&gt;&lt;!-- /header --&gt;
@@ -151,12 +132,10 @@
     %pre
       %code
         :preserve
-          
           &lt;body&gt; 
           
           &lt;!-- Start of first page --&gt;
           &lt;div data-role=&quot;page&quot; id=&quot;foo&quot;&gt;
-          
             &lt;div data-role=&quot;header&quot;&gt;
                 &lt;h1&gt;Foo&lt;/h1&gt;
             &lt;/div&gt;&lt;!-- /header --&gt;
@@ -170,7 +149,6 @@
                 &lt;h4&gt;Page Footer&lt;/h4&gt;
             &lt;/div&gt;&lt;!-- /header --&gt;
           &lt;/div&gt;&lt;!-- /page --&gt;
-          
           
           &lt;!-- Start of second page --&gt;
           &lt;div data-role=&quot;page&quot; id=&quot;bar&quot;&gt;
@@ -189,7 +167,7 @@
             &lt;/div&gt;&lt;!-- /header --&gt;
           &lt;/div&gt;&lt;!-- /page --&gt;
           &lt;/body&gt;
-    %a{"data-inline" => "true", "data-role" => "button", "data-theme" => "b", :href => "multipage-template.html"} View multi-page template
+    %a{"data-inline" => "true", "data-role" => "button", "data-theme" => "b", :href => "/mobile/docs/pages/multipage-template"} View multi-page template
     %p
       PLEASE NOTE: Since we are using the hash to track navigation history for all the Ajax 'pages', it's not currently possible to deep link to an anchor (
       %code> index.html#foo
