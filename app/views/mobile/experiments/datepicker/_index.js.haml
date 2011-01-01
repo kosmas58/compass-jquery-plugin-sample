@@ -1,15 +1,34 @@
-%link{:href => "/images/demo/mobile/homeicon.png", :rel => "apple-touch-icon"}/
-= stylesheet_link_tag "compiled/jquery/ui/#{session[:theme]}", :media => 'screen, projection'
-= javascript_include_tag 'jquery-ui.min'
+%link{:href => "/images/demo/mobile/homeicon.png", :rel => "apple-touch-icon"}
 
 :css
+  div.hasDatepicker{ display: block; padding: 0; overflow: visible;  margin: 8px 0; }
+  .ui-datepicker {  overflow: visible; margin: 0;  }
+  .ui-datepicker .ui-datepicker-header { position:relative; padding:.4em 0; border-bottom: 0; font-weight: bold; }
+  .ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next { padding: 1px 0 1px 2px; position:absolute; top: .5em; margin-top: 0; text-indent: -9999px; }
+  
+  .ui-datepicker .ui-datepicker-prev { left:2px; }
+  .ui-datepicker .ui-datepicker-next { right:2px; }
+  .ui-datepicker .ui-datepicker-title { margin: 0 2.3em; line-height: 1.8em; text-align: center; }
+  .ui-datepicker .ui-datepicker-title select { font-size:1em; margin:1px 0; }
+  .ui-datepicker select.ui-datepicker-month-year {width: 100%;}
+  .ui-datepicker select.ui-datepicker-month, 
+  .ui-datepicker select.ui-datepicker-year { width: 49%;}
+  .ui-datepicker table {width: 100%; border-collapse: collapse; margin:0; }
+  .ui-datepicker td { border-width: 1px; padding: 0; text-align: center; }
+  .ui-datepicker td span, .ui-datepicker td a { display: block; padding: .2em 0; font-weight: bold; margin: 0; border-width: 0; text-align: center; text-decoration: none; }
+  
+  .min-width-480px { 
+    div.hasDatepicker { width: 63%; display: inline-block; margin: 0; } 
+  }
+  // Overwrite
   .ui-datepicker-calendar th { padding-top: .3em; padding-bottom: .3em; }
   .ui-datepicker-calendar th span, .ui-datepicker-calendar span.ui-state-default { opacity: .3; }
   .ui-datepicker-calendar td a { padding-top: .5em; padding-bottom: .5em; }
 
+= javascript_include_tag 'jquery-ui.min'
+
 :javascript
-  $(function(){
-  
+  $(function(){  
     /*  datepicker workaround - update markup and classes for Mobile */
     var updateDatepicker = function(){
       $('.ui-datepicker-header').addClass('ui-body-c ui-corner-top').removeClass('ui-corner-all');
@@ -28,8 +47,7 @@
     };
       
     /* create the datepicker as usual */
-    //$('input[type=date]').after( $('').datepicker({ altField: '#date', showOtherMonths: true }) );
-    $('#date').datepicker({ altField: '#date', showOtherMonths: true });
+    $('#date').after( $('<div />').datepicker({ altField: '#date', showOtherMonths: true }) );
       
     /* update the datepicker when it loads, or whenever it's clicked (required because it's redrawn) */
     updateDatepicker(); // if you show the datepicker on input focus, call updateDatepicker on the focus event instead
