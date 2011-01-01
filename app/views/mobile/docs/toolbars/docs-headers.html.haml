@@ -14,17 +14,12 @@
       %code header
       is an toolbar at the top of the page that usually contains the page title text and optional buttons positioned to the the left and/or right of the title for navigation or actions.
     %p The title text is normally an H1 heading element but it's possible to use any heading level (H1-H6) to allow for semantic flexibility. For example, a page containing multiple mobile 'pages' may use a H1 element on the home 'page' and a H2 element on the secondary pages. All heading levels are styled identically by default to maintain visual consistency.
-    .highlight
-      %pre
-        %span.nt &lt;div
-        %span.na data-role=
-        %span.s "header"
-        %span.nt &gt;
-        = succeed "Page" do
-          %span.nt &lt;h1&gt;
-        Title
-        %span.nt &lt;/h1&gt;
-        %span.nt &lt;/div&gt;
+    %pre
+      %code
+        :preserve
+          &lt;div data-role=&quot;header&quot;&gt;
+            &lt;h1&gt;Page Title&lt;/h1&gt;
+          &lt;/div&gt;
     %h2 Default header features
     %p
       The
@@ -53,11 +48,10 @@
       %pre
         %code
           :preserve
-            			
             &lt;div data-role=&quot;header&quot; data-position=&quot;inline&quot;&gt;
-            	&lt;a href=&quot;/mobile/docs/toolbars&quot; data-icon=&quot;delete&quot;&gt;Cancel&lt;/a&gt;
-            	&lt;h1&gt;Edit Contact&lt;/h1&gt;
-            	&lt;a href=&quot;/mobile/docs/toolbars&quot; data-icon=&quot;check&quot;&gt;Save&lt;/a&gt;
+              &lt;a href=&quot;index.html&quot; data-icon=&quot;delete&quot;&gt;Cancel&lt;/a&gt;
+              &lt;h1&gt;Edit Contact&lt;/h1&gt;
+              &lt;a href=&quot;index.html&quot; data-icon=&quot;check&quot;&gt;Save&lt;/a&gt;
             &lt;/div&gt;
       %div{"data-position" => "inline", "data-role" => "header"}
         %a{"data-icon" => "delete", :href => "/mobile/docs/toolbars"} Cancel
@@ -70,11 +64,10 @@
       %pre
         %code
           :preserve
-            			
             &lt;div data-role=&quot;header&quot; data-position=&quot;inline&quot;&gt;
-            	&lt;a href=&quot;/mobile/docs/toolbars&quot; data-icon=&quot;delete&quot;&gt;Cancel&lt;/a&gt;
-            	&lt;h1&gt;Edit Contact&lt;/h1&gt;
-            	&lt;a href=&quot;/mobile/docs/toolbars&quot; data-icon=&quot;check&quot; data-theme=&quot;b&quot;&gt;Save&lt;/a&gt;
+              &lt;a href=&quot;indec.html&quot; data-icon=&quot;delete&quot;&gt;Cancel&lt;/a&gt;
+              &lt;h1&gt;Edit Contact&lt;/h1&gt;
+              &lt;a href=&quot;index.html&quot; data-icon=&quot;check&quot; data-theme=&quot;b&quot;&gt;Save&lt;/a&gt;
             &lt;/div&gt;
       %div{"data-position" => "inline", "data-role" => "header"}
         %a{"data-icon" => "delete", :href => "/mobile/docs/toolbars"} Cancel
@@ -97,10 +90,9 @@
         %pre
           %code
             :preserve
-              
               &lt;div data-role=&quot;header&quot; data-position=&quot;inline&quot; data-nobackbtn=&quot;true&quot;&gt;
-              	&lt;h1&gt;Page Title&lt;/h1&gt;
-              	&lt;a href=&quot;/mobile/docs/toolbars&quot; data-icon=&quot;gear&quot; class=&quot;ui-btn-right&quot;&gt;Options&lt;/a&gt;
+                &lt;h1&gt;Page Title&lt;/h1&gt;
+                &lt;a href=&quot;index.html&quot; data-icon=&quot;gear&quot; class=&quot;ui-btn-right&quot;&gt;Options&lt;/a&gt;
               &lt;/div&gt;
       %div{"data-nobackbtn" => "true", "data-position" => "inline", "data-role" => "header"}
         %h1 Page Title

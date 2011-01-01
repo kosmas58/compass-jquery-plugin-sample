@@ -72,7 +72,6 @@
     %pre
       %code
         :preserve
-          
           $('div').live('pageshow',function(event, ui){
             alert('This page was just hidden: '+ ui.prevPage);
           });
@@ -106,7 +105,6 @@
     %pre
       %code
         :preserve
-          
           $('#aboutPage').live('pagebeforecreate',function(event){
             alert('This page was just inserted into the dom!');
           });
@@ -124,7 +122,6 @@
     %pre
       %code
         :preserve
-          
           $('#aboutPage').live('pagebeforecreate',function(event){
             //run your own enhancement scripting here...
             return false;

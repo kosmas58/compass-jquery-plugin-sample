@@ -18,10 +18,12 @@
       and
       %code method
       that will handle the form data processing on the server.
-    %code
-      \&lt;form action=&quot;form.php&quot; method=&quot;post&quot;&gt;
-      \...
-      \&lt;/form&gt;
+    %pre
+      %code
+        :preserve
+          &lt;form action=&quot;form.php&quot; method=&quot;post&quot;&gt;
+            ...
+          &lt;/form&gt;
     %h2 Markup Conventions
     %p
       When constructing forms to be used in jQuery Mobile, most of the standard guidelines used to create forms that submit via normal HTTP post or get still apply. However, one thing to keep in mind is that the
@@ -52,14 +54,13 @@
       For example:
     %pre
       %code
-        \&lt;label for=&quot;foo&quot;&gt;
-        \&lt;select name=&quot;foo&quot; id=&quot;foo&quot;
-        = succeed "&amp;gt;" do
-          %strong data-role=&quot;none&quot;
-        \&lt;option value="a" &gt;A&lt;/option&gt;
-        \&lt;option value="b" &gt;B&lt;/option&gt;
-        \&lt;option value="c" &gt;C&lt;/option&gt;
-        \&lt;/select&gt;
+        :preserve
+          &lt;label for=&quot;foo&quot;&gt;
+          &lt;select name=&quot;foo&quot; id=&quot;foo&quot; data-role=&quot;none&quot;&gt;
+            &lt;option value="a" &gt;A&lt;/option&gt;
+            &lt;option value="b" &gt;B&lt;/option&gt;
+            &lt;option value="c" &gt;C&lt;/option&gt;
+          &lt;/select&gt;
     %p
       Or, if you'd like to prevent auto-initialization without adding attributes to your markup, you can customize the selector that is used for preventing auto-initialization by setting the page plugin's
       %code keepNative
@@ -71,9 +72,10 @@
       event, so that it applies to the first page as well as subsequent pages that are loaded.
     %pre
       %code
-        $(document).bind('mobileinit',function(){
-        %strong $.mobile.page.prototype.options.keepNative = "select, input.foo, textarea.bar";
-        });
+        :preserve
+          $(document).bind('mobileinit',function(){
+            $.mobile.page.prototype.options.keepNative = "select, input.foo, textarea.bar";
+          });
     %h2 Dynamic form layout
     %p In jQuery Mobile, all form elements are designed to be a flexible width so they will comfortably fit the width of any mobile device. One optimization built into the framework is that we present labels and form elements differently based on screen width.
     %p If a page is fairly narrow (~480px), the labels are styled as block-level elements so they will stack on top of the form element to save horizontal space.
@@ -91,9 +93,8 @@
     %pre
       %code
         :preserve
-          				
           &lt;div data-role=&quot;fieldcontain&quot;&gt;
-          	...label/input code goes here...
+            ...label/input code goes here...
           &lt;/div&gt;
   / /content
 / /page

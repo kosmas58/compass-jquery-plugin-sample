@@ -7,6 +7,7 @@ gem "json"
 
 gem "manifesto", ">= 0.6.0"
 gem "compass-jquery-plugin", "= 0.3.2.pre.1", :require => 'jquery'
+# gem "sass"
 
 # bundler requires these gems in all environments
 gem "nokogiri"
