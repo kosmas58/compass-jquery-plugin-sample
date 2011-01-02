@@ -1,1 +1,0 @@
-I18n.l("time.formats.default", row.updated_at);

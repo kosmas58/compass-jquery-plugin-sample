@@ -21,6 +21,11 @@ date:
     short: "%b %d"
     long: "%B %d, %Y"
 txt: 
+  jqgrid: 
+    mine: 
+      name: Additional examples
+      contextmenu1: Using contextmenu 1
+      contextmenu2: Using contextmenu 2
   tools: 
     form: 
       stylable: 
@@ -29,8 +34,6 @@ txt:
         demo02: Scripting styleable Forms
         demo03: Alternate form skin
   hello: Hello world
-  tree: 
-    name: Tree widgets
 support: 
   array: 
     words_connector: ", "

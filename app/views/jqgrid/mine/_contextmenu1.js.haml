@@ -1,0 +1,35 @@
+= stylesheet_link_tag :contextMenu
+= javascript_include_tag :contextMenu
+
+:javascript
+  function handleContextMenu(action, el, pos) {
+    alert(action);
+    $("#list").jqGrid('contextMenu', el);
+  };
+
+  $(document).ready(function() {
+    $('#list').jqGrid({
+      datatype: 'json',
+      colNames: ['id', 'name', 'screen_name', 'text'],
+      colModel: [
+        { name: 'id', index: 'id', width: 100 },
+        { name: 'name', index: 'name', width: 100 },
+        { name: 'screen_name', index: 'screen_name', width: 100 },
+        { name: 'text', index: 'text', width: 500 }],
+      pager: jQuery('#pager'),
+      sortname: 'id',
+      viewrecords: true,
+      sortorder: 'desc',
+      caption: 'JSON Example',
+      afterInsertRow: function(rowid, rowdata, rowelem) {
+        $('#' + rowid).contextMenu({menu: "MenuJqGrid"}, handleContextMenu);
+      }
+    });
+    $("#list").jqGrid('navGrid','#pager',{edit:false,add:false,del:false});
+    
+    $.getJSON('http://twitter.com/status/user_timeline/JQuery.json?count=15&callback=?', function(data) {
+      $.each(data, function(i, val) {
+        $("#list2").jqGrid('addRowData', val.id, { id: val.id, name: val.user.name, screen_name: val.user.screen_name, text: val.text });
+      });
+    });
+  });

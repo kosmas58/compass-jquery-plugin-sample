@@ -40,8 +40,8 @@ de:
         qty: Menge
         total: Summe
         id: ID
-        unit: Mengeneinheit
         num: Anzahl
+        unit: Mengeneinheit
         item: Element
       invheader: 
         tax: Steuer
@@ -62,8 +62,8 @@ de:
       account: 
         name: Name
         debit: Soll
-        lft: lft
         level: Level
+        lft: lft
         credit: Haben
         parent_id: Eltern ID
         rgt: rgt
@@ -86,11 +86,11 @@ de:
         email: E-Mail
       pet: 
         name: Name
-      animal: 
-        name: Name
       item: 
         cd: CD
         item: Element
+      animal: 
+        name: Name
     errors: 
       messages: 
         greater_than_or_equal_to: "muss gr\xC3\xB6\xC3\x9Fer oder gleich {{count}} sein"
@@ -102,15 +102,15 @@ de:
         exclusion: "ist nicht verf\xC3\xBCgbar"
         odd: muss ungerade sein
         even: muss gerade sein
+        empty: "muss ausgef\xC3\xBCllt werden"
         too_short: ist zu kurz (nicht weniger als {{count}} Zeichen)
         wrong_length: "hat die falsche L\xC3\xA4nge (muss genau {{count}} Zeichen haben)"
-        empty: "muss ausgef\xC3\xBCllt werden"
         less_than: muss kleiner als {{count}} sein
         greater_than: "muss gr\xC3\xB6\xC3\x9Fer als {{count}} sein"
         equal_to: muss genau {{count}} sein
-        accepted: muss akzeptiert werden
         too_long: ist zu lang (nicht mehr als {{count}} Zeichen)
         taken: ist bereits vergeben
+        accepted: muss akzeptiert werden
         inclusion: "ist kein g\xC3\xBCltiger Wert"
         not_a_number: ist keine Zahl
       full_messages: 
@@ -128,93 +128,35 @@ de:
       short: "%d. %B, %H:%M Uhr"
       long: "%A, %d. %B %Y, %H:%M Uhr"
     pm: nachmittags
-  date: 
-    month_names: 
-    - 
-    - Januar
-    - Februar
-    - !binary |
-      TcOkcno=
-
-    - April
-    - Mai
-    - Juni
-    - Juli
-    - August
-    - September
-    - Oktober
-    - November
-    - Dezember
-    abbr_day_names: 
-    - So
-    - Mo
-    - Di
-    - Mi
-    - Do
-    - Fr
-    - Sa
-    order: 
-    - :day
-    - :month
-    - :year
-    formats: 
-      only_day: "%e"
-      default: "%d.%m.%Y"
-      short: "%e. %b"
-      long: "%e. %B %Y"
-    day_names: 
-    - Sonntag
-    - Montag
-    - Dienstag
-    - Mittwoch
-    - Donnerstag
-    - Freitag
-    - Samstag
-    abbr_month_names: 
-    - 
-    - Jan
-    - Feb
-    - !binary |
-      TcOkcg==
-
-    - Apr
-    - Mai
-    - Jun
-    - Jul
-    - Aug
-    - Sep
-    - Okt
-    - Nov
-    - Dez
   txt: 
-    plugins: 
-      name: jQuery-Plugins
     jst: 
       name: jsTree
-      html: HTML-Daten
       plugins: Plugins
+      html: HTML-Daten
+      xml: XML-Daten
       themeroller: Themenwahl
       hotkeys: Hotkeys
-      xml: XML-Daten
       dnd: Drag'n Drop
-      checkbox: "Auswahlk\xC3\xA4stchen"
-      demo: Demonstration
       radio: Umschalttasten
+      demo: Demonstration
+      checkbox: "Auswahlk\xC3\xA4stchen"
       cookies: Cookies
       json: JSON-Daten
-      lang: Sprachen
       types: Typen
+      lang: Sprachen
       contextmenu: "Kontextmen\xC3\xBC"
-      sort: Sortieren
       unique: Eindeutig
+      sort: Sortieren
       ui: UI
       core: "Basisfunktionalit\xC3\xA4t"
+      search: Suche
       themes: Themen
       crrm: CRRM
-      search: Suche
+    plugins: 
+      name: jQuery-Plugins
     layout: 
-      back: "Zur\xC3\xBCck"
       colon: ":"
+      back: "Zur\xC3\xBCck"
       edit: Bearbeiten
       delete: "L\xC3\xB6schen"
       cancel: Abbrechen
@@ -253,17 +195,27 @@ de:
         home: "&alpha;2@jquerymobile.com"
       palm: Palm Pre
       iphone: iPhone
+    ribbon: 
+      name: Multifunktionsleiste
+      simple: jQuery Ribbon Simple Demo
+      default: jQuery Ribbon Windows 7 Demo
+      office: jQuery Ribbon Office Demo
+    history: 
+      name: jQuery History Plugin
+      ajax: Ajax-Beispiel
+      mvc: MVC Bespielhistorie
+      ajax2: Ajax-Beispiel 2
     jqgrid: 
+      name: jqGrid
       manipulation: 
         name: Datenmanipulation
         inline: "mit Inline-\xC3\x84nderung"
         modal: "mit modaler \xC3\x84nderung"
         datepicker: mit Datumsauswahl (Nachname)
         input: mit verschiedenen Eingabetypen
-      name: jqGrid
       simple: 
-        direct: mit direkter Auswahl und automatischer Weite
         name: Einfache Datengitter
+        direct: mit direkter Auswahl und automatischer Weite
         default: "mit Standardfunktionalit\xC3\xA4t"
         master: mit Haupt- und Detailsicht
         selection: mit Auswahllink und Suche deaktiviert
@@ -280,16 +232,16 @@ de:
         35sortable: Sortierbare Spalten anzeigen
         35summary: "Zusammenfassung in der Fu\xC3\x9Fzeile"
         30optimize: Datenoptimierung
-        36validation: Benutzerdefinierte Validierung
         38array2: Spalten verbergen
         34v: Neu in Version 3.4
-        36cinput: Benutzerdefiniertes Eingabeelement erstellen
+        36validation: Benutzerdefinierte Validierung
         32client: Clientseitige Validierung
+        36cinput: Benutzerdefiniertes Eingabeelement erstellen
         20data: Gitterdaten
         34format: Formatierer
         38array3: Kopfzeile konfigurieren
-        20once: Einmaliges Laden
         38remote1: Entfernte Daten (sortiert)
+        20once: Einmaliges Laden
         37scroll: Virtuelles Scrollen
         37multiple: Mehrfachsuche
         37v: Neu in Version 3.7
@@ -299,17 +251,17 @@ de:
         38array4: "RNL-Unterst\xC3\xBCtzung"
         38remote3: Entfernte Daten (unsortiert mit Gesamtsummen)
         36api: Neues API
-        default: jqGrid Beispiele
         38array5: Zeilen verbergen
-        38array6: "Summarische Fu\xC3\x9Fzeilen"
+        default: jqGrid Beispiele
         38remote4: "Dynamische Ver\xC3\xA4nderung der Gruppierung"
         34autoscroll: Das automatische Laden von Daten beim Scrollen
-        32cbutton: "Benutzerdefinierte Schaltfl\xC3\xA4chen und Formulare"
+        38array6: "Summarische Fu\xC3\x9Fzeilen"
         30searching: Daten suchen
+        32cbutton: "Benutzerdefinierte Schaltfl\xC3\xA4chen und Formulare"
         31cparams: "Gebr\xC3\xA4uchliche Parameter"
         38remote5: Summenzeile anzeigen
-        36tscroll: Echte scrollende Zeilen
         32new_methods: Neue Methoden
+        36tscroll: Echte scrollende Zeilen
         20array: Daten aus einer Matrix
         37single: Einfache Suche
         30edit_row: "Zeile \xC3\xA4ndern"
@@ -328,26 +280,26 @@ de:
         35real: "Reales Beispiel eines Baumgitters "
         20subgrid: Untergitter
         33mform: Mehrfache Formularsuche
-        20json_data: JSON-Daten
         33rdnd: Drag and Drop von Zeilen
+        20json_data: JSON-Daten
         30json_map: JSON-Mapping
         35v: Neu in Version 3.5
         35stoolbar: Integrierte Suchleiste
-        20multi: Mehrfachauswahl
         20loading: Laden von Daten
+        20multi: Mehrfachauswahl
         36chooser: Spaltenauswahl
         35number: Automatische Breite und Reihennummerierung
         actions: Aktionen
         30basic: Einfaches Beispiel
         38v: Gruppierung
-        20set: Set-Methoden
         36rdnd: Drag and Drop von Zeilen
         20advanced: Fortgeschritten
         34adjacency: Baumgitter mit Adjazenzliste
+        20set: Set-Methoden
         37toolbar: Werkzeugleistensuche
+        30events: Ereignisse nutzen
         35view: Modus Gitteransicht
         30full: Vollzugriff
-        30events: Ereignisse nutzen
         30hide: Spalten anzeigen/verbergen
         36srows: Sortierbare Zeilen
         38xml1: Gruppierung mit XML-Daten
@@ -366,8 +318,8 @@ de:
         30types: Eingabetypen
         20master: Haupt- und Detailsicht
         36v: Neu in Version 3.6
-        30datepicker: Datumsauswahl
         30row: "Zeilen \xC3\xA4ndern"
+        30datepicker: Datumsauswahl
         37array: Matrixdaten auf einmal laden
         33mtoolbar: Mehrfache Symbolleistensuche
         33visible: Sichtbare Spalten
@@ -379,65 +331,31 @@ de:
         36rtl: "RNL-Unterst\xC3\xBCtzung"
         20manipulating: Manipulation
         37crud: "Lokale Daten Hinzuf\xC3\xBCgen/\xC3\x84ndern/L\xC3\xB6schen"
-        36ajax: Ajax-Verbesserungen
         32server_errors: Server-Fehler kontrollieren
+        36ajax: Ajax-Verbesserungen
         36reordering: Neuanordnung von Spalten
         32initial: "Zun\xC3\xA4chst verstecktes Gitter"
+        31post_data: Post Data
         30json_subgrid: Untergitter mit JSON
         33html: Gitter aus HTML-Tabelle
         30after_load: Callback nach dem Laden
-        31post_data: Post Data
         30delete_row: "Zeile l\xC3\xB6schen"
       subgrids: 
         name: Untergitter
         default: "mit Standardfunktionalit\xC3\xA4t"
         selection: mit Auswahl
         crud: mit CRUD-Operationen
-      secret: Secret Sauce jqGrid
+      mine: 
+        name: Weitere Beispiele
+        contextmenu1: "Mit Kontextmen\xC3\xBC 1"
+        contextmenu2: "Mit Kontextmen\xC3\xBC 2"
       improvements: 
         name: mit Verbesserungen der Form
-    ribbon: 
-      name: Multifunktionsleiste
-      simple: jQuery Ribbon Simple Demo
-      default: jQuery Ribbon Windows 7 Demo
-      office: jQuery Ribbon Office Demo
-    history: 
-      name: jQuery History Plugin
-      ajax: Ajax-Beispiel
-      mvc: MVC Bespielhistorie
-      ajax2: Ajax-Beispiel 2
+      secret: Secret Sauce jqGrid
     sparklines: 
       name: Sparklines
       examples: Beispiele
       default: Probieren Sie es aus
-    dt: 
-      name: Dynatree
-      ul: Aus ul-Element initialisieren
-      lazy: "Sp\xC3\xA4tes Laden"
-      persist: Persistenz
-      default: Standardeinstellungen
-      quick: JS-Objekt initialisieren
-      dnd2: "Dynatree: Ziehen und Ablegen 2"
-      iframe: iframe und URL-Navigation
-      api: Programmier-API
-      dnd: "Dynatree: Ziehen und Ablegen"
-      dnd3: "jQUery UI: Ziehen und Ablegen"
-      events: Ergeignisverarbeitung
-      minexpand: Feste Expansionsebene
-      form: In Formular integriert
-      json: Aus externen Daten initialisieren
-      effects: Effekte
-      contextmenu: "Kontextmen\xC3\xBC,  Kopieren / Einf\xC3\xBCgen"
-      multiline: "Gro\xC3\x9Fe Knoten"
-      select: "K\xC3\xA4stchen & Auswahl"
-      lazy_persist: Langsames Laden
-      benchmark: "Benchmark f\xC3\xBCr gro\xC3\x9Fe B\xC3\xA4ume"
-      theming: 
-        name: Themen
-        xp: XP
-        crystal: Crystal
-        aero: Aero
-        aqua: Aqua
     tools: 
       name: jQuery TOOLS
       toolbox: 
@@ -503,16 +421,6 @@ de:
           demo03: Browser-Standard-Tooltips imitieren
           demo04: Tooltips in Formularfeldern
           demo05: Tooltips in Tabellen oder Listen
-        overlay: 
-          name: Overlay
-          demo06: Laden von externen Seiten in Overlay
-          demo07: Mehrere Overlays auf der gleichen Seite
-          demo08: Erstellen eines benutzerdefinierten Overlay-Effekt
-          demo01: "Minimales Setup f\xC3\xBCr Overlay"
-          demo02: "Der Apple-Effekt f\xC3\xBCr Overlay"
-          demo03: "Modale Dialoge mit Overlay erstellen "
-          demo04: "Overlays programmatisch \xC3\xB6ffnen"
-          demo05: Overlays mit verschiedenen Stilen
         scrollable: 
           name: Bildlauf
           demo06: Bildlauf-Plugin in Aktion
@@ -526,6 +434,16 @@ de:
           demo03: Eine einfache scrollbare Bildergalerie
           demo04: Eine weitere scrollbare Galerie
           demo05: Ein scrollbarer Registrierungsassistent
+        overlay: 
+          name: Overlay
+          demo06: Laden von externen Seiten in Overlay
+          demo07: Mehrere Overlays auf der gleichen Seite
+          demo08: Erstellen eines benutzerdefinierten Overlay-Effekt
+          demo01: "Minimales Setup f\xC3\xBCr Overlay"
+          demo02: "Der Apple-Effekt f\xC3\xBCr Overlay"
+          demo03: "Modale Dialoge mit Overlay erstellen "
+          demo04: "Overlays programmatisch \xC3\xB6ffnen"
+          demo05: Overlays mit verschiedenen Stilen
         tabs: 
           name: Registerkarten
           demo06: Akkordeons mit Registerkarten
@@ -541,15 +459,42 @@ de:
           demo03: 4 verschiedene Skins mit CSS
           demo04: Mit Mouseover Registerkarten wechseln
           demo05: Assistenten mit Registerkarten
-    hello: ""
+    dt: 
+      name: Dynatree
+      ul: Aus ul-Element initialisieren
+      persist: Persistenz
+      lazy: "Sp\xC3\xA4tes Laden"
+      default: Standardeinstellungen
+      api: Programmier-API
+      dnd: "Dynatree: Ziehen und Ablegen"
+      iframe: iframe und URL-Navigation
+      quick: JS-Objekt initialisieren
+      dnd2: "Dynatree: Ziehen und Ablegen 2"
+      events: Ergeignisverarbeitung
+      dnd3: "jQUery UI: Ziehen und Ablegen"
+      minexpand: Feste Expansionsebene
+      effects: Effekte
+      form: In Formular integriert
+      json: Aus externen Daten initialisieren
+      contextmenu: "Kontextmen\xC3\xBC,  Kopieren / Einf\xC3\xBCgen"
+      multiline: "Gro\xC3\x9Fe Knoten"
+      select: "K\xC3\xA4stchen & Auswahl"
+      benchmark: "Benchmark f\xC3\xBCr gro\xC3\x9Fe B\xC3\xA4ume"
+      lazy_persist: Langsames Laden
+      theming: 
+        name: Themen
+        xp: XP
+        crystal: Crystal
+        aero: Aero
+        aqua: Aqua
     ical: 
       name: iCalendar
       anytime: 
         name: Any+Time&trade;
         default: "Standardfunktionalit\xC3\xA4t"
+        separate: Datum und Uhrzeit getrennt
         inline: Eingebettet anzeigen
         css: Benutzerdefiniertes Layout
-        separate: Datum und Uhrzeit getrennt
         ajax: Ajax Demo
         extend: "Erweiterung der Funktionalit\xC3\xA4t"
         convert: AnyTime.Converter
@@ -578,6 +523,7 @@ de:
         listing: iCalendar auflisten
         show: " iCalendar anzeigen"
         iphone: Zeigen es auf einem iPhone
+    hello: ""
     ui: 
       name: jQquery UI
       utilities: 
@@ -592,6 +538,28 @@ de:
           default: "W\xC3\xA4hlbar"
           display-grid: Als Gitter anzeigen
         default: Interaktionen
+        draggable: 
+          snap-to: In Element oder Gitter einrasten
+          handle: Position des Griffs
+          scroll: Autoscrollen
+          default: Ziehbar
+          sortable: Zieh- und sortierbar
+          events: Ereignisse
+          constrain-movement: "Einschr\xC3\xA4nken der Bewegung"
+          revert: "Zur Position zur\xC3\xBCckkehren"
+          delay-start: "Start verz\xC3\xB6gern"
+          cursor-style: Cursorstil
+          visual-feedback: Visuelles Feedback
+        sortable: 
+          items: "Elemente ein- / ausschlie\xC3\x9Fen"
+          empty-lists: Leere Listen handhaben
+          default: Sortierbar
+          connect-lists-through-tabs: "Listen \xC3\xBCber Registerkarten verbinden"
+          portlets: Portlets
+          delay-start: "Start verz\xC3\xB6gern"
+          display-grid: Als Gitter anzeigen
+          connect-lists: Listen verbinden
+          placeholder: "Platzhalter f\xC3\xBCr den Abwurf"
         resizable: 
           aspect-ratio: "Seitenverh\xC3\xA4ltnis beibehalten"
           snap-to-grid: Im Gitter einrasten
@@ -604,42 +572,20 @@ de:
           delay-start: "Start verz\xC3\xB6gern"
           constrain-area: "Vergr\xC3\xB6\xC3\x9Ferungsfl\xC3\xA4che einschr\xC3\xA4nken"
           visual-feedback: Visuelles Feedback
-        draggable: 
-          snap-to: In Element oder Gitter einrasten
-          handle: Position des Griffs
-          scroll: Autoscrollen
-          default: Ziehbar
-          sortable: Zieh- und sortierbar
-          constrain-movement: "Einschr\xC3\xA4nken der Bewegung"
-          events: Ereignisse
-          cursor-style: Cursorstil
-          revert: "Zur Position zur\xC3\xBCckkehren"
-          delay-start: "Start verz\xC3\xB6gern"
-          visual-feedback: Visuelles Feedback
-        sortable: 
-          items: "Elemente ein- / ausschlie\xC3\x9Fen"
-          empty-lists: Leere Listen handhaben
-          default: Sortierbar
-          connect-lists-through-tabs: "Listen \xC3\xBCber Registerkarten verbinden"
-          portlets: Portlets
-          delay-start: "Start verz\xC3\xB6gern"
-          display-grid: Als Gitter anzeigen
-          connect-lists: Listen verbinden
-          placeholder: "Platzhalter f\xC3\xBCr den Abwurf"
         droppable: 
           default: Ablegbar
           propagation: Weitergabe verhindern
           revert: "R\xC3\xBCckkehr zur  Position"
           shopping-cart: Einkaufswagen
-          photo-manager: Einfacher Photomanager
           visual-feedback: Visuelles Feedback
+          photo-manager: Einfacher Photomanager
           accepted-elements: Akzeptierte Elemente
       widgets: 
         button: 
           default: "Schaltfl\xC3\xA4che"
+          radio: Umschalttasten
           checkbox: Auswahltasten
           icon: Symbole
-          radio: Umschalttasten
           toolbar: Werkzeugleiste
           splitbutton: "Geteilte Schaltfl\xC3\xA4che"
         default: Widgets
@@ -650,16 +596,16 @@ de:
           slider-vertical: Vertikaler Regler
           side-scroll: Einfache Bildlaufleiste
           range-vertical: Vertikaler Regler mit Bereich
-          rangemax: Bereich mit festgesetzten Maximum
           range: Regler mit Bereich
+          rangemax: Bereich mit festgesetzten Maximum
           hotelrooms: Zimmerreservierung
           colorpicker: Einfache Farbauswahl
           rangemin: Bereich mit festgesetztem Mininum
           tabs: Registerkarte per Schieberegler kontrollieren
         panel: 
           name: Entwurf Panel
-          left: Von links einblenden
           simple: Einfaches Beispielpanel
+          left: Von links einblenden
           right1: Von rechts einblenden 1
           right2: Von rechts einblenden 2
           default: Zusammenklappbares Panel
@@ -667,10 +613,10 @@ de:
           cookie: Panelstatus im Cookie
           accordion: Akkordeon von Panels
         selectmenu: 
-          maxheight: "Stil: <b>Popup</b> mit maxheight gesetzt"
           name: "Auswahlmen\xC3\xBC"
-          custom-icons2: "Stil: <b>Dropdown</b> Sprachen mit Flaggensymbolen"
+          maxheight: "Stil: <b>Popup</b> mit maxheight gesetzt"
           without-id: "Stil: <b>Popup</b> ohne ID"
+          custom-icons2: "Stil: <b>Dropdown</b> Sprachen mit Flaggensymbolen"
           default: "Stil: <b>Popup</b>"
           icons: "Stil: <b>Popup</b> mit UI-Symbolen"
           optgroups: "Stil: <b>Popup</b> mit optgroups"
@@ -678,6 +624,15 @@ de:
           menuwidth: "Stil: <b>Dropdown</b> mit menuWidth und Textformatierung"
           custom-icons: "Stil: <b>Popup</b> mit benutzerdefinierten Icons"
           dropdown: "Stil: <b>Popup</b>-Stil"
+        accordion: 
+          hoverintent: "\xC3\x96ffnen bei hoverintent"
+          default: Akkordeon
+          no-auto-height: "Ohne automatische H\xC3\xB6he"
+          sortable: Sortierbar
+          fillspace: "Freien Platz f\xC3\xBCllen"
+          mouseover: "\xC3\x96ffnen, wenn die Maus dar\xC3\xBCberf\xC3\xA4hrt"
+          custom-icons: Benutzerdefinierte Symbole
+          collapsible: Inhalt einklappen
         datepicker: 
           alt-field: "Alternatives Feld f\xC3\xBCllen"
           buttonbar: "Schaltfl\xC3\xA4chen anzeigen"
@@ -687,21 +642,12 @@ de:
           icon-trigger: "\xC3\x9Cber Symbol aktivieren"
           show-week: Zeige Kalanderwoche
           date-formats: Datum formatieren
-          animation: Animationen
           multiple-calendars: Mehrerer Monate anzeigen
-          event-search: Veranstaltungen suchen
+          animation: Animationen
           localization: " Kalender lokalisieren"
+          event-search: Veranstaltungen suchen
           dropdown-month-year: "Monat- & Jahresmen\xC3\xBCs anzeigen"
           other-months: Termine in den anderen Monaten
-        accordion: 
-          hoverintent: "\xC3\x96ffnen bei hoverintent"
-          default: Akkordeon
-          no-auto-height: "Ohne automatische H\xC3\xB6he"
-          sortable: Sortierbar
-          mouseover: "\xC3\x96ffnen, wenn die Maus dar\xC3\xBCberf\xC3\xA4hrt"
-          fillspace: "Freien Platz f\xC3\xBCllen"
-          custom-icons: Benutzerdefinierte Symbole
-          collapsible: Inhalt einklappen
         progressbar: 
           resize: "Vergr\xC3\xB6\xC3\x9Ferbarer Fortschrittsbalken"
           default: Fortschrittsbalken
@@ -709,24 +655,16 @@ de:
         autocomplete: 
           maxheight: Scrollbare Ergebnisse
           default: "Autovervollst\xC3\xA4ndigung"
-          remote-jsonp: Entfernte JSONP-Datenquelle
-          folding: "Akzente ber\xC3\xBCcksichtigen"
           multiple-remote: Mehrfachwerte, entfernt
+          folding: "Akzente ber\xC3\xBCcksichtigen"
+          remote-jsonp: Entfernte JSONP-Datenquelle
           custom-data: Benutzerdefinierte Daten und Anzeige
           remote-with-cache: Entfernt mit Caching
           multiple: Mehrfachwerte
           remote: Entfernte Datenquelle
           categories: Kategorien
-          combobox: Auswahleiste
           remote-xml: XML-Daten einmalig geparsed
-        dialog: 
-          greybox: Greybox
-          default: Dialog
-          modal-confirmation: "Modale Best\xC3\xA4tigung"
-          modal: Modaler Dialog
-          animated: Animierter Dialog
-          modal-form: Modale Form
-          modal-message: Modale Nachricht
+          combobox: Auswahleiste
         tabs: 
           manipulation: Einfache Handhabung
           bottom: Registerkarte unterhalb des Inhalts
@@ -736,13 +674,14 @@ de:
           mouseover: "\xC3\x96ffnen, wenn die Maus dar\xC3\xBCberf\xC3\xA4hrt"
           cookie: "Persistenz \xC3\xBCber Cookie"
           collapsible: Inhalt wegklappen
-      form: 
-        new: Anlegen
-        edit: Bearbeiten
-        delete: "L\xC3\xB6schen"
-        cancel: Abbrechen
-        save: Speichern
-        sure: Sind Sie sicher?
+        dialog: 
+          greybox: Greybox
+          default: Dialog
+          modal-confirmation: "Modale Best\xC3\xA4tigung"
+          modal: Modaler Dialog
+          animated: Animierter Dialog
+          modal-form: Modale Form
+          modal-message: Modale Nachricht
       effects: 
         toggle: 
           default: Umschalten
@@ -751,10 +690,10 @@ de:
         default: Effekte
         animate: 
           default: Farbanimation
-        switch_class: 
-          default: Klasse wechseln
         toggle_class: 
           default: Klasse umschalten
+        switch_class: 
+          default: Klasse wechseln
         add_class: 
           default: "Klasse hinzuf\xC3\xBCgen"
         show: 
@@ -765,6 +704,13 @@ de:
           showcase: Effekte im Schaufenster
         remove_class: 
           default: Klasse entfernen
+      form: 
+        new: Anlegen
+        edit: Bearbeiten
+        delete: "L\xC3\xB6schen"
+        cancel: Abbrechen
+        save: Speichern
+        sure: Sind Sie sicher?
       theme-switcher: 
         button: "Thema: "
         initial: Thema wechseln
@@ -777,6 +723,64 @@ de:
         header: 
           one: "Konnte {{model}} nicht speichern: ein Fehler."
           other: "Konnte {{model}} nicht speichern: {{count}} Fehler."
+  date: 
+    month_names: 
+    - 
+    - Januar
+    - Februar
+    - !binary |
+      TcOkcno=
+
+    - April
+    - Mai
+    - Juni
+    - Juli
+    - August
+    - September
+    - Oktober
+    - November
+    - Dezember
+    order: 
+    - :day
+    - :month
+    - :year
+    abbr_day_names: 
+    - So
+    - Mo
+    - Di
+    - Mi
+    - Do
+    - Fr
+    - Sa
+    formats: 
+      only_day: "%e"
+      default: "%d.%m.%Y"
+      short: "%e. %b"
+      long: "%e. %B %Y"
+    day_names: 
+    - Sonntag
+    - Montag
+    - Dienstag
+    - Mittwoch
+    - Donnerstag
+    - Freitag
+    - Samstag
+    abbr_month_names: 
+    - 
+    - Jan
+    - Feb
+    - !binary |
+      TcOkcg==
+
+    - Apr
+    - Mai
+    - Jun
+    - Jul
+    - Aug
+    - Sep
+    - Okt
+    - Nov
+    - Dez
   support: 
     array: 
       words_connector: ", "

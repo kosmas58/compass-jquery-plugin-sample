@@ -68,7 +68,9 @@ ActionController::Routing::Routes.draw do |map|
     jqgrid.resources :users,
     :collection => { :pets      => :get,
                                               :post_data => :post }  
-    jqgrid.resources :widgets 
+    jqgrid.resources :widgets
+    jqgrid.resources :animals
+    jqgrid.resources :mine
   end
   
   map.namespace :ical do |ical|
