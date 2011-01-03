@@ -11031,15 +11031,15 @@ $.jgrid.extend({
 **/
 $.jgrid.extend({
   contextMenu : function(e) {
-    var $t = this[0];
-    td = e.target;
+    //var $t = this[0];
+    //td = e.target;
     //ptr = $(td,$t.rows).closest("tr.jqgrow");
     //if($(ptr).length === 0 ){return false;}
     //if(!$t.p.multiselect) { $($t).jqGrid("setSelection",ptr[0].id,true);  }
     //ri = ptr[0].rowIndex;
     //ci = $.jgrid.getCellIndex(td);
     //$t.p.onRightClickRow.call($t,$(ptr).attr("id"),ri,ci, e);
-    alert("aa");
+    alert("ContextMenu extension");
     return false;
   }
 });

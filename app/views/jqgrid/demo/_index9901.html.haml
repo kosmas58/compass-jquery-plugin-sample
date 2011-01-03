@@ -1,24 +1,23 @@
--@title = "#{t('txt.jqgrid.name')} - #{t('txt.jqgrid.mine.name')} - #{t('txt.jqgrid.mine.contextmenu1')}"
+-@title = "#{t('txt.jqgrid.name')} - #{t('txt.jqgrid.mine.name')} - #{t('txt.jqgrid.mine.contextmenu2')}"
 .demo
   %h3
     =image_tag("icons/22x22/grid.png", :border => 0)
     =@title
   %center
-    %table#list.scroll{:cellpadding => "0", :cellspacing => "0"}
-    #pager.scroll{:style => "text-align: center;"}
-  
+    %table#invheaders_demo9901.scroll{ :cellspacing => "0", :cellpadding => "0" }
+    #invheaders_demo9901_pager.scroll{ :style => "text-align:center;" }
+
   / Definition of context menu
   %ul#MenuJqGrid.contextMenu
-    %li.edit
-      %a{:href => "#edit"} Edit
-    %li.cut.separator
-      %a{:href => "#cut"} Cut
-    %li.copy
-      %a{:href => "#copy"} Copy
-    %li.paste
-      %a{:href => "#paste"} Paste
-    %li.delete.separator
-      %a{:href => "#delete"} Delete
+    %li
+      %a{:href => "#add"}
+        Add Row
+    %li
+      %a{:href => "#edit"}
+        Edit Row
+    %li
+      %a{:href => "#del"}
+        Delete Row
 / End demo 
 .demo-description
   %p
@@ -33,8 +32,7 @@
     , which also is used by jquery.dynatree.js.
   %p
     This example is derived from a
-    %a{ :href => "http://www.hard-bit.net/blog/?p=171", :class => :greybox }
-      HardBit
-    example.
+    %a{ :href => "http://www.trirand.net/examples/functionality/contextmenu/default.aspx", :class => :greybox }
+      Trirand example
+    originally written with jqGrid for ASP.NET.
 / End demo-description
-  

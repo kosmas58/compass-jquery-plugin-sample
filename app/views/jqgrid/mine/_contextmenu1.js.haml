@@ -3,8 +3,8 @@
 
 :javascript
   function handleContextMenu(action, el, pos) {
-    alert(action);
-    $("#list").jqGrid('contextMenu', el);
+    var rowId = el.attr("id");
+    alert('Action [' + action + '] for element ' + rowId);
   };
 
   $(document).ready(function() {
@@ -29,7 +29,7 @@
     
     $.getJSON('http://twitter.com/status/user_timeline/JQuery.json?count=15&callback=?', function(data) {
       $.each(data, function(i, val) {
-        $("#list2").jqGrid('addRowData', val.id, { id: val.id, name: val.user.name, screen_name: val.user.screen_name, text: val.text });
+        $("#list").jqGrid('addRowData', val.id, { id: val.id, name: val.user.name, screen_name: val.user.screen_name, text: val.text });
       });
     });
   });

@@ -2016,7 +2016,7 @@ class Invheader < ActiveRecord::Base
     :refresh_button => true,
     :pager          => true,
     :jqgrid_options => { :viewsortcols => [true, :horizontal,false],
-                         "afterInsertRow" => "javascript: afterInsertRow" }
+                         :afterInsertRow => "javascript: afterInsertRow" }
 
   gridify :demo1004,
     :title          => I18n.t('txt.jqgrid.demo.32server_errors'),
@@ -4476,5 +4476,67 @@ class Invheader < ActiveRecord::Base
                          :footerrow         => true,
                          :userDataOnFooter  => true
                        }
+                       
 
+  gridify :demo9901,
+    :title          => I18n.t('txt.jqgrid.mine.contextmenu2'),
+    :url            => "/jqgrid/demo",
+    :data_type      => :json,
+    :colInclude     => [:client],
+    :colNames       => [
+                        I18n.t('activerecord.attributes.invheader.id'),
+                        I18n.t('activerecord.attributes.invheader.invdate'),
+                        I18n.t('activerecord.attributes.invheader.client'),
+                        I18n.t('activerecord.attributes.invheader.amount'),
+                        I18n.t('activerecord.attributes.invheader.tax'),
+                        I18n.t('activerecord.attributes.invheader.total'),
+                        I18n.t('activerecord.attributes.invheader.note'),
+                        I18n.t('activerecord.attributes.invheader.closed'),
+                        I18n.t('activerecord.attributes.invheader.ship_via')
+                       ],
+    :colModel       => [
+                        { :name  => 'id',
+                          :width =>  50,
+                          :align => :right },
+                        { :name  => 'invdate',
+                          :width =>  90,
+                          :formatter => :date },
+                        { :name  => 'client.name',
+                          :width => 100,
+                          :sort_type => :text },
+                        { :name  => 'amount',
+                          :width =>  80,
+                          :align => :right },
+                        { :name  => 'tax',
+                          :width =>  80,
+                          :align => :right },
+                        { :name  => 'total',
+                          :width =>  80,
+                          :align => :right },
+                        { :name     => 'note',
+                          :width    => 150,
+                          :sortable => false },
+                        { :name  => 'closed',
+                          :width =>  40 },
+                        { :name  => 'ship_via',
+                          :width =>  40 }
+                       ],
+    :width          => 700,
+    :height         => :auto,
+    :rows_per_page  => 10,
+    :paging_choices => [10,20,30],
+    :sort_by        => :id,
+    :sort_order     => :desc,
+    :editable       => true,
+    :select_rows    => true,
+    :search_button  => true,
+    :edit_button    => true,
+    :add_button     => true,
+    :delete_button  => true,
+    :refresh_button => true,
+    :pager          => true,
+    :grid_view      => false,
+    :jqgrid_options => { :edit_url     => "/jqgrid/demo",
+                         :viewsortcols => [true, :horizontal,false],
+                         :afterInsertRow => "javascript: afterInsertRow" }
 end

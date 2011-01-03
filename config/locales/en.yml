@@ -225,8 +225,8 @@ en:
         multiple: with multiple selections + row numbers
       mine:
         name: Additional examples
-        contextmenu1: Using contextmenu 1
-        contextmenu2: Using contextmenu 2
+        contextmenu1: Using ContextMenu 1
+        contextmenu2: Using ContextMenu 2
       demo:
         20advanced: Advanced
         20array: Array Data
