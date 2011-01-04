@@ -1,47 +1,53 @@
----
-en:
-  number:
-    format:
+--- 
+en: 
+  number: 
+    format: 
       separator: .
       precision: 3
       delimiter: ","
-    human:
-      format:
+    human: 
+      format: 
         precision: 1
         delimiter: ""
-      storage_units:
+      storage_units: 
         format: "%n %u"
-        units:
+        units: 
           kb: KB
           tb: TB
           gb: GB
-          byte:
+          byte: 
             one: Byte
             other: Bytes
           mb: MB
-    percentage:
-      format:
+    percentage: 
+      format: 
         delimiter: ""
-    currency:
-      format:
+    currency: 
+      format: 
         format: "%u%n"
         unit: $
         separator: .
         precision: 2
         delimiter: ","
-    precision:
-      format:
+    precision: 
+      format: 
         delimiter: ""
-  activerecord:
-    attributes:
-      invline:
+  activerecord: 
+    attributes: 
+      invline: 
         qty: Quantity
         total: Total
         id: ID
-        unit: Unit
         num: Number
+        unit: Unit
         item: Item
-      invheader:
+      player: 
+        pseudo: Pseudonym
+        role: Role
+        lastname: Last name
+        firstname: First name
+        email: Email
+      invheader: 
         tax: Tax
         ship_via: Ship via
         closed: Closed
@@ -51,84 +57,671 @@ en:
         client: Client
         note: Note
         invdate: Date
-      player:
-        pseudo: Pseudonym
-        role: Role
-        lastname: Last name
-        firstname: First name
-        email: Email
-      account:
+      account: 
         name: Name
         debit: debit
-        lft: lft
         level: Level
+        lft: lft
         credit: Credit
         parent_id: Parent ID
         rgt: rgt
         balance: Balance
         acc_num: Account No.
-      event:
+      event: 
         location: Location
         dtend: End
         dtstart: Start
         summary: Summary
         description: Description
         all_day: All-day event
-      client:
+      client: 
         name: Name
-      user:
+      user: 
         pseudo: Pseudonym
         role: Role
         lastname: Last name
         firstname: First name
-        email: Email        
-      pet:
+        email: Email
+      pet: 
         name: Name
-      item:
+      item: 
         cd: CD
         item: Item
-      animal:
+      animal: 
         name: Name
-    errors:
-      messages:
-        record_invalid: "Validation failed: {{errors}}"
+    errors: 
+      messages: 
         greater_than_or_equal_to: must be greater than or equal to {{count}}
+        record_invalid: "Validation failed: {{errors}}"
         confirmation: doesn't match confirmation
         less_than_or_equal_to: must be less than or equal to {{count}}
         blank: can't be blank
-        exclusion: is reserved
         invalid: is invalid
+        exclusion: is reserved
         odd: must be odd
-        wrong_length: is the wrong length (should be {{count}} characters)
-        empty: can't be empty
         even: must be even
+        empty: can't be empty
         too_short: is too short (minimum is {{count}} characters)
+        wrong_length: is the wrong length (should be {{count}} characters)
         less_than: must be less than {{count}}
-        equal_to: must be equal to {{count}}
         greater_than: must be greater than {{count}}
+        equal_to: must be equal to {{count}}
+        too_long: is too long (maximum is {{count}} characters)
         taken: has already been taken
         accepted: must be accepted
-        too_long: is too long (maximum is {{count}} characters)
-        not_a_number: is not a number
         inclusion: is not included in the list
-      full_messages:
+        not_a_number: is not a number
+      full_messages: 
         format: "{{attribute}} {{message}}"
-      template:
+      template: 
         body: "There were problems with the following fields:"
-        header:
+        header: 
           one: 1 error prohibited this {{model}} from being saved
           other: "{{count}} errors prohibited this {{model}} from being saved"
-  time:
+  time: 
     am: am
-    formats:
+    formats: 
       default: "%a, %d %b %Y %H:%M:%S %z"
       time: "%H:%M"
       short: "%d %b %H:%M"
       long: "%B %d, %Y %H:%M"
     pm: pm
-  date:
-    month_names:
-    -
+  txt: 
+    plugins: 
+      name: jQuery plugins
+    jst: 
+      name: jsTree
+      plugins: Plugins
+      html: HTML Data
+      themeroller: Themeroller
+      xml: XML Data
+      hotkeys: Hotkeys
+      dnd: Drag'n Drop
+      demo: Demonstration
+      checkbox: Checkbox
+      radio: Radio
+      cookies: Cookies
+      json: JSON Data
+      types: Types
+      lang: Languages
+      contextmenu: Contextmenu
+      unique: Unique
+      sort: Sort
+      core: Core functionality
+      ui: UI
+      themes: Themes
+      search: Search
+      crrm: CRRM
+    layout: 
+      colon: ":"
+      back: Back
+      edit: Edit
+      theme: Theme
+      delete: Delete
+      cancel: Cancel
+      from: from
+      language: Language
+      footer: 
+        legalese: Copyright &copy; 2009-2011 Kosmas Schuetz. See LICENSE for details.
+      save: Save
+      show: Show
+      create: Create
+      update: Update
+      navigation: 
+        configure: Configure navigation
+        seed: Successfully created /db/navigation.seeds.rb.
+        browse: Browse through the examples
+      until: until
+    trees: Trees
+    ribbon: 
+      name: jQuery Ribbon
+      simple: jQuery Ribbon Simple theme
+      default: jQuery Ribbon Windows 7 theme
+      office: jQuery Ribbon Office theme
+    emu: 
+      name: jQuery on mobile devices
+      ipad: iPad
+      black: Blackberry Torch
+      jqt: 
+        name: <i>(needs a WebKit engine)</i>
+        default: jQTouch Demo
+        home: "&beta;@jqtouch.com"
+      port: Portrait
+      land: Landscape
+      jqm: 
+        name: jQuery mobile framework
+        experiments: Additional demos
+        default: jQuery mobile Demo
+        home: "&alpha;2@jquerymobile.com"
+      iphone: iPhone
+      palm: Palm Pre
+    history: 
+      name: jQuery History Plugin
+      mvc: MVC Sample History
+      ajax: Ajax Sample
+      ajax2: Ajax Sample 2
+    jqgrid: 
+      manipulation: 
+        name: Data manipulation
+        inline: with inline editing
+        modal: with modal editing
+        datepicker: with datepicker for lastname
+        input: with various input types
+      name: jqGrid
+      simple: 
+        name: Simple Data Grids
+        direct: with direct selection and autowidth
+        default: with default functionality
+        master: with master details
+        selection: with selection link and search disabled
+        multiple: with multiple selections + row numbers
+      demo: 
+        30xml_map: XML Mapping
+        30resizable: Resizable Columns
+        20get: Get Methods
+        30cmulti: Custom Multi Select
+        31v: New in version 3.1
+        20big_sets: Search Big Sets
+        38array1: Simple grouping with array data
+        20as_subgrid: Grid as Subgrid
+        35sortable: View sortable columns
+        35summary: Summary Footer Row
+        30optimize: Data Optimization
+        38array2: Hide grouping column
+        34v: New in version 3.4
+        36validation: Custom Validation
+        32client: Client Validation
+        36cinput: Create Custom input element
+        20data: Grid Data
+        34format: Formatter
+        38array3: Grouped header row config
+        20once: Load once
+        38remote1: Remote Data (sorted)
+        37scroll: Virtual scrolling
+        37multiple: Multiple search
+        37v: New in version 3.7
+        38remote2: Remote Data (sorted with grandtotals)
+        35asearch: Advanced Searching
+        32hide: Hide/Show Columns
+        38array4: RTL Support
+        38remote3: Remote Data (not sorted with grandtotals)
+        36api: New API
+        38array5: Grouping row(s) collapsed
+        default: Adapted demo examples
+        38remote4: Dynamically change grouping
+        34autoscroll: Autoloading data when scroll
+        38array6: Summary Footers
+        30searching: Searching Data
+        32cbutton: Custom Button and Forms
+        31cparams: Common Params
+        38remote5: View Summary Row on Collapse
+        32new_methods: New Methods
+        36tscroll: True scrolling Rows
+        20array: Array Data
+        37single: Single search
+        30edit_row: Edit row
+        30live: Live Data Manipulation
+        name: Demo
+        gridify: 2dc examples implemented with gridify
+        30integrations: Integrations
+        31toolbar: Toolbars
+        31new_methods: New Methods
+        32v: New in version 3.2
+        33tree: Tree Grid
+        30add_row: Add row
+        30cedit: Custom Edit
+        32insert: After Insert Row event
+        37server: Load at once from server
+        35real: TreeGrid real world example
+        20subgrid: Subgrid
+        33mform: Multiple Form Search
+        35stoolbar: Integrated Search Toolbar
+        20json_data: JSON Data
+        33rdnd: Drag and Drop Rows
+        30json_map: JSON Mapping
+        35v: New in version 3.5
+        20loading: Loading Data
+        20multi: Multi Select
+        36chooser: Column Chooser
+        35number: Autowidth and row numbering
+        actions: Actions
+        30basic: Basic Example
+        38v: Grouping
+        36rdnd: Drag and Drop Rows
+        20advanced: Advanced
+        34adjacency: Tree Grid Adjacency model
+        20set: Set Methods
+        37toolbar: Toolbar search
+        35view: Grid view mode
+        30full: Full Control
+        30hide: Hide/Show Columns
+        30events: Using Events
+        36srows: Sortable Rows
+        38xml1: Grouping with XML Data
+        20resizing: Resizing Grid
+        33cell: Cell Editing
+        34scroll: Scroll with dynamic row select
+        30mapping: Data Mapping
+        33dynamic: Dynamic height and width
+        34cformat: Custom Formatter
+        34import: Import Configuration from XML
+        30v: New since beta 3.0
+        35improvements: Form Improvements
+        36resizing: Resizing Grid
+        33v: New in version 3.3
+        30navigator: Navigator
+        30types: Input types
+        20master: Master Detail
+        36v: New in version 3.6
+        30datepicker: UI Datepicker
+        30row: Row Editing
+        37array: Load array data at once
+        33visible: Visible Columns
+        33mtoolbar: Multiple Toolbar Search
+        2dc: 2dc_jqGrid Examples
+        20xml_data: XML Data
+        35navigation: Form Navigation
+        31userdata: Userdata
+        33function: Data type as function
+        36rtl: RTL Support
+        20manipulating: Manipulating
+        37crud: Add/edit/delete on local data
+        32server_errors: Controlling server errors
+        36ajax: Ajax Improvements
+        36reordering: Column Reordering
+        32initial: Initially hidden grid
+        30json_subgrid: Subgrid with JSON
+        33html: HTML Table to Grid
+        30after_load: After Load Callback
+        31post_data: Post Data
+        30delete_row: Delete row
+      subgrids: 
+        name: Subgrids
+        default: with default functionality
+        selection: with selection
+        crud: with CRUD operations
+      mine: 
+        name: Additional examples
+        contextmenu1: Functional example
+        contextmenu2: Data Manipulation
+        contextmenu: "Using a ContextMenu "
+      improvements: 
+        name: with form improvements
+      secret: Secret Sauce jqGrid
+    sparklines: 
+      name: Sparklines
+      examples: Examples
+      default: Try it out
+    tools: 
+      name: jQuery TOOLS
+      toolbox: 
+        name: Toolbox
+        flashembed: 
+          name: Flashembed
+          demo06: Flashembed and Flowplayer
+          demo01: Basics of Flash embedding
+          demo02: Flashembed and jQuery
+          demo03: Loading Flash on mouse click
+          demo04: Placing HTML on top of a Flash object
+          demo05: Handling old Flash versions
+        expose: 
+          name: Expose
+          demo01: Minimal setup for expose
+          demo02: Styling the mask with a background image
+          demo03: Exposing a form
+          demo04: Exposing videos with a custom mask
+          demo05: Exposing multiple elements
+        combinations: 
+          name: Combinations
+          demo01: HTML5 form inside an overlay
+          demo02: An artist's portfolio
+          demo03: Speeding up the portfolio
+      default: Default functionality
+      form: 
+        name: Form Tools
+        validator: 
+          name: Validator
+          demo06: Localizing the Validator (finnish)
+          demo01: Minimal setup for Validator
+          demo02: Custom input types and attributes
+          demo03: Combined server and client-side validation
+          demo04: Displaying all errors inside a single DIV
+          demo05: Validator events in action
+        rangeinput: 
+          name: Rangeinput
+          demo01: Minimal setup for rangeinput
+          demo02: A couple of vertical ranges
+          demo03: Multiple small ranges
+          demo04: A custom scrollbar for a DIV
+        stylable: 
+          name: Stylable
+          demo01: Minimal setup for Styleable
+          demo02: Scripting styleable Forms
+          demo03: Alternate form skin
+        dateinput: 
+          name: Dateinput
+          demo06: Localizing the Dateinput (french)
+          demo01: Minimal setup for Dateinput
+          demo02: A large skin for Dateinput
+          demo03: Customizing Dateinput behaviour
+          demo04: Prompting for start and end dates
+          demo05: Calendar that is always visible
+      ui: 
+        name: UI Tools
+        tooltips: 
+          name: Tooltips
+          demo06: Custom tooltips effect
+          demo07: Dynamic positioning of the tooltips
+          demo01: Basics of using the tooltips
+          demo02: Using any HTML inside a tooltip
+          demo03: Imitating browsers default tooltips
+          demo04: Using tooltips in form fields
+          demo05: Using tooltips in tables or lists
+        overlay: 
+          name: Overlay
+          demo06: Loading external pages into overlay
+          demo07: Multiple overlays on a same page
+          demo08: Creating a customized Overlay effect
+          demo01: Minimal setup for overlay
+          demo02: The Apple effect for overlay
+          demo03: Creating modal dialogs with overlay
+          demo04: Opening overlays programmatically
+          demo05: Overlays with different styles
+        scrollable: 
+          name: Scrollable
+          demo06: Scrollable plugins in action
+          demo07: Navigation with browser\s back button
+          demo08: jQuery Tools home page setup
+          demo09: A complete scrollable navigational system
+          demo10: Add and remove items from scrollable
+          demo11: Customizing the scrolling animation
+          demo01: Minimal setup for scrollable
+          demo02: A vertical scrollable
+          demo03: A simple scrollable image gallery
+          demo04: Another gallery with many scrollables
+          demo05: A scrollable registration wizard
+        tabs: 
+          name: Tabs
+          demo06: Making Accordions with the Tabs
+          demo07: Customizing the Accordion effect
+          demo08: Horizontal Accordion using the Tabs
+          demo09: Mutliple Tabs and Accordion instances
+          demo10: Handling browsers back button
+          demo11: Loading tab contents with AJAX
+          demo01: Minimal setup for Tabs
+          demo12: AJAX:ed tabs with History support
+          demo02: Naming the tabs
+          demo13: Slideshow plugin for the Tabs
+          demo03: 4 different skins with CSS
+          demo04: Using mouseover to switch tabs
+          demo05: Making Wizards with the Tabs
+    dt: 
+      name: Dynatree
+      ul: Init from ul element
+      lazy: Lazy loading
+      persist: Persistence
+      default: Default options
+      api: Programming API
+      quick: Init from JS object
+      iframe: iframe and url navigation
+      dnd2: "Dynatree: drag'n'drop 2"
+      dnd: "Dynatree: drag'n'drop"
+      dnd3: "jQuery UI: drag'n'drop"
+      events: Event handling
+      minexpand: Fixed expand level
+      form: Embed in forms
+      effects: Effects
+      json: Init from external data
+      contextmenu: Context menu, Copy/paste
+      multiline: Large nodes
+      select: Checkbox & select
+      benchmark: Benchmark large trees
+      lazy_persist: Lazy loading
+      theming: 
+        name: Theming
+        xp: XP
+        crystal: Crystal
+        aero: Aero
+        aqua: Aqua
+    ical: 
+      name: iCalendar
+      anytime: 
+        name: Any+Time&trade;
+        default: Default functionality
+        separate: Separate date and time
+        inline: Display inline
+        css: Custom stylesheet
+        ajax: Ajax Demo
+        extend: Extending functionality
+        convert: AnyTime.Converter
+      event: 
+        new: New Event
+        location: Location
+        default: Event
+        starts_at: Starts at
+        ends_at: Ends at
+        listing: Listing events
+        summary: Summary
+        description: Description
+        all_day: All-day event
+      calendar: 
+        new: New iCalendar
+        name: Name
+        actions: 
+          name: Actions
+          ical: Show as iCalendar
+          show: Show as calendar
+        edit: Edit iCalendar
+        delete: Delete iCalendar
+        confirm: Really destroy iCalendar?
+        default: Calendar
+        color: Color
+        listing: Listing iCalendars
+        show: Show iCalendar
+        iphone: Show it on a iPhone
+    hello: Hello world
+    ui: 
+      name: jQuery UI
+      utilities: 
+        position: 
+          default: Position
+          cycler: Cycling images
+        default: Utilities
+      default: Default functionality
+      interactions: 
+        selectable: 
+          serialize: Serialize
+          default: Selectable
+          display-grid: Display as grid
+        default: Interactions
+        draggable: 
+          snap-to: "Snap to element or\xC2\xA0grid"
+          handle: Drag handle
+          scroll: Auto-scroll
+          default: Draggable
+          sortable: Draggable + Sortable
+          constrain-movement: Constrain movement
+          events: Events
+          revert: Revert position
+          delay-start: Delay start
+          cursor-style: Cursor style
+          visual-feedback: Visual feedback
+        sortable: 
+          items: Include / exclude items
+          empty-lists: Handle empty lists
+          default: Sortable
+          connect-lists-through-tabs: Connect lists through tabs
+          portlets: Portlets
+          delay-start: Delay start
+          display-grid: Display as grid
+          connect-lists: Connect lists
+          placeholder: Drop placeholder
+        resizable: 
+          aspect-ratio: Preserve aspect ratio
+          snap-to-grid: Snap to grid
+          max-min: Maximum / minimum size
+          default: Resizable
+          animate: Animate
+          synchronous-resize: Synchronous resize
+          helper: Resize Helper
+          textarea: Textarea
+          delay-start: Delay start
+          constrain-area: Constrain resize area
+          visual-feedback: Visual feedback
+        droppable: 
+          default: Droppable
+          propagation: Prevent propagation
+          revert: Revert draggable position
+          shopping-cart: Shopping cart
+          visual-feedback: Visual feedback
+          accepted-elements: Accepted elements
+          photo-manager: Simple photo manager
+      widgets: 
+        button: 
+          default: Button
+          checkbox: Checkboxes
+          radio: Radios
+          icon: Icons
+          toolbar: Toolbar
+          splitbutton: Split button
+        default: Widgets
+        slider: 
+          steps: Snap to increments
+          multiple-vertical: Multiple sliders
+          default: Slider
+          slider-vertical: Vertical slider
+          side-scroll: Simple scrollbar
+          range-vertical: Vertical range slider
+          range: Range slider
+          rangemax: Range with fixed maximum
+          hotelrooms: Room reservation
+          colorpicker: Simple colorpicker
+          rangemin: Range with fixed minimum
+          tabs: Slider controls tabs
+        panel: 
+          name: Draft Panel
+          simple: Simple panel example
+          left: Slide left example
+          right1: "Slide right example #1"
+          right2: "Slide right example #2"
+          default: Default collapsible panel example
+          demo: Demonstration
+          cookie: Panel state in a cookie
+          accordion: Accordion of panels
+        selectmenu: 
+          name: Selectmenu
+          maxheight: "Style: <b>popup</b> with maxHeight set"
+          without-id: "Style: <b>popup</b> without ID"
+          custom-icons2: "Style: <b>dropdown</b> languages with flag icons"
+          default: "Style: <b>popup</b> (default)"
+          icons: "Style: <b>popup</b> with framework icons"
+          optgroups: "Style: <b>popup</b> with optgroups"
+          text-formatting: "Style: <b>popup</b> with option text formatting"
+          menuwidth: "Style: <b>dropdown</b> with menuWidth and text formatting"
+          custom-icons: "Style: <b>popup</b> with custom icon images"
+          dropdown: "Style: <b>dropdown</b>"
+        progressbar: 
+          resize: Resizable progressbar
+          default: Progressbar
+          animated: Animated
+        datepicker: 
+          alt-field: Populate alternate field
+          buttonbar: Display button bar
+          min-max: Restrict date range
+          default: Datepicker
+          inline: Display inline
+          icon-trigger: Icon trigger
+          show-week: Show week of the year
+          date-formats: Format date
+          multiple-calendars: Display multiple months
+          animation: Animations
+          localization: Localize calendar
+          event-search: Event Search
+          dropdown-month-year: Display month & year menus
+          other-months: Dates in other months
+        accordion: 
+          hoverintent: Open on hoverintent
+          default: Accordion
+          no-auto-height: No auto height
+          sortable: Sortable
+          mouseover: Open on mouseover
+          fillspace: Fill space
+          custom-icons: Customize icons
+          collapsible: Collapse content
+        dialog: 
+          greybox: Greybox
+          default: Dialog
+          modal-confirmation: Modal confirmation
+          modal: Modal dialog
+          animated: Animated dialog
+          modal-form: Modal form
+          modal-message: Modal message
+        autocomplete: 
+          maxheight: Scrollable results
+          default: Autocomplete
+          multiple-remote: Multiple, remote
+          remote-jsonp: Remote JSONP datasource
+          folding: Accent folding
+          custom-data: Custom data and display
+          remote-with-cache: Remote with caching
+          multiple: Multiple values
+          categories: Categories
+          remote: Remote datasource
+          combobox: Combobox
+          remote-xml: XML data parsed once
+        tabs: 
+          manipulation: Simple manipulation
+          bottom: Tabs below content
+          default: Tabs
+          sortable: Sortable
+          ajax: Content via Ajax
+          mouseover: Open on mouseover
+          cookie: Cookie persistence
+          collapsible: Collapse content
+      form: 
+        new: New
+        edit: Edit
+        delete: Delete
+        cancel: Cancel
+        save: Save
+        sure: Are you sure?
+      effects: 
+        toggle: 
+          default: Toggle
+        hide: 
+          default: Hide
+        default: Effects
+        animate: 
+          default: Color animation
+        toggle_class: 
+          default: Toggle Class
+        switch_class: 
+          default: Switch Class
+        add_class: 
+          default: Add Class
+        show: 
+          default: Show
+        effect: 
+          easing: Easing showcase
+          default: Effect
+          showcase: Effect showcase
+        remove_class: 
+          default: Remove Class
+      theme-switcher: 
+        button: "Theme: "
+        initial: Switch theme
+    tree: 
+      name: Tree widgets
+  activemodel: 
+    errors: 
+      template: 
+        body: "There were problems with the following fields:"
+        header: 
+          one: 1 error prohibited this {{model}} from being saved
+          other: "{{count}} errors prohibited this {{model}} from being saved"
+  date: 
+    month_names: 
+    - 
     - January
     - February
     - March
@@ -141,7 +734,11 @@ en:
     - October
     - November
     - December
-    abbr_day_names:
+    order: 
+    - :year
+    - :month
+    - :day
+    abbr_day_names: 
     - Sun
     - Mon
     - Tue
@@ -149,15 +746,11 @@ en:
     - Thu
     - Fri
     - Sat
-    order:
-    - :year
-    - :month
-    - :day
-    formats:
+    formats: 
       default: "%Y-%m-%d"
       short: "%b %d"
       long: "%B %d, %Y"
-    day_names:
+    day_names: 
     - Sunday
     - Monday
     - Tuesday
@@ -165,8 +758,8 @@ en:
     - Thursday
     - Friday
     - Saturday
-    abbr_month_names:
-    -
+    abbr_month_names: 
+    - 
     - Jan
     - Feb
     - Mar
@@ -179,657 +772,65 @@ en:
     - Oct
     - Nov
     - Dec
-  activemodel:
-    errors:
-      template:
-        body: "There were problems with the following fields:"
-        header:
-          one: 1 error prohibited this {{model}} from being saved
-          other: "{{count}} errors prohibited this {{model}} from being saved"
-  txt:
-    layout:
-      colon: ":"
-      back: Back
-      edit: Edit
-      theme: Theme
-      cancel: Cancel
-      delete: Delete
-      from: from
-      language: Language
-      navigation:
-        configure: Configure navigation
-        seed: "Successfully created /db/navigation.seeds.rb."
-        browse: "Browse through the examples"
-      show: Show
-      save: Save
-      footer:
-        legalese: Copyright &copy; 2009-2011 Kosmas Schuetz. See LICENSE for details.
-      create: Create
-      update: Update
-      until: until
-    jqgrid:
-      name: jqGrid
-      secret: Secret Sauce jqGrid
-      manipulation:
-        name: Data manipulation
-        inline: with inline editing
-        modal: with modal editing
-        datepicker: with datepicker for lastname
-        input: with various input types
-      simple:
-        name: Simple Data Grids
-        direct: with direct selection and autowidth
-        default: with default functionality
-        master: with master details
-        selection: with selection link and search disabled
-        multiple: with multiple selections + row numbers
-      mine:
-        name: Additional examples
-        contextmenu1: Using ContextMenu 1
-        contextmenu2: Using ContextMenu 2
-      demo:
-        20advanced: Advanced
-        20array: Array Data
-        20as_subgrid: Grid as Subgrid
-        20big_sets: Search Big Sets
-        20data: Grid Data
-        20get: Get Methods
-        20json_data: JSON Data
-        20loading: Loading Data
-        20manipulating: Manipulating
-        20master: Master Detail
-        20multi: Multi Select
-        20once: Load once
-        20resizing: Resizing Grid
-        20set: Set Methods
-        20subgrid: Subgrid
-        20xml_data: XML Data
-        2dc: 2dc_jqGrid Examples
-        30add_row: Add row
-        30after_load: After Load Callback
-        30basic: Basic Example
-        30cedit: Custom Edit
-        30cmulti: Custom Multi Select
-        30datepicker: UI Datepicker
-        30delete_row: Delete row
-        30edit_row: Edit row
-        30events: Using Events
-        30full: Full Control
-        30hide: Hide/Show Columns
-        30integrations: Integrations
-        30json_map: JSON Mapping
-        30json_subgrid: Subgrid with JSON
-        30live: Live Data Manipulation
-        30mapping: Data Mapping
-        30navigator: Navigator
-        30optimize: Data Optimization
-        30resizable: Resizable Columns
-        30row: Row Editing
-        30searching: Searching Data
-        30types: Input types
-        30v: New since beta 3.0
-        30xml_map: XML Mapping
-        31cparams: Common Params
-        31new_methods: New Methods
-        31post_data: Post Data
-        31toolbar: Toolbars
-        31userdata: Userdata
-        31v: New in version 3.1
-        32cbutton: Custom Button and Forms
-        32client: Client Validation
-        32hide: Hide/Show Columns
-        32initial: Initially hidden grid
-        32insert: After Insert Row event
-        32new_methods: New Methods
-        32server_errors: Controlling server errors
-        32v: New in version 3.2
-        33cell: Cell Editing
-        33dynamic: Dynamic height and width
-        33function: Data type as function
-        33html: HTML Table to Grid
-        33mform: Multiple Form Search
-        33mtoolbar: Multiple Toolbar Search
-        33rdnd: Drag and Drop Rows
-        33tree: Tree Grid
-        33v: New in version 3.3
-        33visible: Visible Columns
-        34adjacency: Tree Grid Adjacency model
-        34autoscroll: Autoloading data when scroll
-        34cformat: Custom Formatter
-        34format: Formatter
-        34import: Import Configuration from XML
-        34scroll: Scroll with dynamic row select
-        34v: New in version 3.4
-        35asearch: Advanced Searching
-        35improvements: Form Improvements
-        35navigation: Form Navigation
-        35number: Autowidth and row numbering
-        35real: TreeGrid real world example
-        35sortable: View sortable columns
-        35stoolbar: Integrated Search Toolbar
-        35summary: Summary Footer Row
-        35v: New in version 3.5
-        35view: Grid view mode
-        36ajax: Ajax Improvements
-        36api: New API
-        36chooser: Column Chooser
-        36cinput: Create Custom input element
-        36rdnd: Drag and Drop Rows
-        36reordering: Column Reordering
-        36resizing: Resizing Grid
-        36rtl: RTL Support
-        36srows: Sortable Rows
-        36tscroll: True scrolling Rows
-        36v: New in version 3.6
-        36validation: Custom Validation
-        37array: Load array data at once
-        37crud: Add/edit/delete on local data
-        37multiple: Multiple search
-        37scroll: Virtual scrolling
-        37server: Load at once from server
-        37single: Single search
-        37toolbar: Toolbar search
-        37v: New in version 3.7
-        38array1: Simple grouping with array data
-        38array2: Hide grouping column
-        38array3: Grouped header row config
-        38array4: RTL Support
-        38array5: Grouping row(s) collapsed
-        38array6: Summary Footers
-        38remote1: Remote Data (sorted)
-        38remote2: Remote Data (sorted with grandtotals)
-        38remote3: Remote Data (not sorted with grandtotals)
-        38remote4: Dynamically change grouping
-        38remote5: View Summary Row on Collapse
-        38v: Grouping
-        38xml1: Grouping with XML Data
-        actions: Actions
-        default: jqGrid Demo
-        gridify: 2dc examples implemented with gridify
-        name: Demo
-      subgrids:
-        name: Subgrids
-        default: with default functionality
-        selection: with selection
-        crud: with CRUD operations
-      improvements:
-        name: with form improvements
-    ribbon:
-      name: jQuery Ribbon
-      simple: jQuery Ribbon Simple theme
-      default: jQuery Ribbon Windows 7 theme
-      office: jQuery Ribbon Office theme
-    ical:
-      name: iCalendar
-      anytime:
-        name: "Any+Time&trade;"
-        default: Default functionality
-        css: Custom stylesheet
-        inline: Display inline
-        separate: Separate date and time
-        ajax: Ajax Demo
-        extend: Extending functionality
-        convert: AnyTime.Converter
-      event:
-        new: New Event
-        location: Location
-        default: Event
-        starts_at: Starts at
-        listing: Listing events
-        ends_at: Ends at
-        summary: Summary
-        description: Description
-        all_day: All-day event
-      calendar:
-        new: New iCalendar
-        name: Name
-        actions:
-          name: Actions
-          show: Show as calendar
-          ical: Show as iCalendar
-        edit: Edit iCalendar
-        delete: Delete iCalendar
-        confirm: Really destroy iCalendar?
-        default: Calendar
-        color: Color
-        listing: Listing iCalendars
-        show: Show iCalendar
-        iphone: Show it on a iPhone
-    tree:
-      name: Tree widgets
-    dt:
-      name: Dynatree
-      ul: Init from ul element
-      lazy: Lazy loading
-      lazy_persist: Lazy loading
-      persist: Persistence
-      default: Default options
-      dnd: "Dynatree: drag'n'drop"
-      api: Programming API
-      quick: Init from JS object
-      dnd2: "Dynatree: drag'n'drop 2" 
-      dnd3: "jQuery UI: drag'n'drop"
-      iframe: iframe and url navigation
-      events: Event handling
-      minexpand: Fixed expand level
-      form: Embed in forms
-      effects: Effects
-      contextmenu: Context menu, Copy/paste
-      multiline: Large nodes
-      select: Checkbox & select
-      benchmark: Benchmark large trees
-      json: Init from external data
-      theming:
-        name: Theming
-        xp: XP
-        crystal: Crystal
-        aero: Aero
-        aqua: Aqua
-    hello: Hello world
-    trees: Trees
-    jst:
-      name: jsTree
-      demo: Demonstration
-      core: Core functionality
-      plugins: Plugins
-      ui: UI
-      crrm: CRRM
-      themes: Themes
-      hotkeys: Hotkeys
-      json: JSON Data
-      lang: Languages
-      cookies: Cookies
-      sort: Sort
-      dnd: Drag'n Drop
-      checkbox: Checkbox
-      radio: Radio
-      xml: XML Data
-      search: Search
-      contextmenu: Contextmenu
-      types: Types
-      html: HTML Data
-      themeroller: Themeroller
-      unique: Unique
-    sparklines:
-      name: Sparklines
-      default: Try it out
-      examples: Examples
-    history:
-      name: jQuery History Plugin
-      ajax: Ajax Sample
-      ajax2: Ajax Sample 2
-      mvc: MVC Sample History
-    tools:
-      name: jQuery TOOLS
-      default: Default functionality
-      ui:
-        name: UI Tools
-        tabs:
-          name: Tabs
-          demo01: Minimal setup for Tabs
-          demo02: Naming the tabs
-          demo03: 4 different skins with CSS
-          demo04: Using mouseover to switch tabs
-          demo05: Making Wizards with the Tabs
-          demo06: Making Accordions with the Tabs
-          demo07: Customizing the Accordion effect
-          demo08: Horizontal Accordion using the Tabs
-          demo09: Mutliple Tabs and Accordion instances
-          demo10: Handling browsers back button
-          demo11: Loading tab contents with AJAX
-          demo12: AJAX:ed tabs with History support
-          demo13: Slideshow plugin for the Tabs
-        tooltips:
-          name: Tooltips
-          demo01: Basics of using the tooltips
-          demo02: Using any HTML inside a tooltip
-          demo03: Imitating browsers default tooltips
-          demo04: Using tooltips in form fields
-          demo05: Using tooltips in tables or lists
-          demo06: Custom tooltips effect
-          demo07: Dynamic positioning of the tooltips
-        overlay:
-          name: Overlay
-          demo01: Minimal setup for overlay
-          demo02: The Apple effect for overlay
-          demo03: Creating modal dialogs with overlay
-          demo04: Opening overlays programmatically
-          demo05: Overlays with different styles
-          demo06: Loading external pages into overlay
-          demo07: Multiple overlays on a same page
-          demo08: Creating a customized Overlay effect
-        scrollable:
-          name: Scrollable
-          demo01: Minimal setup for scrollable
-          demo02: A vertical scrollable
-          demo03: A simple scrollable image gallery
-          demo04: Another gallery with many scrollables
-          demo05: A scrollable registration wizard
-          demo06: Scrollable plugins in action
-          demo07: Navigation with browser\s back button
-          demo08: jQuery Tools home page setup
-          demo09: A complete scrollable navigational system
-          demo10: Add and remove items from scrollable
-          demo11: Customizing the scrolling animation
-      form:
-        name: Form Tools
-        validator:
-          name: Validator
-          demo01: Minimal setup for Validator
-          demo02: Custom input types and attributes
-          demo03: Combined server and client-side validation
-          demo04: Displaying all errors inside a single DIV
-          demo05: Validator events in action
-          demo06: Localizing the Validator (finnish)
-        stylable:
-          name: Stylable
-          demo01: Minimal setup for Styleable
-          demo02: Scripting styleable Forms
-          demo03: Alternate form skin
-        rangeinput:
-          name: Rangeinput
-          demo01: Minimal setup for rangeinput
-          demo02: A couple of vertical ranges
-          demo03: Multiple small ranges
-          demo04: A custom scrollbar for a DIV
-        dateinput:
-          name: Dateinput
-          demo01: Minimal setup for Dateinput
-          demo02: A large skin for Dateinput
-          demo03: Customizing Dateinput behaviour
-          demo04: Prompting for start and end dates
-          demo05: Calendar that is always visible
-          demo06: Localizing the Dateinput (french)
-      toolbox:
-        name: Toolbox
-        expose:
-          name: Expose
-          demo01: Minimal setup for expose
-          demo02: Styling the mask with a background image
-          demo03: Exposing a form
-          demo04: Exposing videos with a custom mask
-          demo05: Exposing multiple elements
-        flashembed:
-          name: Flashembed
-          demo01: Basics of Flash embedding
-          demo02: Flashembed and jQuery
-          demo03: Loading Flash on mouse click
-          demo04: Placing HTML on top of a Flash object
-          demo05: Handling old Flash versions
-          demo06: Flashembed and Flowplayer
-        combinations:
-          name: Combinations
-          demo01: HTML5 form inside an overlay
-          demo02: "An artist's portfolio"
-          demo03: Speeding up the portfolio
-    emu:
-      name: jQuery on mobile devices
-      land: Landscape
-      port: Portrait
-      ipad: iPad
-      iphone: iPhone
-      palm: Palm Pre
-      black: Blackberry Torch
-      jqm:
-        name: jQuery mobile framework
-        home: "&alpha;2@jquerymobile.com"
-        experiments: Additional demos
-        default: jQuery mobile Demo
-      jqt:
-        name: "<i>(needs a WebKit engine)</i>"
-        home: "&beta;@jqtouch.com"
-        default: jQTouch Demo
-    plugins:
-      name: jQuery plugins
-    ui:
-      name: jQuery UI
-      utilities:
-        position:
-          default: Position
-          cycler: Cycling images
-        default: Utilities
-      default: Default functionality
-      interactions:
-        selectable:
-          serialize: Serialize
-          default: Selectable
-          display-grid: Display as grid
-        default: Interactions
-        sortable:
-          items: Include / exclude items
-          empty-lists: Handle empty lists
-          default: Sortable
-          connect-lists-through-tabs: Connect lists through tabs
-          portlets: Portlets
-          delay-start: Delay start
-          display-grid: Display as grid
-          connect-lists: Connect lists
-          placeholder: Drop placeholder
-        draggable:
-          snap-to: "Snap to element or\xC2\xA0grid"
-          handle: Drag handle
-          scroll: Auto-scroll
-          default: Draggable
-          sortable: Draggable + Sortable
-          events: Events
-          constrain-movement: Constrain movement
-          revert: Revert position
-          cursor-style: Cursor style
-          delay-start: Delay start
-          visual-feedback: Visual feedback
-        resizable:
-          aspect-ratio: Preserve aspect ratio
-          snap-to-grid: Snap to grid
-          max-min: Maximum / minimum size
-          default: Resizable
-          animate: Animate
-          synchronous-resize: Synchronous resize
-          helper: Resize Helper
-          textarea: Textarea
-          delay-start: Delay start
-          constrain-area: Constrain resize area
-          visual-feedback: Visual feedback
-        droppable:
-          default: Droppable
-          propagation: Prevent propagation
-          revert: Revert draggable position
-          shopping-cart: Shopping cart
-          visual-feedback: Visual feedback
-          photo-manager: Simple photo manager
-          accepted-elements: Accepted elements
-      widgets:
-        button:
-          default: Button
-          checkbox: Checkboxes
-          icon: Icons
-          radio: Radios
-          toolbar: Toolbar
-          splitbutton: Split button
-        default: Widgets
-        panel:
-          name: Draft Panel
-          default: Default collapsible panel example
-          simple: Simple panel example
-          cookie: Panel state in a cookie
-          right1: "Slide right example #1"
-          right2: "Slide right example #2"
-          left: Slide left example
-          accordion: Accordion of panels
-          demo: Demonstration
-        selectmenu:
-          name: Selectmenu
-          default: "Style: <b>popup</b> (default)"
-          without-id: "Style: <b>popup</b> without ID"
-          maxheight: "Style: <b>popup</b> with maxHeight set"
-          text-formatting: "Style: <b>popup</b> with option text formatting"
-          icons: "Style: <b>popup</b> with framework icons"
-          custom-icons: "Style: <b>popup</b> with custom icon images"
-          optgroups: "Style: <b>popup</b> with optgroups"
-          dropdown: "Style: <b>dropdown</b>"
-          menuwidth: "Style: <b>dropdown</b> with menuWidth and text formatting"
-          custom-icons2: "Style: <b>dropdown</b> languages with flag icons"
-        slider:
-          steps: Snap to increments
-          multiple-vertical: Multiple sliders
-          default: Slider
-          slider-vertical: Vertical slider
-          side-scroll: Simple scrollbar
-          range-vertical: Vertical range slider
-          range: Range slider
-          rangemax: Range with fixed maximum
-          colorpicker: Simple colorpicker
-          hotelrooms: Room reservation
-          rangemin: Range with fixed minimum
-          tabs: Slider controls tabs
-        accordion:
-          hoverintent: Open on hoverintent
-          default: Accordion
-          no-auto-height: No auto height
-          sortable: Sortable
-          mouseover: Open on mouseover
-          fillspace: Fill space
-          custom-icons: Customize icons
-          collapsible: Collapse content
-        progressbar:
-          resize: Resizable progressbar
-          default: Progressbar
-          animated: Animated
-        datepicker:
-          alt-field: Populate alternate field
-          buttonbar: Display button bar
-          min-max: Restrict date range
-          default: Datepicker
-          inline: Display inline
-          show-week: Show week of the year
-          icon-trigger: Icon trigger
-          date-formats: Format date
-          multiple-calendars: Display multiple months
-          animation: Animations
-          localization: Localize calendar
-          event-search: Event Search
-          dropdown-month-year: Display month & year menus
-          other-months: Dates in other months
-        tabs:
-          manipulation: Simple manipulation
-          bottom: Tabs below content
-          default: Tabs
-          sortable: Sortable
-          ajax: Content via Ajax
-          mouseover: Open on mouseover
-          cookie: Cookie persistence
-          collapsible: Collapse content
-        dialog:
-          default: Dialog
-          modal-confirmation: Modal confirmation
-          modal: Modal dialog
-          animated: Animated dialog
-          modal-form: Modal form
-          modal-message: Modal message
-          greybox: Greybox
-        autocomplete:
-          maxheight: Scrollable results
-          default: Autocomplete
-          folding: Accent folding
-          multiple-remote: Multiple, remote
-          remote-jsonp: Remote JSONP datasource
-          remote-with-cache: Remote with caching
-          custom-data: Custom data and display
-          multiple: Multiple values
-          categories: Categories
-          remote: Remote datasource
-          remote-xml: XML data parsed once
-          combobox: Combobox
-      form:
-        new: New
-        edit: Edit
-        cancel: Cancel
-        delete: Delete
-        save: Save
-        sure: Are you sure?
-      effects:
-        toggle:
-          default: Toggle
-        hide:
-          default: Hide
-        default: Effects
-        animate:
-          default: Color animation
-        toggle_class:
-          default: Toggle Class
-        switch_class:
-          default: Switch Class
-        add_class:
-          default: Add Class
-        show:
-          default: Show
-        effect:
-          easing: Easing showcase
-          default: Effect
-          showcase: Effect showcase
-        remove_class:
-          default: Remove Class
-      theme-switcher:
-        button: "Theme: "
-        initial: Switch theme
-  support:
-    array:
-      last_word_connector: ", and "
+  support: 
+    array: 
       words_connector: ", "
+      last_word_connector: ", and "
       two_words_connector: " and "
-    select:
+    select: 
       prompt: Please select
-  make_resourceful:
-    destroy:
+  make_resourceful: 
+    destroy: 
       fails: There was a problem deleting!
       success: Record deleted!
-    show:
+    show: 
       fails: No item found
-    create:
+    create: 
       fails: There was a problem!
       success: Create successful!
-    update:
+    update: 
       fails: There was a problem saving!
       success: Save successful!
-  datetime:
-    prompts:
+  datetime: 
+    prompts: 
       minute: Minute
       second: Seconds
       month: Month
       hour: Hour
       day: Day
       year: Year
-    distance_in_words:
-      less_than_x_minutes:
+    distance_in_words: 
+      less_than_x_minutes: 
         one: less than a minute
         other: less than {{count}} minutes
-      almost_x_years:
-        one: almost 1 year
-        other: almost {{count}} years
-      x_days:
+      x_days: 
         one: 1 day
         other: "{{count}} days"
-      x_seconds:
+      almost_x_years: 
+        one: almost 1 year
+        other: almost {{count}} years
+      x_seconds: 
         one: 1 second
         other: "{{count}} seconds"
-      less_than_x_seconds:
-        one: less than 1 second
-        other: less than {{count}} seconds
-      x_months:
-        one: 1 month
-        other: "{{count}} months"
-      x_minutes:
-        one: 1 minute
-        other: "{{count}} minutes"
-      about_x_hours:
+      about_x_hours: 
         one: about 1 hour
         other: about {{count}} hours
-      about_x_months:
+      less_than_x_seconds: 
+        one: less than 1 second
+        other: less than {{count}} seconds
+      x_months: 
+        one: 1 month
+        other: "{{count}} months"
+      x_minutes: 
+        one: 1 minute
+        other: "{{count}} minutes"
+      about_x_months: 
         one: about 1 month
         other: about {{count}} months
-      about_x_years:
+      about_x_years: 
         one: about 1 year
         other: about {{count}} years
-      over_x_years:
+      over_x_years: 
         one: over 1 year
         other: over {{count}} years
       half_a_minute: half a minute

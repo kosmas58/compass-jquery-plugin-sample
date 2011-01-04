@@ -21,19 +21,15 @@ date:
     short: "%b %d"
     long: "%B %d, %Y"
 txt: 
+  jst: 
+    contextmenu: Contextmenu
   jqgrid: 
     mine: 
-      name: Additional examples
-      contextmenu1: Using contextmenu 1
-      contextmenu2: Using contextmenu 2
-  tools: 
-    form: 
-      stylable: 
-        name: Stylable
-        demo01: Minimal setup for Styleable
-        demo02: Scripting styleable Forms
-        demo03: Alternate form skin
-  hello: Hello world
+      contextmenu1: Functional example
+      contextmenu2: Data Manipulation
+      contextmenu: "Using a ContextMenu "
+  dt: 
+    contextmenu: Context menu, Copy/paste
 support: 
   array: 
     words_connector: ", "
