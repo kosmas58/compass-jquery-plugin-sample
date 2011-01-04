@@ -1,6 +1,6 @@
 class DemoTree < ActiveRecord::Base 
   acts_as_tree_on_steroids :family_level => 1
-  set_table_name "demo_trees"
+  set_table_name :demo_trees
   
   def self.get_children(id)
     result = Array.new
