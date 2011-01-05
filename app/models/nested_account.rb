@@ -1,4 +1,5 @@
-class Account < ActiveRecord::Base
+class NestedAccount < ActiveRecord::Base
+  set_table_name :accounts
   acts_as_nested_set
   
   def self.userdata(records)
@@ -11,11 +12,11 @@ class Account < ActiveRecord::Base
   
   gridify :demo1102,
     :title          => I18n.t('txt.jqgrid.demo.33tree'),
-    :url            => "/jqgrid/demo?model=account",
-    :data_type      => :json,
+    :url            => "/jqgrid/demo?model=nested_account",
+    :data_type      => :xml,
     :colNames       => [
                         I18n.t('activerecord.attributes.account.name'),
-                        I18n.t('activerecord.attributes.account.num'),
+                        I18n.t('activerecord.attributes.account.acc_num'),
                         I18n.t('activerecord.attributes.account.debit'),
                         I18n.t('activerecord.attributes.account.credit'),
                         I18n.t('activerecord.attributes.account.balance')
@@ -23,7 +24,7 @@ class Account < ActiveRecord::Base
     :colModel       => [
                         { :name  => 'name',
                           :width =>  100 },
-                        { :name  => 'num',
+                        { :name  => 'acc_num',
                           :width =>  50,
                           :align => :right },
                         { :name  => 'debit',
@@ -36,13 +37,11 @@ class Account < ActiveRecord::Base
                           :width =>  80,
                           :align => :right }
                        ],
-    #:width          => :auto,
-    :grid_view      => false,
     :height         => :auto,
-    :jqgrid_options => { :treeGrid       => true,
-                         :treedatatype   => :json,
+    :sortable       => false,
+    :tree_grid      => true,
+    :jqgrid_options => { #:treedatatype   => :json,
                          #:treeGridModel  => :nested,,
                          #:ExpandColClick => true,
                          :ExpandColumn   => :name }
-
 end

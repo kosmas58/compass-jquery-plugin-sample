@@ -61,11 +61,12 @@ de:
         invdate: Datum
       account: 
         name: Name
-        num: Kontonr.
+        acc_num: Kontonr.
         debit: Soll
         credit: Haben
         balance: Kontostand
         parent_id: Eltern ID
+        level: Level
         lft: lft
         rgt: rgt
       event: 
