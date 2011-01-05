@@ -141,7 +141,7 @@ class Jqgrid::DemoController < ApplicationController
         @datatype = params[:datatype] = :json
     end 
     @model = (params[:model] || "invheader")
-    @object = Object.const_get(@model.capitalize!)
+    @object = Object.const_get(@model.classify)
     if request.xhr?
       @demo = (params[:grid] || "demo0101")
       @mylist = "#{@demo}".to_sym

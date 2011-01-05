@@ -61,14 +61,13 @@ de:
         invdate: Datum
       account: 
         name: Name
+        num: Kontonr.
         debit: Soll
-        level: Level
-        lft: lft
         credit: Haben
-        parent_id: Eltern ID
-        rgt: rgt
         balance: Kontostand
-        acc_num: Kontonr.
+        parent_id: Eltern ID
+        lft: lft
+        rgt: rgt
       event: 
         location: Ort
         dtend: Ende
