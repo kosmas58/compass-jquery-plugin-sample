@@ -11,6 +11,9 @@ xml.accounts do
       xml.credit     u.credit
       xml.debit      u.debit
       xml.balance    u.balance
+      xml.enbl       rand(1) if u.demo == "demo1306"
+      
+      # Treegrid data
       xml.level      u.level
       case u.style
       when "adjacency"

@@ -8,6 +8,7 @@ class CreateAccounts < ActiveRecord::Migration
       t.column  :debit,     :decimal, :precision => 10, :scale => 8, :null => false, :default => 0
       t.column  :credit,    :decimal, :precision => 10, :scale => 8, :null => false, :default => 0
       t.column  :balance,   :decimal, :precision => 10, :scale => 8, :null => false, :default => 0
+      t.column  :enabled,   :boolean, :default => 0
       t.integer :level,     :null => false, :default => 0
       t.integer :lft,       :null => false, :default => 0
       t.integer :rgt ,      :null => false, :default => 0

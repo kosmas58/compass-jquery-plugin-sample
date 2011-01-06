@@ -63,10 +63,7 @@ en:
         credit: Credit
         debit: Debit
         balance: Balance
-        parent_id: Parent ID
-        level: Level
-        lft: lft
-        rgt: rgt
+        enabled: Enabled
       event: 
         location: Location
         dtend: End

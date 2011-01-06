@@ -5,9 +5,9 @@ number:
       separator: .
       delimiter: ","
 activerecord: 
-  errors: 
-    full_messages: 
-      format: "{{attribute}} {{message}}"
+  attributes: 
+    account: 
+      enbl: Enabled
 time: 
   am: am
   formats: 
@@ -21,15 +21,14 @@ date:
     short: "%b %d"
     long: "%B %d, %Y"
 txt: 
-  jst: 
-    contextmenu: Contextmenu
-  jqgrid: 
-    mine: 
-      contextmenu1: Functional example
-      contextmenu2: Data Manipulation
-      contextmenu: "Using a ContextMenu "
-  dt: 
-    contextmenu: Context menu, Copy/paste
+  tools: 
+    form: 
+      stylable: 
+        name: Stylable
+        demo01: Minimal setup for Styleable
+        demo02: Scripting styleable Forms
+        demo03: Alternate form skin
+  hello: Hello world
 support: 
   array: 
     words_connector: ", "
