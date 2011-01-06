@@ -130,10 +130,12 @@ class Account < ActiveRecord::Base
                         { :name  => 'balance',
                           :width =>  80,
                           :align => :right },
-                        { :name  => 'enabled',
-                          :width => 60,
-                          :align =>  :center,
-                          :edit_options => { :value => "1:0" }}
+                        { :name            => 'enabled',
+                          :width           => 40,
+                          :align           =>  :center,
+                          :formatter       => :checkbox, 
+                          :edit_options    => { :value => "1:0" },
+                          :format_options => { :disabled => false }}
                        ],
     :height         => :auto,
     :sortable       => false,
@@ -141,5 +143,6 @@ class Account < ActiveRecord::Base
     :jqgrid_options => { #:treedatatype   => :json,
                          #:treeGridModel  => :nested,,
                          #:ExpandColClick => true,
-                         :ExpandColumn   => :name }
+                         :ExpandColumn   => :name,
+                         :afterInsertRow => "javascript: afterInsertRow" }
 end
