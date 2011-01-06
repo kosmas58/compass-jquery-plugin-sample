@@ -1,18 +1,10 @@
-class NestedAccount < ActiveRecord::Base
+class AdjacencyAccount < ActiveRecord::Base
   set_table_name :accounts
-  acts_as_nested_set
-  
-  def self.userdata(records)
-    userdata = {}
-    if records
-      
-    end
-    userdata
-  end
+  acts_as_tree :order => "name"
   
   gridify :demo1206,
     :title          => I18n.t('txt.jqgrid.demo.34adjacency'),
-    :url            => "/jqgrid/demo?model=account",
+    :url            => "/jqgrid/demo?model=adjacency_account",
     :data_type      => :xml,
     :colNames       => [
                         I18n.t('activerecord.attributes.account.name'),

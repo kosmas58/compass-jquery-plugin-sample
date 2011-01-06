@@ -7,6 +7,8 @@ class Jqgrid::DemoController < ApplicationController
     fetch_params(request)
     if @datatype != :local
       if request.xhr?
+        
+        # Master/detail
         if params[:details_for].present?
           if params[:_search] == "true"
             @data = @object.find_for_grid(@mylist, params);
@@ -21,9 +23,19 @@ class Jqgrid::DemoController < ApplicationController
               render :partial => "#{@model.downcase}.xml.builder", :layout => false
               #render :xml => @object.grid(@mylist).encode_records(@data)
           end
+        
+        # Subgrid
         elsif params[:subgrid]
           @data = Invheader.find(params[:id]).invlines.find(:all)
           render :json => @data.to_subgrid_json(params[:atr])
+        
+        # Treegrid
+        elsif @object.grid(@mylist).tree_grid
+          @data = @object.find_for_treegrid(@mylist, params)
+          @total_count ||= @object.count
+          render :partial => "#{@model.downcase}.nested.xml.builder", :layout => false
+        
+        # Default
         else
           @data = @object.find_for_grid(@mylist, params)
           @userdata = @object.userdata(@data)

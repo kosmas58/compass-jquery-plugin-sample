@@ -1,10 +1,10 @@
 xml.instruct! :xml, :version=>"1.0", :encoding=>"UTF-8"
-xml.nested_accounts do
+xml.accounts do
   xml.page    1 
   xml.total   1 
   xml.records 1 
   @data.each do |u|
-    xml.nested_account do
+    xml.account do
       xml.id         u.id
       xml.name       u.name
       xml.acc_num    u.acc_num
