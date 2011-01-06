@@ -83,10 +83,8 @@ class Ical::EventsController < ApplicationController
         cal = ActiveRecord::Base::Calendar.find(params[:calendar_id])
         events = cal.full_events_by_date(((Time.at(params[:start].to_i)).to_date).to_datetime,
                                          ((Time.at(params[:end].to_i)).to_date).to_datetime)
-
         render :json => events
       end
     end
   end
-
 end

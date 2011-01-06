@@ -1,6 +1,6 @@
 # Accounts
 puts "Started creating Accounts"
-Account.create!(:parent_id => nil, :name => "root")
+Account.create!(:parent_id => nil, :name => "ROOT")
 Account.create!(:parent_id =>   1, :name => "Cash" ,        :acc_num => 100, :debit =>  400, :credit =>  250, :balance =>   150, :level => 0, :lft =>  1, :rgt =>  8 )
 Account.create!(:parent_id =>   2, :name => "Cash 1" ,      :acc_num =>   1, :debit =>  300, :credit =>  200, :balance =>   100, :level => 1 ,:lft =>  2, :rgt =>  5 )
 Account.create!(:parent_id =>   3, :name => "Sub Cash 1" ,  :acc_num =>   1, :debit =>  300, :credit =>  200, :balance =>   100, :level => 2, :lft =>  3, :rgt =>  4 )

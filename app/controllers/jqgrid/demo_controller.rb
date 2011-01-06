@@ -31,10 +31,14 @@ class Jqgrid::DemoController < ApplicationController
         
         # Treegrid
         elsif @object.grid(@mylist).tree_grid
-          @data = @object.find_for_treegrid(@mylist, params)
-          @total_count ||= @object.count
-          render :partial => "#{@model.downcase}.nested.xml.builder", :layout => false
-        
+          @data = @object.find_for_treegrid(params)
+          case @datatype
+            # when :json
+            # render :json => @object.grid(@mylist).encode_records(@data, @userdata)
+            when :xml
+              render :partial => "#{@model.downcase}.xml.builder", :layout => false
+          end
+          
         # Default
         else
           @data = @object.find_for_grid(@mylist, params)

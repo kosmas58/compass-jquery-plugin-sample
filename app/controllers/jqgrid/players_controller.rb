@@ -99,5 +99,4 @@ class Jqgrid::PlayersController < ApplicationController
     @example = (params[:example] || "01")
     @mylist = "example#{@example}".to_sym
   end
-  
 end

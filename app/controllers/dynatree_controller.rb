@@ -8,7 +8,6 @@ class DynatreeController < ApplicationController
     end
   end
   
-  
   def data1
     json1 = 
     '[
@@ -30,7 +29,7 @@ class DynatreeController < ApplicationController
     respond_to do |format|
       # Fields order is important in the to_jqgrid_json method (in this case : [:id,:name])
       # It must be the same as display order in your datagrid
-      format.json { render :json => json1, :layout => false  }
+      format.json { render :json => json1, :layout => false }
     end
   end
   
@@ -44,7 +43,7 @@ class DynatreeController < ApplicationController
     respond_to do |format|
       # Fields order is important in the to_jqgrid_json method (in this case : [:id,:name])
       # It must be the same as display order in your datagrid
-      format.json { render :json => json2, :layout => false  }
+      format.json { render :json => json2, :layout => false }
     end    
   end
   
@@ -95,7 +94,7 @@ class DynatreeController < ApplicationController
     respond_to do |format|
       # Fields order is important in the to_jqgrid_json method (in this case : [:id,:name])
       # It must be the same as display order in your datagrid
-      format.json { render :json => json3, :layout => false  }
+      format.json { render :json => json3, :layout => false }
     end   
   end
   

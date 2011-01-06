@@ -23,5 +23,4 @@ class Ui::Widgets::TabsController < ApplicationController
   def content4
     head :not_found
   end
-  
 end

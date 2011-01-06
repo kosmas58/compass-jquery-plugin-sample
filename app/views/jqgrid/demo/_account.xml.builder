@@ -12,10 +12,16 @@ xml.accounts do
       xml.debit      u.debit
       xml.balance    u.balance
       xml.level      u.level
-      xml.lft        u.lft
-      xml.rgt        u.rgt
-      xml.leaf       u.rgt == u.lft+1 ? "true" : "false"
-      xml.cell       "false"
+      case @demo
+        when "demo1206"
+          xml.parent_id    u.parent_id
+          xml.leaf         u.parent_id ? "true" : "false"
+        else
+          xml.lft     u.lft
+          xml.rgt     u.rgt
+          xml.leaf    u.rgt == u.lft+1 ? "true" : "false"
+      end
+      xml.cell    "false"
     end
   end
-end 
+end

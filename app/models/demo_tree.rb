@@ -18,18 +18,18 @@ class DemoTree < ActiveRecord::Base
           :state => (child.right - child.left) > 1 ? "closed" : ""
         }
       end
-    end    
+    end
     return result
   end
   
-  def self.search(search_str)    
+  def self.search(search_str)
     result = Array.new
     nodes = find(:all, :conditions => "title LIKE '%#{search_str}%'")  
     if nodes
       nodes.each do |node|
         result << "#node_#{node.id.to_s}"
       end
-    end       
+    end
     return result
   end
   
@@ -53,10 +53,10 @@ class DemoTree < ActiveRecord::Base
         ancestor.save
       end
       update_all("left = left + 2, right = right + 2", "left >= #{node.right}")
-      result = { :status => 1, :id => node.id }   
+      result = { :status => 1, :id => node.id }
     else
-      result = { :status => 0 }   
-    end         
+      result = { :status => 0 }
+    end
     return result
   end
   
@@ -75,8 +75,8 @@ class DemoTree < ActiveRecord::Base
     # shift right indexes of nodes right of the node and the node's parents
     update_all("right = right - #{dif}", "right > #{left}")  
     # Update position of siblings below the deleted node
-    update_all("position = position -1", "parent_id = #{pid} AND position > #{pos}")    
-    result = { :status => 1 }         
+    update_all("position = position -1", "parent_id = #{pid} AND position > #{pos}")
+    result = { :status => 1 }
     return result
   end
   
@@ -84,8 +84,8 @@ class DemoTree < ActiveRecord::Base
     node = find(params[:id])
     node.title = params[:title]
     if node.save
-      return { :status => 1 }   
-    end    
+      return { :status => 1 }
+    end
   end
   
   def self.copy_children(id, node)
@@ -99,10 +99,10 @@ class DemoTree < ActiveRecord::Base
     params = {} 
     params[:id]       = id
     params[:position] = (node.position) ? node.position : 0 
-    params[:title]    = node.title  
-    params[:type]     = node.ntype    
-    result = create_node(params) 
-    return result  
+    params[:title]    = node.title
+    params[:type]     = node.ntype
+    result = create_node(params)
+    return result
   end
   
   def self.move_node(params)
@@ -218,7 +218,7 @@ class DemoTree < ActiveRecord::Base
       t.column :right,                :integer, :null => false
       t.column :level,                :integer, :null => false
       t.column :title,                :text
-      t.column :ntype,                :text,    :null => true    
+      t.column :ntype,                :text,    :null => true
     end
 
     ActiveRecord::Migration.add_index :demo_trees, :parent_id
@@ -231,7 +231,6 @@ class DemoTree < ActiveRecord::Base
     create(:parent_id => root.id+1, :position => 1, :left => 7,  :right => 10, :level => 2, :title => '_docs',      :ntype => 'folder')
     create(:parent_id => root.id,   :position => 1, :left => 12, :right => 13, :level => 1, :title => 'D:',         :ntype => 'drive')
     create(:parent_id => root.id+4, :position => 0, :left => 8,  :right => 9,  :level => 3, :title => 'zmei.html',  :ntype => 'default')
-    return { :status => 0 }   
-  end 
-  
+    return { :status => 0 }
+  end
 end

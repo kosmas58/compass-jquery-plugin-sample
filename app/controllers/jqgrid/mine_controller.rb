@@ -6,5 +6,4 @@ class Jqgrid::MineController < ApplicationController
   def index
     @demo = params[:demo] || "contextmenu1"
   end
-  
 end

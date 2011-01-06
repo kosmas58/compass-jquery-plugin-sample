@@ -24,6 +24,5 @@ class Ical::CalendarsController < ApplicationController
     response_for :create, :update, :destroy do |format|
       format.html { redirect_to ical_calendars_path }
     end
-
   end
 end

@@ -38,7 +38,7 @@ class NavigationController < ApplicationController
  
   def get_children
     tree = NavigationTree.get_children(params[:id])
-    render :json => tree.to_json, :layout => false   
+    render :json => tree.to_json, :layout => false
   end
   
   def search
@@ -84,4 +84,3 @@ class NavigationController < ApplicationController
     redirect_to :action => :index
   end  
 end
-
