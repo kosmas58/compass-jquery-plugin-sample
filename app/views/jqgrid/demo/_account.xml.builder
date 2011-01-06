@@ -13,7 +13,7 @@ xml.accounts do
       xml.balance    u.balance
       xml.level      u.level
       case u.style
-      when :adjacency
+      when "adjacency"
         xml.parent_id    u.parent_id
         xml.leaf         u.leaf
       else

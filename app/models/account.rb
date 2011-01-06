@@ -32,7 +32,7 @@ class Account < ActiveRecord::Base
         end
       when "adjacency"
         child[:style] = "adjacency"
-        if child.children
+        if child.children.size > 0
           child[:leaf] = false
         else
           child[:leaf] = true
