@@ -5,30 +5,39 @@ class Account < ActiveRecord::Base
   def self.find_for_treegrid(params)
     list = params[:grid]
     case list
-      when "demo1102"
-        result = find_nested(params)
-      when "demo1206"
-        result = find_adjacency(params)
-      else
-        raise ArgumentError, "Invalid example '#{list}' for treegrid"
+    when "demo1102"
+      result = find_treegrid("nested", params)
+    when "demo1206"
+      result = find_treegrid("adjacency", params)
+    else
+      raise ArgumentError, "Invalid example '#{list}' for treegrid"
     end
     return result
   end
   
-  def self.find_nested(params)
+  def self.find_treegrid(style, params)
     if params[:nodeid]
       node = find(params[:nodeid])
     else
       node = find_by_name("ROOT")
     end
-    return node.children
-  end
-  
-  def self.find_adjacency(params)
-    if params[:nodeid]
-      node = find(params[:nodeid])
-    else
-      node = find_by_name("ROOT")
+    node.children.each do |child|
+      case style
+      when "nested"
+        child[:style] = "nested"
+        if child[:rgt] == child[:lft]+1
+          child[:leaf] = true
+        else
+          child[:leaf] = false
+        end
+      when "adjacency"
+        child[:style] = "adjacency"
+        if child.children
+          child[:leaf] = false
+        else
+          child[:leaf] = true
+        end
+      end
     end
     return node.children
   end

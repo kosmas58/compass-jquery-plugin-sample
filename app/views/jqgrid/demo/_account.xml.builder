@@ -12,14 +12,15 @@ xml.accounts do
       xml.debit      u.debit
       xml.balance    u.balance
       xml.level      u.level
-      case @demo
-        when "demo1206"
-          xml.parent_id    u.parent_id
-          xml.leaf         u.parent_id ? "true" : "false"
-        else
-          xml.lft     u.lft
-          xml.rgt     u.rgt
-          xml.leaf    u.rgt == u.lft+1 ? "true" : "false"
+      case u.style
+      when :adjacency
+        xml.parent_id    u.parent_id
+        xml.leaf         u.leaf
+      else
+        # Nested
+        xml.lft     u.lft
+        xml.rgt     u.rgt
+        xml.leaf    u.leaf
       end
       xml.cell    "false"
     end
