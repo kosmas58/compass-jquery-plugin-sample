@@ -3,6 +3,8 @@
 # Specifies gem version of Rails to use when vendor/rails is not present
 RAILS_GEM_VERSION = '2.3.10' unless defined? RAILS_GEM_VERSION
 
+ENV["RAILS_ASSET_ID"] = "" # disable timestamps at end of asset files for offline browsing
+
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
 

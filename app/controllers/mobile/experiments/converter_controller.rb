@@ -11,7 +11,7 @@ class Mobile::Experiments::ConverterController < ApplicationController
                "javascripts/jquery.tmpl.min.js\n" +
                "javascripts/jquery.mobile.min.js\n" +
                "javascripts/locales.js\n" +
-               "javascripts/commons.js\n\n" +
+               "javascripts/common.js\n\n" +
                "NETWORK:\n/"
     headers['Content-Type'] = 'text/cache-manifest'
     render :text => manifest, :layout => false
