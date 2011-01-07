@@ -8,29 +8,51 @@ class Account < ActiveRecord::Base
     else
       node = find_by_name("ROOT")
     end
+    
     list = params[:grid]
-    node.children.each do |child|
-      child[:demo] = list
-      case list
-      when "demo1102", "demo1306"
+    case list
+    when "demo1102"
+      data = []
+      node.direct_children.each do |child|
+        child[:demo] = list
         child[:style] = "nested"
         if child[:rgt] == child[:lft]+1
           child[:leaf] = true
         else
           child[:leaf] = false
         end
-      when "demo1206"
+        data << child
+      end
+      return data 
+    when "demo1206"
+      data = []
+      node.children.each do |child|
+        child[:demo] = list
         child[:style] = "adjacency"
         if child.children.size > 0
           child[:leaf] = false
         else
           child[:leaf] = true
         end
-      else
-        raise ArgumentError, "Invalid example '#{list}' for treegrid"
+        data << child
       end
+      return data 
+    when "demo1306"
+      data = []
+      node.all_children.each do |child|
+        child[:demo] = list
+        child[:style] = "nested"
+        if child[:rgt] == child[:lft]+1
+          child[:leaf] = true
+        else
+          child[:leaf] = false
+        end
+        data << child
+      end
+      return data 
+    else
+      raise ArgumentError, "Invalid example '#{list}' for treegrid"
     end
-    return node.children
   end
 
   gridify :demo1102,
@@ -63,10 +85,11 @@ class Account < ActiveRecord::Base
     :height         => :auto,
     :sortable       => false,
     :tree_grid      => true,
-    :jqgrid_options => { #:treedatatype   => :json,
-                         #:treeGridModel  => :nested,,
-                         #:ExpandColClick => true,
-                         :ExpandColumn   => :name }
+    :jqgrid_options => { :ExpandColClick => true,
+                         :ExpandColumn   => :name,
+                         :treedatatype   => :xml,
+                         :treeGridModel  => :nested,
+                         :tree_rootlevel => 1 }
   
   gridify :demo1206,
     :title          => I18n.t('txt.jqgrid.demo.34adjacency'),
@@ -98,10 +121,11 @@ class Account < ActiveRecord::Base
     :height         => :auto,
     :sortable       => false,
     :tree_grid      => true,
-    :jqgrid_options => { #:treedatatype   => :json,
-                         #:treeGridModel  => :nested,,
-                         #:ExpandColClick => true,
-                         :ExpandColumn   => :name }
+    :jqgrid_options => { :ExpandColClick => true,
+                         :ExpandColumn   => :name,
+                         :treedatatype   => :xml,
+                         :treeGridModel  => :adjacency,
+                         :tree_rootlevel => 1 }
   
   gridify :demo1306,
     :title          => I18n.t('txt.jqgrid.demo.35real'),
@@ -140,9 +164,10 @@ class Account < ActiveRecord::Base
     :height         => :auto,
     :sortable       => false,
     :tree_grid      => true,
-    :jqgrid_options => { #:treedatatype   => :json,
-                         #:treeGridModel  => :nested,,
-                         #:ExpandColClick => true,
+    :jqgrid_options => { :ExpandColClick => true,
                          :ExpandColumn   => :name,
+                         :treedatatype   => :xml,
+                         :treeGridModel  => :nested,
+                         :tree_rootlevel => 1,
                          :afterInsertRow => "javascript: afterInsertRow" }
 end

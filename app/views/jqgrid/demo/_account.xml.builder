@@ -17,8 +17,8 @@ xml.accounts do
       xml.level      u.level
       case u.style
       when "adjacency"
-        xml.parent_id    u.parent_id
-        xml.leaf         u.leaf
+        xml.parent_id    "NULL" #u.parent_id
+        xml.cell         u.leaf
       else
         # Nested
         xml.lft     u.lft
