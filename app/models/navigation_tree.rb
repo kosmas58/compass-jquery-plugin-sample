@@ -213,7 +213,6 @@ class NavigationTree < ActiveRecord::Base
         file.write "\n#NavigationTree\n"
         file.write "puts \"Started creating navigation tree\"\n"
         file.write "puts \"Please be patient ...\"\n"
-        file.write "puts \"... time for lunch or another break.\"\n"
         file.write "node_#{root.id} = NavigationTree.create(:parent_id => 0, :position => 0, :left => 1,  :right => 2, :title => 'ROOT').id\n"
         export_node(file, root)
         file.write "puts \"Finished creating navigation tree\"\n\n"
