@@ -39,7 +39,12 @@ class DemoTree < ActiveRecord::Base
     else
       parent = find_by_title("ROOT")
     end
-    node = create(params)
+    parms = {}
+    parms[:parent_id] = parent.id
+    parms[:position]  = params[:position]
+    parms[:title]     = params[:title]
+    parms[:ntype]     = params[:type]
+    node = create(parms)
     if parent.add_child(node)
       result = { :status => 1, :id => node.id }
     else
@@ -70,8 +75,9 @@ class DemoTree < ActiveRecord::Base
   end
   
   def self.copy_children(id, node)
-    node.all_children.each do |child|
+    node.direct_children.each do |child|
       result = copy_node(id, child)
+      copy_children(result[:id], child)
     end
   end
 
