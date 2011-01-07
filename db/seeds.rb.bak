@@ -190,15 +190,17 @@ puts "Finished creating items"
 puts "\n"
 
 # Accounts
-puts "Started creating accounts"
-Account.create!(:parent_id => nil, :name => "A1" , :acc_num => 100001, :debit => 11, :credit => 12, :balance => 13, :level  => 0, :lft => 1, :rgt => 14 ) 
-Account.create!(:parent_id => nil, :name => "A11" , :acc_num => 100011, :debit => 111, :credit => 112, :balance => 113, :level  => 1, :lft => 2, :rgt => 3 ) 
-Account.create!(:parent_id => nil, :name => "A12" , :acc_num => 100012, :debit => 121, :credit => 122, :balance => 123, :level  => 1, :lft => 4, :rgt => 11 ) 
-Account.create!(:parent_id => nil, :name => "A13" , :acc_num => 100013, :debit => 131, :credit => 132, :balance => 133, :level  => 1, :lft => 12, :rgt => 13 ) 
-Account.create!(:parent_id => nil, :name => "A121" , :acc_num => 100121, :debit => 1211, :credit => 1212, :balance => 1213, :level  => 2, :lft => 5, :rgt => 8 ) 
-Account.create!(:parent_id => nil, :name => "A122" , :acc_num => 100122, :debit => 1221, :credit => 1222, :balance => 1223, :level  => 2, :lft => 9, :rgt => 10 ) 
-Account.create!(:parent_id => nil, :name => "A1211" , :acc_num => 101211, :debit => 12111, :credit => 12112, :balance => 12113, :level  => 3, :lft => 6, :rgt => 7 ) 
-puts "Finished creating accounts"
+puts "Started creating Accounts"
+Account.create!(:parent_id => nil, :name => "ROOT", :level => 0, :lft =>  1, :rgt =>  18 )
+Account.create!(:parent_id =>   1, :name => "Cash" ,        :acc_num => 100, :debit =>  400, :credit =>  250, :balance =>   150, :level => 1, :lft =>  2, :rgt =>  9 )
+Account.create!(:parent_id =>   2, :name => "Cash 1" ,      :acc_num =>   1, :debit =>  300, :credit =>  200, :balance =>   100, :level => 2 ,:lft =>  3, :rgt =>  6 )
+Account.create!(:parent_id =>   3, :name => "Sub Cash 1" ,  :acc_num =>   1, :debit =>  300, :credit =>  200, :balance =>   100, :level => 3, :lft =>  4, :rgt =>  5 )
+Account.create!(:parent_id =>   2, :name => "Cash 2" ,      :acc_num =>   2, :debit =>  100, :credit =>   50, :balance =>    50, :level => 2, :lft =>  7, :rgt =>  8 )
+Account.create!(:parent_id =>   1, :name => "Bank's" ,      :acc_num => 200, :debit => 1500, :credit => 1000, :balance =>   500, :level => 1, :lft => 10, :rgt => 15 )
+Account.create!(:parent_id =>   6, :name => "Bank 1" ,      :acc_num =>   1, :debit =>  500, :credit =>    0, :balance =>   500, :level => 2, :lft => 11, :rgt => 12 )
+Account.create!(:parent_id =>   6, :name => "Bank 2" ,      :acc_num =>   2, :debit => 1000, :credit => 1000, :balance =>     0, :level => 2, :lft => 13, :rgt => 14 )
+Account.create!(:parent_id =>   1, :name => "Fixed asset" , :acc_num => 300, :debit =>    0, :credit => 1000, :balance => -1000, :level => 1, :lft => 16, :rgt => 17 )
+puts "Finished creating Accounts"
 puts "\n"
 
 # Birds
@@ -270,9 +272,9 @@ Bird.create!(:name => "Hooded Crow", :scientific_name => "Corvus cornix")
 Bird.create!(:name => "Dunlin", :scientific_name => "Calidris alpina")
 Bird.create!(:name => "Eurasian Pied Flycatcher", :scientific_name => "Ficedula hypoleuca")
 Bird.create!(:name => "Eurasian Nuthatch", :scientific_name => "Sitta europaea")
-Bird.create!(:name => "Short-toed DemoTree.Creeper", :scientific_name => "Certhia brachydactyla")
+Bird.create!(:name => "Short-toed Tree.Creeper", :scientific_name => "Certhia brachydactyla")
 Bird.create!(:name => "Wood Lark", :scientific_name => "Lullula arborea")
-Bird.create!(:name => "DemoTree.Pipit", :scientific_name => "Anthus trivialis")
+Bird.create!(:name => "Tree.Pipit", :scientific_name => "Anthus trivialis")
 Bird.create!(:name => "Eurasian Hobby", :scientific_name => "Falco subbuteo")
 Bird.create!(:name => "Marsh Warbler", :scientific_name => "Acrocephalus palustris")
 Bird.create!(:name => "Wood Sandpiper", :scientific_name => "Tringa glareola")
@@ -346,7 +348,7 @@ Bird.create!(:name => "Blue Tit", :scientific_name => "Cyanistes caeruleus")
 Bird.create!(:name => "European Goldfinch", :scientific_name => "Carduelis carduelis")
 Bird.create!(:name => "Eurasian Whimbrel", :scientific_name => "Numenius phaeopus")
 Bird.create!(:name => "Common Reed Bunting", :scientific_name => "Emberiza schoeniclus")
-Bird.create!(:name => "Eurasian DemoTree.Sparrow", :scientific_name => "Passer montanus")
+Bird.create!(:name => "Eurasian Tree Sparrow", :scientific_name => "Passer montanus")
 Bird.create!(:name => "Rook", :scientific_name => "Corvus frugilegus")
 Bird.create!(:name => "European Robin", :scientific_name => "Erithacus rubecula")
 Bird.create!(:name => "Bar-tailed Godwit", :scientific_name => "Limosa lapponica")
@@ -491,7 +493,7 @@ Bird.create!(:name => "Steppe Eagle", :scientific_name => "Aquila nipalensis")
 Bird.create!(:name => "Pallid Harrier", :scientific_name => "Circus macrourus")
 Bird.create!(:name => "European Storm-petrel", :scientific_name => "Hydrobates pelagicus")
 Bird.create!(:name => "Horned Lark", :scientific_name => "Eremophila alpestris")
-Bird.create!(:name => "Eurasian DemoTree.reeper", :scientific_name => "Certhia familiaris")
+Bird.create!(:name => "Eurasian Treereeper", :scientific_name => "Certhia familiaris")
 Bird.create!(:name => "Taiga Bean Goose", :scientific_name => "Anser fabalis")
 Bird.create!(:name => "Temminck`s Stint", :scientific_name => "Calidris temminckii")
 Bird.create!(:name => "Terek Sandpiper", :scientific_name => "Xenus cinereus")
@@ -740,7 +742,7 @@ Bird.create!(:name => "Elegant Tern", :scientific_name => "Sterna elegans")
 Bird.create!(:name => "Chukar", :scientific_name => "Alectoris chukar")
 Bird.create!(:name => "Yellow-Billed Cuckoo", :scientific_name => "Coccyzus americanus")
 Bird.create!(:name => "American Sandwich Tern", :scientific_name => "Sterna sandvicensis acuflavida")
-Bird.create!(:name => "Olive-DemoTree.Warbler", :scientific_name => "Hippolais olivetorum")
+Bird.create!(:name => "Olive-TreeWarbler", :scientific_name => "Hippolais olivetorum")
 Bird.create!(:name => "Eastern Olivaceous Warbler", :scientific_name => "Acrocephalus pallidus")
 Bird.create!(:name => "Indian Cormorant", :scientific_name => "Phalacrocorax fuscicollis")
 Bird.create!(:name => "Spur-Winged Lapwing", :scientific_name => "Vanellus spinosus")
@@ -791,12 +793,12 @@ puts "\n"
 
 # DemoTree
 puts "Started creating demo tree"
-DemoTree.create(:parent_id => 0, :position => 0, :left => 1,  :right => 14, :level => 0, :title => 'ROOT')
-DemoTree.create(:parent_id => 1, :position => 0, :left => 2,  :right => 11, :level => 1, :title => 'C:',         :ntype => 'drive')
-DemoTree.create(:parent_id => 2, :position => 0, :left => 3,  :right => 6,  :level => 2, :title => '_demo',     :ntype => 'folder')
-DemoTree.create(:parent_id => 3, :position => 0, :left => 4,  :right => 5,  :level => 3, :title => 'index.html', :ntype => 'default')
-DemoTree.create(:parent_id => 2, :position => 1, :left => 7,  :right => 10, :level => 2, :title => '_docs',      :ntype => 'folder')
-DemoTree.create(:parent_id => 1, :position => 1, :left => 12, :right => 13, :level => 1, :title => 'D:',         :ntype => 'drive')
-DemoTree.create(:parent_id => 5, :position => 0, :left => 8,  :right => 9,  :level => 3, :title => 'zmei.html',  :ntype => 'default')
+DemoTree.create(:parent_id => 0, :position => 0, :left => 1,  :right => 14, :title => 'ROOT',       :ntype => 'ROOT')
+DemoTree.create(:parent_id => 1, :position => 0, :left => 2,  :right => 11, :title => 'C:',         :ntype => 'drive')
+DemoTree.create(:parent_id => 2, :position => 0, :left => 3,  :right => 6,  :title => '_demo',      :ntype => 'folder')
+DemoTree.create(:parent_id => 3, :position => 0, :left => 4,  :right => 5,  :title => 'index.html', :ntype => 'default')
+DemoTree.create(:parent_id => 2, :position => 1, :left => 7,  :right => 10, :title => '_docs',      :ntype => 'folder')
+DemoTree.create(:parent_id => 1, :position => 1, :left => 12, :right => 13, :title => 'D:',         :ntype => 'drive')
+DemoTree.create(:parent_id => 5, :position => 0, :left => 8,  :right => 9,  :title => 'zmei.html',  :ntype => 'default')
 puts "Finished creating demo tree"
 puts "\n"
