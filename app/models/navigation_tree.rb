@@ -218,9 +218,7 @@ class NavigationTree < ActiveRecord::Base
         file.write "\n#NavigationTree\n"
         file.write "puts \"Started creating navigation tree\"\n"
         file.write "puts \"Please be patient ...\"\n"
-        file.write "puts \"... inserting more than 400 nodes with acts_as_tree_on_steroids lasts ...\"\n"
-        file.write "puts \"... time for lunch or another break.\"\n"
-        file.write "node_#{root.id} = NavigationTree.create(:parent_id => 0, :position => 0, :left => 1,  :right => 2, :level => 0, :title => 'ROOT').id\n"
+        file.write "node_#{root.id} = NavigationTree.create(:parent_id => 0, :position => 0, :left => 1,  :right => 2, :title => 'ROOT').id\n"
         export_node(file, root)
         file.write "puts \"Finished creating navigation tree\"\n\n"
         file.close
@@ -233,12 +231,12 @@ class NavigationTree < ActiveRecord::Base
   def self.export_node(file, parent)
     pos = 0
     file.write "parent_id = node_#{parent.id}\n"
-    parent.children.each do |child|
+    parent.direct_children.each do |child|
       file.write "node_#{child.id} = NavigationTree.create_node(:id => parent_id, :seed => true, :position => #{pos}, :title => '#{child.title}', :type => '#{child.ntype}'"
       file.write ", :icon => '#{child.icon}'" if child.icon
       file.write ", :url => '#{child.url}'" if child.url
-      file.write ")\n"       
-      if !child.is_leaf?
+      file.write ")\n"
+      if child.children_count() > 0
         export_node(file, child)
       end
       pos += 1
