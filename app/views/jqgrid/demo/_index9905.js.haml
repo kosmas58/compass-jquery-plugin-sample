@@ -6,7 +6,7 @@
   .contextMenu A { padding-left: 5px; }
 
 :javascript
-  var ci,rowid,ptr,td;
+  //var ci,rowid,ptr,td;
   $('#treegrid2').contextMenu('myMenu1', {
     bindings: {
     'mchild': function(t) {
@@ -56,20 +56,36 @@
     }
   });
 
-
+  
+  
+  
+  
+  var grid = $("#accounts_demo9905");
+  var ptr, rowId, rowIndex;
+  
   function markChilds() {
-    var grid = $("#accounts_demo1306");
-    var rowKey = grid.jqGrid("getGridParam", "selrow");
-    if (rowKey) {
-      grid.jqGrid("editGridRow", rowKey, grid.editDialogOptions);
+    if (rowIndex) {
+      //alert(rowId+" : "+rowIndex+" : ");
+
+      var gcn = grid.jqGrid('getFullTreeNode',ptr);
+        $(gcn).each(function(i,v){
+          //$("td:eq("+ci+")",this).each(function(){
+          //  if(!$("input[type='checkbox']",this).attr("checked")) {
+          //    $(this).toggleClass("changed");
+          //    $("input[type='checkbox']",this).attr("defaultChecked",true).attr("checked","checked");
+          //  }
+          //});
+        });
     }
     else {
       alert("No rows are selected");
     }
   };
 
-
   function handleContextMenu(action, el, pos) {
+    ptr = el
+    rowId = ptr.attr("id");
+    rowIndex = ptr.attr("rowIndex");
     switch (action) {
       case "mark":
         markChilds();

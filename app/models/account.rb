@@ -284,6 +284,7 @@ class Account < ActiveRecord::Base
                        ],
     :height         => :auto,
     :sortable       => false,
+    :select_rows    => true,
     :tree_grid      => true,
     :jqgrid_options => { :ExpandColClick => true,
                          :ExpandColumn   => :name,
