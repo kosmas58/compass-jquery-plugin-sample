@@ -22,6 +22,9 @@ en:
     percentage: 
       format: 
         delimiter: ""
+    precision: 
+      format: 
+        delimiter: ""
     currency: 
       format: 
         format: "%u%n"
@@ -29,9 +32,6 @@ en:
         separator: .
         precision: 2
         delimiter: ","
-    precision: 
-      format: 
-        delimiter: ""
   activerecord: 
     attributes: 
       invline: 
@@ -41,12 +41,6 @@ en:
         num: Number
         unit: Unit
         item: Item
-      player: 
-        pseudo: Pseudonym
-        role: Role
-        lastname: Last name
-        firstname: First name
-        email: Email
       invheader: 
         tax: Tax
         ship_via: Ship via
@@ -57,21 +51,29 @@ en:
         client: Client
         note: Note
         invdate: Date
+      player: 
+        pseudo: Pseudonym
+        role: Role
+        lastname: Last name
+        firstname: First name
+        email: Email
       account: 
         name: Name
-        acc_num: Account No.
-        credit: Credit
         debit: Debit
-        balance: Balance
+        credit: Credit
         enabled: Enabled
+        acc_num: Account No.
+        balance: Balance
+      client: 
+        name: Name
       event: 
         location: Location
         dtend: End
         dtstart: Start
-        summary: Summary
         description: Description
+        summary: Summary
         all_day: All-day event
-      client: 
+      pet: 
         name: Name
       user: 
         pseudo: Pseudonym
@@ -79,8 +81,6 @@ en:
         lastname: Last name
         firstname: First name
         email: Email
-      pet: 
-        name: Name
       item: 
         cd: CD
         item: Item
@@ -88,8 +88,8 @@ en:
         name: Name
     errors: 
       messages: 
-        greater_than_or_equal_to: must be greater than or equal to {{count}}
         record_invalid: "Validation failed: {{errors}}"
+        greater_than_or_equal_to: must be greater than or equal to {{count}}
         confirmation: doesn't match confirmation
         less_than_or_equal_to: must be less than or equal to {{count}}
         blank: can't be blank
@@ -97,9 +97,9 @@ en:
         exclusion: is reserved
         odd: must be odd
         even: must be even
-        empty: can't be empty
         too_short: is too short (minimum is {{count}} characters)
         wrong_length: is the wrong length (should be {{count}} characters)
+        empty: can't be empty
         less_than: must be less than {{count}}
         greater_than: must be greater than {{count}}
         equal_to: must be equal to {{count}}
@@ -108,13 +108,13 @@ en:
         accepted: must be accepted
         inclusion: is not included in the list
         not_a_number: is not a number
-      full_messages: 
-        format: "{{attribute}} {{message}}"
       template: 
         body: "There were problems with the following fields:"
         header: 
           one: 1 error prohibited this {{model}} from being saved
           other: "{{count}} errors prohibited this {{model}} from being saved"
+      full_messages: 
+        format: "{{attribute}} {{message}}"
   time: 
     am: am
     formats: 
@@ -123,9 +123,60 @@ en:
       short: "%d %b %H:%M"
       long: "%B %d, %Y %H:%M"
     pm: pm
+  date: 
+    month_names: 
+    - 
+    - January
+    - February
+    - March
+    - April
+    - May
+    - June
+    - July
+    - August
+    - September
+    - October
+    - November
+    - December
+    abbr_day_names: 
+    - Sun
+    - Mon
+    - Tue
+    - Wed
+    - Thu
+    - Fri
+    - Sat
+    order: 
+    - :year
+    - :month
+    - :day
+    formats: 
+      default: "%Y-%m-%d"
+      short: "%b %d"
+      long: "%B %d, %Y"
+    day_names: 
+    - Sunday
+    - Monday
+    - Tuesday
+    - Wednesday
+    - Thursday
+    - Friday
+    - Saturday
+    abbr_month_names: 
+    - 
+    - Jan
+    - Feb
+    - Mar
+    - Apr
+    - May
+    - Jun
+    - Jul
+    - Aug
+    - Sep
+    - Oct
+    - Nov
+    - Dec
   txt: 
-    plugins: 
-      name: jQuery plugins
     jst: 
       name: jsTree
       plugins: Plugins
@@ -134,33 +185,36 @@ en:
       xml: XML Data
       hotkeys: Hotkeys
       dnd: Drag'n Drop
+      radio: Radio
       demo: Demonstration
       checkbox: Checkbox
-      radio: Radio
-      cookies: Cookies
       json: JSON Data
+      cookies: Cookies
       types: Types
       lang: Languages
       contextmenu: Contextmenu
       unique: Unique
       sort: Sort
-      core: Core functionality
       ui: UI
+      core: Core functionality
       themes: Themes
-      search: Search
       crrm: CRRM
+      search: Search
+    plugins: 
+      name: jQuery plugins
+    trees: Trees
     layout: 
-      colon: ":"
       back: Back
+      colon: ":"
       edit: Edit
-      theme: Theme
       delete: Delete
+      theme: Theme
       cancel: Cancel
       from: from
       language: Language
+      save: Save
       footer: 
         legalese: Copyright &copy; 2009-2011 Kosmas Schuetz. See LICENSE for details.
-      save: Save
       show: Show
       create: Create
       update: Update
@@ -169,12 +223,16 @@ en:
         seed: Successfully created /db/navigation.seeds.rb.
         browse: Browse through the examples
       until: until
-    trees: Trees
     ribbon: 
-      name: jQuery Ribbon
       simple: jQuery Ribbon Simple theme
+      name: jQuery Ribbon
       default: jQuery Ribbon Windows 7 theme
       office: jQuery Ribbon Office theme
+    history: 
+      name: jQuery History Plugin
+      mvc: MVC Sample History
+      ajax: Ajax Sample
+      ajax2: Ajax Sample 2
     emu: 
       name: jQuery on mobile devices
       ipad: iPad
@@ -192,19 +250,7 @@ en:
         home: "&alpha;2@jquerymobile.com"
       iphone: iPhone
       palm: Palm Pre
-    history: 
-      name: jQuery History Plugin
-      mvc: MVC Sample History
-      ajax: Ajax Sample
-      ajax2: Ajax Sample 2
     jqgrid: 
-      manipulation: 
-        name: Data manipulation
-        inline: with inline editing
-        modal: with modal editing
-        datepicker: with datepicker for lastname
-        input: with various input types
-      name: jqGrid
       simple: 
         name: Simple Data Grids
         direct: with direct selection and autowidth
@@ -212,6 +258,13 @@ en:
         master: with master details
         selection: with selection link and search disabled
         multiple: with multiple selections + row numbers
+      name: jqGrid
+      manipulation: 
+        name: Data manipulation
+        inline: with inline editing
+        modal: with modal editing
+        datepicker: with datepicker for lastname
+        input: with various input types
       demo: 
         30xml_map: XML Mapping
         30resizable: Resizable Columns
@@ -224,8 +277,8 @@ en:
         35sortable: View sortable columns
         35summary: Summary Footer Row
         30optimize: Data Optimization
-        38array2: Hide grouping column
         34v: New in version 3.4
+        38array2: Hide grouping column
         36validation: Custom Validation
         32client: Client Validation
         36cinput: Create Custom input element
@@ -263,27 +316,27 @@ en:
         30integrations: Integrations
         31toolbar: Toolbars
         31new_methods: New Methods
+        30add_row: Add row
         32v: New in version 3.2
         33tree: Tree Grid
-        30add_row: Add row
         30cedit: Custom Edit
         32insert: After Insert Row event
         37server: Load at once from server
         35real: TreeGrid real world example
         20subgrid: Subgrid
         33mform: Multiple Form Search
-        35stoolbar: Integrated Search Toolbar
         20json_data: JSON Data
         33rdnd: Drag and Drop Rows
         30json_map: JSON Mapping
         35v: New in version 3.5
+        35stoolbar: Integrated Search Toolbar
         20loading: Loading Data
         20multi: Multi Select
         36chooser: Column Chooser
         35number: Autowidth and row numbering
         actions: Actions
-        30basic: Basic Example
         38v: Grouping
+        30basic: Basic Example
         36rdnd: Drag and Drop Rows
         20advanced: Advanced
         34adjacency: Tree Grid Adjacency model
@@ -291,8 +344,8 @@ en:
         37toolbar: Toolbar search
         35view: Grid view mode
         30full: Full Control
-        30hide: Hide/Show Columns
         30events: Using Events
+        30hide: Hide/Show Columns
         36srows: Sortable Rows
         38xml1: Grouping with XML Data
         20resizing: Resizing Grid
@@ -313,14 +366,14 @@ en:
         30datepicker: UI Datepicker
         30row: Row Editing
         37array: Load array data at once
-        33visible: Visible Columns
         33mtoolbar: Multiple Toolbar Search
+        33visible: Visible Columns
         2dc: 2dc_jqGrid Examples
         20xml_data: XML Data
         35navigation: Form Navigation
         31userdata: Userdata
-        33function: Data type as function
         36rtl: RTL Support
+        33function: Data type as function
         20manipulating: Manipulating
         37crud: Add/edit/delete on local data
         32server_errors: Controlling server errors
@@ -341,8 +394,8 @@ en:
         name: Additional examples
         contextmenu1: Functional example
         contextmenu2: Data Manipulation
-        contextmenu: "Using a ContextMenu"
-        treegrid: Treegrids with json
+        treegrid: Treegrid using json
+        contextmenu: Using a ContextMenu
       improvements: 
         name: with form improvements
       secret: Secret Sauce jqGrid
@@ -353,7 +406,6 @@ en:
     tools: 
       name: jQuery TOOLS
       toolbox: 
-        name: Toolbox
         flashembed: 
           name: Flashembed
           demo06: Flashembed and Flowplayer
@@ -362,6 +414,7 @@ en:
           demo03: Loading Flash on mouse click
           demo04: Placing HTML on top of a Flash object
           demo05: Handling old Flash versions
+        name: Toolbox
         expose: 
           name: Expose
           demo01: Minimal setup for expose
@@ -448,8 +501,8 @@ en:
           demo11: Loading tab contents with AJAX
           demo01: Minimal setup for Tabs
           demo12: AJAX:ed tabs with History support
-          demo02: Naming the tabs
           demo13: Slideshow plugin for the Tabs
+          demo02: Naming the tabs
           demo03: 4 different skins with CSS
           demo04: Using mouseover to switch tabs
           demo05: Making Wizards with the Tabs
@@ -459,17 +512,17 @@ en:
       lazy: Lazy loading
       persist: Persistence
       default: Default options
-      api: Programming API
       quick: Init from JS object
+      dnd: "Dynatree: drag'n'drop"
       iframe: iframe and url navigation
       dnd2: "Dynatree: drag'n'drop 2"
-      dnd: "Dynatree: drag'n'drop"
-      dnd3: "jQuery UI: drag'n'drop"
+      api: Programming API
       events: Event handling
       minexpand: Fixed expand level
+      dnd3: "jQuery UI: drag'n'drop"
+      json: Init from external data
       form: Embed in forms
       effects: Effects
-      json: Init from external data
       contextmenu: Context menu, Copy/paste
       multiline: Large nodes
       select: Checkbox & select
@@ -481,14 +534,15 @@ en:
         crystal: Crystal
         aero: Aero
         aqua: Aqua
+    hello: Hello world
     ical: 
       name: iCalendar
       anytime: 
         name: Any+Time&trade;
         default: Default functionality
-        separate: Separate date and time
-        inline: Display inline
         css: Custom stylesheet
+        inline: Display inline
+        separate: Separate date and time
         ajax: Ajax Demo
         extend: Extending functionality
         convert: AnyTime.Converter
@@ -497,10 +551,10 @@ en:
         location: Location
         default: Event
         starts_at: Starts at
-        ends_at: Ends at
         listing: Listing events
-        summary: Summary
+        ends_at: Ends at
         description: Description
+        summary: Summary
         all_day: All-day event
       calendar: 
         new: New iCalendar
@@ -517,7 +571,6 @@ en:
         listing: Listing iCalendars
         show: Show iCalendar
         iphone: Show it on a iPhone
-    hello: Hello world
     ui: 
       name: jQuery UI
       utilities: 
@@ -532,17 +585,29 @@ en:
           default: Selectable
           display-grid: Display as grid
         default: Interactions
+        resizable: 
+          aspect-ratio: Preserve aspect ratio
+          snap-to-grid: Snap to grid
+          max-min: Maximum / minimum size
+          default: Resizable
+          animate: Animate
+          synchronous-resize: Synchronous resize
+          helper: Resize Helper
+          delay-start: Delay start
+          textarea: Textarea
+          constrain-area: Constrain resize area
+          visual-feedback: Visual feedback
         draggable: 
           snap-to: "Snap to element or\xC2\xA0grid"
           handle: Drag handle
           scroll: Auto-scroll
           default: Draggable
           sortable: Draggable + Sortable
-          constrain-movement: Constrain movement
           events: Events
+          constrain-movement: Constrain movement
           revert: Revert position
-          delay-start: Delay start
           cursor-style: Cursor style
+          delay-start: Delay start
           visual-feedback: Visual feedback
         sortable: 
           items: Include / exclude items
@@ -554,31 +619,19 @@ en:
           display-grid: Display as grid
           connect-lists: Connect lists
           placeholder: Drop placeholder
-        resizable: 
-          aspect-ratio: Preserve aspect ratio
-          snap-to-grid: Snap to grid
-          max-min: Maximum / minimum size
-          default: Resizable
-          animate: Animate
-          synchronous-resize: Synchronous resize
-          helper: Resize Helper
-          textarea: Textarea
-          delay-start: Delay start
-          constrain-area: Constrain resize area
-          visual-feedback: Visual feedback
         droppable: 
           default: Droppable
           propagation: Prevent propagation
           revert: Revert draggable position
           shopping-cart: Shopping cart
+          photo-manager: Simple photo manager
           visual-feedback: Visual feedback
           accepted-elements: Accepted elements
-          photo-manager: Simple photo manager
       widgets: 
         button: 
           default: Button
-          checkbox: Checkboxes
           radio: Radios
+          checkbox: Checkboxes
           icon: Icons
           toolbar: Toolbar
           splitbutton: Split button
@@ -590,15 +643,15 @@ en:
           slider-vertical: Vertical slider
           side-scroll: Simple scrollbar
           range-vertical: Vertical range slider
-          range: Range slider
           rangemax: Range with fixed maximum
-          hotelrooms: Room reservation
+          range: Range slider
           colorpicker: Simple colorpicker
-          rangemin: Range with fixed minimum
+          hotelrooms: Room reservation
           tabs: Slider controls tabs
+          rangemin: Range with fixed minimum
         panel: 
-          name: Draft Panel
           simple: Simple panel example
+          name: Draft Panel
           left: Slide left example
           right1: "Slide right example #1"
           right2: "Slide right example #2"
@@ -613,15 +666,11 @@ en:
           custom-icons2: "Style: <b>dropdown</b> languages with flag icons"
           default: "Style: <b>popup</b> (default)"
           icons: "Style: <b>popup</b> with framework icons"
-          optgroups: "Style: <b>popup</b> with optgroups"
           text-formatting: "Style: <b>popup</b> with option text formatting"
+          optgroups: "Style: <b>popup</b> with optgroups"
           menuwidth: "Style: <b>dropdown</b> with menuWidth and text formatting"
           custom-icons: "Style: <b>popup</b> with custom icon images"
           dropdown: "Style: <b>dropdown</b>"
-        progressbar: 
-          resize: Resizable progressbar
-          default: Progressbar
-          animated: Animated
         datepicker: 
           alt-field: Populate alternate field
           buttonbar: Display button bar
@@ -642,29 +691,25 @@ en:
           default: Accordion
           no-auto-height: No auto height
           sortable: Sortable
-          mouseover: Open on mouseover
           fillspace: Fill space
+          mouseover: Open on mouseover
           custom-icons: Customize icons
           collapsible: Collapse content
-        dialog: 
-          greybox: Greybox
-          default: Dialog
-          modal-confirmation: Modal confirmation
-          modal: Modal dialog
-          animated: Animated dialog
-          modal-form: Modal form
-          modal-message: Modal message
+        progressbar: 
+          resize: Resizable progressbar
+          default: Progressbar
+          animated: Animated
         autocomplete: 
           maxheight: Scrollable results
           default: Autocomplete
+          folding: Accent folding
           multiple-remote: Multiple, remote
           remote-jsonp: Remote JSONP datasource
-          folding: Accent folding
           custom-data: Custom data and display
           remote-with-cache: Remote with caching
           multiple: Multiple values
-          categories: Categories
           remote: Remote datasource
+          categories: Categories
           combobox: Combobox
           remote-xml: XML data parsed once
         tabs: 
@@ -676,6 +721,14 @@ en:
           mouseover: Open on mouseover
           cookie: Cookie persistence
           collapsible: Collapse content
+        dialog: 
+          greybox: Greybox
+          default: Dialog
+          modal-confirmation: Modal confirmation
+          modal: Modal dialog
+          animated: Animated dialog
+          modal-form: Modal form
+          modal-message: Modal message
       form: 
         new: New
         edit: Edit
@@ -717,63 +770,10 @@ en:
         header: 
           one: 1 error prohibited this {{model}} from being saved
           other: "{{count}} errors prohibited this {{model}} from being saved"
-  date: 
-    month_names: 
-    - 
-    - January
-    - February
-    - March
-    - April
-    - May
-    - June
-    - July
-    - August
-    - September
-    - October
-    - November
-    - December
-    order: 
-    - :year
-    - :month
-    - :day
-    abbr_day_names: 
-    - Sun
-    - Mon
-    - Tue
-    - Wed
-    - Thu
-    - Fri
-    - Sat
-    formats: 
-      default: "%Y-%m-%d"
-      short: "%b %d"
-      long: "%B %d, %Y"
-    day_names: 
-    - Sunday
-    - Monday
-    - Tuesday
-    - Wednesday
-    - Thursday
-    - Friday
-    - Saturday
-    abbr_month_names: 
-    - 
-    - Jan
-    - Feb
-    - Mar
-    - Apr
-    - May
-    - Jun
-    - Jul
-    - Aug
-    - Sep
-    - Oct
-    - Nov
-    - Dec
   support: 
     array: 
-      words_connector: ", "
       last_word_connector: ", and "
+      words_connector: ", "
       two_words_connector: " and "
     select: 
       prompt: Please select
@@ -801,18 +801,15 @@ en:
       less_than_x_minutes: 
         one: less than a minute
         other: less than {{count}} minutes
-      x_days: 
-        one: 1 day
-        other: "{{count}} days"
       almost_x_years: 
         one: almost 1 year
         other: almost {{count}} years
+      x_days: 
+        one: 1 day
+        other: "{{count}} days"
       x_seconds: 
         one: 1 second
         other: "{{count}} seconds"
-      about_x_hours: 
-        one: about 1 hour
-        other: about {{count}} hours
       less_than_x_seconds: 
         one: less than 1 second
         other: less than {{count}} seconds
@@ -822,6 +819,9 @@ en:
       x_minutes: 
         one: 1 minute
         other: "{{count}} minutes"
+      about_x_hours: 
+        one: about 1 hour
+        other: about {{count}} hours
       about_x_months: 
         one: about 1 month
         other: about {{count}} months

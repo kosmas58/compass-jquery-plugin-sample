@@ -4,12 +4,6 @@ activerecord:
     invheader: 
       invdate: Date
 txt: 
-  jst: 
-    contextmenu: Contextmenu
   jqgrid: 
     mine: 
-      contextmenu1: Functional example
-      contextmenu2: Data Manipulation
-      contextmenu: "Using a ContextMenu "
-  dt: 
-    contextmenu: Context menu, Copy/paste
+      treegrid: Treegrid using json
