@@ -1,0 +1,26 @@
+-@title = "#{t('txt.jqgrid.name')} #{t('txt.jqgrid.demo.name')} - #{t('txt.jqgrid.mine.treegrid')} - #{t('txt.jqgrid.demo.35real')}"
+.demo
+  %h3
+    =image_tag("icons/22x22/grid.png", :border => 0)
+    =@title
+  %center
+    %table#accounts_demo9905.scroll{ :cellspacing => "0", :cellpadding => "0" }
+    #accounts_demo9905_pager.scroll{ :style => "text-align:center;" }
+
+  / Definition of context menu
+  %ul#MenuJqGrid.contextMenu
+    %li
+      %a{:href => "#mark"}
+        Mark Childs
+    %li
+      %a{:href => "#unmark"}
+        Unmark Childs
+
+/ End demo
+.demo-description
+  %p
+    This is a real world example. Here we demonstrate a new feature of the formatter where the check box
+    can be edited. Point to column Enabled and right click a mouse. Mark or unmark child nodes. We achieve
+    this using the context menu plugin from Chris Domigan. Note: This will not work in Opera browsers,
+    since Opera does not support context menus.
+/ End demo-description

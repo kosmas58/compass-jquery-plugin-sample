@@ -341,7 +341,8 @@ en:
         name: Additional examples
         contextmenu1: Functional example
         contextmenu2: Data Manipulation
-        contextmenu: "Using a ContextMenu "
+        contextmenu: "Using a ContextMenu"
+        treegrid: Treegrids with json
       improvements: 
         name: with form improvements
       secret: Secret Sauce jqGrid

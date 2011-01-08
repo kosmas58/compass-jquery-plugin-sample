@@ -11,21 +11,20 @@ xml.accounts do
       xml.credit     u.credit
       xml.debit      u.debit
       xml.balance    u.balance
-      xml.enbl       rand(1) if u.demo == "demo1306"
+      xml.enbl       u.enbl if u.demo == "demo1306"
       
       # Treegrid data
-      xml.level      u.level
+      xml.level       u.level
+      xml.isLeaf      u.isLeaf
+      xml.expanded    u.expanded
       case u.style
-      when "adjacency"
-        xml.parent_id    "NULL" #u.parent_id
-        xml.cell         u.leaf
-      else
-        # Nested
-        xml.lft     u.lft
-        xml.rgt     u.rgt
-        xml.leaf    u.leaf
+        when "adjacency"
+          xml.parent_id    #u.parent_id
+        else
+          # Nested
+          xml.lft    u.lft
+          xml.rgt    u.rgt
       end
-      xml.cell    "false"
     end
   end
 end

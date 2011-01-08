@@ -21,6 +21,9 @@ date:
     short: "%b %d"
     long: "%B %d, %Y"
 txt: 
+  jqgrid: 
+    mine: 
+      treegrid: Treegrids with json
   tools: 
     form: 
       stylable: 
