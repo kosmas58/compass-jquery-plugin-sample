@@ -73,6 +73,10 @@ ActionController::Routing::Routes.draw do |map|
     jqgrid.resources :mine
   end
   
+  map.namespace :jqtouch do |jqtouch|
+    jqtouch.resources :demo => { :ajax_post => :post }  
+  end
+  
   map.namespace :ical do |ical|
     ical.resources :calendars,
                    :collection => { :iphone => :get } do |calendar|

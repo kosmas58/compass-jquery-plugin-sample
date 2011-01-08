@@ -1,0 +1,19 @@
+-@browser_title = "jQTouch &beta;"
+
+- content_for :content_head do
+  = render(:partial => "demo4.js.haml", :format => :js)
+
+#jqt
+  #home
+    .toolbar
+      %h1
+        Demo 4
+      %a.button.backRemote{ :href => "/jqtouch/demo", :target => "_webapp" }
+        MobiOne Demos
+    %center
+      %img{:alt => "Nextroot", :src => "/images/demo/touch/mobione/nextroot.png"}
+      %br
+      %span{:style => "font-family: Helvetica; font-size: 9pt;"} iPhone Drag n' Drop Demo
+    %img#leaf1.movable{:alt => "Leaf 1", :src => "/images/demo/touch/mobione/leaf1.png", :style => "position: absolute; left: 10px; top: 160px;"}
+    %img#leaf2.movable{:alt => "Leaf 2", :src => "/images/demo/touch/mobione/leaf2.png", :style => "position: absolute; left: 10px; top: 300px;"}
+    %img#leaf3.movable{:alt => "Leaf 3", :src => "/images/demo/touch/mobione/leaf3.png", :style => "position: absolute; left: 80px; top: 200px;"}

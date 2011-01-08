@@ -1,0 +1,25 @@
+-@browser_title = "jQTouch &beta;"
+
+- content_for :content_head do
+  = render(:partial => "demo2.js.haml", :format => :js)
+
+#jqt
+  #home
+    .toolbar
+      %h1
+        Demo 2
+      %a.button.backRemote{ :href => "/jqtouch/demo", :target => "_webapp" }
+        MobiOne Demos
+    #show 
+      %div#green
+      %div#blue
+      %div#red
+      %div#solid
+      %div#dashed
+      %div#dotted
+      %div#touchme
+      %p
+        Demo is for
+        %a{ :href => "https://www.sitepen.com/blog/?p=432", :target => "_blank" }
+          this SitePen article
+        ported from Dojo to jQTouch (jQuery)

@@ -1,0 +1,30 @@
+-@browser_title = "jQTouch &beta;"
+
+- content_for :content_head do
+  = render(:partial => "jqt.js.haml", :format => :js)
+
+#jqt
+  #page1.current
+    .toolbar
+      %h1
+        Auto Titles
+      %a.button.backRemote{ :href => "/jqtouch/demo", :target => "_webapp" } 
+        Home
+    %ul.edgetoedge
+      %li
+        %a{ :href => "#page2" }
+          Oranges
+      %li
+        %a{ :href => "#page2" }
+          Bananas
+      %li
+        %a{ :href => "#page2" }
+          Apples
+  #page2
+    .toolbar
+      %a.back{ :href => "#" }
+        Back
+      %h1
+        [Fruit Name]
+    .info
+      The title for this page was automatically set from it’s referring link, no extra scripts required. Just include the extension and this happens.

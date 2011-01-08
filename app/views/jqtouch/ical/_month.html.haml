@@ -1,0 +1,43 @@
+%div
+  %input#month{:type => "hidden", :value => "#{@month}"}
+  %input#year{:type => "hidden", :value => "#{@year}"}
+  %table{:cellspacing => "0"}
+    %thead
+      %tr
+        %th.goto-prevmonth
+          = t('date.abbr_day_names')[1]
+        %th
+          = t('date.abbr_day_names')[2]
+        %th
+          = t('date.abbr_day_names')[3]
+        %th
+          %span
+            = @monthName
+            = @year
+          = t('date.abbr_day_names')[4]
+        %th
+          = t('date.abbr_day_names')[5]
+        %th
+          = t('date.abbr_day_names')[6]
+        %th.goto-nextmonth
+          = t('date.abbr_day_names')[0]
+    %tfoot
+      %tr
+        %th{:colspan => "7"} &nbsp;
+    %tbody    
+      - @cal.each_with_index do |day, index|
+        - if index % 7 == 0
+          %tr          
+        %td{ :class => "#{@cal[index][:class]}"}
+          = @cal[index][:day]      
+          %input{:type => "hidden", :value => "#{@cal[index][:value]}"}
+
+.vertical-scroll.use-bottom-toolbar
+  %div
+    %ul.events
+%div
+%ul.bottom-bar
+  %li.bottom-bar-today
+  %li.bottom-bar-list 
+  %li.bottom-bar-day
+  %li.bottom-bar-month

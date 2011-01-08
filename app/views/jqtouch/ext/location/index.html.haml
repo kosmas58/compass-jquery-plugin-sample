@@ -1,0 +1,13 @@
+-@browser_title = "jQTouch &beta;"
+
+- content_for :content_head do
+  = render(:partial => "jqt.js.haml", :format => :js)
+
+#jqt
+  %div
+    .toolbar
+      %h1
+        Geo Location
+      %a.button.backRemote{ :href => "/jqtouch/demo", :target => "_webapp" } 
+        Home
+    .info
