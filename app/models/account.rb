@@ -11,47 +11,47 @@ class Account < ActiveRecord::Base
     
     list = params[:grid]
     case list
-    when "demo1102"
-      data = []
-      node.direct_children.each do |child|
-        child[:demo] = list
-        child[:style] = "nested"
-        if child[:rgt] == child[:lft]+1
-          child[:leaf] = true
-        else
-          child[:leaf] = false
+      when "demo1102"
+        data = []
+        node.direct_children.each do |child|
+          child[:demo] = list
+          child[:style] = "nested"
+          if child[:rgt] == child[:lft]+1
+            child[:leaf] = true
+          else
+            child[:leaf] = false
+          end
+          data << child
         end
-        data << child
-      end
-      return data 
-    when "demo1206"
-      data = []
-      node.children.each do |child|
-        child[:demo] = list
-        child[:style] = "adjacency"
-        if child.children.size > 0
-          child[:leaf] = false
-        else
-          child[:leaf] = true
+        return data 
+      when "demo1206"
+        data = []
+        node.children.each do |child|
+          child[:demo] = list
+          child[:style] = "adjacency"
+          if child.children.size > 0
+            child[:leaf] = false
+          else
+            child[:leaf] = true
+          end
+          data << child
         end
-        data << child
-      end
-      return data 
-    when "demo1306"
-      data = []
-      node.all_children.each do |child|
-        child[:demo] = list
-        child[:style] = "nested"
-        if child[:rgt] == child[:lft]+1
-          child[:leaf] = true
-        else
-          child[:leaf] = false
+        return data 
+      when "demo1306"
+        data = []
+        node.all_children.each do |child|
+          child[:demo] = list
+          child[:style] = "nested"
+          if child[:rgt] == child[:lft]+1
+            child[:leaf] = true
+          else
+            child[:leaf] = false
+          end
+          data << child
         end
-        data << child
-      end
-      return data 
-    else
-      raise ArgumentError, "Invalid example '#{list}' for treegrid"
+        return data 
+      else
+        raise ArgumentError, "Invalid example '#{list}' for treegrid"
     end
   end
 
