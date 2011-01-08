@@ -33,8 +33,16 @@ class Jqgrid::DemoController < ApplicationController
         elsif @object.grid(@mylist).tree_grid
           @data = @object.find_for_treegrid(params)
           case @datatype
-            when :json
-              render :json => @object.grid(@mylist).encode_records(@data, @userdata)
+            when :json 
+              rows = []
+              @data.each do |row|
+                rows << row.attributes
+              end
+              data = { :accounts      => rows,
+                       :page          => 1, 
+                       :total_pages   => 1, 
+                       :total_records => 1 }
+              render  :json => data.to_json
             when :xml
               render :partial => "#{@model.downcase}.xml.builder", :layout => false
           end
