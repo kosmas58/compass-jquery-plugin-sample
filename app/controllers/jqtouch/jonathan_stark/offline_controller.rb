@@ -36,7 +36,7 @@ class Jqtouch::JonathanStark::OfflineController < ApplicationController
                 "javascripts/locales.js\n" +
                 "javascripts/commons.js\n\n" +
                 "FALLBACK:\n" +
-                "images/demo/jqtouch/jonathan_stark/offline.jpg\n\n" +
+                "/images/demo/touch/jonathan_stark/offline.jpg\n\n" +
                 "NETWORK:\n/"
                
     headers['Content-Type'] = 'text/cache-manifest'
