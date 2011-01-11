@@ -32,7 +32,7 @@
     %p
       %strong See that "back" button?
       The framework automatically generates a "back" button on every page, to simplify the process of including this common navigation element. To prevent the back button from being added to a header, either add your own button to the left slot (see below) or, add this attribute:
-      %code data-nobackbtn="true"
+      %code data-backbtn="false"
       to the header container.
       %h2 Adding buttons
       %p
@@ -82,7 +82,7 @@
         to the anchor.
       %p
         In this example, we're adding only a single button to the right slot so the
-        %code data-nobackbtn="true"
+        %code data-backbtn="false"
         needs to be added to the header container to suppress the automatic Back button behavior and the button needs the
         %code ui-btn-right
         class on the link.
@@ -90,11 +90,11 @@
         %pre
           %code
             :preserve
-              &lt;div data-role=&quot;header&quot; data-position=&quot;inline&quot; data-nobackbtn=&quot;true&quot;&gt;
+              &lt;div data-role=&quot;header&quot; data-position=&quot;inline&quot; data-backbtn=&quot;false&quot;&gt;
                 &lt;h1&gt;Page Title&lt;/h1&gt;
                 &lt;a href=&quot;index.html&quot; data-icon=&quot;gear&quot; class=&quot;ui-btn-right&quot;&gt;Options&lt;/a&gt;
               &lt;/div&gt;
-      %div{"data-nobackbtn" => "true", "data-position" => "inline", "data-role" => "header"}
+      %div{"data-backbtn" => "false", "data-position" => "inline", "data-role" => "header"}
         %h1 Page Title
         %a.ui-btn-right{"data-icon" => "gear", :href => "/mobile/docs/toolbars"} Options
       %h2 Customizing the back button text
