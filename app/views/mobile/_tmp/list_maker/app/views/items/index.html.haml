@@ -1,0 +1,10 @@
+- title "Grocery List"
+= form_for Item.new do |f|
+  %p
+    = f.text_field :name
+    = f.submit "Add"
+%script#item_template{:type => "text/html"}
+  %li ${item.name}
+%ol#items
+  %li
+    %em Loading items...

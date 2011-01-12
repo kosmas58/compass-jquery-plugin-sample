@@ -1,0 +1,9 @@
+-@title = "jQuery Mobile Framework - Grocery List"
+-@manifest = "list_maker/manifest"
+
+- content_for :content_head do
+  = render(:partial => "index.js.haml", :format => :js)
+
+#start{"data-role" => "page", "data-theme" => "a"}
+  %div{"data-role" => "header", "data-theme" => "a"}
+    %h1 Grocery List

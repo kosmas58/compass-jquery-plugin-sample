@@ -21,6 +21,7 @@ group :development do
   gem "win32-open3", :platforms => :mswin
   # bundler requires these gems in development
   # gem "rails-footnotes"
+  gem "ruby_parser"
 end
 
 group :test do
