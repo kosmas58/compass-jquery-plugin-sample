@@ -9,7 +9,8 @@
     = stylesheet_link_tag :jqt_jqt
     = javascript_include_tag :jqtouch
     = javascript_include_tag :jhaml
-    = javascript_include_tag 'multitouch-fake', 'i18n', 'locales'
+    = javascript_include_tag 'multitouch-fake'
+    = javascript_include_tag 'i18n', 'locales'
     = render(:partial => "shared/locale.js.haml", :format => :js)
     = javascript_include_tag 'common'
     = javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery?
