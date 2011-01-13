@@ -5,5 +5,14 @@
   = render(:partial => "index.js.haml", :format => :js)
 
 #start{"data-role" => "page", "data-theme" => "a"}
-  %div{"data-role" => "header", "data-theme" => "a"}
+  %div{"data-role" => "header"}
     %h1 Grocery List
+    
+  / /header
+  %div{"data-role" => "content"}
+    %form{:action => "/mobile/docs/forms/forms_sample_response", :method => "get"}
+      %fieldset
+       
+        %button{:type => "submit", :name => "submit", :value => "submit-value"} Submit
+  / /content
+/ / page
