@@ -5,16 +5,15 @@ class Mobile::Experiments::ListMakerController < ApplicationController
   
   def manifest
     manifest = "CACHE MANIFEST\n\n" +
-               "mobile/experiments/list_maker\n" +
-               "stylesheets/compiled/jquery/mobile/default.css\n" +
-               "javascripts/jquery.min.js\n" +
-               "javascripts/jquery.tmpl.min.js\n" +
-               "javascripts/jquery.mobile.min.js\n" +
-               "javascripts/jquery.offline.min.js\n" +
-               "javascripts/json.min.js\n" +
-               "javascripts/locales.js\n" +
-               "javascripts/common.js\n\n" +
-               "NETWORK:\n/"
+               "/mobile/experiments/list_maker\n" +
+               "/stylesheets/compiled/jquery/mobile/default.css\n" +
+               "/javascripts/jquery.min.js\n" +
+               "/javascripts/jquery.tmpl.min.js\n" +
+               "/javascripts/jquery.mobile.min.js\n" +
+               "/javascripts/jquery.offline.min.js\n" +
+               "/javascripts/json.min.js\n" +
+               "/javascripts/locales.js\n" +
+               "/javascripts/common.js\n\n"
     headers['Content-Type'] = 'text/cache-manifest'
     render :text => manifest, :layout => false
   end
@@ -30,7 +29,7 @@ class Mobile::Experiments::ListMakerController < ApplicationController
   end
 
   def create
-    Item.create!(params[:item])
-    redirect_to list_maker_url
+    ListItem.create!(:name => params[:name])
+    redirect_to :action => "index"
   end
 end
