@@ -10,6 +10,7 @@
       $.retrieveJSON("/mobile/experiments/list_maker?format=json", function(data) {
         var pendingItems = $.parseJSON(localStorage["pendingItems"]);
         $("#items").html($("#item_template").tmpl(data.concat(pendingItems)));
+        //$("#item_template").tmpl(data.concat(pendingItems).appendTo("#items");
       });
       $("#new_item").submit(function(e) {
         var pendingItems = $.parseJSON(localStorage["pendingItems"]);
@@ -26,7 +27,7 @@
           var pendingItems = $.parseJSON(localStorage["pendingItems"]);
           if (pendingItems.length > 0) {
             var item = pendingItems[0];
-            $.post("/items", item.data, function(data) {
+            $.post("/mobile/experiments/list_maker", item.data, function(data) {
               var pendingItems = $.parseJSON(localStorage["pendingItems"]);
               pendingItems.shift();
               localStorage["pendingItems"] = JSON.stringify(pendingItems)

@@ -5,7 +5,7 @@ class Mobile::Experiments::ListMakerController < ApplicationController
   
   def manifest
     manifest = "CACHE MANIFEST\n\n" +
-               "/mobile/experiments/list_maker\n" +
+               #"/mobile/experiments/list_maker\n" +
                "/stylesheets/compiled/jquery/mobile/default.css\n" +
                "/javascripts/jquery.min.js\n" +
                "/javascripts/jquery.tmpl.min.js\n" +
@@ -21,8 +21,8 @@ class Mobile::Experiments::ListMakerController < ApplicationController
   def index
     @items = ListItem.all
     respond_to do |format|
-      format.html
-      format.json do
+      format.html 
+      format.json do 
         render :json => @items
       end
     end
@@ -30,6 +30,6 @@ class Mobile::Experiments::ListMakerController < ApplicationController
 
   def create
     ListItem.create!(:name => params[:name])
-    redirect_to :action => "index"
+    redirect_to :action => :index
   end
 end

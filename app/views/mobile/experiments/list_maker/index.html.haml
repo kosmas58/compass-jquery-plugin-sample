@@ -1,24 +1,25 @@
 -@title = "jQuery Mobile Framework - Grocery List"
 -@manifest = "/manifest"
+-#@manifest = "/mobile/experiments/list_maker/manifest"
 
 - content_for :content_head do
   = render(:partial => "index.js.haml", :format => :js)
 
 #start{"data-role" => "page", "data-theme" => "a"}
   %script#item_template{:type => "text/x-jquery-tmpl"}
-    %li ${item.name}
+    %li ${list_item.name}
 
   %div{"data-backbtn" => "false", "data-role" => "header"}
     %h1 Grocery List
   / /header
-  %div{"data-role" => "content"}
+  %div{"data-role" => "content", "data-theme" => "a"}
     %form{:action => :create, :method => :post}
       %fieldset
         %div{"data-role" => "fieldcontain"}
           %label{:for => "name"} Name:
           %input#name{:name => "name", :type => "text", :value => ""}
           %button#new_item{"data-inline" => "true", :type => "submit", :name => "submit", :value => "submit-value"} Submit
-    %ol#items{"data-role" => "listview", "data-theme" => "a"}
+    %ol#items{"data-inset"=> "true", "data-role" => "listview", "data-theme" => "a"}
       %li Loading items...
   / /content
 / / page
