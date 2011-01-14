@@ -4,8 +4,10 @@ class Mobile::Experiments::ListMakerController < ApplicationController
   protect_from_forgery
   
   def manifest
+    
+# Hash: 5c8871e730bd6ab735c97f4b5ccca581
     manifest = "CACHE MANIFEST\n\n" +
-               #"/mobile/experiments/list_maker\n" +
+               "/mobile/experiments/list_maker\n" +
                "/stylesheets/compiled/jquery/mobile/default.css\n" +
                "/javascripts/jquery.min.js\n" +
                "/javascripts/jquery.tmpl.min.js\n" +
@@ -30,6 +32,6 @@ class Mobile::Experiments::ListMakerController < ApplicationController
 
   def create
     ListItem.create!(:name => params[:name])
-    redirect_to :action => :index
+    render :action => :index
   end
 end

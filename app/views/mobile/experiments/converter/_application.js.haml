@@ -12,7 +12,7 @@
     
     function list() {
       var ul = $( "#conversions" ).empty(),
-        ulEdit = $( "#edit-conversions" ).empty();
+          ulEdit = $( "#edit-conversions" ).empty();
       $.each( all, function( index, conversion ) {
         // if last update was less then a minute ago, don't update
         if ( conversion.type === "currency" && !conversion.rate || conversion.updated && conversion.updated + 60000 < +new Date) {

@@ -5,19 +5,6 @@
   = render(:partial => "index.js.haml", :format => :js)
 
 #start{"data-role" => "page", "data-theme" => "a"}
-  %script#conversion-field{:type => "text/x-jquery-tmpl"}
-    %li
-      %p.currency-from
-        ${$item.symbols[from]}
-        %span.unit ${from}
-      %p.currency-to.ui-li-aside
-        ${$item.symbols[to]}
-        %span.rate{:id => "${from}${to}"} NaN
-        %span.unit ${to}
-  %script#conversion-edit-field{:type => "text/x-jquery-tmpl"}
-    %li
-      %label.ui-input-text{:class => "conversion-${type}", :for => "${from}${to}", :title => "From ${from} to ${to}"} ${$item.symbols[from]} to ${$item.symbols[to]}
-      %a.deletebutton.ui-aux{:href => "#"} Delete
   %div{"data-role" => "header", "data-theme" => "e"}
     %a.ui-btn-right{"data-icon" => "gear", "data-rel" => "dialog", "data-transition" => "pop", :href => "#customize"} Edit
     %h1 Currency converter
