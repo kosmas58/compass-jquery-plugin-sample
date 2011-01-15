@@ -9,10 +9,15 @@
     %a.ui-btn-right{"data-icon" => "plus", "data-rel" => "dialog", "data-transition" => "pop", :href => "#add_item"} Add item
     %h1 Offline Shopping List
   %div{"data-role" => "content", "data-theme" => "a"}
-    %ol#items{"data-inset"=> "true", "data-role" => "listview", "data-theme" => "a"}
-      %li
-        %em
-          Loading items...
+    %ol#itemss{"data-inset"=> "true", "data-role" => "listview", "data-theme" => "a"}
+      - if @items.empty?
+        %li
+          %em
+            Loading items...
+      - else
+        - @items.each do |item|
+          %li
+            = item.name
 #add_item{"data-role" => "page", "data-theme" => "a"}
   %div{"data-backbtn" => "false", "data-role" => "header", "data-theme" => "a"}
     %h1 Add item to list
@@ -22,6 +27,6 @@
         %div{"data-role" => "fieldcontain"}
           %label{:for => "name"} Name:
           %input#name{:name => "name", :type => "text", :value => ""}
-          %button#new_item{:type => "submit", "data-theme" => "b", :name => "submit", :value => "submit-value"} Submit
+          %button#new_item{:type => "submit", "data-theme" => "b", "data-transition" => "pop", :name => "submit", :value => "submit-value"} Submit
   
   

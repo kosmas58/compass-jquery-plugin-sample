@@ -9,9 +9,9 @@
 :javascript
   $(function() {
     if ($.support.localStorage) {
-      $(window.applicationCache).bind("error", function() {
-        console.log("There was an error when loading the cache manifest.");
-      });
+      //$(window.applicationCache).bind("error", function() {
+      //  console.log("There was an error when loading the cache manifest.");
+      //});
       if (!localStorage["pendingItems"]) {
         localStorage["pendingItems"] = JSON.stringify([]);
       }
