@@ -3,24 +3,16 @@ class Mobile::Experiments::ListMakerController < ApplicationController
 
   protect_from_forgery
   
-  def manifest
-    
-# Hash: 5c8871e730bd6ab735c97f4b5ccca581
-    manifest = "CACHE MANIFEST\n\n" +
-               "/mobile/experiments/list_maker\n" +
-               "/stylesheets/compiled/jquery/mobile/default.css\n" +
-               "/javascripts/jquery.min.js\n" +
-               "/javascripts/jquery.tmpl.min.js\n" +
-               "/javascripts/jquery.mobile.min.js\n" +
-               "/javascripts/jquery.offline.min.js\n" +
-               "/javascripts/json.min.js\n" +
-               "/javascripts/locales.js\n" +
-               "/javascripts/common.js\n\n"
-    headers['Content-Type'] = 'text/cache-manifest'
-    render :text => manifest, :layout => false
-  end
-  
   def index
+    refresh_list()
+  end
+
+  def create
+    ListItem.create!(:name => params[:name])
+    refresh_list()
+  end
+
+  def refresh_list
     @items = ListItem.all
     respond_to do |format|
       format.html 
@@ -30,8 +22,4 @@ class Mobile::Experiments::ListMakerController < ApplicationController
     end
   end
 
-  def create
-    ListItem.create!(:name => params[:name])
-    render :action => :index
-  end
 end
