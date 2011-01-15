@@ -4,15 +4,6 @@ class Mobile::Experiments::ListMakerController < ApplicationController
   protect_from_forgery
   
   def index
-    refresh_list()
-  end
-
-  def create
-    ListItem.create!(:name => params[:name])
-    refresh_list()
-  end
-
-  def refresh_list
     @items = ListItem.all
     respond_to do |format|
       format.html 
@@ -22,4 +13,8 @@ class Mobile::Experiments::ListMakerController < ApplicationController
     end
   end
 
+  def create
+    ListItem.create!(:name => params[:name])
+    redirect_to "/mobile/experiments/list_maker"
+  end
 end

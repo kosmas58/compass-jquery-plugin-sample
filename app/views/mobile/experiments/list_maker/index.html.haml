@@ -6,18 +6,22 @@
 
 #start{"data-role" => "page", "data-theme" => "a"}
   %div{"data-backbtn" => "false", "data-role" => "header"}
-    %h1 Grocery List
-  / /header
+    %a.ui-btn-right{"data-icon" => "plus", "data-rel" => "dialog", "data-transition" => "pop", :href => "#add_item"} Add item
+    %h1 Offline Shopping List
+  %div{"data-role" => "content", "data-theme" => "a"}
+    %ol#items{"data-inset"=> "true", "data-role" => "listview", "data-theme" => "a"}
+      %li
+        %em
+          Loading items...
+#add_item{"data-role" => "page", "data-theme" => "a"}
+  %div{"data-backbtn" => "false", "data-role" => "header", "data-theme" => "a"}
+    %h1 Add item to list
   %div{"data-role" => "content", "data-theme" => "a"}
     %form{:action => :create, :method => :post}
       %fieldset
         %div{"data-role" => "fieldcontain"}
           %label{:for => "name"} Name:
           %input#name{:name => "name", :type => "text", :value => ""}
-          %button#new_item{"data-inline" => "true", :type => "submit", :name => "submit", :value => "submit-value"} Submit
-    %ol#items{"data-inset"=> "true", "data-role" => "listview", "data-theme" => "a"}
-      %li
-        %em
-          Loading items...
-  / /content
-/ / page
+          %button#new_item{:type => "submit", "data-theme" => "b", :name => "submit", :value => "submit-value"} Submit
+  
+  
