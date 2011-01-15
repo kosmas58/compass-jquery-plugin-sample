@@ -22,11 +22,11 @@
   %div{"data-backbtn" => "false", "data-role" => "header", "data-theme" => "a"}
     %h1 Add item to list
   %div{"data-role" => "content", "data-theme" => "a"}
-    %form{:action => :create, :method => :post}
+    %form{:action => :create, :method => :post, :format => :json}
       %fieldset
         %div{"data-role" => "fieldcontain"}
           %label{:for => "name"} Name:
           %input#name{:name => "name", :type => "text", :value => ""}
-          %button#new_item{:type => "submit", "data-theme" => "b", "data-transition" => "pop", :name => "submit", :value => "submit-value"} Submit
+          %button#new_item{:type => "submit", "data-theme" => "b"} Submit
   
   

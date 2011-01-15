@@ -14,8 +14,7 @@ class Mobile::Experiments::ListMakerController < ApplicationController
   end
 
   def create
-    ListItem.create!(:name => params[:name]) if params[:name]
-    @items = ListItem.all
-    render :json => @items
+    ListItem.create!(:name => params[:name]) if !params[:name].blank?
+    redirect_to :action => :index
   end
 end
