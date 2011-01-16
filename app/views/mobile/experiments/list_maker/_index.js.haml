@@ -9,12 +9,11 @@
 
 %script#item_template{:type => "text/x-jquery-tmpl"}
   %li
-    //if ( ${list_item.checked} )
-    %img#box.ui-icon-checkbox-on{ :src => "/images/demo/empty.png", :alt => "checked" }
-    %a#item{ :value => "${list_item.id}", :href => "#", :checked => 1 }
+    %img#box.ui-icon-checkbox-off{ :src => "/images/demo/empty.png" }
+    %a#item{ :value => "${list_item.id}", :href => "#" }
       ${list_item.name}
-    %a{"data-rel" => "dialog", "data-transition" => "slideup", :href => "#delete_item"} Delete item
-
+    %a{"data-rel" => "dialog", "data-transition" => "slideup", :href => "#delete_item"}
+      Delete item
 
 :javascript
   $(function() {
@@ -63,7 +62,6 @@
   
   $(document).ready(function() {
     $("#item").live('click', function(){
-      var checked = $(this).attr("checked");
       var item = $(this).attr("value");
       if (checked == "1") {
         $(this).attr("checked", "0");

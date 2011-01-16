@@ -18,13 +18,11 @@
         - @items.each do |item|
           %li
             -if item.checked
-              %img#box.ui-icon-checkbox-on{ :src => "/images/demo/empty.png", :alt => "checked" }
-              %a#item{ :value => item.id, :href => "#", :checked => 1 }
-                = item.name
+              %img#box.ui-icon-checkbox-off.ui-icon-checkbox-on{ :src => "/images/demo/empty.png" }
             -else
-              %img#box.ui-icon-checkbox-of{ :src => "/images/demo/empty.png", :alt => "unchecked" }
-              %a#item{ :value => item.id, :href => "#", :checked => 0 }
-                = item.name
+              %img#box.ui-icon-checkbox-off{ :src => "/images/demo/empty.png" }
+            %a#item{ :value => item.id, :href => "#" }
+              = item.name
             %a{"data-rel" => "dialog", "data-transition" => "slideup", :href => "#delete_item"} Delete item
 #add_item{"data-role" => "page", "data-theme" => "a"}
   %div{"data-backbtn" => "false", "data-role" => "header", "data-theme" => "a"}
@@ -41,9 +39,5 @@
     %h1 Delete item from list
   %div{"data-role" => "content", "data-theme" => "a"}
     %form{:action => :destroy, :method => :delete, :format => :json}
-      %fieldset
-        %div{"data-role" => "fieldcontain"}
-          %label{:for => "name"} Name:
-          %button#destroy_item{:type => "submit", "data-theme" => "b"} Delete
   
   
