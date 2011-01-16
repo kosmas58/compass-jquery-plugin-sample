@@ -9,13 +9,13 @@
     });
   });
   
-  jQuery.fn.hashValue = function() {
+  $.fn.hashValue = function() {
     var href = this.attr('href');
     alert(href);
     return href ? href.replace(/^.*#/, '') : href;
   }
   
-  jQuery(document).ready(function($) {
+  $(document).ready(function($) {
     // ----- Model ----
     var Model = {
       pages: [],

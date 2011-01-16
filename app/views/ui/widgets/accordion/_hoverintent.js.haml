@@ -6,10 +6,10 @@
   	
   $.event.special.hoverintent = {
   	setup: function() {
-  		$(this).bind("mouseover", jQuery.event.special.hoverintent.handler);
+  		$(this).bind("mouseover", $.event.special.hoverintent.handler);
   	},
   	teardown: function() {
-  		$(this).unbind("mouseover", jQuery.event.special.hoverintent.handler);
+  		$(this).unbind("mouseover", $.event.special.hoverintent.handler);
   	},
   	handler: function(event) {
   		event.type = "hoverintent";
@@ -31,7 +31,7 @@
   		function handler() {
   			if ( ( Math.abs(pX-cX) + Math.abs(pY-cY) ) < cfg.sensitivity ) {
   				clear();
-  				jQuery.event.handle.apply(self, args);
+  				$.event.handle.apply(self, args);
   			} else {
   				pX = cX; pY = cY;
   				timeout = setTimeout(handler, cfg.interval);

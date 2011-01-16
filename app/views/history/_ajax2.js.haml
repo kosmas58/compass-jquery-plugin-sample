@@ -9,7 +9,7 @@
     });
   });
   
-  jQuery(document).ready(function($) {
+  $(document).ready(function($) {
     $(".pager") .live('click', function() {
       $("#tabs").tabs("select", eval($(this).val()));
     });

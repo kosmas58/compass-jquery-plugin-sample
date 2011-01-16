@@ -1,26 +1,35 @@
 %link{:href => "/images/demo/mobile/list-maker-icon.png", :rel => "apple-touch-icon"}/
 
+:css
+  .ui-li-has-thumb .ui-btn-inner { min-height: 1em; padding-left: 0.5em; }
+  .ui-li-thumb { position: relative; }
+  #box { background-repeat: no-repeat; background-clip: none; width: 23px; border: 0px; }
+
 = javascript_include_tag :tmpl, :offline
 
 %script#item_template{:type => "text/x-jquery-tmpl"}
   %li
-    ${list_item.name}
+    //if ( ${list_item.checked} )
+    %img#box.ui-icon-checkbox-on{ :src => "/images/demo/empty.png", :alt => "checked" }
+    %a#item{ :value => "${list_item.id}", :href => "#", :checked => 1 }
+      ${list_item.name}
+    %a{"data-rel" => "dialog", "data-transition" => "slideup", :href => "#delete_item"} Delete item
+
 
 :javascript
   $(function() {
     if ($.support.localStorage) {
-      //$(window.applicationCache).bind("error", function() {
-      //  console.log("There was an error when loading the cache manifest.");
-      //});
+      $(window.applicationCache).bind("error", function() {
+        console.log("There was an error when loading the cache manifest.");
+      });
       if (!localStorage["pendingItems"]) {
         localStorage["pendingItems"] = JSON.stringify([]);
       }
       $.retrieveJSON("/mobile/experiments/list_maker?format=json", function(data) {
         var pendingItems = $.parseJSON(localStorage["pendingItems"]);
         $("#items").html($("#item_template").tmpl(data.concat(pendingItems))).listview("refresh");
-        //$("#items").listview("refresh");
       });
-      $("#new_item").submit(function(e) {
+      $("#create_item").submit(function(e) {
         var pendingItems = $.parseJSON(localStorage["pendingItems"]);
         var item = {"data":$(this).serialize(), "item":{"name":$("#item_name").val()}};
         $("#item_template").tmpl(item).appendTo("#items");
@@ -49,5 +58,20 @@
       $(window).bind("online", sendPending);
     } else {
       alert("Try a different browser.");
-    }
+    };
+  });
+  
+  $(document).ready(function() {
+    $("#item").live('click', function(){
+      var checked = $(this).attr("checked");
+      var item = $(this).attr("value");
+      if (checked == "1") {
+        $(this).attr("checked", "0");
+        alert("Item " + item + " unchecked.");
+      }
+      else{
+        $(this).attr("checked", "1");
+        alert("Item " + item + " checked.");
+      }
+    });
   });

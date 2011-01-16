@@ -93,14 +93,14 @@
 
 :javascript
   // t: current time, b: begInnIng value, c: change In value, d: duration
-  jQuery.easing['jswing'] = jQuery.easing['swing'];
+  $.easing['jswing'] = $.easing['swing'];
   
-  jQuery.extend( jQuery.easing,
+  $.extend( $.easing,
   {
     def: 'easeOutQuad',
     swing: function (x, t, b, c, d) {
       //alert(jQuery.easing.default);
-      return jQuery.easing[jQuery.easing.def](x, t, b, c, d);
+      return $.easing[$.easing.def](x, t, b, c, d);
     },
     easeInQuad: function (x, t, b, c, d) {
       return c*(t/=d)*t + b;
@@ -209,7 +209,7 @@
       return c/2*((t-=2)*t*(((s*=(1.525))+1)*t + s) + 2) + b;
     },
     easeInBounce: function (x, t, b, c, d) {
-      return c - jQuery.easing.easeOutBounce (x, d-t, 0, c, d) + b;
+      return c - $.easing.easeOutBounce (x, d-t, 0, c, d) + b;
     },
     easeOutBounce: function (x, t, b, c, d) {
       if ((t/=d) < (1/2.75)) {
@@ -223,14 +223,14 @@
       }
     },
     easeInOutBounce: function (x, t, b, c, d) {
-      if (t < d/2) return jQuery.easing.easeInBounce (x, t*2, 0, c, d) * .5 + b;
-      return jQuery.easing.easeOutBounce (x, t*2-d, 0, c, d) * .5 + c*.5 + b;
+      if (t < d/2) return $.easing.easeInBounce (x, t*2, 0, c, d) * .5 + b;
+      return $.easing.easeOutBounce (x, t*2-d, 0, c, d) * .5 + c*.5 + b;
     }
   });
   
   (function($,window,document,undefined){
   
-  jQuery.widget( "mobile.scrollview", jQuery.mobile.widget, {
+  $.widget( "mobile.scrollview", $.mobile.widget, {
     options: {
       fps:         60,  // Frames per second in msecs.
       direction:     null,  // "vertical", "horizontal", or null for both.
@@ -728,7 +728,7 @@
     getPosition: function(){ return this.pos; }
   });
   
-  jQuery.widget( "mobile.scrolllistview", jQuery.mobile.scrollview, {
+  $.widget( "mobile.scrolllistview", $.mobile.scrollview, {
     options: {
       direction: "vertical"
     },

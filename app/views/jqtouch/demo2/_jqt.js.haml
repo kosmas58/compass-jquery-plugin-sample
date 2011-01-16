@@ -206,9 +206,9 @@
   {
     var url = "http://api.flickr.com/services/rest/?method=flickr.interestingness.getList&api_key=60746a125b4a901f2dbb6fc902d9a716&per_page=20&format=json&jsoncallback=?";
     
-    jQuery.getJSON(url, function(data) 
+    $.getJSON(url, function(data) 
     {
-      var images = jQuery.map(data.photos.photo, function (item) {
+      var images = $.map(data.photos.photo, function (item) {
           return 'http://farm' + item.farm + '.static.flickr.com/' + item.server + '/' + item.id + '_' + item.secret + '_m.jpg';
       });    
       callback(images);
