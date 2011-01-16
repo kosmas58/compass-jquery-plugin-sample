@@ -16,18 +16,38 @@
       Delete item
 
 :javascript
+  function updateItem(id, myChecked){
+    $.ajax({
+      type:'PUT',
+      url:'/mobile/experiments/list_items/'+id,
+      data: { 
+              authenticity_token: "#{form_authenticity_token}",
+              list_item : { checked : myChecked }
+            }, 
+      dataType:"json"//,
+      //timeout: 1000,
+      //success: function(response, status) {
+                 //createTimeEvent(response.time_event);
+      //         },
+      //error: function() {
+      //
+      //       }
+    });
+  };
+  
   $(function() {
     if ($.support.localStorage) {
-      $(window.applicationCache).bind("error", function() {
-        console.log("There was an error when loading the cache manifest.");
-      });
+      //$(window.applicationCache).bind("error", function() {
+      //  console.log("There was an error when loading the cache manifest.");
+      //});
       if (!localStorage["pendingItems"]) {
         localStorage["pendingItems"] = JSON.stringify([]);
       }
-      $.retrieveJSON("/mobile/experiments/list_maker?format=json", function(data) {
+      $.retrieveJSON("/mobile/experiments/list_items?format=json", function(data) {
         var pendingItems = $.parseJSON(localStorage["pendingItems"]);
         $("#items").html($("#item_template").tmpl(data.concat(pendingItems))).listview("refresh");
       });
+      
       $("#create_item").submit(function(e) {
         var pendingItems = $.parseJSON(localStorage["pendingItems"]);
         var item = {"data":$(this).serialize(), "item":{"name":$("#item_name").val()}};
@@ -39,12 +59,14 @@
         sendPending();
         e.preventDefault();
       });
+      
+      
       function sendPending() {
         if (window.navigator.onLine) {
           var pendingItems = $.parseJSON(localStorage["pendingItems"]);
           if (pendingItems.length > 0) {
             var item = pendingItems[0];
-            $.post("/mobile/experiments/list_maker", item.data, function(data) {
+            $.post("/mobile/experiments/list_items", item.data, function(data) {
               var pendingItems = $.parseJSON(localStorage["pendingItems"]);
               pendingItems.shift();
               localStorage["pendingItems"] = JSON.stringify(pendingItems)
@@ -66,9 +88,11 @@
       var box = $(this).parent().children("#box");
       if (box.hasClass("ui-icon-checkbox-on")) {
         box.removeClass("ui-icon-checkbox-on");
+        updateItem(item, false);
       }
       else {
         box.addClass("ui-icon-checkbox-on");
+        updateItem(item, true);
       }
     });
   });
