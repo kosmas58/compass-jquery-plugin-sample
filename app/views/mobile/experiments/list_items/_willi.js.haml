@@ -1,0 +1,20 @@
+  function NewMessage(text) {
+    $('#messages').html(text);
+    $('#messages').trigger('change');
+  }
+  
+  function refreshMessages() {
+    var ct = new Date();
+    // Go back 30 Seconds
+    ct.setSeconds(ct.getSeconds()-30);
+    $.ajax({
+       method: 'get',
+       url : '/rss/reader/messages?format=json&date="' + ct.format("Y/m/d H:i:s") +'"',
+       dataType : 'text',
+       success: NewMessage
+       //success: function (text) { $('#messages').html(text); }
+    });  
+  }
+  
+  $(document).ready(function() {
+    var holdTheInterval = setInterval(refreshMessages, 30000);

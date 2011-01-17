@@ -78,8 +78,8 @@ ActionController::Routing::Routes.draw do |map|
   end
   
   map.namespace :mobile do |mobile|
-    map.namespace :experiments do |exp|
-      exp.resources :list_items
+    mobile.namespace :experiments do |experiment|
+      experiment.resources :list_items
     end
   end
   

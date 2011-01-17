@@ -12,17 +12,61 @@
     %img#box.ui-icon-checkbox-off{ :src => "/images/demo/empty.png" }
     %a#item{ :value => "${list_item.id}", :href => "#" }
       ${list_item.name}
-    %a{"data-rel" => "dialog", "data-transition" => "slideup", :href => "#delete_item"}
+    %a#item_delete{:value => "${list_item.id}", :href => "#", "data-rel" => "dialog", "data-transition" => "pop" }
       Delete item
 
 :javascript
-  function updateItem(id, myChecked){
+  function itemCreate(myName){
+    var newItem;
+    if (!myName || /^\s*$/.test(myName)) {
+      alert("Name cannot be empty");
+    }
+    else {
+      $.ajax({
+        async: false,
+        type:'POST',
+        url:'/mobile/experiments/list_items',
+        data: { 
+                "authenticity_token" : "#{form_authenticity_token}",
+                "list_item"          : { "name" : myName }
+              }, 
+        dataType:"json",
+        //timeout: 1000,
+        success: function(response, status) {
+                   $("#item_name").val("");
+                 }
+        //error: function(XMLHttpRequest, textStatus, errorThrown) {
+        //         $("#item_name").val(textStatus);
+        //       }
+      });
+    }
+  };
+  
+  function itemUpdate(myId, myChecked){
     $.ajax({
       type:'PUT',
-      url:'/mobile/experiments/list_items/'+id,
+      url:'/mobile/experiments/list_items/'+myId,
       data: { 
-              authenticity_token: "#{form_authenticity_token}",
-              list_item : { checked : myChecked }
+              "authenticity_token" : "#{form_authenticity_token}",
+              "list_item"          : { "checked" : myChecked }
+            }, 
+      dataType:"json"//,
+      //timeout: 1000,
+      //success: function(response, status) {
+                 //createTimeEvent(response.time_event);
+      //         },
+      //error: function() {
+      //
+      //       }
+    });
+  };
+  
+  function itemDelete(myId){
+    $.ajax({
+      type:'DELETE',
+      url:'/mobile/experiments/list_items/'+myId,
+      data: { 
+              "authenticity_token" : "#{form_authenticity_token}"
             }, 
       dataType:"json"//,
       //timeout: 1000,
@@ -48,9 +92,9 @@
         $("#items").html($("#item_template").tmpl(data.concat(pendingItems))).listview("refresh");
       });
       
-      $("#create_item").submit(function(e) {
+      $("#item_create").submit(function(e) {
         var pendingItems = $.parseJSON(localStorage["pendingItems"]);
-        var item = {"data":$(this).serialize(), "item":{"name":$("#item_name").val()}};
+        var item = {"data":$(this).serialize(), "list_item":{"name":$("#item_name").val()}};
         $("#item_template").tmpl(item).appendTo("#items");
         $("#items").listview("refresh");
         pendingItems.push(item);
@@ -59,7 +103,6 @@
         sendPending();
         e.preventDefault();
       });
-      
       
       function sendPending() {
         if (window.navigator.onLine) {
@@ -88,11 +131,25 @@
       var box = $(this).parent().children("#box");
       if (box.hasClass("ui-icon-checkbox-on")) {
         box.removeClass("ui-icon-checkbox-on");
-        updateItem(item, false);
+        itemUpdate(item, false);
       }
       else {
         box.addClass("ui-icon-checkbox-on");
-        updateItem(item, true);
+        itemUpdate(item, true);
       }
+    });
+    
+    $("#item_create").live('click', function(){
+      var itemName = $("#item_name").val();
+      itemCreate(itemName);
+      //var itemTmpl = {"data":$(this).serialize(), "list_item":{"id" : item.id,  "name": item.name, "checked" : item.checked }};
+      //$("#item_template").tmpl(itemTmpl).appendTo("#items");
+      //$("#items").listview("refresh");
+    });
+    
+    $("#item_delete").live('click', function(){
+      itemDelete($(this).attr("value"));
+      $(this).parent().parent().parent().remove();
+      $("#items").listview("refresh");
     });
   });
