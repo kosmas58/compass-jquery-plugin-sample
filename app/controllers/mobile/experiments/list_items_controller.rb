@@ -29,10 +29,10 @@ class Mobile::Experiments::ListItemsController < ApplicationController
     end
 
     response_for :create do |format|
-      format.html 
-      format.json {
-        render :json => @list_item.to_json
-      }
+      format.json do
+        render :nothing => true, :status => 200
+        # render :json => @list_item.to_json
+      end
     end
 
     response_for :update do |format|

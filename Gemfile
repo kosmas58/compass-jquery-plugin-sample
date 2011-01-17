@@ -15,7 +15,7 @@ gem "geokit"
 
 group :development do
   gem "mongrel"
-  gem "sqlite3-ruby", :require => "sqlite3"
+  gem "sqlite3"
   gem "compass-validator"
   gem "open3", :platforms => :ruby
   gem "win32-open3", :platforms => :mswin
@@ -25,7 +25,7 @@ group :development do
 end
 
 group :test do
-  gem "sqlite3-ruby", :require => "sqlite3" 
+  gem "sqlite3" 
   # bundler requires these gems while running tests
   gem "rspec", "~> 1.3.1"
   gem "rspec-rails", "~> 1.3.3"

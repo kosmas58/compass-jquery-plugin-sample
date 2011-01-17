@@ -14,11 +14,30 @@
       ${list_item.name}
     %a#item_delete{:value => "${list_item.id}", :href => "#", "data-rel" => "dialog", "data-transition" => "pop" }
       Delete item
+      
+
+%script#item_template_new{:type => "text/x-jquery-tmpl"}
+  %li
+    %img#box.ui-icon-checkbox-off{ :src => "/images/demo/empty.png" }
+    %a#item
+      ${list_item.name}
+    %a#item_delete{ "data-rel" => "dialog", "data-transition" => "pop", "data-theme" => "e" }
+      Delete item
 
 :javascript
-  function itemCreate(myName){
-    var newItem;
-    if (!myName || /^\s*$/.test(myName)) {
+  var holdTheInterval;
+  
+  function itemsRefresh() {
+    $.retrieveJSON("/mobile/experiments/list_items?format=json", function(data) {
+      //var pendingItems = $.parseJSON(localStorage["pendingItems"]);
+      //$("#items").html($("#item_template").tmpl(data.concat(pendingItems))).listview("refresh");
+      $("#items").html($("#item_template").tmpl(data)).listview("refresh");
+    });
+    clearInterval(holdTheInterval);
+  };
+
+  function itemCreate(name){
+    if (!name || /^\s*$/.test(name)) {
       alert("Name cannot be empty");
     }
     else {
@@ -28,12 +47,12 @@
         url:'/mobile/experiments/list_items',
         data: { 
                 "authenticity_token" : "#{form_authenticity_token}",
-                "list_item"          : { "name" : myName }
+                "list_item"          : { "name" : name }
               }, 
         dataType:"json",
         //timeout: 1000,
         success: function(response, status) {
-                   $("#item_name").val("");
+                   itemsRefresh();
                  }
         //error: function(XMLHttpRequest, textStatus, errorThrown) {
         //         $("#item_name").val(textStatus);
@@ -42,13 +61,13 @@
     }
   };
   
-  function itemUpdate(myId, myChecked){
+  function itemUpdate(item, checked){
     $.ajax({
       type:'PUT',
-      url:'/mobile/experiments/list_items/'+myId,
+      url:'/mobile/experiments/list_items/'+item,
       data: { 
               "authenticity_token" : "#{form_authenticity_token}",
-              "list_item"          : { "checked" : myChecked }
+              "list_item"          : { "checked" : checked }
             }, 
       dataType:"json"//,
       //timeout: 1000,
@@ -61,10 +80,10 @@
     });
   };
   
-  function itemDelete(myId){
+  function itemDelete(item){
     $.ajax({
       type:'DELETE',
-      url:'/mobile/experiments/list_items/'+myId,
+      url:'/mobile/experiments/list_items/'+item,
       data: { 
               "authenticity_token" : "#{form_authenticity_token}"
             }, 
@@ -81,45 +100,44 @@
   
   $(function() {
     if ($.support.localStorage) {
-      //$(window.applicationCache).bind("error", function() {
-      //  console.log("There was an error when loading the cache manifest.");
-      //});
-      if (!localStorage["pendingItems"]) {
-        localStorage["pendingItems"] = JSON.stringify([]);
-      }
-      $.retrieveJSON("/mobile/experiments/list_items?format=json", function(data) {
-        var pendingItems = $.parseJSON(localStorage["pendingItems"]);
-        $("#items").html($("#item_template").tmpl(data.concat(pendingItems))).listview("refresh");
-      });
+       $(window.applicationCache).bind("error", function() {
+         console.log("There was an error when loading the cache manifest.");
+       });
       
-      $("#item_create").submit(function(e) {
-        var pendingItems = $.parseJSON(localStorage["pendingItems"]);
-        var item = {"data":$(this).serialize(), "list_item":{"name":$("#item_name").val()}};
-        $("#item_template").tmpl(item).appendTo("#items");
-        $("#items").listview("refresh");
-        pendingItems.push(item);
-        localStorage["pendingItems"] = JSON.stringify(pendingItems)
-        $("#item_name").val("");
-        sendPending();
-        e.preventDefault();
-      });
+      // if (!localStorage["pendingItems"]) {
+      //   localStorage["pendingItems"] = JSON.stringify([]);
+      // }
       
-      function sendPending() {
-        if (window.navigator.onLine) {
-          var pendingItems = $.parseJSON(localStorage["pendingItems"]);
-          if (pendingItems.length > 0) {
-            var item = pendingItems[0];
-            $.post("/mobile/experiments/list_items", item.data, function(data) {
-              var pendingItems = $.parseJSON(localStorage["pendingItems"]);
-              pendingItems.shift();
-              localStorage["pendingItems"] = JSON.stringify(pendingItems)
-              setTimeout(sendPending, 100);
-            });
-          }
-        }
-      }
-      sendPending();
-      $(window).bind("online", sendPending);
+      itemsRefresh();
+      
+      // $("#item_create").submit(function(e) {
+      //   var pendingItems = $.parseJSON(localStorage["pendingItems"]);
+      //   var item = {"data":$(this).serialize(), "list_item":{"name":$("#item_name").val()}};
+      //   $("#item_template").tmpl(item).appendTo("#items");
+      //   $("#items").listview("refresh");
+      //   pendingItems.push(item);
+      //   localStorage["pendingItems"] = JSON.stringify(pendingItems)
+      //   $("#item_name").val("");
+      //   sendPending();
+      //   e.preventDefault();
+      // });
+      // 
+      // function sendPending() {
+      //   if (window.navigator.onLine) {
+      //     var pendingItems = $.parseJSON(localStorage["pendingItems"]);
+      //     if (pendingItems.length > 0) {
+      //       var item = pendingItems[0];
+      //       $.post("/mobile/experiments/list_items", item.data, function(data) {
+      //         var pendingItems = $.parseJSON(localStorage["pendingItems"]);
+      //         pendingItems.shift();
+      //         localStorage["pendingItems"] = JSON.stringify(pendingItems)
+      //         setTimeout(sendPending, 100);
+      //       });
+      //     }
+      //   }
+      // }
+      // sendPending();
+      // $(window).bind("online", sendPending);
     } else {
       alert("Try a different browser.");
     };
@@ -128,28 +146,35 @@
   $(document).ready(function() {
     $("#item").live('click', function(){
       var item = $(this).attr("value");
-      var box = $(this).parent().children("#box");
-      if (box.hasClass("ui-icon-checkbox-on")) {
-        box.removeClass("ui-icon-checkbox-on");
-        itemUpdate(item, false);
-      }
-      else {
-        box.addClass("ui-icon-checkbox-on");
-        itemUpdate(item, true);
+      if (item) {
+        var box = $(this).parent().children("#box");
+        if (box.hasClass("ui-icon-checkbox-on")) {
+          box.removeClass("ui-icon-checkbox-on");
+          itemUpdate(item, false);
+        }
+        else {
+          box.addClass("ui-icon-checkbox-on");
+          itemUpdate(item, true);
+        }
       }
     });
     
     $("#item_create").live('click', function(){
-      var itemName = $("#item_name").val();
-      itemCreate(itemName);
-      //var itemTmpl = {"data":$(this).serialize(), "list_item":{"id" : item.id,  "name": item.name, "checked" : item.checked }};
-      //$("#item_template").tmpl(itemTmpl).appendTo("#items");
-      //$("#items").listview("refresh");
+      var name = $("#item_name").val();
+      itemCreate(name);
+      $("#item_name").val("");
+      var tmpl = {"data":$(this).serialize(), "list_item":{"name": name}};
+      $("#item_template_new").tmpl(tmpl).appendTo("#items");
+      $("#items").listview("refresh");
+      holdTheInterval = setInterval(itemsRefresh, 5000);
     });
     
     $("#item_delete").live('click', function(){
-      itemDelete($(this).attr("value"));
-      $(this).parent().parent().parent().remove();
-      $("#items").listview("refresh");
+      var item = $(this).attr("value");
+      if (item) {
+        itemDelete(item);
+        $(this).parent().parent().parent().remove();
+        $("#items").listview("refresh");
+      }
     });
   });
