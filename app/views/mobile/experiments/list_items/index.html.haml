@@ -1,4 +1,4 @@
--@title = "jQuery Mobile Framework - Grocery List"
+-@title = "jQuery Mobile Framework - Shopping List"
 -@manifest = "/manifest"
 
 - content_for :content_head do
@@ -9,7 +9,7 @@
     %a.ui-btn-right{"data-icon" => "plus", "data-rel" => "dialog", "data-transition" => "pop", :href => "#item_add"} Add item
     %h1 Offline Shopping List
   %div{"data-role" => "content", "data-theme" => "a"}
-    %ol#items{"data-inset"=> "true", "data-role" => "listview", "data-split-icon" => "delete", "data-theme" => "a"}
+    %ol#items{"data-inset"=> "true", "data-role" => "listview", "data-splittheme" =>"a", "data-split-icon" => "delete", "data-theme" => "a"}
       - if @current_objects.empty?
         %li
           %em
@@ -23,7 +23,9 @@
               %img#box.ui-icon-checkbox-off{ :src => "/images/demo/empty.png" }
             %a#item{ :value => item.id, :href => "#" }
               = item.name
-            %a#item_delete{:value => item.id, :href => "#", "data-rel" => "dialog", "data-transition" => "pop"} Delete item
+            %a#item_delete{:value => item.id, :href => "#", "data-rel" => "dialog", "data-transition" => "pop"} 
+              Remove
+              = item.name
 #item_add{"data-role" => "page", "data-theme" => "a"}
   %div{"data-backbtn" => "false", "data-role" => "header", "data-theme" => "a"}
     %h1 Add item to list

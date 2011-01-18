@@ -9,20 +9,23 @@
 
 %script#item_template{:type => "text/x-jquery-tmpl"}
   %li
+    {{if list_item.checked }}
+    %img#box.ui-icon-checkbox-off.ui-icon-checkbox-on{ :src => "/images/demo/empty.png" }
+    {{else}}
     %img#box.ui-icon-checkbox-off{ :src => "/images/demo/empty.png" }
+    {{/if}}
     %a#item{ :value => "${list_item.id}", :href => "#" }
       ${list_item.name}
     %a#item_delete{:value => "${list_item.id}", :href => "#", "data-rel" => "dialog", "data-transition" => "pop" }
-      Delete item
-      
+      Remove ${list_item.name}
 
 %script#item_template_new{:type => "text/x-jquery-tmpl"}
   %li
     %img#box.ui-icon-checkbox-off{ :src => "/images/demo/empty.png" }
     %a#item
       ${list_item.name}
-    %a#item_delete{ "data-rel" => "dialog", "data-transition" => "pop", "data-theme" => "e" }
-      Delete item
+    %a#item_delete{ "data-rel" => "dialog", "data-transition" => "pop" }
+      Remove ${list_item.name}
 
 :javascript
   var holdTheInterval;
@@ -42,71 +45,64 @@
     }
     else {
       $.ajax({
-        async: false,
-        type:'POST',
-        url:'/mobile/experiments/list_items',
-        data: { 
-                "authenticity_token" : "#{form_authenticity_token}",
-                "list_item"          : { "name" : name }
-              }, 
-        dataType:"json",
-        //timeout: 1000,
-        success: function(response, status) {
-                   itemsRefresh();
-                 }
-        //error: function(XMLHttpRequest, textStatus, errorThrown) {
-        //         $("#item_name").val(textStatus);
-        //       }
+        type:        'POST',
+        url:         '/mobile/experiments/list_items',
+        data:        { 
+                       "authenticity_token" : "#{form_authenticity_token}",
+                       "list_item"          : { "name" : name }
+                     }, 
+        dataType:    "json",
+        timeout:     1000,
+        success:     function(response, status) {
+                       itemsRefresh();
+                     },
+        error:       function(XMLHttpRequest, textStatus, errorThrown) {
+                       $("#item_name").val(textStatus);
+                     }
       });
     }
   };
   
   function itemUpdate(item, checked){
     $.ajax({
-      type:'PUT',
-      url:'/mobile/experiments/list_items/'+item,
-      data: { 
-              "authenticity_token" : "#{form_authenticity_token}",
-              "list_item"          : { "checked" : checked }
-            }, 
-      dataType:"json"//,
-      //timeout: 1000,
-      //success: function(response, status) {
-                 //createTimeEvent(response.time_event);
-      //         },
-      //error: function() {
-      //
-      //       }
+      type:        'PUT',
+      url:         '/mobile/experiments/list_items/'+item,
+      data:        { 
+                     "authenticity_token" : "#{form_authenticity_token}",
+                     "list_item"          : { "checked" : checked }
+                   }, 
+      dataType:    "json",
+      timeout:     1000,
+      error:       function() {
+                     
+                   }
     });
   };
   
   function itemDelete(item){
     $.ajax({
-      type:'DELETE',
-      url:'/mobile/experiments/list_items/'+item,
-      data: { 
-              "authenticity_token" : "#{form_authenticity_token}"
-            }, 
-      dataType:"json"//,
-      //timeout: 1000,
-      //success: function(response, status) {
-                 //createTimeEvent(response.time_event);
-      //         },
-      //error: function() {
-      //
-      //       }
+      type:        'DELETE',
+      url:         '/mobile/experiments/list_items/'+item,
+      data:        { 
+                     "authenticity_token" : "#{form_authenticity_token}"
+                   }, 
+      dataType:    "json",
+      timeout:     1000,
+      error:       function() {
+                     
+                   }
     });
   };
   
   $(function() {
     if ($.support.localStorage) {
-       $(window.applicationCache).bind("error", function() {
-         console.log("There was an error when loading the cache manifest.");
-       });
+      $(window.applicationCache).bind("error", function() {
+        console.log("There was an error when loading the cache manifest.");
+      });
       
-      // if (!localStorage["pendingItems"]) {
-      //   localStorage["pendingItems"] = JSON.stringify([]);
-      // }
+      if (!localStorage["pendingItems"]) {
+        localStorage["pendingItems"] = JSON.stringify([]);
+      }
       
       itemsRefresh();
       
