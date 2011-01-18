@@ -46,12 +46,12 @@
     else {
       $.ajax({
         type:        'POST',
-        url:         '/mobile/experiments/list_items',
+        url:         '/mobile/experiments/list_items?format=jsonr',
         data:        { 
                        "authenticity_token" : "#{form_authenticity_token}",
                        "list_item"          : { "name" : name }
                      }, 
-        dataType:    "json",
+        //dataType:    "json",
         timeout:     1000,
         success:     function(response, status) {
                        itemsRefresh();
@@ -74,7 +74,7 @@
       dataType:    "json",
       timeout:     1000,
       error:       function() {
-                     
+                     alert(textStatus);
                    }
     });
   };
@@ -89,7 +89,7 @@
       dataType:    "json",
       timeout:     1000,
       error:       function() {
-                     
+                     alert(textStatus);
                    }
     });
   };

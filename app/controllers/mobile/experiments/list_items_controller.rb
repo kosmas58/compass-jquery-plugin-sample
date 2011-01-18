@@ -9,18 +9,7 @@ class Mobile::Experiments::ListItemsController < ApplicationController
     after :create do
       @list_item = current_model.find_by_id(current_object.id)
     end
-    
-    
-    before :update do
-      puts "aa"
-      #@current_object.color = params[:color].sub(/#/,'').hex
-    end
-    
-    after :update do
-      puts "bb"
-      #@current_object.color = params[:color].sub(/#/,'').hex
-    end
-  
+
     response_for :index do |format|
       format.html 
       format.json do 
@@ -33,10 +22,12 @@ class Mobile::Experiments::ListItemsController < ApplicationController
         render :nothing => true, :status => 200
         # render :json => @list_item.to_json
       end
+      format.jsonr do
+        render_json_response :ok, :html => "Id = <b>#{@list_item.id}</b>", :message => "Item created!"
+      end
     end
 
     response_for :update do |format|
-      puts "cc"
       format.json do 
         render :nothing => true, :status => 200
       end
