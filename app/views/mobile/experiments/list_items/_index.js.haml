@@ -32,7 +32,7 @@
   
   function itemsRefresh() {
     $.retrieveJSON("/mobile/experiments/list_items?format=json", function(data) {
-      //var pendingItems = $.parseJSON(localStorage["pendingItems"]);
+      var pendingItems = $.parseJSON(localStorage["pendingItems"]);
       //$("#items").html($("#item_template").tmpl(data.concat(pendingItems))).listview("refresh");
       $("#items").html($("#item_template").tmpl(data)).listview("refresh");
     });
@@ -51,7 +51,6 @@
                        "authenticity_token" : "#{form_authenticity_token}",
                        "list_item"          : { "name" : name }
                      }, 
-        //dataType:    "json",
         timeout:     1000,
         success:     function(response, status) {
                        itemsRefresh();
@@ -94,6 +93,30 @@
     });
   };
   
+  function sendPending() {
+    if (window.navigator.onLine) {
+      var pendingItems = $.parseJSON(localStorage["pendingItems"]);
+      if (pendingItems.length > 0) {
+        var pendingItem = pendingItems[0];
+        switch( pendingItem["method"] ) {
+          case "POST":
+            itemCreate( pendingItem["list_item"]["name"] );
+            break;
+          case "PUT":
+            itemUpdate( pendingItem["list_item"]["id"], pendingItem["list_item"]["checked"]);
+            break;
+          case "DELETE":
+            itemDelete( pendingItem["list_item"]["id"] );
+            break;
+        };
+        var pendingItems = $.parseJSON(localStorage["pendingItems"]);
+        pendingItems.shift();
+        localStorage["pendingItems"] = JSON.stringify(pendingItems)
+        setTimeout(sendPending, 100);
+      }
+    }
+  };
+  
   $(function() {
     if ($.support.localStorage) {
       $(window.applicationCache).bind("error", function() {
@@ -103,37 +126,9 @@
       if (!localStorage["pendingItems"]) {
         localStorage["pendingItems"] = JSON.stringify([]);
       }
-      
       itemsRefresh();
-      
-      // $("#item_create").submit(function(e) {
-      //   var pendingItems = $.parseJSON(localStorage["pendingItems"]);
-      //   var item = {"data":$(this).serialize(), "list_item":{"name":$("#item_name").val()}};
-      //   $("#item_template").tmpl(item).appendTo("#items");
-      //   $("#items").listview("refresh");
-      //   pendingItems.push(item);
-      //   localStorage["pendingItems"] = JSON.stringify(pendingItems)
-      //   $("#item_name").val("");
-      //   sendPending();
-      //   e.preventDefault();
-      // });
-      // 
-      // function sendPending() {
-      //   if (window.navigator.onLine) {
-      //     var pendingItems = $.parseJSON(localStorage["pendingItems"]);
-      //     if (pendingItems.length > 0) {
-      //       var item = pendingItems[0];
-      //       $.post("/mobile/experiments/list_items", item.data, function(data) {
-      //         var pendingItems = $.parseJSON(localStorage["pendingItems"]);
-      //         pendingItems.shift();
-      //         localStorage["pendingItems"] = JSON.stringify(pendingItems)
-      //         setTimeout(sendPending, 100);
-      //       });
-      //     }
-      //   }
-      // }
-      // sendPending();
-      // $(window).bind("online", sendPending);
+      sendPending();
+      $(window).bind("online", sendPending);
     } else {
       alert("Try a different browser.");
     };
@@ -142,35 +137,63 @@
   $(document).ready(function() {
     $("#item").live('click', function(){
       var item = $(this).attr("value");
+      var checked;
       if (item) {
         var box = $(this).parent().children("#box");
         if (box.hasClass("ui-icon-checkbox-on")) {
           box.removeClass("ui-icon-checkbox-on");
-          itemUpdate(item, false);
+          checked = false;
         }
         else {
           box.addClass("ui-icon-checkbox-on");
-          itemUpdate(item, true);
+          checked = true;
         }
+        
+        // Store data locally 
+        var pendingItem = {"data":$(this).serialize(), "list_item":{"id": item, "checked": checked}, "method": "PUT"};
+        var pendingItems = $.parseJSON(localStorage["pendingItems"]);
+        pendingItems.push(pendingItem);
+        localStorage["pendingItems"] = JSON.stringify(pendingItems);
+        
+        // Initiate action
+        sendPending();
       }
     });
     
     $("#item_create").live('click', function(){
-      var name = $("#item_name").val();
-      itemCreate(name);
-      $("#item_name").val("");
-      var tmpl = {"data":$(this).serialize(), "list_item":{"name": name}};
-      $("#item_template_new").tmpl(tmpl).appendTo("#items");
-      $("#items").listview("refresh");
       holdTheInterval = setInterval(itemsRefresh, 5000);
+      var name = $("#item_name").val();
+      var item = {"data":$(this).serialize(), "list_item":{"name": name}, "method": "POST"};
+      
+      // Store data locally 
+      var pendingItems = $.parseJSON(localStorage["pendingItems"]);
+      pendingItems.push(item);
+      localStorage["pendingItems"] = JSON.stringify(pendingItems);
+     
+      // Refresh interface 
+      $("#item_template_new").tmpl(item).appendTo("#items");
+      $("#items").listview("refresh");
+      $("#item_name").val("");
+      
+      // Initiate action
+      sendPending();
     });
     
     $("#item_delete").live('click', function(){
       var item = $(this).attr("value");
       if (item) {
-        itemDelete(item);
-        $(this).parent().parent().parent().remove();
+        // Store data locally 
+        var pendingItem = {"data":$(this).serialize(), "list_item":{"id": item}, "method": "DELETE"};
+        var pendingItems = $.parseJSON(localStorage["pendingItems"]);
+        pendingItems.push(pendingItem);
+        localStorage["pendingItems"] = JSON.stringify(pendingItems);
+        
+        // Refresh interface 
+        $(this).parent().parent().parent().remove(); 
         $("#items").listview("refresh");
+        
+        // Initiate action
+        sendPending();
       }
     });
   });
