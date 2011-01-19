@@ -2,6 +2,7 @@ source :gemcutter
 gem "rails", "~> 2.3.10"
 gem "erubis"
 gem "hpricot"
+gem "i18n"
 gem "i18n-js"
 gem "json"
 
