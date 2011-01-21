@@ -90,33 +90,33 @@ de:
         name: Name
     errors: 
       messages: 
-        greater_than_or_equal_to: "muss gr\xC3\xB6\xC3\x9Fer oder gleich {{count}} sein"
-        record_invalid: "G\xC3\xBCltigkeitspr\xC3\xBCfung ist fehlgeschlagen: {{errors}}"
+        greater_than_or_equal_to: "muss gr\xC3\xB6\xC3\x9Fer oder gleich %{count} sein"
+        record_invalid: "G\xC3\xBCltigkeitspr\xC3\xBCfung ist fehlgeschlagen: %{errors}"
         confirmation: "stimmt nicht mit der Best\xC3\xA4tigung \xC3\xBCberein"
-        less_than_or_equal_to: muss kleiner oder gleich {{count}} sein
+        less_than_or_equal_to: muss kleiner oder gleich %{count} sein
         blank: "muss ausgef\xC3\xBCllt werden"
         exclusion: "ist nicht verf\xC3\xBCgbar"
         invalid: "ist nicht g\xC3\xBCltig"
         odd: muss ungerade sein
-        wrong_length: "hat die falsche L\xC3\xA4nge (muss genau {{count}} Zeichen haben)"
+        wrong_length: "hat die falsche L\xC3\xA4nge (muss genau %{count} Zeichen haben)"
         even: muss gerade sein
         empty: "muss ausgef\xC3\xBCllt werden"
-        too_short: ist zu kurz (nicht weniger als {{count}} Zeichen)
-        less_than: muss kleiner als {{count}} sein
-        equal_to: muss genau {{count}} sein
-        greater_than: "muss gr\xC3\xB6\xC3\x9Fer als {{count}} sein"
+        too_short: ist zu kurz (nicht weniger als %{count} Zeichen)
+        less_than: muss kleiner als %{count} sein
+        equal_to: muss genau %{count} sein
+        greater_than: "muss gr\xC3\xB6\xC3\x9Fer als %{count} sein"
         taken: ist bereits vergeben
         accepted: muss akzeptiert werden
-        too_long: ist zu lang (nicht mehr als {{count}} Zeichen)
+        too_long: ist zu lang (nicht mehr als %{count} Zeichen)
         not_a_number: ist keine Zahl
         inclusion: "ist kein g\xC3\xBCltiger Wert"
       template: 
         body: "Bitte \xC3\xBCberpr\xC3\xBCfen Sie die folgenden Felder:"
         header: 
-          one: "Konnte {{model}} nicht speichern: ein Fehler."
-          other: "Konnte {{model}} nicht speichern: {{count}} Fehler."
+          one: "Konnte %{model} nicht speichern: ein Fehler."
+          other: "Konnte %{model} nicht speichern: %{count} Fehler."
       full_messages: 
-        format: "{{attribute}} {{message}}"
+        format: "%{attribute} %{message}"
   time: 
     am: vormittags
     formats: 
@@ -778,8 +778,8 @@ de:
       template: 
         body: "Bitte \xC3\xBCberpr\xC3\xBCfen Sie die folgenden Felder:"
         header: 
-          one: "Konnte {{model}} nicht speichern: ein Fehler."
-          other: "Konnte {{model}} nicht speichern: {{count}} Fehler."
+          one: "Konnte %{model} nicht speichern: ein Fehler."
+          other: "Konnte %{model} nicht speichern: %{count} Fehler."
   support: 
     array: 
       last_word_connector: " und "
@@ -810,35 +810,35 @@ de:
     distance_in_words: 
       less_than_x_minutes: 
         one: weniger als eine Minute
-        other: weniger als {{count}} Minuten
+        other: weniger als %{count} Minuten
       almost_x_years: 
         one: fast ein Jahr
-        other: fast {{count}} Jahre
+        other: fast %{count} Jahre
       x_days: 
         one: ein Tag
-        other: "{{count}} Tage"
+        other: "%{count} Tage"
       x_seconds: 
         one: eine Sekunde
-        other: "{{count}} Sekunden"
+        other: "%{count} Sekunden"
       less_than_x_seconds: 
         one: weniger als eine Sekunde
-        other: weniger als {{count}} Sekunden
+        other: weniger als %{count} Sekunden
       x_months: 
         one: ein Monat
-        other: "{{count}} Monate"
+        other: "%{count} Monate"
       x_minutes: 
         one: eine Minute
-        other: "{{count}} Minuten"
+        other: "%{count} Minuten"
       about_x_hours: 
         one: etwa eine Stunde
-        other: etwa {{count}} Stunden
+        other: etwa %{count} Stunden
       about_x_months: 
         one: etwa ein Monat
-        other: etwa {{count}} Monate
+        other: etwa %{count} Monate
       about_x_years: 
         one: etwa ein Jahr
-        other: etwa {{count}} Jahre
+        other: etwa %{count} Jahre
       over_x_years: 
         one: mehr als ein Jahr
-        other: mehr als {{count}} Jahre
+        other: mehr als %{count} Jahre
       half_a_minute: eine halbe Minute

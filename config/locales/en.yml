@@ -88,22 +88,22 @@ en:
         name: Name
     errors: 
       messages: 
-        record_invalid: "Validation failed: {{errors}}"
-        greater_than_or_equal_to: must be greater than or equal to {{count}}
+        record_invalid: "Validation failed: %{errors}"
+        greater_than_or_equal_to: must be greater than or equal to %{count}
         confirmation: doesn't match confirmation
-        less_than_or_equal_to: must be less than or equal to {{count}}
+        less_than_or_equal_to: must be less than or equal to %{count}
         blank: can't be blank
         invalid: is invalid
         exclusion: is reserved
         odd: must be odd
         even: must be even
-        too_short: is too short (minimum is {{count}} characters)
-        wrong_length: is the wrong length (should be {{count}} characters)
+        too_short: is too short (minimum is %{count} characters)
+        wrong_length: is the wrong length (should be %{count} characters)
         empty: can't be empty
-        less_than: must be less than {{count}}
-        greater_than: must be greater than {{count}}
-        equal_to: must be equal to {{count}}
-        too_long: is too long (maximum is {{count}} characters)
+        less_than: must be less than %{count}
+        greater_than: must be greater than %{count}
+        equal_to: must be equal to %{count}
+        too_long: is too long (maximum is %{count} characters)
         taken: has already been taken
         accepted: must be accepted
         inclusion: is not included in the list
@@ -111,10 +111,10 @@ en:
       template: 
         body: "There were problems with the following fields:"
         header: 
-          one: 1 error prohibited this {{model}} from being saved
-          other: "{{count}} errors prohibited this {{model}} from being saved"
+          one: 1 error prohibited this %{model} from being saved
+          other: "%{count} errors prohibited this %{model} from being saved"
       full_messages: 
-        format: "{{attribute}} {{message}}"
+        format: "%{attribute} %{message}"
   time: 
     am: am
     formats: 
@@ -768,8 +768,8 @@ en:
       template: 
         body: "There were problems with the following fields:"
         header: 
-          one: 1 error prohibited this {{model}} from being saved
-          other: "{{count}} errors prohibited this {{model}} from being saved"
+          one: 1 error prohibited this %{model} from being saved
+          other: "%{count} errors prohibited this %{model} from being saved"
   support: 
     array: 
       last_word_connector: ", and "
@@ -800,35 +800,35 @@ en:
     distance_in_words: 
       less_than_x_minutes: 
         one: less than a minute
-        other: less than {{count}} minutes
+        other: less than %{count} minutes
       almost_x_years: 
         one: almost 1 year
-        other: almost {{count}} years
+        other: almost %{count} years
       x_days: 
         one: 1 day
-        other: "{{count}} days"
+        other: "%{count} days"
       x_seconds: 
         one: 1 second
-        other: "{{count}} seconds"
+        other: "%{count} seconds"
       less_than_x_seconds: 
         one: less than 1 second
-        other: less than {{count}} seconds
+        other: less than %{count} seconds
       x_months: 
         one: 1 month
-        other: "{{count}} months"
+        other: "%{count} months"
       x_minutes: 
         one: 1 minute
-        other: "{{count}} minutes"
+        other: "%{count} minutes"
       about_x_hours: 
         one: about 1 hour
-        other: about {{count}} hours
+        other: about %{count} hours
       about_x_months: 
         one: about 1 month
-        other: about {{count}} months
+        other: about %{count} months
       about_x_years: 
         one: about 1 year
-        other: about {{count}} years
+        other: about %{count} years
       over_x_years: 
         one: over 1 year
-        other: over {{count}} years
+        other: over %{count} years
       half_a_minute: half a minute
