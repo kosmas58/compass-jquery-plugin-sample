@@ -52,20 +52,17 @@
       %dd
         Examples:
         %pre
-          %code
-            :preserve
-              //transition to the "about us" page with a slideup transition
-              $.mobile.changePage("about/us.html", "slideup");
-              
-              //transition to the "search results" page, using data from a form with an ID of "search""
-              $.mobile.changePage({
-                url: "searchresults.php",
-                type: "get",
-                data: $("form#search").serialize()
-              });
-            
-              //transition to the "confirm" page with a "pop" transition without tracking it in history
-              $.mobile.changePage("../alerts/confirm.html", "pop", false, false);
+          :preserve
+            //transition to the "about us" page with a slideup transition
+            $.mobile.changePage("about/us.html", "slideup");
+            //transition to the "search results" page, using data from a form with an ID of "search""
+            $.mobile.changePage({
+              url: "searchresults.php",
+              type: "get",
+              data: $("form#search").serialize()
+            });
+            //transition to the "confirm" page with a "pop" transition without tracking it in history
+            $.mobile.changePage("../alerts/confirm.html", "pop", false, false);
       %dt
         %code $.mobile.pageLoading
         (
@@ -83,13 +80,23 @@
       %dd
         Examples:
         %pre
-          %code
-            :preserve
-              //cue the page loader
-              $.mobile.pageLoading();
-              
-              //hide the page loader
-              $.mobile.pageLoading( true );
+          :preserve
+            //cue the page loader
+            $.mobile.pageLoading();
+            //hide the page loader
+            $.mobile.pageLoading( true );
+      %dt
+        %code $.mobile.path
+        (
+        %em> methods, properties
+        )
+      %dd Utilities for getting, setting, and manipulating url paths. TODO: document as public API is finalized.
+      %dt
+        %code $.mobile.base
+        (
+        %em> methods, properties
+        )
+      %dd Utilities for working with generated base element. TODO: document as public API is finalized.
       %dt
         %code $.mobile.silentScroll
         (
@@ -107,10 +114,9 @@
       %dd
         Examples:
         %pre
-          %code
-            :preserve
-              //scroll to Y 100px
-              $.mobile.silentScroll(100);
+          :preserve
+            //scroll to Y 100px
+            $.mobile.silentScroll(100);
       %dt
         %code $.mobile.addResolutionBreakpoints
         (
@@ -130,13 +136,11 @@
       %dd
         Examples:
         %pre
-          %code
-            :preserve
-              //add a 400px breakpoint
-              $.mobile.addResolutionBreakpoints(400);
-              
-              //add 2 more breakpoints
-              $.mobile.addResolutionBreakpoints([600,800]);
+          :preserve
+            //add a 400px breakpoint
+            $.mobile.addResolutionBreakpoints(400);
+            //add 2 more breakpoints
+            $.mobile.addResolutionBreakpoints([600,800]);
       %dt
         %code $.mobile.activePage
         (
