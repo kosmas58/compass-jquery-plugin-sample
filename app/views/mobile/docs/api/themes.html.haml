@@ -71,9 +71,8 @@
         This is the default content color swatch and a preview of a
         = succeed "." do
           %a.ui-link{:href => "#"} link
-      %div
-        %label{:for => "slider1"} Input slider:
-        %input#slider1{:type => "range", :name => "slider1", :value => "50", :min => "0", :max => "100"}
+      %label{:for => "slider1"} Input slider:
+      %input#slider1{:style => "width: 50px;", :max => "100", :min => "0", :name => "slider1", :type => "range", :value => "50"}/
       %div{:"data-role"=>"fieldcontain"}
         %fieldset{"data-role" => "controlgroup", "data-type" => "horizontal"}
           %legend Cache settings:
