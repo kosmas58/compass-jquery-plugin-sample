@@ -26,8 +26,11 @@
       %a{"data-rel" => "dialog", "data-role" => "button", "data-transition" => "flip", :href => "/mobile/docs/pages/transition-success"} flip
     %p
       In addition, you can also force a "backwards" transition by specifying
-      %code data-back="true"
-      on your link.
+      %code data-direction="reverse"
+      on your link. Note: (this was formerly
+      = succeed "," do
+        %code data-back="true"
+      which will remain supported until 1.0)
     .ui-body.ui-body-e
       %p
         %strong
