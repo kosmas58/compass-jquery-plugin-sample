@@ -333,7 +333,7 @@ class Invheader < ActiveRecord::Base
   gridify :demo0301,
     :title          => I18n.t('txt.jqgrid.demo.20multi'),
     :url            => "/jqgrid/demo",
-    :data_type      => :xml,
+    :data_type      => :json,
     :colInclude     => [:client],
     :colNames       => [
                         I18n.t('activerecord.attributes.invheader.id'),
@@ -940,6 +940,7 @@ class Invheader < ActiveRecord::Base
     :url            => "/jqgrid/demo",
     :restful        => true,
     :data_type      => :json,
+    :colInclude     => [:client],
     :colNames       => [
                         I18n.t('activerecord.attributes.invheader.id'),
                         I18n.t('activerecord.attributes.invheader.invdate'),
