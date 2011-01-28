@@ -124,6 +124,19 @@
         = succeed "," do
           %code select
         the framework will use the browesr's native select menu when the select button is clicked. Because this option doesn't use any of the custom menu parsing and menu generation logic, it is significantly faster than the custom menu version.
+      %p
+        You can also set the global configuration
+        %code $.mobile.nativeSelectMenus
+        to true in a callback bound to the
+        %code mobileinit
+        event to achieve the same effect. The following must be included in the page after jQuery is loaded but before jQuery Mobile.
+      %code
+        %pre
+          :preserve
+            
+            $(document).bind('mobileinit',function(){
+              $.mobile.nativeSelectMenus = true;
+            });
       %div{"data-role" => "fieldcontain"}
         %label.select{:for => "select-choice-3"} Your state:
         %select#select-choice-3{"data-native" => "true", :name => "select-choice-3"}
