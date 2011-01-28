@@ -28,6 +28,11 @@
     height:450px;
   }
   
+  #overlay2 {
+    color:#efefef;
+    height:450px;
+  }
+  
   /* container for external content. uses vertical scrollbar, if needed */
   div.contentWrap {
     height:441px;
@@ -38,18 +43,61 @@
   $(function() {
     $("button", ".demo").button();
   });
+  
+  function doAjax(url, target){
+    if(url.match('^http')){
+      $.getJSON("http://query.yahooapis.com/v1/public/yql?"+
+                "q=select%20*%20from%20html%20where%20url%3D%22"+
+                encodeURIComponent(url)+
+                "%22&format=xml'&callback=?",
+        function(data){
+          if(data.results[0]){
+            var data = filterData(data.results[0]);
+            target.html(data);
+          } else {
+            var errormsg = '<p>Error: could not load the page.</p>';
+            target.html(errormsg);
+          }
+        }
+      );
+    } else {
+      target.load(url);
+    }
+  };
+  
+  function filterData(data){
+    data = data.replace(/<?\/body[^>]*>/g,'');
+    data = data.replace(/[\r|\n]+/g,'');
+    data = data.replace(/<--[\S\s]*?-->/g,'');
+    data = data.replace(/<noscript[^>]*>[\S\s]*?<\/noscript>/g,'');
+    data = data.replace(/<script[^>]*>[\S\s]*?<\/script>/g,'');
+    data = data.replace(/<script.*\/>/,'');
+    return data;
+  };
+  
   $(document).ready(function() {
     // if the function argument is given to overlay,
     // it is assumed to be the onBeforeLoad event listener
-    $("a[rel]").overlay({
+    $("#internal a[rel]").overlay({
       mask: 'darkred',
       effect: 'apple',
       onBeforeLoad: function() {
         // grab wrapper element inside content
         var wrap = this.getOverlay().find(".contentWrap");
         //load the page specified in the trigger
-        //wrap.load(this.getTrigger().attr("href"));
-        wrap.load('./external');
+        wrap.load(this.getTrigger().attr("href"));
+      }
+    });
+    
+     $("#external a[rel]").overlay({
+      mask: 'darkred',
+      effect: 'apple',
+      onBeforeLoad: function() {
+        // grab wrapper element inside content
+        var target = this.getOverlay().find(".contentWrap");
+        //load the page specified in the trigger
+        var url = this.getTrigger().attr("href");
+        doAjax(url, target);
       }
     });
   });
