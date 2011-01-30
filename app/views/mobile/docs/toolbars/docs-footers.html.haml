@@ -17,17 +17,12 @@
       attribute value of
       = succeed "." do
         %code footer
-    .highlight
-      %pre
-        %span.nt &lt;div
-        %span.na data-role=
-        %span.s "footer"
-        %span.nt &gt;
-        = succeed "Footer" do
-          %span.nt &lt;h4&gt;
-        content
-        %span.nt &lt;/h4&gt;
-        %span.nt &lt;/div&gt;
+    %pre
+      %code
+        :preserve
+          &lt;div data-role=&quot;footer&quot;&gt;
+            &lt;h4&gt;Footer content&lt;/h4&gt;
+          &lt;/div&gt
     %p
       The
       %code footer
@@ -51,12 +46,11 @@
     %pre
       %code
         :preserve
-
           &lt;div data-role=&quot;footer&quot; class=&quot;ui-bar&quot;&gt;
-          	&lt;a href=&quot;/mobile/docs/toolbars&quot; data-role=&quot;button&quot; data-icon=&quot;delete&quot;&gt;Remove&lt;/a&gt;
-          	&lt;a href=&quot;/mobile/docs/toolbars&quot; data-role=&quot;button&quot; data-icon=&quot;plus&quot;&gt;Add&lt;/a&gt;
-          	&lt;a href=&quot;/mobile/docs/toolbars&quot; data-role=&quot;button&quot; data-icon=&quot;arrow-u&quot;&gt;Up&lt;/a&gt;
-          	&lt;a href=&quot;/mobile/docs/toolbars&quot; data-role=&quot;button&quot; data-icon=&quot;arrow-d&quot;&gt;Down&lt;/a&gt;
+            &lt;a href=&quot;index.html&quot; data-role=&quot;button&quot; data-icon=&quot;delete&quot;&gt;Remove&lt;/a&gt;
+            &lt;a href=&quot;index.html&quot; data-role=&quot;button&quot; data-icon=&quot;plus&quot;&gt;Add&lt;/a&gt;
+            &lt;a href=&quot;index.html&quot; data-role=&quot;button&quot; data-icon=&quot;arrow-u&quot;&gt;Up&lt;/a&gt;
+            &lt;a href=&quot;index.html&quot; data-role=&quot;button&quot; data-icon=&quot;arrow-d&quot;&gt;Down&lt;/a&gt;
           &lt;/div&gt;
     %p This creates this toolbar with buttons sitting in a row
     .ui-bar{"data-position" => "inline", "data-role" => "footer"}

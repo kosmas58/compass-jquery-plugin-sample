@@ -1,6 +1,6 @@
 class DemoTree < ActiveRecord::Base 
-  acts_as_tree_on_steroids :family_level => 1
-  set_table_name "demo_trees"
+  acts_as_nested_set :left_column => "left", :right_column => "right"
+  set_table_name :demo_trees
   
   def self.get_children(id)
     result = Array.new
@@ -9,7 +9,7 @@ class DemoTree < ActiveRecord::Base
     else
       node = find(id)
     end
-    children = node.children
+    children = node.direct_children
     if id != 0
       children.each do |child| 
         result << {
@@ -18,18 +18,18 @@ class DemoTree < ActiveRecord::Base
           :state => (child.right - child.left) > 1 ? "closed" : ""
         }
       end
-    end    
+    end
     return result
   end
   
-  def self.search(search_str)    
+  def self.search(search_str)
     result = Array.new
     nodes = find(:all, :conditions => "title LIKE '%#{search_str}%'")  
     if nodes
       nodes.each do |node|
         result << "#node_#{node.id.to_s}"
       end
-    end       
+    end
     return result
   end
   
@@ -39,44 +39,30 @@ class DemoTree < ActiveRecord::Base
     else
       parent = find_by_title("ROOT")
     end
-    node = new()
-    node.parent_id = parent.id
-    node.position  = params[:position]
-    node.left      = parent[:right]
-    node.right     = node.left + 1
-    node.level     = parent.level + 1
-    node.title     = params[:title]
-    node.ntype     = params[:type]
-    if node.save
-      node.ancestors.each do |ancestor|
-        ancestor.right += 2
-        ancestor.save
-      end
-      update_all("left = left + 2, right = right + 2", "left >= #{node.right}")
-      result = { :status => 1, :id => node.id }   
+    parms = {}
+    parms[:parent_id] = parent.id
+    parms[:position]  = params[:position]
+    parms[:title]     = params[:title]
+    parms[:ntype]     = params[:type]
+    node = create(parms)
+    if parent.add_child(node)
+      result = { :status => 1, :id => node.id }
     else
-      result = { :status => 0 }   
-    end         
+      result = { :status => 0 }
+    end
     return result
   end
   
   def self.remove_node(id)
     node = find(id)
-    left = node.left
-    right = node.right
-    dif = right - left + 1
     pid = node.parent_id
     pos = node.position
     
     #  deleting node and its children
-    node.delete_branch
-    # shift left indexes of nodes right of the node
-    update_all("left = left - #{dif}", "left > #{right}")
-    # shift right indexes of nodes right of the node and the node's parents
-    update_all("right = right - #{dif}", "right > #{left}")  
+    node.destroy
     # Update position of siblings below the deleted node
-    update_all("position = position -1", "parent_id = #{pid} AND position > #{pos}")    
-    result = { :status => 1 }         
+    update_all("position = position -1", "parent_id = #{pid} AND position > #{pos}")
+    result = { :status => 1 }
     return result
   end
   
@@ -84,12 +70,12 @@ class DemoTree < ActiveRecord::Base
     node = find(params[:id])
     node.title = params[:title]
     if node.save
-      return { :status => 1 }   
-    end    
+      return { :status => 1 }
+    end
   end
   
   def self.copy_children(id, node)
-    node.children.each do |child|
+    node.direct_children.each do |child|
       result = copy_node(id, child)
       copy_children(result[:id], child)
     end
@@ -99,10 +85,10 @@ class DemoTree < ActiveRecord::Base
     params = {} 
     params[:id]       = id
     params[:position] = (node.position) ? node.position : 0 
-    params[:title]    = node.title  
-    params[:type]     = node.ntype    
-    result = create_node(params) 
-    return result  
+    params[:type]     = node.ntype
+    params[:title]    = node.title
+    result = create_node(params)
+    return result
   end
   
   def self.move_node(params)
@@ -205,33 +191,22 @@ class DemoTree < ActiveRecord::Base
   def self.rebuild_demo
     ActiveRecord::Migration.drop_table :demo_trees
     ActiveRecord::Migration.create_table :demo_trees do |t|
-      t.column :parent_id,            :integer, :limit => 2, :null => true
-      t.column :id_path,              :string, :limit => 200, :null => true
-      t.column :level,                :integer, :limit => 1, :null => true
-      t.column :children_count,       :integer, :limit => 2, :null => true
-
-      #optional
-      t.column :family_id,            :integer, :limit => 2, :null => true
-    
-      t.column :position,             :integer, :null => false
-      t.column :left,                 :integer, :null => false
-      t.column :right,                :integer, :null => false
-      t.column :level,                :integer, :null => false
+      t.column :parent_id,            :integer, :limit => 2, :null => true, :default => 0
+      t.column :position,             :integer, :limit => 2, :null => false, :default => 0
+      t.column :left,                 :integer, :limit => 2, :null => false, :default => 0
+      t.column :right,                :integer, :limit => 2, :null => false, :default => 0
+      t.column :ntype,                :text,    :null => true,  :default => "default"
       t.column :title,                :text
-      t.column :ntype,                :text,    :null => true    
     end
-
     ActiveRecord::Migration.add_index :demo_trees, :parent_id
-    ActiveRecord::Migration.add_index :demo_trees, :id_path
     
-    root = create(:parent_id => 0,  :position => 0, :left => 1,  :right => 14, :level => 0, :title => 'ROOT')
-    create(:parent_id => root.id,   :position => 0, :left => 2,  :right => 11, :level => 1, :title => 'C:',         :ntype => 'drive')
-    create(:parent_id => root.id+1, :position => 0, :left => 3,  :right => 6,  :level => 2, :title => '_demo',     :ntype => 'folder')
-    create(:parent_id => root.id+2, :position => 0, :left => 4,  :right => 5,  :level => 3, :title => 'index.html', :ntype => 'default')
-    create(:parent_id => root.id+1, :position => 1, :left => 7,  :right => 10, :level => 2, :title => '_docs',      :ntype => 'folder')
-    create(:parent_id => root.id,   :position => 1, :left => 12, :right => 13, :level => 1, :title => 'D:',         :ntype => 'drive')
-    create(:parent_id => root.id+4, :position => 0, :left => 8,  :right => 9,  :level => 3, :title => 'zmei.html',  :ntype => 'default')
-    return { :status => 0 }   
-  end 
-  
+    root = create(:parent_id => 0,  :position => 0, :left => 1,  :right => 14, :title => 'ROOT',       :ntype => "ROOT")
+    create(:parent_id => root.id,   :position => 0, :left => 2,  :right => 11, :title => 'C:',         :ntype => 'drive')
+    create(:parent_id => root.id+1, :position => 0, :left => 3,  :right => 6,  :title => '_demo',      :ntype => 'folder')
+    create(:parent_id => root.id+2, :position => 0, :left => 4,  :right => 5,  :title => 'index.html', :ntype => 'default')
+    create(:parent_id => root.id+1, :position => 1, :left => 7,  :right => 10, :title => '_docs',      :ntype => 'folder')
+    create(:parent_id => root.id,   :position => 1, :left => 12, :right => 13, :title => 'D:',         :ntype => 'drive')
+    create(:parent_id => root.id+4, :position => 0, :left => 8,  :right => 9,  :title => 'zmei.html',  :ntype => 'default')
+    return { :status => 0 }
+  end
 end

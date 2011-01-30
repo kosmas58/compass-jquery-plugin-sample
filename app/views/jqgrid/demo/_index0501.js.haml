@@ -8,18 +8,19 @@
   
   $(document).ready(function() {
     $("#ed1").click( function() {
-    	$("#invheaders_demo0501").jqGrid('editRow',"13");
-    	this.disabled = 'true';
-    	$("#sved1,#cned1").attr("disabled",false);
+      $("#invheaders_demo0501").jqGrid('editRow',"13");
+      this.disabled = 'true';
+      $("#sved1,#cned1").attr("disabled",false);
     });
     $("#sved1").click( function() {
-    	$("#invheaders_demo0501").jqGrid('saveRow',"13");
-    	$("#sved1,#cned1").attr("disabled",true);
-    	$("#ed1").attr("disabled",false);    });
+      $("#invheaders_demo0501").jqGrid('saveRow',"13");
+      $("#sved1,#cned1").attr("disabled",true);
+      $("#ed1").attr("disabled",false);
+    });
     $("#cned1").click( function() {
-    	$("#invheaders_demo0501").jqGrid('restoreRow',"13");
-    	$("#sved1,#cned1").attr("disabled",true);
-    	$("#ed1").attr("disabled",false);
+      $("#invheaders_demo0501").jqGrid('restoreRow',"13");
+      $("#sved1,#cned1").attr("disabled",true);
+      $("#ed1").attr("disabled",false);
     });
   });
   

@@ -6,8 +6,10 @@
 %div{"data-role" => "page"}
   %div{"data-role" => "content", "data-theme" => "a"}
     %h3 Share Photos
-    %a{"data-role" => "button", "data-theme" => "b", :href => "/mobile/docs/pages/dialog-success"} Email
-    %a{"data-role" => "button", "data-theme" => "b", :href => "/mobile/docs/pages/dialog-success"} Upload to flickr
-    %a{"data-role" => "button", "data-theme" => "b", :href => "/mobile/docs/pages/dialog-success"} Share on Facebook
-    %a{"data-role" => "button", "data-theme" => "b", :href => "/mobile/docs/pages/dialog-success"} Tweet photo
-    %a{"data-role" => "button", "data-theme" => "a", :href => "/mobile/docs/pages"} Cancel
+    %a{"data-rel" => "dialog", "data-role" => "button", "data-theme" => "b", "data-transition" => "slidedown", :href => "/mobile/docs/pages/dialog-success"} Email
+    %a{"data-rel" => "dialog", "data-role" => "button", "data-theme" => "b", "data-transition" => "slidedown", :href => "/mobile/docs/pages/dialog-success"} Upload to flickr
+    %a{"data-rel" => "dialog", "data-role" => "button", "data-theme" => "b", "data-transition" => "slidedown", :href => "/mobile/docs/pages/dialog-success"} Share on Facebook
+    %a{"data-rel" => "dialog", "data-role" => "button", "data-theme" => "b", "data-transition" => "slidedown", :href => "/mobile/docs/pages/dialog-success"} Tweet photo
+    %a{"data-rel" => "back", "data-role" => "button", "data-theme" => "a", :href => "/mobile/docs/pages"} Cancel
+  / /content
+/ /page

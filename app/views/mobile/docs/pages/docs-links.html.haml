@@ -35,51 +35,24 @@
       ), the framework will looks for a page with that ID. If it finds a page in the HTML document, it will transition the new page into view.
     %p Here is an example of a 2 "page" site built with two jQuery Mobile divs navigated by linking to an ID placed on each page wrapper. Note that the IDs on the page wrappers are only needed to support the internal page linking, and are optional if each page is a separate HTML document.
     %pre
-      .highlight
-        %code
-          %span.nt &lt;div
-          %span.na data-role=
-          %span.s "page"
-          %span.na id=
-          %span.s "foo"
-          %span.nt &gt;
-          %span.nt &lt;div
-          %span.na data-role=
-          %span.s "content"
-          %span.nt &gt;
-          I'm the "foo" page. Since I'm the first page
-          in the source order, I will be displayed onLoad.
-          %span.nt &lt;a
-          %span.na href=
-          %span.s "#bar"
-          = succeed "Visit" do
-            %span.nt &gt;
-          the bar "page"
-          %span.nt &lt;/a&gt;
-          %span.nt &lt;/div&gt;&lt;!-- /content --&gt;
-          %span.nt &lt;/div&gt;&lt;!-- /foo page --&gt;
-          %span.nt &lt;div
-          %span.na data-role=
-          %span.s "page"
-          %span.na id=
-          %span.s "bar"
-          %span.nt &gt;
-          %span.nt &lt;div
-          %span.na data-role=
-          %span.s "content"
-          %span.nt &gt;
-          I'm the "bar" page. I will be shown only if the
-          anchor link on the
-          %span.nt &lt;a
-          %span.na href=
-          %span.s "#foo"
-          = succeed "foo" do
-            %span.nt &gt;
-          %span.nt &lt;/a&gt;
-          page is clicked.
-          %span.nt &lt;/div&gt;
-          %span.nt &lt;!-- /content --&gt;
-          %span.nt &lt;/div&gt;&lt;!-- /bar page --&gt;
+      %code
+        :preserve
+          &lt;div data-role=&quot;page&quot; id=&quot;foo&quot;&gt; 
+            &lt;div data-role=&quot;content&quot;&gt;
+              I'm the &quot;foo&quot; page. Since I'm the first page 
+              in the source order, I will be displayed onLoad. 
+              &lt;a href=&quot;#bar&quot;&gt;Visit the bar &quot;page&quot;&lt;/a&gt; 
+            &lt;/div&gt;&lt;!-- /content --&gt;
+          &lt;/div&gt;&lt;!-- /foo page --&gt; 
+          
+          &lt;div data-role=&quot;page&quot; id=&quot;bar&quot;&gt; 
+            &lt;div data-role=&quot;content&quot;&gt;
+              I'm the &quot;bar&quot; page. I will be shown only if the 
+              anchor link on the &lt;a href=&quot;#foo&quot;&gt;foo&lt;/a&gt; 
+              page is clicked. 
+            &lt;/div&gt;&lt;!-- /content --&gt;
+          &lt;/div&gt;&lt;!-- /bar page --&gt; 
+          
     %p You can seamlessly navigate between local, internal "pages" and external pages in jQuery Mobile. Both will look the same to the end user except that external pages will display the Ajax spinner while loading. In either situation, jQuery Mobile updates the page's URL hash to enable Back button support, deep-linking and bookmarking.
     %p PLEASE NOTE: Since we are using the hash to track navigation history for all the Ajax 'pages', it's not currently possible to deep link to an anchor (index.html#foo) on a page in jQuery Mobile, because the framework will look for a 'page' with and ID of #foo instead of the native behavior of scrolling to the content with that ID.
     %p

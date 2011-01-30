@@ -68,12 +68,20 @@ ActionController::Routing::Routes.draw do |map|
     jqgrid.resources :users,
     :collection => { :pets      => :get,
                                               :post_data => :post }  
-    jqgrid.resources :widgets 
+    jqgrid.resources :widgets
+    jqgrid.resources :animals
+    jqgrid.resources :mine
   end
   
   map.namespace :jqtouch do |jqtouch|
     jqtouch.resources :demo => { :ajax_post => :post }  
-  end                                          
+  end
+  
+  map.namespace :mobile do |mobile|
+    mobile.namespace :experiments do |experiment|
+      experiment.resources :list_items
+    end
+  end
   
   map.namespace :ical do |ical|
     ical.resources :calendars,

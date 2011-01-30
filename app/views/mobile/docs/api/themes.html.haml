@@ -72,13 +72,14 @@
         = succeed "." do
           %a.ui-link{:href => "#"} link
       %label{:for => "slider1"} Input slider:
-      %input#slider1{:max => "100", :min => "0", :name => "slider1", :type => "range", :value => "50"}/
-      %fieldset{"data-role" => "fieldcontain", "data-type" => "horizontal"}
-        %legend Cache settings:
-        %input#radio-choice-a1{:checked => "checked", :name => "radio-choice-a1", :type => "radio", :value => "on"}/
-        %label{:for => "radio-choice-a1"} On
-        %input#radio-choice-b1{:name => "radio-choice-a1", :type => "radio", :value => "off"}/
-        %label{:for => "radio-choice-b1"} Off
+      %input#slider1{:style => "width: 3.5em;", :max => "100", :min => "0", :name => "slider1", :type => "range", :value => "50"}/
+      %div{:"data-role"=>"fieldcontain"}
+        %fieldset{"data-role" => "controlgroup", "data-type" => "horizontal"}
+          %legend Cache settings:
+          %input#radio-choice-a1{:checked => "checked", :name => "radio-choice-a1", :type => "radio", :value => "on"}/
+          %label{:for => "radio-choice-a1"} On
+          %input#radio-choice-b1{:name => "radio-choice-a1", :type => "radio", :value => "off"}/
+          %label{:for => "radio-choice-b1"} Off
       %a{"data-inline" => "true", "data-role" => "button", :href => "#"} Button
     .ui-bar.ui-bar-a
       %div{"data-role" => "controlgroup", "data-type" => "horizontal"}
@@ -149,7 +150,7 @@
       %code data-theme="a"
       to the anchor. Once an alternate swatch color is set on a button in the markup, the framework won't override that color if the parent theme is changed, because you made a conscious decision to set it.
     .swatch-bars
-      .ui-bar{"data-nobackbtn" => "true", "data-role" => "header", "data-theme" => "a"}
+      .ui-bar{"data-backbtn" => "false", "data-role" => "header", "data-theme" => "a"}
         %div
           / wrapper div to have control over butttons
           %a{"data-icon" => "arrow-l", "data-theme" => "a", :href => "/mobile/docs/api"} A
@@ -157,7 +158,7 @@
           %a{"data-icon" => "arrow-l", "data-theme" => "c", :href => "/mobile/docs/api"} C
           %a{"data-icon" => "arrow-l", "data-theme" => "d", :href => "/mobile/docs/api"} D
           %a{"data-icon" => "arrow-l", "data-theme" => "e", :href => "/mobile/docs/api"} E
-      .ui-bar{"data-nobackbtn" => "true", "data-role" => "header", "data-theme" => "b"}
+      .ui-bar{"data-backbtn" => "false", "data-role" => "header", "data-theme" => "b"}
         %div
           / wrapper div to have control over butttons
           %a{"data-icon" => "arrow-l", "data-theme" => "a", :href => "/mobile/docs/api"} A
@@ -165,7 +166,7 @@
           %a{"data-icon" => "arrow-l", "data-theme" => "c", :href => "/mobile/docs/api"} C
           %a{"data-icon" => "arrow-l", "data-theme" => "d", :href => "/mobile/docs/api"} D
           %a{"data-icon" => "arrow-l", "data-theme" => "e", :href => "/mobile/docs/api"} E
-      .ui-bar{"data-nobackbtn" => "true", "data-role" => "header", "data-theme" => "c"}
+      .ui-bar{"data-backbtn" => "false", "data-role" => "header", "data-theme" => "c"}
         %div
           / wrapper div to have control over butttons
           %a{"data-icon" => "arrow-l", "data-theme" => "a", :href => "/mobile/docs/api"} A
@@ -173,7 +174,7 @@
           %a{"data-icon" => "arrow-l", "data-theme" => "c", :href => "/mobile/docs/api"} C
           %a{"data-icon" => "arrow-l", "data-theme" => "d", :href => "/mobile/docs/api"} D
           %a{"data-icon" => "arrow-l", "data-theme" => "e", :href => "/mobile/docs/api"} E
-      .ui-bar{"data-nobackbtn" => "true", "data-role" => "header", "data-theme" => "d"}
+      .ui-bar{"data-backbtn" => "false", "data-role" => "header", "data-theme" => "d"}
         %div
           / wrapper div to have control over butttons
           %a{"data-icon" => "arrow-l", "data-theme" => "a", :href => "/mobile/docs/api"} A
@@ -181,7 +182,7 @@
           %a{"data-icon" => "arrow-l", "data-theme" => "c", :href => "/mobile/docs/api"} C
           %a{"data-icon" => "arrow-l", "data-theme" => "d", :href => "/mobile/docs/api"} D
           %a{"data-icon" => "arrow-l", "data-theme" => "e", :href => "/mobile/docs/api"} E
-      .ui-bar{"data-nobackbtn" => "true", "data-role" => "header", "data-theme" => "e"}
+      .ui-bar{"data-backbtn" => "false", "data-role" => "header", "data-theme" => "e"}
         %div
           / wrapper div to have control over butttons
           %a{"data-icon" => "arrow-l", "data-theme" => "a", :href => "/mobile/docs/api"} A
@@ -201,12 +202,13 @@
       The jQuery Mobile framework uses a single Theme-level swatch called "active" (bright blue in the default theme) to consistently indicate the selected state, regardless of the individual swatch of the given widget. We apply this in navigation and form controls whenever there is a need to indicate what is currently selected. Because this theme swatch is designed for clear, consistent user feedback, it cannot be overridden via the markup; it is set once in the Theme and applied by the framework whenever a selected or active state is needed. The styling for this state is in the theme stylesheet under the
       %code ui-btn-active
       style rules.
-    %fieldset{"data-role" => "fieldcontain", "data-type" => "horizontal"}
-      %legend Active is used for the on state of these toggles:
-      %input#radio-choice-a{:checked => "checked", :name => " radio-choice-a", :type => "radio", :value => "on"}/
-      %label{:for => "radio-choice-a"} On
-      %input#radio-choice-b{:name => " radio-choice-a", :type => "radio", :value => "off"}/
-      %label{:for => "radio-choice-b"} Off
+    %div{:"data-role"=>"fieldcontain"}
+      %fieldset{"data-role" => "controlgroup", "data-type" => "horizontal"}
+        %legend Active is used for the on state of these toggles:
+        %input#radio-choice-a{:checked => "checked", :name => " radio-choice-a", :type => "radio", :value => "on"}/
+        %label{:for => "radio-choice-a"} On
+        %input#radio-choice-b{:name => " radio-choice-a", :type => "radio", :value => "off"}/
+        %label{:for => "radio-choice-b"} Off
     %h3 Icons
     %p
       There a core set of

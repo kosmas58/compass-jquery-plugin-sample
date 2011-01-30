@@ -63,12 +63,18 @@
                     "default" : {
                         // I want this type to have no children (so only leaf nodes)
                         // In my case - those are files
-                        "valid_children" : "none"
+                        "valid_children" : "none",
+                        "icon" : {
+                            "image" : "/images/icons/16x16/file.png"
+                        }
                     },
                     // The `folder` type
                     "folder" : {
                         // can have files and other folders inside of it, but NOT `accordion` nodes
-                        "valid_children" : [ "default", "folder" ]
+                        "valid_children" : [ "default", "folder" ],
+                        "icon" : {
+                            "image" : "/images/icons/16x16/folder.png"
+                        }
                     },
                     // The `accordion` nodes 
                     "accordion" : {

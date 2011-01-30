@@ -1,0 +1,10 @@
+-@title = "jQuery Mobile Docs - Test URL Example"
+
+- content_for :content_head do
+  = render(:partial => "/mobile/index.js.haml", :format => :js)
+
+%div{"data-role" => "page", "data-url" => "docs-links-urltest/"}
+  %div{"data-role" => "header"}
+    %h1 URL Test Page
+  %div{"data-role" => "content"}
+    %p This is a regular page that updated the url with a different value than was requested.

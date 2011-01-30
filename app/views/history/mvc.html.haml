@@ -1,0 +1,32 @@
+-@title = "#{t('txt.history.name')} - #{t('txt.history.mvc')}"
+
+- content_for :content_head do
+  = render(:partial => "mvc.js.haml", :format => :js)
+
+.demo
+  %h3
+    =image_tag("icons/22x22/history.png", :border => 0)
+    =@title
+  
+  #tabs
+    %ul.ajax-links
+      %li
+        %a.default-content{ :href => "mvc_1" }
+          load 1.html
+      %li
+        %a{ :href => "mvc_2" }
+          load 2.html
+      %li
+        %a{ :href => "mvc_3" }
+          load 3.html
+/ End demo
+.demo-description
+  #greybox
+  %p
+    The plugin was written by
+    %a{:href => "http://github.com/tkyk/jquery-history-plugin/" } Takayuki Miwa
+    and released under the
+    = succeed "." do
+      %a{:href => "http://tkyk.github.com/jquery-history-plugin/#license", :class => :greybox } MIT License
+/ End demo-description
+

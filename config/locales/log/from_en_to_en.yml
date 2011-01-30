@@ -4,7 +4,6 @@ activerecord:
     invheader: 
       invdate: Date
 txt: 
-  ui: 
-    widgets: 
-      autocomplete: 
-        maxheight: Scrollable results
+  jqgrid: 
+    mine: 
+      treegrid: Treegrid using json

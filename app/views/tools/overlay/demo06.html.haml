@@ -10,25 +10,37 @@
   %p
     The following button opens an overlay whose contents are loaded from an external URL:
   / external page is given in the href attribute (as it should be)
-  %a{:href => "content", :rel => "#overlay", :style => "text-decoration:none"}
-    / remember that you can use any element inside the trigger
-    %button{:type => "button"} Show external page in overlay
-  / another link. uses the same overlay
-  %a{:href => "content2", :rel => "#overlay", :style => "text-decoration:none"}
-    %button{:type => "button"}
-      Show another page
+  #internal
+    %a{:href => "content1", :rel => "#overlay", :style => "text-decoration:none"}
+      / remember that you can use any element inside the trigger
+      %button{:type => "button"} Show a page in overlay
+    / another link. uses the same overlay
+    %a{:href => "content2", :rel => "#overlay", :style => "text-decoration:none"}
+      %button{:type => "button"}
+        Show another page
+  %br
+  %br
+  %p
+    Ajax calls cannot retrieve external pages for security reasons.
+    But with YQL you can get the pure HTML of the page and display it.
+  #external
+    %a{:href => "http://jquery.com", :rel => "#overlay2", :style => "text-decoration:none"}
+      %button
+        Show an really external page
+
   / overlayed element
   #overlay.apple_overlay
+    %a.close
+    / the external content is loaded inside this tag
+    .contentWrap
+  / overlayed element
+  
+  #overlay2.apple_overlay
     %a.close
     / the external content is loaded inside this tag
     .contentWrap
 / End demo
 
 .demo-description
-  %p
-    Get more information
-    %a{ :href => "https://forum.jquery.com/topic/jquery-load-external-page-by-url", :class => :greybox}
-      here
-    \.
   #greybox
 / End demo-description

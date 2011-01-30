@@ -9,11 +9,11 @@
   
   $(document).ready(function() {
     $("#bedata").click( function(){
-    	var gr = $("#invheaders_demo0802").jqGrid('getGridParam','selrow');
-    	if( gr != null )
-    	  $("#invheaders_demo0802").jqGrid('editGridRow',gr,{height:280,reloadAfterSubmit:false});
-    	else
-    	 alert("Please Select Row");
+      var gr = $("#invheaders_demo0802").jqGrid('getGridParam','selrow');
+      if( gr != null )
+        $("#invheaders_demo0802").jqGrid('editGridRow',gr,{height:280,reloadAfterSubmit:false});
+      else
+       alert("Please Select Row");
     });
   });
   

@@ -3,6 +3,8 @@
 # Specifies gem version of Rails to use when vendor/rails is not present
 RAILS_GEM_VERSION = '2.3.10' unless defined? RAILS_GEM_VERSION
 
+ENV["RAILS_ASSET_ID"] = "" # disable timestamps at end of asset files for offline browsing
+
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
 
@@ -19,13 +21,6 @@ Rails::Initializer.run do |config|
   # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
   # config.gem "sqlite3-ruby", :lib => "sqlite3"
   # config.gem "aws-s3", :lib => "aws/s3"
-
-  
-  config.gem 'manifesto', :version => '>= 0.6.0'
-  config.gem 'haml', :version => '= 3.0.25'
-  config.gem 'compass', :version => '= 0.10.6'
-  config.gem 'compass-jquery-plugin', :version => '= 0.3.1.1', :lib => 'jquery'
-  config.gem 'ri_cal', :version => '= 0.8.7'
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named

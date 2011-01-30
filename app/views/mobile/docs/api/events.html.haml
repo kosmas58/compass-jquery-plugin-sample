@@ -72,7 +72,6 @@
     %pre
       %code
         :preserve
-          
           $('div').live('pageshow',function(event, ui){
             alert('This page was just hidden: '+ ui.prevPage);
           });
@@ -80,7 +79,13 @@
           $('div').live('pagehide',function(event, ui){
             alert('This page was just shown: '+ ui.nextPage);
           });
-          		        %h2 Page initialization events
+    %p
+      Also, for these handlers to be invoked during the initial page load, you must bind them before jQuery Mobile executes.  This can be done in the
+      %code mobileinit
+      handler, as described on the
+      %a{:href => "/mobile/docs/api/globalconfig"} global config
+      page.
+    %h2 Page initialization events
     %p
       Internally, jQuery Mobile auto-initializes plugins based on the markup conventions found in a given "page". For example, an
       %code input
@@ -97,6 +102,16 @@
       %dt
         %code pagecreate
       %dd Triggered on the page being initialized, after initialization occurs.
+    %pre
+      %code
+        :preserve
+          $('#aboutPage').live('pagebeforecreate',function(event){
+            alert('This page was just inserted into the dom!');
+          });
+          
+          $('#aboutPage').live('pagecreate',function(event){
+            alert('This page was just enhanced by jQuery Mobile!');
+          });
     %p
       Note that by binding to
       %code pagebeforecreate
@@ -104,10 +119,21 @@
       = succeed "," do
         %code false
       you can prevent the page plugin from making its manipulations.
+    %pre
+      %code
+        :preserve
+          $('#aboutPage').live('pagebeforecreate',function(event){
+            //run your own enhancement scripting here...
+            return false;
+          });
+          
     .ui-body.ui-body-e
       %p
-        %strong Note on Page IDs:
-        Page elements in jQuery Mobile utilize the
+        %strong
+          Note on Page IDs in Alpha 2 release (
+          %em> no longer an issue
+          ):
+        In jQuery Mobile Alpha 2 and older, page elements utilized the
         %code ID
         attribute for storing the location from which they came. When you place an
         %code ID
@@ -131,3 +157,4 @@
       plugin, which you can utilize after adding or removing a class that applies a CSS transition.
   / /content
 / /page
+

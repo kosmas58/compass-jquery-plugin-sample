@@ -4,7 +4,7 @@
   = render(:partial => "/mobile/index.js.haml", :format => :js)
 
 %div{"data-role" => "page"}
-  %div{"data-role" => "header", "data-theme" => "d"}
+  %div{"data-role" => "header"}
     %h1 Forms
   / /header
   %div{"data-role" => "content"}
@@ -18,10 +18,12 @@
       and
       %code method
       that will handle the form data processing on the server.
-    %code
-      \&lt;form action=&quot;form.php&quot; method=&quot;post&quot;&gt;
-      \...
-      \&lt;/form&gt;
+    %pre
+      %code
+        :preserve
+          &lt;form action=&quot;form.php&quot; method=&quot;post&quot;&gt;
+            ...
+          &lt;/form&gt;
     %h2 Markup Conventions
     %p
       When constructing forms to be used in jQuery Mobile, most of the standard guidelines used to create forms that submit via normal HTTP post or get still apply. However, one thing to keep in mind is that the
@@ -33,6 +35,55 @@
       elements via the
       %code for
       attribute).
+    %h2 Auto-initialization of form elements
+    %p
+      By default, jQuery Mobile will automatically enhance certain native form controls into rich touch-friendly components. This is handled internally by finding form elements by tag name and running a plugin method on them, so for instance, a
+      %code select
+      element will be found and initialized with the "selectmenu" plugin, while an
+      %code input
+      element with a
+      %code type="checkbox"
+      will be enhanced with the "checkboxradio" plugin. Once initialized, you can address these enhanced components programmatically through their jQuery UI widget API methods (see documentation on available methods here:
+      = succeed ")." do
+        %a{:href => "/mobile/docs/forms/plugin-eventsmethods"} Form Plugin Methods
+    %h2 Preventing auto-initialization of form elements
+    %p
+      If you'd prefer that a particular form control be left untouched by jQuery Mobile, simply give that element the attribute
+      = succeed "." do
+        %code data-role="none"
+      For example:
+    %pre
+      %code
+        :preserve
+          &lt;label for=&quot;foo&quot;&gt;
+          &lt;select name=&quot;foo&quot; id=&quot;foo&quot; data-role=&quot;none&quot;&gt;
+            &lt;option value="a" &gt;A&lt;/option&gt;
+            &lt;option value="b" &gt;B&lt;/option&gt;
+            &lt;option value="c" &gt;C&lt;/option&gt;
+          &lt;/select&gt;
+    %p
+      Or, if you'd like to prevent auto-initialization without adding attributes to your markup, you can customize the selector that is used for preventing auto-initialization by setting the page plugin's
+      %code keepNative
+      option (which defaults to
+      = succeed "." do
+        %code "[data-role="none"]
+      Be sure to configure this option inside an event handler bound to the
+      %code mobileinit
+      event, so that it applies to the first page as well as subsequent pages that are loaded.
+    %pre
+      %code
+        :preserve
+          $(document).bind('mobileinit',function(){
+            $.mobile.page.prototype.options.keepNative = "select, input.foo, textarea.bar";
+          });
+    %p
+      One special case is that of selects. The above sample will prevent any and all augmentation from taking place on select elements in the page if
+      %code select
+      is included. If you wish to retain the native performance, look/feel of the menu itself and benefit from the visual augmentation of the select button by jQuery Mobile you can set $.mobile.nativeSelectMenu to true in a
+      %code mobileinit
+      callback as a global setting or use
+      %code data-native="true"
+      on a case by case basis.
     %h2 Dynamic form layout
     %p In jQuery Mobile, all form elements are designed to be a flexible width so they will comfortably fit the width of any mobile device. One optimization built into the framework is that we present labels and form elements differently based on screen width.
     %p If a page is fairly narrow (~480px), the labels are styled as block-level elements so they will stack on top of the form element to save horizontal space.
@@ -50,9 +101,8 @@
     %pre
       %code
         :preserve
-          				
           &lt;div data-role=&quot;fieldcontain&quot;&gt;
-          	...label/input code goes here...
+            ...label/input code goes here...
           &lt;/div&gt;
   / /content
 / /page

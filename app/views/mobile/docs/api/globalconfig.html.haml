@@ -20,19 +20,19 @@
     %pre
       %code
         :preserve
-          
           $(document).bind("mobileinit", function(){
             //apply overrides here
           });
-          %p
+    %p
       Because the
       %code mobileinit
       event is triggered immediately upon execution, you'll need to bind your event handler before jQuery Mobile is loaded. Thus, we recommend linking to your JavaScript files in the following order:
     %pre
       %code
-        \&lt;script src=&quot;jquery.js&quot;&gt;&lt;/script&gt;
-        %strong &lt;script src=&quot;custom-scripting.js&quot;&gt;&lt;/script&gt;
-        \&lt;script src=&quot;jquery-mobile.js&quot;&gt;&lt;/script&gt;
+        :preserve
+          &lt;script src=&quot;jquery.js&quot;&gt;&lt;/script&gt;
+          &lt;script src=&quot;custom-scripting.js&quot;&gt;&lt;/script&gt;
+          &lt;script src=&quot;jquery-mobile.js&quot;&gt;&lt;/script&gt;
     %p
       Within this event binding, you can configure defaults either by extending the
       %code $.mobile
@@ -41,17 +41,17 @@
       method:
     %pre
       %code
-        $(document).bind("mobileinit", function(){
-        $.extend(  $.mobile , {
-        %strong foo: bar
-        });
-        });
+        :preserve
+          $(document).bind("mobileinit", function(){
+            $.extend(  $.mobile , { foo: bar });
+          });
     %p ...or by setting them individually:
     %pre
       %code
-        $(document).bind("mobileinit", function(){
-        %strong $.mobile.foo = bar;
-        });
+        :preserve
+          $(document).bind("mobileinit", function(){
+            $.mobile.foo = bar;
+          });
     %h2 Configurable options
     %p
       The following defaults are configurable via the
@@ -86,14 +86,23 @@
         , default: "ui-page-active"):
       %dd The class used for "active" button state, from CSS framework.
       %dt
-        ajaxLinksEnabled (
+        ajaxEnabled (
         %em> boolean
         , default: true):
+      %dd jQuery Mobile will automatically handle link clicks and form submissions through Ajax, when possible. If false, url hash listening will be disabled as well, and urls will load as regular http requests.
+      %dt
+        ajaxLinksEnabled (
+        %strong deprecated
+        = succeed "," do
+          %em boolean
+        default: true):
       %dd jQuery Mobile will automatically handle link clicks through Ajax, when possible.
       %dt
         ajaxFormsEnabled (
-        %em> boolean
-        , default: true):
+        %strong deprecated
+        = succeed "," do
+          %em boolean
+        default: true):
       %dd jQuery Mobile will automatically handle form submissions through Ajax, when possible.
       %dt
         defaultTransition (

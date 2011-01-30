@@ -24,14 +24,14 @@ class JstreeController < ApplicationController
           render :partial => "nested.xml.builder", :layout => false
         else
           render :partial => "flat.xml.builder", :layout => false
-        end  
+        end
       end
     end
   end
 
   def get_children
     tree = DemoTree.get_children(params[:id])
-    render :json => tree.to_json, :layout => false   
+    render :json => tree.to_json, :layout => false
   end
   
   def search

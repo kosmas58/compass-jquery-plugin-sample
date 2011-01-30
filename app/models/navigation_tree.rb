@@ -1,6 +1,7 @@
 class NavigationTree < ActiveRecord::Base
-  acts_as_tree_on_steroids :family_level => 1
-  set_table_name "navigation_trees"
+  acts_as_nested_set :left_column => "left", :right_column => "right"
+  set_table_name :navigation_trees
+  belongs_to :parent, :class_name => name
   
   def self.get_children(id)
     result = Array.new
@@ -9,7 +10,7 @@ class NavigationTree < ActiveRecord::Base
     else
       node = find(id)
     end
-    children = node.children
+    children = node.direct_children
     if id != 0
       children.each do |child| 
         result << {
@@ -46,34 +47,28 @@ class NavigationTree < ActiveRecord::Base
     else
       parent = find_by_title("ROOT")
     end
-    node = new()
-    node.parent_id = parent.id
-    node.position  = params[:position]
-    node.left      = parent[:right]
-    node.right     = node.left + 1
-    node.level     = parent.level + 1
-    node.title     = params[:title]
-    node.ntype     = params[:type]
-    node.icon      = params[:icon] if params[:icon]
-    node.url       = params[:url] if params[:url]
-    if node.save
-      node.ancestors.each do |ancestor|
-        ancestor.right += 2
-        ancestor.save
-      end
-      update_all("left = left + 2, right = right + 2", "left >= #{node.right}")
+    
+    parms = {}
+    parms[:parent_id] = parent.id
+    parms[:position]  = params[:position]
+    parms[:title]     = params[:title]
+    parms[:ntype]     = params[:type]
+    parms[:icon]      = params[:icon] if params[:icon]
+    parms[:url]       = params[:url] if params[:url]
+    node = create(parms)
+    if parent.add_child(node)
       if params[:seed]
-        result = node.id  
+        result = node.id
       else
-        result = { :status => 1, :id => node.id } 
+        result = { :status => 1, :id => node.id }
       end  
     else
       if params[:seed]
-        result  = nil  
+        result  = nil
       else
-        result = { :status => 0 } 
+        result = { :status => 0 }
       end
-    end         
+    end
     return result
   end
   
@@ -86,14 +81,10 @@ class NavigationTree < ActiveRecord::Base
     pos = node.position
     
     #  deleting node and its children
-    node.delete_branch
-    # shift left indexes of nodes right of the node
-    update_all("left = left - #{dif}", "left > #{right}")
-    # shift right indexes of nodes right of the node and the node's parents
-    update_all("right = right - #{dif}", "right > #{left}")  
+    node.destroy
     # Update position of siblings below the deleted node
-    update_all("position = position -1", "parent_id = #{pid} AND position > #{pos}")    
-    result = { :status => 1 }         
+    update_all("position = position -1", "parent_id = #{pid} AND position > #{pos}")
+    result = { :status => 1 }
     return result
   end
   
@@ -106,7 +97,7 @@ class NavigationTree < ActiveRecord::Base
   end
   
   def self.copy_children(id, node)
-    node.children.each do |child|
+    node.direct_children.each do |child|
       result = copy_node(id, child)
       copy_children(result[:id], child)
     end
@@ -227,9 +218,7 @@ class NavigationTree < ActiveRecord::Base
         file.write "\n#NavigationTree\n"
         file.write "puts \"Started creating navigation tree\"\n"
         file.write "puts \"Please be patient ...\"\n"
-        file.write "puts \"... inserting more than 400 nodes with acts_as_tree_on_steroids lasts ...\"\n"
-        file.write "puts \"... time for lunch or another break.\"\n"
-        file.write "node_#{root.id} = NavigationTree.create(:parent_id => 0, :position => 0, :left => 1,  :right => 2, :level => 0, :title => 'ROOT').id\n"
+        file.write "node_#{root.id} = NavigationTree.create(:parent_id => 0, :position => 0, :left => 1,  :right => 2, :title => 'ROOT').id\n"
         export_node(file, root)
         file.write "puts \"Finished creating navigation tree\"\n\n"
         file.close
@@ -242,12 +231,12 @@ class NavigationTree < ActiveRecord::Base
   def self.export_node(file, parent)
     pos = 0
     file.write "parent_id = node_#{parent.id}\n"
-    parent.children.each do |child|
+    parent.direct_children.each do |child|
       file.write "node_#{child.id} = NavigationTree.create_node(:id => parent_id, :seed => true, :position => #{pos}, :title => '#{child.title}', :type => '#{child.ntype}'"
       file.write ", :icon => '#{child.icon}'" if child.icon
       file.write ", :url => '#{child.url}'" if child.url
-      file.write ")\n"       
-      if !child.is_leaf?
+      file.write ")\n"
+      if child.children_count() > 0
         export_node(file, child)
       end
       pos += 1

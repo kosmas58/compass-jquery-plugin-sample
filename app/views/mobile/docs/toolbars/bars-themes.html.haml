@@ -13,19 +13,12 @@
       To set the header or footer bars to a different color in your theme, add the
       %code data-theme
       attribute and specify the letter of the theme swatch (a, b, c, etc.). For example, this will set the bar to swatch "b" (blue in the default theme):
-    .highlight
-      %pre
-        %span.nt &lt;div
-        %span.na data-role=
-        %span.s "header"
-        %span.na data-theme=
-        %span.s "b"
-        %span.nt &gt;
-        = succeed "Page" do
-          %span.nt &lt;h1&gt;
-        Title
-        %span.nt &lt;/h1&gt;
-        %span.nt &lt;/div&gt;
+    %pre
+      %code
+        :preserve
+          &lt;div data-role=&quot;header&quot; data-theme=&quot;b&quot;&gt;
+            &lt;h1&gt;Page Title&lt;/h1&gt;
+          &lt;/div&gt;
     %h2 Theming buttons in toolbars
     %p
       Any link added inside the header block will be automatically styled as a button that matches the color of the bar's theme swatch. To make a button stand out as a primary call to action, the
@@ -33,16 +26,10 @@
       attribute can be used to specify a contrasting button color from a different theme swatch. For example, if we set the header to theme "c" (light gray), both buttons would be styled as the "c" button by default. If we wanted the Save button to visually pop, we can override the color by setting the
       %code data-theme
       attribute to "b" (blue in our default theme) on the Save button's anchor.
-    .highlight
-      %pre
-        %span.nt &lt;a
-        %span.na href=
-        %span.s "add-user.php"
-        %span.na data-theme=
-        %span.s "b"
-        = succeed "Save" do
-          %span.nt &gt;
-        %span.nt &lt;/a&gt;
+    %pre
+      %code
+        :preserve
+          &lt;a href=&quot;add-user.php&quot; data-theme=&quot;b&quot;&gt;Save&lt;/a&gt;
     %h2 Theme variations
     %p This is a demo of the variation that can be achieved by tweaking the theme swatches and buttons inside the headers and footers.
     %h3 Headers

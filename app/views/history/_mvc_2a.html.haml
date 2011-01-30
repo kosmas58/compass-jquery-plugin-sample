@@ -1,0 +1,20 @@
+:javascript
+  $(function() {
+    $("#tabs-2a").tabs({
+      ajaxOptions: {
+        error: function(xhr, status, index, anchor) {
+          $(anchor.hash).html("Couldn't load this tab. We'll try to fix this as soon as possible. If this wouldn't be a demo.");
+        }
+      }
+    });
+  });
+
+.demo
+  #tabs-2a
+    %ul.ajax-links
+      %li
+        %a{:href => "mvc_2aA"}
+          load 2aA.html
+      %li
+        %a{:href => "mvc_2aB"}
+          load 2aB.html

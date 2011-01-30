@@ -1,0 +1,204 @@
+-@title = "Scrollview Test 1 - Form Element Event Test"
+
+- content_for :content_head do
+  = render(:partial => "scrollview1.js.haml", :format => :js)
+  :css
+    #evtCatcher {
+      border: solid 1px black;
+      background-color: #FF9;
+      padding: 10px;	
+    }
+    
+  :javascript
+    function getEvtHandler(cb_pd, cb_sp)
+    {
+      return function(e) {
+          if (cb_pd.checked)
+              e.preventDefault();
+          if (cb_sp.checked)
+              e.stopPropagation();
+      };
+    }
+    
+    $(function(){
+      $("#evtCatcher")
+          .bind("touchstart", getEvtHandler($("#cb_hd_pd")[0], $("#cb_hd_sp")[0]))
+          .bind("touchmove",  getEvtHandler($("#cb_hm_pd")[0], $("#cb_hm_sp")[0]))
+          .bind("touchstop",  getEvtHandler($("#cb_hu_pd")[0], $("#cb_hu_sp")[0]));
+    });
+
+%div{"data-role" => "page", "data-theme" => "c"}
+  %div{"data-role" => "header"}
+    %h1 Form Element Event Test
+  / /header
+  %div{"data-role" => "content", "data-theme" => "c"}
+    %p The form elements on this page are wrapped by a special div that has event handlers for touchstart, touchmove and touchstop. The checkboxes below control how the event within these handlers is treated when they fire. Use this page to figure out how the various event treatments impact the form elements on you mobile device, then add to the notes at the bottom of the page.
+    %p All scrolling on this page is performed by the native viewport, there are no scrollviews on this page.
+    %div{"data-role" => "fieldcontain"}
+      %fieldset{"data-role" => "controlgroup"}
+        %input#cb_hd_pd{:name => "cb_hd_pd", :type => "checkbox"}/
+        %label{:for => "cb_hd_pd"} touchstart - Prevent Default
+        %input#cb_hd_sp{:name => "cb_hd_sp", :type => "checkbox"}/
+        %label{:for => "cb_hd_sp"} touchstart - Stop Propagation
+        %input#cb_hm_pd{:name => "cb_hm_pd", :type => "checkbox"}/
+        %label{:for => "cb_hm_pd"} touchmove - Prevent Default
+        %input#cb_hm_sp{:name => "cb_hm_sp", :type => "checkbox"}/
+        %label{:for => "cb_hm_sp"} touchmove - Stop Propagation
+        %input#cb_hu_pd{:name => "cb_hu_pd", :type => "checkbox"}/
+        %label{:for => "cb_hu_pd"} touchstop - Prevent Default
+        %input#cb_hu_sp{:name => "cb_hu_sp", :type => "checkbox"}/
+        %label{:for => "cb_hu_sp"} touchstop - Stop Propagation
+    #evtCatcher
+      %form{:action => "#", :method => "get"}
+        %h2 Form elements
+        %div{"data-role" => "fieldcontain"}
+          %label{:for => "name"} Text Input:
+          %input#name{:name => "name", :type => "text", :value => ""}/
+        %div{"data-role" => "fieldcontain"}
+          %label{:for => "textarea"} Textarea:
+          %textarea#textarea{:cols => "40", :name => "textarea", :rows => "8"}
+        %div{"data-role" => "fieldcontain"}
+          %label{:for => "search"} Search Input:
+          %input#search{:name => "password", :type => "search", :value => ""}/
+        %div{"data-role" => "fieldcontain"}
+          %label{:for => "slider2"} Flip switch:
+          %select#slider2{"data-role" => "slider", :name => "slider2"}
+            %option{:value => "off"} Off
+            %option{:value => "on"} On
+        %div{"data-role" => "fieldcontain"}
+          %label{:for => "slider"} Slider:
+          %input#slider{:style => "width: 3.5em;", :max => "100", :min => "0", :name => "slider", :type => "range", :value => "0"}/
+        %div{"data-role" => "fieldcontain"}
+          %fieldset{"data-role" => "controlgroup"}
+            %legend Choose as many snacks as you'd like:
+            %input#checkbox-1a.custom{:name => "checkbox-1a", :type => "checkbox"}/
+            %label{:for => "checkbox-1a"} Cheetos
+            %input#checkbox-2a.custom{:name => "checkbox-2a", :type => "checkbox"}/
+            %label{:for => "checkbox-2a"} Doritos
+            %input#checkbox-3a.custom{:name => "checkbox-3a", :type => "checkbox"}/
+            %label{:for => "checkbox-3a"} Fritos
+            %input#checkbox-4a.custom{:name => "checkbox-4a", :type => "checkbox"}/
+            %label{:for => "checkbox-4a"} Sun Chips
+        %div{"data-role" => "fieldcontain"}
+          %fieldset{"data-role" => "controlgroup", "data-type" => "horizontal"}
+            %legend Font styling:
+            %input#checkbox-6.custom{:name => "checkbox-6", :type => "checkbox"}/
+            %label{:for => "checkbox-6"} b
+            %input#checkbox-7.custom{:name => "checkbox-7", :type => "checkbox"}/
+            %label{:for => "checkbox-7"}
+              %em i
+            %input#checkbox-8.custom{:name => "checkbox-8", :type => "checkbox"}/
+            %label{:for => "checkbox-8"} u
+        %div{"data-role" => "fieldcontain"}
+          %fieldset{"data-role" => "controlgroup"}
+            %legend Choose a pet:
+            %input#radio-choice-1{:checked => "checked", :name => "radio-choice-1", :type => "radio", :value => "choice-1"}/
+            %label{:for => "radio-choice-1"} Cat
+            %input#radio-choice-2{:name => "radio-choice-1", :type => "radio", :value => "choice-2"}/
+            %label{:for => "radio-choice-2"} Dog
+            %input#radio-choice-3{:name => "radio-choice-1", :type => "radio", :value => "choice-3"}/
+            %label{:for => "radio-choice-3"} Hampster
+            %input#radio-choice-4{:name => "radio-choice-1", :type => "radio", :value => "choice-4"}/
+            %label{:for => "radio-choice-4"} Lizard
+        %div{"data-role" => "fieldcontain"}
+          %fieldset{"data-role" => "controlgroup", "data-type" => "horizontal"}
+            %legend Layout view:
+            %input#radio-choice-c{:checked => "checked", :name => "radio-choice-b", :type => "radio", :value => "on"}/
+            %label{:for => "radio-choice-c"} List
+            %input#radio-choice-d{:name => "radio-choice-b", :type => "radio", :value => "off"}/
+            %label{:for => "radio-choice-d"} Grid
+            %input#radio-choice-e{:name => "radio-choice-b", :type => "radio", :value => "other"}/
+            %label{:for => "radio-choice-e"} Gallery
+        %div{"data-role" => "fieldcontain"}
+          %label.select{:for => "select-choice-1"} Choose shipping method:
+          %select#select-choice-1{:name => "select-choice-1"}
+            %option{:value => "standard"} Standard: 7 day
+            %option{:value => "rush"} Rush: 3 days
+            %option{:value => "express"} Express: next day
+            %option{:value => "overnight"} Overnight
+        %div{"data-role" => "fieldcontain"}
+          %label.select{:for => "select-choice-3"} Your state:
+          %select#select-choice-3{:name => "select-choice-3"}
+            %option{:value => "AL"} Alabama
+            %option{:value => "AK"} Alaska
+            %option{:value => "AZ"} Arizona
+            %option{:value => "AR"} Arkansas
+            %option{:value => "CA"} California
+            %option{:value => "CO"} Colorado
+            %option{:value => "CT"} Connecticut
+            %option{:value => "DE"} Delaware
+            %option{:value => "FL"} Florida
+            %option{:value => "GA"} Georgia
+            %option{:value => "HI"} Hawaii
+            %option{:value => "ID"} Idaho
+            %option{:value => "IL"} Illinois
+            %option{:value => "IN"} Indiana
+            %option{:value => "IA"} Iowa
+            %option{:value => "KS"} Kansas
+            %option{:value => "KY"} Kentucky
+            %option{:value => "LA"} Louisiana
+            %option{:value => "ME"} Maine
+            %option{:value => "MD"} Maryland
+            %option{:value => "MA"} Massachusetts
+            %option{:value => "MI"} Michigan
+            %option{:value => "MN"} Minnesota
+            %option{:value => "MS"} Mississippi
+            %option{:value => "MO"} Missouri
+            %option{:value => "MT"} Montana
+            %option{:value => "NE"} Nebraska
+            %option{:value => "NV"} Nevada
+            %option{:value => "NH"} New Hampshire
+            %option{:value => "NJ"} New Jersey
+            %option{:value => "NM"} New Mexico
+            %option{:value => "NY"} New York
+            %option{:value => "NC"} North Carolina
+            %option{:value => "ND"} North Dakota
+            %option{:value => "OH"} Ohio
+            %option{:value => "OK"} Oklahoma
+            %option{:value => "OR"} Oregon
+            %option{:value => "PA"} Pennsylvania
+            %option{:value => "RI"} Rhode Island
+            %option{:value => "SC"} South Carolina
+            %option{:value => "SD"} South Dakota
+            %option{:value => "TN"} Tennessee
+            %option{:value => "TX"} Texas
+            %option{:value => "UT"} Utah
+            %option{:value => "VT"} Vermont
+            %option{:value => "VA"} Virginia
+            %option{:value => "WA"} Washington
+            %option{:value => "WV"} West Virginia
+            %option{:value => "WI"} Wisconsin
+            %option{:value => "WY"} Wyoming
+        .ui-body.ui-body-b
+          %fieldset.ui-grid-a
+            .ui-block-a
+              %button{"data-theme" => "d", :type => "submit"} Cancel
+            .ui-block-b
+              %button{"data-theme" => "a", :type => "submit"} Submit
+    %h3 Notes
+    %ul
+      %li
+        iOS
+        %ul
+          %li None
+      %li
+        Android
+        %ul
+          %li
+            HTC Incredible - Android 2.1 (HTC Sense)
+            %ul
+              %li
+                Calling preventDefault() on the touchstart event prevents te following elements from working properly:
+                %ul
+                  %li Textfield
+                  %li Textarea
+                  %li Checkbox
+                  %li Radio
+                  %li Button
+          %li Motorola Droid X - Android 2.2 ()
+      %li
+        Black Berry OS 6
+        %ul
+          %li None
+  / /content
+/ /page

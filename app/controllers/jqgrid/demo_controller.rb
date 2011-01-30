@@ -7,6 +7,8 @@ class Jqgrid::DemoController < ApplicationController
     fetch_params(request)
     if @datatype != :local
       if request.xhr?
+        
+        # Master/detail
         if params[:details_for].present?
           if params[:_search] == "true"
             @data = @object.find_for_grid(@mylist, params);
@@ -21,9 +23,31 @@ class Jqgrid::DemoController < ApplicationController
               render :partial => "#{@model.downcase}.xml.builder", :layout => false
               #render :xml => @object.grid(@mylist).encode_records(@data)
           end
+        
+        # Subgrid
         elsif params[:subgrid]
           @data = Invheader.find(params[:id]).invlines.find(:all)
           render :json => @data.to_subgrid_json(params[:atr])
+        
+        # Treegrid
+        elsif @object.grid(@mylist).tree_grid
+          @data = @object.find_for_treegrid(params)
+          case @datatype
+            when :json 
+              rows = []
+              @data.each do |row|
+                rows << row.attributes
+              end
+              data = { :accounts      => rows,
+                       :page          => 1, 
+                       :total_pages   => 1, 
+                       :total_records => 1 }
+              render  :json => data.to_json
+            when :xml
+              render :partial => "#{@model.downcase}.xml.builder", :layout => false
+          end
+          
+        # Default
         else
           @data = @object.find_for_grid(@mylist, params)
           @userdata = @object.userdata(@data)
@@ -141,7 +165,7 @@ class Jqgrid::DemoController < ApplicationController
         @datatype = params[:datatype] = :json
     end 
     @model = (params[:model] || "invheader")
-    @object = Object.const_get(@model.capitalize!)
+    @object = Object.const_get(@model.classify)
     if request.xhr?
       @demo = (params[:grid] || "demo0101")
       @mylist = "#{@demo}".to_sym

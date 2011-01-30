@@ -10,43 +10,29 @@
     =@title
   = render(:partial => "skin_form")
   %form{:action => "http://127.0.0.1:8001/submit_data", :method => "POST"}
-    #tree
-      %ul#treeData{:style => "display: none;"}
-        %li#id1{:title => "Look, a tool tip!"}
-          item1 with key and tooltip
-          %li#id2
-            %span
-              %input{:name => "id2"}
-            %li#id2b
-              %button#btn1 click me
-              %li#id2c
-                Name:
-                %input{:name => "name", :type => "text"}/
-                %br
-                  %li#id2c
-                    Comment:
-                    %textarea{:name => "comment"}
-                    %li
-                      %span
-                        %input{:checked => "", :name => "rb1", :type => "radio", :value => "v1"}
-                          Umschlag 1
-                          %br
-                            %input{:name => "rb1", :type => "radio", :value => "v2"}
-                              Umschlag 2
-                              %br
-                                %input{:name => "rb1", :type => "radio", :value => "v3"}
-                                  Umschlag 3
-                      %li#id3.folder
-                        Some more options here:
-                        %ul
-                          %li
-                            %span
-                              Name:
-                              %input{:name => "name2", :type => "text"}/
-                            %li
-                              %span
-                                Comment:
-                                %textarea{:name => "comment2"}
+    Username:
+    %input{:name => "userName", :type => "text"}/
+    %br
+    %textarea{:name => "comment"}
+    %p
+      %input{:checked => "", :name => "rb1", :type => "radio", :value => "foo"}
+      Foo
+      %input{:name => "rb1", :type => "radio", :value => "bar"}
+      Bar
+      %input{:name => "rb1", :type => "radio", :value => "baz"}
+      Baz
+      %br
+      %input{:checked => "", :name => "cb1", :type => "checkbox", :value => "John"}
+      John
+      %input{:name => "cb1", :type => "checkbox", :value => "Paul"}
+      Paul
+      %input{:name => "cb1", :type => "checkbox", :value => "George"}
+      George
+      %input{:name => "cb1", :type => "checkbox", :value => "Ringo"}
+      Ringo
+    %p
+      / The name attribute is used by tree.serializeArray()
+      #tree{:name => "selNodes"}
     %input{:type => "submit", :value => "Send data"}
 / End demo
 .demo-description

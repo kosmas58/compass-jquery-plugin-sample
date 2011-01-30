@@ -5,3 +5,4 @@
 # Mime::Type.register_alias "text/html", :iphone
 
 Mime::Type.register "text/cache-manifest", :manifest
+Mime::Type.register_alias "application/json", :jsonr, %w( text/x-json )

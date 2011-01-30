@@ -8,7 +8,7 @@
     %h1 Theming lists
   / /header
   .ui-body{"data-role" => "content"}
-    %p All the standard button swatches can be applied to lists. The framework assigns a default list theme swatch of "c" (silver in the default theme) and swatch "b" (blue in default theme) for dividers. Below is a default themed list.
+    %p All the standard button swatches can be applied to lists. The framework assigns a default list theme swatch of &quot;c&quot; (silver in the default theme) and swatch &quot;b&quot; (blue in default theme) for dividers. Below is a default themed list.
     %code
       \&lt;ul data-role=&quot;listview&quot; data-inset=&quot;true&quot;&gt;
     %ul{"data-inset" => "true", "data-role" => "listview"}
@@ -26,7 +26,7 @@
     %p
       The list item color scheme can be changed to any button color theme swatch by adding the
       %code data-theme
-      attribute to the list, and setting the letter theme swatch. Here is the same list above with the "a" swatch applied.
+      attribute to the list, and setting the letter theme swatch. Here is the same list above with the &quot;a&quot; swatch applied.
     %code
       \&lt;ul data-role=&quot;listview&quot; data-inset=&quot;true&quot; data-theme=&quot;d&quot;&gt;
     %ul{"data-inset" => "true", "data-role" => "listview", "data-theme" => "d"}
@@ -46,7 +46,7 @@
       %strong list dividers
       can be set by adding the
       %code data-dividertheme
-      to the list and specifying a swatch letter. Here is an example of the same list above with swatch "d" set on the dividers.
+      to the list and specifying a swatch letter. Here is an example of the same list above with swatch &quot;d&quot; set on the dividers.
     %code
       \&lt;ul data-role=&quot;listview&quot; data-inset=&quot;true&quot; data-theme=&quot;d&quot; data-dividertheme=&quot;c&quot;&gt;
     %ul{"data-dividertheme" => "c", "data-inset" => "true", "data-role" => "listview", "data-theme" => "d"}
@@ -66,7 +66,7 @@
       %strong count bubbles
       can be set by adding the
       %code data-counttheme
-      to the list and specifying a swatch letter. Here is an example with swatch "e" set on the dividers.
+      to the list and specifying a swatch letter. Here is an example with swatch &quot;e&quot; set on the dividers.
     %code
       \&lt;ul data-role=&quot;listview&quot; data-inset=&quot;true&quot; data-theme=&quot;a&quot; data-dividertheme=&quot;d&quot; data-counttheme=&quot;e&quot;&gt;
     %ul{"data-counttheme" => "e", "data-dividertheme" => "d", "data-inset" => "true", "data-role" => "listview", "data-theme" => "a"}
@@ -80,8 +80,41 @@
       %li
         %a{:href => "/mobile/docs/lists"} Sent
         %span.ui-li-count 328
+    %h2 Theming icons
+    %p
+      The default icon for each list item is
+      = succeed "." do
+        %code arrow-r
+      To override this, set the
+      %code data-icon
+      attribute on the desired list item to the
+      = succeed "." do
+        %a{:href => "../buttons/buttons-icons.html"} name of a standard icon
+      To prevent icons from appearing altogether, set the
+      %code data-icon
+      attribute to &quot;false&quot;.
+    %pre
+      %code
+        :preserve
+          &lt;li data-icon=&quot;info&quot;&gt;
+            &lt;a href="#"&gt;Notices&lt;/a&gt;
+          &lt;/li&gt;
+          &lt;li data-icon=&quot;alert&quot;&gt;
+            &lt;a href="#"&gt;Alerts&lt;/a&gt;
+          &lt;/li&gt;
+          &lt;li data-icon=&quot;false&quot;&gt;
+            &lt;a href="#"&gt;All Notifications&lt;/a&gt;
+          &lt;/li&gt;
+    %ul{"data-icon" => "false", "data-inset" => "true", "data-role" => "listview"}
+      %li{"data-role" => "list-divider"} Divider
+      %li{"data-icon" => "info"}
+        %a{:href => "/mobile/docs/lists"} Notices
+      %li{"data-icon" => "alert"}
+        %a{:href => "/mobile/docs/lists"} Alerts
+      %li{"data-icon" => "false"}
+        %a{:href => "/mobile/docs/lists"} All Notifications
     %h2 Theming split buttons
-    %p For split lists which a second button, the framework default to "b" for the theme swatch (blue in the default theme)  Here is a default split list:
+    %p For split lists which a second button, the framework default to &quot;b&quot; for the theme swatch (blue in the default theme)  Here is a default split list:
     %ul{"data-inset" => "true", "data-role" => "listview"}
       %li
         %img{:src => "/images/demo/mobile/album/album-bb.jpg"}/
@@ -121,7 +154,7 @@
       %code data-spliticon
       to the list and specifying a
       = succeed "." do
-        %a{:href => "/mobile/docs/buttons/buttons-icons"} standard icon
+        %a{:href => "../buttons/buttons-icons.html"} standard icon
       This attribute can also be added to individual split inside list items by adding a
       %code data-icon
       attribute to specific links (see second list item).

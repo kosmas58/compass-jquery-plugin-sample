@@ -1,0 +1,45 @@
+- content_for :content_head do
+  = render(:partial => "/mobile/index.js.haml", :format => :js)
+
+#jqm-home{"data-role" => "page", "data-theme" => "b"}
+  #jqm-homeheader
+    %h1#jqm-logo
+      %img{:alt => "jQuery Mobile Framework", :height => "61", :src => "/images/demo/mobile/jquery-logo.png", :width => "235"}/
+    %p A Touch-Optimized Web Framework for Smartphones &amp; Tablets
+    %p#jqm-version Alpha Release
+  %div{"data-role" => "content"}
+    %ul{"data-dividertheme" => "b", "data-inset" => "true", "data-role" => "listview", "data-theme" => "c"}
+      %li{"data-role" => "list-divider"} Experiments
+      %li
+        %a{:href => "/mobile/experiments/datepicker", :rel => "external"} Datepicker
+      %li
+        %a{:href => "/mobile/experiments/google_maps", :rel => "external"} Google Maps
+      %li
+        %a{:href => "/mobile/experiments/navbar_glyphish", :rel => "external"} Navbar with Glyphish icons
+      %li
+        %a{:href => "/mobile/experiments/converter", :rel => "external"} Offline Converter Application
+      %li
+        %a{:href => "/mobile/experiments/list_items", :rel => "external"} Offline Shopping List (based on Railscast 248)
+      %li
+        %a{:href => "/mobile/experiments/photos"} Photos
+      %li
+        %a{:href => "/mobile/experiments/scrollview", :rel => "external"} Scrollview
+      %li
+        %a{:href => "/mobile/experiments/weather"} Weather forecast
+      %li
+        %img.ui-li-icon{:alt => "Tuts+", :src => "/images/demo/mobile/tuts/tutsLogo2.jpg"}/
+        %a{:href => "/mobile/tuts"} Tuts+
+    -# %ul{"data-dividertheme" => "b", "data-inset" => "true", "data-role" => "listview", "data-theme" => "c"}
+    -#   %li{"data-role" => "list-divider"} MobiOne Demos
+    -#   %li
+    -#     %a{:href => "/mobile/experiments/mobi_one/events"} Touch Debug Log
+    -#   %li
+    -#     %a{:href => "/mobile/experiments/mobi_one/demo1"} Touch Demo 1
+    -#   %li
+    -#     %a{:href => "/mobile/experiments/mobi_one/demo2"} Touch Demo 2
+    -#   %li
+    -#     %a{:href => "/mobile/experiments/mobi_one/demo3"} Touch Demo 3
+    -#   %li
+    -#     %a{:href => "/mobile/experiments/mobi_one/demo4"} Touch Demo 4
+    -#   %li
+    -#     %a{:href => "/mobile/experiments/mobi_one/virtual"} Virtual Light Table

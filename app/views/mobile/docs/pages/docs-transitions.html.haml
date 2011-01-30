@@ -16,7 +16,7 @@
       attribute to the link. Possible values include:
     %code
       %code
-        \&lt;a href=&quot;/mobile/docs/pages&quot; data-transition=&quot;pop&quot;&gt;I'll pop&lt;/a&gt;
+        &lt;a href=&quot;index.html&quot; data-transition=&quot;pop&quot;&gt;I'll pop&lt;/a&gt;
     %p
       %a{"data-rel" => "dialog", "data-role" => "button", "data-transition" => "slide", :href => "/mobile/docs/pages/transition-success"} slide
       %a{"data-rel" => "dialog", "data-role" => "button", "data-transition" => "slideup", :href => "/mobile/docs/pages/transition-success"} slideup
@@ -26,8 +26,11 @@
       %a{"data-rel" => "dialog", "data-role" => "button", "data-transition" => "flip", :href => "/mobile/docs/pages/transition-success"} flip
     %p
       In addition, you can also force a "backwards" transition by specifying
-      %code data-back="true"
-      on your link.
+      %code data-direction="reverse"
+      on your link. Note: (this was formerly
+      = succeed "," do
+        %code data-back="true"
+      which will remain supported until 1.0)
     .ui-body.ui-body-e
       %p
         %strong

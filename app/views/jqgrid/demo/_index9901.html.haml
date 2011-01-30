@@ -1,0 +1,38 @@
+-@title = "#{t('txt.jqgrid.name')} - #{t('txt.jqgrid.mine.name')} - #{t('txt.jqgrid.mine.contextmenu2')}"
+.demo
+  %h3
+    =image_tag("icons/22x22/grid.png", :border => 0)
+    =@title
+  %center
+    %table#invheaders_demo9901.scroll{ :cellspacing => "0", :cellpadding => "0" }
+    #invheaders_demo9901_pager.scroll{ :style => "text-align:center;" }
+
+  / Definition of context menu
+  %ul#MenuJqGrid.contextMenu
+    %li.new
+      %a{:href => "#add"}
+        Add Row
+    %li.edit
+      %a{:href => "#edit"}
+        Edit Row
+    %li.delete
+      %a{:href => "#del"}
+        Delete Row
+/ End demo 
+.demo-description
+  %p
+    jqGrid originally uses
+    %a{ :href => "http://www.trendskitchens.co.nz/jquery/contextmenu/", :class => :greybox }
+      Trendskitchen's ContextMenu plugin
+    \.
+  %p
+    I replaced it with
+    %a{ :href => "http://abeautifulsite.net/blog/2008/09/jquery-context-menu-plugin/", :class => :greybox }
+      A Beautiful Site's jQuery Context Menu Plugin
+    , which also is used by jquery.dynatree.js.
+  %p
+    This example is derived from a
+    %a{ :href => "http://www.trirand.net/examples/functionality/contextmenu/default.aspx", :class => :greybox }
+      Trirand example
+    originally written with jqGrid for ASP.NET.
+/ End demo-description

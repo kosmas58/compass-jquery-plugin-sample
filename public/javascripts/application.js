@@ -20,9 +20,10 @@ jQuery(document).ready(function() {
     var head = $("#demoframe").contents().find("head");
     head.append(cssLink);
     
-    //	if( $("link.ui-theme").size() > 3){
-    //	$("link.ui-theme:first").remove();
-    //}
+    if( $("link.ui-theme").size() > 3){
+      $("link.ui-theme:first").remove();
+    }
+    window.location.reload();
   };
 
   $("#switcher").themeswitcher({
@@ -67,3 +68,10 @@ jQuery(document).ready(function() {
   setTimeout(function(){$('div.success, div.notice, div.warning').fadeOut(1500);} , 10000);
   setTimeout(function(){$('div.error').fadeOut(1500);} , 20000);
 });
+
+$(function() {
+  $(window.applicationCache).bind("error", function() {
+    alert("There was an error when loading the cache manifest");
+  });
+});
+
