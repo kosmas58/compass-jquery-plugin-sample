@@ -353,9 +353,10 @@
       %p
         To enable the ribbon you just have to add this code snippet:
       %pre
-        $().ready(function() {
-        $().Ribbon();
-        });
+        :preserve
+          $().ready(function() {
+            $().Ribbon();
+          });
       %p
         The menu is built on ul lists, so to add new submenu items in the menu, just add
         a nested list and it will be added autmagically.
