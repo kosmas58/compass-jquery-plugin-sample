@@ -28,7 +28,7 @@
       Remove ${list_item.name}
 
 :javascript
-  var holdTheInterval;
+  var holdTheInterval //= setInterval(sendPending, 5000);
   
   function itemsRefresh() {
     $.retrieveJSON("/mobile/experiments/list_items?format=json", function(data) {
@@ -72,7 +72,7 @@
                    }, 
       dataType:    "json",
       timeout:     1000,
-      error:       function() {
+      error:       function(XMLHttpRequest, textStatus, errorThrown) {
                      alert(textStatus);
                    }
     });
@@ -87,7 +87,7 @@
                    }, 
       dataType:    "json",
       timeout:     1000,
-      error:       function() {
+      error:       function(XMLHttpRequest, textStatus, errorThrown) {
                      alert(textStatus);
                    }
     });
@@ -156,7 +156,7 @@
         localStorage["pendingItems"] = JSON.stringify(pendingItems);
         
         // Initiate action
-        sendPending();
+        //sendPending();
       }
     });
     
@@ -176,7 +176,7 @@
       $("#item_name").val("");
       
       // Initiate action
-      sendPending();
+      //sendPending();
     });
     
     $("#item_delete").live('click', function(){
@@ -193,7 +193,7 @@
         $("#items").listview("refresh");
         
         // Initiate action
-        sendPending();
+        //sendPending();
       }
     });
   });
