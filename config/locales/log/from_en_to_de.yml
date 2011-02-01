@@ -21,9 +21,9 @@ date:
     short: "%b %d"
     long: "%B %d, %Y"
 txt: 
-  jqgrid: 
-    mine: 
-      treegrid: Treegrids with json
+  replacetext: 
+    name: replaceText
+    default: Example
   tools: 
     form: 
       stylable: 

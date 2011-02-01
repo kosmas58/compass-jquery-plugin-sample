@@ -14,12 +14,13 @@
       %code header
       is an toolbar at the top of the page that usually contains the page title text and optional buttons positioned to the the left and/or right of the title for navigation or actions.
     %p The title text is normally an H1 heading element but it's possible to use any heading level (H1-H6) to allow for semantic flexibility. For example, a page containing multiple mobile 'pages' may use a H1 element on the home 'page' and a H2 element on the secondary pages. All heading levels are styled identically by default to maintain visual consistency.
-    %pre
-      %code
-        :preserve
-          &lt;div data-role=&quot;header&quot;&gt;
-            &lt;h1&gt;Page Title&lt;/h1&gt;
-          &lt;/div&gt;
+    .highlight
+      %pre
+        %code
+          :preserve
+            &lt;div data-role=&quot;header&quot;&gt;
+              &lt;h1&gt;Page Title&lt;/h1&gt;
+            &lt;/div&gt;
     %h2 Default header features
     %p
       The
@@ -43,6 +44,16 @@
         will work. To save space, buttons in toolbars are set to
         %a{:href => "/mobile/docs/buttons/buttons-inline"} inline styling
         so the button is only as wide as the text and icons it contains.
+      %h2 Creating custom back buttons
+      %p
+        If you use the attribute
+        %code data-rel="back"
+        on an anchor, any clicks on that anchor will mimic the back button, going back one history entry and ignoring the anchor's default href. This is particularly useful when linking back to a named page, such as a link that says "home", or when generating "back" buttons with JavaScript, such as a button to close a dialog. When using this feature in your source markup,
+        = succeed "." do
+          %strong be sure to provide a meaningful href that actually points to the URL of the referring page (this will allow the feature to work for users in C-Grade browsers
+        Also, pease keep in mind that if you just want a reverse transition without actually going back in history, you should use the
+        %code data-direction="reverse"
+        attribute instead.
       %h3 Default button positioning
       %p The header plugin looks for immediate children of the header container, and automatically sets the first link in the left button slot and the second link in the right. In this example, the 'Cancel' button will appear in the left slot and 'Save' will appear in the right slot based on their sequence in the source order.
       %pre

@@ -29,15 +29,16 @@
       %a{"data-inline" => "true", "data-rel" => "dialog", "data-role" => "button", "data-transition" => "slideup", :href => "/mobile/docs/pages/dialog"} data-transition="slideup"
       %a{"data-inline" => "true", "data-rel" => "dialog", "data-role" => "button", "data-transition" => "flip", :href => "/mobile/docs/pages/dialog"} data-transition="flip"
     %h2 Closing dialogs
-    %p When any link is clicked within in a dialog, the framework will automatically close the dialog and transition to the requested page, just as if the dialog were a normal page. To create a "cancel" button in a dialog, just link to the page that triggered the dialog to open. This pattern of linking to the previous page is also usable in non-JS devices as well.
     %p
-      For JavaScript-generated links, set their
-      %code href
-      to
-      %code location.href
-      to take advantage of the auto-close behavior. The
+      When any link is clicked within in a dialog, the framework will automatically close the dialog and transition to the requested page, just as if the dialog were a normal page. To create a "cancel" button in a dialog, just link to the page that triggered the dialog to open and add the
+      %code data-rel="back"
+      attribute to your link. This pattern of linking to the previous page is also usable in non-JS devices as well.
+    %p
+      For JavaScript-generated links, you can simply set the href attribute to "#" and use the
+      %code data-rel="back"
+      attribute. You can also call the dialog's
       %code close()
-      method that can be used to programmatically close dialogs, for example:
+      method to programmatically close dialogs, for example:
       = succeed "." do
         %code $('.ui-dialog').dialog('close')
     %h2 History &amp; Back button behavior

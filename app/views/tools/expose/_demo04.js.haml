@@ -7,13 +7,13 @@
   #player img { margin-top:110px; border:0px; }
   #player_wrap { background:#000 url(/images/demo/tools/gradient/h300.png) 0 0 repeat-x; }
 
-  = javascript_include_tag 'flowplayer-3.2.4.min'
+= javascript_include_tag :flowplayer
 
 :javascript
   // execute your scripts when the the DOM is ready. this is a good habit
-  $(function() {
+  $(document).ready(function() { 
     // install flowplayer.
-    $f("player", "/swf/flowplayer-3.2.5.swf", {
+    flowplayer("player", "/videos/flowplayer-3.2.5.swf", {
       // when playback starts, perform exposing
       onStart: function() {
         $("#player").expose({
@@ -43,4 +43,4 @@
         $.mask.close();
       }
     });
-  }
+  });

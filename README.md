@@ -242,7 +242,10 @@ jQuery Plugins included:
 * Takayuki Miwa for [jQuery history plugin][19]
 * Ivan Bozhanov for [jQuery jsTree Plugin][20]
 * Fabrizio Balliano and Fabrizio Balliano for [jQuery Layout Plugin][21]
+* Brandon Aaron and Fabrizio Balliano for [jQuery Mousewheel Plugin][21]
+* Yehuda Katz for [jQuery Offline Plugin][34]
 * Andreas Eberhard for [jQuery PngFix Plugin][22] (for IE)
+* "Cowboy" Ben Alman for [jQuery replaceText Plugin][36]
 * Mikael Soederstroem for [jQuery Ribbon Plugin][23]
 * Gareth Watts from Splunk Inc for [jQuery Sparklines plugin][24]
 * Denis Howlett for [jQuery Table Drag and Drop Plugin][25]
@@ -309,3 +312,7 @@ Copyright &copy; 2009-2011 Kosmas Schuetz. See LICENSE for details.
   [31]: http://arshaw.com/fullcalendar/
   [32]: http://github.com/creationix/haml-js
   [33]: http://github.com/rubyredrick/ri_cal/
+  [34]: http://github.com/wycats/jquery-offline
+  [35]: http://github.com/brandonaaron/jquery-mousewheel
+  [36]: http://github.com/cowboy/jquery-replacetext
+  

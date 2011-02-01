@@ -7,7 +7,7 @@ gem "i18n-js"
 gem "json"
 
 gem "manifesto", ">= 0.6.0"
-gem "compass-jquery-plugin", "= 0.3.3.pre.1", :require => 'jquery'
+gem "compass-jquery-plugin", "= 0.3.2.1.pre.2", :require => 'jquery'
 # gem "sass"
 
 # bundler requires these gems in all environments

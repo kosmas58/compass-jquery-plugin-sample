@@ -76,6 +76,14 @@
           $(document).bind('mobileinit',function(){
             $.mobile.page.prototype.options.keepNative = "select, input.foo, textarea.bar";
           });
+    %p
+      One special case is that of selects. The above sample will prevent any and all augmentation from taking place on select elements in the page if
+      %code select
+      is included. If you wish to retain the native performance, look/feel of the menu itself and benefit from the visual augmentation of the select button by jQuery Mobile you can set $.mobile.nativeSelectMenu to true in a
+      %code mobileinit
+      callback as a global setting or use
+      %code data-native="true"
+      on a case by case basis.
     %h2 Dynamic form layout
     %p In jQuery Mobile, all form elements are designed to be a flexible width so they will comfortably fit the width of any mobile device. One optimization built into the framework is that we present labels and form elements differently based on screen width.
     %p If a page is fairly narrow (~480px), the labels are styled as block-level elements so they will stack on top of the form element to save horizontal space.

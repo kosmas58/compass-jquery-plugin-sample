@@ -403,6 +403,9 @@ en:
       name: Sparklines
       examples: Examples
       default: Try it out
+    replacetext: 
+      name: replaceText
+      default: Example
     tools: 
       name: jQuery TOOLS
       toolbox: 
