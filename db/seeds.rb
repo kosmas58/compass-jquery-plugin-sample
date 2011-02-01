@@ -1335,10 +1335,14 @@ node_400 = NavigationTree.create_node(:id => parent_id, :seed => true, :position
 parent_id = node_392
 node_401 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.ical.calendar.listing', :type => 'default', :icon => '/images/icons/16x16/calendar.png', :url => '/ical/calendars')
 parent_id = node_165
-node_402 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 6, :title => 'txt.sparklines.name', :type => 'folder', :icon => '/images/icons/16x16/sparklines.png')
-parent_id = node_402
-node_403 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.sparklines.examples', :type => 'default', :icon => '/images/icons/16x16/sparklines.png', :url => '/sparklines/examples')
-node_404 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.sparklines.default', :type => 'default', :icon => '/images/icons/16x16/sparklines.png', :url => '/sparklines/default')
+node_450 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 6, :title => 'txt.replacetext.name', :type => 'folder', :icon => '/images/icons/16x16/plugin.png')
+parent_id = node_450
+node_451 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.replacetext.default', :type => 'default', :icon => '/images/icons/16x16/plugin.png', :url => '/replace_text/default')
+parent_id = node_165
+node_455 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 7, :title => 'txt.sparklines.name', :type => 'folder', :icon => '/images/icons/16x16/sparklines.png')
+parent_id = node_455
+node_456 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.sparklines.examples', :type => 'default', :icon => '/images/icons/16x16/sparklines.png', :url => '/sparklines/examples')
+node_457 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.sparklines.default', :type => 'default', :icon => '/images/icons/16x16/sparklines.png', :url => '/sparklines/default')
 parent_id = node_165
 parent_id = node_1
 node_405 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.emu.jqm.name', :type => 'accordion', :icon => '/images/icons/16x16/jqmobile.png')
