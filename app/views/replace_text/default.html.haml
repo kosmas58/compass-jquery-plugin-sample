@@ -29,53 +29,55 @@
     %li
       %a.link5{:href => "#"} Wrap all words starting with 'li' with &lt;span class="green"/&gt;, but only if they aren't already wrapped in a span with class of green
       (try clicking multiple times)
-  %h4
-    To modify this HTML:
-  #test
-    / this is a comment
-    %p
-      This is some text that contains
-      %a{:href => "#"}
-        a link with
-        %i italic text
-        and
-        %b bold text
-      as well as a
-      = succeed "." do
-        %span.test span with a class of test
-    %ol
-      %li this listitem is just text
-      %li
-        but this one has
+  %div.ui-widget-border.ui-corner-all.customize
+    %h4
+      To modify this HTML:
+    #test
+      / this is a comment
+      %p
+        This is some text that contains
         %a{:href => "#"}
           a link with
           %i italic text
           and
           %b bold text
-        and some more text
-      %li
-        and this listitem has some text and an unordered list
-        %ul
-          %li this listitem is just text
-          %li
-            but this one has
-            %a{:href => "#"}
-              a link with
-              %i italic text
-              and
-              %b bold text
-            and some more text
-        followed by some more text
-    %form{:action => "", :method => "get"}
-      %input{:name => "a", :type => "text", :value => "an input with some text"}
-      %br
-      %textarea{:name => "b"} This is just a little bit of sample text, in a textarea. Very exciting!
+        as well as a
+        = succeed "." do
+          %span.test span with a class of test
+      %ol
+        %li this listitem is just text
+        %li
+          but this one has
+          %a{:href => "#"}
+            a link with
+            %i italic text
+            and
+            %b bold text
+          and some more text
+        %li
+          and this listitem has some text and an unordered list
+          %ul
+            %li this listitem is just text
+            %li
+              but this one has
+              %a{:href => "#"}
+                a link with
+                %i italic text
+                and
+                %b bold text
+              and some more text
+          followed by some more text
+      %form{:action => "", :method => "get"}
+        %input{:name => "a", :type => "text", :value => "an input with some text"}
+        %br
+        %textarea{:name => "b"} This is just a little bit of sample text, in a textarea. Very exciting!
   #greybox
   / End demo
 .demo-description
   %p
     %a{ :href => "http://benalman.com/code/projects/jquery-replacetext/docs/files/jquery-ba-replacetext-js.html", :class => :greybox }
       Look here for addtional Documentation
+    \.
   %p
     The replaceText plugin is released under the license
     %a{ :href => "http://benalman.com/about/license/", :class => :greybox }
