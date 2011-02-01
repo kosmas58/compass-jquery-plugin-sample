@@ -11,7 +11,9 @@
     %p All standard HTML link types are supported in jQuery Mobile. To make the experience as polished as possible, any links to pages within the same domain will be automatically turned into Ajax requests and displayed with an animated page transition by the framework.
     %p
       Links that point to other domains or that have
-      %code rel="external"
+      = succeed "," do
+        %code rel="external"
+      %code data-ajax="false"
       or
       %code target
       attributes will not be loaded with Ajax and will cause a full page refresh. If multiple "pages" are contained within a single HTML document, they can be linked by referencing the ID of the page as an anchor (#foo).
@@ -33,9 +35,11 @@
       %li
         %a{:href => "http://www.jquery.com"} External domain
       %li
-        %a{:href => "/mobile", :rel => "external"} Link with rel="external"
+        %a{:href => "/mobile/docs/pages", :rel => "external"} Link with rel="external"
       %li
-        %a{:href => "/mobile", :target => "foo"} Link with target="foo"
+        %a{"data-ajax" => "false", :href => "/mobile/docs/pages"} link with [data-ajax="false"]
+      %li
+        %a{:href => "/mobile/docs/pages", :target => "foo"} Link with target="foo"
       %li{"data-role" => "list-divider"} Email links
       %li
         %a{:href => "mailto:jdoe@foo.com"} Basic email: mailto:jdoe@foo.com

@@ -12,13 +12,15 @@
     %ul{"data-dividertheme" => "b", "data-inset" => "true", "data-role" => "listview", "data-theme" => "c"}
       %li{"data-role" => "list-divider"} Examples of links that work within a single-page (if the page exists)
       %li
-        %a{:href => "/mobile/docs/pages"} [href="index.hml"]
+        %a{:href => "/mobile/docs/pages"} [href="docs/pages/index.html"]
       %li
-        %a{:href => "/mobile/docs/pages"} [href="index.html"]
+        %a{:href => "/mobile/docs/toolbars"} [href="/docs/toolbars/index.html"]
       %li
         %a{:href => "#somelocalID"} [href="#somelocalID"]
       %li Note: an full URL to the same-domain will also work
       %li{"data-role" => "list-divider"} Examples of links that trigger a refresh
+      %li
+        %a{"data-ajax" => "false", :href => "/mobile/docs/pages"} [data-ajax="false"]
       %li
         %a{:href => "/mobile/docs/pages", :rel => "external"} [rel="external"]
       %li
