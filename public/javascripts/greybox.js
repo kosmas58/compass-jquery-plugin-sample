@@ -11,8 +11,8 @@ jQuery(document).ready(function() {
       hide: 'explode'
     });
   });
-    
-  $("a.greybox").click(function(){
+ 
+  $("a.greybox").live('click', function() {
     $("#greybox" ).dialog( "option", "title", this.title || $(this).text() );
     $("#frame").remove();
     $("#greybox").append("<iframe id='frame' src='"+this.href+"' width='100%' height='100%'></iframe>");
