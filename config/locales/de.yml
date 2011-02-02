@@ -22,9 +22,6 @@ de:
     percentage: 
       format: 
         delimiter: ""
-    precision: 
-      format: 
-        delimiter: ""
     currency: 
       format: 
         format: "%n%u"
@@ -34,21 +31,24 @@ de:
         separator: ""
         precision: 
         delimiter: ""
+    precision: 
+      format: 
+        delimiter: ""
   activerecord: 
     attributes: 
       invline: 
         qty: Menge
         total: Summe
         id: ID
-        unit: Mengeneinheit
         num: Anzahl
+        unit: Mengeneinheit
         item: Element
       invheader: 
         tax: Steuer
         ship_via: "Versenden \xC3\xBCber"
         closed: Geschlossen
-        amount: Betrag
         total: Summe
+        amount: Betrag
         id: Inv Nr.
         client: Kunde
         note: Hinweis
@@ -75,14 +75,14 @@ de:
         summary: Betreff
         description: Beschreibung
         all_day: "Gant\xC3\xA4giges Ereignis"
+      pet: 
+        name: Name
       user: 
         pseudo: Pseudonym
         role: Rolle
         lastname: Nachname
         firstname: Vorname
         email: E-Mail
-      pet: 
-        name: Name
       item: 
         cd: CD
         item: Element
@@ -98,18 +98,18 @@ de:
         invalid: "ist nicht g\xC3\xBCltig"
         exclusion: "ist nicht verf\xC3\xBCgbar"
         odd: muss ungerade sein
-        too_short: ist zu kurz (nicht weniger als %{count} Zeichen)
         empty: "muss ausgef\xC3\xBCllt werden"
-        wrong_length: "hat die falsche L\xC3\xA4nge (muss genau %{count} Zeichen haben)"
         even: muss gerade sein
+        too_short: ist zu kurz (nicht weniger als %{count} Zeichen)
+        wrong_length: "hat die falsche L\xC3\xA4nge (muss genau %{count} Zeichen haben)"
         less_than: muss kleiner als %{count} sein
         greater_than: "muss gr\xC3\xB6\xC3\x9Fer als %{count} sein"
         equal_to: muss genau %{count} sein
         too_long: ist zu lang (nicht mehr als %{count} Zeichen)
-        taken: ist bereits vergeben
         accepted: muss akzeptiert werden
-        not_a_number: ist keine Zahl
+        taken: ist bereits vergeben
         inclusion: "ist kein g\xC3\xBCltiger Wert"
+        not_a_number: ist keine Zahl
       full_messages: 
         format: "%{attribute} %{message}"
       template: 
@@ -126,31 +126,31 @@ de:
       long: "%A, %d. %B %Y, %H:%M Uhr"
     pm: nachmittags
   txt: 
-    plugins: 
-      name: jQuery-Plugins
     jst: 
       name: jsTree
-      plugins: Plugins
       html: HTML-Daten
+      plugins: Plugins
+      hotkeys: Hotkeys
       themeroller: Themenwahl
       xml: XML-Daten
-      hotkeys: Hotkeys
       dnd: Drag'n Drop
-      demo: Demonstration
       checkbox: "Auswahlk\xC3\xA4stchen"
       radio: Umschalttasten
+      demo: Demonstration
       json: JSON-Daten
       cookies: Cookies
-      types: Typen
       contextmenu: "Kontextmen\xC3\xBC"
+      types: Typen
       lang: Sprachen
-      sort: Sortieren
       unique: Eindeutig
-      core: "Basisfunktionalit\xC3\xA4t"
+      sort: Sortieren
       ui: UI
+      core: "Basisfunktionalit\xC3\xA4t"
+      search: Suche
       themes: Themen
       crrm: CRRM
-      search: Suche
+    plugins: 
+      name: jQuery-Plugins
     trees: !binary |
       QsOkdW1l
 
@@ -162,19 +162,46 @@ de:
       theme: Thema
       cancel: Abbrechen
       from: von
-      navigation browse: Browsen Sie durch die Beispiele
       language: Sprache
-      save: Sichern
-      show: Anzeigen
+      navigation browse: Browsen Sie durch die Beispiele
       footer: 
         legalese: "Copyright \xC2\xA9 2009-2011 Kosmas Sch\xC3\xBCtz. N\xC3\xA4heres finden Sie unter LICENSE."
+      save: Sichern
+      show: Anzeigen
       create: Anlegen
       update: Aktualisieren
       navigation: 
-        seed: /db/navigation.seeds.rb erfolgreich erstellt.
         configure: Navigation konfigurieren
+        seed: /db/navigation.seeds.rb erfolgreich erstellt.
         browse: Browsen Sie durch die Beispiele
       until: bis
+    ribbon: 
+      name: Multifunktionsleiste
+      simple: jQuery Ribbon Simple Demo
+      default: jQuery Ribbon Windows 7 Demo
+      office: jQuery Ribbon Office Demo
+    history: 
+      name: jQuery History Plugin
+      ajax: Ajax-Beispiel
+      mvc: MVC Bespielhistorie
+      ajax2: Ajax-Beispiel 2
+    emu: 
+      name: "jQuery auf mobilen Ger\xC3\xA4ten"
+      ipad: iPad
+      black: Blackberry Torch
+      jqt: 
+        name: "<i>(Ben\xC3\xB6tigt einen WebKit-Engine)</i>"
+        default: jQTouch Demonstration
+        home: "&beta;@jqtouch.com"
+      port: Hochformat
+      land: Querformat
+      jqm: 
+        name: jQuery mobile Framework
+        experiments: Weitere Demos
+        default: jQuery mobile Demonstration
+        home: "&alpha;2@jquerymobile.com"
+      palm: Palm Pre
+      iphone: iPhone
     jqgrid: 
       name: jqGrid
       manipulation: 
@@ -197,10 +224,10 @@ de:
         30cmulti: Benutzerdefinierte Mehrfachauswahl
         31v: Neu in Version 3.1
         20big_sets: "Gro\xC3\x9Fe Datenmengen durchsuchen"
+        35summary: "Zusammenfassung in der Fu\xC3\x9Fzeile"
         38array1: Einfache Gruppierung mit Matrixdaten
         20as_subgrid: Gitter als Untergitter
         35sortable: Sortierbare Spalten anzeigen
-        35summary: "Zusammenfassung in der Fu\xC3\x9Fzeile"
         30optimize: Datenoptimierung
         38array2: Spalten verbergen
         34v: Neu in Version 3.4
@@ -210,11 +237,11 @@ de:
         20data: Gitterdaten
         34format: Formatierer
         38array3: Kopfzeile konfigurieren
-        37v: Neu in Version 3.7
         20once: Einmaliges Laden
         38remote1: Entfernte Daten (sortiert)
         37scroll: Virtuelles Scrollen
         37multiple: Mehrfachsuche
+        37v: Neu in Version 3.7
         38remote2: Entfernte Daten (sortiert mit Gesamtsummen)
         35asearch: Erweiterte Suche
         32hide: Spalten anzeigen/verbergen
@@ -238,9 +265,9 @@ de:
         30live: Live Datenmanipulation
         name: Demo
         gridify: 2dc-Beispiele mit gridify umgesetzt
+        31new_methods: Neue Methoden
         30integrations: Integrationen
         31toolbar: Symbolleisten
-        31new_methods: Neue Methoden
         32v: Neu in Version 3.2
         33tree: Baumgitter
         30add_row: "Zeile hinzuf\xC3\xBCgen"
@@ -248,16 +275,16 @@ de:
         32insert: "Ereignis nach Einf\xC3\xBCgen einer Zeile"
         37server: Daten auf einmal vom Server laden
         35real: "Reales Beispiel eines Baumgitters "
-        20subgrid: Untergitter
         33mform: Mehrfache Formularsuche
-        35stoolbar: Integrierte Suchleiste
+        20subgrid: Untergitter
         20json_data: JSON-Daten
         33rdnd: Drag and Drop von Zeilen
         30json_map: JSON-Mapping
         35v: Neu in Version 3.5
-        20multi: Mehrfachauswahl
-        20loading: Laden von Daten
+        35stoolbar: Integrierte Suchleiste
         36chooser: Spaltenauswahl
+        20loading: Laden von Daten
+        20multi: Mehrfachauswahl
         35number: Automatische Breite und Reihennummerierung
         actions: Aktionen
         30basic: Einfaches Beispiel
@@ -291,11 +318,11 @@ de:
         30datepicker: Datumsauswahl
         30row: "Zeilen \xC3\xA4ndern"
         37array: Matrixdaten auf einmal laden
-        33visible: Sichtbare Spalten
         33mtoolbar: Mehrfache Symbolleistensuche
+        33visible: Sichtbare Spalten
         2dc: 2dc_jqGrid Beispiele
-        20xml_data: XML-Daten
         35navigation: Formularnavigation
+        20xml_data: XML-Daten
         31userdata: Benutzerdaten
         33function: Datentyp als Funktion
         36rtl: "RNL-Unterst\xC3\xBCtzung"
@@ -324,33 +351,6 @@ de:
       improvements: 
         name: mit Verbesserungen der Form
       secret: Secret Sauce jqGrid
-    emu: 
-      name: "jQuery auf mobilen Ger\xC3\xA4ten"
-      ipad: iPad
-      jqt: 
-        name: "<i>(Ben\xC3\xB6tigt einen WebKit-Engine)</i>"
-        default: jQTouch Demonstration
-        home: "&beta;@jqtouch.com"
-      black: Blackberry Torch
-      port: Hochformat
-      land: Querformat
-      jqm: 
-        name: jQuery mobile Framework
-        experiments: Weitere Demos
-        default: jQuery mobile Demonstration
-        home: "&alpha;2@jquerymobile.com"
-      palm: Palm Pre
-      iphone: iPhone
-    ribbon: 
-      name: Multifunktionsleiste
-      simple: jQuery Ribbon Simple Demo
-      default: jQuery Ribbon Windows 7 Demo
-      office: jQuery Ribbon Office Demo
-    history: 
-      name: jQuery History Plugin
-      ajax: Ajax-Beispiel
-      mvc: MVC Bespielhistorie
-      ajax2: Ajax-Beispiel 2
     replacetext: 
       name: replaceText
       default: Beispiel
@@ -358,41 +358,13 @@ de:
       name: Sparklines
       examples: Beispiele
       default: Probieren Sie es aus
-    dt: 
-      name: Dynatree
-      ul: Aus ul-Element initialisieren
-      persist: Persistenz
-      lazy: "Sp\xC3\xA4tes Laden"
-      default: Standardeinstellungen
-      quick: JS-Objekt initialisieren
-      dnd2: "Dynatree: Ziehen und Ablegen 2"
-      api: Programmier-API
-      iframe: iframe und URL-Navigation
-      dnd: "Dynatree: Ziehen und Ablegen"
-      events: Ergeignisverarbeitung
-      dnd3: "jQUery UI: Ziehen und Ablegen"
-      minexpand: Feste Expansionsebene
-      json: Aus externen Daten initialisieren
-      form: In Formular integriert
-      effects: Effekte
-      contextmenu: "Kontextmen\xC3\xBC,  Kopieren / Einf\xC3\xBCgen"
-      multiline: "Gro\xC3\x9Fe Knoten"
-      select: "K\xC3\xA4stchen & Auswahl"
-      lazy_persist: Langsames Laden
-      benchmark: "Benchmark f\xC3\xBCr gro\xC3\x9Fe B\xC3\xA4ume"
-      theming: 
-        name: Themen
-        xp: XP
-        crystal: Crystal
-        aero: Aero
-        aqua: Aqua
     tools: 
       name: jQuery TOOLS
       toolbox: 
         name: Toolbox
         flashembed: 
-          demo06: Flashembed und Flowplayer
           name: Flashembed
+          demo06: Flashembed und Flowplayer
           demo01: Grundlagen von Flashembedl
           demo02: Flashembed und jQuery
           demo03: "L\xC3\xA4dt Flash per Mausklick"
@@ -414,8 +386,8 @@ de:
       form: 
         name: Formularwerkzeuge
         validator: 
-          demo06: Lokalisieren von Validator (Finnisch)
           name: Validator
+          demo06: Lokalisieren von Validator (Finnisch)
           demo01: "Minimales Setup f\xC3\xBCr Validator"
           demo02: Benutzerdefinierter Eingabetypen und -attribute
           demo03: Kombinierte server-und client-seitige Validierung
@@ -433,8 +405,8 @@ de:
           demo02: ""
           demo03: ""
         dateinput: 
-          demo06: "Lokalisieren von Dateinput (franz\xC3\xB6sisch)"
           name: Dateinput
+          demo06: "Lokalisieren von Dateinput (franz\xC3\xB6sisch)"
           demo01: "Minimales Setup f\xC3\xBCr Dateinput"
           demo02: "Eine gro\xC3\x9Fe Skin f\xC3\xBCr Dateinput"
           demo03: Benutzerdefiniertes Dateinput-Verhalten
@@ -443,27 +415,17 @@ de:
       ui: 
         name: UI-Tools
         tooltips: 
-          demo06: Benutzerdefinierter Tooltip-Effekt
           name: Tooltips
+          demo06: Benutzerdefinierter Tooltip-Effekt
           demo07: Dynamische Positionierung der Tooltips
           demo01: Grundlagen der Verwendung von Tooltips
           demo02: Mit einem beliebigen HTML im Tooltip
           demo03: Browser-Standard-Tooltips imitieren
           demo04: Tooltips in Formularfeldern
           demo05: Tooltips in Tabellen oder Listen
-        overlay: 
-          demo06: Laden von externen Seiten in Overlay
-          name: Overlay
-          demo07: Mehrere Overlays auf der gleichen Seite
-          demo08: Erstellen eines benutzerdefinierten Overlay-Effekt
-          demo01: "Minimales Setup f\xC3\xBCr Overlay"
-          demo02: "Der Apple-Effekt f\xC3\xBCr Overlay"
-          demo03: "Modale Dialoge mit Overlay erstellen "
-          demo04: "Overlays programmatisch \xC3\xB6ffnen"
-          demo05: Overlays mit verschiedenen Stilen
         scrollable: 
-          demo06: Bildlauf-Plugin in Aktion
           name: Bildlauf
+          demo06: Bildlauf-Plugin in Aktion
           demo07: "Navigation mit Zur\xC3\xBCck-Knopf des Browser' s"
           demo08: Setup jQuery Tools Homepage
           demo09: Ein komplettes scrollbares Navigationssystem
@@ -474,21 +436,59 @@ de:
           demo03: Eine einfache scrollbare Bildergalerie
           demo04: Eine weitere scrollbare Galerie
           demo05: Ein scrollbarer Registrierungsassistent
+        overlay: 
+          name: Overlay
+          demo06: Laden von externen Seiten in Overlay
+          demo07: Mehrere Overlays auf der gleichen Seite
+          demo08: Erstellen eines benutzerdefinierten Overlay-Effekt
+          demo01: "Minimales Setup f\xC3\xBCr Overlay"
+          demo02: "Der Apple-Effekt f\xC3\xBCr Overlay"
+          demo03: "Modale Dialoge mit Overlay erstellen "
+          demo04: "Overlays programmatisch \xC3\xB6ffnen"
+          demo05: Overlays mit verschiedenen Stilen
         tabs: 
-          demo06: Akkordeons mit Registerkarten
           name: Registerkarten
+          demo06: Akkordeons mit Registerkarten
           demo07: Anpassen des Akkordeon-Effekt
           demo08: Horizontal Akkordeon mit dem Registerkarten
           demo09: Mehrfache Registerkarten und Akkordeon-Instanzen
           demo10: "Zur\xC3\xBCck-Button des Browsers handhaben"
           demo11: Registerkarte mit AJAX laden
-          demo12: AJAX-Registerkarte mit Historie
           demo01: "Minimales Setup f\xC3\xBCr Registerkarte"
+          demo12: AJAX-Registerkarte mit Historie
           demo02: Benennen der Registerkarten
           demo13: "Slideshow-Plugin f\xC3\xBCr Registerkarten"
           demo03: 4 verschiedene Skins mit CSS
           demo04: Mit Mouseover Registerkarten wechseln
           demo05: Assistenten mit Registerkarten
+    dt: 
+      name: Dynatree
+      ul: Aus ul-Element initialisieren
+      persist: Persistenz
+      lazy: "Sp\xC3\xA4tes Laden"
+      default: Standardeinstellungen
+      api: Programmier-API
+      dnd: "Dynatree: Ziehen und Ablegen"
+      quick: JS-Objekt initialisieren
+      iframe: iframe und URL-Navigation
+      dnd2: "Dynatree: Ziehen und Ablegen 2"
+      dnd3: "jQUery UI: Ziehen und Ablegen"
+      minexpand: Feste Expansionsebene
+      events: Ergeignisverarbeitung
+      form: In Formular integriert
+      effects: Effekte
+      json: Aus externen Daten initialisieren
+      contextmenu: "Kontextmen\xC3\xBC,  Kopieren / Einf\xC3\xBCgen"
+      multiline: "Gro\xC3\x9Fe Knoten"
+      select: "K\xC3\xA4stchen & Auswahl"
+      benchmark: "Benchmark f\xC3\xBCr gro\xC3\x9Fe B\xC3\xA4ume"
+      lazy_persist: Langsames Laden
+      theming: 
+        name: Themen
+        xp: XP
+        crystal: Crystal
+        aero: Aero
+        aqua: Aqua
     ical: 
       name: iCalendar
       anytime: 
@@ -505,8 +505,8 @@ de:
         location: Ort
         default: Veranstaltung
         starts_at: Beginnt um
-        ends_at: Endet um
         listing: Termine anzeigen
+        ends_at: Endet um
         summary: Betreff
         description: Beschreibung
         all_day: "Ganzt\xC3\xA4giges Ereignis"
@@ -518,8 +518,8 @@ de:
           show: Als Kalender anzeigen
         name: Name
         edit: iCalendar bearbeiten
-        confirm: "iCalendar wirklich l\xC3\xB6schen?"
         delete: "iCalendar l\xC3\xB6schen"
+        confirm: "iCalendar wirklich l\xC3\xB6schen?"
         default: Kalender
         color: Farbe
         listing: iCalendar auflisten
@@ -548,8 +548,8 @@ de:
           animate: Animieren
           synchronous-resize: "Synchrones Vergr\xC3\xB6\xC3\x9Fern"
           helper: "Vergr\xC3\xB6\xC3\x9Ferungshelfer"
-          textarea: Texfeld
           delay-start: "Start verz\xC3\xB6gern"
+          textarea: Texfeld
           constrain-area: "Vergr\xC3\xB6\xC3\x9Ferungsfl\xC3\xA4che einschr\xC3\xA4nken"
           visual-feedback: Visuelles Feedback
         draggable: 
@@ -558,11 +558,11 @@ de:
           scroll: Autoscrollen
           default: Ziehbar
           sortable: Zieh- und sortierbar
-          events: Ereignisse
           constrain-movement: "Einschr\xC3\xA4nken der Bewegung"
+          events: Ereignisse
           revert: "Zur Position zur\xC3\xBCckkehren"
-          cursor-style: Cursorstil
           delay-start: "Start verz\xC3\xB6gern"
+          cursor-style: Cursorstil
           visual-feedback: Visuelles Feedback
         sortable: 
           items: "Elemente ein- / ausschlie\xC3\x9Fen"
@@ -579,15 +579,15 @@ de:
           propagation: Weitergabe verhindern
           revert: "R\xC3\xBCckkehr zur  Position"
           shopping-cart: Einkaufswagen
-          accepted-elements: Akzeptierte Elemente
           visual-feedback: Visuelles Feedback
+          accepted-elements: Akzeptierte Elemente
           photo-manager: Einfacher Photomanager
       widgets: 
         button: 
           default: "Schaltfl\xC3\xA4che"
           checkbox: Auswahltasten
-          icon: Symbole
           radio: Umschalttasten
+          icon: Symbole
           toolbar: Werkzeugleiste
           splitbutton: "Geteilte Schaltfl\xC3\xA4che"
         default: Widgets
@@ -606,8 +606,8 @@ de:
           tabs: Registerkarte per Schieberegler kontrollieren
         panel: 
           name: Entwurf Panel
-          simple: Einfaches Beispielpanel
           left: Von links einblenden
+          simple: Einfaches Beispielpanel
           right1: Von rechts einblenden 1
           right2: Von rechts einblenden 2
           default: Zusammenklappbares Panel
@@ -617,28 +617,25 @@ de:
         selectmenu: 
           name: "Auswahlmen\xC3\xBC"
           maxheight: "Stil: <b>Popup</b> mit maxheight gesetzt"
+          methods: Wie benutzt man eine Methode
+          dependency: "Beispiel :Einfache Abh\xC3\xA4ngigkeit"
           without-id: "Stil: <b>Popup</b> ohne ID"
           custom-icons2: "Stil: <b>Dropdown</b> Sprachen mit Flaggensymbolen"
           default: "Stil: <b>Popup</b>"
+          background: "Beispiel: Hintergrundbild"
           icons: "Stil: <b>Popup</b> mit UI-Symbolen"
-          optgroups: "Stil: <b>Popup</b> mit optgroups"
+          ajax: "Beispiel: Callback mit AJAX"
           text-formatting: "Stil: <b>Popup</b> mit der Option Textformatierung"
+          positioning: Positionierung
+          optgroups: "Stil: <b>Popup</b> mit optgroups"
           menuwidth: "Stil: <b>Dropdown</b> mit menuWidth und Textformatierung"
+          disable-enable: "Beispiel: Deaktivieren"
           custom-icons: "Stil: <b>Popup</b> mit benutzerdefinierten Icons"
           dropdown: "Stil: <b>Popup</b>-Stil"
         progressbar: 
           resize: "Vergr\xC3\xB6\xC3\x9Ferbarer Fortschrittsbalken"
           default: Fortschrittsbalken
           animated: Animiert
-        accordion: 
-          hoverintent: "\xC3\x96ffnen bei hoverintent"
-          default: Akkordeon
-          no-auto-height: "Ohne automatische H\xC3\xB6he"
-          sortable: Sortierbar
-          mouseover: "\xC3\x96ffnen, wenn die Maus dar\xC3\xBCberf\xC3\xA4hrt"
-          fillspace: "Freien Platz f\xC3\xBCllen"
-          custom-icons: Benutzerdefinierte Symbole
-          collapsible: Inhalt einklappen
         datepicker: 
           alt-field: "Alternatives Feld f\xC3\xBCllen"
           buttonbar: "Schaltfl\xC3\xA4chen anzeigen"
@@ -648,12 +645,21 @@ de:
           icon-trigger: "\xC3\x9Cber Symbol aktivieren"
           show-week: Zeige Kalanderwoche
           date-formats: Datum formatieren
-          animation: Animationen
           multiple-calendars: Mehrerer Monate anzeigen
-          event-search: Veranstaltungen suchen
+          animation: Animationen
           localization: " Kalender lokalisieren"
+          event-search: Veranstaltungen suchen
           dropdown-month-year: "Monat- & Jahresmen\xC3\xBCs anzeigen"
           other-months: Termine in den anderen Monaten
+        accordion: 
+          hoverintent: "\xC3\x96ffnen bei hoverintent"
+          default: Akkordeon
+          no-auto-height: "Ohne automatische H\xC3\xB6he"
+          sortable: Sortierbar
+          mouseover: "\xC3\x96ffnen, wenn die Maus dar\xC3\xBCberf\xC3\xA4hrt"
+          fillspace: "Freien Platz f\xC3\xBCllen"
+          custom-icons: Benutzerdefinierte Symbole
+          collapsible: Inhalt einklappen
         dialog: 
           greybox: Greybox
           default: Dialog
@@ -665,32 +671,25 @@ de:
         autocomplete: 
           maxheight: Scrollbare Ergebnisse
           default: "Autovervollst\xC3\xA4ndigung"
+          folding: "Akzente ber\xC3\xBCcksichtigen"
           multiple-remote: Mehrfachwerte, entfernt
           remote-jsonp: Entfernte JSONP-Datenquelle
-          folding: "Akzente ber\xC3\xBCcksichtigen"
-          custom-data: Benutzerdefinierte Daten und Anzeige
           remote-with-cache: Entfernt mit Caching
+          custom-data: Benutzerdefinierte Daten und Anzeige
           multiple: Mehrfachwerte
           categories: Kategorien
           remote: Entfernte Datenquelle
-          remote-xml: XML-Daten einmalig geparsed
           combobox: Auswahleiste
+          remote-xml: XML-Daten einmalig geparsed
         tabs: 
           manipulation: Einfache Handhabung
           bottom: Registerkarte unterhalb des Inhalts
           default: Registerkarten
-          sortable: Sortierbar
           ajax: "Inhalt \xC3\xBCber Ajax"
+          sortable: Sortierbar
           mouseover: "\xC3\x96ffnen, wenn die Maus dar\xC3\xBCberf\xC3\xA4hrt"
           cookie: "Persistenz \xC3\xBCber Cookie"
           collapsible: Inhalt wegklappen
-      form: 
-        new: Anlegen
-        edit: Bearbeiten
-        delete: "L\xC3\xB6schen"
-        cancel: Abbrechen
-        save: Speichern
-        sure: Sind Sie sicher?
       effects: 
         toggle: 
           default: Umschalten
@@ -713,18 +712,18 @@ de:
           showcase: Effekte im Schaufenster
         remove_class: 
           default: Klasse entfernen
+      form: 
+        new: Anlegen
+        edit: Bearbeiten
+        delete: "L\xC3\xB6schen"
+        cancel: Abbrechen
+        save: Speichern
+        sure: Sind Sie sicher?
       theme-switcher: 
         button: "Thema: "
         initial: Thema wechseln
     tree: 
       name: Tree Widgets
-  activemodel: 
-    errors: 
-      template: 
-        body: "Bitte \xC3\xBCberpr\xC3\xBCfen Sie die folgenden Felder:"
-        header: 
-          one: "Konnte %{model} nicht speichern: ein Fehler."
-          other: "Konnte %{model} nicht speichern: %{count} Fehler."
   date: 
     month_names: 
     - 
@@ -742,10 +741,6 @@ de:
     - Oktober
     - November
     - Dezember
-    order: 
-    - :day
-    - :month
-    - :year
     abbr_day_names: 
     - So
     - Mo
@@ -754,6 +749,10 @@ de:
     - Do
     - Fr
     - Sa
+    order: 
+    - :day
+    - :month
+    - :year
     formats: 
       only_day: "%e"
       default: "%d.%m.%Y"
@@ -783,6 +782,13 @@ de:
     - Okt
     - Nov
     - Dez
+  activemodel: 
+    errors: 
+      template: 
+        body: "Bitte \xC3\xBCberpr\xC3\xBCfen Sie die folgenden Felder:"
+        header: 
+          one: "Konnte %{model} nicht speichern: ein Fehler."
+          other: "Konnte %{model} nicht speichern: %{count} Fehler."
   support: 
     array: 
       words_connector: ", "
@@ -814,15 +820,18 @@ de:
       less_than_x_minutes: 
         one: weniger als eine Minute
         other: weniger als %{count} Minuten
-      x_days: 
-        one: ein Tag
-        other: "%{count} Tage"
       almost_x_years: 
         one: fast ein Jahr
         other: fast %{count} Jahre
+      x_days: 
+        one: ein Tag
+        other: "%{count} Tage"
       x_seconds: 
         one: eine Sekunde
         other: "%{count} Sekunden"
+      x_minutes: 
+        one: eine Minute
+        other: "%{count} Minuten"
       about_x_hours: 
         one: etwa eine Stunde
         other: etwa %{count} Stunden
@@ -832,15 +841,12 @@ de:
       x_months: 
         one: ein Monat
         other: "%{count} Monate"
-      x_minutes: 
-        one: eine Minute
-        other: "%{count} Minuten"
-      about_x_years: 
-        one: etwa ein Jahr
-        other: etwa %{count} Jahre
       about_x_months: 
         one: etwa ein Monat
         other: etwa %{count} Monate
+      about_x_years: 
+        one: etwa ein Jahr
+        other: etwa %{count} Jahre
       over_x_years: 
         one: mehr als ein Jahr
         other: mehr als %{count} Jahre

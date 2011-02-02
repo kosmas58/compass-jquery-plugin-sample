@@ -1,0 +1,22 @@
+-@title = "#{t('txt.ui.name')} #{t('txt.ui.widgets.selectmenu.name')} - #{t('txt.ui.widgets.selectmenu.ajax')}"
+
+- content_for :content_head do
+  = render(:partial => "ajax.js.haml", :format => :js)
+
+.demo
+  %h3
+    =image_tag("icons/22x22/filament.png", :border => 0)
+    = raw @title
+  %form{:action => "#"}
+    %fieldset
+      %label{:for => "speedA"} Select an Option:
+      %br
+      %br
+      %select#speedA{:name => "speedA"}
+        %option{:value => "0"} Default
+        %option{:value => "1"} Ajax Call
+      %option{:value => "Faster"} Faster
+  #result_data
+/ End demo
+.demo-description
+/ End demo-description

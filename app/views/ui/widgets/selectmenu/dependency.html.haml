@@ -1,0 +1,38 @@
+-@title = "#{t('txt.ui.name')} #{t('txt.ui.widgets.selectmenu.name')} - #{t('txt.ui.widgets.selectmenu.dependency')}"
+
+- content_for :content_head do
+  = render(:partial => "dependency.js.haml", :format => :js)
+
+.demo
+  %h3
+    =image_tag("icons/22x22/filament.png", :border => 0)
+    = raw @title
+  %form{:action => "#"}
+    %fieldset
+      %label{:for => "switch"} Select a Speed:
+      %br
+      %br
+      %select#switch{:name => "switch"}
+        %option{:value => "1"} shown
+        %option{:selected => "selected", :value => "0"} hidden
+    %fieldset
+      %label{:for => "ghost"} Hiding in the dark:
+      %br
+      %br
+      %select#ghost{:name => "ghost"}
+        %option{:value => "Slower"} -6 Slower
+        %option{:value => "Slower"} -5 Slower
+        %option{:value => "Slower"} -4 Slower
+        %option{:value => "Slow"} -3 Slow
+        %option{:value => "Slow"} -2 Slow
+        %option{:value => "Slow"} -1 Slow
+        %option{:selected => "selected", :value => "Medium"} 0 Medium
+        %option{:value => "Fast"} 1 Fast
+        %option{:value => "Fast"} 2 Fast
+        %option{:value => "Fast"} 3 Fast
+        %option{:value => "Faster"} 4 Faster
+        %option{:value => "Faster"} 5 Faster
+        %option{:value => "Faster"} 6 Faster
+/ End demo
+.demo-description
+/ End demo-description

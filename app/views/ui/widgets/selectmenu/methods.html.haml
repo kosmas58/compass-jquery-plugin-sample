@@ -1,0 +1,40 @@
+-@title = "#{t('txt.ui.name')} #{t('txt.ui.widgets.selectmenu.name')} - #{t('txt.ui.widgets.selectmenu.methods')}"
+
+- content_for :content_head do
+  = render(:partial => "methods.js.haml", :format => :js)
+
+.demo
+  %h3
+    =image_tag("icons/22x22/filament.png", :border => 0)
+    = raw @title
+  %form{:action => "#"}
+    %a#index{:href => "#nogo"} method index without paramaters (get index)
+    %br/
+    %a#indexNumber{:href => "#nogo"} method index with  paramater '4' (set index by number)
+    %br/
+    %a#value{:href => "#nogo"} method value without paramaters (get value)
+    %br/
+    %a#valueString{:href => "#nogo"} method value with  paramater 'Medium' (set value by string)
+    %br/
+    %a#valueNumber{:href => "#nogo"} method value with  paramater '4' (passed as number)
+    %br/
+    %a#valueNumberAsString{:href => "#nogo"} method value with  paramater '11' (passed as string)
+    %br/
+    %a#valueNonExisting{:href => "#nogo"} method value with  paramater 'test123' (not existing value)
+    %br
+    %br
+    %h4 "default popup" Style
+    %fieldset
+      %label{:for => "speedA"} Select a Speed:
+      %br
+      %br
+      %select#speedA{:name => "speedA"}
+        %option{:value => "Slower"} Slower
+        %option{:selected => "selected", :value => "Slow"} Slow
+        %option{:value => "Medium"} Medium
+        %option{:value => "Fast"} Fast
+        %option{:value => "Faster"} Faster
+        %option{:value => "11"} Up to eleven
+/ End demo
+.demo-description
+/ End demo-description
