@@ -8,19 +8,25 @@
     %h1 Supported platforms
   / /header
   %div{"data-role" => "content"}
-    %h2 Supported platforms
-    %p For the alpha release, the following devices have been tested and should have a fairly solid jQuery Mobile experience. That being said, there are still a fair amount of bugs and performance improvements to be tackled before the 1.0 release in January.
+    %h2 Supported platforms in alpha 3
+    %p In the alpha 3 release, the following platforms and browsers have a solid jQuery Mobile experience with pages fully functional and rendering as designed. That being said, there are still a fair amount of bugs and performance improvements to be tackled before the 1.0 release.
     %ul
-      %li Apple iOS: iPhone, iPod Touch, iPad (all versions)
-      %li Android: all devices (all versions)
-      %li Blackberry Torch (version 6)
-      %li Palm WebOS Pre, Pixi
-      %li Nokia N900 (in progress)
-    %p Older versions of Blackberry, Nokia/Symbian, and Windows Mobile may work but we're still seeing JavaScript errors and rendering bugs that need to be tracked down. We don't yet have phones to test  Windows Mobile 7, bada, or MeeGo but these will be added as soon as we can get devices.
+      %li Apple iOS (3.1-4.2): tested on iPhone, iPod Touch, iPad
+      %li Android (1.6-2.3): all devices, tested on the HTC Incredible, Motorola Droid, Google G1 and Nook Color
+      %li Blackberry 6: tested on Torch and Style
+      %li Palm WebOS (1.4): tested on Pre, Pixi
+      %li Opera Mobile (10.1): Android
+      %li Opera Mini (5.02): iOS, Android
+    %h2 Target platform additions for beta
+    %p The team is now focusing on bringing support to Blackberry 5, Nokia/Symbian, and Windows Phone 7 for the upcoming beta release. We don't yet have phones to test bada or MeeGo but these will be added as soon as we can get devices.
     %p Since jQuery Mobile is built on the jQuery core, all pages should also work great on most recent versions of desktop browsers too - Firefox, Chrome, Safari, Internet Explorer, Opera, etc.
     %p
+      For more information about browser support, view the
+      %a{:href => "https://github.com/jquery/jquery-mobile/wiki/Current-development-status-"} current browser support status and known issues
+      and the project's target
       %a{:href => "http://jquerymobile.com/gbs/", :rel => "external"}
-        %strong View supported browser matrix
-        on jQuery Mobile
+        %strong> graded browser matrix
+        \.
   / /content
 / /page
+

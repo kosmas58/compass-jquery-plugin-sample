@@ -2,7 +2,7 @@
 
 - content_for :content_head do
   = render(:partial => "/mobile/index.js.haml", :format => :js)
-
+  
 %div{"data-role" => "page"}
   %div{"data-role" => "header"}
     %h1 Forms
@@ -80,6 +80,7 @@
       %div{"data-role" => "fieldcontain"}
         %label.select{:for => "select-choice-3"} Your state:
         %select#select-choice-3{:name => "select-choice-3"}
+          %option Custom menu...
           %option{:value => "AL"} Alabama
           %option{:value => "AK"} Alaska
           %option{:value => "AZ"} Arizona
@@ -132,7 +133,7 @@
           %option{:value => "WY"} Wyoming
       %div{"data-role" => "fieldcontain"}
         %label.select{:for => "select-choice-native"} Your state:
-        %select#select-choice-native{"data-native" => "true", :name => "select-choice-native"}
+        %select#select-choice-native{"data-native-menu" => "true", :name => "select-choice-native"}
           %option Native menu...
           %option{:value => "AL"} Alabama
           %option{:value => "AK"} Alaska
@@ -192,3 +193,4 @@
             %button{"data-theme" => "a", :type => "submit"} Submit
   / /content
 / /page
+  
