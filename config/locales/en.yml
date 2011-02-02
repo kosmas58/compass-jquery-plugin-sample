@@ -403,6 +403,9 @@ en:
       name: Sparklines
       examples: Examples
       default: Try it out
+    replacetext: 
+      name: replaceText
+      default: Example
     tools: 
       name: jQuery TOOLS
       toolbox: 
@@ -671,6 +674,12 @@ en:
           menuwidth: "Style: <b>dropdown</b> with menuWidth and text formatting"
           custom-icons: "Style: <b>popup</b> with custom icon images"
           dropdown: "Style: <b>dropdown</b>"
+          disable-enable: Disable example
+          ajax: Select callback with AJAX
+          background: Background image example
+          methods: How to use a method
+          dependency: Simple dependency example
+          positioning: Positioning
         datepicker: 
           alt-field: Populate alternate field
           buttonbar: Display button bar

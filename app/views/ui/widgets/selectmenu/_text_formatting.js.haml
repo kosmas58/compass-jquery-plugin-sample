@@ -1,31 +1,31 @@
 :css
-  fieldset { border:0;  margin-bottom: 40px;}	
+  fieldset { border:0;  margin-bottom: 40px;}  
   label,select,.ui-select-menu { float: left; margin-right: 10px; }
   select { width: 200px; }
 
 :javascript
-  $(function(){			
+  $(function(){      
     $('select#speedB').selectmenu({
       width: 300,
       format: addressFormatting
-    });		
-  });		
+    });    
+  });    
   
   //a custom format option callback
   var addressFormatting = function(text){
     var newText = text;
     //array of find replaces
     var findreps = [
-      {find:/^([^\-]+) \- /g, rep: '$1'},
-      {find:/([^\|><]+) \| /g, rep: '$1'},
-      {find:/([^\|><\(\)]+) (\()/g, rep: '$1$2'},
-      {find:/([^\|><\(\)]+)$/g, rep: '$1'},
-      {find:/(\([^\|><]+\))$/g, rep: '$1'}
+      {find:/^([^\-]+) \- /g, rep: '<span class="ui-selectmenu-item-header">$1</span>'},
+      {find:/([^\|><]+) \| /g, rep: '<span class="ui-selectmenu-item-content">$1</span>'},
+      {find:/([^\|><\(\)]+) (\()/g, rep: '<span class="ui-selectmenu-item-content">$1</span>$2'},
+      {find:/([^\|><\(\)]+)$/g, rep: '<span class="ui-selectmenu-item-content">$1</span>'},
+      {find:/(\([^\|><]+\))$/g, rep: '<span class="ui-selectmenu-item-footer">$1</span>'}
     ];
-    	
+    
     for(var i in findreps){
       newText = newText.replace(findreps[i].find, findreps[i].rep);
     }
     return newText;
   }
-  
+ 

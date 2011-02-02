@@ -1,5 +1,5 @@
 :css
-  fieldset { border:0;  margin-bottom: 40px;}	
+  fieldset { border:0;  margin-bottom: 40px;}  
   label,select,.ui-select-menu { float: left; margin-right: 10px; }
   select { width: 5em; }
   
@@ -13,21 +13,21 @@
   .it .ui-selectmenu-item-icon { height: 11px; width: 16px; }
   .en .ui-selectmenu-item-icon { background: url("/images/icons/flags/gb.png") 0 0 no-repeat; }
   .de .ui-selectmenu-item-icon { background: url("/images/icons/flags/de.png") 0 0 no-repeat; }
-  .es .ui-selectmenu-item-icon { background: url("/images/icons/flags/es.png") 0 0 no-repeat; }	
-  .fr .ui-selectmenu-item-icon { background: url("/images/icons/flags/fr.png") 0 0 no-repeat; }	
-  .it .ui-selectmenu-item-icon { background: url("/images/icons/flags/it.png") 0 0 no-repeat; }	
-	    
+  .es .ui-selectmenu-item-icon { background: url("/images/icons/flags/es.png") 0 0 no-repeat; }  
+  .fr .ui-selectmenu-item-icon { background: url("/images/icons/flags/fr.png") 0 0 no-repeat; }  
+  .it .ui-selectmenu-item-icon { background: url("/images/icons/flags/it.png") 0 0 no-repeat; }  
+      
 :javascript
   $(function() {
-  	$('select#languagesA').selectmenu({
-  		style: 'dropdown',
-  		icons: [
-  			{find: '.en'},
-  			{find: '.de'},
-  			{find: '.es'},
-  			{find: '.fr'},
-  			{find: '.it'}
-  		]
-  	});
+    $('select#languagesA').selectmenu({
+      style: 'dropdown',
+      icons: [
+        {find: '.en'},
+        {find: '.de'},
+        {find: '.es'},
+        {find: '.fr'},
+        {find: '.it'}
+      ]
+    });
   });
   

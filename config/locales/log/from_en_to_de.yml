@@ -21,9 +21,6 @@ date:
     short: "%b %d"
     long: "%B %d, %Y"
 txt: 
-  jqgrid: 
-    mine: 
-      treegrid: Treegrids with json
   tools: 
     form: 
       stylable: 
@@ -32,6 +29,10 @@ txt:
         demo02: Scripting styleable Forms
         demo03: Alternate form skin
   hello: Hello world
+  ui: 
+    widgets: 
+      selectmenu: 
+        positioning: Positioning
 support: 
   array: 
     words_connector: ", "

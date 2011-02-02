@@ -28,7 +28,7 @@
       Remove ${list_item.name}
 
 :javascript
-  var holdTheInterval;
+  //var holdTheInterval //= setInterval(sendPending, 5000);
   
   function itemsRefresh() {
     $.retrieveJSON("/mobile/experiments/list_items?format=json", function(data) {
@@ -36,7 +36,7 @@
       //$("#items").html($("#item_template").tmpl(data.concat(pendingItems))).listview("refresh");
       $("#items").html($("#item_template").tmpl(data)).listview("refresh");
     });
-    clearInterval(holdTheInterval);
+    //clearInterval(holdTheInterval);
   };
 
   function itemCreate(name){
@@ -72,7 +72,7 @@
                    }, 
       dataType:    "json",
       timeout:     1000,
-      error:       function() {
+      error:       function(XMLHttpRequest, textStatus, errorThrown) {
                      alert(textStatus);
                    }
     });
@@ -87,7 +87,7 @@
                    }, 
       dataType:    "json",
       timeout:     1000,
-      error:       function() {
+      error:       function(XMLHttpRequest, textStatus, errorThrown) {
                      alert(textStatus);
                    }
     });
@@ -117,7 +117,7 @@
     }
   };
   
-  $(function() {
+  function startUp() {
     if ($.support.localStorage) {
       $(window.applicationCache).bind("error", function() {
         console.log("There was an error when loading the cache manifest.");
@@ -132,7 +132,7 @@
     } else {
       alert("Try a different browser.");
     };
-  });
+  };
   
   $(document).ready(function() {
     $("#item").live('click', function(){
@@ -154,9 +154,6 @@
         var pendingItems = $.parseJSON(localStorage["pendingItems"]);
         pendingItems.push(pendingItem);
         localStorage["pendingItems"] = JSON.stringify(pendingItems);
-        
-        // Initiate action
-        sendPending();
       }
     });
     
@@ -174,9 +171,6 @@
       $("#item_template_new").tmpl(item).appendTo("#items");
       $("#items").listview("refresh");
       $("#item_name").val("");
-      
-      // Initiate action
-      sendPending();
     });
     
     $("#item_delete").live('click', function(){
@@ -191,9 +185,7 @@
         // Refresh interface 
         $(this).parent().parent().parent().remove(); 
         $("#items").listview("refresh");
-        
-        // Initiate action
-        sendPending();
       }
     });
+    startUp();
   });

@@ -1,0 +1,32 @@
+:css
+  fieldset { border:0;  margin-bottom: 40px;}	
+  label,select,.ui-select-menu { float: left; margin-right: 10px; }
+  select { width: 200px; }
+
+:javascript
+  $(function(){      
+    var speedA = $('select#speedA').selectmenu();
+    
+    $("#index").click(function(event){
+      console.log($('select#speedA').selectmenu("index"));
+    });
+    $("#indexNumber").click(function(event){
+      console.log($('select#speedA').selectmenu("index", 4));
+    });
+    $("#value").click(function(event){
+      console.log($('select#speedA').selectmenu("value"));
+    });
+    $("#valueString").click(function(event){
+      console.log($('select#speedA').selectmenu("value", "Medium"));
+    });
+    $("#valueNumber").click(function(event){
+      console.log($('select#speedA').selectmenu("value", 4));
+    });
+    $("#valueNumberAsString").click(function(event){
+      console.log($('select#speedA').selectmenu("value", "11"));
+    });
+    $("#valueNonExisting").click(function(event){
+      console.log($('select#speedA').selectmenu("value", "test123"));
+    });
+  });
+  

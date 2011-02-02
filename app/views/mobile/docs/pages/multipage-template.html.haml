@@ -14,12 +14,15 @@
     %p
       View internal page called
       %a{:href => "#bar"} bar
+    %p
+      View internal page called
+      %a{"data-rel" => "dialog", "data-transition" => "pop", :href => "#baz"} baz
+      as a dialog.
   / /content
   %div{"data-role" => "footer"}
     %h4 Page Footer
   / /footer
 / /page
-
 / Start of second page
 #bar{"data-role" => "page"}
   %div{"data-role" => "header"}
@@ -27,9 +30,24 @@
   / /header
   %div{"data-role" => "content"}
     %h2 Bar
-    %p I'm first in the source order so I'm shown as the page.
+    %p I'm the bar page.
     %p
-      %a{:href => "#foo"} Back to foo
+      %a{"data-direction" => "reverse", :href => "#foo"} Back to foo
+  / /content
+  %div{"data-role" => "footer"}
+    %h4 Page Footer
+  / /footer
+/ /page
+/ Start of second page
+#baz{"data-role" => "page"}
+  %div{"data-role" => "header"}
+    %h1 Baz
+  / /header
+  %div{"data-role" => "content"}
+    %h2 Baz
+    %p I'm the baz page, viewed as a dialog.
+    %p
+      %a{"data-rel" => "back", :href => "#foo"} Back to foo
   / /content
   %div{"data-role" => "footer"}
     %h4 Page Footer

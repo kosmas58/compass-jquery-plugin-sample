@@ -5,9 +5,9 @@ class Invheader < ActiveRecord::Base
   def self.userdata(records)
     userdata = {}
     if records
-      userdata[:amount] = records.sum(:amount)
-      userdata[:tax]    = records.sum(:tax)
-      userdata[:total]  = records.sum(:total)
+      userdata[:amount] = records.inject(0) {|sum, hash| sum + hash[:amount]}
+      userdata[:tax]    = records.inject(0) {|sum, hash| sum + hash[:tax]}
+      userdata[:total]  = records.inject(0) {|sum, hash| sum + hash[:total]}
       userdata['client.name']   = "Totals:"
     end
     userdata
@@ -3962,7 +3962,7 @@ class Invheader < ActiveRecord::Base
                          :viewsortcols => [true, :horizontal,false],
                          :grouping        => true,
                          :groupingView => {
-                           :groupField      => ['client.name'],
+                           :groupField      => ['client__name'],
                            :groupColumnShow => [true],
                            :groupText       => ['<b>{0}</b>'],
                            :groupCollapse   => false,
@@ -4041,7 +4041,7 @@ class Invheader < ActiveRecord::Base
                          :viewsortcols => [true, :horizontal,false],
                          :grouping        => true,
                          :groupingView => {
-                           :groupField      => ['client.name'],
+                           :groupField      => ['client__name'],
                            :groupColumnShow => [true],
                            :groupText       => ['<b>{0}</b>'],
                            :groupCollapse   => false,
@@ -4119,10 +4119,9 @@ class Invheader < ActiveRecord::Base
     :sort_order     => :desc,
     :pager          => true,
     :jqgrid_options => {
-                         :viewsortcols => [true, :horizontal,false],
                          :grouping        => true,
                          :groupingView => {
-                           :groupField      => ['client.name'],
+                           :groupField      => ['client__name'],
                            :groupColumnShow => [true],
                            :groupText       => ['<b>{0}</b>'],
                            :groupCollapse   => false,
@@ -4203,7 +4202,7 @@ class Invheader < ActiveRecord::Base
                          :viewsortcols => [true, :horizontal,false],
                          :grouping        => true,
                          :groupingView => {
-                           :groupField      => ['client.name'],
+                           :groupField      => ['client__name'],
                            :groupColumnShow => [true],
                            :groupText       => ['<b>{0}</b>'],
                            :groupCollapse   => false,
@@ -4352,7 +4351,7 @@ class Invheader < ActiveRecord::Base
                           :width        => 40 }
                        ],
     :height         => :auto,
-    :rows_per_page  => 10,
+    :rows_per_page  => 30,
     :paging_choices => [10,20,30],
     :sort_by        => :invdate,
     :sort_order     => :desc,
@@ -4361,7 +4360,7 @@ class Invheader < ActiveRecord::Base
                          :viewsortcols => [true, :horizontal,false],
                          :grouping        => true,
                          :groupingView => {
-                           :groupField        => ['client.name'],
+                           :groupField        => ['client__name'],
                            :groupColumnShow   => [true],
                            :groupText         => ['<b>{0}</b>'],
                            :groupCollapse     => false,

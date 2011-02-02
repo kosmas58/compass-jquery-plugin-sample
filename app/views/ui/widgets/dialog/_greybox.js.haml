@@ -13,7 +13,7 @@
   });
   
   $(document).ready(function(){
-    $("a.greybox").click(function(){
+    $("a.greybox").click(function(){ 
       $("#greyboxdemo" ).dialog( "option", "title", this.title || $(this).text() );
       $("#frame").remove();
       $("#greyboxdemo").append("<iframe id='frame' src='"+this.href+"' width='100%' height='100%'></iframe>");

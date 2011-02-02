@@ -38,6 +38,7 @@
       %pre
         %code
           :preserve
+            
             &lt;div data-role=&quot;fieldcontain&quot;&gt;
               &lt;label for=&quot;select-choice-1&quot; class=&quot;select&quot;&gt;Choose shipping method:&lt;/label&gt;
               &lt;select name=&quot;select-choice-1&quot; id=&quot;select-choice-1&quot;&gt;
@@ -119,27 +120,24 @@
         support on Android, multi-select capability on WebOS, and adds an elegant way to handle placeholder values (explained below).
       %p
         However, there is overhead involved in parsing the native select to build a custom menu and if the number of selects or options within are fairly large, this can impact the performance of the page. By adding the
-        %code data-native="true"
+        %code data-native-menu="true"
         attribute to the
         = succeed "," do
           %code select
-        the framework will use the browesr's native select menu when the select button is clicked. Because this option doesn't use any of the custom menu parsing and menu generation logic, it is significantly faster than the custom menu version.
+        the framework will use the browser's native select menu when the select button is clicked. Because this option doesn't use any of the custom menu parsing and menu generation logic, it is significantly faster than the custom menu version.
       %p
-        You can also set the global configuration
-        %code $.mobile.nativeSelectMenus
-        to true in a callback bound to the
+        You can also programmatically set the select menu's configuration option to true in a callback bound to the
         %code mobileinit
-        event to achieve the same effect. The following must be included in the page after jQuery is loaded but before jQuery Mobile.
+        event to achieve the same effect. The following must be included in the page after jQuery is loaded but before jQuery Mobile is loaded.
       %code
         %pre
           :preserve
-            
             $(document).bind('mobileinit',function(){
-              $.mobile.nativeSelectMenus = true;
+            	$.mobile.selectmenu.prototype.options.nativemenu = true;
             });
       %div{"data-role" => "fieldcontain"}
         %label.select{:for => "select-choice-3"} Your state:
-        %select#select-choice-3{"data-native" => "true", :name => "select-choice-3"}
+        %select#select-choice-3{"data-native-menu" => "true", :name => "select-choice-3"}
           %option{:value => "AL"} Alabama
           %option{:value => "AK"} Alaska
           %option{:value => "AZ"} Arizona
@@ -191,7 +189,7 @@
           %option{:value => "WI"} Wisconsin
           %option{:value => "WY"} Wyoming
       %h2 Placeholder options
-      %p It's common for developers to include a &quot;null&quot; option in their select element to force a user to choose an option. If a placeholder option is present in your markup, jQuery Mobile will hide them in the overlay menu, showing only valid choices to the user, and display the placeholder text inside the menu as a header.  Examples of null options are either:
+      %p It's common for developers to include a &quot;null&quot; option in their select element to force a user to choose an option. If a placeholder option is present in your markup, jQuery Mobile will hide them in the overlay menu, showing only valid choices to the user, and display the placeholder text inside the menu as a header.  A placeholder option is added when the framework finds:
       %ul
         %li An option with no value attribute (or an empty value attribute)
         %li An option with no text node
@@ -205,7 +203,7 @@
         option, like this:
       %pre
         %code
-          :preserve
+          :preserve            
             $.mobile.selectmenu.prototype.options.hidePlaceholderMenuItems = false;
       %p Here's a demo of various placeholder options:
       %div{"data-role" => "fieldcontain"}
@@ -287,7 +285,7 @@
       %p
         When a select is large enough to where the menu will open in a new page, the placeholder text is displayed in the button when no items are selected, and the
         %code label
-        text is displayed in the menu's header. This differs from smaller overlay menus where the placeholder text is displayed in both the button and the header, and from full-page single selects where the placeholder text is not used at all.
+        text is displayed in the menu's header.  This differs from smaller overlay menus where the placeholder text is displayed in both the button and the header, and from full-page single selects where the placeholder text is not used at all.
       %div{"data-role" => "fieldcontain"}
         %label.select{:for => "select-choice-10"} Choose state(s):
         %select#select-choice-10{:multiple => "multiple", :name => "select-choice-10"}
@@ -351,4 +349,3 @@
           %option{:value => "delete"} Delete user
   / /content
 / /page
-

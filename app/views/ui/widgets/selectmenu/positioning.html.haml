@@ -1,0 +1,178 @@
+-@title = "#{t('txt.ui.name')} #{t('txt.ui.widgets.selectmenu.name')} - #{t('txt.ui.widgets.selectmenu.default')}"
+
+- content_for :content_head do
+  = render(:partial => "positioning.js.haml", :format => :js)
+
+.demo
+  %h3
+    =image_tag("icons/22x22/filament.png", :border => 0)
+    = raw @title
+  
+  %form{:action => "#"}
+    %h4 Set maxHeight to 150px with lots of content
+    %p
+      Select something besides the default and the menu appears correctly the next time you open it.
+      If you add some &lt;BR&gt; tags before the &lt;FORM&gt; tag, then this selectmenu doesn't work
+      correctly either. NOTE: This is now fixed and should work correctly. See an older version of
+      selectmenu to see it not work properly.
+    %fieldset
+      %label{:for => "positionA"} Select Media:
+      %br
+      %br
+      %select#positionA.customicons{:name => "positionA"}
+        %optgroup{:label => "Podcasts"}
+          %option.podcast{:value => "p1"} Podcast 1
+          %option.podcast{:value => "p2"} Podcast 2
+          %option.podcast{:value => "p3"} Podcast 3
+          %option.podcast{:value => "p4"} Podcast 4
+          %option.podcast{:value => "p5"} Podcast 5
+          %option.podcast{:value => "p6"} Podcast 6
+        %optgroup{:label => "Videos"}
+          %option.video{:value => "v1"} Video 1
+          %option.video{:value => "v2"} Video 2
+          %option.video{:value => "v3"} Video 3
+          %option.video{:value => "v4"} Video 4
+          %option.video{:value => "v5"} Video 5
+          %option.video{:value => "v6"} Video 6
+          %option.video{:value => "v7"} Video 7
+          %option.video{:value => "v8"} Video 8
+          %option.video{:value => "v9"} Video 9
+        %optgroup{:label => "RSS Feeds"}
+          %option.rss{:value => "r1"} Feed 1
+          %option.rss{:value => "r2"} Feed 2
+          %option.rss{:value => "r3"} Feed 3
+          %option.rss{:value => "r4"} Feed 4
+          %option.rss{:value => "r5"} Feed 5
+          %option.rss{:value => "r6"} Feed 6
+          %option.rss{:value => "r7"} Feed 7
+          %option.rss{:value => "r8"} Feed 8
+          %option.rss{:value => "r9"} Feed 9
+          %option.rss{:value => "r10"} Feed 10
+          %option.rss{:value => "r11"} Feed 11
+          %option.rss{:value => "r12"} Feed 12
+    %h4 Exactly the same as previous: Set maxHeight to 150px with lots of content
+    %p
+      Select something besides the default and the menu appears in the wrong place next time you open it. NOTE:
+      This is now fixed and should work correctly. See an older version of
+      selectmenu to see it not work properly.
+    %fieldset
+      %label{:for => "positionB"} Select Media:
+      %br
+      %br
+      %select#positionB.customicons{:name => "positionB"}
+        %optgroup{:label => "Podcasts"}
+          %option.podcast{:value => "p1"} Podcast 1
+          %option.podcast{:value => "p2"} Podcast 2
+          %option.podcast{:value => "p3"} Podcast 3
+          %option.podcast{:value => "p4"} Podcast 4
+          %option.podcast{:value => "p5"} Podcast 5
+          %option.podcast{:value => "p6"} Podcast 6
+        %optgroup{:label => "Videos"}
+          %option.video{:value => "v1"} Video 1
+          %option.video{:value => "v2"} Video 2
+          %option.video{:value => "v3"} Video 3
+          %option.video{:value => "v4"} Video 4
+          %option.video{:value => "v5"} Video 5
+          %option.video{:value => "v6"} Video 6
+          %option.video{:value => "v7"} Video 7
+          %option.video{:value => "v8"} Video 8
+          %option.video{:value => "v9"} Video 9
+        %optgroup{:label => "RSS Feeds"}
+          %option.rss{:value => "r1"} Feed 1
+          %option.rss{:value => "r2"} Feed 2
+          %option.rss{:value => "r3"} Feed 3
+          %option.rss{:value => "r4"} Feed 4
+          %option.rss{:value => "r5"} Feed 5
+          %option.rss{:value => "r6"} Feed 6
+          %option.rss{:value => "r7"} Feed 7
+          %option.rss{:value => "r8"} Feed 8
+          %option.rss{:value => "r9"} Feed 9
+          %option.rss{:value => "r10"} Feed 10
+          %option.rss{:value => "r11"} Feed 11
+          %option.rss{:value => "r12"} Feed 12
+    %h4 Set maxHeight to 150px, using optgroups and custom icons
+    %fieldset
+      %label{:for => "positionC"} Select Media:
+      %br
+      %br
+      %select#positionC.customicons{:name => "positionC"}
+        %optgroup{:label => "Podcasts"}
+          %option.podcast{:value => "p1"} Podcast 1
+          %option.podcast{:value => "p2"} Podcast 2
+          %option.podcast{:value => "p3"} Podcast 3
+          %option.podcast{:value => "p4"} Podcast 4
+          %option.podcast{:value => "p5"} Podcast 5
+          %option.podcast{:value => "p6"} Podcast 6
+        %optgroup{:label => "Videos"}
+          %option.video{:value => "v1"} Video 1
+          %option.video{:value => "v2"} Video 2
+          %option.video{:value => "v3"} Video 3
+          %option.video{:value => "v4"} Video 4
+          %option.video{:value => "v5"} Video 5
+          %option.video{:value => "v6"} Video 6
+          %option.video{:value => "v7"} Video 7
+          %option.video{:value => "v8"} Video 8
+          %option.video{:value => "v9"} Video 9
+        %optgroup{:label => "RSS Feeds"}
+          %option.rss{:value => "r1"} Feed 1
+          %option.rss{:value => "r2"} Feed 2
+          %option.rss{:value => "r3"} Feed 3
+          %option.rss{:value => "r4"} Feed 4
+          %option.rss{:value => "r5"} Feed 5
+          %option.rss{:value => "r6"} Feed 6
+          %option.rss{:value => "r7"} Feed 7
+          %option.rss{:value => "r8"} Feed 8
+          %option.rss{:value => "r9"} Feed 9
+          %option.rss{:value => "r10"} Feed 10
+          %option.rss{:value => "r11"} Feed 11
+          %option.rss{:value => "r12"} Feed 12
+    %h4 Inside of a scrolling container
+    %p Not working correctly: Scroll down, open the selectmenu, then use scroll wheel over blue area. Note that blue area scrolls and selectmenu stays visible in same position.
+    %fieldset
+      #scrollerA.scroller
+        %p Scroll down
+        %p Scroll down
+        %p Scroll down
+        %p Scroll down
+        %p Scroll down
+        %p Scroll down
+        %label{:for => "positionD"} Select Media:
+        %select#positionD.customicons{:name => "positionD"}
+          %option.podcast{:value => "p1"} Podcast 1
+          %option.podcast{:value => "p2"} Podcast 2
+          %option.podcast{:value => "p3"} Podcast 3
+          %option.podcast{:value => "p4"} Podcast 4
+          %option.podcast{:value => "p5"} Podcast 5
+          %option.podcast{:value => "p6"} Podcast 6
+        %p Scroll up
+        %p Scroll up
+        %p Scroll up
+        %p Scroll up
+        %p Scroll up
+    %h4 Inside of a scrolling container - close selectmenu on scroll
+    %p Working correctly: Scroll down, open the selectmenu, then use scroll wheel over blue area. Note that blue area scrolls and selectmenu immediately closes on scroll.
+    %fieldset
+      #scrollerB.scroller
+        %p Scroll down
+        %p Scroll down
+        %p Scroll down
+        %p Scroll down
+        %p Scroll down
+        %p Scroll down
+        %label{:for => "positionE"} Select Media:
+        %select#positionE.customicons{:name => "positionE"}
+          %option.podcast{:value => "p1"} Podcast 1
+          %option.podcast{:value => "p2"} Podcast 2
+          %option.podcast{:value => "p3"} Podcast 3
+          %option.podcast{:value => "p4"} Podcast 4
+          %option.podcast{:value => "p5"} Podcast 5
+          %option.podcast{:value => "p6"} Podcast 6
+        %p Scroll up
+        %p Scroll up
+        %p Scroll up
+        %p Scroll up
+        %p Scroll up
+    #output
+/ End demo
+.demo-description
+/ End demo-description

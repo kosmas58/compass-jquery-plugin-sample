@@ -20,7 +20,7 @@
             &lt;head&gt; 
             &lt;title&gt;Page Title&lt;/title&gt; 
             &lt;link rel=&quot;stylesheet&quot; href=&quot;http://code.jquery.com/mobile/1.0a2/jquery.mobile-1.0a2.min.css&quot; /&gt;
-            &lt;script type=&quot;text/javascript&quot; src=&quot;http://code.jquery.com/jquery-1.4.3.min.js&quot;&gt;&lt;/script&gt;
+            &lt;script type=&quot;text/javascript&quot; src=&quot;http://code.jquery.com/jquery-1.4.4.min.js&quot;&gt;&lt;/script&gt;
             &lt;script type=&quot;text/javascript&quot; src=&quot;http://code.jquery.com/mobile/1.0a2/jquery.mobile-1.0a2.min.js&quot;&gt;&lt;/script&gt;
           &lt;/head&gt; 
           &lt;body&gt; 
@@ -38,13 +38,11 @@
       with the
       %code data-role="page"
       attribute:
-    .highlight
-      %pre
-        %code
-          :preserve
-            &lt;div data-role=&quot;page&quot;&gt;
-              ...
-            &lt;/div&gt;
+    %pre
+      :preserve
+        &lt;div data-role=&quot;page&quot;&gt;
+          ...
+        &lt;/div&gt;
     %p
       Within the "page" container, any valid HTML markup can be used, but for typical pages in jQuery Mobile, the immediate children of a "page" are divs with data-roles of
       = succeed "," do
@@ -54,42 +52,48 @@
       and
       = succeed "." do
         %code "footer"
-    .highlight
-      %pre
-        %code
-          :preserve
-            &lt;div data-role=&quot;page&quot;&gt;
-              &lt;div data-role=&quot;header&quot;&gt;...&lt;/div&gt;
-              &lt;div data-role=&quot;content&quot;&gt;...&lt;/div&gt;
-              &lt;div data-role=&quot;footer&quot;&gt;...&lt;/div&gt;
-            &lt;/div&gt;
+    %pre
+      :preserve
+        &lt;div data-role=&quot;page&quot;&gt;
+          &lt;div data-role=&quot;header&quot;&gt;
+            ...
+          &lt;/div&gt;
+        
+          &lt;div data-role=&quot;content&quot;&gt;	
+            ...
+          &lt;/div&gt;
+        
+          &lt;div data-role=&quot;footer&quot;&gt;
+            ...
+          &lt;/div&gt;
+        &lt;/div&gt;
     %h2 Complete single page template
     %p Putting it all together, this is the standard boilerplate page template you should start with:
     %pre
       %code
-        :preserve
+        :preserve          
           &lt;!DOCTYPE html&gt; 
           &lt;html&gt; 
             &lt;head&gt; 
             &lt;title&gt;Page Title&lt;/title&gt; 
-            &lt;link rel=&quot;stylesheet&quot; href=&quot;http://code.jquery.com/mobile/1.0a2/jquery.mobile-1.0a2.min.css&quot; /&gt;
+            &lt;link rel=&quot;stylesheet&quot; href=&quot;http://code.jquery.com/mobile/1.0a2/jquery.mobile-1.0a2.min.css&quot;/&gt;
             &lt;script type=&quot;text/javascript&quot; src=&quot;http://code.jquery.com/jquery-1.4.3.min.js&quot;&gt;&lt;/script&gt;
             &lt;script type=&quot;text/javascript&quot; src=&quot;http://code.jquery.com/mobile/1.0a2/jquery.mobile-1.0a2.min.js&quot;&gt;&lt;/script&gt;
           &lt;/head&gt; 
-          
           &lt;body&gt; 
           
           &lt;div data-role=&quot;page&quot;&gt;
+          
             &lt;div data-role=&quot;header&quot;&gt;
-                &lt;h1&gt;Page Title&lt;/h1&gt;
+              &lt;h1&gt;Page Title&lt;/h1&gt;
             &lt;/div&gt;&lt;!-- /header --&gt;
           
             &lt;div data-role=&quot;content&quot;&gt;	
-                &lt;p&gt;Page content goes here.&lt;/p&gt;		
+              &lt;p&gt;Page content goes here.&lt;/p&gt;		
             &lt;/div&gt;&lt;!-- /content --&gt;
           
             &lt;div data-role=&quot;footer&quot;&gt;
-                &lt;h4&gt;Page Footer&lt;/h4&gt;
+             	&lt;h4&gt;Page Footer&lt;/h4&gt;
             &lt;/div&gt;&lt;!-- /footer --&gt;
           &lt;/div&gt;&lt;!-- /page --&gt;
           
@@ -122,6 +126,8 @@
     %p
       It's important to note if you  are linking from a mobile page that was loaded via Ajax to a page with multiple internal pages, you need to add a
       %code rel="external"
+      or
+      %code data-ajax="false"
       to the link. This tells the framework to do a full page reload to clear out the Ajax hash in the URL. This is critical because Ajax pages use the hash (#) to track the Ajax history, while multiple internal pages use the hash to indicate internal pages so there will be a conflicts.
     %p For example, a link to a page containing multiple internal pages would look like this:
     %code &lt;a href=&quot;multipage.html&quot; rel=&quot;external&quot;&gt;Multi-page link&lt;/a&gt;
@@ -131,43 +137,44 @@
       element.
     %pre
       %code
-        :preserve
+        :preserve          
           &lt;body&gt; 
           
           &lt;!-- Start of first page --&gt;
           &lt;div data-role=&quot;page&quot; id=&quot;foo&quot;&gt;
+          
             &lt;div data-role=&quot;header&quot;&gt;
-                &lt;h1&gt;Foo&lt;/h1&gt;
+              &lt;h1&gt;Foo&lt;/h1&gt;
             &lt;/div&gt;&lt;!-- /header --&gt;
           
             &lt;div data-role=&quot;content&quot;&gt;	
-                &lt;p&gt;I&#x27;m first in the source order so I&#x27;m shown as the page.&lt;/p&gt;		
-                &lt;p&gt;View internal page called &lt;a href=&quot;#bar&quot;&gt;bar&lt;/a&gt;&lt;/p&gt;	
+              &lt;p&gt;I&#x27;m first in the source order so I&#x27;m shown as the page.&lt;/p&gt;		
+              &lt;p&gt;View internal page called &lt;a href=&quot;#bar&quot;&gt;bar&lt;/a&gt;&lt;/p&gt;	
             &lt;/div&gt;&lt;!-- /content --&gt;
           
             &lt;div data-role=&quot;footer&quot;&gt;
-                &lt;h4&gt;Page Footer&lt;/h4&gt;
-            &lt;/div&gt;&lt;!-- /footer --&gt;
+              &lt;h4&gt;Page Footer&lt;/h4&gt;
+            &lt;/div&gt;&lt;!-- /header --&gt;
           &lt;/div&gt;&lt;!-- /page --&gt;
           
           &lt;!-- Start of second page --&gt;
           &lt;div data-role=&quot;page&quot; id=&quot;bar&quot;&gt;
           
             &lt;div data-role=&quot;header&quot;&gt;
-                &lt;h1&gt;Bar&lt;/h1&gt;
+              &lt;h1&gt;Bar&lt;/h1&gt;
             &lt;/div&gt;&lt;!-- /header --&gt;
           
             &lt;div data-role=&quot;content&quot;&gt;	
-                &lt;p&gt;I&#x27;m first in the source order so I&#x27;m shown as the page.&lt;/p&gt;		
-                &lt;p&gt;&lt;a href=&quot;#foo&quot;&gt;Back to foo&lt;/a&gt;&lt;/p&gt;	
+              &lt;p&gt;I&#x27;m first in the source order so I&#x27;m shown as the page.&lt;/p&gt;		
+              &lt;p&gt;&lt;a href=&quot;#foo&quot;&gt;Back to foo&lt;/a&gt;&lt;/p&gt;	
             &lt;/div&gt;&lt;!-- /content --&gt;
           
             &lt;div data-role=&quot;footer&quot;&gt;
-                &lt;h4&gt;Page Footer&lt;/h4&gt;
-            &lt;/div&gt;&lt;!-- /footer --&gt;
+              &lt;h4&gt;Page Footer&lt;/h4&gt;
+            &lt;/div&gt;&lt;!-- /header --&gt;
           &lt;/div&gt;&lt;!-- /page --&gt;
           &lt;/body&gt;
-    %a{"data-inline" => "true", "data-role" => "button", "data-theme" => "b", :href => "/mobile/docs/pages/multipage-template"} View multi-page template
+    %a{"data-inline" => "true", "data-role" => "button", "data-theme" => "b", :href => "/mobile/docs/pages/multipage-template", :rel => "external"} View multi-page template
     %p
       PLEASE NOTE: Since we are using the hash to track navigation history for all the Ajax 'pages', it's not currently possible to deep link to an anchor (
       %code> index.html#foo
@@ -185,7 +192,7 @@
       on an anchor, any clicks on that anchor will mimic the back button, going back one history entry and ignoring the anchor's default href. This is particularly useful when linking back to a named page, such as a link that says "home", or when generating "back" buttons with JavaScript, such as a button to close a dialog. When using this feature in your source markup,
       = succeed "." do
         %strong be sure to provide a meaningful href that actually points to the URL of the referring page (this will allow the feature to work for users in C-Grade browsers
-      Also, pease keep in mind that if you just want a reverse transition without actually going back in history, you should use the
+      Also, please keep in mind that if you just want a reverse transition without actually going back in history, you should use the
       %code data-direction="reverse"
       attribute instead.
     %h2 Redirects and linking to directories
@@ -193,11 +200,11 @@
     %p
       However, you can work around this issue by returning your page div with a
       %code data-url
-      attribute already included, and jQuery Mobile will use that instead of the url used to request that page. This also allows you to return urls that change as the result of a redirect, for example, you might post a form to "/login.html" but return a page from the url "/account" after a successful submission. This tool allows you to take control of the jQuery Mobile history stack in these situations. Here's an example:
+      attribute already specified. When you do this, jQuery Mobile will use that attribute's value for updating the URL, instead of the url used to request that page. This also allows you to return urls that change as the result of a redirect, for example, you might post a form to "/login.html" but return a page from the url "/account" after a successful submission. This tool allows you to take control of the jQuery Mobile history stack in these situations. Here's an example:
     %p
       The following link points to "docs-links-urltest/index.html":
       %a{:href => "/mobile/docs/pages/docs-links-urltest"} Test Link
-      which is a directory with an index page. The return page will update the hash as "docs-links-urltest/" with a trailing slash. This is done via the data-url attribute in that page's source.
+      which is a directory with an index page. The return page will update the hash as "docs/pages/docs-links-urltest/" with a trailing slash. This is done via the data-url attribute in that page's source. Keep in mind that the value will replace the entire hash, and it is up to you to replace it with a URL that actually resolves to the correct page when requested via refresh or deep link.
     %p
       Learn more about the technical details of the navigation model and
       %a{:href => "/mobile/docs/pages/docs-navmodel"} Ajax, hashes and history
