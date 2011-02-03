@@ -4,7 +4,7 @@
   = render(:partial => "/mobile/index.js.haml", :format => :js)
 
 %div{"data-role" => "page"}
-  %div{"data-position" => "inline", "data-role" => "header"}
+  %div{"data-role" => "header"}
     %h1 Bar theming
   %div{"data-role" => "content"}
     %p Both the header and footer bars will be styled by default with the theme's "a" color swatch (black in the default theme) because these bars are typically primary in the visual hierarchy of a page.
@@ -32,6 +32,7 @@
           &lt;a href=&quot;add-user.php&quot; data-theme=&quot;b&quot;&gt;Save&lt;/a&gt;
     %h2 Theme variations
     %p This is a demo of the variation that can be achieved by tweaking the theme swatches and buttons inside the headers and footers.
+  .ui-body{"data-role" => "content"}
     %h3 Headers
   %div{"data-position" => "inline", "data-role" => "header"}
     %h1 Bar theme "a"
@@ -61,15 +62,31 @@
     %a{"data-icon" => "delete", :href => "/mobile/docs/toolbars", :iconpos => "notext"} Cancel
     %h1 Bar theme "d"
     %a{"data-icon" => "arrow-r", "data-iconpos" => "right", "data-theme" => "b", :href => "/mobile/docs/toolbars"} Save
+    %a{"data-icon" => "arrow-r", "data-iconpos" => "right", "data-theme" => "b", :href => "/mobile/docs/toolbars"} Save
   .ui-body{"data-role" => "content"}
     %h3 Footers
-  %div{"data-position" => "inline", "data-role" => "footer"}
-    %div
-      %a{"data-icon" => "arrow-l", "data-iconpos" => "right", :href => "/mobile/docs/toolbars"} left
-      %a{"data-icon" => "arrow-r", "data-iconpos" => "right", :href => "/mobile/docs/toolbars"} right
-      %a{"data-icon" => "arrow-u", "data-iconpos" => "right", :href => "/mobile/docs/toolbars"} up
-      %a{"data-icon" => "arrow-d", "data-iconpos" => "right", :href => "/mobile/docs/toolbars"} down
-      %a{"data-icon" => "plus", "data-iconpos" => "right", :href => "/mobile/docs/toolbars"} plus
-      %a{"data-icon" => "minus", "data-iconpos" => "right", :href => "/mobile/docs/toolbars"} minus
-      %a{"data-icon" => "delete", "data-iconpos" => "right", :href => "/mobile/docs/toolbars"} delete
-  %p
+    %p These are examples of a footer with link buttons inside.
+  %div{"data-role" => "footer", "data-theme" => "a"}
+    %a{"data-icon" => "arrow-l", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/toolbars"} left
+    %a{"data-icon" => "arrow-r", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/toolbars"} right
+    %a{"data-icon" => "arrow-u", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/toolbars"} up
+    %a{"data-icon" => "arrow-d", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/toolbars"} down
+  %div{"data-role" => "footer", "data-theme" => "b"}
+    %a{"data-icon" => "arrow-l", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/toolbars"} left
+    %a{"data-icon" => "arrow-r", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/toolbars"} right
+    %a{"data-icon" => "arrow-u", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/toolbars"} up
+    %a{"data-icon" => "arrow-d", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/toolbars"} down
+  %div{"data-role" => "footer", "data-theme" => "c"}
+    %a{"data-icon" => "arrow-l", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/toolbars"} left
+    %a{"data-icon" => "arrow-r", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/toolbars"} right
+    %a{"data-icon" => "arrow-u", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/toolbars"} up
+  %div{"data-role" => "footer", "data-theme" => "d"}
+    %a{"data-icon" => "arrow-l", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/toolbars"} left
+    %a{"data-icon" => "arrow-r", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/toolbars"} right
+    %a{"data-icon" => "arrow-u", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/toolbars"} up
+    %a{"data-icon" => "arrow-d", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/toolbars"} down
+  %div{"data-role" => "footer", "data-theme" => "e"}
+    %a{"data-icon" => "arrow-l", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/toolbars"} left
+    %a{"data-icon" => "arrow-r", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/toolbars"} right
+    %a{"data-icon" => "arrow-u", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/toolbars"} up
+    %a{"data-icon" => "arrow-d", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/toolbars"} down
