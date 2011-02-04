@@ -4,8 +4,9 @@
   = render(:partial => "/mobile/index.js.haml", :format => :js)
 
 #album-list{"data-role" => "page"}
-  %div{"data-role" => "header"}
+  %div{"data-role" => "header", "data-theme" => "b"}
     %h1 List formatting
+    %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile"} Home
   / /header
   %div{"data-role" => "content"}
     %ul{"data-role" => "listview", "data-split-icon" => "gear", "data-split-theme" => "d"}

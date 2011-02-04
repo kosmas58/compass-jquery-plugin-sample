@@ -4,8 +4,9 @@
   = render(:partial => "/mobile/index.js.haml", :format => :js)
 
 %div{"data-role" => "page"}
-  %div{"data-role" => "header"}
+  %div{"data-role" => "header", "data-theme" => "b"}
     %h1 Theming lists
+    %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile"} Home
   / /header
   .ui-body{"data-role" => "content"}
     %p All the standard button swatches can be applied to lists. The framework assigns a default list theme swatch of &quot;c&quot; (silver in the default theme) and swatch &quot;b&quot; (blue in default theme) for dividers. Below is a default themed list.

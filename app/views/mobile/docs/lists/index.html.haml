@@ -3,9 +3,10 @@
 - content_for :content_head do
   = render(:partial=> "/mobile/index.js.haml", :format => :js)
 
-%div{"data-role"=> "page", "data-theme"=> "b"}
-  %div{"data-role"=> "header", "data-theme"=> "b"}
+%div{"data-role"=> "page"}
+  %div{"data-role" => "header", "data-theme" => "b"}
     %h1 Lists
+    %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile"} Home
   / /header
   %div{"data-role"=> "content"}
     %p

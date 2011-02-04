@@ -4,8 +4,9 @@
   = render(:partial => "/mobile/index.js.haml", :format => :js)
 
 %div{"data-role" => "page"}
-  %div{"data-role" => "header"}
+  %div{"data-role" => "header", "data-theme" => "b"}
     %h1 Forms
+    %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile"} Home
   / /header
   %div{"data-role" => "content"}
     %p jQuery Mobile provides a complete set of finger-friendly form elements that are based on native HTML form elements.

@@ -4,8 +4,9 @@
   = render(:partial => "/mobile/index.js.haml", :format => :js)
 
 %div{"data-role" => "page"}
-  %div{"data-role" => "header"}
+  %div{"data-role" => "header", "data-theme" => "b"}
     %h1 Linking pages
+    %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile"} Home
   / /header
   %div{"data-role" => "content"}
     %p jQuery Mobile is designed to work with simple page linking conventions. The following list demonstrates how different types of links will be handled, either remotely or through an Ajax Request.

@@ -3,13 +3,12 @@
 - content_for :content_head do
   = render(:partial => "index.js.haml", :format => :js)
 
-
 %div{"data-role" => "page", "data-theme" => "a"}
   %form.ui-body.ui-body-a{:action => "", :method => "get"}
     %label{:for => "location"}
       Change city:
     %input#location{"data-theme" => "a", :name => "location", :placeholder => "city name...", :type => "search", :value => "#{@location}"}/
-    %input{"data-role" => "nojs", :type => "submit", :value => "submit"}/
+    %input{"data-role" => "nojs", :type => "submit", :value => "submit"}
   / / header
   %div{"data-role" => "content"}
     %h1

@@ -4,8 +4,9 @@
   = render(:partial => "/mobile/index.js.haml", :format => :js)
 
 %div{"data-role" => "page"}
-  %div{"data-role" => "header"}
+  %div{"data-role" => "header", "data-theme" => "b"}
     %h1 Bar theming
+    %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile"} Home
   %div{"data-role" => "content"}
     %p Both the header and footer bars will be styled by default with the theme's "a" color swatch (black in the default theme) because these bars are typically primary in the visual hierarchy of a page.
     %h2 Theming headers and footers
