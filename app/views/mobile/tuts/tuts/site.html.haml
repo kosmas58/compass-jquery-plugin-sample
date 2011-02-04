@@ -12,7 +12,7 @@
         - @feed.each do |item|
           %li
             %h2
-              %a{:href => "/mobile/tuts/article?siteName=#{@siteName}&origLink=#{item[:uri]}"}
+              %a{:href => "/mobile/tuts/tuts/article?siteName=#{@siteName}&origLink=#{item[:uri]}"}
                 #{item[:title]}
             %span.ui-li-count
               #{item[:comments]}

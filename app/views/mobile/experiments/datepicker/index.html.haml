@@ -27,7 +27,7 @@
         :preserve
           &lt;label for=&quot;date&quot;&gt;Date Input:&lt;/label&gt;
           &lt;input type=&quot;date&quot; name=&quot;date&quot; id=&quot;date&quot; value=&quot;&quot;  /&gt;		
-          		        %p
+    %p
       We'd recommend wrapping the label and input in a fieldcontain div for presentation purposes, and these elements should be placed within a
       %code form
       element for C-Grade browser accessibility.
@@ -37,9 +37,9 @@
     %pre
       %code
         :preserve
-            &lt;link rel=&quot;stylesheet&quot; href=&quot;jquery.ui.datepicker.mobile.css&quot; /&gt; 
-            &lt;script src=&quot;jQuery.ui.datepicker.js&quot;&gt;&lt;/script&gt;
-            &lt;script src=&quot;jquery.ui.datepicker.mobile.js&quot;&gt;&lt;/script&gt;
+          &lt;link rel=&quot;stylesheet&quot; href=&quot;jquery.ui.datepicker.mobile.css&quot; /&gt; 
+          &lt;script src=&quot;jQuery.ui.datepicker.js&quot;&gt;&lt;/script&gt;
+          &lt;script src=&quot;jquery.ui.datepicker.mobile.js&quot;&gt;&lt;/script&gt;
     %p You'll also want to configure the page plugin to convert "date" input elements to "text" inputs after they're enhanced with our datepicker, so that no native datepicker will conflict with the custom one we're adding. To do this, bind to the "mobileinit" event and set input types of "date" back to text using the page plugin's options:
     %pre
       %code
