@@ -3,9 +3,10 @@
 - content_for :content_head do
   = render(:partial => "/mobile/index.js.haml", :format => :js)
 
-%div{"data-role" => "page", "data-theme" => "b"}
-  %div{"data-position" => "inline", "data-role" => "header"}
+%div{"data-role" => "page"}
+  %div{"data-role" => "header", "data-theme" => "b"}
     %h1 API
+    %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile"} Home
   %div{"data-role" => "content"}
     %ul{"data-dividertheme" => "b", "data-inset" => "true", "data-role" => "listview", "data-theme" => "c"}
       %li{"data-role" => "list-divider"} API

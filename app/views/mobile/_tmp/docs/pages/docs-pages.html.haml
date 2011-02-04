@@ -1,0 +1,236 @@
+!!!
+%html
+  %head
+    %meta{:charset => "utf-8"}/
+    %title jQuery Mobile Docs - Pages
+    %link{:href => "../../themes/default/", :media => "only all", :rel => "stylesheet"}/
+    %link{:href => "../_assets/css/jqm-docs.css", :rel => "stylesheet"}/
+    %script{:src => "../../js/jquery.js", :type => "text/javascript"}
+    %script{:src => "../../js/", :type => "text/javascript"}
+  %body
+    %div{"data-role" => "page"}
+      %div{"data-role" => "header", "data-theme" => "b"}
+        %h1 Anatomy of a Page
+        %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "../../"} Home
+      / /header
+      %div{"data-role" => "content"}
+        %p The jQuery Mobile "page" structure is optimized to support either single pages, or local internal linked "pages" within a page.
+        %p The goal of this model is to allow developers to create websites using best practices &mdash; where ordinary links will "just work" without any special configuration &mdash; while creating a rich, native-like experience that can't be achieved with standard HTTP requests.
+        %h2 Mobile page structure
+        %p A jQuery Mobile site must start with an HTML5 'doctype' to take full advantage of all of the framework's features. (Older devices with browsers that don't understand HTML5 will safely ignore the 'doctype' and various custom attributes.) In the 'head', references to jQuery, jQuery Mobile and the mobile theme CSS are all required to start things off:
+        %pre
+          %code
+            :preserve
+              
+              &lt;!DOCTYPE html&gt; 
+              &lt;html&gt; 
+              	&lt;head&gt; 
+              	&lt;title&gt;Page Title&lt;/title&gt; 
+              	&lt;link rel=&quot;stylesheet&quot; href=&quot;http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.css&quot; /&gt;
+              	&lt;script type=&quot;text/javascript&quot; src=&quot;http://code.jquery.com/jquery-1.5.min.js&quot;&gt;&lt;/script&gt;
+              	&lt;script type=&quot;text/javascript&quot; src=&quot;http://code.jquery.com/mobile/1.0a2/jquery.mobile-1.0a3.min.js&quot;&gt;&lt;/script&gt;
+              &lt;/head&gt; 
+              &lt;body&gt; 
+              
+              ...
+              
+              &lt;/body&gt;
+              &lt;/html&gt;
+        %p
+          Inside the
+          %code &lt;body&gt;
+          tag, each view or "page" on the mobile device is identified with an element (usually a
+          = succeed ")" do
+            %code div
+          with the
+          %code data-role="page"
+          attribute:
+        .highlight
+          %pre
+            %span.nt &lt;div
+            %span.na data-role=
+            %span.s "page"
+            %span.nt &gt;
+            \...
+            %span.nt &lt;/div&gt;
+        %p
+          Within the "page" container, any valid HTML markup can be used, but for typical pages in jQuery Mobile, the immediate children of a "page" are divs with data-roles of
+          = succeed "," do
+            %code "header"
+          = succeed "," do
+            %code "content"
+          and
+          = succeed "." do
+            %code "footer"
+        .highlight
+          %pre
+            %span.nt &lt;div
+            %span.na data-role=
+            %span.s "page"
+            %span.nt &gt;
+            %span.nt &lt;div
+            %span.na data-role=
+            %span.s "header"
+            = succeed "..." do
+              %span.nt &gt;
+            %span.nt &lt;/div&gt;
+            %span.nt &lt;div
+            %span.na data-role=
+            %span.s "content"
+            = succeed "..." do
+              %span.nt &gt;
+            %span.nt &lt;/div&gt;
+            %span.nt &lt;div
+            %span.na data-role=
+            %span.s "footer"
+            = succeed "..." do
+              %span.nt &gt;
+            %span.nt &lt;/div&gt;
+            %span.nt &lt;/div&gt;
+        %h2 Complete single page template
+        %p Putting it all together, this is the standard boilerplate page template you should start with:
+        %pre
+          %code
+            :preserve
+              
+              &lt;!DOCTYPE html&gt; 
+              &lt;html&gt; 
+              	&lt;head&gt; 
+              	&lt;title&gt;Page Title&lt;/title&gt; 
+              	&lt;link rel=&quot;stylesheet&quot; href=&quot;http://code.jquery.com/mobile/1.0a2/jquery.mobile-1.0a2.min.css&quot; /&gt;
+              	&lt;script type=&quot;text/javascript&quot; src=&quot;http://code.jquery.com/jquery-1.4.3.min.js&quot;&gt;&lt;/script&gt;
+              	&lt;script type=&quot;text/javascript&quot; src=&quot;http://code.jquery.com/mobile/1.0a2/jquery.mobile-1.0a2.min.js&quot;&gt;&lt;/script&gt;
+              &lt;/head&gt; 
+              &lt;body&gt; 
+              
+              &lt;div data-role=&quot;page&quot;&gt;
+              
+              	&lt;div data-role=&quot;header&quot;&gt;
+              		&lt;h1&gt;Page Title&lt;/h1&gt;
+              	&lt;/div&gt;&lt;!-- /header --&gt;
+              
+              	&lt;div data-role=&quot;content&quot;&gt;	
+              		&lt;p&gt;Page content goes here.&lt;/p&gt;		
+              	&lt;/div&gt;&lt;!-- /content --&gt;
+              
+              	&lt;div data-role=&quot;footer&quot;&gt;
+              		&lt;h4&gt;Page Footer&lt;/h4&gt;
+              	&lt;/div&gt;&lt;!-- /footer --&gt;
+              &lt;/div&gt;&lt;!-- /page --&gt;
+              
+              &lt;/body&gt;
+              &lt;/html&gt;
+        %a{"data-inline" => "true", "data-role" => "button", "data-theme" => "b", :href => "page-template.html"} View boilerplate template
+        %h2 External page linking
+        %p jQuery Mobile automates the process of building Ajax powered sites and applications.
+        %p
+          By default, when you click on a link that points to an external page (ex. products.html), the framework will parse the link's
+          %code href
+          to formulate an Ajax request (Hijax) and displays the loading spinner.
+        %p If the Ajax request is successful, the new page content is added to the DOM, all mobile widgets are auto-initialized, then the new page is animated into view with a page transition.
+        %p
+          If the Ajax request fails, the framework will display a small error message overlay (styled in the "e" swatch) that disappears after a brief time so this doesn't break the navigation flow. View an
+          = succeed "." do
+            %a{:href => "notapage.html"} example of the error message
+        %h2 Local, internal linked "pages"
+        %p
+          A single HTML document can contain multiple 'pages' that are loaded together by stacking multiple divs with a
+          %code data-role
+          of
+          = succeed "." do
+            %code "page"
+          Each 'page' block needs a unique ID (
+          %code> id="foo"
+          ) that will be used to link internally between 'pages' (
+          %code> href="#foo"
+          ). When a link is clicked, the framework will look for an internal 'page' with the ID and transition it into view.
+        %p
+          It's important to note if you  are linking from a mobile page that was loaded via Ajax to a page with multiple internal pages, you need to add a
+          %code rel="external"
+          or
+          %code data-ajax="false"
+          to the link. This tells the framework to do a full page reload to clear out the Ajax hash in the URL. This is critical because Ajax pages use the hash (#) to track the Ajax history, while multiple internal pages use the hash to indicate internal pages so there will be a conflicts.
+        %p For example, a link to a page containing multiple internal pages would look like this:
+        %code &lt;a href=&quot;multipage.html&quot; rel=&quot;external&quot;&gt;Multi-page link&lt;/a&gt;
+        %p
+          Here is an example of a 2 "page" site built with two jQuery Mobile divs navigated by linking to an ID placed on each page wrapper. Note that the IDs on the page wrappers are only needed to support the internal page linking, and are optional if each page is a separate HTML document. Here is what two pages look inside the
+          %code body
+          element.
+        %pre
+          %code
+            :preserve
+              
+              &lt;body&gt; 
+              
+              &lt;!-- Start of first page --&gt;
+              &lt;div data-role=&quot;page&quot; id=&quot;foo&quot;&gt;
+              
+              	&lt;div data-role=&quot;header&quot;&gt;
+              		&lt;h1&gt;Foo&lt;/h1&gt;
+              	&lt;/div&gt;&lt;!-- /header --&gt;
+              
+              	&lt;div data-role=&quot;content&quot;&gt;	
+              		&lt;p&gt;I&#x27;m first in the source order so I&#x27;m shown as the page.&lt;/p&gt;		
+              		&lt;p&gt;View internal page called &lt;a href=&quot;#bar&quot;&gt;bar&lt;/a&gt;&lt;/p&gt;	
+              	&lt;/div&gt;&lt;!-- /content --&gt;
+              
+              	&lt;div data-role=&quot;footer&quot;&gt;
+              		&lt;h4&gt;Page Footer&lt;/h4&gt;
+              	&lt;/div&gt;&lt;!-- /header --&gt;
+              &lt;/div&gt;&lt;!-- /page --&gt;
+              
+              
+              &lt;!-- Start of second page --&gt;
+              &lt;div data-role=&quot;page&quot; id=&quot;bar&quot;&gt;
+              
+              	&lt;div data-role=&quot;header&quot;&gt;
+              		&lt;h1&gt;Bar&lt;/h1&gt;
+              	&lt;/div&gt;&lt;!-- /header --&gt;
+              
+              	&lt;div data-role=&quot;content&quot;&gt;	
+              		&lt;p&gt;I&#x27;m first in the source order so I&#x27;m shown as the page.&lt;/p&gt;		
+              		&lt;p&gt;&lt;a href=&quot;#foo&quot;&gt;Back to foo&lt;/a&gt;&lt;/p&gt;	
+              	&lt;/div&gt;&lt;!-- /content --&gt;
+              
+              	&lt;div data-role=&quot;footer&quot;&gt;
+              		&lt;h4&gt;Page Footer&lt;/h4&gt;
+              	&lt;/div&gt;&lt;!-- /header --&gt;
+              &lt;/div&gt;&lt;!-- /page --&gt;
+              &lt;/body&gt;
+        %a{"data-inline" => "true", "data-role" => "button", "data-theme" => "b", :href => "multipage-template.html", :rel => "external"} View multi-page template
+        %p         %p
+          PLEASE NOTE: Since we are using the hash to track navigation history for all the Ajax 'pages', it's not currently possible to deep link to an anchor (
+          %code> index.html#foo
+          ) on a page in jQuery Mobile, because the framework will look for a 'page' with an
+          %code ID
+          of
+          %code #foo
+          instead of the native behavior of scrolling to the content with that
+          = succeed "." do
+            %code ID
+        %h2 Back linking
+        %p
+          If you use the attribute
+          %code data-rel="back"
+          on an anchor, any clicks on that anchor will mimic the back button, going back one history entry and ignoring the anchor's default href. This is particularly useful when linking back to a named page, such as a link that says "home", or when generating "back" buttons with JavaScript, such as a button to close a dialog. When using this feature in your source markup,
+          = succeed "." do
+            %strong be sure to provide a meaningful href that actually points to the URL of the referring page (this will allow the feature to work for users in C-Grade browsers
+          Also, please keep in mind that if you just want a reverse transition without actually going back in history, you should use the
+          %code data-direction="reverse"
+          attribute instead.
+        %h2 Redirects and linking to directories
+        %p When linking to directory indexes (such as href="typesofcats/" instead of href="typesofcats/index.html"), you must provide a trailing slash. This is because jQuery Mobile assumes the section after the last "/" character in a url is a filename, and it will remove that section when creating base urls from which future pages will be referenced.
+        %p
+          However, you can work around this issue by returning your page div with a
+          %code data-url
+          attribute already specified. When you do this, jQuery Mobile will use that attribute's value for updating the URL, instead of the url used to request that page. This also allows you to return urls that change as the result of a redirect, for example, you might post a form to "/login.html" but return a page from the url "/account" after a successful submission. This tool allows you to take control of the jQuery Mobile history stack in these situations. Here's an example:
+        %p
+          The following link points to "docs-links-urltest/index.html":
+          %a{:href => "docs-links-urltest/index.html"} Test Link
+          which is a directory with an index page. The return page will update the hash as "docs/pages/docs-links-urltest/" with a trailing slash. This is done via the data-url attribute in that page's source. Keep in mind that the value will replace the entire hash, and it is up to you to replace it with a URL that actually resolves to the correct page when requested via refresh or deep link.
+        %p
+          Learn more about the technical details of the navigation model and
+          %a{:href => "docs-navmodel.html"} Ajax, hashes and history
+          in jQuery mobile.
+      / /content
+    / /page

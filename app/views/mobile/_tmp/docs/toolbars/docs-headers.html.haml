@@ -1,0 +1,138 @@
+!!!
+%html
+  %head
+    %meta{:charset => "utf-8"}/
+    %title jQuery Mobile Docs - Toolbars
+    %link{:href => "../../themes/default/", :rel => "stylesheet"}/
+    %link{:href => "../_assets/css/jqm-docs.css", :rel => "stylesheet"}/
+    %script{:src => "../../js/jquery.js", :type => "text/javascript"}
+    %script{:src => "../../js/", :type => "text/javascript"}
+  %body
+    %div{"data-role" => "page"}
+      %div{"data-role" => "header", "data-theme" => "b"}
+        %h1 Header bars
+        %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "../../"} Home
+      / /header
+      %div{"data-role" => "content"}
+        %h2 Header structure
+        %p
+          The
+          %code header
+          is an toolbar at the top of the page that usually contains the page title text and optional buttons positioned to the the left and/or right of the title for navigation or actions.
+        %p The title text is normally an H1 heading element but it's possible to use any heading level (H1-H6) to allow for semantic flexibility. For example, a page containing multiple mobile 'pages' may use a H1 element on the home 'page' and a H2 element on the secondary pages. All heading levels are styled identically by default to maintain visual consistency.
+        .highlight
+          %pre
+            %span.nt &lt;div
+            %span.na data-role=
+            %span.s "header"
+            %span.nt &gt;
+            = succeed "Page" do
+              %span.nt &lt;h1&gt;
+            Title
+            %span.nt &lt;/h1&gt;
+            %span.nt &lt;/div&gt;
+        %h2 Default header features
+        %p
+          The
+          %code header
+          toolbar is themed with the "a" swatch by default (black in the default theme) but you can easily
+          = succeed "." do
+            %a{:href => "bars-themes.html"} set the theme swatch color
+        %div{"data-position" => "inline", "data-role" => "header"}
+          %h1 Page title
+        %p
+          %strong See that "back" button?
+          The framework automatically generates a "back" button on every page, to simplify the process of including this common navigation element. To prevent the back button from being added to a header, either add your own button to the left slot (see below) or, add this attribute:
+          %code data-backbtn="false"
+          to the header container.
+          %h2 Adding buttons
+          %p
+            In the standard header configuration, there are slots for buttons on either side of the text heading. Each button is typically an
+            %code anchor
+            element, but any valid
+            %a{:href => "../buttons/buttons-types.html"} button markup
+            will work. To save space, buttons in toolbars are set to
+            %a{:href => "../buttons/buttons-inline.html"} inline styling
+            so the button is only as wide as the text and icons it contains.
+          %h2 Creating custom back buttons
+          %p
+            If you use the attribute
+            %code data-rel="back"
+            on an anchor, any clicks on that anchor will mimic the back button, going back one history entry and ignoring the anchor's default href. This is particularly useful when linking back to a named page, such as a link that says "home", or when generating "back" buttons with JavaScript, such as a button to close a dialog. When using this feature in your source markup,
+            = succeed "." do
+              %strong be sure to provide a meaningful href that actually points to the URL of the referring page (this will allow the feature to work for users in C-Grade browsers
+            Also, pease keep in mind that if you just want a reverse transition without actually going back in history, you should use the
+            %code data-direction="reverse"
+            attribute instead.
+          %h3 Default button positioning
+          %p The header plugin looks for immediate children of the header container, and automatically sets the first link in the left button slot and the second link in the right. In this example, the 'Cancel' button will appear in the left slot and 'Save' will appear in the right slot based on their sequence in the source order.
+          %pre
+            %code
+              :preserve
+                			
+                &lt;div data-role=&quot;header&quot; data-position=&quot;inline&quot;&gt;
+                	&lt;a href=&quot;index.html&quot; data-icon=&quot;delete&quot;&gt;Cancel&lt;/a&gt;
+                	&lt;h1&gt;Edit Contact&lt;/h1&gt;
+                	&lt;a href=&quot;index.html&quot; data-icon=&quot;check&quot;&gt;Save&lt;/a&gt;
+                &lt;/div&gt;
+          %div{"data-position" => "inline", "data-role" => "header"}
+            %a{"data-icon" => "delete", :href => "index.html"} Cancel
+            %h1 Edit Contact
+            %a{"data-icon" => "check", :href => "index.html"} Save
+          %p
+            Buttons automatically adopt the swatch color of the bar they sit in, so a link in a header bar with the "a" color will also be styled as "a" colored buttons. It's simple to make a button visually stand out &mdash; here, we add the
+            %code data-theme
+            attribute and set the color swatch for the button to "b" to make the "Save" button pop.
+          %pre
+            %code
+              :preserve
+                			
+                &lt;div data-role=&quot;header&quot; data-position=&quot;inline&quot;&gt;
+                	&lt;a href=&quot;index.html&quot; data-icon=&quot;delete&quot;&gt;Cancel&lt;/a&gt;
+                	&lt;h1&gt;Edit Contact&lt;/h1&gt;
+                	&lt;a href=&quot;index.html&quot; data-icon=&quot;check&quot; data-theme=&quot;b&quot;&gt;Save&lt;/a&gt;
+                &lt;/div&gt;
+          %div{"data-position" => "inline", "data-role" => "header"}
+            %a{"data-icon" => "delete", :href => "index.html"} Cancel
+            %h1 Edit Contact
+            %a{"data-icon" => "check", "data-theme" => "b", :href => "index.html"} Save
+          %h3 Controlling button position with classes
+          %p
+            The button position can also be controlled by adding classes to the button anchors, rather than relying on source order. This is especially useful if you only want a button in the right slot. To specify the button position, add the class of
+            %code ui-btn-left
+            or
+            %code ui-btn-right
+            to the anchor.
+          %p
+            In this example, we're adding only a single button to the right slot so the
+            %code data-backbtn="false"
+            needs to be added to the header container to suppress the automatic Back button behavior and the button needs the
+            %code ui-btn-right
+            class on the link.
+          .highlight
+            %pre
+              %code
+                :preserve
+                  
+                  &lt;div data-role=&quot;header&quot; data-position=&quot;inline&quot; data-backbtn=&quot;false&quot;&gt;
+                  	&lt;h1&gt;Page Title&lt;/h1&gt;
+                  	&lt;a href=&quot;index.html&quot; data-icon=&quot;gear&quot; class=&quot;ui-btn-right&quot;&gt;Options&lt;/a&gt;
+                  &lt;/div&gt;
+          %div{"data-backbtn" => "false", "data-position" => "inline", "data-role" => "header"}
+            %h1 Page Title
+            %a.ui-btn-right{"data-icon" => "gear", :href => "index.html"} Options
+          %h2 Customizing the back button text
+          %p
+            If you'd like to configure the back button text, you can either use the
+            %code data-back-btn-text="previous"
+            attribute on your page element, or set it programmatically via the page plugin's options:
+            = succeed "." do
+              %code $.mobile.page.prototype.options.backBtnText = "previous";
+            If you're doing this programmatically, set this option inside the mobileinit event handler.
+          %h2 Custom header configurations
+          %p
+            If you need to to create a header that doesn't follow the default configuration, simply wrap your custom styled markup in a container
+            %code div
+            inside the header container and the plugin won't apply the automatic button logic so you can write custom styles for laying out the content in your header.
+      / /content
+    / /page

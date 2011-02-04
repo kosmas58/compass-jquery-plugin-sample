@@ -1,0 +1,36 @@
+!!!
+%html
+  %head
+    %meta{:charset => "utf-8"}/
+    %title jQuery Mobile Framework - Fixed toolbars variation
+    %link{:href => "../../themes/default/", :rel => "stylesheet"}/
+    %link{:href => "../_assets/css/jqm-docs.css", :rel => "stylesheet"}/
+    %script{:src => "../../js/jquery.js", :type => "text/javascript"}
+    %script{:src => "../../js/", :type => "text/javascript"}
+  %body
+    %div{"data-fullscreen" => "true", "data-role" => "page"}
+      %div{"data-position" => "fixed", "data-role" => "header"}
+        %h1 Fullscreen fixed header
+        %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "../../"} Home
+      %div{"data-role" => "content"}
+        %img{:alt => "Photo Run", :height => "480", :src => "images/photo-run.jpeg", :width => "640"}
+          %p.ui-body This page demonstrates the "fullscreen" toolbar mode. This toolbar treatment is used in special cases where you want the content to fill the whole screen, and you want the header and footer toolbars to appear and disappear when the page is clicked responsively &mdash; a common scenario for photo, image or video viewers.
+          %p.ui-body
+            To enable this toolbar feature type, you apply a
+            %code data-fullscreen="true"
+            attribute to the
+            %code div
+            contain that has the attribute
+            = succeed "," do
+              %code data-role="page"
+            and the
+            %code data-position="fixed"
+            attribute to both the header and footer
+            %code div
+            elements.
+          %p.ui-body
+            Keep in mind that the toolbars in this mode will sit
+            %strong over
+            page content, so not all content will be accessible with the toolbars open, just as shown in this demo.
+      %div{"data-position" => "fixed", "data-role" => "footer"}
+        %h1 Fullscreen fixed footer

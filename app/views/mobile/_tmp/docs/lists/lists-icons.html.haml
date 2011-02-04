@@ -1,0 +1,44 @@
+!!!
+%html
+  %head
+    %meta{:charset => "utf-8"}/
+    %title jQuery Mobile Docs - Lists
+    %link{:href => "../../themes/default/", :rel => "stylesheet"}/
+    %link{:href => "../_assets/css/jqm-docs.css", :rel => "stylesheet"}/
+    %script{:src => "../../js/jquery.js", :type => "text/javascript"}
+    %script{:src => "../../js/", :type => "text/javascript"}
+    %script{:src => "docs/docs.js", :type => "text/javascript"}
+  %body
+    %div{"data-role" => "page"}
+      %div{"data-role" => "header", "data-theme" => "b"}
+        %h1 Icons
+        %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "../../"} Home
+      / /header
+      %div{"data-role" => "content"}
+        %ul{"data-role" => "listview"}
+          %li
+            %img.ui-li-icon{:alt => "France", :src => "images/gf.png"}
+              %a{:href => "index.html"} France
+              %span.ui-li-count 4
+          %li
+            %img.ui-li-icon{:alt => "Germany", :src => "images/de.png"}
+              %a{:href => "index.html"} Germany
+              %span.ui-li-count 4
+          %li
+            %img.ui-li-icon{:alt => "Great Britain", :src => "images/gb.png"}
+              %a{:href => "index.html"} Great Britain
+              %span.ui-li-count 0
+          %li
+            %img.ui-li-icon{:alt => "Japan", :src => "images/fi.png"}
+              %a{:href => "index.html"} Japan
+              %span.ui-li-count 12
+          %li
+            %img.ui-li-icon{:alt => "Sweden", :src => "images/sj.png"}
+              %a{:href => "index.html"} Sweden
+              %span.ui-li-count 328
+          %li
+            %img.ui-li-icon{:alt => "United States", :src => "images/us.png"}
+              %a{:href => "index.html"} United States
+              %span.ui-li-count 62
+      / /content
+    / /page
