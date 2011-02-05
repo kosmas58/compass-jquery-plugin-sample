@@ -1,0 +1,30 @@
+!!!
+%html
+  %head
+    %title jQuery.DSt Test Page
+    %script{:src => "http://code.jquery.com/jquery-1.4.2.min.js"}
+    %script{:src => "../jquery.dst.js"}
+  %body
+    %h1 jQuery.DSt Test Page
+    %form{:name => "jq_dst_testform"}
+      %p
+        %label{:for => "text_input"} Text Input
+        %input{:name => "text_input", :type => "text"}
+      %p
+        %label{:for => "radio_input"} Radio Input
+        %input{:name => "radio_input", :type => "radio", :value => "1"}
+          1 &nbsp;&nbsp;
+          %input{:name => "radio_input", :type => "radio", :value => "2"}
+            2 &nbsp;&nbsp;
+            %input{:name => "radio_input", :type => "radio", :value => "3"}
+              3
+      %p
+        %label{:for => "checkbox_input"} Checkbox Input
+        %input{:name => "checkbox_input", :type => "checkbox"}
+      %p
+        %label{:for => "textarea_input"} Textarea Input
+        %textarea{:name => "textarea_input"}
+      %p
+        %input{:onclick => "jQuery.DSt.store_form(this.form)", :type => "button", :value => "Store"}
+          %input{:onclick => "jQuery.DSt.recall_form(this.form)", :type => "button", :value => "Recall"}
+            %input{:type => "reset", :value => "Reset Form"}
