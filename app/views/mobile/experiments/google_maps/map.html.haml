@@ -36,12 +36,11 @@
         navigator.geolocation.getCurrentPosition(gpsSuccess, gpsFail, {enableHighAccuracy:true, maximumAge: 300000});
       }
     
-      /*
-      if not supported, you might attempt to use google loader for lat,long
+      /* if not supported, you might attempt to use google loader for lat,long
       $.getScript('http://www.google.com/jsapi?key=YOURAPIKEY',function(){
         lat = google.loader.ClientLocation.latitude;
         lng = google.loader.ClientLocation.longitude;
-      });			
+      });
       */
     
       var latlng = new google.maps.LatLng(lat, lng);
@@ -56,9 +55,9 @@
 
   :css
     .page-map, .ui-content, #map-canvas { width: 100%; height: 100%; padding: 0; }
+
   %div{"data-role" => "header"}
     %h1 Map View
   %div{"data-role" => "content"}
     #map-canvas
       / map loads here...
-  
