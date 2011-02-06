@@ -18,7 +18,7 @@ group :development do
   gem "mongrel"
   gem "sqlite3"
   gem "compass-validator"
-  gem "open3", :platforms => :ruby
+  #gem "open3", :platforms => :ruby
   gem "win32-open3", :platforms => :mswin
   # bundler requires these gems in development
   # gem "rails-footnotes"
