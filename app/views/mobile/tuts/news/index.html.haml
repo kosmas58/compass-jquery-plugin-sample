@@ -4,22 +4,18 @@
 - content_for :content_head do
   = render(:partial => "index.js.haml", :format => :js)
 
-#container{"data-role" => "page", "data-theme" => "b"}
-  #hdrCategories{"data-backbtn" => "false", "data-role" => "header"}
+/ Container page
+#containerPage{"data-role" => "page", "data-theme" => "a"}
+  / Categories
+  #hdrCategories{"data-nobackbtn" => "true", "data-role" => "header"}
     %h1 Categories
-    %a#buttonAddCategory.ui-btn-left{"data-icon" => "plus", "data-inline" => "true", "data-role" => "button", :href => "#category"} Add
-  / / header
+    %a#buttonAddCategory.ui-btn-left{"data-icon" => "plus", "data-inline" => "true", "data-role" => "button", :href => ""} Add
   #contentCategories{"data-role" => "content"}
     %ul#currentNews{"data-role" => "listview", "data-split-icon" => "delete", "data-split-theme" => "d"}
-  / / content
   #ftrCategories{"data-role" => "footer"}
-  / / footer
-/ / page
-
-#category{"data-role" => "page", "data-theme" => "b"}
-  #hdrSelect{"data-backbtn" => "false", "data-role" => "header"}
+  / Category Selection
+  #hdrSelect{"data-nobackbtn" => "true", "data-role" => "header"}
     %h1 Select
-  / / header
   #contentSelect{"data-role" => "content"}
     %form#form1
       #categoryDiv{"data-role" => "fieldcontain"}
@@ -34,33 +30,22 @@
           %option{:value => "economy"} U.S. Economy
           %option{:value => "eurobiz"} European Economy
       %a#buttonGetCategory{"data-inline" => "true", "data-role" => "button", :href => ""} Get Category
-  / / content
   #ftrSelect{"data-role" => "footer"}
-  / / footer
-/ / page
-
-#progress{"data-role" => "page", "data-theme" => "b"}
-  #hdrProgress{"data-backbtn" => "false", "data-role" => "header"}
+  / Progress
+  #hdrProgress{"data-nobackbtn" => "true", "data-role" => "header"}
     %h1 Processing...
-  / / header
   #contentProgress{"data-role" => "content"}
     %div{:align => "CENTER"}
       %h4 Please wait.
     %div{:align => "CENTER"}
-      %img#spin{:src => "/images/demo/mobile/tuts/wait.gif"}
-  / / content
+      %img#spin{:src => "/images/demo/mobile/tuts/wait.gif"}/
   #ftrProgress{"data-role" => "footer"}
-  / / footer
-/ / page
-
-#news{"data-role" => "page", "data-theme" => "b"}
-  #hdrNews{"data-backbtn" => "false", "data-role" => "header"}
+  / News
+  #hdrNews{"data-nobackbtn" => "true", "data-role" => "header"}
     %h1 News
     %a#buttonHdrShowCategories.ui-btn-left{"data-icon" => "arrow-l", "data-inline" => "true", "data-role" => "button", :href => ""} Back
-  / / header
   #contentNews{"data-role" => "content"}
-  / / content
   #ftrNews{"data-role" => "footer"}
     %a#buttonFtrShowCategories.ui-btn-left{"data-icon" => "arrow-l", "data-inline" => "true", "data-role" => "button", :href => ""} Back to News Categories
-  / / footer
-/ / page
+  / containerPage
+/ Page ends here
