@@ -1709,7 +1709,7 @@ $.widget( "mobile.page", $.mobile.widget, {
 		if ($base.length){
 			var href = $base.attr("href");
 			if (href){
-				if (href.search(/^[^:/]+:\/\/[^/]+\/?/) == -1){
+				if (href.search(/^[^:\/]+:\/\/[^\/]+\/?/) == -1){
 					//the href is not absolute, we need to turn it into one
 					//so that we can turn paths stored in our location hash into
 					//relative paths.
@@ -1900,6 +1900,13 @@ $.widget( "mobile.page", $.mobile.widget, {
 			}
 		}
 
+		function releasePageTransitionLock(){
+			isPageTransitioning = false;
+			if(pageTransitionQueue.length>0) {
+				$.mobile.changePage.apply($.mobile, pageTransitionQueue.pop());
+			}
+		}
+		
 		//function for transitioning between two existing pages
 		function transitionPages() {
 		    $.mobile.silentScroll();
@@ -1961,10 +1968,7 @@ $.widget( "mobile.page", $.mobile.widget, {
 				//remove initial build class (only present on first pageshow)
 				$html.removeClass( "ui-mobile-rendering" );
 
-				isPageTransitioning = false
-				if(pageTransitionQueue.length>0) {
-					$.mobile.changePage.apply($.mobile, pageTransitionQueue.pop());
-				}
+				releasePageTransitionLock();
 			};
 
 			function addContainerClass(className){
@@ -1998,7 +2002,7 @@ $.widget( "mobile.page", $.mobile.widget, {
 
 				// callback - remove classes, etc
 				to.animationComplete(function() {
-					from.add( to ).removeClass("out in reverse " + transition );
+					to.add(from).removeClass("out in reverse " + transition );
 					if( from ){
 						from.removeClass( $.mobile.activePageClass );
 					}	
@@ -2129,6 +2133,7 @@ $.widget( "mobile.page", $.mobile.widget, {
 						.fadeOut( 400, function(){
 							$(this).remove();
 						});
+					releasePageTransitionLock();
 				}
 			});
 		}
