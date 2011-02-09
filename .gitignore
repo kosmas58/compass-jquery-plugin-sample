@@ -4,7 +4,6 @@ app/stylesheets/.sass-cache/*
 db/schema.rb
 db/*.sqlite*
 db/*.sqlite3
-.idea
 log/*
 public/javascripts/common.js
 public/javascripts/locales.js
