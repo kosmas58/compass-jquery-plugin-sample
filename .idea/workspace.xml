@@ -25,14 +25,7 @@
     <option name="TOOL_WINDOW_SELECTED_CONTENT_INDEX" value="0" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="81fff373-9c79-49d7-8d95-7f78536727d4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/stylesheets/jquery/mobile/_base.scss" afterPath="$PROJECT_DIR$/app/stylesheets/jquery/mobile/_base.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/stylesheets/jquery/mobile/default.scss" afterPath="$PROJECT_DIR$/app/stylesheets/jquery/mobile/default.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/stylesheets/jquery/mobile/valencia.scss" afterPath="$PROJECT_DIR$/app/stylesheets/jquery/mobile/valencia.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/jquery.mobile.js" afterPath="$PROJECT_DIR$/public/javascripts/jquery.mobile.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/jquery.mobile.min.js" afterPath="$PROJECT_DIR$/public/javascripts/jquery.mobile.min.js" />
-    </list>
+    <list default="true" id="81fff373-9c79-49d7-8d95-7f78536727d4" name="Default" comment="" />
     <ignored path="compass-jquery-plugin-sample.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -132,6 +125,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Favorites" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -287,15 +281,14 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Favorites" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="options.lastSelected" value="preferences.lookFeel" />
     <property name="recentsLimit" value="5" />
-    <property name="options.searchVisible" value="true" />
+    <property name="options.lastSelected" value="preferences.lookFeel" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RunManager" selected="Rails.Development: compass-jquery-plugin-sample">
     <configuration default="false" name="haml:from_html" type="RakeRunConfigurationType" factoryName="Rake" temporary="true">
