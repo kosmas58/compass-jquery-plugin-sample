@@ -1,5 +1,6 @@
 *~
 .DS_Store
+.idea
 app/stylesheets/.sass-cache/*
 db/schema.rb
 db/*.sqlite*
