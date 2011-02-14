@@ -1,16 +1,16 @@
 class Ui::Widgets::TabsController < ApplicationController
   layout 'ui'
-  
+
   protect_from_forgery
-  
+
   def content1
     render :partial => "content1", :layout => false
   end
-  
+
   def content2
     render :partial => "content2", :layout => false
   end
-  
+
   def content3
     sleep(1)
     content = "<p><strong>This content was loaded via ajax, though it took a second.</strong>"
@@ -19,7 +19,7 @@ class Ui::Widgets::TabsController < ApplicationController
     content << "<p>Nam in volutpat orci. Morbi sit amet orci in erat egestas dignissim. Etiam mi sapien, tempus sed iaculis a, adipiscing quis tellus. Suspendisse potenti. Nam malesuada tristique vestibulum. In tempor tellus dignissim neque consectetur eu vestibulum nisl pellentesque. Phasellus ultrices cursus velit, id aliquam nisl fringilla quis. Cras varius elit sed urna ultrices congue. Sed ornare odio sed velit pellentesque id varius nisl sodales. Sed auctor ligula egestas mi pharetra ut consectetur erat pharetra.</p>"
     render :text =>content
   end
-  
+
   def content4
     head :not_found
   end

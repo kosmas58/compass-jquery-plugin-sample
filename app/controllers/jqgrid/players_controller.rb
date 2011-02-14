@@ -1,14 +1,14 @@
 class Jqgrid::PlayersController < ApplicationController
   layout 'jqgrid'
-  
+
   protect_from_forgery
-  
+
   def index
     fetch_params(request)
     if @datatype != :local
       if request.xhr?
         records = Player.find_for_grid(@mylist, params)
-        data = Player.grid(@mylist).encode_records(records)
+        data    = Player.grid(@mylist).encode_records(records)
         case @datatype
           when :json
             render :json => data
@@ -23,15 +23,15 @@ class Jqgrid::PlayersController < ApplicationController
       end
     end
   end
-  
+
   def create
     fetch_params(request);
     if request.xhr?
-      params[:id] = nil
+      params[:id]   = nil
       object_params = Player.grid(@mylist).member_params(params)
-      @this = Player.new(object_params)
+      @this         = Player.new(object_params)
       # must return nothing on success (until we setup a format for returning ok vs error)
-      msg = ""
+      msg           = ""
       unless @this.save
         @this.errors.entries.each do |error|
           msg << "<strong>#{error[0]}</strong> : #{error[1]}<br/>"
@@ -48,14 +48,14 @@ class Jqgrid::PlayersController < ApplicationController
       end
     end
   end
-  
+
   def update
     fetch_params(request);
     @this = Player.find(params[:id])
     if request.xhr?
       object_params = Player.grid(@mylist).member_params(params)
-      msg = "success"
-      unless @this.update_attributes( object_params )
+      msg           = "success"
+      unless @this.update_attributes(object_params)
         @this.errors.entries.each do |error|
           msg << "<strong>#{error[0]}</strong> : #{error[1]}<br/>"
         end
@@ -70,7 +70,7 @@ class Jqgrid::PlayersController < ApplicationController
       end
     end
   end
-  
+
   def destroy
     # NOTE: if allow multiselect should check :id for string of comma delimited id's 
     @this = Player.find(params[:id])
@@ -81,22 +81,22 @@ class Jqgrid::PlayersController < ApplicationController
       flash[:notice] = "Successfully destroyed player."
       redirect_to 'players_url'
     end
-  end 
-  
+  end
+
   private
-  
-  def fetch_params(request)    
+
+  def fetch_params(request)
     case params[:datatype]
       when :json, "json"
         @datatype = params[:datatype] = :json
-      when :xml, "xml"        
+      when :xml, "xml"
         @datatype = params[:datatype] = :xml
-      when :local, "local"        
+      when :local, "local"
         @datatype = params[:datatype] = :local
-      else       
+      else
         @datatype = params[:datatype] = :json
     end
     @example = (params[:example] || "01")
-    @mylist = "example#{@example}".to_sym
+    @mylist  = "example#{@example}".to_sym
   end
 end

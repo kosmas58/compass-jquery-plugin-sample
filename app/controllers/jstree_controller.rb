@@ -1,15 +1,15 @@
 class JstreeController < ApplicationController
-  layout 'jstree' 
-  
+  layout 'jstree'
+
   protect_from_forgery
-  
+
   def data
-    json = 
-    '[
+    json =
+        '[
       { "data" : "A node", "children" : [ { "data" : "Only child", "state" : "closed" } ], "state" : "open" },
         "Ajax node"
     ]'
-    
+
     respond_to do |format|
       # Fields order is important in the to_jqgrid_json method (in this case : [:id,:name])
       # It must be the same as display order in your datagrid
@@ -33,22 +33,22 @@ class JstreeController < ApplicationController
     tree = DemoTree.get_children(params[:id])
     render :json => tree.to_json, :layout => false
   end
-  
+
   def search
-    data =
-    '[
+    data   =
+        '[
       "Ajax node 1",
       "Ajax node 2",
       "TARGET",
       "Ajax node 4"
     ]'
-    
+
     result = '[ "#root_node" ]'
-    
+
     respond_to do |format|
       # Fields order is important in the to_jqgrid_json method (in this case : [:id,:name])
       # It must be the same as display order in your datagrid
-   
+
       format.json do
         case params[:search_str]
           when "_data"
@@ -57,39 +57,39 @@ class JstreeController < ApplicationController
             render :json => result, :layout => false
           else
             nodes = DemoTree.search(params[:search_str])
-            render :json => nodes.to_json, :layout => false 
+            render :json => nodes.to_json, :layout => false
         end
       end
     end
   end
-  
+
   def create_node
     result = DemoTree.create_node(params)
-    render :json => result.to_json, :layout => false 
+    render :json => result.to_json, :layout => false
   end
-  
+
   def remove_node
     result = DemoTree.remove_node(params[:id])
-    render :json => result.to_json, :layout => false 
+    render :json => result.to_json, :layout => false
   end
-  
+
   def rename_node
     result = DemoTree.rename_node(params)
     render :json => result.to_json, :layout => false
   end
-  
+
   def move_node
     result = DemoTree.move_node(params)
     render :json => result.to_json, :layout => false
   end
-  
-  def analyze    
+
+  def analyze
     result = DemoTree.analyze()
     render :text => result, :status => 200
-  end  
-  
+  end
+
   def rebuild
     result = DemoTree.rebuild_demo()
-    render :json => result.to_json, :layout => false 
+    render :json => result.to_json, :layout => false
   end
 end

@@ -2,7 +2,7 @@ class NavigationTree < ActiveRecord::Base
   acts_as_nested_set :left_column => "left", :right_column => "right"
   set_table_name :navigation_trees
   belongs_to :parent, :class_name => name
-  
+
   def self.get_children(id)
     result = Array.new
     if id == "1"
@@ -12,90 +12,90 @@ class NavigationTree < ActiveRecord::Base
     end
     children = node.direct_children
     if id != 0
-      children.each do |child| 
+      children.each do |child|
         result << {
-          :data => {
-            :title => I18n.t(child.title),
-            :icon  => (child.icon) ? "#{child.icon}" : nil
-          },  
-          :attr => {
-            :id  => "node_#{child.id.to_s}", 
-            :rel => child.ntype,
-            :href  => (child.url) ? "#{child.url}" : nil
-          },
-          :state => (child.right - child.left) > 1 ? "closed" : ""
+            :data  => {
+                :title => I18n.t(child.title),
+                :icon  => (child.icon) ? "#{child.icon}" : nil
+            },
+            :attr  => {
+                :id   => "node_#{child.id.to_s}",
+                :rel  => child.ntype,
+                :href => (child.url) ? "#{child.url}" : nil
+            },
+            :state => (child.right - child.left) > 1 ? "closed" : ""
         }
       end
-    end    
+    end
     return result
   end
-  
-  def self.search(search_str)    
+
+  def self.search(search_str)
     result = Array.new
-    nodes = find(:all, :conditions => "title LIKE '%#{search_str}%'")  
+    nodes  = find(:all, :conditions => "title LIKE '%#{search_str}%'")
     if nodes
       nodes.each do |node|
         result << "#node_#{node.id.to_s}"
       end
-    end       
+    end
     return result
   end
-  
+
   def self.create_node(params)
     if params[:id].to_i > 0
       parent = find(params[:id])
     else
       parent = find_by_title("ROOT")
     end
-    
-    parms = {}
+
+    parms             = {}
     parms[:parent_id] = parent.id
     parms[:position]  = params[:position]
     parms[:title]     = params[:title]
     parms[:ntype]     = params[:type]
-    parms[:icon]      = params[:icon] if params[:icon]
-    parms[:url]       = params[:url] if params[:url]
+    parms[:icon] = params[:icon] if params[:icon]
+    parms[:url] = params[:url] if params[:url]
     node = create(parms)
     if parent.add_child(node)
       if params[:seed]
         result = node.id
       else
-        result = { :status => 1, :id => node.id }
-      end  
+        result = {:status => 1, :id => node.id}
+      end
     else
       if params[:seed]
-        result  = nil
+        result = nil
       else
-        result = { :status => 0 }
+        result = {:status => 0}
       end
     end
     return result
   end
-  
+
   def self.remove_node(id)
-    node = find(id)
-    left = node.left
+    node  = find(id)
+    left  = node.left
     right = node.right
-    dif = right - left + 1
-    pid = node.parent_id
-    pos = node.position
-    
+    dif   = right - left + 1
+    pid   = node.parent_id
+    pos   = node.position
+
     #  deleting node and its children
     node.destroy
     # Update position of siblings below the deleted node
     update_all("position = position -1", "parent_id = #{pid} AND position > #{pos}")
-    result = { :status => 1 }
+    result = {:status => 1}
     return result
   end
-  
+
   def self.rename_node(params)
-    node = find(params[:id])
+    node       = find(params[:id])
     node.title = params[:title]
     if node.save
-      return { :status => 1 }   
-    end    
+      return {:status => 1}
+    end
   end
-  
+
   def self.copy_children(id, node)
     node.direct_children.each do |child|
       result = copy_node(id, child)
@@ -104,34 +104,34 @@ class NavigationTree < ActiveRecord::Base
   end
 
   def self.copy_node(id, node)
-    params = {} 
+    params            = {}
     params[:id]       = id
-    params[:position] = node.position 
-    params[:title]    = node.title  
+    params[:position] = node.position
+    params[:title]    = node.title
     params[:type]     = node.ntype
-    params[:icon]     = node.icon if node.icon 
-    params[:url]      = node.url if node.url 
-    create_node(params) 
+    params[:icon] = node.icon if node.icon
+    params[:url] = node.url if node.url
+    create_node(params)
   end
-  
+
   def self.move_node(params)
     node_old = find(params[:id])
     result   = copy_node(params[:ref], node_old)
     copy_children(result[:id], node_old)
-    if params[:copy] == "1"   
-      result = { :status => 1, :id => result[:id] }
+    if params[:copy] == "1"
+      result = {:status => 1, :id => result[:id]}
     else
       remove_node(params[:id])
-      result = { :status => 1, :id => "1" }
+      result = {:status => 1, :id => "1"}
     end
     return result
   end
-  
+
   def self.analyze
     report = []
-    
+
     # Analyze root
-    nodes = find_all_by_title("ROOT")    
+    nodes  = find_all_by_title("ROOT")
     case nodes.size
       when 0 then
         report << "<div class='span-4'>[FAIL]</div><div class='span-20 last'>No root node.</div>"
@@ -145,11 +145,11 @@ class NavigationTree < ActiveRecord::Base
       else
         report << "<div class='span-4'>[FAIL]</div><div class='span-20 last'>More than one root node.</div>"
     end
-        
+
     # Missing parents (Unnecessary)
-    
+
     #b = count(:conditions => "parent_id != 0")
-    
+
     #c = count(:joins => "INNER JOIN demo_trees a ON a.id = demo_trees.parent_id")
 
 
@@ -160,8 +160,7 @@ class NavigationTree < ActiveRecord::Base
 #    having count(*) > 10
 
 
-    
-#    $this->db->query("" . 
+#    $this->db->query("" .
 #      "SELECT " . 
 #        "COUNT(*) FROM `".$this->table."` s " . 
 #      "WHERE " . 
@@ -179,10 +178,10 @@ class NavigationTree < ActiveRecord::Base
       report << "<div class='span-4'>[OK]</div><div class='span-20 last'>Right index matches node count.</div>"
     else
       report << "<div class='span-4'>[FAIL]</div><div class='span-20 last'>Right index does not match node count.</div>"
-    end 
+    end
 
     # Adjacency
-    
+
     #count1 = count(:conditions => right)
 
 #
@@ -210,11 +209,11 @@ class NavigationTree < ActiveRecord::Base
 
     return report * "<br/>"
   end
-  
-  def self.seed()    
+
+  def self.seed()
     root = find_by_title("ROOT")
     if root
-      File.open(File.join(RAILS_ROOT, 'db/navigation.seeds.rb' ), "w+") do |file|
+      File.open(File.join(RAILS_ROOT, 'db/navigation.seeds.rb'), "w+") do |file|
         file.write "\n#NavigationTree\n"
         file.write "puts \"Started creating navigation tree\"\n"
         file.write "puts \"Please be patient ...\"\n"
@@ -225,9 +224,9 @@ class NavigationTree < ActiveRecord::Base
       end
     end
   end
-  
+
   private
-  
+
   def self.export_node(file, parent)
     pos = 0
     file.write "parent_id = node_#{parent.id}\n"
@@ -240,7 +239,7 @@ class NavigationTree < ActiveRecord::Base
         export_node(file, child)
       end
       pos += 1
-    end    
+    end
     if parent.parent
       file.write "parent_id = node_#{parent.parent.id}\n"
     end

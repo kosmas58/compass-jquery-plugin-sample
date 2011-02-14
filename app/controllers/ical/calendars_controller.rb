@@ -7,11 +7,11 @@ class Ical::CalendarsController < ApplicationController
     actions :all
 
     before :new, :edit do
-      @color = "#" + ("%x" % @current_object.color).rjust(6,'0')
+      @color = "#" + ("%x" % @current_object.color).rjust(6, '0')
     end
 
     before :create, :update do
-      @current_object.color = params[:color].sub(/#/,'').hex
+      @current_object.color = params[:color].sub(/#/, '').hex
     end
 
     response_for :show do |format|

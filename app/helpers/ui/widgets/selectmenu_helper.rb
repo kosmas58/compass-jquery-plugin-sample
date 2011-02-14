@@ -13,5 +13,5 @@ module Ui::Widgets::SelectmenuHelper
     end
 
     options_for_select.join("\n").html_safe
-  end  
+  end
 end

@@ -1,6 +1,6 @@
 class Tools::OverlayController < ApplicationController
-  layout 'tools' 
-  
+  layout 'tools'
+
   protect_from_forgery
 
   def external

@@ -1,14 +1,14 @@
-class Event < ActiveRecord::Base 
+class Event < ActiveRecord::Base
   belongs_to :calendar
-  
+
   validates_presence_of :summary
   #validates_presence_of :dtstart
   #validates_presence_of :dtend
-  
+
   include Ical::Event
-  
+
   before_save :serialize_ical_event
-  
+
   def to_ics(event, ical=true)
     event.summary     = ical_event.summary
     event.description = ical_event.description
@@ -20,8 +20,8 @@ class Event < ActiveRecord::Base
       if ical
         event.dtend = ical_event.dtend + 1.minute
       end
-    end   
-    
+    end
+
 #    if !self.frequency.to_s.empty? && CONFIG[:calendar]["frequency"].collect { |i| i[1] }.include?( self.frequency )
 #      recurrence = []
 #      recurrence << "FREQ=#{self.frequency}" if self.frequency

@@ -1,16 +1,16 @@
 class DynatreeController < ApplicationController
-  layout 'dynatree', :except => [:iframe_1] 
+  layout 'dynatree', :except => [:iframe_1]
   protect_from_forgery
-  
+
   def iframe_1
     respond_to do |format|
       format.html { render :layout => 'dynatree_iframe' }
     end
   end
-  
+
   def data1
-    json1 = 
-    '[
+    json1 =
+        '[
       {"title": "Item 1"},
       {"title": "Folder 2", "isFolder": true, "key": "folder2",
         "children": [
@@ -25,31 +25,31 @@ class DynatreeController < ApplicationController
         ]
       },      {"title": "Item 5"}
     ]'
-    
+
     respond_to do |format|
       # Fields order is important in the to_jqgrid_json method (in this case : [:id,:name])
       # It must be the same as display order in your datagrid
       format.json { render :json => json1, :layout => false }
     end
   end
-  
+
   def data2
-    json2 = 
-    '[
+    json2 =
+        '[
       {"title": "SubItem 1", "isLazy": true },
       {"title": "SubFolder 2", "isFolder": true, "isLazy": true }
     ]'
-    
+
     respond_to do |format|
       # Fields order is important in the to_jqgrid_json method (in this case : [:id,:name])
       # It must be the same as display order in your datagrid
       format.json { render :json => json2, :layout => false }
-    end    
+    end
   end
-  
+
   def data3
-   json3 =
-   '[
+    json3 =
+        '[
       {"title": "Item 1"},
       {"title": "Folder 2", "isFolder": true, "key": "folder2", "expand": true,
         "children": [
@@ -90,18 +90,18 @@ class DynatreeController < ApplicationController
       {"title": "Lazy Folder 4", "isFolder": true, "isLazy": true, "key": "folder4"},
       {"title": "Item 5"}
     ]'
-    
+
     respond_to do |format|
       # Fields order is important in the to_jqgrid_json method (in this case : [:id,:name])
       # It must be the same as display order in your datagrid
       format.json { render :json => json3, :layout => false }
-    end   
+    end
   end
-  
+
   def get_skin
     @dynatree_theme = "start"
-    @dynatree_skin = params[:dynatree_skin] || "aero.css" 
+    @dynatree_skin  = params[:dynatree_skin] || "aero.css"
   end
-  
-  before_filter :get_skin, :except => [ :data1, :data2, :data3 ] 
+
+  before_filter :get_skin, :except => [:data1, :data2, :data3]
 end

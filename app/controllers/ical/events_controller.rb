@@ -7,14 +7,14 @@ class Ical::EventsController < ApplicationController
     actions :index, :index_reload, :new, :edit, :update, :delete, :destroy
     belongs_to :calendar
 
-    response_for :index_reload do | format |
+    response_for :index_reload do |format|
       format.html
       format.js do
         render(:partial => "index_reload", :layout => false)
       end
     end
 
-    response_for :new do | format |
+    response_for :new do |format|
       format.html
       format.js do
         flash[:notice] = ""
@@ -22,7 +22,7 @@ class Ical::EventsController < ApplicationController
       end
     end
 
-    response_for :edit do | format |
+    response_for :edit do |format|
       format.html
       format.js do
         flash[:notice] = ""
@@ -30,7 +30,7 @@ class Ical::EventsController < ApplicationController
       end
     end
 
-    response_for :update do | format |
+    response_for :update do |format|
       format.html
       format.js do
         if request.xhr?
@@ -42,15 +42,15 @@ class Ical::EventsController < ApplicationController
       end
     end
 
-    response_for :delete do | format |
+    response_for :delete do |format|
       format.html
       format.js do
-        flash[:notice]  = "Do you really want to delete this event?"
+        flash[:notice] = "Do you really want to delete this event?"
         render(:partial => "form_delete", :layout => false)
       end
     end
 
-    response_for :destroy do | format |
+    response_for :destroy do |format|
       format.html
       format.js do
         if request.xhr?
@@ -65,7 +65,7 @@ class Ical::EventsController < ApplicationController
   end
 
   def create
-    @event = ActiveRecord::Base::Event.new(params[:event])
+    @event             = ActiveRecord::Base::Event.new(params[:event])
     @event.calendar_id = params[:calendar_id]
     if @event.save
       flash[:notice] = I18n.t('make_resourceful.create.success')
@@ -80,7 +80,7 @@ class Ical::EventsController < ApplicationController
     respond_to do |format|
       format.html
       format.json do
-        cal = ActiveRecord::Base::Calendar.find(params[:calendar_id])
+        cal    = ActiveRecord::Base::Calendar.find(params[:calendar_id])
         events = cal.full_events_by_date(((Time.at(params[:start].to_i)).to_date).to_datetime,
                                          ((Time.at(params[:end].to_i)).to_date).to_datetime)
         render :json => events

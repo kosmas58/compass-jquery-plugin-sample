@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
-  
+
   before_filter :set_locale
   before_filter :set_theme
 
@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
 
     # set locale based on session or default 
     I18n.locale = session[:locale] || I18n.default_locale
-    
+
     # for i18n-js
     SimplesIdeias::I18n.export! if RAILS_ENV == "development"
   end
