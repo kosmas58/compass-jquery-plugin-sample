@@ -5,6 +5,7 @@ gem "hpricot"
 gem "i18n"
 gem "i18n-js"
 gem "json"
+gem "ri_cal"
 
 gem "manifesto", ">= 0.6.0"
 gem "compass-jquery-plugin", "= 0.3.2.4.pre.1", :require => 'jquery'
