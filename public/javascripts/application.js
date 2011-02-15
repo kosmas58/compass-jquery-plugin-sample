@@ -1,8 +1,8 @@
-jQuery(document).ready(function() {	
+$(document).ready(function() {
   // From http://dev.jqueryui.com/ticket/3613
   // Cookie persistence missing
   // start
-  
+
   $("#locale")
   .selectmenu({
     style: 'dropdown',

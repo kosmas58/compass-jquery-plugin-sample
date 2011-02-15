@@ -145,18 +145,18 @@ jQuery.tableDnD = {
                 var row = jQuery(this);
                 if (! row.hasClass("nodrag")) {
                     row.mousedown(
-                                 function(ev) {
-                                     if (ev.target.tagName == "TD") {
-                                         jQuery.tableDnD.dragObject = this;
-                                         jQuery.tableDnD.currentTable = table;
-                                         jQuery.tableDnD.mouseOffset = jQuery.tableDnD.getMouseOffset(this, ev);
-                                         if (config.onDragStart) {
-                                             // Call the onDrop method if there is one
-                                             config.onDragStart(table, this);
-                                         }
-                                         return false;
-                                     }
-                                 }).css("cursor", "move"); // Store the tableDnD object
+                            function(ev) {
+                                if (ev.target.tagName == "TD") {
+                                    jQuery.tableDnD.dragObject = this;
+                                    jQuery.tableDnD.currentTable = table;
+                                    jQuery.tableDnD.mouseOffset = jQuery.tableDnD.getMouseOffset(this, ev);
+                                    if (config.onDragStart) {
+                                        // Call the onDrop method if there is one
+                                        config.onDragStart(table, this);
+                                    }
+                                    return false;
+                                }
+                            }).css("cursor", "move"); // Store the tableDnD object
                 }
             });
         }
@@ -206,15 +206,16 @@ jQuery.tableDnD = {
              solution may need to take that into account, for now this seems to work in firefox, safari, ie */
             e = e.firstChild; // a table cell
         }
+        if (e && e.offsetParent) {
+            while (e.offsetParent) {
+                left += e.offsetLeft;
+                top += e.offsetTop;
+                e = e.offsetParent;
+            }
 
-        while (e.offsetParent) {
             left += e.offsetLeft;
             top += e.offsetTop;
-            e = e.offsetParent;
         }
-
-        left += e.offsetLeft;
-        top += e.offsetTop;
 
         return {x:left, y:top};
     },
@@ -414,20 +415,7 @@ jQuery.fn.extend(
 (function($) {
 
     $.widget("ui.multiselect", {
-        options: {
-            sortable: true,
-            searchable: true,
-            animated: 'fast',
-            show: 'slideDown',
-            hide: 'slideUp',
-            dividerLocation: 0.6,
-            nodeComparator: function(node1, node2) {
-                var text1 = node1.text(),
-                        text2 = node2.text();
-                return text1 == text2 ? 0 : (text1 < text2 ? -1 : 1);
-            }
-        },
-        _create: function() {
+        _init: function() {
             this.element.hide();
             this.id = this.element.attr("id");
             this.container = $('<div class="ui-multiselect ui-helper-clearfix ui-widget"></div>').insertAfter(this.element);
@@ -437,13 +425,13 @@ jQuery.fn.extend(
             this.selectedActions = $('<div class="actions ui-widget-header ui-helper-clearfix"><span class="count">0 ' + $.ui.multiselect.locale.itemsCount + '</span><a href="#" class="remove-all">' + $.ui.multiselect.locale.removeAll + '</a></div>').appendTo(this.selectedContainer);
             this.availableActions = $('<div class="actions ui-widget-header ui-helper-clearfix"><input type="text" class="search empty ui-widget-content ui-corner-all"/><a href="#" class="add-all">' + $.ui.multiselect.locale.addAll + '</a></div>').appendTo(this.availableContainer);
             this.selectedList = $('<ul class="selected connected-list"><li class="ui-helper-hidden-accessible"></li></ul>').bind('selectstart',
-                                                                                                                                function() {
-                                                                                                                                    return false;
-                                                                                                                                }).appendTo(this.selectedContainer);
+                    function() {
+                        return false;
+                    }).appendTo(this.selectedContainer);
             this.availableList = $('<ul class="available connected-list"><li class="ui-helper-hidden-accessible"></li></ul>').bind('selectstart',
-                                                                                                                                  function() {
-                                                                                                                                      return false;
-                                                                                                                                  }).appendTo(this.availableContainer);
+                    function() {
+                        return false;
+                    }).appendTo(this.availableContainer);
 
             var that = this;
 
@@ -466,7 +454,7 @@ jQuery.fn.extend(
 
             // make selection sortable
             if (this.options.sortable) {
-                this.selectedList.sortable({
+                $("ul.selected").sortable({
                     placeholder: 'ui-state-highlight',
                     axis: 'y',
                     update: function(event, ui) {
@@ -506,12 +494,11 @@ jQuery.fn.extend(
             }
 
             // batch actions
-            this.container.find(".remove-all").click(function() {
+            $(".remove-all").click(function() {
                 that._populateLists(that.element.find('option').removeAttr('selected'));
                 return false;
             });
-
-            this.container.find(".add-all").click(function() {
+            $(".add-all").click(function() {
                 that._populateLists(that.element.find('option').attr('selected', 'selected'));
                 return false;
             });
@@ -520,7 +507,7 @@ jQuery.fn.extend(
             this.element.show();
             this.container.remove();
 
-            $.Widget.prototype.destroy.apply(this, arguments);
+            $.widget.prototype.destroy.apply(this, arguments);
         },
         _populateLists: function(options) {
             this.selectedList.children('.ui-element').remove();
@@ -660,24 +647,21 @@ jQuery.fn.extend(
                 that.count += 1;
                 that._updateCount();
                 return false;
-            });
-
-            // make draggable
-            if (this.options.sortable) {
-                elements.each(function() {
-                    $(this).parent().draggable({
-                        connectToSortable: that.selectedList,
-                        helper: function() {
-                            var selectedItem = that._cloneWithData($(this)).width($(this).width() - 50);
-                            selectedItem.width($(this).width());
-                            return selectedItem;
-                        },
-                        appendTo: that.container,
-                        containment: that.container,
-                        revert: 'invalid'
-                    });
+            })
+                // make draggable
+                    .each(function() {
+                $(this).parent().draggable({
+                    connectToSortable: 'ul.selected',
+                    helper: function() {
+                        var selectedItem = that._cloneWithData($(this)).width($(this).width() - 50);
+                        selectedItem.width($(this).width());
+                        return selectedItem;
+                    },
+                    appendTo: '.ui-multiselect',
+                    containment: '.ui-multiselect',
+                    revert: 'invalid'
                 });
-            }
+            });
         },
         _registerRemoveEvents: function(elements) {
             var that = this;
@@ -708,13 +692,25 @@ jQuery.fn.extend(
     });
 
     $.extend($.ui.multiselect, {
+        defaults: {
+            sortable: true,
+            searchable: true,
+            animated: 'fast',
+            show: 'slideDown',
+            hide: 'slideUp',
+            dividerLocation: 0.6,
+            nodeComparator: function(node1, node2) {
+                var text1 = node1.text(),
+                        text2 = node2.text();
+                return text1 == text2 ? 0 : (text1 < text2 ? -1 : 1);
+            }
+        },
         locale: {
             addAll:'Add all',
             removeAll:'Remove all',
             itemsCount:'items selected'
         }
     });
-
 
 })(jQuery);
 
@@ -3218,67 +3214,67 @@ jQuery.fn.extend(
                     firstr = "<tr class='jqgfirstrow' role='row' style='height:auto'>";
             ts.p.disableClick = false;
             $("th", thr).each(
-                             function (j) {
-                                 w = ts.p.colModel[j].width;
-                                 if (typeof ts.p.colModel[j].resizable === 'undefined') {
-                                     ts.p.colModel[j].resizable = true;
-                                 }
-                                 if (ts.p.colModel[j].resizable) {
-                                     res = document.createElement("span");
-                                     $(res).html("&#160;").addClass('ui-jqgrid-resize ui-jqgrid-resize-' + dir);
-                                     if (!$.browser.opera) {
-                                         $(res).css("cursor", "col-resize");
-                                     }
-                                     $(this).addClass(ts.p.resizeclass);
-                                 } else {
-                                     res = "";
-                                 }
-                                 $(this).css("width", w + "px").prepend(res);
-                                 var hdcol = "";
-                                 if (ts.p.colModel[j].hidden) {
-                                     $(this).css("display", "none");
-                                     hdcol = "display:none;";
-                                 }
-                                 firstr += "<td role='gridcell' style='height:0px;width:" + w + "px;" + hdcol + "'></td>";
-                                 grid.headers[j] = { width: w, el: this };
-                                 sort = ts.p.colModel[j].sortable;
-                                 if (typeof sort !== 'boolean') {
-                                     ts.p.colModel[j].sortable = true;
-                                     sort = true;
-                                 }
-                                 var nm = ts.p.colModel[j].name;
-                                 if (!(nm == 'cb' || nm == 'subgrid' || nm == 'rn')) {
-                                     if (ts.p.viewsortcols[2]) {
-                                         $("div", this).addClass('ui-jqgrid-sortable');
-                                     }
-                                 }
-                                 if (sort) {
-                                     if (ts.p.viewsortcols[0]) {
-                                         $("div span.s-ico", this).show();
-                                         if (j == ts.p.lastsort) {
-                                             $("div span.ui-icon-" + ts.p.sortorder, this).removeClass("ui-state-disabled");
-                                         }
-                                     }
-                                     else if (j == ts.p.lastsort) {
-                                         $("div span.s-ico", this).show();
-                                         $("div span.ui-icon-" + ts.p.sortorder, this).removeClass("ui-state-disabled");
-                                     }
-                                 }
-                                 if (ts.p.footerrow) {
-                                     tfoot += "<td role='gridcell' " + formatCol(j, 0, '') + ">&#160;</td>";
-                                 }
-                             }).mousedown(
-                                         function(e) {
-                                             if ($(e.target).closest("th>span.ui-jqgrid-resize").length != 1) {
-                                                 return;
-                                             }
-                                             var ci = $.jgrid.getCellIndex(this);
-                                             if (ts.p.forceFit === true) {
-                                                 ts.p.nv = nextVisible(ci);
-                                             }
-                                             grid.dragStart(ci, e, getOffset(ci));
-                                             return false;
-                                         }).click(function(e) {
+                    function (j) {
+                        w = ts.p.colModel[j].width;
+                        if (typeof ts.p.colModel[j].resizable === 'undefined') {
+                            ts.p.colModel[j].resizable = true;
+                        }
+                        if (ts.p.colModel[j].resizable) {
+                            res = document.createElement("span");
+                            $(res).html("&#160;").addClass('ui-jqgrid-resize ui-jqgrid-resize-' + dir);
+                            if (!$.browser.opera) {
+                                $(res).css("cursor", "col-resize");
+                            }
+                            $(this).addClass(ts.p.resizeclass);
+                        } else {
+                            res = "";
+                        }
+                        $(this).css("width", w + "px").prepend(res);
+                        var hdcol = "";
+                        if (ts.p.colModel[j].hidden) {
+                            $(this).css("display", "none");
+                            hdcol = "display:none;";
+                        }
+                        firstr += "<td role='gridcell' style='height:0px;width:" + w + "px;" + hdcol + "'></td>";
+                        grid.headers[j] = { width: w, el: this };
+                        sort = ts.p.colModel[j].sortable;
+                        if (typeof sort !== 'boolean') {
+                            ts.p.colModel[j].sortable = true;
+                            sort = true;
+                        }
+                        var nm = ts.p.colModel[j].name;
+                        if (!(nm == 'cb' || nm == 'subgrid' || nm == 'rn')) {
+                            if (ts.p.viewsortcols[2]) {
+                                $("div", this).addClass('ui-jqgrid-sortable');
+                            }
+                        }
+                        if (sort) {
+                            if (ts.p.viewsortcols[0]) {
+                                $("div span.s-ico", this).show();
+                                if (j == ts.p.lastsort) {
+                                    $("div span.ui-icon-" + ts.p.sortorder, this).removeClass("ui-state-disabled");
+                                }
+                            }
+                            else if (j == ts.p.lastsort) {
+                                $("div span.s-ico", this).show();
+                                $("div span.ui-icon-" + ts.p.sortorder, this).removeClass("ui-state-disabled");
+                            }
+                        }
+                        if (ts.p.footerrow) {
+                            tfoot += "<td role='gridcell' " + formatCol(j, 0, '') + ">&#160;</td>";
+                        }
+                    }).mousedown(
+                    function(e) {
+                        if ($(e.target).closest("th>span.ui-jqgrid-resize").length != 1) {
+                            return;
+                        }
+                        var ci = $.jgrid.getCellIndex(this);
+                        if (ts.p.forceFit === true) {
+                            ts.p.nv = nextVisible(ci);
+                        }
+                        grid.dragStart(ci, e, getOffset(ci));
+                        return false;
+                    }).click(function(e) {
                 if (ts.p.disableClick) {
                     ts.p.disableClick = false;
                     return false;
@@ -3345,13 +3341,13 @@ jQuery.fn.extend(
             }
             if (ts.p.cellEdit === false && ts.p.hoverrows === true) {
                 $(ts).bind('mouseover',
-                          function(e) {
-                              ptr = $(e.target).closest("tr.jqgrow");
-                              if ($(ptr).attr("class") !== "subgrid") {
-                                  $(ptr).addClass("ui-state-hover");
-                              }
-                              return false;
-                          }).bind('mouseout', function(e) {
+                        function(e) {
+                            ptr = $(e.target).closest("tr.jqgrow");
+                            if ($(ptr).attr("class") !== "subgrid") {
+                                $(ptr).addClass("ui-state-hover");
+                            }
+                            return false;
+                        }).bind('mouseout', function(e) {
                     ptr = $(e.target).closest("tr.jqgrow");
                     $(ptr).removeClass("ui-state-hover");
                     return false;
@@ -3359,68 +3355,68 @@ jQuery.fn.extend(
             }
             var ri,ci;
             $(ts).before(grid.hDiv).click(
-                                         function(e) {
-                                             td = e.target;
-                                             var scb = $(td).hasClass("cbox");
-                                             ptr = $(td, ts.rows).closest("tr.jqgrow");
-                                             if ($(ptr).length === 0) {
-                                                 return this;
-                                             }
-                                             var cSel = true;
-                                             if ($.isFunction(ts.p.beforeSelectRow)) {
-                                                 cSel = ts.p.beforeSelectRow.call(ts, ptr[0].id, e);
-                                             }
-                                             if (td.tagName == 'A' || ((td.tagName == 'INPUT' || td.tagName == 'TEXTAREA' || td.tagName == 'OPTION' || td.tagName == 'SELECT' ) && !scb)) {
-                                                 return this;
-                                             }
-                                             if (cSel === true) {
-                                                 if (ts.p.cellEdit === true) {
-                                                     if (ts.p.multiselect && scb) {
-                                                         $(ts).jqGrid("setSelection", ptr[0].id, true);
-                                                     } else {
-                                                         ri = ptr[0].rowIndex;
-                                                         ci = $.jgrid.getCellIndex(td);
-                                                         try {
-                                                             $(ts).jqGrid("editCell", ri, ci, true);
-                                                         } catch (_) {
-                                                         }
-                                                     }
-                                                 } else if (!ts.p.multikey) {
-                                                     if (ts.p.multiselect && ts.p.multiboxonly) {
-                                                         if (scb) {
-                                                             $(ts).jqGrid("setSelection", ptr[0].id, true);
-                                                         }
-                                                         else {
-                                                             $(ts.p.selarrrow).each(function(i, n) {
-                                                                 var ind = ts.rows.namedItem(n);
-                                                                 $(ind).removeClass("ui-state-highlight");
-                                                                 $("#jqg_" + $.jgrid.jqID(ts.p.id) + "_" + $.jgrid.jqID(n)).attr("checked", false);
-                                                             });
-                                                             ts.p.selarrrow = [];
-                                                             $("#cb_" + $.jgrid.jqID(ts.p.id), ts.grid.hDiv).attr("checked", false);
-                                                             $(ts).jqGrid("setSelection", ptr[0].id, true);
-                                                         }
-                                                     } else {
-                                                         $(ts).jqGrid("setSelection", ptr[0].id, true);
-                                                     }
-                                                 } else {
-                                                     if (e[ts.p.multikey]) {
-                                                         $(ts).jqGrid("setSelection", ptr[0].id, true);
-                                                     } else if (ts.p.multiselect && scb) {
-                                                         scb = $("[id^=jqg_" + ts.p.id + "_" + "]").attr("checked");
-                                                         $("[id^=jqg_" + ts.p.id + "_" + "]").attr("checked", !scb);
-                                                     }
-                                                 }
-                                                 if ($.isFunction(ts.p.onCellSelect)) {
-                                                     ri = ptr[0].id;
-                                                     ci = $.jgrid.getCellIndex(td);
-                                                     ts.p.onCellSelect.call(ts, ri, ci, $(td).html(), e);
-                                                 }
-                                                 e.stopPropagation();
-                                             } else {
-                                                 return this;
-                                             }
-                                         }).bind('reloadGrid', function(e, opts) {
+                    function(e) {
+                        td = e.target;
+                        var scb = $(td).hasClass("cbox");
+                        ptr = $(td, ts.rows).closest("tr.jqgrow");
+                        if ($(ptr).length === 0) {
+                            return this;
+                        }
+                        var cSel = true;
+                        if ($.isFunction(ts.p.beforeSelectRow)) {
+                            cSel = ts.p.beforeSelectRow.call(ts, ptr[0].id, e);
+                        }
+                        if (td.tagName == 'A' || ((td.tagName == 'INPUT' || td.tagName == 'TEXTAREA' || td.tagName == 'OPTION' || td.tagName == 'SELECT' ) && !scb)) {
+                            return this;
+                        }
+                        if (cSel === true) {
+                            if (ts.p.cellEdit === true) {
+                                if (ts.p.multiselect && scb) {
+                                    $(ts).jqGrid("setSelection", ptr[0].id, true);
+                                } else {
+                                    ri = ptr[0].rowIndex;
+                                    ci = $.jgrid.getCellIndex(td);
+                                    try {
+                                        $(ts).jqGrid("editCell", ri, ci, true);
+                                    } catch (_) {
+                                    }
+                                }
+                            } else if (!ts.p.multikey) {
+                                if (ts.p.multiselect && ts.p.multiboxonly) {
+                                    if (scb) {
+                                        $(ts).jqGrid("setSelection", ptr[0].id, true);
+                                    }
+                                    else {
+                                        $(ts.p.selarrrow).each(function(i, n) {
+                                            var ind = ts.rows.namedItem(n);
+                                            $(ind).removeClass("ui-state-highlight");
+                                            $("#jqg_" + $.jgrid.jqID(ts.p.id) + "_" + $.jgrid.jqID(n)).attr("checked", false);
+                                        });
+                                        ts.p.selarrrow = [];
+                                        $("#cb_" + $.jgrid.jqID(ts.p.id), ts.grid.hDiv).attr("checked", false);
+                                        $(ts).jqGrid("setSelection", ptr[0].id, true);
+                                    }
+                                } else {
+                                    $(ts).jqGrid("setSelection", ptr[0].id, true);
+                                }
+                            } else {
+                                if (e[ts.p.multikey]) {
+                                    $(ts).jqGrid("setSelection", ptr[0].id, true);
+                                } else if (ts.p.multiselect && scb) {
+                                    scb = $("[id^=jqg_" + ts.p.id + "_" + "]").attr("checked");
+                                    $("[id^=jqg_" + ts.p.id + "_" + "]").attr("checked", !scb);
+                                }
+                            }
+                            if ($.isFunction(ts.p.onCellSelect)) {
+                                ri = ptr[0].id;
+                                ci = $.jgrid.getCellIndex(td);
+                                ts.p.onCellSelect.call(ts, ri, ci, $(td).html(), e);
+                            }
+                            e.stopPropagation();
+                        } else {
+                            return this;
+                        }
+                    }).bind('reloadGrid', function(e, opts) {
                 if (ts.p.treeGrid === true) {
                     ts.p.datatype = ts.p.treedatatype;
                 }
@@ -3520,12 +3516,12 @@ jQuery.fn.extend(
             }
             grid.cDiv = document.createElement("div");
             var arf = ts.p.hidegrid === true ? $("<a role='link' href='javascript:void(0)'/>").addClass('ui-jqgrid-titlebar-close HeaderButton').hover(
-                                                                                                                                                      function() {
-                                                                                                                                                          arf.addClass('ui-state-hover');
-                                                                                                                                                      },
-                                                                                                                                                      function() {
-                                                                                                                                                          arf.removeClass('ui-state-hover');
-                                                                                                                                                      })
+                    function() {
+                        arf.addClass('ui-state-hover');
+                    },
+                    function() {
+                        arf.removeClass('ui-state-hover');
+                    })
                     .append("<span class='ui-icon ui-icon-circle-triangle-n'></span>").css((dir == "rtl" ? "left" : "right"), "0px") : "";
             $(grid.cDiv).append(arf).append("<span class='ui-jqgrid-title" + (dir == "rtl" ? "-rtl" : "" ) + "'>" + ts.p.caption + "</span>")
                     .addClass("ui-jqgrid-titlebar ui-widget-header ui-corner-top ui-helper-clearfix");
@@ -4654,9 +4650,9 @@ jQuery.fn.extend(
                     .hover(function() {
                 ahr.addClass('ui-state-hover');
             },
-                          function() {
-                              ahr.removeClass('ui-state-hover');
-                          })
+                    function() {
+                        ahr.removeClass('ui-state-hover');
+                    })
                     .append("<span class='ui-icon ui-icon-closethick'></span>");
             $(mh).append(ahr);
             if (rtlsup) {
@@ -4872,12 +4868,12 @@ jQuery.fn.extend(
                 return false;
             });
             $(".fm-button", "#info_dialog").hover(
-                                                 function() {
-                                                     $(this).addClass('ui-state-hover');
-                                                 },
-                                                 function() {
-                                                     $(this).removeClass('ui-state-hover');
-                                                 }
+                    function() {
+                        $(this).addClass('ui-state-hover');
+                    },
+                    function() {
+                        $(this).removeClass('ui-state-hover');
+                    }
                     );
             if ($.isFunction(mopt.beforeOpen)) {
                 mopt.beforeOpen();
@@ -4912,7 +4908,7 @@ jQuery.fn.extend(
                     el.id = opt.id;
                     opt.dataInit(el);
                     delete opt.id;
-                    delete opt.dataInit;
+                    //delete opt.dataInit;
                 }
                 if (opt.dataEvents) {
                     $.each(opt.dataEvents, function() {
@@ -4922,7 +4918,7 @@ jQuery.fn.extend(
                             $(el).bind(this.type, this.fn);
                         }
                     });
-                    delete opt.dataEvents;
+                    //delete opt.dataEvents;
                 }
                 return opt;
             }
@@ -5061,11 +5057,11 @@ jQuery.fn.extend(
                                 sv = so[i].split(":");
                                 if (sv.length > 2) {
                                     sv[1] = $.map(sv,
-                                                 function(n, i) {
-                                                     if (i > 0) {
-                                                         return n;
-                                                     }
-                                                 }).join(":");
+                                            function(n, i) {
+                                                if (i > 0) {
+                                                    return n;
+                                                }
+                                            }).join(":");
                                 }
                                 ov = document.createElement("option");
                                 ov.setAttribute("role", "option");
@@ -5287,22 +5283,27 @@ jQuery.fn.extend(
             }
             return true;
         },
-        checkValues : function(val, valref, g) {
+        checkValues : function(val, valref, g, customobject, nam) {
             var edtrul,i, nm, dft, len;
-            if (typeof(valref) == 'string') {
-                for (i = 0,len = g.p.colModel.length; i < len; i++) {
-                    if (g.p.colModel[i].name == valref) {
-                        edtrul = g.p.colModel[i].editrules;
-                        valref = i;
-                        try {
-                            nm = g.p.colModel[i].formoptions.label;
-                        } catch (e) {
+            if (typeof(customobject) === "undefined") {
+                if (typeof(valref) == 'string') {
+                    for (i = 0,len = g.p.colModel.length; i < len; i++) {
+                        if (g.p.colModel[i].name == valref) {
+                            edtrul = g.p.colModel[i].editrules;
+                            valref = i;
+                            try {
+                                nm = g.p.colModel[i].formoptions.label;
+                            } catch (e) {
+                            }
+                            break;
                         }
-                        break;
                     }
+                } else if (valref >= 0) {
+                    edtrul = g.p.colModel[valref].editrules;
                 }
-            } else if (valref >= 0) {
-                edtrul = g.p.colModel[valref].editrules;
+            } else {
+                edtrul = customobject;
+                nm = nam === undefined ? "_" : nam;
             }
             if (edtrul) {
                 if (!nm) {
@@ -5865,9 +5866,9 @@ jQuery.fn.extend(
                                     }
                                     var selectedText = [];
                                     $("option:selected", this).each(
-                                                                   function(i, selected) {
-                                                                       selectedText[i] = $(selected).text();
-                                                                   }
+                                            function(i, selected) {
+                                                selectedText[i] = $(selected).text();
+                                            }
                                             );
                                     extpost[this.name] = selectedText.join(",");
                                     break;
@@ -6617,12 +6618,12 @@ jQuery.fn.extend(
                         onAfterShow($("#" + frmgr));
                     }
                     $(".fm-button", "#" + IDs.themodal).hover(
-                                                             function() {
-                                                                 $(this).addClass('ui-state-hover');
-                                                             },
-                                                             function() {
-                                                                 $(this).removeClass('ui-state-hover');
-                                                             }
+                            function() {
+                                $(this).addClass('ui-state-hover');
+                            },
+                            function() {
+                                $(this).removeClass('ui-state-hover');
+                            }
                             );
                     $("#sData", "#" + frmtb + "_2").click(function(e) {
                         postdata = {};
@@ -6990,12 +6991,12 @@ jQuery.fn.extend(
                     }
                     $.jgrid.viewModal("#" + IDs.themodal, {gbox:"#gbox_" + gID,jqm:p.jqModal, modal:p.modal});
                     $(".fm-button:not(.ui-state-disabled)", "#" + frmtb + "_2").hover(
-                                                                                     function() {
-                                                                                         $(this).addClass('ui-state-hover');
-                                                                                     },
-                                                                                     function() {
-                                                                                         $(this).removeClass('ui-state-hover');
-                                                                                     }
+                            function() {
+                                $(this).addClass('ui-state-hover');
+                            },
+                            function() {
+                                $(this).removeClass('ui-state-hover');
+                            }
                             );
                     focusaref();
                     $("#cData", "#" + frmtb + "_2").click(function(e) {
@@ -7162,12 +7163,12 @@ jQuery.fn.extend(
                     }
 
                     $(".fm-button", "#" + dtbl + "_2").hover(
-                                                            function() {
-                                                                $(this).addClass('ui-state-hover');
-                                                            },
-                                                            function() {
-                                                                $(this).removeClass('ui-state-hover');
-                                                            }
+                            function() {
+                                $(this).addClass('ui-state-hover');
+                            },
+                            function() {
+                                $(this).removeClass('ui-state-hover');
+                            }
                             );
                     p.delicon = $.extend([true,"left","ui-icon-scissors"], p.delicon);
                     p.cancelicon = $.extend([true,"left","ui-icon-cancel"], p.cancelicon);
@@ -7383,24 +7384,24 @@ jQuery.fn.extend(
                         $(tbd, navtbl)
                                 .attr({"title":o.addtitle || "",id : pAdd.id || "add_" + elemids})
                                 .click(
-                                      function() {
-                                          if (!$(this).hasClass('ui-state-disabled')) {
-                                              if (typeof o.addfunc == 'function') {
-                                                  o.addfunc();
-                                              } else {
-                                                  $($t).jqGrid("editGridRow", "new", pAdd);
-                                              }
-                                          }
-                                          return false;
-                                      }).hover(
-                                              function () {
-                                                  if (!$(this).hasClass('ui-state-disabled')) {
-                                                      $(this).addClass("ui-state-hover");
-                                                  }
-                                              },
-                                              function () {
-                                                  $(this).removeClass("ui-state-hover");
-                                              }
+                                function() {
+                                    if (!$(this).hasClass('ui-state-disabled')) {
+                                        if (typeof o.addfunc == 'function') {
+                                            o.addfunc();
+                                        } else {
+                                            $($t).jqGrid("editGridRow", "new", pAdd);
+                                        }
+                                    }
+                                    return false;
+                                }).hover(
+                                function () {
+                                    if (!$(this).hasClass('ui-state-disabled')) {
+                                        $(this).addClass("ui-state-hover");
+                                    }
+                                },
+                                function () {
+                                    $(this).removeClass("ui-state-hover");
+                                }
                                 );
                         tbd = null;
                     }
@@ -7412,30 +7413,30 @@ jQuery.fn.extend(
                         $(tbd, navtbl)
                                 .attr({"title":o.edittitle || "",id: pEdit.id || "edit_" + elemids})
                                 .click(
-                                      function() {
-                                          if (!$(this).hasClass('ui-state-disabled')) {
-                                              var sr = $t.p.selrow;
-                                              if (sr) {
-                                                  if (typeof o.editfunc == 'function') {
-                                                      o.editfunc(sr);
-                                                  } else {
-                                                      $($t).jqGrid("editGridRow", sr, pEdit);
-                                                  }
-                                              } else {
-                                                  $.jgrid.viewModal("#" + alertIDs.themodal, {gbox:"#gbox_" + $t.p.id,jqm:true});
-                                                  $("#jqg_alrt").focus();
-                                              }
-                                          }
-                                          return false;
-                                      }).hover(
-                                              function () {
-                                                  if (!$(this).hasClass('ui-state-disabled')) {
-                                                      $(this).addClass("ui-state-hover");
-                                                  }
-                                              },
-                                              function () {
-                                                  $(this).removeClass("ui-state-hover");
-                                              }
+                                function() {
+                                    if (!$(this).hasClass('ui-state-disabled')) {
+                                        var sr = $t.p.selrow;
+                                        if (sr) {
+                                            if (typeof o.editfunc == 'function') {
+                                                o.editfunc(sr);
+                                            } else {
+                                                $($t).jqGrid("editGridRow", sr, pEdit);
+                                            }
+                                        } else {
+                                            $.jgrid.viewModal("#" + alertIDs.themodal, {gbox:"#gbox_" + $t.p.id,jqm:true});
+                                            $("#jqg_alrt").focus();
+                                        }
+                                    }
+                                    return false;
+                                }).hover(
+                                function () {
+                                    if (!$(this).hasClass('ui-state-disabled')) {
+                                        $(this).addClass("ui-state-hover");
+                                    }
+                                },
+                                function () {
+                                    $(this).removeClass("ui-state-hover");
+                                }
                                 );
                         tbd = null;
                     }
@@ -7447,26 +7448,26 @@ jQuery.fn.extend(
                         $(tbd, navtbl)
                                 .attr({"title":o.viewtitle || "",id: pView.id || "view_" + elemids})
                                 .click(
-                                      function() {
-                                          if (!$(this).hasClass('ui-state-disabled')) {
-                                              var sr = $t.p.selrow;
-                                              if (sr) {
-                                                  $($t).jqGrid("viewGridRow", sr, pView);
-                                              } else {
-                                                  $.jgrid.viewModal("#" + alertIDs.themodal, {gbox:"#gbox_" + $t.p.id,jqm:true});
-                                                  $("#jqg_alrt").focus();
-                                              }
-                                          }
-                                          return false;
-                                      }).hover(
-                                              function () {
-                                                  if (!$(this).hasClass('ui-state-disabled')) {
-                                                      $(this).addClass("ui-state-hover");
-                                                  }
-                                              },
-                                              function () {
-                                                  $(this).removeClass("ui-state-hover");
-                                              }
+                                function() {
+                                    if (!$(this).hasClass('ui-state-disabled')) {
+                                        var sr = $t.p.selrow;
+                                        if (sr) {
+                                            $($t).jqGrid("viewGridRow", sr, pView);
+                                        } else {
+                                            $.jgrid.viewModal("#" + alertIDs.themodal, {gbox:"#gbox_" + $t.p.id,jqm:true});
+                                            $("#jqg_alrt").focus();
+                                        }
+                                    }
+                                    return false;
+                                }).hover(
+                                function () {
+                                    if (!$(this).hasClass('ui-state-disabled')) {
+                                        $(this).addClass("ui-state-hover");
+                                    }
+                                },
+                                function () {
+                                    $(this).removeClass("ui-state-hover");
+                                }
                                 );
                         tbd = null;
                     }
@@ -7478,38 +7479,38 @@ jQuery.fn.extend(
                         $(tbd, navtbl)
                                 .attr({"title":o.deltitle || "",id: pDel.id || "del_" + elemids})
                                 .click(
-                                      function() {
-                                          if (!$(this).hasClass('ui-state-disabled')) {
-                                              var dr;
-                                              if ($t.p.multiselect) {
-                                                  dr = $t.p.selarrrow;
-                                                  if (dr.length === 0) {
-                                                      dr = null;
-                                                  }
-                                              } else {
-                                                  dr = $t.p.selrow;
-                                              }
-                                              if (dr) {
-                                                  if ("function" == typeof o.delfunc) {
-                                                      o.delfunc(dr);
-                                                  } else {
-                                                      $($t).jqGrid("delGridRow", dr, pDel);
-                                                  }
-                                              } else {
-                                                  $.jgrid.viewModal("#" + alertIDs.themodal, {gbox:"#gbox_" + $t.p.id,jqm:true});
-                                                  $("#jqg_alrt").focus();
-                                              }
-                                          }
-                                          return false;
-                                      }).hover(
-                                              function () {
-                                                  if (!$(this).hasClass('ui-state-disabled')) {
-                                                      $(this).addClass("ui-state-hover");
-                                                  }
-                                              },
-                                              function () {
-                                                  $(this).removeClass("ui-state-hover");
-                                              }
+                                function() {
+                                    if (!$(this).hasClass('ui-state-disabled')) {
+                                        var dr;
+                                        if ($t.p.multiselect) {
+                                            dr = $t.p.selarrrow;
+                                            if (dr.length === 0) {
+                                                dr = null;
+                                            }
+                                        } else {
+                                            dr = $t.p.selrow;
+                                        }
+                                        if (dr) {
+                                            if ("function" == typeof o.delfunc) {
+                                                o.delfunc(dr);
+                                            } else {
+                                                $($t).jqGrid("delGridRow", dr, pDel);
+                                            }
+                                        } else {
+                                            $.jgrid.viewModal("#" + alertIDs.themodal, {gbox:"#gbox_" + $t.p.id,jqm:true});
+                                            $("#jqg_alrt").focus();
+                                        }
+                                    }
+                                    return false;
+                                }).hover(
+                                function () {
+                                    if (!$(this).hasClass('ui-state-disabled')) {
+                                        $(this).addClass("ui-state-hover");
+                                    }
+                                },
+                                function () {
+                                    $(this).removeClass("ui-state-hover");
+                                }
                                 );
                         tbd = null;
                     }
@@ -7524,20 +7525,20 @@ jQuery.fn.extend(
                         $(tbd, navtbl)
                                 .attr({"title":o.searchtitle || "",id:pSearch.id || "search_" + elemids})
                                 .click(
-                                      function() {
-                                          if (!$(this).hasClass('ui-state-disabled')) {
-                                              $($t).jqGrid("searchGrid", pSearch);
-                                          }
-                                          return false;
-                                      }).hover(
-                                              function () {
-                                                  if (!$(this).hasClass('ui-state-disabled')) {
-                                                      $(this).addClass("ui-state-hover");
-                                                  }
-                                              },
-                                              function () {
-                                                  $(this).removeClass("ui-state-hover");
-                                              }
+                                function() {
+                                    if (!$(this).hasClass('ui-state-disabled')) {
+                                        $($t).jqGrid("searchGrid", pSearch);
+                                    }
+                                    return false;
+                                }).hover(
+                                function () {
+                                    if (!$(this).hasClass('ui-state-disabled')) {
+                                        $(this).addClass("ui-state-hover");
+                                    }
+                                },
+                                function () {
+                                    $(this).removeClass("ui-state-hover");
+                                }
                                 );
                         tbd = null;
                     }
@@ -7548,46 +7549,46 @@ jQuery.fn.extend(
                         $(tbd, navtbl)
                                 .attr({"title":o.refreshtitle || "",id: "refresh_" + elemids})
                                 .click(
-                                      function() {
-                                          if (!$(this).hasClass('ui-state-disabled')) {
-                                              if ($.isFunction(o.beforeRefresh)) {
-                                                  o.beforeRefresh();
-                                              }
-                                              $t.p.search = false;
-                                              try {
-                                                  var gID = $t.p.id;
-                                                  $("#fbox_" + gID).searchFilter().reset({"reload":false});
-                                                  if ($.isFunction($t.clearToolbar)) {
-                                                      $t.clearToolbar(false);
-                                                  }
-                                              } catch (e) {
-                                              }
-                                              switch (o.refreshstate) {
-                                                  case 'firstpage':
-                                                      $($t).trigger("reloadGrid", [
-                                                          {page:1}
-                                                      ]);
-                                                      break;
-                                                  case 'current':
-                                                      $($t).trigger("reloadGrid", [
-                                                          {current:true}
-                                                      ]);
-                                                      break;
-                                              }
-                                              if ($.isFunction(o.afterRefresh)) {
-                                                  o.afterRefresh();
-                                              }
-                                          }
-                                          return false;
-                                      }).hover(
-                                              function () {
-                                                  if (!$(this).hasClass('ui-state-disabled')) {
-                                                      $(this).addClass("ui-state-hover");
-                                                  }
-                                              },
-                                              function () {
-                                                  $(this).removeClass("ui-state-hover");
-                                              }
+                                function() {
+                                    if (!$(this).hasClass('ui-state-disabled')) {
+                                        if ($.isFunction(o.beforeRefresh)) {
+                                            o.beforeRefresh();
+                                        }
+                                        $t.p.search = false;
+                                        try {
+                                            var gID = $t.p.id;
+                                            $("#fbox_" + gID).searchFilter().reset({"reload":false});
+                                            if ($.isFunction($t.clearToolbar)) {
+                                                $t.clearToolbar(false);
+                                            }
+                                        } catch (e) {
+                                        }
+                                        switch (o.refreshstate) {
+                                            case 'firstpage':
+                                                $($t).trigger("reloadGrid", [
+                                                    {page:1}
+                                                ]);
+                                                break;
+                                            case 'current':
+                                                $($t).trigger("reloadGrid", [
+                                                    {current:true}
+                                                ]);
+                                                break;
+                                        }
+                                        if ($.isFunction(o.afterRefresh)) {
+                                            o.afterRefresh();
+                                        }
+                                    }
+                                    return false;
+                                }).hover(
+                                function () {
+                                    if (!$(this).hasClass('ui-state-disabled')) {
+                                        $(this).addClass("ui-state-hover");
+                                    }
+                                },
+                                function () {
+                                    $(this).removeClass("ui-state-hover");
+                                }
                                 );
                         tbd = null;
                     }
@@ -7660,14 +7661,14 @@ jQuery.fn.extend(
                         return false;
                     })
                             .hover(
-                                  function () {
-                                      if (!$(this).hasClass('ui-state-disabled')) {
-                                          $(this).addClass('ui-state-hover');
-                                      }
-                                  },
-                                  function () {
-                                      $(this).removeClass("ui-state-hover");
-                                  }
+                            function () {
+                                if (!$(this).hasClass('ui-state-disabled')) {
+                                    $(this).addClass('ui-state-hover');
+                                }
+                            },
+                            function () {
+                                $(this).removeClass("ui-state-hover");
+                            }
                             );
                 }
             });
@@ -7891,9 +7892,9 @@ jQuery.fn.extend(
                                             tmp[nm] = "";
                                         }
                                         $("select > option:selected", this).each(
-                                                                                function(i, selected) {
-                                                                                    selectedText[i] = $(selected).text();
-                                                                                }
+                                                function(i, selected) {
+                                                    selectedText[i] = $(selected).text();
+                                                }
                                                 );
                                         tmp2[nm] = selectedText.join(",");
                                     }
@@ -8262,9 +8263,9 @@ jQuery.fn.extend(
                                     v = "";
                                 }
                                 $("option:selected", sel).each(
-                                                              function(i, selected) {
-                                                                  selectedText[i] = $(selected).text();
-                                                              }
+                                        function(i, selected) {
+                                            selectedText[i] = $(selected).text();
+                                        }
                                         );
                                 v2 = selectedText.join(",");
                             }
@@ -11064,12 +11065,12 @@ function tableToGrid(selector, options) {
                         return false;
                     });
                     $("#dData, #eData", "#" + dtbl + "_2").hover(
-                                                                function() {
-                                                                    $(this).addClass('ui-state-hover');
-                                                                },
-                                                                function() {
-                                                                    $(this).removeClass('ui-state-hover');
-                                                                }
+                            function() {
+                                $(this).addClass('ui-state-hover');
+                            },
+                            function() {
+                                $(this).removeClass('ui-state-hover');
+                            }
                             );
                     if (onBeforeShow) {
                         p.beforeShowForm($("#" + dtbl));
@@ -11695,11 +11696,11 @@ function tableToGrid(selector, options) {
                     sv = so[i].split(":");
                     if (sv.length > 2) {
                         sv[1] = jQuery.map(sv,
-                                          function(n, i) {
-                                              if (i > 0) {
-                                                  return n;
-                                              }
-                                          }).join(":");
+                                function(n, i) {
+                                    if (i > 0) {
+                                        return n;
+                                    }
+                                }).join(":");
                     }
                     if (msl) {
                         if (jQuery.inArray(sv[0], scell) > -1) {
@@ -11867,11 +11868,11 @@ function tableToGrid(selector, options) {
                     sv = so[i].split(":");
                     if (sv.length > 2) {
                         sv[1] = jQuery.map(sv,
-                                          function(n, i) {
-                                              if (i > 0) {
-                                                  return n;
-                                              }
-                                          }).join(":");
+                                function(n, i) {
+                                    if (i > 0) {
+                                        return n;
+                                    }
+                                }).join(":");
                     }
                     if (msl) {
                         if (jQuery.inArray(sv[1], scell) > -1) {
