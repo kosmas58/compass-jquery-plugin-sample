@@ -119,31 +119,33 @@
         					"separator_before"	: false,
         					"separator_after"	: true,
         					"label"				: "Create",
-        	                "icon"              : "/images/jquery/ui/contextMenu/page_white_edit.png",
+        	                "icon"              : "/images/jquery/ui/contextMenu/new.png",
         					"action"			: function (obj) { this.create(obj); }
         				},  
         				"edit" : {
         					"separator_before"	: true,
         					"separator_after"	: false,
+        	                "icon"              : "/images/jquery/ui/contextMenu/edit.png",
         					"label"				: "Edit",
         					"action"			: function (obj) { live_update(obj.attr("id").replace("node_","")); }				
         				},        		
         				"rename" : {
         					"separator_before"	: false,
         					"separator_after"	: false,
+        	                "icon"              : "/images/jquery/ui/contextMenu/rename.png",
         					"label"				: "Rename",
         					"action"			: function (obj) { this.rename(obj); }
         				},
         				"remove" : {
         					"separator_before"	: false,
-        					"icon"				: false,
+        	                "icon"              : "/images/jquery/ui/contextMenu/delete.png",
         					"separator_after"	: false,
         					"label"				: "Delete",
         					"action"			: function (obj) { this.remove(obj); }
         				},
         				"ccp" : {
         					"separator_before"	: true,
-        					"icon"				: false,
+        	                "icon"              : "/images/jquery/ui/contextMenu/configure.png",
         					"separator_after"	: false,
         					"label"				: "Move",
         					"action"			: false,
@@ -151,19 +153,20 @@
         						"cut" : {
         							"separator_before"	: false,
         							"separator_after"	: false,
+        	                        "icon"              : "/images/jquery/ui/contextMenu/cut.png",
         							"label"				: "Cut",
         							"action"			: function (obj) { this.cut(obj); }
         						},
         						"copy" : {
         							"separator_before"	: false,
-        							"icon"				: false,
+        	                        "icon"              : "/images/jquery/ui/contextMenu/copy.png",
         							"separator_after"	: false,
         							"label"				: "Copy",
         							"action"			: function (obj) { this.copy(obj); }
         						},
         						"paste" : {
         							"separator_before"	: false,
-        							"icon"				: false,
+        	                        "icon"              : "/images/jquery/ui/contextMenu/paste.png",
         							"separator_after"	: false,
         							"label"				: "Paste",
         							"action"			: function (obj) { this.paste(obj); }
