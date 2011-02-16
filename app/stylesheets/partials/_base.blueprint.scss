@@ -7,8 +7,8 @@
 
 @import "partials/design";
 @import "partials/formrow";
-@import "partials/contextMenu";
-@import "partials/flash_messages";
+@import "jquery/ui/contextMenu";
+@import "jquery/ui/flash_messages";
 
 @mixin site-actions {
  }

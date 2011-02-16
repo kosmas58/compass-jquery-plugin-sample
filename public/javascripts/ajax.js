@@ -8,11 +8,3 @@ jQuery.fn.submitWithAjax = function() {
     return false;
   })
 }
-
-$(document).ready(function() {
-  setTimeout(hideFlashes, 5000);
-
-  var hideFlashes = function() {
-    $("#flash_messages").fadeOut(1500);
-  }
-});

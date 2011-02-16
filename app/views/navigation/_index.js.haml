@@ -5,7 +5,7 @@
   .report{ background: lightyellow; width:auto; height:400px; overflow:auto; font-size:0.8em !important; }
   #alog{ padding: 0.5em; }  
   .ui-button{ font-size: 0.9em; }
-  
+
 :javascript
   $(function () {
     // Settings up the tree - using $(selector).jstree(options);
@@ -119,6 +119,7 @@
         					"separator_before"	: false,
         					"separator_after"	: true,
         					"label"				: "Create",
+        	                "icon"              : "/images/jquery/ui/contextMenu/page_white_edit.png",
         					"action"			: function (obj) { this.create(obj); }
         				},  
         				"edit" : {
@@ -352,5 +353,5 @@
     $('#test').button(); 
     $('#seed').button(); 
   });
-
+  
 = render(:file => 'shared/_ui_event_for.js.haml', :locals => { :domid => 'navigation', :url => '/navigation', :actions => {:update => "/edit"}})

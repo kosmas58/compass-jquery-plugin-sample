@@ -64,9 +64,6 @@ $(document).ready(function() {
     $('#license').dialog('open');
     return false;
   });
- 
-  setTimeout(function(){$('div.success, div.notice, div.warning').fadeOut(1500);} , 10000);
-  setTimeout(function(){$('div.error').fadeOut(1500);} , 20000);
 });
 
 $(function() {
