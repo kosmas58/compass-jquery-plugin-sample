@@ -20,9 +20,12 @@
     %a{"data-inline" => "true", "data-rel" => "dialog", "data-role" => "button", "data-transition" => "pop", :href => "/mobile/docs/pages/dialog"} Open dialog
     %h2 Transitions
     %p
-      Since the dialog is a standard "page", it will open with the standard slide transition that's applied to all pages.  And like all pages, you can specify any page transition you want on the dialog by adding the
-      %code data-transition
-      attribute to the link. To make it feel more dialog-like, we recommend specifying a transition of "pop", "slideup" or "flip".
+      By default, the dialog will open with a 'pop' transition.  Like all pages, you can specify any page transition you want
+      on the dialog by adding the
+      %code
+        data-transition
+      attribute to the link. To make it feel more dialog-like, we recommend specifying a transition of "pop", "slideup" or
+      "flip".
     %code
       \&lt;a href=&quot;foo.html&quot; data-rel=&quot;dialog&quot; data-transition=&quot;pop&quot;&gt;Open dialog&lt;/a&gt;
     %div
