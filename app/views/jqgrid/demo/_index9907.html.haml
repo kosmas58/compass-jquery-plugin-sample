@@ -1,0 +1,24 @@
+-@title = "#{t('txt.jqgrid.name')} #{t('txt.jqgrid.demo.name')} - #{t('txt.jqgrid.mine.cedit')} - #{t('txt.jqgrid.mine.cedit2')}"
+.demo
+  %h3
+    =image_tag("icons/22x22/grid.png", :border => 0)
+    =@title
+  %center
+    %table#invheaders_demo9907.scroll{ :cellspacing => "0", :cellpadding => "0" }
+    #invheaders_demo9907_pager.scroll{ :style => "text-align:center;" }
+
+/ End demo
+.demo-description
+  %p
+    This example show how we can add additional column into the grid to define the three actions for each row.
+  %p
+    This can be done at server side and at client side. This example shows a client side solution with icos.
+  %p
+    To do that we use the
+    %code
+      getDataIDs, setRowData
+    and
+    %code
+      loadComplete
+    methods.
+/ End demo-description

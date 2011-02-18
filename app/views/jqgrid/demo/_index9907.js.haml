@@ -1,0 +1,13 @@
+:javascript  
+  function custom_edit(){
+    var ids = $("#invheaders_demo9907").jqGrid('getDataIDs');
+    for(var i=0;i<ids.length;i++){
+      var cl = ids[i];
+      be = "<a onclick=\"$('#invheaders_demo9907').jqGrid('editRow','"+cl+"');\"><img alt='Edit row' border='0' src='/images/icons/16x16/edit.png' title='Edit row'></>";
+      se = "<a onclick=\"$('#invheaders_demo9907').jqGrid('saveRow','"+cl+"');\"><img alt='Save row' border='0' src='/images/icons/16x16/save.png' title='Save row'></>";
+      ce = "<a onclick=\"$('#invheaders_demo9907').jqGrid('restoreRow','"+cl+"');\"><img alt='Restore row' border='0' src='/images/icons/16x16/restore.png' title='Restore row'></>";
+      $("#invheaders_demo9907").jqGrid('setRowData',ids[i],{row_actions:be+se+ce});
+    }  
+  };
+  
+= raw @grid

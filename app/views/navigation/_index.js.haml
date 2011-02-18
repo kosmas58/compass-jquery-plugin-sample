@@ -183,7 +183,8 @@
                     "id" : ( data.rslt.parent == -1) ? -1 : data.rslt.parent.attr("id").replace("node_",""), 
                     "position" : data.rslt.position,
                     "title" : data.rslt.name,
-                    "type" : data.rslt.obj.attr("rel")
+                    "type" : data.rslt.obj.attr("rel"),
+                    "data" : {"authenticity_token" : AUTH_TOKEN}
                 }, 
                 function (r) {
                     if(r.status) {
@@ -203,7 +204,8 @@
                     url: "/navigation/" + this.id.replace("node_",""),
                     //data : { 
                     //    "id" : this.id.replace("node_","")
-                    //}, 
+                    //},
+                    data: {"authenticity_token" : AUTH_TOKEN},
                     success : function (r) {
                         if(!r.status) {
                             data.inst.refresh();
@@ -214,10 +216,11 @@
         })
         .bind("rename.jstree", function (e, data) {
     			$.post(
-    				"/navigation/" + data.rslt.obj.attr("id").replace("node_","") + "/rename", 
-    				{ 
-    					"title" : data.rslt.new_name
-    				}, 
+    				"/navigation/" + data.rslt.obj.attr("id").replace("node_","") + "/rename",
+    				{
+    					"title" : data.rslt.new_name,
+    	                "data" : {"authenticity_token" : AUTH_TOKEN}				
+    				},
     				function (r) {
     					if(!r.status) {
     						$.jstree.rollback(data.rlbk);
@@ -236,7 +239,8 @@
                         "ref" : data.rslt.np.attr("id").replace("node_",""), 
                         "position" : data.rslt.cp + i,
                         "title" : data.rslt.name,
-                        "copy" : data.rslt.cy ? 1 : 0
+                        "copy" : data.rslt.cy ? 1 : 0,
+                        "authenticity_token" : AUTH_TOKEN
                     },
                     success : function (r) {
                         if(!r.status) {

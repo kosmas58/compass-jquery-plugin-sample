@@ -321,8 +321,9 @@ de:
         contextmenu2: Datenmanipulation
         cedit: "Benutzerdefiniertes \xC3\x84ndern"
         treegrid: Treegrids mit JSON
-        cedit1: mit Symbolen
-        cedit2: server-seitig
+        cedit1: mit jQuery UI-Symbolen
+        cedit2: mit eigenen Symbolen
+        cedit3: server-seitig
         contextmenu: "Mit einem Kontextmen\xC3\xBC"
       improvements: 
         name: mit Verbesserungen der Form
