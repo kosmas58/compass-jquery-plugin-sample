@@ -396,6 +396,9 @@ en:
         contextmenu2: Data Manipulation
         treegrid: Treegrid using json
         contextmenu: Using a ContextMenu
+        cedit: Custom Edit
+        cedit1: with icons
+        cedit2: server side
       improvements: 
         name: with form improvements
       secret: Secret Sauce jqGrid

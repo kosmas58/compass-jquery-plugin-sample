@@ -66,6 +66,11 @@ $(document).ready(function() {
   });
 });
 
+$(document).ajaxSend(function(e, xhr, options) {
+  var token = $("meta[name='csrf-token']").attr("content");
+  xhr.setRequestHeader("X-CSRF-Token", token);
+});
+
 $(function() {
   $(window.applicationCache).bind("error", function() {
     alert("There was an error when loading the cache manifest");

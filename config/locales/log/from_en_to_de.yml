@@ -21,6 +21,11 @@ date:
     short: "%b %d"
     long: "%B %d, %Y"
 txt: 
+  jqgrid: 
+    mine: 
+      cedit1: with icons
+      cedit: Custom Edit
+      cedit2: server side
   tools: 
     form: 
       stylable: 
@@ -29,10 +34,6 @@ txt:
         demo02: Scripting styleable Forms
         demo03: Alternate form skin
   hello: Hello world
-  ui: 
-    widgets: 
-      selectmenu: 
-        positioning: Positioning
 support: 
   array: 
     words_connector: ", "
