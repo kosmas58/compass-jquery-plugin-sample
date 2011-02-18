@@ -6,7 +6,7 @@
       be = "<input style='height:22px;width:20px;' type='button' value='E' onclick=\"$('#invheaders_demo0502').jqGrid('editRow','"+cl+"');\"  />"; 
       se = "<input style='height:22px;width:20px;' type='button' value='S' onclick=\"$('#invheaders_demo0502').jqGrid('saveRow','"+cl+"');\"  />"; 
       ce = "<input style='height:22px;width:20px;' type='button' value='C' onclick=\"$('#invheaders_demo0502').jqGrid('restoreRow','"+cl+"');\" />"; 
-      $("#invheaders_demo0502").jqGrid('setRowData',ids[i],{act:be+se+ce});
+      $("#invheaders_demo0502").jqGrid('setRowData',ids[i],{row_actions:be+se+ce});
     }  
   };
   
