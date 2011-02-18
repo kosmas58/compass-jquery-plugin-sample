@@ -25,10 +25,10 @@ class Calendar < ActiveRecord::Base
   def full_events(start_date, end_date)
     events = self.to_full.events.collect { |i|
       i.occurrences(:starting => start_date, :before => end_date).collect { |j|
-        {:id     => 1,
-         :title  => j.summary + "(#{j.location})",
-         :start  => j.dtstart,
-         :end    => j.dtend,
+        {:id => 1,
+         :title => j.summary + "(#{j.location})",
+         :start => j.dtstart,
+         :end => j.dtend,
          :allDay => j.x_properties["X-MICROSOFT-CDO-ALLDAYEVENT"][0] == "1" ? true : false}
       }
     }
@@ -36,7 +36,7 @@ class Calendar < ActiveRecord::Base
   end
 
   def full_events_by_date(start_date, end_date)
-    events    = self.full_events(start_date, end_date)
+    events = self.full_events(start_date, end_date)
     rtn_array = []
     events.each do |e|
       rtn_array << e
@@ -64,18 +64,18 @@ class Calendar < ActiveRecord::Base
   def bounded_events(start_date, end_date)
     events = self.to_ics.events.collect { |i|
       i.occurrences(:starting => start_date, :before => end_date).collect { |j|
-        {:summary     => j.summary,
+        {:summary => j.summary,
          :description => j.description,
-         :location    => j.location,
-         :start       => j.dtstart,
-         :end         => j.dtend}
+         :location => j.location,
+         :start => j.dtstart,
+         :end => j.dtend}
       }
     }
     events.reject { |i| i.empty? }.flatten
   end
 
   def bounded_events_by_date(start_date, end_date)
-    events   = self.bounded_events(start_date, end_date)
+    events = self.bounded_events(start_date, end_date)
     rtn_hash = {}
     events.each { |e|
       rtn_hash[e[:start].strftime("%Y-%m-%d")] ||= []

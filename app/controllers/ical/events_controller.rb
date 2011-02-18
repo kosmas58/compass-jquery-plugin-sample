@@ -65,7 +65,7 @@ class Ical::EventsController < ApplicationController
   end
 
   def create
-    @event             = ActiveRecord::Base::Event.new(params[:event])
+    @event = ActiveRecord::Base::Event.new(params[:event])
     @event.calendar_id = params[:calendar_id]
     if @event.save
       flash[:notice] = I18n.t('make_resourceful.create.success')
@@ -80,7 +80,7 @@ class Ical::EventsController < ApplicationController
     respond_to do |format|
       format.html
       format.json do
-        cal    = ActiveRecord::Base::Calendar.find(params[:calendar_id])
+        cal = ActiveRecord::Base::Calendar.find(params[:calendar_id])
         events = cal.full_events_by_date(((Time.at(params[:start].to_i)).to_date).to_datetime,
                                          ((Time.at(params[:end].to_i)).to_date).to_datetime)
         render :json => events

@@ -7,7 +7,7 @@ class Mobile::Tuts::TutsController < ApplicationController
 
   def site
     @siteName = params[:siteName] || "nettuts"
-    siteList  = [
+    siteList = [
         "nettuts",
         "flashtuts",
         "webdesigntutsplus",
@@ -25,19 +25,19 @@ class Mobile::Tuts::TutsController < ApplicationController
     end
 
     # YQL query (SELECT * from feed ... ) // Split for readability
-    path     = "http://query.yahooapis.com/v1/public/yql?q="
-    path     += URI.escape("SELECT * FROM feed WHERE url='http://feeds.feedburner.com/#{@siteName}'", Regexp.new("[^#{URI::PATTERN::UNRESERVED}]"))
-    path     += "&format=json"
+    path = "http://query.yahooapis.com/v1/public/yql?q="
+    path += URI.escape("SELECT * FROM feed WHERE url='http://feeds.feedburner.com/#{@siteName}'", Regexp.new("[^#{URI::PATTERN::UNRESERVED}]"))
+    path += "&format=json"
 
     # Call YQL, and if the query didn't fail, cache the returned data
     response = Net::HTTP.get_response(URI.parse(path)).body
 
     #  Decode that shizzle
-    @feed    = []
+    @feed = []
     JSON.parse(response)['query']['results']['item'].each do |feed|
-      item         = {}
+      item = {}
       item[:title] = feed['title']
-      item[:uri]   = URI.escape(feed['guid']['content'], Regexp.new("[^#{URI::PATTERN::UNRESERVED}]"))
+      item[:uri] = URI.escape(feed['guid']['content'], Regexp.new("[^#{URI::PATTERN::UNRESERVED}]"))
       if @siteName == "psdtuts"
         item[:comments] = feed['comments']['content']
       else
@@ -64,11 +64,11 @@ class Mobile::Tuts::TutsController < ApplicationController
       @siteName = "webdesigntutsplus"
     end
 
-    path     = "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20feed%20where%20url%3D'http%3A%2F%2Ffeeds.feedburner.com%2F#{@siteName}'%20AND%20guid%3D%22#{@origLink}%22&format=json";
+    path = "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20feed%20where%20url%3D'http%3A%2F%2Ffeeds.feedburner.com%2F#{@siteName}'%20AND%20guid%3D%22#{@origLink}%22&format=json";
 
     # Call YQL, and if the query didn't fail, cache the returned data
     response = Net::HTTP.get_response(URI.parse(path)).body
-    @feed    = JSON.parse(response)['query']['results']['item']
+    @feed = JSON.parse(response)['query']['results']['item']
 
     # Activetuts is still using the old Flashtuts RSS path.
     if @siteName == "flashtuts"

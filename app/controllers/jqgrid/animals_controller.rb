@@ -5,7 +5,7 @@ class Jqgrid::AnimalsController < ApplicationController
 
   def index
     @example = (params[:example] || "05")
-    mylist   = "example#{@example}".to_sym
+    mylist = "example#{@example}".to_sym
     if request.xhr?
       if params[:id].present?
         render :json => Player.find(params[:id]).animals.find(:all).to_subgrid_json([:id, :name])

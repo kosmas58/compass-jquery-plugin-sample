@@ -13,8 +13,8 @@ class DemoTree < ActiveRecord::Base
     if id != 0
       children.each do |child|
         result << {
-            :attr  => {:id => "node_#{child.id.to_s}", :rel => child.ntype},
-            :data  => child.title,
+            :attr => {:id => "node_#{child.id.to_s}", :rel => child.ntype},
+            :data => child.title,
             :state => (child.right - child.left) > 1 ? "closed" : ""
         }
       end
@@ -24,7 +24,7 @@ class DemoTree < ActiveRecord::Base
 
   def self.search(search_str)
     result = Array.new
-    nodes  = find(:all, :conditions => "title LIKE '%#{search_str}%'")
+    nodes = find(:all, :conditions => "title LIKE '%#{search_str}%'")
     if nodes
       nodes.each do |node|
         result << "#node_#{node.id.to_s}"
@@ -39,12 +39,12 @@ class DemoTree < ActiveRecord::Base
     else
       parent = find_by_title("ROOT")
     end
-    parms             = {}
+    parms = {}
     parms[:parent_id] = parent.id
-    parms[:position]  = params[:position]
-    parms[:title]     = params[:title]
-    parms[:ntype]     = params[:type]
-    node              = create(parms)
+    parms[:position] = params[:position]
+    parms[:title] = params[:title]
+    parms[:ntype] = params[:type]
+    node = create(parms)
     if parent.add_child(node)
       result = {:status => 1, :id => node.id}
     else
@@ -55,8 +55,8 @@ class DemoTree < ActiveRecord::Base
 
   def self.remove_node(id)
     node = find(id)
-    pid  = node.parent_id
-    pos  = node.position
+    pid = node.parent_id
+    pos = node.position
 
     #  deleting node and its children
     node.destroy
@@ -67,7 +67,7 @@ class DemoTree < ActiveRecord::Base
   end
 
   def self.rename_node(params)
-    node       = find(params[:id])
+    node = find(params[:id])
     node.title = params[:title]
     if node.save
       return {:status => 1}
@@ -82,18 +82,18 @@ class DemoTree < ActiveRecord::Base
   end
 
   def self.copy_node(id, node)
-    params            = {}
-    params[:id]       = id
+    params = {}
+    params[:id] = id
     params[:position] = (node.position) ? node.position : 0
-    params[:type]     = node.ntype
-    params[:title]    = node.title
-    result            = create_node(params)
+    params[:type] = node.ntype
+    params[:title] = node.title
+    result = create_node(params)
     return result
   end
 
   def self.move_node(params)
     node_old = find(params[:id])
-    result   = copy_node(params[:ref], node_old)
+    result = copy_node(params[:ref], node_old)
     copy_children(result[:id], node_old)
     if params[:copy] == "1"
       result = {:status => 1, :id => result[:id]}
@@ -108,7 +108,7 @@ class DemoTree < ActiveRecord::Base
     report = []
 
     # Analyze root
-    nodes  = find_all_by_title("ROOT")
+    nodes = find_all_by_title("ROOT")
     case nodes.size
       when 0 then
         report << "<div class='span-4'>[FAIL]</div><div class='span-20 last'>No root node.</div>"
@@ -148,7 +148,7 @@ class DemoTree < ActiveRecord::Base
 
 
     # Right index
-    max     = maximum(:right)
+    max = maximum(:right)
     entries = count
 
     if max/2 == entries

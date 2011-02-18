@@ -9,7 +9,7 @@ class ManifestController < ApplicationController
   require 'find'
 
   def self.compute_file_contents_hash(path)
-    hash   = ''
+    hash = ''
     digest = Digest::MD5.new
     File.open(path, 'r') do |file|
       digest.update(file.read(8192)) until file.eof

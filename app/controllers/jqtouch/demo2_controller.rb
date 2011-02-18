@@ -5,54 +5,54 @@ class Jqtouch::Demo2Controller < ApplicationController
 
   def index
     unless session[:filterStatus]
-      session[:filterStatus]       = 0 # 0= none; 1=room; 2=artist; 3=technique; 4=style
+      session[:filterStatus] = 0 # 0= none; 1=room; 2=artist; 3=technique; 4=style
 
-      session[:tempRoomFilterId]   = 0
+      session[:tempRoomFilterId] = 0
       session[:tempArtistFilterId] = 0
-      session[:tempTypeFilterId]   = 0
-      session[:tempStyleFilterId]  = 0
+      session[:tempTypeFilterId] = 0
+      session[:tempStyleFilterId] = 0
 
-      session[:roomFilterId]       = 0
-      session[:artistFilterId]     = 0
-      session[:typeFilterId]       = 0
-      session[:styleFilterId]      = 0
+      session[:roomFilterId] = 0
+      session[:artistFilterId] = 0
+      session[:typeFilterId] = 0
+      session[:styleFilterId] = 0
 
-      session[:galleryId]          = 0
+      session[:galleryId] = 0
     end
   end
 
   def setfilter
     if params[:filter].present?
-      stat    = params[:filter].to_i
+      stat = params[:filter].to_i
 
-      result  = 0
-      filter  = ""
+      result = 0
+      filter = ""
       filerId = 0
 
       case stat
         when 1
           filterId = session[:roomFilterId] = session[:tempRoomFilterId]
-          result   = stat
-          filter   = "Room"
+          result = stat
+          filter = "Room"
         when 2
           filterId = session[:artistFilterId] = session[:tempArtistFilterId]
-          result   = stat
-          filter   = "Artist"
+          result = stat
+          filter = "Artist"
         when 3
           filterId = session[:typeFilterId] = session[:tempTypeFilterId]
-          result   = stat
-          filter   = "Artwork"
+          result = stat
+          filter = "Artwork"
         when 4
           filterId = session[:styleFilterId] = session[:tempStyleFilterId]
-          result   = stat
-          filter   = "Style"
+          result = stat
+          filter = "Style"
       end
 
-      hash                   = {}
+      hash = {}
       session[:filterStatus] = result
-      hash["result"]         = result;
-      hash["filter"]         = filter;
-      hash["filterId"]       = filterId;
+      hash["result"] = result;
+      hash["filter"] = filter;
+      hash["filterId"] = filterId;
 
       render :json => hash.to_json
     else
@@ -103,9 +103,9 @@ class Jqtouch::Demo2Controller < ApplicationController
 
   def get_hunt_arrays
     if params[:item].present?
-      item     = params[:item]
+      item = params[:item]
 
-      array    = Array.new
+      array = Array.new
       array[0] = "Any"
       array[1] = "Some"
       array[2] = "Test"
@@ -124,10 +124,10 @@ class Jqtouch::Demo2Controller < ApplicationController
   end
 
   def get_random_hunt
-    hash            = {}
-    hash["id"]      = 1
+    hash = {}
+    hash["id"] = 1
     hash["picture"] = "/images/demo/touch/demo2/museum_startup.png"
-    hash["room"]    = 1
+    hash["room"] = 1
     render :json => hash.to_json
   end
 end

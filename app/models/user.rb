@@ -11,11 +11,11 @@ class User < ActiveRecord::Base
   end
 
   gridify :example05,
-          :title          => "Players pets",
-          :url            => "/jqgrid/animals",
-          :height         => :auto,
-          :search_button  => true,
+          :title => "Players pets",
+          :url => "/jqgrid/animals",
+          :height => :auto,
+          :search_button => true,
           :refresh_button => true,
-          :pager          => true,
+          :pager => true,
           :jqgrid_options => {:viewsortcols => [true, :horizontal, false]}
 end

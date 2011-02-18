@@ -10,13 +10,13 @@ class Jqgrid::UsersController < ApplicationController
     # It's of course a better idea to create a method in your model
 
     if params[:id].present?
-      pets          = User.find(params[:id]).pets.find(:all) do
+      pets = User.find(params[:id]).pets.find(:all) do
         paginate :page => params[:page], :per_page => params[:rows]
         order_by "#{params[:sidx]} #{params[:sord]}"
       end
       total_entries = pets.total_entries
     else
-      pets          = []
+      pets = []
       total_entries = 0
     end
     respond_to do |format|
@@ -35,7 +35,7 @@ class Jqgrid::UsersController < ApplicationController
       User.find(params[:id]).destroy
     else
       user_params = {:pseudo => params[:pseudo], :firstname => params[:firstname], :lastname => params[:lastname],
-                     :email  => params[:email], :role => params[:role]}
+                     :email => params[:email], :role => params[:role]}
       if params[:id] == "_empty"
         user = User.create(user_params)
       else
@@ -60,7 +60,7 @@ class Jqgrid::UsersController < ApplicationController
     # Queries are here for clarity purposes in this demo
     # It's of course a better idea to create a method in your model
 
-    users    = User.find(:all) do
+    users = User.find(:all) do
       if params[:_search] == "true"
 
         #{params[:serchField]} #{params[:searchOper]}  #{params[:searchString]}

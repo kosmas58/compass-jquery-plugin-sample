@@ -11,29 +11,29 @@ class Invline < ActiveRecord::Base
   end
 
   gridify :demo0302,
-          :url            => "/jqgrid/demo",
-          :data_type      => :json,
-          :only           => [
+          :url => "/jqgrid/demo",
+          :data_type => :json,
+          :only => [
               :num,
               :item,
               :qty,
               :unit,
               :total
           ],
-          :colNames       => [
+          :colNames => [
               I18n.t('activerecord.attributes.invline.num'),
               I18n.t('activerecord.attributes.invline.item'),
               I18n.t('activerecord.attributes.invline.qty'),
               I18n.t('activerecord.attributes.invline.unit'),
               I18n.t('activerecord.attributes.invline.total')
           ],
-          :width          => 400,
-          :width_fit      => :fitted,
-          :height         => :auto,
+          :width => 400,
+          :width_fit => :fitted,
+          :height => :auto,
           :jqgrid_options => {:viewsortcols => [true, :horizontal, false]},
-          :search_button  => true,
+          :search_button => true,
           :refresh_button => true,
-          :pager          => true
+          :pager => true
 
   private
   def serialize_invline

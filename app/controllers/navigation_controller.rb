@@ -15,7 +15,7 @@ class NavigationController < ApplicationController
   end
 
   def update
-    @tree            = NavigationTree.find(params[:id])
+    @tree = NavigationTree.find(params[:id])
     @tree.attributes = params[:navigation_tree]
     @tree.save
 

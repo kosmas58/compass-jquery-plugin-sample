@@ -8,27 +8,27 @@ class Jqtouch::IcalController < ApplicationController
   end
 
   def month
-    @month       = params[:month].to_i
-    @year        = params[:year].to_i
+    @month = params[:month].to_i
+    @year = params[:year].to_i
 
-    @monthName   = I18n.t('date.month_names')[@month]
+    @monthName = I18n.t('date.month_names')[@month]
 
-    firstDay     = Date.new(@year, @month, 1)
+    firstDay = Date.new(@year, @month, 1)
     firstDayWDay = firstDay.wday == 0 ? 7 : firstDay.wday
 
-    lastDay      = (firstDay>>1)-1
-    lastDayDay   = lastDay.strftime('%d').to_i
-    lastDayWDay  = lastDay.wday == 0 ? 7 : lastDay.wday
+    lastDay = (firstDay>>1)-1
+    lastDayDay = lastDay.strftime('%d').to_i
+    lastDayWDay = lastDay.wday == 0 ? 7 : lastDay.wday
 
-    @cal         = []
+    @cal = []
 
     # Fill array with previous month days
     if firstDayWDay != 1 then # first day of month not monday
       preDays = firstDayWDay - 1
-      day     = firstDay - preDays
+      day = firstDay - preDays
       preDays.times do
         @cal <<= {:day => day.strftime('%d').to_i, :type => 'prevmonth', :value => day, :class => 'prevmonth'}
-        day  += 1
+        day += 1
       end
     end
 
@@ -36,7 +36,7 @@ class Jqtouch::IcalController < ApplicationController
     day = firstDay
     (1..lastDayDay).each do
       @cal <<= {:day => day.strftime('%d').to_i, :type => 'normal', :value => day, :class => 'normal'}
-      day  += 1
+      day += 1
     end
 
     # Fill array with next month days
@@ -44,7 +44,7 @@ class Jqtouch::IcalController < ApplicationController
       day = lastDay + 1
       (7-lastDayWDay).times do
         @cal <<= {:day => day.strftime('%d').to_i, :type => 'nextmonth', :value => day, :class => 'nextmonth'}
-        day  += 1
+        day += 1
       end
     end
 

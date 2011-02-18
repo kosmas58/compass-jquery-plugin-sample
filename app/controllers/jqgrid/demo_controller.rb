@@ -11,7 +11,7 @@ class Jqgrid::DemoController < ApplicationController
         # Master/detail
         if params[:details_for].present?
           if params[:_search] == "true"
-            @data     = @object.find_for_grid(@mylist, params);
+            @data = @object.find_for_grid(@mylist, params);
             @userdata = @object.userdata(@data)
           elsif @demo == "demo0302"
             @data = Invheader.find(params[:details_for]).invlines.find(:all);
@@ -38,9 +38,9 @@ class Jqgrid::DemoController < ApplicationController
               @data.each do |row|
                 rows << row.attributes
               end
-              data = {:accounts      => rows,
-                      :page          => 1,
-                      :total_pages   => 1,
+              data = {:accounts => rows,
+                      :page => 1,
+                      :total_pages => 1,
                       :total_records => 1}
               render :json => data.to_json
             when :xml
@@ -49,7 +49,7 @@ class Jqgrid::DemoController < ApplicationController
 
           # Default
         else
-          @data     = @object.find_for_grid(@mylist, params)
+          @data = @object.find_for_grid(@mylist, params)
           @userdata = @object.userdata(@data)
           case @datatype
             when :json
@@ -63,7 +63,7 @@ class Jqgrid::DemoController < ApplicationController
       else
         case @demo
           when "0302"
-            @grid         = @object.grid(@mylist)
+            @grid = @object.grid(@mylist)
             @grid_details = Invline.grid(@mylist)
           else
             @grid = @object.grid(@mylist)
@@ -75,11 +75,11 @@ class Jqgrid::DemoController < ApplicationController
   def create
     fetch_params(request);
     if request.xhr?
-      params[:id]   = nil
+      params[:id] = nil
       object_params = @object.grid(@mylist).member_params(params)
-      @this         = @object.new(object_params)
+      @this = @object.new(object_params)
       # must return nothing on success (until we setup a format for returning ok vs error)
-      msg           = ""
+      msg = ""
       unless @this.save
         @this.errors.entries.each do |error|
           msg << "<strong>#{error[0]}</strong> : #{error[1]}<br/>"
@@ -102,7 +102,7 @@ class Jqgrid::DemoController < ApplicationController
     @this = @object.find(params[:id])
     if request.xhr?
       object_params = @object.grid(@mylist).member_params(params)
-      msg           = "success"
+      msg = "success"
       unless @this.update_attributes(object_params)
         @this.errors.entries.each do |error|
           msg << "<strong>#{error[0]}</strong> : #{error[1]}<br/>"
@@ -164,13 +164,13 @@ class Jqgrid::DemoController < ApplicationController
       else
         @datatype = params[:datatype] = :json
     end
-    @model  = (params[:model] || "invheader")
+    @model = (params[:model] || "invheader")
     @object = Object.const_get(@model.classify)
     if request.xhr?
-      @demo   = (params[:grid] || "demo0101")
+      @demo = (params[:grid] || "demo0101")
       @mylist = "#{@demo}".to_sym
     else
-      @demo   = (params[:demo] || "0101")
+      @demo = (params[:demo] || "0101")
       @mylist = "demo#{@demo}".to_sym
     end
   end

@@ -14,13 +14,13 @@ class NavigationTree < ActiveRecord::Base
     if id != 0
       children.each do |child|
         result << {
-            :data  => {
+            :data => {
                 :title => I18n.t(child.title),
-                :icon  => (child.icon) ? "#{child.icon}" : nil
+                :icon => (child.icon) ? "#{child.icon}" : nil
             },
-            :attr  => {
-                :id   => "node_#{child.id.to_s}",
-                :rel  => child.ntype,
+            :attr => {
+                :id => "node_#{child.id.to_s}",
+                :rel => child.ntype,
                 :href => (child.url) ? "#{child.url}" : nil
             },
             :state => (child.right - child.left) > 1 ? "closed" : ""
@@ -32,7 +32,7 @@ class NavigationTree < ActiveRecord::Base
 
   def self.search(search_str)
     result = Array.new
-    nodes  = find(:all, :conditions => "title LIKE '%#{search_str}%'")
+    nodes = find(:all, :conditions => "title LIKE '%#{search_str}%'")
     if nodes
       nodes.each do |node|
         result << "#node_#{node.id.to_s}"
@@ -48,11 +48,11 @@ class NavigationTree < ActiveRecord::Base
       parent = find_by_title("ROOT")
     end
 
-    parms             = {}
+    parms = {}
     parms[:parent_id] = parent.id
-    parms[:position]  = params[:position]
-    parms[:title]     = params[:title]
-    parms[:ntype]     = params[:type]
+    parms[:position] = params[:position]
+    parms[:title] = params[:title]
+    parms[:ntype] = params[:type]
     parms[:icon] = params[:icon] if params[:icon]
     parms[:url] = params[:url] if params[:url]
     node = create(parms)
@@ -73,12 +73,12 @@ class NavigationTree < ActiveRecord::Base
   end
 
   def self.remove_node(id)
-    node  = find(id)
-    left  = node.left
+    node = find(id)
+    left = node.left
     right = node.right
-    dif   = right - left + 1
-    pid   = node.parent_id
-    pos   = node.position
+    dif = right - left + 1
+    pid = node.parent_id
+    pos = node.position
 
     #  deleting node and its children
     node.destroy
@@ -89,7 +89,7 @@ class NavigationTree < ActiveRecord::Base
   end
 
   def self.rename_node(params)
-    node       = find(params[:id])
+    node = find(params[:id])
     node.title = params[:title]
     if node.save
       return {:status => 1}
@@ -104,11 +104,11 @@ class NavigationTree < ActiveRecord::Base
   end
 
   def self.copy_node(id, node)
-    params            = {}
-    params[:id]       = id
+    params = {}
+    params[:id] = id
     params[:position] = node.position
-    params[:title]    = node.title
-    params[:type]     = node.ntype
+    params[:title] = node.title
+    params[:type] = node.ntype
     params[:icon] = node.icon if node.icon
     params[:url] = node.url if node.url
     create_node(params)
@@ -116,7 +116,7 @@ class NavigationTree < ActiveRecord::Base
 
   def self.move_node(params)
     node_old = find(params[:id])
-    result   = copy_node(params[:ref], node_old)
+    result = copy_node(params[:ref], node_old)
     copy_children(result[:id], node_old)
     if params[:copy] == "1"
       result = {:status => 1, :id => result[:id]}
@@ -131,7 +131,7 @@ class NavigationTree < ActiveRecord::Base
     report = []
 
     # Analyze root
-    nodes  = find_all_by_title("ROOT")
+    nodes = find_all_by_title("ROOT")
     case nodes.size
       when 0 then
         report << "<div class='span-4'>[FAIL]</div><div class='span-20 last'>No root node.</div>"
@@ -171,7 +171,7 @@ class NavigationTree < ActiveRecord::Base
 
 
     # Right index
-    max     = maximum(:right)
+    max = maximum(:right)
     entries = count
 
     if max/2 == entries

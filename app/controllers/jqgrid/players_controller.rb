@@ -8,7 +8,7 @@ class Jqgrid::PlayersController < ApplicationController
     if @datatype != :local
       if request.xhr?
         records = Player.find_for_grid(@mylist, params)
-        data    = Player.grid(@mylist).encode_records(records)
+        data = Player.grid(@mylist).encode_records(records)
         case @datatype
           when :json
             render :json => data
@@ -27,11 +27,11 @@ class Jqgrid::PlayersController < ApplicationController
   def create
     fetch_params(request);
     if request.xhr?
-      params[:id]   = nil
+      params[:id] = nil
       object_params = Player.grid(@mylist).member_params(params)
-      @this         = Player.new(object_params)
+      @this = Player.new(object_params)
       # must return nothing on success (until we setup a format for returning ok vs error)
-      msg           = ""
+      msg = ""
       unless @this.save
         @this.errors.entries.each do |error|
           msg << "<strong>#{error[0]}</strong> : #{error[1]}<br/>"
@@ -54,7 +54,7 @@ class Jqgrid::PlayersController < ApplicationController
     @this = Player.find(params[:id])
     if request.xhr?
       object_params = Player.grid(@mylist).member_params(params)
-      msg           = "success"
+      msg = "success"
       unless @this.update_attributes(object_params)
         @this.errors.entries.each do |error|
           msg << "<strong>#{error[0]}</strong> : #{error[1]}<br/>"
@@ -97,6 +97,6 @@ class Jqgrid::PlayersController < ApplicationController
         @datatype = params[:datatype] = :json
     end
     @example = (params[:example] || "01")
-    @mylist  = "example#{@example}".to_sym
+    @mylist = "example#{@example}".to_sym
   end
 end

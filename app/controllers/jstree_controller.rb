@@ -35,7 +35,7 @@ class JstreeController < ApplicationController
   end
 
   def search
-    data   =
+    data =
         '[
       "Ajax node 1",
       "Ajax node 2",

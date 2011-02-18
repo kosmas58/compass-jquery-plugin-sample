@@ -100,7 +100,7 @@ class DynatreeController < ApplicationController
 
   def get_skin
     @dynatree_theme = "start"
-    @dynatree_skin  = params[:dynatree_skin] || "aero.css"
+    @dynatree_skin = params[:dynatree_skin] || "aero.css"
   end
 
   before_filter :get_skin, :except => [:data1, :data2, :data3]
