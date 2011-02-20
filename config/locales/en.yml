@@ -176,7 +176,15 @@ en:
     - Oct
     - Nov
     - Dec
-  txt: 
+  txt:
+    widgets:
+      name: Widgets
+    handling:
+      name: Handling
+    haml:
+      name: Javascript and Haml
+      jhaml: jQuery haml plugin
+      haml_js: haml-js server side haml
     jst: 
       name: jsTree
       plugins: Plugins
@@ -397,16 +405,20 @@ en:
         treegrid: Treegrid using json
         contextmenu: Using a ContextMenu
         cedit: Custom Edit
-        cedit1: with jQuery UI icons
-        cedit2: with custom icons
+        cedit1: client side with jQuery UI icons
+        cedit2: client side with custom icons
         cedit3: server side
+        cedit4: server side with jQuery UI icons
+        cedit5: server side with custom icons
       improvements: 
         name: with form improvements
       secret: Secret Sauce jqGrid
-    sparklines: 
-      name: Sparklines
-      examples: Examples
-      default: Try it out
+    graphics:
+      name: Graphics
+      sparklines:
+        name: Sparklines
+        examples: Examples
+        default: Try it out
     replacetext: 
       name: replaceText
       default: Example
@@ -634,7 +646,7 @@ en:
           photo-manager: Simple photo manager
           visual-feedback: Visual feedback
           accepted-elements: Accepted elements
-      widgets: 
+      widgets:
         button: 
           default: Button
           radio: Radios

@@ -1,6 +1,6 @@
 class NavigationController < ApplicationController
   layout 'navigation'
-  protect_from_forgery
+  #protect_from_forgery
 
   def edit
     @tree = NavigationTree.find(params[:id])

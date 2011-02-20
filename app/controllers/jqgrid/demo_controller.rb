@@ -24,13 +24,13 @@ class Jqgrid::DemoController < ApplicationController
             #render :xml => @object.grid(@mylist).encode_records(@data)
           end
 
-          # Subgrid
         elsif params[:subgrid]
+          # Subgrid
           @data = Invheader.find(params[:id]).invlines.find(:all)
           render :json => @data.to_subgrid_json(params[:atr])
 
-          # Treegrid
         elsif @object.grid(@mylist).tree_grid
+          # Treegrid
           @data = @object.find_for_treegrid(params)
           case @datatype
             when :json
@@ -47,9 +47,10 @@ class Jqgrid::DemoController < ApplicationController
               render :partial => "#{@model.downcase}.xml.builder", :layout => false
           end
 
-          # Default
         else
+          # Default
           @data = @object.find_for_grid(@mylist, params)
+          html =  render_to_string(:partial => 'actions.html.haml') #, locals: { user: @user })
           @userdata = @object.userdata(@data)
           case @datatype
             when :json

@@ -1,0 +1,20 @@
+-@title = "#{t('txt.haml.name')} - #{t('txt.haml.jhaml')}"
+
+- content_for :content_head do
+  = render(:partial => "jhaml.js.haml", :format => :js)
+
+.demo
+  %h3
+    =image_tag("icons/22x22/haml.png", :border => 0)
+    =@title
+  %p
+    jQuery-haml is a haml like language written in JSON. This allows for easy dom building so that web apps can do more work independent of the server for a better user experience.
+  %p.jhaml.ui-widget-content.ui-corner-all
+  %p
+    The plugin was written by
+    %a{ :href => "http://github.com/creationix/jquery-haml", :class => :greybox } Tim Caswell
+    and released under the
+    = succeed "." do
+      %a{ :href => "http://www.opensource.org/licenses/mit-license.php", :class => :greybox } MIT License
+    #greybox
+/ End demo-description
