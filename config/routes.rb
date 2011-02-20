@@ -95,8 +95,6 @@ ActionController::Routing::Routes.draw do |map|
     end
   end
 
-
-  
   Translate::Routes.translation_ui(map) if RAILS_ENV != "production "
 
   map.root :controller => "welcome"
