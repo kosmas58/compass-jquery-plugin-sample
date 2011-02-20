@@ -1,730 +1,16 @@
-/**
- * TableDnD plug-in for JQuery, allows you to drag and drop table rows
- * You can set up various options to control how the system will work
- * Copyright (c) Denis Howlett <denish@isocra.com>
- * Licensed like jQuery, see http://docs.jquery.com/License.
- *
- * Configuration options:
- *
- * onDragStyle
- *     This is the style that is assigned to the row during drag. There are limitations to the styles that can be
- *     associated with a row (such as you can't assign a border--well you can, but it won't be
- *     displayed). (So instead consider using onDragClass.) The CSS style to apply is specified as
- *     a map (as used in the jQuery css(...) function).
- * onDropStyle
- *     This is the style that is assigned to the row when it is dropped. As for onDragStyle, there are limitations
- *     to what you can do. Also this replaces the original style, so again consider using onDragClass which
- *     is simply added and then removed on drop.
- * onDragClass
- *     This class is added for the duration of the drag and then removed when the row is dropped. It is more
- *     flexible than using onDragStyle since it can be inherited by the row cells and other content. The default
- *     is class is tDnD_whileDrag. So to use the default, simply customise this CSS class in your
- *     stylesheet.
- * onDrop
- *     Pass a function that will be called when the row is dropped. The function takes 2 parameters: the table
- *     and the row that was dropped. You can work out the new order of the rows by using
- *     table.rows.
- * onDragStart
- *     Pass a function that will be called when the user starts dragging. The function takes 2 parameters: the
- *     table and the row which the user has started to drag.
- * onAllowDrop
- *     Pass a function that will be called as a row is over another row. If the function returns true, allow
- *     dropping on that row, otherwise not. The function takes 2 parameters: the dragged row and the row under
- *     the cursor. It returns a boolean: true allows the drop, false doesn't allow it.
- * scrollAmount
- *     This is the number of pixels to scroll if the user moves the mouse cursor to the top or bottom of the
- *     window. The page should automatically scroll up or down as appropriate (tested in IE6, IE7, Safari, FF2,
- *     FF3 beta
- * dragHandle
- *     This is the name of a class that you assign to one or more cells in each row that is draggable. If you
- *     specify this class, then you are responsible for setting cursor: move in the CSS and only these cells
- *     will have the drag behaviour. If you do not specify a dragHandle, then you get the old behaviour where
- *     the whole row is draggable.
- *
- * Other ways to control behaviour:
- *
- * Add class="nodrop" to any rows for which you don't want to allow dropping, and class="nodrag" to any rows
- * that you don't want to be draggable.
- *
- * Inside the onDrop method you can also call $.tableDnD.serialize() this returns a string of the form
- * <tableID>[]=<rowID1>&<tableID>[]=<rowID2> so that you can send this back to the server. The table must have
- * an ID as must all the rows.
- *
- * Other methods:
- *
- * $("...").tableDnDUpdate()
- * Will update all the matching tables, that is it will reapply the mousedown method to the rows (or handle cells).
- * This is useful if you have updated the table rows using Ajax and you want to make the table draggable again.
- * The table maintains the original configuration (so you don't have to specify it again).
- *
- * $("...").tableDnDSerialize()
- * Will serialize and return the serialized string as above, but for each of the matching tables--so it can be
- * called from anywhere and isn't dependent on the currentTable being set up correctly before calling
- *
- * Known problems:
- * - Auto-scoll has some problems with IE7  (it scrolls even when it shouldn't), work-around: set scrollAmount to 0
- *
- * Version 0.2: 2008-02-20 First public version
- * Version 0.3: 2008-02-07 Added onDragStart option
- *                         Made the scroll amount configurable (default is 5 as before)
- * Version 0.4: 2008-03-15 Changed the noDrag/noDrop attributes to nodrag/nodrop classes
- *                         Added onAllowDrop to control dropping
- *                         Fixed a bug which meant that you couldn't set the scroll amount in both directions
- *                         Added serialize method
- * Version 0.5: 2008-05-16 Changed so that if you specify a dragHandle class it doesn't make the whole row
- *                         draggable
- *                         Improved the serialize method to use a default (and settable) regular expression.
- *                         Added tableDnDupate() and tableDnDSerialize() to be called when you are outside the table
- */
-jQuery.tableDnD = {
-    /** Keep hold of the current table being dragged */
-    currentTable : null,
-    /** Keep hold of the current drag object if any */
-    dragObject: null,
-    /** The current mouse offset */
-    mouseOffset: null,
-    /** Remember the old value of Y so that we don't do too much processing */
-    oldY: 0,
-
-    /** Actually build the structure */
-    build: function(options) {
-        // Set up the defaults if any
-
-        this.each(function() {
-            // This is bound to each matching table, set up the defaults and override with user options
-            this.tableDnDConfig = jQuery.extend({
-                onDragStyle: null,
-                onDropStyle: null,
-                // Add in the default class for whileDragging
-                onDragClass: "tDnD_whileDrag",
-                onDrop: null,
-                onDragStart: null,
-                scrollAmount: 5,
-                serializeRegexp: /[^\-]*$/, // The regular expression to use to trim row IDs
-                serializeParamName: null, // If you want to specify another parameter name instead of the table ID
-                dragHandle: null // If you give the name of a class here, then only Cells with this class will be draggable
-            }, options || {});
-            // Now make the rows draggable
-            jQuery.tableDnD.makeDraggable(this);
-        });
-
-        // Now we need to capture the mouse up and mouse move event
-        // We can use bind so that we don't interfere with other event handlers
-        jQuery(document)
-                .bind('mousemove', jQuery.tableDnD.mousemove)
-                .bind('mouseup', jQuery.tableDnD.mouseup);
-
-        // Don't break the chain
-        return this;
-    },
-
-    /** This function makes all the rows on the table draggable apart from those marked as "NoDrag" */
-    makeDraggable: function(table) {
-        var config = table.tableDnDConfig;
-        if (table.tableDnDConfig.dragHandle) {
-            // We only need to add the event to the specified cells
-            var cells = jQuery("td." + table.tableDnDConfig.dragHandle, table);
-            cells.each(function() {
-                // The cell is bound to "this"
-                jQuery(this).mousedown(function(ev) {
-                    jQuery.tableDnD.dragObject = this.parentNode;
-                    jQuery.tableDnD.currentTable = table;
-                    jQuery.tableDnD.mouseOffset = jQuery.tableDnD.getMouseOffset(this, ev);
-                    if (config.onDragStart) {
-                        // Call the onDrop method if there is one
-                        config.onDragStart(table, this);
-                    }
-                    return false;
-                });
-            })
-        } else {
-            // For backwards compatibility, we add the event to the whole row
-            var rows = jQuery("tr", table); // get all the rows as a wrapped set
-            rows.each(function() {
-                // Iterate through each row, the row is bound to "this"
-                var row = jQuery(this);
-                if (! row.hasClass("nodrag")) {
-                    row.mousedown(
-                            function(ev) {
-                                if (ev.target.tagName == "TD") {
-                                    jQuery.tableDnD.dragObject = this;
-                                    jQuery.tableDnD.currentTable = table;
-                                    jQuery.tableDnD.mouseOffset = jQuery.tableDnD.getMouseOffset(this, ev);
-                                    if (config.onDragStart) {
-                                        // Call the onDrop method if there is one
-                                        config.onDragStart(table, this);
-                                    }
-                                    return false;
-                                }
-                            }).css("cursor", "move"); // Store the tableDnD object
-                }
-            });
-        }
-    },
-
-    updateTables: function() {
-        this.each(function() {
-            // this is now bound to each matching table
-            if (this.tableDnDConfig) {
-                jQuery.tableDnD.makeDraggable(this);
-            }
-        })
-    },
-
-    /** Get the mouse coordinates from the event (allowing for browser differences) */
-    mouseCoords: function(ev) {
-        if (ev.pageX || ev.pageY) {
-            return {x:ev.pageX, y:ev.pageY};
-        }
-        return {
-            x:ev.clientX + document.body.scrollLeft - document.body.clientLeft,
-            y:ev.clientY + document.body.scrollTop - document.body.clientTop
-        };
-    },
-
-    /** Given a target element and a mouse event, get the mouse offset from that element.
-     To do this we need the element's position and the mouse position */
-    getMouseOffset: function(target, ev) {
-        ev = ev || window.event;
-
-        var docPos = this.getPosition(target);
-        var mousePos = this.mouseCoords(ev);
-        return {x:mousePos.x - docPos.x, y:mousePos.y - docPos.y};
-    },
-
-    /** Get the position of an element by going up the DOM tree and adding up all the offsets */
-    getPosition: function(e) {
-        var left = 0;
-        var top = 0;
-        /** Safari fix -- thanks to Luis Chato for this! */
-        if (e.offsetHeight == 0) {
-            /** Safari 2 doesn't correctly grab the offsetTop of a table row
-             this is detailed here:
-             http://jacob.peargrove.com/blog/2006/technical/table-row-offsettop-bug-in-safari/
-             the solution is likewise noted there, grab the offset of a table cell in the row - the firstChild.
-             note that firefox will return a text node as a first child, so designing a more thorough
-             solution may need to take that into account, for now this seems to work in firefox, safari, ie */
-            e = e.firstChild; // a table cell
-        }
-        if (e && e.offsetParent) {
-            while (e.offsetParent) {
-                left += e.offsetLeft;
-                top += e.offsetTop;
-                e = e.offsetParent;
-            }
-
-            left += e.offsetLeft;
-            top += e.offsetTop;
-        }
-
-        return {x:left, y:top};
-    },
-
-    mousemove: function(ev) {
-        if (jQuery.tableDnD.dragObject == null) {
-            return;
-        }
-
-        var dragObj = jQuery(jQuery.tableDnD.dragObject);
-        var config = jQuery.tableDnD.currentTable.tableDnDConfig;
-        var mousePos = jQuery.tableDnD.mouseCoords(ev);
-        var y = mousePos.y - jQuery.tableDnD.mouseOffset.y;
-        //auto scroll the window
-        var yOffset = window.pageYOffset;
-        if (document.all) {
-            // Windows version
-            //yOffset=document.body.scrollTop;
-            if (typeof document.compatMode != 'undefined' &&
-                    document.compatMode != 'BackCompat') {
-                yOffset = document.documentElement.scrollTop;
-            }
-            else if (typeof document.body != 'undefined') {
-                yOffset = document.body.scrollTop;
-            }
-
-        }
-
-        if (mousePos.y - yOffset < config.scrollAmount) {
-            window.scrollBy(0, -config.scrollAmount);
-        } else {
-            var windowHeight = window.innerHeight ? window.innerHeight
-                    : document.documentElement.clientHeight ? document.documentElement.clientHeight : document.body.clientHeight;
-            if (windowHeight - (mousePos.y - yOffset) < config.scrollAmount) {
-                window.scrollBy(0, config.scrollAmount);
-            }
-        }
-
-
-        if (y != jQuery.tableDnD.oldY) {
-            // work out if we're going up or down...
-            var movingDown = y > jQuery.tableDnD.oldY;
-            // update the old value
-            jQuery.tableDnD.oldY = y;
-            // update the style to show we're dragging
-            if (config.onDragClass) {
-                dragObj.addClass(config.onDragClass);
-            } else {
-                dragObj.css(config.onDragStyle);
-            }
-            // If we're over a row then move the dragged row to there so that the user sees the
-            // effect dynamically
-            var currentRow = jQuery.tableDnD.findDropTargetRow(dragObj, y);
-            if (currentRow) {
-                // TODO worry about what happens when there are multiple TBODIES
-                if (movingDown && jQuery.tableDnD.dragObject != currentRow) {
-                    jQuery.tableDnD.dragObject.parentNode.insertBefore(jQuery.tableDnD.dragObject, currentRow.nextSibling);
-                } else if (! movingDown && jQuery.tableDnD.dragObject != currentRow) {
-                    jQuery.tableDnD.dragObject.parentNode.insertBefore(jQuery.tableDnD.dragObject, currentRow);
-                }
-            }
-        }
-
-        return false;
-    },
-
-    /** We're only worried about the y position really, because we can only move rows up and down */
-    findDropTargetRow: function(draggedRow, y) {
-        var rows = jQuery.tableDnD.currentTable.rows;
-        for (var i = 0; i < rows.length; i++) {
-            var row = rows[i];
-            var rowY = this.getPosition(row).y;
-            var rowHeight = parseInt(row.offsetHeight) / 2;
-            if (row.offsetHeight == 0) {
-                rowY = this.getPosition(row.firstChild).y;
-                rowHeight = parseInt(row.firstChild.offsetHeight) / 2;
-            }
-            // Because we always have to insert before, we need to offset the height a bit
-            if ((y > rowY - rowHeight) && (y < (rowY + rowHeight))) {
-                // that's the row we're over
-                // If it's the same as the current row, ignore it
-                if (row == draggedRow) {
-                    return null;
-                }
-                var config = jQuery.tableDnD.currentTable.tableDnDConfig;
-                if (config.onAllowDrop) {
-                    if (config.onAllowDrop(draggedRow, row)) {
-                        return row;
-                    } else {
-                        return null;
-                    }
-                } else {
-                    // If a row has nodrop class, then don't allow dropping (inspired by John Tarr and Famic)
-                    var nodrop = jQuery(row).hasClass("nodrop");
-                    if (! nodrop) {
-                        return row;
-                    } else {
-                        return null;
-                    }
-                }
-                return row;
-            }
-        }
-        return null;
-    },
-
-    mouseup: function(e) {
-        if (jQuery.tableDnD.currentTable && jQuery.tableDnD.dragObject) {
-            var droppedRow = jQuery.tableDnD.dragObject;
-            var config = jQuery.tableDnD.currentTable.tableDnDConfig;
-            // If we have a dragObject, then we need to release it,
-            // The row will already have been moved to the right place so we just reset stuff
-            if (config.onDragClass) {
-                jQuery(droppedRow).removeClass(config.onDragClass);
-            } else {
-                jQuery(droppedRow).css(config.onDropStyle);
-            }
-            jQuery.tableDnD.dragObject = null;
-            if (config.onDrop) {
-                // Call the onDrop method if there is one
-                config.onDrop(jQuery.tableDnD.currentTable, droppedRow);
-            }
-            jQuery.tableDnD.currentTable = null; // let go of the table too
-        }
-    },
-
-    serialize: function() {
-        if (jQuery.tableDnD.currentTable) {
-            return jQuery.tableDnD.serializeTable(jQuery.tableDnD.currentTable);
-        } else {
-            return "Error: No Table id set, you need to set an id on your table and every row";
-        }
-    },
-
-    serializeTable: function(table) {
-        var result = "";
-        var tableId = table.id;
-        var rows = table.rows;
-        for (var i = 0; i < rows.length; i++) {
-            if (result.length > 0) result += "&";
-            var rowId = rows[i].id;
-            if (rowId && rowId && table.tableDnDConfig && table.tableDnDConfig.serializeRegexp) {
-                rowId = rowId.match(table.tableDnDConfig.serializeRegexp)[0];
-            }
-
-            result += tableId + '[]=' + rowId;
-        }
-        return result;
-    },
-
-    serializeTables: function() {
-        var result = "";
-        this.each(function() {
-            // this is now bound to each matching table
-            result += jQuery.tableDnD.serializeTable(this);
-        });
-        return result;
-    }
-
-}
-
-jQuery.fn.extend(
-{
-    tableDnD : jQuery.tableDnD.build,
-    tableDnDUpdate : jQuery.tableDnD.updateTables,
-    tableDnDSerialize: jQuery.tableDnD.serializeTables
-}
-        );
-
 /*
- * jQuery UI Multiselect
- *
- * Authors:
- *  Michael Aufreiter (quasipartikel.at)
- *  Yanick Rochon (yanick.rochon[at]gmail[dot]com)
- * 
- * Dual licensed under the MIT (MIT-LICENSE.txt)
- * and GPL (GPL-LICENSE.txt) licenses.
- * 
- * http://www.quasipartikel.at/multiselect/
- *
- * 
- * Depends:
- *	ui.core.js
- *	ui.sortable.js
- *
- * Optional:
- * localization (http://plugins.jquery.com/project/localisation)
- * scrollTo (http://plugins.jquery.com/project/ScrollTo)
- * 
- * Todo:
- *  Make batch actions faster
- *  Implement dynamic insertion through remote calls
+ * jqGrid  3.8.2  - jQuery Grid
+ * Copyright (c) 2008, Tony Tomov, tony@trirand.com
+ * Dual licensed under the MIT and GPL licenses
+ * http://www.opensource.org/licenses/mit-license.php
+ * http://www.gnu.org/licenses/gpl-2.0.html
+ * Date: 2010-12-14
  */
+//jsHint options
+/*global document, window, jQuery, DOMParser, ActiveXObject $ */
 
-
-(function($) {
-
-    $.widget("ui.multiselect", {
-        _init: function() {
-            this.element.hide();
-            this.id = this.element.attr("id");
-            this.container = $('<div class="ui-multiselect ui-helper-clearfix ui-widget"></div>').insertAfter(this.element);
-            this.count = 0; // number of currently selected options
-            this.selectedContainer = $('<div class="selected"></div>').appendTo(this.container);
-            this.availableContainer = $('<div class="available"></div>').appendTo(this.container);
-            this.selectedActions = $('<div class="actions ui-widget-header ui-helper-clearfix"><span class="count">0 ' + $.ui.multiselect.locale.itemsCount + '</span><a href="#" class="remove-all">' + $.ui.multiselect.locale.removeAll + '</a></div>').appendTo(this.selectedContainer);
-            this.availableActions = $('<div class="actions ui-widget-header ui-helper-clearfix"><input type="text" class="search empty ui-widget-content ui-corner-all"/><a href="#" class="add-all">' + $.ui.multiselect.locale.addAll + '</a></div>').appendTo(this.availableContainer);
-            this.selectedList = $('<ul class="selected connected-list"><li class="ui-helper-hidden-accessible"></li></ul>').bind('selectstart',
-                    function() {
-                        return false;
-                    }).appendTo(this.selectedContainer);
-            this.availableList = $('<ul class="available connected-list"><li class="ui-helper-hidden-accessible"></li></ul>').bind('selectstart',
-                    function() {
-                        return false;
-                    }).appendTo(this.availableContainer);
-
-            var that = this;
-
-            // set dimensions
-            this.container.width(this.element.width() + 1);
-            this.selectedContainer.width(Math.floor(this.element.width() * this.options.dividerLocation));
-            this.availableContainer.width(Math.floor(this.element.width() * (1 - this.options.dividerLocation)));
-
-            // fix list height to match <option> depending on their individual header's heights
-            this.selectedList.height(Math.max(this.element.height() - this.selectedActions.height(), 1));
-            this.availableList.height(Math.max(this.element.height() - this.availableActions.height(), 1));
-
-            if (!this.options.animated) {
-                this.options.show = 'show';
-                this.options.hide = 'hide';
-            }
-
-            // init lists
-            this._populateLists(this.element.find('option'));
-
-            // make selection sortable
-            if (this.options.sortable) {
-                $("ul.selected").sortable({
-                    placeholder: 'ui-state-highlight',
-                    axis: 'y',
-                    update: function(event, ui) {
-                        // apply the new sort order to the original selectbox
-                        that.selectedList.find('li').each(function() {
-                            if ($(this).data('optionLink'))
-                                $(this).data('optionLink').remove().appendTo(that.element);
-                        });
-                    },
-                    receive: function(event, ui) {
-                        ui.item.data('optionLink').attr('selected', true);
-                        // increment count
-                        that.count += 1;
-                        that._updateCount();
-                        // workaround, because there's no way to reference
-                        // the new element, see http://dev.jqueryui.com/ticket/4303
-                        that.selectedList.children('.ui-draggable').each(function() {
-                            $(this).removeClass('ui-draggable');
-                            $(this).data('optionLink', ui.item.data('optionLink'));
-                            $(this).data('idx', ui.item.data('idx'));
-                            that._applyItemState($(this), true);
-                        });
-
-                        // workaround according to http://dev.jqueryui.com/ticket/4088
-                        setTimeout(function() {
-                            ui.item.remove();
-                        }, 1);
-                    }
-                });
-            }
-
-            // set up livesearch
-            if (this.options.searchable) {
-                this._registerSearchEvents(this.availableContainer.find('input.search'));
-            } else {
-                $('.search').hide();
-            }
-
-            // batch actions
-            $(".remove-all").click(function() {
-                that._populateLists(that.element.find('option').removeAttr('selected'));
-                return false;
-            });
-            $(".add-all").click(function() {
-                that._populateLists(that.element.find('option').attr('selected', 'selected'));
-                return false;
-            });
-        },
-        destroy: function() {
-            this.element.show();
-            this.container.remove();
-
-            $.widget.prototype.destroy.apply(this, arguments);
-        },
-        _populateLists: function(options) {
-            this.selectedList.children('.ui-element').remove();
-            this.availableList.children('.ui-element').remove();
-            this.count = 0;
-
-            var that = this;
-            var items = $(options.map(function(i) {
-                var item = that._getOptionNode(this).appendTo(this.selected ? that.selectedList : that.availableList).show();
-
-                if (this.selected) that.count += 1;
-                that._applyItemState(item, this.selected);
-                item.data('idx', i);
-                return item[0];
-            }));
-
-            // update count
-            this._updateCount();
-        },
-        _updateCount: function() {
-            this.selectedContainer.find('span.count').text(this.count + " " + $.ui.multiselect.locale.itemsCount);
-        },
-        _getOptionNode: function(option) {
-            option = $(option);
-            var node = $('<li class="ui-state-default ui-element" title="' + option.text() + '"><span class="ui-icon"/>' + option.text() + '<a href="#" class="action"><span class="ui-corner-all ui-icon"/></a></li>').hide();
-            node.data('optionLink', option);
-            return node;
-        },
-        // clones an item with associated data
-        // didn't find a smarter away around this
-        _cloneWithData: function(clonee) {
-            var clone = clonee.clone();
-            clone.data('optionLink', clonee.data('optionLink'));
-            clone.data('idx', clonee.data('idx'));
-            return clone;
-        },
-        _setSelected: function(item, selected) {
-            item.data('optionLink').attr('selected', selected);
-
-            if (selected) {
-                var selectedItem = this._cloneWithData(item);
-                item[this.options.hide](this.options.animated, function() {
-                    $(this).remove();
-                });
-                selectedItem.appendTo(this.selectedList).hide()[this.options.show](this.options.animated);
-
-                this._applyItemState(selectedItem, true);
-                return selectedItem;
-            } else {
-
-                // look for successor based on initial option index
-                var items = this.availableList.find('li'), comparator = this.options.nodeComparator;
-                var succ = null, i = item.data('idx'), direction = comparator(item, $(items[i]));
-
-                // TODO: test needed for dynamic list populating
-                if (direction) {
-                    while (i >= 0 && i < items.length) {
-                        direction > 0 ? i++ : i--;
-                        if (direction != comparator(item, $(items[i]))) {
-                            // going up, go back one item down, otherwise leave as is
-                            succ = items[direction > 0 ? i : i + 1];
-                            break;
-                        }
-                    }
-                } else {
-                    succ = items[i];
-                }
-
-                var availableItem = this._cloneWithData(item);
-                succ ? availableItem.insertBefore($(succ)) : availableItem.appendTo(this.availableList);
-                item[this.options.hide](this.options.animated, function() {
-                    $(this).remove();
-                });
-                availableItem.hide()[this.options.show](this.options.animated);
-
-                this._applyItemState(availableItem, false);
-                return availableItem;
-            }
-        },
-        _applyItemState: function(item, selected) {
-            if (selected) {
-                if (this.options.sortable)
-                    item.children('span').addClass('ui-icon-arrowthick-2-n-s').removeClass('ui-helper-hidden').addClass('ui-icon');
-                else
-                    item.children('span').removeClass('ui-icon-arrowthick-2-n-s').addClass('ui-helper-hidden').removeClass('ui-icon');
-                item.find('a.action span').addClass('ui-icon-minus').removeClass('ui-icon-plus');
-                this._registerRemoveEvents(item.find('a.action'));
-
-            } else {
-                item.children('span').removeClass('ui-icon-arrowthick-2-n-s').addClass('ui-helper-hidden').removeClass('ui-icon');
-                item.find('a.action span').addClass('ui-icon-plus').removeClass('ui-icon-minus');
-                this._registerAddEvents(item.find('a.action'));
-            }
-
-            this._registerHoverEvents(item);
-        },
-        // taken from John Resig's liveUpdate script
-        _filter: function(list) {
-            var input = $(this);
-            var rows = list.children('li'),
-                    cache = rows.map(function() {
-
-                        return $(this).text().toLowerCase();
-                    });
-
-            var term = $.trim(input.val().toLowerCase()), scores = [];
-
-            if (!term) {
-                rows.show();
-            } else {
-                rows.hide();
-
-                cache.each(function(i) {
-                    if (this.indexOf(term) > -1) {
-                        scores.push(i);
-                    }
-                });
-
-                $.each(scores, function() {
-                    $(rows[this]).show();
-                });
-            }
-        },
-        _registerHoverEvents: function(elements) {
-            elements.removeClass('ui-state-hover');
-            elements.mouseover(function() {
-                $(this).addClass('ui-state-hover');
-            });
-            elements.mouseout(function() {
-                $(this).removeClass('ui-state-hover');
-            });
-        },
-        _registerAddEvents: function(elements) {
-            var that = this;
-            elements.click(function() {
-                var item = that._setSelected($(this).parent(), true);
-                that.count += 1;
-                that._updateCount();
-                return false;
-            })
-                // make draggable
-                    .each(function() {
-                $(this).parent().draggable({
-                    connectToSortable: 'ul.selected',
-                    helper: function() {
-                        var selectedItem = that._cloneWithData($(this)).width($(this).width() - 50);
-                        selectedItem.width($(this).width());
-                        return selectedItem;
-                    },
-                    appendTo: '.ui-multiselect',
-                    containment: '.ui-multiselect',
-                    revert: 'invalid'
-                });
-            });
-        },
-        _registerRemoveEvents: function(elements) {
-            var that = this;
-            elements.click(function() {
-                that._setSelected($(this).parent(), false);
-                that.count -= 1;
-                that._updateCount();
-                return false;
-            });
-        },
-        _registerSearchEvents: function(input) {
-            var that = this;
-
-            input.focus(function() {
-                $(this).addClass('ui-state-active');
-            })
-                    .blur(function() {
-                $(this).removeClass('ui-state-active');
-            })
-                    .keypress(function(e) {
-                if (e.keyCode == 13)
-                    return false;
-            })
-                    .keyup(function() {
-                that._filter.apply(this, [that.availableList]);
-            });
-        }
-    });
-
-    $.extend($.ui.multiselect, {
-        defaults: {
-            sortable: true,
-            searchable: true,
-            animated: 'fast',
-            show: 'slideDown',
-            hide: 'slideUp',
-            dividerLocation: 0.6,
-            nodeComparator: function(node1, node2) {
-                var text1 = node1.text(),
-                        text2 = node2.text();
-                return text1 == text2 ? 0 : (text1 < text2 ? -1 : 1);
-            }
-        },
-        locale: {
-            addAll:'Add all',
-            removeAll:'Remove all',
-            itemsCount:'items selected'
-        }
-    });
-
-})(jQuery);
-
-
-;
 (function ($) {
-    /*
-     * jqGrid  3.8.2  - jQuery Grid
-     * Copyright (c) 2008, Tony Tomov, tony@trirand.com
-     * Dual licensed under the MIT and GPL licenses
-     * http://www.opensource.org/licenses/mit-license.php
-     * http://www.gnu.org/licenses/gpl-2.0.html
-     * Date: 2010-12-14
-     */
+
     $.jgrid = $.jgrid || {};
     $.extend($.jgrid, {
         htmlDecode : function(value) {
@@ -798,11 +84,11 @@ jQuery.fn.extend(
                     eval('(' + js + ')');
         },
         parseDate : function(format, date) {
-            var tsp = {m : 1, d : 1, y : 1970, h : 0, i : 0, s : 0},k,hl,dM;
+            var tsp = {m : 1, d : 1, y : 1970, h : 0, i : 0, s : 0},k,hl,dM, regdate = /[\\\/:_;.,\t\T\s-]/;
             if (date && date !== null && date !== undefined) {
                 date = $.trim(date);
-                date = date.split(/[\\\/:_;.,\t\T\s-]/);
-                format = format.split(/[\\\/:_;.,\t\T\s-]/);
+                date = date.split(regdate);
+                format = format.split(regdate);
                 var dfmt = $.jgrid.formatter.date.monthNames;
                 var afmt = $.jgrid.formatter.date.AmPm;
                 var h12to24 = function(ampm, h) {
@@ -953,7 +239,7 @@ jQuery.fn.extend(
                     if (!_usecase) {
                         phrase = phrase.toLowerCase();
                     }
-                    phrase = phrase.toString().replace(/\\/g, '\\\\').replace(/\"/g, '\\"')
+                    phrase = phrase.toString().replace(/\\/g, '\\\\').replace(/\"/g, '\\"');
                     return phrase;
                 };
                 this._funcLoop = function(func) {
@@ -987,7 +273,7 @@ jQuery.fn.extend(
                     if (_lastCommand === null) {
                         return self;
                     }
-                    if (f != null && v != null) {
+                    if (f !== null && v !== null) {
                         return _lastCommand(f, v);
                     }
                     if (_lastField === null) {
@@ -1122,14 +408,14 @@ jQuery.fn.extend(
                         }
                         if (!self._equals(last, val)) {
                             last = val;
-                            if (group != null) {
+                            if (group !== null) {
                                 results.push(group);
                             }
                             group = self._group(by, val);
                         }
                         group.items.push(v);
                     });
-                    if (group != null) {
+                    if (group !== null) {
                         results.push(group);
                     }
                     return results;
@@ -1232,31 +518,34 @@ jQuery.fn.extend(
                     if (v === undefined) {
                         v = null;
                     }
-                    var val = v === null ? f : v,
+                    //var val=v===null?f:v,
+                    var val = v,
                             swst = t.stype === undefined ? "text" : t.stype;
-                    switch (swst) {
-                        case 'int':
-                        case 'integer':
-                            val = isNaN(Number(val)) ? '0' : val; // To be fixed with more inteligent code
-                            fld = 'parseInt(' + fld + ',10)';
-                            val = 'parseInt(' + val + ',10)';
-                            break;
-                        case 'float':
-                        case 'number':
-                        case 'numeric':
-                            val = String(val).replace(_stripNum, '');
-                            val = isNaN(Number(val)) ? '0' : val; // To be fixed with more inteligent code
-                            fld = 'parseFloat(' + fld + ')';
-                            val = 'parseFloat(' + val + ')';
-                            break;
-                        case 'date':
-                        case 'datetime':
-                            val = String($.jgrid.parseDate(t.newfmt || 'Y-m-d', val).getTime());
-                            fld = 'jQuery.jgrid.parseDate("' + t.srcfmt + '",' + fld + ').getTime()';
-                            break;
-                        default :
-                            fld = self._getStr(fld);
-                            val = self._getStr('"' + self._toStr(val) + '"');
+                    if (v !== null) {
+                        switch (swst) {
+                            case 'int':
+                            case 'integer':
+                                val = (isNaN(Number(val)) || val === "") ? '0' : val; // To be fixed with more inteligent code
+                                fld = 'parseInt(' + fld + ',10)';
+                                val = 'parseInt(' + val + ',10)';
+                                break;
+                            case 'float':
+                            case 'number':
+                            case 'numeric':
+                                val = String(val).replace(_stripNum, '');
+                                val = (isNaN(Number(val)) || val === "") ? '0' : val; // To be fixed with more inteligent code
+                                fld = 'parseFloat(' + fld + ')';
+                                val = 'parseFloat(' + val + ')';
+                                break;
+                            case 'date':
+                            case 'datetime':
+                                val = String($.jgrid.parseDate(t.newfmt || 'Y-m-d', val).getTime());
+                                fld = 'jQuery.jgrid.parseDate("' + t.srcfmt + '",' + fld + ').getTime()';
+                                break;
+                            default :
+                                fld = self._getStr(fld);
+                                val = self._getStr('"' + self._toStr(val) + '"');
+                        }
                     }
                     self._append(fld + ' ' + how + ' ' + val);
                     self._setCommand(func, f);
@@ -1265,6 +554,12 @@ jQuery.fn.extend(
                 };
                 this.equals = function(f, v, t) {
                     return self._compareValues(self.equals, f, v, "==", t);
+                };
+                this.notEquals = function(f, v, t) {
+                    return self._compareValues(self.equals, f, v, "!==", t);
+                };
+                this.isNull = function(f, v, t) {
+                    return self._compareValues(self.equals, f, null, "===", t);
                 };
                 this.greater = function(f, v, t) {
                     return self._compareValues(self.greater, f, v, ">", t);
@@ -1692,9 +987,9 @@ jQuery.fn.extend(
                             return val;
                         }
                     },
-                    formatCol = function (pos, rowInd, tv) {
+                    formatCol = function (pos, rowInd, tv, rawObject, rowId, rdata) {
                         var cm = ts.p.colModel[pos],
-                                ral = cm.align, result = "style=\"", clas = cm.classes, nm = cm.name;
+                                ral = cm.align, result = "style=\"", clas = cm.classes, nm = cm.name, celp, acp = [];
                         if (ral) {
                             result += "text-align:" + ral + ";";
                         }
@@ -1703,10 +998,35 @@ jQuery.fn.extend(
                         }
                         if (rowInd === 0) {
                             result += "width: " + grid.headers[pos].width + "px;";
+                        } else if (cm.cellattr && $.isFunction(cm.cellattr)) {
+                            celp = cm.cellattr.call(ts, rowId, tv, rawObject, cm, rdata);
+                            if (celp && typeof(celp) === "string") {
+                                celp = celp.replace(/style/i, 'style').replace(/title/i, 'title');
+                                if (celp.indexOf('title') > -1) {
+                                    cm.title = false;
+                                }
+                                if (celp.indexOf('class') > -1) {
+                                    clas = undefined;
+                                }
+                                acp = celp.split("style");
+                                if (acp.length === 2) {
+                                    acp[1] = $.trim(acp[1].replace("=", ""));
+                                    if (acp[1].indexOf("'") === 0 || acp[1].indexOf('"') === 0) {
+                                        acp[1] = acp[1].substring(1);
+                                    }
+                                    result += acp[1].replace(/'/gi, '"');
+                                } else {
+                                    result += "\"";
+                                }
+                            }
                         }
-                        result += "\"" + (clas !== undefined ? (" class=\"" + clas + "\"") : "") + ((cm.title && tv) ? (" title=\"" + $.jgrid.stripHtml(tv) + "\"") : "");
+                        if (!acp.length) {
+                            acp[0] = "";
+                            result += "\"";
+                        }
+                        result += (clas !== undefined ? (" class=\"" + clas + "\"") : "") + ((cm.title && tv) ? (" title=\"" + $.jgrid.stripHtml(tv) + "\"") : "");
                         result += " aria-describedby=\"" + ts.p.id + "_" + nm + "\"";
-                        return result;
+                        return result + acp[0];
                     },
                     cellVal = function (val) {
                         return val === undefined || val === null || val === "" ? "&#160;" : (ts.p.autoencode ? $.jgrid.htmlEncode(val) : val + "");
@@ -1730,17 +1050,17 @@ jQuery.fn.extend(
                     addCell = function(rowId, cell, pos, irow, srvr) {
                         var v,prp;
                         v = formatter(rowId, cell, pos, srvr, 'add');
-                        prp = formatCol(pos, irow, v);
+                        prp = formatCol(pos, irow, v, srvr, rowId, true);
                         return "<td role=\"gridcell\" " + prp + ">" + v + "</td>";
                     },
                     addMulti = function(rowid, pos, irow) {
                         var v = "<input role=\"checkbox\" type=\"checkbox\"" + " id=\"jqg_" + ts.p.id + "_" + rowid + "\" class=\"cbox\" name=\"jqg_" + ts.p.id + "_" + rowid + "\"/>",
-                                prp = formatCol(pos, irow, '');
+                                prp = formatCol(pos, irow, '', null, rowid, true);
                         return "<td role=\"gridcell\" " + prp + ">" + v + "</td>";
                     },
                     addRowNum = function (pos, irow, pG, rN) {
                         var v = (parseInt(pG, 10) - 1) * parseInt(rN, 10) + 1 + irow,
-                                prp = formatCol(pos, irow, '');
+                                prp = formatCol(pos, irow, v, null, irow, true);
                         return "<td role=\"gridcell\" class=\"ui-state-default jqgrid-rownum\" " + prp + ">" + v + "</td>";
                     },
                     reader = function (datatype) {
@@ -1873,13 +1193,14 @@ jQuery.fn.extend(
                         if (!gxml) {
                             gxml = [];
                         }
-                        var gl = gxml.length, j = 0;
+                        var gl = gxml.length, j = 0, grpdata = {}, rn;
                         if (gxml && gl) {
-                            var rn = parseInt(ts.p.rowNum, 10),br = ts.p.scroll ? (parseInt(ts.p.page, 10) - 1) * rn + 1 : 1,altr;
+                            rn = parseInt(ts.p.rowNum, 10);
+                            var br = ts.p.scroll ? (parseInt(ts.p.page, 10) - 1) * rn + 1 : 1,altr;
                             if (adjust) {
                                 rn *= adjust + 1;
                             }
-                            var afterInsRow = $.isFunction(ts.p.afterInsertRow), grpdata = {}, hiderow = "";
+                            var afterInsRow = $.isFunction(ts.p.afterInsertRow), hiderow = "";
                             if (ts.p.grouping && ts.p.groupingView.groupCollapse === true) {
                                 hiderow = " style=\"display:none;\"";
                             }
@@ -2268,7 +1589,7 @@ jQuery.fn.extend(
                                 cmtypes[this.name] = {"stype": sorttype, "srcfmt":'',"newfmt":''};
                             }
                             if (ts.p.grouping && this.name == grpview.groupField[0]) {
-                                var grindex = this.name
+                                var grindex = this.name;
                                 if (typeof this.index != 'undefined') {
                                     grindex = this.index;
                                 }
@@ -2285,47 +1606,53 @@ jQuery.fn.extend(
                             return;
                         }
                         var compareFnMap = {
-                            'eq':function(queryObj) {
+                            'eq':function(queryObj, op) {
                                 return queryObj.equals;
                             },
-                            'ne':function(queryObj) {
-                                return queryObj.not().equals;
+                            'ne':function(queryObj, op) {
+                                return queryObj.notEquals;
                             },
-                            'lt':function(queryObj) {
+                            'lt':function(queryObj, op) {
                                 return queryObj.less;
                             },
-                            'le':function(queryObj) {
+                            'le':function(queryObj, op) {
                                 return queryObj.lessOrEquals;
                             },
-                            'gt':function(queryObj) {
+                            'gt':function(queryObj, op) {
                                 return queryObj.greater;
                             },
-                            'ge':function(queryObj) {
+                            'ge':function(queryObj, op) {
                                 return queryObj.greaterOrEquals;
                             },
-                            'cn':function(queryObj) {
+                            'cn':function(queryObj, op) {
                                 return queryObj.contains;
                             },
-                            'nc':function(queryObj) {
-                                return queryObj.not().contains;
+                            'nc':function(queryObj, op) {
+                                return op === "OR" ? queryObj.orNot().contains : queryObj.andNot().contains;
                             },
-                            'bw':function(queryObj) {
+                            'bw':function(queryObj, op) {
                                 return queryObj.startsWith;
                             },
-                            'bn':function(queryObj) {
-                                return queryObj.not().startsWith;
+                            'bn':function(queryObj, op) {
+                                return op === "OR" ? queryObj.orNot().startsWith : queryObj.andNot().startsWith;
                             },
-                            'en':function(queryObj) {
-                                return queryObj.not().endsWith;
+                            'en':function(queryObj, op) {
+                                return op === "OR" ? queryObj.orNot().endsWith : queryObj.andNot().endsWith;
                             },
-                            'ew':function(queryObj) {
+                            'ew':function(queryObj, op) {
                                 return queryObj.endsWith;
                             },
-                            'ni':function(queryObj) {
-                                return queryObj.not().equals;
+                            'ni':function(queryObj, op) {
+                                return op === "OR" ? queryObj.orNot().equals : queryObj.andNot().equals;
                             },
-                            'in':function(queryObj) {
+                            'in':function(queryObj, op) {
                                 return queryObj.equals;
+                            },
+                            'nu':function(queryObj, op) {
+                                return queryObj.isNull;
+                            },
+                            'nn':function(queryObj, op) {
+                                return op === "OR" ? queryObj.orNot().isNull : queryObj.andNot().isNull;
                             }
 
                         },
@@ -2333,44 +1660,43 @@ jQuery.fn.extend(
                         if (ts.p.ignoreCase) {
                             query = query.ignoreCase();
                         }
-                        if (ts.p.search === true) {
-                            var srules = ts.p.postData.filters, opr;
-
-                            function tojLinq(group) {
-                                var s = 0, index, opr, rule;
-                                if (group.groups != undefined) {
-                                    for (index = 0; index < group.groups.length; index++) {
-                                        try {
-                                            tojLinq(group.groups[index]);
-                                        } catch (e) {
-                                            alert(e);
-                                        }
-                                        s++;
-                                    }
-                                }
-                                if (group.rules != undefined) {
-                                    if (s > 0) {
-                                        var result = query.select();
-                                        query = $.jgrid.from(result);
-                                    }
+                        function tojLinq(group) {
+                            var s = 0, index, opr, rule;
+                            if (group.groups !== undefined) {
+                                for (index = 0; index < group.groups.length; index++) {
                                     try {
-                                        for (index = 0; index < group.rules.length; index++) {
-                                            rule = group.rules[index];
-                                            opr = group.groupOp;
-                                            if (compareFnMap[rule.op] && rule.field && rule.data) {
-                                                if (s > 0 && opr && opr.toUpperCase() == "OR") {
-                                                    query = query.or();
-                                                }
-                                                query = compareFnMap[rule.op](query)(rule.field, rule.data, cmtypes[rule.field]);
-                                            }
-                                            s++;
-                                        }
+                                        tojLinq(group.groups[index]);
                                     } catch (e) {
                                         alert(e);
                                     }
+                                    s++;
                                 }
                             }
+                            if (group.rules !== undefined) {
+                                if (s > 0) {
+                                    var result = query.select();
+                                    query = $.jgrid.from(result);
+                                }
+                                try {
+                                    for (index = 0; index < group.rules.length; index++) {
+                                        rule = group.rules[index];
+                                        opr = group.groupOp.toString().toUpperCase();
+                                        if (compareFnMap[rule.op] && rule.field) {
+                                            if (s > 0 && opr && opr === "OR") {
+                                                query = query.or();
+                                            }
+                                            query = compareFnMap[rule.op](query, opr)(rule.field, rule.data, cmtypes[rule.field]);
+                                        }
+                                        s++;
+                                    }
+                                } catch (g) {
+                                    alert(g);
+                                }
+                            }
+                        }
 
+                        if (ts.p.search === true) {
+                            var srules = ts.p.postData.filters;
                             if (srules) {
                                 if (typeof srules == "string") {
                                     srules = $.jgrid.parse(srules);
@@ -2754,7 +2080,7 @@ jQuery.fn.extend(
                         twd = $(pgl).clone().appendTo("#testpg").width();
                         $("#testpg").remove();
                         if (twd > 0) {
-                            if (pginp != "") {
+                            if (pginp !== "") {
                                 twd += 50;
                             } //should be param
                             $("td#" + pgid + "_" + ts.p.pagerpos, "#" + pgcnt).width(twd);
@@ -3066,7 +2392,7 @@ jQuery.fn.extend(
             if (this.p.subGrid) {
                 try {
                     $(ts).jqGrid("setSubGrid");
-                } catch (_) {
+                } catch (s) {
                 }
             }
             if (this.p.multiselect) {
@@ -3264,7 +2590,7 @@ jQuery.fn.extend(
                             }
                         }
                         if (ts.p.footerrow) {
-                            tfoot += "<td role='gridcell' " + formatCol(j, 0, '') + ">&#160;</td>";
+                            tfoot += "<td role='gridcell' " + formatCol(j, 0, '', null, '', false) + ">&#160;</td>";
                         }
                     }).mousedown(
                     function(e) {
@@ -3594,7 +2920,7 @@ jQuery.fn.extend(
                         if (ts.p.gridstate == 'visible') {
                             $(elems, "#gbox_" + $.jgrid.jqID(ts.p.id)).slideUp("fast", function() {
                                 counter--;
-                                if (counter == 0) {
+                                if (counter === 0) {
                                     $("span", self).removeClass("ui-icon-circle-triangle-n").addClass("ui-icon-circle-triangle-s");
                                     ts.p.gridstate = 'hidden';
                                     if ($("#gbox_" + $.jgrid.jqID(ts.p.id)).hasClass("ui-resizable")) {
@@ -3610,7 +2936,7 @@ jQuery.fn.extend(
                         } else if (ts.p.gridstate == 'hidden') {
                             $(elems, "#gbox_" + $.jgrid.jqID(ts.p.id)).slideDown("fast", function() {
                                 counter--;
-                                if (counter == 0) {
+                                if (counter === 0) {
                                     $("span", self).removeClass("ui-icon-circle-triangle-s").addClass("ui-icon-circle-triangle-n");
                                     if (hg) {
                                         ts.p.datatype = tdt;
@@ -3997,12 +3323,12 @@ jQuery.fn.extend(
                             cna = t.p.altRows === true ? (t.rows.length - 1) % 2 === 0 ? cn : "" : "";
                         }
                         if (ni) {
-                            prp = t.formatCol(0, 1, '');
+                            prp = t.formatCol(0, 1, '', null, rowid, true);
                             row += "<td role=\"gridcell\" aria-describedby=\"" + t.p.id + "_rn\" class=\"ui-state-default jqgrid-rownum\" " + prp + ">0</td>";
                         }
                         if (gi) {
                             v = "<input role=\"checkbox\" type=\"checkbox\"" + " id=\"jqg_" + t.p.id + "_" + rowid + "\" class=\"cbox\"/>";
-                            prp = t.formatCol(ni, 1, '');
+                            prp = t.formatCol(ni, 1, '', null, rowid, true);
                             row += "<td role=\"gridcell\" aria-describedby=\"" + t.p.id + "_cb\" " + prp + ">" + v + "</td>";
                         }
                         if (si) {
@@ -4013,7 +3339,7 @@ jQuery.fn.extend(
                             nm = cm.name;
                             lcdata[nm] = cm.formatter && typeof(cm.formatter) === 'string' && cm.formatter == 'date' ? $.unformat.date(data[nm], cm) : data[nm];
                             v = t.formatter(rowid, $.jgrid.getAccessor(data, nm), i, data, 'edit');
-                            prp = t.formatCol(i, 1, v);
+                            prp = t.formatCol(i, 1, v, rowid, data, true);
                             row += "<td role=\"gridcell\" aria-describedby=\"" + t.p.id + "_" + nm + "\" " + prp + ">" + v + "</td>";
                         }
                         row = "<tr id=\"" + rowid + "\" role=\"row\" class=\"ui-widget-content jqgrow ui-row-" + t.p.direction + " " + cna + "\">" + row + "</tr>";
@@ -4601,6 +3927,8 @@ jQuery.fn.extend(
      * http://www.opensource.org/licenses/mit-license.php
      * http://www.gnu.org/licenses/gpl-2.0.html
      */
+    /*global jQuery, $ */
+
     $.extend($.jgrid, {
 // Modal functions
         showModal : function(h) {
@@ -4712,11 +4040,12 @@ jQuery.fn.extend(
                 p.height = 200;
             }
             if (!p.zIndex) {
-                var parentZ = $(insertSelector).parents("*[role=dialog]").first().css("z-index")
-                if (parentZ)
-                    p.zIndex = parseInt(parentZ) + 1
-                else
+                var parentZ = $(insertSelector).parents("*[role=dialog]").first().css("z-index");
+                if (parentZ) {
+                    p.zIndex = parseInt(parentZ, 10) + 1;
+                } else {
                     p.zIndex = 950;
+                }
             }
             var rtlt = 0;
             if (rtlsup && coord.left && !appendsel) {
@@ -4758,7 +4087,7 @@ jQuery.fn.extend(
                 } else {
                     try {
                         $(mw).resizable({handles: 'se, sw',alsoResize: aIDs.scrollelm ? "#" + aIDs.scrollelm : false});
-                    } catch (e) {
+                    } catch (r) {
                     }
                 }
             }
@@ -4900,7 +4229,7 @@ jQuery.fn.extend(
             }
             try {
                 $("#info_dialog").focus();
-            } catch (e) {
+            } catch (m) {
             }
         },
 // Form Functions
@@ -5021,9 +4350,7 @@ jQuery.fn.extend(
                                     //$(elem).attr(options);
                                     setTimeout(function() {
                                         $("option", elem).each(function(i) {
-                                            if (i === 0) {
-                                                this.selected = "";
-                                            }
+                                            //if(i===0) { this.selected = ""; }
                                             $(this).attr("role", "option");
                                             if ($.inArray($.trim($(this).text()), ovm) > -1 || $.inArray($.trim($(this).val()), ovm) > -1) {
                                                 this.selected = "selected";
@@ -5399,7 +4726,6 @@ jQuery.fn.extend(
     });
 })(jQuery);
 
-;
 (function($) {
     /**
      * jqGrid extension for form editing Grid Data
@@ -5409,6 +4735,7 @@ jQuery.fn.extend(
      * http://www.opensource.org/licenses/mit-license.php
      * http://www.gnu.org/licenses/gpl-2.0.html
      **/
+    /*global xmlJsonClass, jQuery, $,  */
     var rp_ge = null;
     $.jgrid.extend({
         searchGrid : function (p) {
@@ -5427,6 +4754,7 @@ jQuery.fn.extend(
                 closeAfterReset: false,
                 closeOnEscape : false,
                 multipleSearch : false,
+                multipleGroup : false,
                 //cloneSearchRowOnAdd: true,
                 top : 0,
                 left: 0,
@@ -5509,7 +4837,7 @@ jQuery.fn.extend(
                         }
                     });
                     // old behaviour
-                    if (!defaultFilters && colnm) {
+                    if ((!defaultFilters && colnm) || p.multipleSearch === false) {
                         defaultFilters = {"groupOp": "AND",rules:[
                             {"field":colnm,"op":"eq","data":""}
                         ]};
@@ -5520,6 +4848,7 @@ jQuery.fn.extend(
                         showQuery: p.showQuery,
                         errorcheck : p.errorcheck,
                         sopt: p.sopt,
+                        groupButton : p.multipleGroup,
                         _gridsopt : $.jgrid.search.odata,
                         onChange : function(sp) {
                             if (this.p.showQuery) {
@@ -5528,6 +4857,10 @@ jQuery.fn.extend(
                         }
                     });
                     fil.append(bt);
+                    if (p.multipleSearch === false) {
+                        $(".add-rule", "#" + fid).hide();
+                        $(".delete-rule", "#" + fid).hide();
+                    }
                     if ($.isFunction(p.onInitializeSearch)) {
                         p.onInitializeSearch($("#" + fid));
                     }
@@ -5868,7 +5201,7 @@ jQuery.fn.extend(
                             nm = this.name;
                             opt = $.extend({}, this.editoptions || {});
                             fld = $("#" + $.jgrid.jqID(nm), "#" + fmid);
-                            if (fld[0] != null) {
+                            if (fld[0] !== null) {
                                 vl = "";
                                 if (opt.defaultValue) {
                                     vl = $.isFunction(opt.defaultValue) ? opt.defaultValue() : opt.defaultValue;
@@ -6048,7 +5381,6 @@ jQuery.fn.extend(
                         }
                         delete postdata[$t.p.id + "_id"];
                         postdata = $.extend(postdata, rp_ge.editData, onCS);
-
                         if ($t.p.restful) {
                             rp_ge.mtype = postdata.id == "_empty" ? "POST" : "PUT";
                             rp_ge.url = postdata.id == "_empty" ? $t.p.url : $t.p.url + "/" + postdata.id;
@@ -6234,7 +5566,7 @@ jQuery.fn.extend(
                 }
 
                 function restoreInline() {
-                    if (rowid !== "_empty" && typeof($t.p.savedRow) !== "undefined" && $t.p.savedRow.length > 0 && $.isFunction($.fn.jqGrid['restoreRow'])) {
+                    if (rowid !== "_empty" && typeof($t.p.savedRow) !== "undefined" && $t.p.savedRow.length > 0 && $.isFunction($.fn.jqGrid.restoreRow)) {
                         for (var i = 0; i < $t.p.savedRow.length; i++) {
                             if ($t.p.savedRow[i].id == rowid) {
                                 $($t).jqGrid('restoreRow', rowid);
@@ -6244,7 +5576,27 @@ jQuery.fn.extend(
                     }
                 }
 
-                if ($("#" + IDs.themodal).html() != null) {
+                function updateNav(cr, totr) {
+                    if (cr === 0) {
+                        $("#pData", "#" + frmtb + "_2").addClass('ui-state-disabled');
+                    } else {
+                        $("#pData", "#" + frmtb + "_2").removeClass('ui-state-disabled');
+                    }
+                    if (cr == totr) {
+                        $("#nData", "#" + frmtb + "_2").addClass('ui-state-disabled');
+                    } else {
+                        $("#nData", "#" + frmtb + "_2").removeClass('ui-state-disabled');
+                    }
+                }
+
+                function getCurrPos() {
+                    var rowsInGrid = $($t).jqGrid("getDataIDs"),
+                            selrow = $("#id_g", "#" + frmtb).val(),
+                            pos = $.inArray(selrow, rowsInGrid);
+                    return [pos,rowsInGrid];
+                }
+
+                if ($("#" + IDs.themodal).html() !== null) {
                     if (onBeforeInit) {
                         showFrm = onBeforeInit($("#" + frmgr));
                         if (typeof(showFrm) == "undefined") {
@@ -6578,26 +5930,6 @@ jQuery.fn.extend(
                         return false;
                     });
                 }
-                function updateNav(cr, totr, rid) {
-                    if (cr === 0) {
-                        $("#pData", "#" + frmtb + "_2").addClass('ui-state-disabled');
-                    } else {
-                        $("#pData", "#" + frmtb + "_2").removeClass('ui-state-disabled');
-                    }
-                    if (cr == totr) {
-                        $("#nData", "#" + frmtb + "_2").addClass('ui-state-disabled');
-                    } else {
-                        $("#nData", "#" + frmtb + "_2").removeClass('ui-state-disabled');
-                    }
-                }
-
-                function getCurrPos() {
-                    var rowsInGrid = $($t).jqGrid("getDataIDs"),
-                            selrow = $("#id_g", "#" + frmtb).val(),
-                            pos = $.inArray(selrow, rowsInGrid);
-                    return [pos,rowsInGrid];
-                }
-
                 var posInit = getCurrPos();
                 updateNav(posInit[0], posInit[1].length - 1);
 
@@ -6762,7 +6094,27 @@ jQuery.fn.extend(
                     }
                 }
 
-                if ($("#" + IDs.themodal).html() != null) {
+                function updateNav(cr, totr) {
+                    if (cr === 0) {
+                        $("#pData", "#" + frmtb + "_2").addClass('ui-state-disabled');
+                    } else {
+                        $("#pData", "#" + frmtb + "_2").removeClass('ui-state-disabled');
+                    }
+                    if (cr == totr) {
+                        $("#nData", "#" + frmtb + "_2").addClass('ui-state-disabled');
+                    } else {
+                        $("#nData", "#" + frmtb + "_2").removeClass('ui-state-disabled');
+                    }
+                }
+
+                function getCurrPos() {
+                    var rowsInGrid = $($t).jqGrid("getDataIDs"),
+                            selrow = $("#id_g", "#" + frmtb).val(),
+                            pos = $.inArray(selrow, rowsInGrid);
+                    return [pos,rowsInGrid];
+                }
+
+                if ($("#" + IDs.themodal).html() !== null) {
                     if (onBeforeInit) {
                         showFrm = onBeforeInit($("#" + frmgr));
                         if (typeof(showFrm) == "undefined") {
@@ -6919,26 +6271,6 @@ jQuery.fn.extend(
                         return false;
                     });
                 }
-                function updateNav(cr, totr, rid) {
-                    if (cr === 0) {
-                        $("#pData", "#" + frmtb + "_2").addClass('ui-state-disabled');
-                    } else {
-                        $("#pData", "#" + frmtb + "_2").removeClass('ui-state-disabled');
-                    }
-                    if (cr == totr) {
-                        $("#nData", "#" + frmtb + "_2").addClass('ui-state-disabled');
-                    } else {
-                        $("#nData", "#" + frmtb + "_2").removeClass('ui-state-disabled');
-                    }
-                }
-
-                function getCurrPos() {
-                    var rowsInGrid = $($t).jqGrid("getDataIDs"),
-                            selrow = $("#id_g", "#" + frmtb).val(),
-                            pos = $.inArray(selrow, rowsInGrid);
-                    return [pos,rowsInGrid];
-                }
-
                 var posInit = getCurrPos();
                 updateNav(posInit[0], posInit[1].length - 1);
             });
@@ -6993,7 +6325,7 @@ jQuery.fn.extend(
                 if (jQuery.isArray(rowids)) {
                     rowids = rowids.join();
                 }
-                if ($("#" + IDs.themodal).html() != null) {
+                if ($("#" + IDs.themodal).html() !== null) {
                     if (onBeforeInit) {
                         showFrm = onBeforeInit($("#" + dtbl));
                         if (typeof(showFrm) == "undefined") {
@@ -7079,7 +6411,6 @@ jQuery.fn.extend(
                             postd[oper] = opers.deloper;
                             idname = opers.id;
                             postd[idname] = postdata;
-
                             if ($t.p.restful) {
                                 p.mtype = "DELETE";
                                 rp_ge.url = $t.p.url + "/" + postdata;
@@ -7437,6 +6768,7 @@ jQuery.fn.extend(
                                         $t.p.search = false;
                                         try {
                                             var gID = $t.p.id;
+                                            $t.p.postData.filters = "";
                                             $("#fbox_" + gID).jqFilter('resetFilter');
                                             if ($.isFunction($t.clearToolbar)) {
                                                 $t.clearToolbar(false);
@@ -7509,7 +6841,7 @@ jQuery.fn.extend(
                 }
                 var findnav = $(".navtable", elem)[0], $t = this;
                 if (findnav) {
-                    if (p.id && $("#" + p.id, findnav).html() != null) {
+                    if (p.id && $("#" + p.id, findnav).html() !== null) {
                         return;
                     }
                     var tbd = $("<td></td>");
@@ -9642,7 +8974,6 @@ jQuery.fn.extend(
     });
 })(jQuery);
 
-;
 (function($) {
     /**
      * jqGrid extension for custom methods
@@ -9652,6 +8983,8 @@ jQuery.fn.extend(
      * http://www.opensource.org/licenses/mit-license.php
      * http://www.gnu.org/licenses/gpl-2.0.html
      **/
+    /*global jQuery, $ */
+
     $.jgrid.extend({
         getColProp : function(colname) {
             var ret = {}, $t = this[0];
@@ -9797,449 +9130,6 @@ jQuery.fn.extend(
 
             });
         },
-        updateGridRows : function (data, rowidname, jsonreader) {
-            var nm, success = false, title;
-            this.each(function() {
-                var t = this, vl, ind, srow, sid;
-                if (!t.grid) {
-                    return false;
-                }
-                if (!rowidname) {
-                    rowidname = "id";
-                }
-                if (data && data.length > 0) {
-                    $(data).each(function(j) {
-                        srow = this;
-                        ind = t.rows.namedItem(srow[rowidname]);
-                        if (ind) {
-                            sid = srow[rowidname];
-                            if (jsonreader === true) {
-                                if (t.p.jsonReader.repeatitems === true) {
-                                    if (t.p.jsonReader.cell) {
-                                        srow = srow[t.p.jsonReader.cell];
-                                    }
-                                    for (var k = 0; k < srow.length; k++) {
-                                        vl = t.formatter(sid, srow[k], k, srow, 'edit');
-                                        title = t.p.colModel[k].title ? {"title":$.jgrid.stripHtml(vl)} : {};
-                                        if (t.p.treeGrid === true && nm == t.p.ExpandColumn) {
-                                            $("td:eq(" + k + ") > span:first", ind).html(vl).attr(title);
-                                        } else {
-                                            $("td:eq(" + k + ")", ind).html(vl).attr(title);
-                                        }
-                                    }
-                                    success = true;
-                                    return true;
-                                }
-                            }
-                            $(t.p.colModel).each(function(i) {
-                                nm = jsonreader === true ? this.jsonmap || this.name : this.name;
-                                if (srow[nm] !== undefined) {
-                                    vl = t.formatter(sid, srow[nm], i, srow, 'edit');
-                                    title = this.title ? {"title":$.jgrid.stripHtml(vl)} : {};
-                                    if (t.p.treeGrid === true && nm == t.p.ExpandColumn) {
-                                        $("td:eq(" + i + ") > span:first", ind).html(vl).attr(title);
-                                    } else {
-                                        $("td:eq(" + i + ")", ind).html(vl).attr(title);
-                                    }
-                                    success = true;
-                                }
-                            });
-                        }
-                    });
-                }
-            });
-            return success;
-        },
-        filterGrid : function(gridid, p) {
-            p = $.extend({
-                gridModel : false,
-                gridNames : false,
-                gridToolbar : false,
-                filterModel: [], // label/name/stype/defval/surl/sopt
-                formtype : "horizontal", // horizontal/vertical
-                autosearch: true, // if set to false a serch button should be enabled.
-                formclass: "filterform",
-                tableclass: "filtertable",
-                buttonclass: "filterbutton",
-                searchButton: "Search",
-                clearButton: "Clear",
-                enableSearch : false,
-                enableClear: false,
-                beforeSearch: null,
-                afterSearch: null,
-                beforeClear: null,
-                afterClear: null,
-                url : '',
-                marksearched: true
-            }, p || {});
-            return this.each(function() {
-                var self = this;
-                this.p = p;
-                if (this.p.filterModel.length === 0 && this.p.gridModel === false) {
-                    alert("No filter is set");
-                    return;
-                }
-                if (!gridid) {
-                    alert("No target grid is set!");
-                    return;
-                }
-                this.p.gridid = gridid.indexOf("#") != -1 ? gridid : "#" + gridid;
-                var gcolMod = $(this.p.gridid).jqGrid("getGridParam", 'colModel');
-                if (gcolMod) {
-                    if (this.p.gridModel === true) {
-                        var thegrid = $(this.p.gridid)[0];
-                        var sh;
-                        // we should use the options search, edittype, editoptions
-                        // additionally surl and defval can be added in grid colModel
-                        $.each(gcolMod, function (i, n) {
-                            var tmpFil = [];
-                            this.search = this.search === false ? false : true;
-                            if (this.editrules && this.editrules.searchhidden === true) {
-                                sh = true;
-                            } else {
-                                if (this.hidden === true) {
-                                    sh = false;
-                                } else {
-                                    sh = true;
-                                }
-                            }
-                            if (this.search === true && sh === true) {
-                                if (self.p.gridNames === true) {
-                                    tmpFil.label = thegrid.p.colNames[i];
-                                } else {
-                                    tmpFil.label = '';
-                                }
-                                tmpFil.name = this.name;
-                                tmpFil.index = this.index || this.name;
-                                // we support only text and selects, so all other to text
-                                tmpFil.stype = this.edittype || 'text';
-                                if (tmpFil.stype != 'select') {
-                                    tmpFil.stype = 'text';
-                                }
-                                tmpFil.defval = this.defval || '';
-                                tmpFil.surl = this.surl || '';
-                                tmpFil.sopt = this.editoptions || {};
-                                tmpFil.width = this.width;
-                                self.p.filterModel.push(tmpFil);
-                            }
-                        });
-                    } else {
-                        $.each(self.p.filterModel, function(i, n) {
-                            for (var j = 0; j < gcolMod.length; j++) {
-                                if (this.name == gcolMod[j].name) {
-                                    this.index = gcolMod[j].index || this.name;
-                                    break;
-                                }
-                            }
-                            if (!this.index) {
-                                this.index = this.name;
-                            }
-                        });
-                    }
-                } else {
-                    alert("Could not get grid colModel");
-                    return;
-                }
-                var triggerSearch = function() {
-                    var sdata = {}, j = 0, v;
-                    var gr = $(self.p.gridid)[0], nm;
-                    gr.p.searchdata = {};
-                    if ($.isFunction(self.p.beforeSearch)) {
-                        self.p.beforeSearch();
-                    }
-                    $.each(self.p.filterModel, function(i, n) {
-                        nm = this.index;
-                        switch (this.stype) {
-                            case 'select' :
-                                v = $("select[name=" + nm + "]", self).val();
-                                if (v) {
-                                    sdata[nm] = v;
-                                    if (self.p.marksearched) {
-                                        $("#jqgh_" + this.name, gr.grid.hDiv).addClass("dirty-cell");
-                                    }
-                                    j++;
-                                } else {
-                                    if (self.p.marksearched) {
-                                        $("#jqgh_" + this.name, gr.grid.hDiv).removeClass("dirty-cell");
-                                    }
-                                    try {
-                                        delete gr.p.postData[this.index];
-                                    } catch (e) {
-                                    }
-                                }
-                                break;
-                            default:
-                                v = $("input[name=" + nm + "]", self).val();
-                                if (v) {
-                                    sdata[nm] = v;
-                                    if (self.p.marksearched) {
-                                        $("#jqgh_" + this.name, gr.grid.hDiv).addClass("dirty-cell");
-                                    }
-                                    j++;
-                                } else {
-                                    if (self.p.marksearched) {
-                                        $("#jqgh_" + this.name, gr.grid.hDiv).removeClass("dirty-cell");
-                                    }
-                                    try {
-                                        delete gr.p.postData[this.index];
-                                    } catch(e) {
-                                    }
-                                }
-                        }
-                    });
-                    var sd = j > 0 ? true : false;
-                    $.extend(gr.p.postData, sdata);
-                    var saveurl;
-                    if (self.p.url) {
-                        saveurl = $(gr).jqGrid("getGridParam", 'url');
-                        $(gr).jqGrid("setGridParam", {url:self.p.url});
-                    }
-                    $(gr).jqGrid("setGridParam", {search:sd}).trigger("reloadGrid", [
-                        {page:1}
-                    ]);
-                    if (saveurl) {
-                        $(gr).jqGrid("setGridParam", {url:saveurl});
-                    }
-                    if ($.isFunction(self.p.afterSearch)) {
-                        self.p.afterSearch();
-                    }
-                };
-                var clearSearch = function() {
-                    var sdata = {}, v, j = 0;
-                    var gr = $(self.p.gridid)[0], nm;
-                    if ($.isFunction(self.p.beforeClear)) {
-                        self.p.beforeClear();
-                    }
-                    $.each(self.p.filterModel, function(i, n) {
-                        nm = this.index;
-                        v = (this.defval) ? this.defval : "";
-                        if (!this.stype) {
-                            this.stype = 'text';
-                        }
-                        switch (this.stype) {
-                            case 'select' :
-                                var v1;
-                                $("select[name=" + nm + "] option", self).each(function (i) {
-                                    if (i === 0) {
-                                        this.selected = true;
-                                    }
-                                    if ($(this).text() == v) {
-                                        this.selected = true;
-                                        v1 = $(this).val();
-                                        return false;
-                                    }
-                                });
-                                if (v1) {
-                                    // post the key and not the text
-                                    sdata[nm] = v1;
-                                    if (self.p.marksearched) {
-                                        $("#jqgh_" + this.name, gr.grid.hDiv).addClass("dirty-cell");
-                                    }
-                                    j++;
-                                } else {
-                                    if (self.p.marksearched) {
-                                        $("#jqgh_" + this.name, gr.grid.hDiv).removeClass("dirty-cell");
-                                    }
-                                    try {
-                                        delete gr.p.postData[this.index];
-                                    } catch (e) {
-                                    }
-                                }
-                                break;
-                            case 'text':
-                                $("input[name=" + nm + "]", self).val(v);
-                                if (v) {
-                                    sdata[nm] = v;
-                                    if (self.p.marksearched) {
-                                        $("#jqgh_" + this.name, gr.grid.hDiv).addClass("dirty-cell");
-                                    }
-                                    j++;
-                                } else {
-                                    if (self.p.marksearched) {
-                                        $("#jqgh_" + this.name, gr.grid.hDiv).removeClass("dirty-cell");
-                                    }
-                                    try {
-                                        delete gr.p.postData[this.index];
-                                    } catch (e) {
-                                    }
-                                }
-                                break;
-                        }
-                    });
-                    var sd = j > 0 ? true : false;
-                    $.extend(gr.p.postData, sdata);
-                    var saveurl;
-                    if (self.p.url) {
-                        saveurl = $(gr).jqGrid("getGridParam", 'url');
-                        $(gr).jqGrid("setGridParam", {url:self.p.url});
-                    }
-                    $(gr).jqGrid("setGridParam", {search:sd}).trigger("reloadGrid", [
-                        {page:1}
-                    ]);
-                    if (saveurl) {
-                        $(gr).jqGrid("setGridParam", {url:saveurl});
-                    }
-                    if ($.isFunction(self.p.afterClear)) {
-                        self.p.afterClear();
-                    }
-                };
-                var tbl;
-                var formFill = function() {
-                    var tr = document.createElement("tr");
-                    var tr1, sb, cb,tl,td;
-                    if (self.p.formtype == 'horizontal') {
-                        $(tbl).append(tr);
-                    }
-                    $.each(self.p.filterModel, function(i, n) {
-                        tl = document.createElement("td");
-                        $(tl).append("<label for='" + this.name + "'>" + this.label + "</label>");
-                        td = document.createElement("td");
-                        var $t = this;
-                        if (!this.stype) {
-                            this.stype = 'text';
-                        }
-                        switch (this.stype) {
-                            case "select":
-                                if (this.surl) {
-                                    // data returned should have already constructed html select
-                                    $(td).load(this.surl, function() {
-                                        if ($t.defval) {
-                                            $("select", this).val($t.defval);
-                                        }
-                                        $("select", this).attr({name:$t.index || $t.name, id: "sg_" + $t.name});
-                                        if ($t.sopt) {
-                                            $("select", this).attr($t.sopt);
-                                        }
-                                        if (self.p.gridToolbar === true && $t.width) {
-                                            $("select", this).width($t.width);
-                                        }
-                                        if (self.p.autosearch === true) {
-                                            $("select", this).change(function(e) {
-                                                triggerSearch();
-                                                return false;
-                                            });
-                                        }
-                                    });
-                                } else {
-                                    // sopt to construct the values
-                                    if ($t.sopt.value) {
-                                        var oSv = $t.sopt.value;
-                                        var elem = document.createElement("select");
-                                        $(elem).attr({name:$t.index || $t.name, id: "sg_" + $t.name}).attr($t.sopt);
-                                        var so, sv, ov;
-                                        if (typeof oSv === "string") {
-                                            so = oSv.split(";");
-                                            for (var k = 0; k < so.length; k++) {
-                                                sv = so[k].split(":");
-                                                ov = document.createElement("option");
-                                                ov.value = sv[0];
-                                                ov.innerHTML = sv[1];
-                                                if (sv[1] == $t.defval) {
-                                                    ov.selected = "selected";
-                                                }
-                                                elem.appendChild(ov);
-                                            }
-                                        } else if (typeof oSv === "object") {
-                                            for (var key in oSv) {
-                                                if (oSv.hasOwnProperty(key)) {
-                                                    i++;
-                                                    ov = document.createElement("option");
-                                                    ov.value = key;
-                                                    ov.innerHTML = oSv[key];
-                                                    if (oSv[key] == $t.defval) {
-                                                        ov.selected = "selected";
-                                                    }
-                                                    elem.appendChild(ov);
-                                                }
-                                            }
-                                        }
-                                        if (self.p.gridToolbar === true && $t.width) {
-                                            $(elem).width($t.width);
-                                        }
-                                        $(td).append(elem);
-                                        if (self.p.autosearch === true) {
-                                            $(elem).change(function(e) {
-                                                triggerSearch();
-                                                return false;
-                                            });
-                                        }
-                                    }
-                                }
-                                break;
-                            case 'text':
-                                var df = this.defval ? this.defval : "";
-                                $(td).append("<input type='text' name='" + (this.index || this.name) + "' id='sg_" + this.name + "' value='" + df + "'/>");
-                                if ($t.sopt) {
-                                    $("input", td).attr($t.sopt);
-                                }
-                                if (self.p.gridToolbar === true && $t.width) {
-                                    if ($.browser.msie) {
-                                        $("input", td).width($t.width - 4);
-                                    } else {
-                                        $("input", td).width($t.width - 2);
-                                    }
-                                }
-                                if (self.p.autosearch === true) {
-                                    $("input", td).keypress(function(e) {
-                                        var key = e.charCode ? e.charCode : e.keyCode ? e.keyCode : 0;
-                                        if (key == 13) {
-                                            triggerSearch();
-                                            return false;
-                                        }
-                                        return this;
-                                    });
-                                }
-                                break;
-                        }
-                        if (self.p.formtype == 'horizontal') {
-                            if (self.p.gridToolbar === true && self.p.gridNames === false) {
-                                $(tr).append(td);
-                            } else {
-                                $(tr).append(tl).append(td);
-                            }
-                            $(tr).append(td);
-                        } else {
-                            tr1 = document.createElement("tr");
-                            $(tr1).append(tl).append(td);
-                            $(tbl).append(tr1);
-                        }
-                    });
-                    td = document.createElement("td");
-                    if (self.p.enableSearch === true) {
-                        sb = "<input type='button' id='sButton' class='" + self.p.buttonclass + "' value='" + self.p.searchButton + "'/>";
-                        $(td).append(sb);
-                        $("input#sButton", td).click(function() {
-                            triggerSearch();
-                            return false;
-                        });
-                    }
-                    if (self.p.enableClear === true) {
-                        cb = "<input type='button' id='cButton' class='" + self.p.buttonclass + "' value='" + self.p.clearButton + "'/>";
-                        $(td).append(cb);
-                        $("input#cButton", td).click(function() {
-                            clearSearch();
-                            return false;
-                        });
-                    }
-                    if (self.p.enableClear === true || self.p.enableSearch === true) {
-                        if (self.p.formtype == 'horizontal') {
-                            $(tr).append(td);
-                        } else {
-                            tr1 = document.createElement("tr");
-                            $(tr1).append("<td>&#160;</td>").append(td);
-                            $(tbl).append(tr1);
-                        }
-                    }
-                };
-                var frm = $("<form name='SearchForm' style=display:inline;' class='" + this.p.formclass + "'></form>");
-                tbl = $("<table class='" + this.p.tableclass + "' cellspacing='0' cellpading='0' border='0'><tbody></tbody></table>");
-                $(frm).append(tbl);
-                formFill();
-                $(this).append(frm);
-                this.triggerSearch = triggerSearch;
-                this.clearSearch = clearSearch;
-            });
-        },
         filterToolbar : function(p) {
             p = $.extend({
                 autosearch: true,
@@ -10287,7 +9177,7 @@ jQuery.fn.extend(
                                 } else {
                                     try {
                                         delete $t.p.postData[nm];
-                                    } catch (e) {
+                                    } catch (z) {
                                     }
                                 }
                                 break;
@@ -10376,7 +9266,7 @@ jQuery.fn.extend(
                                 } else {
                                     try {
                                         delete $t.p.postData[nm];
-                                    } catch (e) {
+                                    } catch (y) {
                                     }
                                 }
                                 break;
@@ -10626,88 +9516,6 @@ jQuery.fn.extend(
     });
 })(jQuery);
 
-;
-(function($) {
-    /**
-     * jqGrid extension
-     * Paul Tiseo ptiseo@wasteconsultants.com
-     *
-     * Dual licensed under the MIT and GPL licenses:
-     * http://www.opensource.org/licenses/mit-license.php
-     * http://www.gnu.org/licenses/gpl-2.0.html
-     **/
-    $.jgrid.extend({
-        getPostData : function() {
-            var $t = this[0];
-            if (!$t.grid) {
-                return;
-            }
-            return $t.p.postData;
-        },
-        setPostData : function(newdata) {
-            var $t = this[0];
-            if (!$t.grid) {
-                return;
-            }
-            // check if newdata is correct type
-            if (typeof(newdata) === 'object') {
-                $t.p.postData = newdata;
-            }
-            else {
-                alert("Error: cannot add a non-object postData value. postData unchanged.");
-            }
-        },
-        appendPostData : function(newdata) {
-            var $t = this[0];
-            if (!$t.grid) {
-                return;
-            }
-            // check if newdata is correct type
-            if (typeof(newdata) === 'object') {
-                $.extend($t.p.postData, newdata);
-            }
-            else {
-                alert("Error: cannot append a non-object postData value. postData unchanged.");
-            }
-        },
-        setPostDataItem : function(key, val) {
-            var $t = this[0];
-            if (!$t.grid) {
-                return;
-            }
-            $t.p.postData[key] = val;
-        },
-        getPostDataItem : function(key) {
-            var $t = this[0];
-            if (!$t.grid) {
-                return;
-            }
-            return $t.p.postData[key];
-        },
-        removePostDataItem : function(key) {
-            var $t = this[0];
-            if (!$t.grid) {
-                return;
-            }
-            delete $t.p.postData[key];
-        },
-        getUserData : function() {
-            var $t = this[0];
-            if (!$t.grid) {
-                return;
-            }
-            return $t.p.userData;
-        },
-        getUserDataItem : function(key) {
-            var $t = this[0];
-            if (!$t.grid) {
-                return;
-            }
-            return $t.p.userData[key];
-        }
-    });
-})(jQuery);
-
 /*
  Transform a table to a jqGrid.
  Peter Romianowski <peter.romianowski@optivo.de> 
@@ -10820,150 +9628,6 @@ function tableToGrid(selector, options) {
 }
 ;
 
-
-;
-(function($) {
-    /**
-     * jqGrid extension for manipulating columns properties
-     * Piotr Roznicki roznicki@o2.pl
-     * http://www.roznicki.prv.pl
-     * Dual licensed under the MIT and GPL licenses:
-     * http://www.opensource.org/licenses/mit-license.php
-     * http://www.gnu.org/licenses/gpl-2.0.html
-     **/
-    $.jgrid.extend({
-        setColumns : function(p) {
-            p = $.extend({
-                top : 0,
-                left: 0,
-                width: 200,
-                height: 'auto',
-                dataheight: 'auto',
-                modal: false,
-                drag: true,
-                beforeShowForm: null,
-                afterShowForm: null,
-                afterSubmitForm: null,
-                closeOnEscape : true,
-                ShrinkToFit : false,
-                jqModal : false,
-                saveicon: [true,"left","ui-icon-disk"],
-                closeicon: [true,"left","ui-icon-close"],
-                onClose : null,
-                colnameview : true,
-                closeAfterSubmit : true,
-                updateAfterCheck : false,
-                recreateForm : false
-            }, $.jgrid.col, p || {});
-            return this.each(function() {
-                var $t = this;
-                if (!$t.grid) {
-                    return;
-                }
-                var onBeforeShow = typeof p.beforeShowForm === 'function' ? true : false;
-                var onAfterShow = typeof p.afterShowForm === 'function' ? true : false;
-                var onAfterSubmit = typeof p.afterSubmitForm === 'function' ? true : false;
-                var gID = $t.p.id,
-                        dtbl = "ColTbl_" + gID,
-                        IDs = {themodal:'colmod' + gID,modalhead:'colhd' + gID,modalcontent:'colcnt' + gID, scrollelm: dtbl};
-                if (p.recreateForm === true && $("#" + IDs.themodal).html() != null) {
-                    $("#" + IDs.themodal).remove();
-                }
-                if ($("#" + IDs.themodal).html() != null) {
-                    if (onBeforeShow) {
-                        p.beforeShowForm($("#" + dtbl));
-                    }
-                    $.jgrid.viewModal("#" + IDs.themodal, {gbox:"#gbox_" + gID,jqm:p.jqModal, jqM:false, modal:p.modal});
-                    if (onAfterShow) {
-                        p.afterShowForm($("#" + dtbl));
-                    }
-                } else {
-                    var dh = isNaN(p.dataheight) ? p.dataheight : p.dataheight + "px";
-                    var formdata = "<div id='" + dtbl + "' class='formdata' style='width:100%;overflow:auto;position:relative;height:" + dh + ";'>";
-                    formdata += "<table class='ColTable' cellspacing='1' cellpading='2' border='0'><tbody>";
-                    for (i = 0; i < this.p.colNames.length; i++) {
-                        if (!$t.p.colModel[i].hidedlg) { // added from T. Tomov
-                            formdata += "<tr><td style='white-space: pre;'><input type='checkbox' style='margin-right:5px;' id='col_" + this.p.colModel[i].name + "' class='cbox' value='T' " +
-                                    ((this.p.colModel[i].hidden === false) ? "checked" : "") + "/>" + "<label for='col_" + this.p.colModel[i].name + "'>" + this.p.colNames[i] + ((p.colnameview) ? " (" + this.p.colModel[i].name + ")" : "" ) + "</label></td></tr>";
-                        }
-                    }
-                    formdata += "</tbody></table></div>"
-                    var bS = !p.updateAfterCheck ? "<a href='javascript:void(0)' id='dData' class='fm-button ui-state-default ui-corner-all'>" + p.bSubmit + "</a>" : "",
-                            bC = "<a href='javascript:void(0)' id='eData' class='fm-button ui-state-default ui-corner-all'>" + p.bCancel + "</a>";
-                    formdata += "<table border='0' class='EditTable' id='" + dtbl + "_2'><tbody><tr style='display:block;height:3px;'><td></td></tr><tr><td class='DataTD ui-widget-content'></td></tr><tr><td class='ColButton EditButton'>" + bS + "&#160;" + bC + "</td></tr></tbody></table>";
-                    p.gbox = "#gbox_" + gID;
-                    $.jgrid.createModal(IDs, formdata, p, "#gview_" + $t.p.id, $("#gview_" + $t.p.id)[0]);
-                    if (p.saveicon[0] == true) {
-                        $("#dData", "#" + dtbl + "_2").addClass(p.saveicon[1] == "right" ? 'fm-button-icon-right' : 'fm-button-icon-left')
-                                .append("<span class='ui-icon " + p.saveicon[2] + "'></span>");
-                    }
-                    if (p.closeicon[0] == true) {
-                        $("#eData", "#" + dtbl + "_2").addClass(p.closeicon[1] == "right" ? 'fm-button-icon-right' : 'fm-button-icon-left')
-                                .append("<span class='ui-icon " + p.closeicon[2] + "'></span>");
-                    }
-                    if (!p.updateAfterCheck) {
-                        $("#dData", "#" + dtbl + "_2").click(function(e) {
-                            for (i = 0; i < $t.p.colModel.length; i++) {
-                                if (!$t.p.colModel[i].hidedlg) { // added from T. Tomov
-                                    var nm = $t.p.colModel[i].name.replace(/\./g, "\\.");
-                                    if ($("#col_" + nm, "#" + dtbl).attr("checked")) {
-                                        $($t).jqGrid("showCol", $t.p.colModel[i].name);
-                                        $("#col_" + nm, "#" + dtbl).attr("defaultChecked", true); // Added from T. Tomov IE BUG
-                                    } else {
-                                        $($t).jqGrid("hideCol", $t.p.colModel[i].name);
-                                        $("#col_" + nm, "#" + dtbl).attr("defaultChecked", ""); // Added from T. Tomov IE BUG
-                                    }
-                                }
-                            }
-                            if (p.ShrinkToFit === true) {
-                                $($t).jqGrid("setGridWidth", $t.grid.width - 0.001, true);
-                            }
-                            if (p.closeAfterSubmit) $.jgrid.hideModal("#" + IDs.themodal, {gb:"#gbox_" + gID,jqm:p.jqModal, onClose: p.onClose});
-                            if (onAfterSubmit) {
-                                p.afterSubmitForm($("#" + dtbl));
-                            }
-                            return false;
-                        });
-                    } else {
-                        $(":input", "#" + dtbl).click(function(e) {
-                            var cn = this.id.substr(4);
-                            if (cn) {
-                                if (this.checked) {
-                                    $($t).jqGrid("showCol", cn);
-                                } else {
-                                    $($t).jqGrid("hideCol", cn);
-                                }
-                                if (p.ShrinkToFit === true) {
-                                    $($t).jqGrid("setGridWidth", $t.grid.width - 0.001, true);
-                                }
-                            }
-                            return this;
-                        });
-                    }
-                    $("#eData", "#" + dtbl + "_2").click(function(e) {
-                        $.jgrid.hideModal("#" + IDs.themodal, {gb:"#gbox_" + gID,jqm:p.jqModal, onClose: p.onClose});
-                        return false;
-                    });
-                    $("#dData, #eData", "#" + dtbl + "_2").hover(
-                            function() {
-                                $(this).addClass('ui-state-hover');
-                            },
-                            function() {
-                                $(this).removeClass('ui-state-hover');
-                            }
-                            );
-                    if (onBeforeShow) {
-                        p.beforeShowForm($("#" + dtbl));
-                    }
-                    $.jgrid.viewModal("#" + IDs.themodal, {gbox:"#gbox_" + gID,jqm:p.jqModal, jqM: true, modal:p.modal});
-                    if (onAfterShow) {
-                        p.afterShowForm($("#" + dtbl));
-                    }
-                }
-            });
-        }
-    });
-})(jQuery);
 
 ;
 (function($) {
@@ -12950,6 +11614,949 @@ var xmlJsonClass = {
     });
 })(jQuery);
 
+
+/**
+ * TableDnD plug-in for JQuery, allows you to drag and drop table rows
+ * You can set up various options to control how the system will work
+ * Copyright (c) Denis Howlett <denish@isocra.com>
+ * Licensed like jQuery, see http://docs.jquery.com/License.
+ *
+ * Configuration options:
+ *
+ * onDragStyle
+ *     This is the style that is assigned to the row during drag. There are limitations to the styles that can be
+ *     associated with a row (such as you can't assign a border--well you can, but it won't be
+ *     displayed). (So instead consider using onDragClass.) The CSS style to apply is specified as
+ *     a map (as used in the jQuery css(...) function).
+ * onDropStyle
+ *     This is the style that is assigned to the row when it is dropped. As for onDragStyle, there are limitations
+ *     to what you can do. Also this replaces the original style, so again consider using onDragClass which
+ *     is simply added and then removed on drop.
+ * onDragClass
+ *     This class is added for the duration of the drag and then removed when the row is dropped. It is more
+ *     flexible than using onDragStyle since it can be inherited by the row cells and other content. The default
+ *     is class is tDnD_whileDrag. So to use the default, simply customise this CSS class in your
+ *     stylesheet.
+ * onDrop
+ *     Pass a function that will be called when the row is dropped. The function takes 2 parameters: the table
+ *     and the row that was dropped. You can work out the new order of the rows by using
+ *     table.rows.
+ * onDragStart
+ *     Pass a function that will be called when the user starts dragging. The function takes 2 parameters: the
+ *     table and the row which the user has started to drag.
+ * onAllowDrop
+ *     Pass a function that will be called as a row is over another row. If the function returns true, allow
+ *     dropping on that row, otherwise not. The function takes 2 parameters: the dragged row and the row under
+ *     the cursor. It returns a boolean: true allows the drop, false doesn't allow it.
+ * scrollAmount
+ *     This is the number of pixels to scroll if the user moves the mouse cursor to the top or bottom of the
+ *     window. The page should automatically scroll up or down as appropriate (tested in IE6, IE7, Safari, FF2,
+ *     FF3 beta
+ * dragHandle
+ *     This is the name of a class that you assign to one or more cells in each row that is draggable. If you
+ *     specify this class, then you are responsible for setting cursor: move in the CSS and only these cells
+ *     will have the drag behaviour. If you do not specify a dragHandle, then you get the old behaviour where
+ *     the whole row is draggable.
+ *
+ * Other ways to control behaviour:
+ *
+ * Add class="nodrop" to any rows for which you don't want to allow dropping, and class="nodrag" to any rows
+ * that you don't want to be draggable.
+ *
+ * Inside the onDrop method you can also call $.tableDnD.serialize() this returns a string of the form
+ * <tableID>[]=<rowID1>&<tableID>[]=<rowID2> so that you can send this back to the server. The table must have
+ * an ID as must all the rows.
+ *
+ * Other methods:
+ *
+ * $("...").tableDnDUpdate()
+ * Will update all the matching tables, that is it will reapply the mousedown method to the rows (or handle cells).
+ * This is useful if you have updated the table rows using Ajax and you want to make the table draggable again.
+ * The table maintains the original configuration (so you don't have to specify it again).
+ *
+ * $("...").tableDnDSerialize()
+ * Will serialize and return the serialized string as above, but for each of the matching tables--so it can be
+ * called from anywhere and isn't dependent on the currentTable being set up correctly before calling
+ *
+ * Known problems:
+ * - Auto-scoll has some problems with IE7  (it scrolls even when it shouldn't), work-around: set scrollAmount to 0
+ *
+ * Version 0.2: 2008-02-20 First public version
+ * Version 0.3: 2008-02-07 Added onDragStart option
+ *                         Made the scroll amount configurable (default is 5 as before)
+ * Version 0.4: 2008-03-15 Changed the noDrag/noDrop attributes to nodrag/nodrop classes
+ *                         Added onAllowDrop to control dropping
+ *                         Fixed a bug which meant that you couldn't set the scroll amount in both directions
+ *                         Added serialize method
+ * Version 0.5: 2008-05-16 Changed so that if you specify a dragHandle class it doesn't make the whole row
+ *                         draggable
+ *                         Improved the serialize method to use a default (and settable) regular expression.
+ *                         Added tableDnDupate() and tableDnDSerialize() to be called when you are outside the table
+ */
+jQuery.tableDnD = {
+    /** Keep hold of the current table being dragged */
+    currentTable : null,
+    /** Keep hold of the current drag object if any */
+    dragObject: null,
+    /** The current mouse offset */
+    mouseOffset: null,
+    /** Remember the old value of Y so that we don't do too much processing */
+    oldY: 0,
+
+    /** Actually build the structure */
+    build: function(options) {
+        // Set up the defaults if any
+
+        this.each(function() {
+            // This is bound to each matching table, set up the defaults and override with user options
+            this.tableDnDConfig = jQuery.extend({
+                onDragStyle: null,
+                onDropStyle: null,
+                // Add in the default class for whileDragging
+                onDragClass: "tDnD_whileDrag",
+                onDrop: null,
+                onDragStart: null,
+                scrollAmount: 5,
+                serializeRegexp: /[^\-]*$/, // The regular expression to use to trim row IDs
+                serializeParamName: null, // If you want to specify another parameter name instead of the table ID
+                dragHandle: null // If you give the name of a class here, then only Cells with this class will be draggable
+            }, options || {});
+            // Now make the rows draggable
+            jQuery.tableDnD.makeDraggable(this);
+        });
+
+        // Now we need to capture the mouse up and mouse move event
+        // We can use bind so that we don't interfere with other event handlers
+        jQuery(document)
+                .bind('mousemove', jQuery.tableDnD.mousemove)
+                .bind('mouseup', jQuery.tableDnD.mouseup);
+
+        // Don't break the chain
+        return this;
+    },
+
+    /** This function makes all the rows on the table draggable apart from those marked as "NoDrag" */
+    makeDraggable: function(table) {
+        var config = table.tableDnDConfig;
+        if (table.tableDnDConfig.dragHandle) {
+            // We only need to add the event to the specified cells
+            var cells = jQuery("td." + table.tableDnDConfig.dragHandle, table);
+            cells.each(function() {
+                // The cell is bound to "this"
+                jQuery(this).mousedown(function(ev) {
+                    jQuery.tableDnD.dragObject = this.parentNode;
+                    jQuery.tableDnD.currentTable = table;
+                    jQuery.tableDnD.mouseOffset = jQuery.tableDnD.getMouseOffset(this, ev);
+                    if (config.onDragStart) {
+                        // Call the onDrop method if there is one
+                        config.onDragStart(table, this);
+                    }
+                    return false;
+                });
+            })
+        } else {
+            // For backwards compatibility, we add the event to the whole row
+            var rows = jQuery("tr", table); // get all the rows as a wrapped set
+            rows.each(function() {
+                // Iterate through each row, the row is bound to "this"
+                var row = jQuery(this);
+                if (! row.hasClass("nodrag")) {
+                    row.mousedown(
+                            function(ev) {
+                                if (ev.target.tagName == "TD") {
+                                    jQuery.tableDnD.dragObject = this;
+                                    jQuery.tableDnD.currentTable = table;
+                                    jQuery.tableDnD.mouseOffset = jQuery.tableDnD.getMouseOffset(this, ev);
+                                    if (config.onDragStart) {
+                                        // Call the onDrop method if there is one
+                                        config.onDragStart(table, this);
+                                    }
+                                    return false;
+                                }
+                            }).css("cursor", "move"); // Store the tableDnD object
+                }
+            });
+        }
+    },
+
+    updateTables: function() {
+        this.each(function() {
+            // this is now bound to each matching table
+            if (this.tableDnDConfig) {
+                jQuery.tableDnD.makeDraggable(this);
+            }
+        })
+    },
+
+    /** Get the mouse coordinates from the event (allowing for browser differences) */
+    mouseCoords: function(ev) {
+        if (ev.pageX || ev.pageY) {
+            return {x:ev.pageX, y:ev.pageY};
+        }
+        return {
+            x:ev.clientX + document.body.scrollLeft - document.body.clientLeft,
+            y:ev.clientY + document.body.scrollTop - document.body.clientTop
+        };
+    },
+
+    /** Given a target element and a mouse event, get the mouse offset from that element.
+     To do this we need the element's position and the mouse position */
+    getMouseOffset: function(target, ev) {
+        ev = ev || window.event;
+
+        var docPos = this.getPosition(target);
+        var mousePos = this.mouseCoords(ev);
+        return {x:mousePos.x - docPos.x, y:mousePos.y - docPos.y};
+    },
+
+    /** Get the position of an element by going up the DOM tree and adding up all the offsets */
+    getPosition: function(e) {
+        var left = 0;
+        var top = 0;
+        /** Safari fix -- thanks to Luis Chato for this! */
+        if (e.offsetHeight == 0) {
+            /** Safari 2 doesn't correctly grab the offsetTop of a table row
+             this is detailed here:
+             http://jacob.peargrove.com/blog/2006/technical/table-row-offsettop-bug-in-safari/
+             the solution is likewise noted there, grab the offset of a table cell in the row - the firstChild.
+             note that firefox will return a text node as a first child, so designing a more thorough
+             solution may need to take that into account, for now this seems to work in firefox, safari, ie */
+            e = e.firstChild; // a table cell
+        }
+        if (e && e.offsetParent) {
+            while (e.offsetParent) {
+                left += e.offsetLeft;
+                top += e.offsetTop;
+                e = e.offsetParent;
+            }
+
+            left += e.offsetLeft;
+            top += e.offsetTop;
+        }
+
+        return {x:left, y:top};
+    },
+
+    mousemove: function(ev) {
+        if (jQuery.tableDnD.dragObject == null) {
+            return;
+        }
+
+        var dragObj = jQuery(jQuery.tableDnD.dragObject);
+        var config = jQuery.tableDnD.currentTable.tableDnDConfig;
+        var mousePos = jQuery.tableDnD.mouseCoords(ev);
+        var y = mousePos.y - jQuery.tableDnD.mouseOffset.y;
+        //auto scroll the window
+        var yOffset = window.pageYOffset;
+        if (document.all) {
+            // Windows version
+            //yOffset=document.body.scrollTop;
+            if (typeof document.compatMode != 'undefined' &&
+                    document.compatMode != 'BackCompat') {
+                yOffset = document.documentElement.scrollTop;
+            }
+            else if (typeof document.body != 'undefined') {
+                yOffset = document.body.scrollTop;
+            }
+
+        }
+
+        if (mousePos.y - yOffset < config.scrollAmount) {
+            window.scrollBy(0, -config.scrollAmount);
+        } else {
+            var windowHeight = window.innerHeight ? window.innerHeight
+                    : document.documentElement.clientHeight ? document.documentElement.clientHeight : document.body.clientHeight;
+            if (windowHeight - (mousePos.y - yOffset) < config.scrollAmount) {
+                window.scrollBy(0, config.scrollAmount);
+            }
+        }
+
+
+        if (y != jQuery.tableDnD.oldY) {
+            // work out if we're going up or down...
+            var movingDown = y > jQuery.tableDnD.oldY;
+            // update the old value
+            jQuery.tableDnD.oldY = y;
+            // update the style to show we're dragging
+            if (config.onDragClass) {
+                dragObj.addClass(config.onDragClass);
+            } else {
+                dragObj.css(config.onDragStyle);
+            }
+            // If we're over a row then move the dragged row to there so that the user sees the
+            // effect dynamically
+            var currentRow = jQuery.tableDnD.findDropTargetRow(dragObj, y);
+            if (currentRow) {
+                // TODO worry about what happens when there are multiple TBODIES
+                if (movingDown && jQuery.tableDnD.dragObject != currentRow) {
+                    jQuery.tableDnD.dragObject.parentNode.insertBefore(jQuery.tableDnD.dragObject, currentRow.nextSibling);
+                } else if (! movingDown && jQuery.tableDnD.dragObject != currentRow) {
+                    jQuery.tableDnD.dragObject.parentNode.insertBefore(jQuery.tableDnD.dragObject, currentRow);
+                }
+            }
+        }
+
+        return false;
+    },
+
+    /** We're only worried about the y position really, because we can only move rows up and down */
+    findDropTargetRow: function(draggedRow, y) {
+        var rows = jQuery.tableDnD.currentTable.rows;
+        for (var i = 0; i < rows.length; i++) {
+            var row = rows[i];
+            var rowY = this.getPosition(row).y;
+            var rowHeight = parseInt(row.offsetHeight) / 2;
+            if (row.offsetHeight == 0) {
+                rowY = this.getPosition(row.firstChild).y;
+                rowHeight = parseInt(row.firstChild.offsetHeight) / 2;
+            }
+            // Because we always have to insert before, we need to offset the height a bit
+            if ((y > rowY - rowHeight) && (y < (rowY + rowHeight))) {
+                // that's the row we're over
+                // If it's the same as the current row, ignore it
+                if (row == draggedRow) {
+                    return null;
+                }
+                var config = jQuery.tableDnD.currentTable.tableDnDConfig;
+                if (config.onAllowDrop) {
+                    if (config.onAllowDrop(draggedRow, row)) {
+                        return row;
+                    } else {
+                        return null;
+                    }
+                } else {
+                    // If a row has nodrop class, then don't allow dropping (inspired by John Tarr and Famic)
+                    var nodrop = jQuery(row).hasClass("nodrop");
+                    if (! nodrop) {
+                        return row;
+                    } else {
+                        return null;
+                    }
+                }
+                return row;
+            }
+        }
+        return null;
+    },
+
+    mouseup: function(e) {
+        if (jQuery.tableDnD.currentTable && jQuery.tableDnD.dragObject) {
+            var droppedRow = jQuery.tableDnD.dragObject;
+            var config = jQuery.tableDnD.currentTable.tableDnDConfig;
+            // If we have a dragObject, then we need to release it,
+            // The row will already have been moved to the right place so we just reset stuff
+            if (config.onDragClass) {
+                jQuery(droppedRow).removeClass(config.onDragClass);
+            } else {
+                jQuery(droppedRow).css(config.onDropStyle);
+            }
+            jQuery.tableDnD.dragObject = null;
+            if (config.onDrop) {
+                // Call the onDrop method if there is one
+                config.onDrop(jQuery.tableDnD.currentTable, droppedRow);
+            }
+            jQuery.tableDnD.currentTable = null; // let go of the table too
+        }
+    },
+
+    serialize: function() {
+        if (jQuery.tableDnD.currentTable) {
+            return jQuery.tableDnD.serializeTable(jQuery.tableDnD.currentTable);
+        } else {
+            return "Error: No Table id set, you need to set an id on your table and every row";
+        }
+    },
+
+    serializeTable: function(table) {
+        var result = "";
+        var tableId = table.id;
+        var rows = table.rows;
+        for (var i = 0; i < rows.length; i++) {
+            if (result.length > 0) result += "&";
+            var rowId = rows[i].id;
+            if (rowId && rowId && table.tableDnDConfig && table.tableDnDConfig.serializeRegexp) {
+                rowId = rowId.match(table.tableDnDConfig.serializeRegexp)[0];
+            }
+
+            result += tableId + '[]=' + rowId;
+        }
+        return result;
+    },
+
+    serializeTables: function() {
+        var result = "";
+        this.each(function() {
+            // this is now bound to each matching table
+            result += jQuery.tableDnD.serializeTable(this);
+        });
+        return result;
+    }
+
+}
+
+jQuery.fn.extend(
+{
+    tableDnD : jQuery.tableDnD.build,
+    tableDnDUpdate : jQuery.tableDnD.updateTables,
+    tableDnDSerialize: jQuery.tableDnD.serializeTables
+}
+        );
+
+/*
+ * jQuery UI Multiselect
+ *
+ * Authors:
+ *  Michael Aufreiter (quasipartikel.at)
+ *  Yanick Rochon (yanick.rochon[at]gmail[dot]com)
+ * 
+ * Dual licensed under the MIT (MIT-LICENSE.txt)
+ * and GPL (GPL-LICENSE.txt) licenses.
+ * 
+ * http://www.quasipartikel.at/multiselect/
+ *
+ * 
+ * Depends:
+ *	ui.core.js
+ *	ui.sortable.js
+ *
+ * Optional:
+ * localization (http://plugins.jquery.com/project/localisation)
+ * scrollTo (http://plugins.jquery.com/project/ScrollTo)
+ * 
+ * Todo:
+ *  Make batch actions faster
+ *  Implement dynamic insertion through remote calls
+ */
+
+
+(function($) {
+
+    $.widget("ui.multiselect", {
+        _init: function() {
+            this.element.hide();
+            this.id = this.element.attr("id");
+            this.container = $('<div class="ui-multiselect ui-helper-clearfix ui-widget"></div>').insertAfter(this.element);
+            this.count = 0; // number of currently selected options
+            this.selectedContainer = $('<div class="selected"></div>').appendTo(this.container);
+            this.availableContainer = $('<div class="available"></div>').appendTo(this.container);
+            this.selectedActions = $('<div class="actions ui-widget-header ui-helper-clearfix"><span class="count">0 ' + $.ui.multiselect.locale.itemsCount + '</span><a href="#" class="remove-all">' + $.ui.multiselect.locale.removeAll + '</a></div>').appendTo(this.selectedContainer);
+            this.availableActions = $('<div class="actions ui-widget-header ui-helper-clearfix"><input type="text" class="search empty ui-widget-content ui-corner-all"/><a href="#" class="add-all">' + $.ui.multiselect.locale.addAll + '</a></div>').appendTo(this.availableContainer);
+            this.selectedList = $('<ul class="selected connected-list"><li class="ui-helper-hidden-accessible"></li></ul>').bind('selectstart',
+                    function() {
+                        return false;
+                    }).appendTo(this.selectedContainer);
+            this.availableList = $('<ul class="available connected-list"><li class="ui-helper-hidden-accessible"></li></ul>').bind('selectstart',
+                    function() {
+                        return false;
+                    }).appendTo(this.availableContainer);
+
+            var that = this;
+
+            // set dimensions
+            this.container.width(this.element.width() + 1);
+            this.selectedContainer.width(Math.floor(this.element.width() * this.options.dividerLocation));
+            this.availableContainer.width(Math.floor(this.element.width() * (1 - this.options.dividerLocation)));
+
+            // fix list height to match <option> depending on their individual header's heights
+            this.selectedList.height(Math.max(this.element.height() - this.selectedActions.height(), 1));
+            this.availableList.height(Math.max(this.element.height() - this.availableActions.height(), 1));
+
+            if (!this.options.animated) {
+                this.options.show = 'show';
+                this.options.hide = 'hide';
+            }
+
+            // init lists
+            this._populateLists(this.element.find('option'));
+
+            // make selection sortable
+            if (this.options.sortable) {
+                $("ul.selected").sortable({
+                    placeholder: 'ui-state-highlight',
+                    axis: 'y',
+                    update: function(event, ui) {
+                        // apply the new sort order to the original selectbox
+                        that.selectedList.find('li').each(function() {
+                            if ($(this).data('optionLink'))
+                                $(this).data('optionLink').remove().appendTo(that.element);
+                        });
+                    },
+                    receive: function(event, ui) {
+                        ui.item.data('optionLink').attr('selected', true);
+                        // increment count
+                        that.count += 1;
+                        that._updateCount();
+                        // workaround, because there's no way to reference
+                        // the new element, see http://dev.jqueryui.com/ticket/4303
+                        that.selectedList.children('.ui-draggable').each(function() {
+                            $(this).removeClass('ui-draggable');
+                            $(this).data('optionLink', ui.item.data('optionLink'));
+                            $(this).data('idx', ui.item.data('idx'));
+                            that._applyItemState($(this), true);
+                        });
+
+                        // workaround according to http://dev.jqueryui.com/ticket/4088
+                        setTimeout(function() {
+                            ui.item.remove();
+                        }, 1);
+                    }
+                });
+            }
+
+            // set up livesearch
+            if (this.options.searchable) {
+                this._registerSearchEvents(this.availableContainer.find('input.search'));
+            } else {
+                $('.search').hide();
+            }
+
+            // batch actions
+            $(".remove-all").click(function() {
+                that._populateLists(that.element.find('option').removeAttr('selected'));
+                return false;
+            });
+            $(".add-all").click(function() {
+                that._populateLists(that.element.find('option').attr('selected', 'selected'));
+                return false;
+            });
+        },
+        destroy: function() {
+            this.element.show();
+            this.container.remove();
+
+            $.widget.prototype.destroy.apply(this, arguments);
+        },
+        _populateLists: function(options) {
+            this.selectedList.children('.ui-element').remove();
+            this.availableList.children('.ui-element').remove();
+            this.count = 0;
+
+            var that = this;
+            var items = $(options.map(function(i) {
+                var item = that._getOptionNode(this).appendTo(this.selected ? that.selectedList : that.availableList).show();
+
+                if (this.selected) that.count += 1;
+                that._applyItemState(item, this.selected);
+                item.data('idx', i);
+                return item[0];
+            }));
+
+            // update count
+            this._updateCount();
+        },
+        _updateCount: function() {
+            this.selectedContainer.find('span.count').text(this.count + " " + $.ui.multiselect.locale.itemsCount);
+        },
+        _getOptionNode: function(option) {
+            option = $(option);
+            var node = $('<li class="ui-state-default ui-element" title="' + option.text() + '"><span class="ui-icon"/>' + option.text() + '<a href="#" class="action"><span class="ui-corner-all ui-icon"/></a></li>').hide();
+            node.data('optionLink', option);
+            return node;
+        },
+        // clones an item with associated data
+        // didn't find a smarter away around this
+        _cloneWithData: function(clonee) {
+            var clone = clonee.clone();
+            clone.data('optionLink', clonee.data('optionLink'));
+            clone.data('idx', clonee.data('idx'));
+            return clone;
+        },
+        _setSelected: function(item, selected) {
+            item.data('optionLink').attr('selected', selected);
+
+            if (selected) {
+                var selectedItem = this._cloneWithData(item);
+                item[this.options.hide](this.options.animated, function() {
+                    $(this).remove();
+                });
+                selectedItem.appendTo(this.selectedList).hide()[this.options.show](this.options.animated);
+
+                this._applyItemState(selectedItem, true);
+                return selectedItem;
+            } else {
+
+                // look for successor based on initial option index
+                var items = this.availableList.find('li'), comparator = this.options.nodeComparator;
+                var succ = null, i = item.data('idx'), direction = comparator(item, $(items[i]));
+
+                // TODO: test needed for dynamic list populating
+                if (direction) {
+                    while (i >= 0 && i < items.length) {
+                        direction > 0 ? i++ : i--;
+                        if (direction != comparator(item, $(items[i]))) {
+                            // going up, go back one item down, otherwise leave as is
+                            succ = items[direction > 0 ? i : i + 1];
+                            break;
+                        }
+                    }
+                } else {
+                    succ = items[i];
+                }
+
+                var availableItem = this._cloneWithData(item);
+                succ ? availableItem.insertBefore($(succ)) : availableItem.appendTo(this.availableList);
+                item[this.options.hide](this.options.animated, function() {
+                    $(this).remove();
+                });
+                availableItem.hide()[this.options.show](this.options.animated);
+
+                this._applyItemState(availableItem, false);
+                return availableItem;
+            }
+        },
+        _applyItemState: function(item, selected) {
+            if (selected) {
+                if (this.options.sortable)
+                    item.children('span').addClass('ui-icon-arrowthick-2-n-s').removeClass('ui-helper-hidden').addClass('ui-icon');
+                else
+                    item.children('span').removeClass('ui-icon-arrowthick-2-n-s').addClass('ui-helper-hidden').removeClass('ui-icon');
+                item.find('a.action span').addClass('ui-icon-minus').removeClass('ui-icon-plus');
+                this._registerRemoveEvents(item.find('a.action'));
+
+            } else {
+                item.children('span').removeClass('ui-icon-arrowthick-2-n-s').addClass('ui-helper-hidden').removeClass('ui-icon');
+                item.find('a.action span').addClass('ui-icon-plus').removeClass('ui-icon-minus');
+                this._registerAddEvents(item.find('a.action'));
+            }
+
+            this._registerHoverEvents(item);
+        },
+        // taken from John Resig's liveUpdate script
+        _filter: function(list) {
+            var input = $(this);
+            var rows = list.children('li'),
+                    cache = rows.map(function() {
+
+                        return $(this).text().toLowerCase();
+                    });
+
+            var term = $.trim(input.val().toLowerCase()), scores = [];
+
+            if (!term) {
+                rows.show();
+            } else {
+                rows.hide();
+
+                cache.each(function(i) {
+                    if (this.indexOf(term) > -1) {
+                        scores.push(i);
+                    }
+                });
+
+                $.each(scores, function() {
+                    $(rows[this]).show();
+                });
+            }
+        },
+        _registerHoverEvents: function(elements) {
+            elements.removeClass('ui-state-hover');
+            elements.mouseover(function() {
+                $(this).addClass('ui-state-hover');
+            });
+            elements.mouseout(function() {
+                $(this).removeClass('ui-state-hover');
+            });
+        },
+        _registerAddEvents: function(elements) {
+            var that = this;
+            elements.click(function() {
+                var item = that._setSelected($(this).parent(), true);
+                that.count += 1;
+                that._updateCount();
+                return false;
+            })
+                // make draggable
+                    .each(function() {
+                $(this).parent().draggable({
+                    connectToSortable: 'ul.selected',
+                    helper: function() {
+                        var selectedItem = that._cloneWithData($(this)).width($(this).width() - 50);
+                        selectedItem.width($(this).width());
+                        return selectedItem;
+                    },
+                    appendTo: '.ui-multiselect',
+                    containment: '.ui-multiselect',
+                    revert: 'invalid'
+                });
+            });
+        },
+        _registerRemoveEvents: function(elements) {
+            var that = this;
+            elements.click(function() {
+                that._setSelected($(this).parent(), false);
+                that.count -= 1;
+                that._updateCount();
+                return false;
+            });
+        },
+        _registerSearchEvents: function(input) {
+            var that = this;
+
+            input.focus(function() {
+                $(this).addClass('ui-state-active');
+            })
+                    .blur(function() {
+                $(this).removeClass('ui-state-active');
+            })
+                    .keypress(function(e) {
+                if (e.keyCode == 13)
+                    return false;
+            })
+                    .keyup(function() {
+                that._filter.apply(this, [that.availableList]);
+            });
+        }
+    });
+
+    $.extend($.ui.multiselect, {
+        defaults: {
+            sortable: true,
+            searchable: true,
+            animated: 'fast',
+            show: 'slideDown',
+            hide: 'slideUp',
+            dividerLocation: 0.6,
+            nodeComparator: function(node1, node2) {
+                var text1 = node1.text(),
+                        text2 = node2.text();
+                return text1 == text2 ? 0 : (text1 < text2 ? -1 : 1);
+            }
+        },
+        locale: {
+            addAll:'Add all',
+            removeAll:'Remove all',
+            itemsCount:'items selected'
+        }
+    });
+
+})(jQuery);
+
+
+;
+(function($) {
+    /**
+     * jqGrid extension
+     * Paul Tiseo ptiseo@wasteconsultants.com
+     *
+     * Dual licensed under the MIT and GPL licenses:
+     * http://www.opensource.org/licenses/mit-license.php
+     * http://www.gnu.org/licenses/gpl-2.0.html
+     **/
+    $.jgrid.extend({
+        getPostData : function() {
+            var $t = this[0];
+            if (!$t.grid) {
+                return;
+            }
+            return $t.p.postData;
+        },
+        setPostData : function(newdata) {
+            var $t = this[0];
+            if (!$t.grid) {
+                return;
+            }
+            // check if newdata is correct type
+            if (typeof(newdata) === 'object') {
+                $t.p.postData = newdata;
+            }
+            else {
+                alert("Error: cannot add a non-object postData value. postData unchanged.");
+            }
+        },
+        appendPostData : function(newdata) {
+            var $t = this[0];
+            if (!$t.grid) {
+                return;
+            }
+            // check if newdata is correct type
+            if (typeof(newdata) === 'object') {
+                $.extend($t.p.postData, newdata);
+            }
+            else {
+                alert("Error: cannot append a non-object postData value. postData unchanged.");
+            }
+        },
+        setPostDataItem : function(key, val) {
+            var $t = this[0];
+            if (!$t.grid) {
+                return;
+            }
+            $t.p.postData[key] = val;
+        },
+        getPostDataItem : function(key) {
+            var $t = this[0];
+            if (!$t.grid) {
+                return;
+            }
+            return $t.p.postData[key];
+        },
+        removePostDataItem : function(key) {
+            var $t = this[0];
+            if (!$t.grid) {
+                return;
+            }
+            delete $t.p.postData[key];
+        },
+        getUserData : function() {
+            var $t = this[0];
+            if (!$t.grid) {
+                return;
+            }
+            return $t.p.userData;
+        },
+        getUserDataItem : function(key) {
+            var $t = this[0];
+            if (!$t.grid) {
+                return;
+            }
+            return $t.p.userData[key];
+        }
+    });
+})(jQuery);
+
+;
+(function($) {
+    /**
+     * jqGrid extension for manipulating columns properties
+     * Piotr Roznicki roznicki@o2.pl
+     * http://www.roznicki.prv.pl
+     * Dual licensed under the MIT and GPL licenses:
+     * http://www.opensource.org/licenses/mit-license.php
+     * http://www.gnu.org/licenses/gpl-2.0.html
+     **/
+    $.jgrid.extend({
+        setColumns : function(p) {
+            p = $.extend({
+                top : 0,
+                left: 0,
+                width: 200,
+                height: 'auto',
+                dataheight: 'auto',
+                modal: false,
+                drag: true,
+                beforeShowForm: null,
+                afterShowForm: null,
+                afterSubmitForm: null,
+                closeOnEscape : true,
+                ShrinkToFit : false,
+                jqModal : false,
+                saveicon: [true,"left","ui-icon-disk"],
+                closeicon: [true,"left","ui-icon-close"],
+                onClose : null,
+                colnameview : true,
+                closeAfterSubmit : true,
+                updateAfterCheck : false,
+                recreateForm : false
+            }, $.jgrid.col, p || {});
+            return this.each(function() {
+                var $t = this;
+                if (!$t.grid) {
+                    return;
+                }
+                var onBeforeShow = typeof p.beforeShowForm === 'function' ? true : false;
+                var onAfterShow = typeof p.afterShowForm === 'function' ? true : false;
+                var onAfterSubmit = typeof p.afterSubmitForm === 'function' ? true : false;
+                var gID = $t.p.id,
+                        dtbl = "ColTbl_" + gID,
+                        IDs = {themodal:'colmod' + gID,modalhead:'colhd' + gID,modalcontent:'colcnt' + gID, scrollelm: dtbl};
+                if (p.recreateForm === true && $("#" + IDs.themodal).html() != null) {
+                    $("#" + IDs.themodal).remove();
+                }
+                if ($("#" + IDs.themodal).html() != null) {
+                    if (onBeforeShow) {
+                        p.beforeShowForm($("#" + dtbl));
+                    }
+                    $.jgrid.viewModal("#" + IDs.themodal, {gbox:"#gbox_" + gID,jqm:p.jqModal, jqM:false, modal:p.modal});
+                    if (onAfterShow) {
+                        p.afterShowForm($("#" + dtbl));
+                    }
+                } else {
+                    var dh = isNaN(p.dataheight) ? p.dataheight : p.dataheight + "px";
+                    var formdata = "<div id='" + dtbl + "' class='formdata' style='width:100%;overflow:auto;position:relative;height:" + dh + ";'>";
+                    formdata += "<table class='ColTable' cellspacing='1' cellpading='2' border='0'><tbody>";
+                    for (i = 0; i < this.p.colNames.length; i++) {
+                        if (!$t.p.colModel[i].hidedlg) { // added from T. Tomov
+                            formdata += "<tr><td style='white-space: pre;'><input type='checkbox' style='margin-right:5px;' id='col_" + this.p.colModel[i].name + "' class='cbox' value='T' " +
+                                    ((this.p.colModel[i].hidden === false) ? "checked" : "") + "/>" + "<label for='col_" + this.p.colModel[i].name + "'>" + this.p.colNames[i] + ((p.colnameview) ? " (" + this.p.colModel[i].name + ")" : "" ) + "</label></td></tr>";
+                        }
+                    }
+                    formdata += "</tbody></table></div>"
+                    var bS = !p.updateAfterCheck ? "<a href='javascript:void(0)' id='dData' class='fm-button ui-state-default ui-corner-all'>" + p.bSubmit + "</a>" : "",
+                            bC = "<a href='javascript:void(0)' id='eData' class='fm-button ui-state-default ui-corner-all'>" + p.bCancel + "</a>";
+                    formdata += "<table border='0' class='EditTable' id='" + dtbl + "_2'><tbody><tr style='display:block;height:3px;'><td></td></tr><tr><td class='DataTD ui-widget-content'></td></tr><tr><td class='ColButton EditButton'>" + bS + "&#160;" + bC + "</td></tr></tbody></table>";
+                    p.gbox = "#gbox_" + gID;
+                    $.jgrid.createModal(IDs, formdata, p, "#gview_" + $t.p.id, $("#gview_" + $t.p.id)[0]);
+                    if (p.saveicon[0] == true) {
+                        $("#dData", "#" + dtbl + "_2").addClass(p.saveicon[1] == "right" ? 'fm-button-icon-right' : 'fm-button-icon-left')
+                                .append("<span class='ui-icon " + p.saveicon[2] + "'></span>");
+                    }
+                    if (p.closeicon[0] == true) {
+                        $("#eData", "#" + dtbl + "_2").addClass(p.closeicon[1] == "right" ? 'fm-button-icon-right' : 'fm-button-icon-left')
+                                .append("<span class='ui-icon " + p.closeicon[2] + "'></span>");
+                    }
+                    if (!p.updateAfterCheck) {
+                        $("#dData", "#" + dtbl + "_2").click(function(e) {
+                            for (i = 0; i < $t.p.colModel.length; i++) {
+                                if (!$t.p.colModel[i].hidedlg) { // added from T. Tomov
+                                    var nm = $t.p.colModel[i].name.replace(/\./g, "\\.");
+                                    if ($("#col_" + nm, "#" + dtbl).attr("checked")) {
+                                        $($t).jqGrid("showCol", $t.p.colModel[i].name);
+                                        $("#col_" + nm, "#" + dtbl).attr("defaultChecked", true); // Added from T. Tomov IE BUG
+                                    } else {
+                                        $($t).jqGrid("hideCol", $t.p.colModel[i].name);
+                                        $("#col_" + nm, "#" + dtbl).attr("defaultChecked", ""); // Added from T. Tomov IE BUG
+                                    }
+                                }
+                            }
+                            if (p.ShrinkToFit === true) {
+                                $($t).jqGrid("setGridWidth", $t.grid.width - 0.001, true);
+                            }
+                            if (p.closeAfterSubmit) $.jgrid.hideModal("#" + IDs.themodal, {gb:"#gbox_" + gID,jqm:p.jqModal, onClose: p.onClose});
+                            if (onAfterSubmit) {
+                                p.afterSubmitForm($("#" + dtbl));
+                            }
+                            return false;
+                        });
+                    } else {
+                        $(":input", "#" + dtbl).click(function(e) {
+                            var cn = this.id.substr(4);
+                            if (cn) {
+                                if (this.checked) {
+                                    $($t).jqGrid("showCol", cn);
+                                } else {
+                                    $($t).jqGrid("hideCol", cn);
+                                }
+                                if (p.ShrinkToFit === true) {
+                                    $($t).jqGrid("setGridWidth", $t.grid.width - 0.001, true);
+                                }
+                            }
+                            return this;
+                        });
+                    }
+                    $("#eData", "#" + dtbl + "_2").click(function(e) {
+                        $.jgrid.hideModal("#" + IDs.themodal, {gb:"#gbox_" + gID,jqm:p.jqModal, onClose: p.onClose});
+                        return false;
+                    });
+                    $("#dData, #eData", "#" + dtbl + "_2").hover(
+                            function() {
+                                $(this).addClass('ui-state-hover');
+                            },
+                            function() {
+                                $(this).removeClass('ui-state-hover');
+                            }
+                            );
+                    if (onBeforeShow) {
+                        p.beforeShowForm($("#" + dtbl));
+                    }
+                    $.jgrid.viewModal("#" + IDs.themodal, {gbox:"#gbox_" + gID,jqm:p.jqModal, jqM: true, modal:p.modal});
+                    if (onAfterShow) {
+                        p.afterShowForm($("#" + dtbl));
+                    }
+                }
+            });
+        }
+    });
+})(jQuery);
 
 ;
 (function($) {

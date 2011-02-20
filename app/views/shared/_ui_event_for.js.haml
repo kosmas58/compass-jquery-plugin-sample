@@ -14,7 +14,7 @@
               $(this).ajaxSubmit({
                 type: "DELETE",
                 url: "#{url}/"+rowId,
-                data: {authenticity_token:  AUTH_TOKEN},
+                data: {authenticity_token: "#{form_authenticity_token}"},
                 success: function(response, status) {
                   if(!$(response).is("form")) {
                     $("##{domid}_delete_dialog").dialog('close');
@@ -64,7 +64,7 @@
               $(this).ajaxSubmit({
                 type: "PUT",  
                 url: "#{url}/"+rowId,
-                data: {authenticity_token:  AUTH_TOKEN},
+                data: {authenticity_token: "#{form_authenticity_token}"},
                 success: function(response, status) {
                   if(!$(response).is("form")) {
                     $("##{domid}_update_dialog").dialog('close');

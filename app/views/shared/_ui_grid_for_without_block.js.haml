@@ -22,7 +22,7 @@
               if(sure) {
                 $.ajax({url: "#{url}/"+rowId,
                   type: "DELETE",
-                  data: {authenticity_token:  AUTH_TOKEN},
+                  data: {authenticity_token: "#{form_authenticity_token}"},
                   success: function() {
                     $("##{name}_table").trigger("reloadGrid");
                   }
