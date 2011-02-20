@@ -1,2 +1,0 @@
-module Jqgrid::WidgetsHelper
-end

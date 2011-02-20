@@ -1,2 +1,0 @@
-module Emulators::BlackberryLandscapeHelper
-end
