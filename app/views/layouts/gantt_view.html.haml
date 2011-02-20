@@ -13,20 +13,19 @@
       = javascript_include_tag 'jquery.pngFix'
 
     = stylesheet_link_tag "compiled/jquery/ui/#{session[:theme]}", :media => 'screen, projection'
-    = stylesheet_link_tag :jqGrid
     = stylesheet_link_tag 'demos.css', :media => 'screen, projection'
+    = stylesheet_link_tag :ganttView, :media => 'screen, projection'
 
     = javascript_include_tag :jquery_ui
     = javascript_include_tag :jrails
     = raw jquery_javascripts(I18n.locale)
-    = raw jqgrid_javascripts(I18n.locale)
+    = javascript_include_tag :ganttView
 
     = javascript_include_tag 'i18n', 'locales'
     = render(:partial => "shared/locale.js.haml", :format => :js)
     = csrf_meta_tag
     = javascript_include_tag 'common'
     = javascript_include_tag 'ajax'
-    = javascript_include_tag 'flash_messages'
     = javascript_include_tag 'greybox'
     = javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery?
 
@@ -38,5 +37,4 @@
         %span
           = raw flash_messages
       = yield
-      = render :partial => "jqgrid/license"
 

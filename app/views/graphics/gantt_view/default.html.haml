@@ -1,0 +1,19 @@
+-@title = "#{t('txt.graphics.ganttview.name')} - #{t('txt.graphics.ganttview.default')}"
+
+- content_for :content_head do
+  = render(:partial => "default.js.haml", :format => :js)
+
+.demo
+  %h3
+    =image_tag("icons/22x22/gantt.png", :border => 0)
+    =@title
+
+  #ganttChart
+  #eventMessage
+  %p
+    The plugin was written by
+    %a{ :href => "http://github.com/thegrubbsian/jquery.ganttView", :class => :greybox } Frank (JC) Grubbs
+    and released under the
+    = succeed "." do
+      %a{ :href => "http://www.opensource.org/licenses/mit-license.php", :class => :greybox } MIT License
+    #greybox

@@ -419,6 +419,9 @@ en:
         name: Sparklines
         examples: Examples
         default: Try it out
+      ganttview:
+        name: Gantt View
+        default: Example
     replacetext: 
       name: replaceText
       default: Example
