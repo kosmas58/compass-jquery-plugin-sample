@@ -1,4 +1,4 @@
-class HistoryController < ApplicationController
+class Handling::HistoryController < ApplicationController
   layout 'history'
   protect_from_forgery
 
