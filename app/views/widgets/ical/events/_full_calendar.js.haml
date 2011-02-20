@@ -20,7 +20,7 @@
         right: 'month,agendaWeek,agendaDay'
       },
       editable: true,
-      events: "#{full_calendar_ical_calendar_events_path(:format => :json)}",
+      events: "#{full_calendar_widgets_ical_calendar_events_path(:format => :json)}",
   		eventDrop: function(event, delta) {
   			alert(event.title + ' was moved ' + delta + ' days\n' +
   				'(should probably update your database)');

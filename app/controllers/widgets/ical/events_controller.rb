@@ -1,4 +1,4 @@
-class Ical::EventsController < ApplicationController
+class Widgets::Ical::EventsController < ApplicationController
   layout 'ical'
 
   protect_from_forgery

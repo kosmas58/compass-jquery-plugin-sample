@@ -1,5 +1,5 @@
-class Ical::CalendarsController < ApplicationController
-  layout 'ical'
+class Widgets::Ical::CalendarsController < ApplicationController
+  layout 'ical', :except => [:iphone]
 
   protect_from_forgery
 
@@ -24,5 +24,9 @@ class Ical::CalendarsController < ApplicationController
     response_for :create, :update, :destroy do |format|
       format.html { redirect_to ical_calendars_path }
     end
+  end
+
+  def iphone
+    render :iphone, :layout => 'iphone_portrait'
   end
 end

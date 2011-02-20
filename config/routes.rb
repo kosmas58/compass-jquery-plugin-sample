@@ -48,6 +48,18 @@ ActionController::Routing::Routes.draw do |map|
                 :member => { :rename => :post,
                              :move   => :put }
   
+  map.namespace :widgets do |widget|
+    widget.namespace :ical do |ical|
+      ical.resources :calendars,
+                     :collection => { :iphone => :get } do |calendar|
+        calendar.resources :events,
+                           :collection => { :index_reload  => :get,
+                                            :full_calendar => :get },
+                           :member =>     { :delete        => :get }
+      end
+    end
+  end
+
   map.resources :jstree => { :get_children=> :get,
                              :search      => :get,
                              :create_node => :post,
@@ -82,16 +94,8 @@ ActionController::Routing::Routes.draw do |map|
       experiment.resources :list_items
     end
   end
-  
-  map.namespace :ical do |ical|
-    ical.resources :calendars,
-                   :collection => { :iphone => :get } do |calendar|
-      calendar.resources :events,
-                         :collection => { :index_reload  => :get,
-                                          :full_calendar => :get },
-                         :member =>     { :delete        => :get } 
-    end
-  end                                     
+
+
   
   Translate::Routes.translation_ui(map) if RAILS_ENV != "production "
 

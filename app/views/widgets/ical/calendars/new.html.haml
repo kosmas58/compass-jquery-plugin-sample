@@ -10,10 +10,10 @@
   
   = error_messages_for :calendar
   
-  - form_for(:calendar, :url => ical_calendars_url, :html => { :method => :post }) do |f|
+  - form_for(:calendar, :url => widgets_ical_calendars_url, :html => { :method => :post }) do |f|
     = render :partial => "form", :locals => {:f => f}
     %br
     %p
       = submit_tag t('txt.layout.create')
   %p.buttons
-    = link_to t('txt.layout.back'), ical_calendars_path
+    = link_to t('txt.layout.back'), widgets_ical_calendars_path
