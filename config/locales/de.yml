@@ -367,9 +367,8 @@ de:
       palm: Palm Pre
       iphone: iPhone
     haml: 
-      name: Javascript und Haml
-      jhaml: jQuery Haml Plugin
-      haml_js: "haml-js:  Haml server-seitig"
+      name: Javascript und Haml.
+      jhaml: jQuery-haml-Plugin
     replacetext: 
       name: replaceText
       default: Beispiel

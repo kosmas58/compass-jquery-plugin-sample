@@ -182,9 +182,8 @@ en:
     handling:
       name: Handling
     haml:
-      name: Javascript and Haml
-      jhaml: jQuery haml plugin
-      haml_js: haml-js server side haml
+      name: Javascript and Haml.
+      jhaml: jQuery-haml plugin
     jst: 
       name: jsTree
       plugins: Plugins
