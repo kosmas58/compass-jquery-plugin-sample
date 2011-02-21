@@ -545,20 +545,7 @@ parent_id = node_402
 node_411 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.ical.calendar.listing', :type => 'default', :icon => '/images/icons/16x16/calendar.png', :url => '/widgets/ical/calendars')
 parent_id = node_173
 parent_id = node_172
-node_412 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.handling.name', :type => 'folder', :icon => '/images/icons/16x16/plugin.png')
-parent_id = node_412
-node_413 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.history.name', :type => 'folder', :icon => '/images/icons/16x16/history.png')
-parent_id = node_413
-node_414 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.history.ajax', :type => 'default', :icon => '/images/icons/16x16/history.png', :url => '/handling/history/ajax')
-node_415 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.history.ajax2', :type => 'default', :icon => '/images/icons/16x16/history.png', :url => '/handling/history/ajax2')
-node_416 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.history.mvc', :type => 'default', :icon => '/images/icons/16x16/working.png', :url => '/handling/history/mvc')
-parent_id = node_412
-node_417 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.replacetext.name', :type => 'folder', :icon => '/images/icons/16x16/plugin.png')
-parent_id = node_417
-node_418 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.replacetext.default', :type => 'default', :icon => '/images/icons/16x16/plugin.png', :url => '/handling/replace_text/default')
-parent_id = node_412
-parent_id = node_172
-node_419 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.graphics.name', :type => 'folder', :icon => '/images/icons/16x16/graphics.png')
+node_419 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.graphics.name', :type => 'folder', :icon => '/images/icons/16x16/graphics.png')
 parent_id = node_419
 node_420 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.graphics.ganttview.name', :type => 'folder', :icon => '/images/icons/16x16/gantt.png')
 parent_id = node_420
@@ -570,9 +557,22 @@ node_423 = NavigationTree.create_node(:id => parent_id, :seed => true, :position
 node_424 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.graphics.sparklines.default', :type => 'default', :icon => '/images/icons/16x16/sparklines.png', :url => '/graphics/sparklines/default')
 parent_id = node_419
 parent_id = node_172
-node_425 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.haml.name', :type => 'folder', :icon => '/images/icons/16x16/haml.png')
-parent_id = node_425
-node_426 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.haml.jhaml', :type => 'default', :icon => '/images/icons/16x16/haml.png', :url => '/haml/jhaml')
+node_472 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.handling.name', :type => 'folder', :icon => '/images/icons/16x16/plugin.png')
+parent_id = node_472
+node_473 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.history.name', :type => 'folder', :icon => '/images/icons/16x16/history.png')
+parent_id = node_473
+node_474 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.history.ajax', :type => 'default', :icon => '/images/icons/16x16/history.png', :url => '/handling/history/ajax')
+node_475 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.history.ajax2', :type => 'default', :icon => '/images/icons/16x16/history.png', :url => '/handling/history/ajax2')
+node_476 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.history.mvc', :type => 'default', :icon => '/images/icons/16x16/working.png', :url => '/handling/history/mvc')
+parent_id = node_472
+node_477 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.replacetext.name', :type => 'folder', :icon => '/images/icons/16x16/plugin.png')
+parent_id = node_477
+node_478 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.replacetext.default', :type => 'default', :icon => '/images/icons/16x16/plugin.png', :url => '/handling/replace_text/default')
+parent_id = node_472
+parent_id = node_172
+node_479 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.haml.name', :type => 'folder', :icon => '/images/icons/16x16/haml.png')
+parent_id = node_479
+node_480 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.haml.jhaml', :type => 'default', :icon => '/images/icons/16x16/haml.png', :url => '/haml/jhaml')
 parent_id = node_172
 parent_id = node_1
 node_427 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.emu.jqm.name', :type => 'accordion', :icon => '/images/icons/16x16/jqmobile.png')
