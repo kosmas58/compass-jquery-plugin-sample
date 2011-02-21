@@ -49,6 +49,15 @@ ActionController::Routing::Routes.draw do |map|
                              :move   => :put }
   
   map.namespace :widgets do |widget|
+    widget.resources :jstree => { :get_children=> :get,
+                               :search      => :get,
+                               :create_node => :post,
+                               :remove_node => :delete,
+                               :rename_node => :post,
+                               :move_node   => :post,
+                               :analyze     => :get,
+                               :rebuild     => :post }
+
     widget.namespace :ical do |ical|
       ical.resources :calendars,
                      :collection => { :iphone => :get } do |calendar|
@@ -59,15 +68,6 @@ ActionController::Routing::Routes.draw do |map|
       end
     end
   end
-
-  map.resources :jstree => { :get_children=> :get,
-                             :search      => :get,
-                             :create_node => :post,
-                             :remove_node => :delete,
-                             :rename_node => :post,
-                             :move_node   => :post,
-                             :analyze     => :get,
-                             :rebuild     => :post }  
 
   map.namespace :jqgrid do |jqgrid|
     jqgrid.resources :animals
