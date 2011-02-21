@@ -11,7 +11,7 @@ class Widgets::Jqgrid::SecretsController < ApplicationController
   end
 
   def edit
-    @widget = Secret.find(params[:id])
+    @secret = Secret.find(params[:id])
     return render(:partial => "form")
   end
 

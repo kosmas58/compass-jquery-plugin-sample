@@ -45,7 +45,7 @@
             if(rowId == null) {
               alert("You must first select a row.");
             } else {
-              $.ajax({method: "GET", url: "#{url}/"+rowId+"#{actions[:update]}",
+              $.ajax({method: "GET", url: "#{url}#{actions[:update]}/"+rowId,
                 success: function(data, status) {
                   var dWidth = $(data).css("width");
                   var dHeight = $(data).css("height");
