@@ -1,4 +1,4 @@
-class Tools::OverlayController < ApplicationController
+class Widgets::Tools::OverlayController < ApplicationController
   layout 'tools'
 
   protect_from_forgery
