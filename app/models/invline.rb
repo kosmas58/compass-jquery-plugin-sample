@@ -11,7 +11,7 @@ class Invline < ActiveRecord::Base
   end
 
   gridify :demo0302,
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :data_type => :json,
           :only => [
               :num,

@@ -1,0 +1,34 @@
+-@title = "#{t('txt.jst.name')} - #{t('txt.jst.search')}"
+
+- content_for :content_head do
+  = render(:partial => "searching.js.haml", :format => :js)
+
+.demo
+  %h3
+    =image_tag("icons/22x22/tree.png", :border => 0)
+    =@title
+  .span-11.append-13.last
+    %h4
+      Using the sort plugin
+    #demo1.ui-widget-content.ui-corner-all
+    .span-11.append-13.last
+    #toolbar.ui-widget-header.ui-corner-all
+      %button#search
+        Search
+    %br
+    %p
+      Do not open the node - instead - just press the button.
+/ End demo
+.demo-description
+  %p
+    The
+    %b
+      search plugin 
+    enables searching for nodes whose title contains a given string, works on async trees too.
+    All found nodes get the 
+    %code
+      jstree-search class
+    applied to their contained a nodes - you can use that class to style search results.
+  %p
+    = link_to raw("Look here for addtional Documentation"), "http://www.jstree.com/documentation/search"
+/ End demo-description

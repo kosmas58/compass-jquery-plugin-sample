@@ -1,0 +1,14 @@
+:css
+  fieldset { border:0;  margin-bottom: 40px;}	
+  label,select,.ui-select-menu { float: left; margin-right: 10px; }
+  select { width: 120px; }
+
+:javascript
+  $(document).ready(function() {
+    $("#dynatree_skin").selectmenu({
+      style: 'dropdown'
+    })
+    .change(function(){
+      this.form.submit();
+    });
+  });

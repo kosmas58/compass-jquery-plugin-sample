@@ -15,7 +15,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo0101,
           :title => I18n.t('txt.jqgrid.demo.20xml_data'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :data_type => :xml,
           :colInclude => [:client],
           :colNames => [
@@ -66,7 +66,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo0102,
           :title => I18n.t('txt.jqgrid.demo.20json_data'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :data_type => :json,
           :colInclude => [:client],
           :colNames => [
@@ -115,7 +115,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo0103,
           :title => I18n.t('txt.jqgrid.demo.20once'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :data_type => :json,
           :colInclude => [:client],
           :colNames => [
@@ -167,7 +167,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo0201,
           :title => I18n.t('txt.jqgrid.demo.20data'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :data_type => :json,
           :colInclude => [:client],
           :colNames => [
@@ -222,7 +222,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo0202,
           :title => I18n.t('txt.jqgrid.demo.20get'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :data_type => :json,
           :colInclude => [:client],
           :colNames => [
@@ -277,7 +277,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo0203,
           :title => I18n.t('txt.jqgrid.demo.20set'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :data_type => :json,
           :colInclude => [:client],
           :colNames => [
@@ -332,7 +332,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo0301,
           :title => I18n.t('txt.jqgrid.demo.20multi'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :data_type => :json,
           :colInclude => [:client],
           :colNames => [
@@ -388,7 +388,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo0302,
           :title => I18n.t('txt.jqgrid.demo.20master'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :data_type => :json,
           :colInclude => [:client],
           :colNames => [
@@ -444,7 +444,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo0303,
           :title => I18n.t('txt.jqgrid.demo.20subgrid'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :data_type => :json,
           :colInclude => [:client],
           :colNames => [
@@ -497,7 +497,7 @@ class Invheader < ActiveRecord::Base
           :pager => true,
           :grid_view => false,
           :sub_grid => true,
-          :sub_grid_url => "/jqgrid/demo?model=invline&subgrid=true&atr[]=num&atr[]=item&atr[]=qty&atr[]=unit&atr[]=total",
+          :sub_grid_url => "/widgets/jqgrid/demo?model=invline&subgrid=true&atr[]=num&atr[]=item&atr[]=qty&atr[]=unit&atr[]=total",
           :sub_grid_model => [
               {
                   :name => [
@@ -514,7 +514,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo0304,
           :title => I18n.t('txt.jqgrid.demo.20as_subgrid'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :data_type => :json,
           :colInclude => [:client],
           :colNames => [
@@ -567,7 +567,7 @@ class Invheader < ActiveRecord::Base
           :pager => true,
           :grid_view => false,
           :sub_grid => true,
-          :sub_grid_url => "/jqgrid/demo?model=invline&subgrid=true&atr[]=num&atr[]=item&atr[]=qty&atr[]=unit&atr[]=total",
+          :sub_grid_url => "/widgets/jqgrid/demo?model=invline&subgrid=true&atr[]=num&atr[]=item&atr[]=qty&atr[]=unit&atr[]=total",
           :sub_grid_model => [
               {
                   :name => [
@@ -584,7 +584,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo0305,
           :title => I18n.t('txt.jqgrid.demo.20resizing'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :data_type => :json,
           :colInclude => [:client],
           :colNames => [
@@ -639,7 +639,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo0401,
           :title => I18n.t('txt.jqgrid.demo.30cmulti'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :data_type => :json,
           :colInclude => [:client],
           :colNames => [
@@ -696,7 +696,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo0402,
           :title => I18n.t('txt.jqgrid.demo.30json_subgrid'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :data_type => :json,
           :colInclude => [:client],
           :colNames => [
@@ -749,7 +749,7 @@ class Invheader < ActiveRecord::Base
           :pager => true,
           :grid_view => false,
           :sub_grid => true,
-          :sub_grid_url => "/jqgrid/demo?model=invline&subgrid=true&atr[]=num&atr[]=item&atr[]=qty&atr[]=unit&atr[]=total",
+          :sub_grid_url => "/widgets/jqgrid/demo?model=invline&subgrid=true&atr[]=num&atr[]=item&atr[]=qty&atr[]=unit&atr[]=total",
           :sub_grid_model => [
               {
                   :name => [
@@ -766,7 +766,7 @@ class Invheader < ActiveRecord::Base
           ]
   gridify :demo0403,
           :title => I18n.t('txt.jqgrid.demo.30after_load'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :data_type => :json,
           :colInclude => [:client],
           :colNames => [
@@ -821,7 +821,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo0404,
           :title => I18n.t('txt.jqgrid.demo.30resizable'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :data_type => :json,
           :colInclude => [:client],
           :colNames => [
@@ -883,7 +883,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo0405,
           :title => I18n.t('txt.jqgrid.demo.30hide'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :data_type => :json,
           :colInclude => [:client],
           :colNames => [
@@ -937,7 +937,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo0501,
           :title => I18n.t('txt.jqgrid.demo.30basic'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :restful => true,
           :data_type => :json,
           :colInclude => [:client],
@@ -962,7 +962,7 @@ class Invheader < ActiveRecord::Base
               {:name => 'client_id',
                :width => 70,
                :edit_type => :select,
-               :edit_options => {'dataUrl' => "/jqgrid/demo/clients"}},
+               :edit_options => {'dataUrl' => "/widgets/jqgrid/demo/clients"}},
               {:name => 'amount',
                :width => 80,
                :align => :right},
@@ -993,7 +993,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo0502,
           :title => I18n.t('txt.jqgrid.demo.30cedit'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :restful => true,
           :data_type => :json,
           :rowActions => :client,
@@ -1024,7 +1024,7 @@ class Invheader < ActiveRecord::Base
                :width => 70,
                :editable => true,
                :edit_type => :select,
-               :edit_options => {'dataUrl' => "/jqgrid/demo/clients"}},
+               :edit_options => {'dataUrl' => "/widgets/jqgrid/demo/clients"}},
               {:name => 'amount',
                :width => 80,
                :align => :right,
@@ -1062,7 +1062,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo0503,
           :title => I18n.t('txt.jqgrid.demo.30events'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :restful => true,
           :data_type => :json,
           :colNames => [
@@ -1088,7 +1088,7 @@ class Invheader < ActiveRecord::Base
                :width => 70,
                :editable => true,
                :edit_type => :select,
-               :edit_options => {'dataUrl' => "/jqgrid/demo/clients"}},
+               :edit_options => {'dataUrl' => "/widgets/jqgrid/demo/clients"}},
               {:name => 'amount',
                :width => 80,
                :align => :right,
@@ -1127,7 +1127,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo0504,
           :title => I18n.t('txt.jqgrid.demo.30full'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :restful => true,
           :data_type => :json,
           :colNames => [
@@ -1153,7 +1153,7 @@ class Invheader < ActiveRecord::Base
                :width => 70,
                :editable => true,
                :edit_type => :select,
-               :edit_options => {'dataUrl' => "/jqgrid/demo/clients"}},
+               :edit_options => {'dataUrl' => "/widgets/jqgrid/demo/clients"}},
               {:name => 'amount',
                :width => 80,
                :align => :right,
@@ -1190,7 +1190,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo0602,
           :title => I18n.t('txt.jqgrid.demo.30json_map'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :data_type => :json,
           :colInclude => [:client],
           :colNames => [
@@ -1246,7 +1246,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo0603,
           :title => I18n.t('txt.jqgrid.demo.30optimize'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :data_type => :json,
           :colInclude => [:client],
           :colNames => [
@@ -1302,7 +1302,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo0801,
           :title => I18n.t('txt.jqgrid.demo.30searching'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :data_type => :json,
           :colInclude => [:client],
           :colNames => [
@@ -1354,7 +1354,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo0802,
           :title => I18n.t('txt.jqgrid.demo.30edit_row'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :data_type => :json,
           :colInclude => [:client],
           :colNames => [
@@ -1379,7 +1379,7 @@ class Invheader < ActiveRecord::Base
                :width => 70,
                :editable => true,
                :edit_type => :select,
-               :edit_options => {'dataUrl' => "/jqgrid/demo/clients"}},
+               :edit_options => {'dataUrl' => "/widgets/jqgrid/demo/clients"}},
               {:name => 'amount',
                :width => 80,
                :align => :right},
@@ -1403,7 +1403,7 @@ class Invheader < ActiveRecord::Base
           :paging_choices => [10, 20, 30],
           :editable => true,
           :select_rows => true,
-          :jqgrid_options => {:edit_url => "/jqgrid/demo",
+          :jqgrid_options => {:edit_url => "/widgets/jqgrid/demo",
                               :viewsortcols => [true, :horizontal, false]},
           :sort_by => :id,
           :sort_order => :desc,
@@ -1411,7 +1411,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo0803,
           :title => I18n.t('txt.jqgrid.demo.30add_row'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :data_type => :xml,
           :colInclude => [:client],
           :colNames => [
@@ -1436,7 +1436,7 @@ class Invheader < ActiveRecord::Base
                :width => 70,
                :editable => true,
                :edit_type => :select,
-               :edit_options => {'dataUrl' => "/jqgrid/demo/clients"}},
+               :edit_options => {'dataUrl' => "/widgets/jqgrid/demo/clients"}},
               {:name => 'amount',
                :width => 80,
                :align => :right},
@@ -1459,7 +1459,7 @@ class Invheader < ActiveRecord::Base
           :rows_per_page => 10,
           :paging_choices => [10, 20, 30],
           :editable => true,
-          :jqgrid_options => {:edit_url => "/jqgrid/demo",
+          :jqgrid_options => {:edit_url => "/widgets/jqgrid/demo",
                               :viewsortcols => [true, :horizontal, false]},
           :sort_by => :id,
           :sort_order => :desc,
@@ -1467,7 +1467,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo0804,
           :title => I18n.t('txt.jqgrid.demo.30delete_row'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :data_type => :json,
           :colInclude => [:client],
           :colNames => [
@@ -1514,7 +1514,7 @@ class Invheader < ActiveRecord::Base
           :paging_choices => [10, 20, 30],
           :editable => true,
           :select_rows => true,
-          :jqgrid_options => {:edit_url => "/jqgrid/demo",
+          :jqgrid_options => {:edit_url => "/widgets/jqgrid/demo",
                               :viewsortcols => [true, :horizontal, false]},
           :sort_by => :id,
           :sort_order => :desc,
@@ -1522,7 +1522,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo0805,
           :title => I18n.t('txt.jqgrid.demo.30navigator'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :restful => true,
           :data_type => :json,
           :colInclude => [:client],
@@ -1548,7 +1548,7 @@ class Invheader < ActiveRecord::Base
                :width => 70,
                :editable => true,
                :edit_type => :select,
-               :edit_options => {'dataUrl' => "/jqgrid/demo/clients"}},
+               :edit_options => {'dataUrl' => "/widgets/jqgrid/demo/clients"}},
               {:name => 'amount',
                :width => 80,
                :align => :right},
@@ -1584,7 +1584,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo0901,
           :title => I18n.t('txt.jqgrid.demo.31toolbar'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :data_type => :json,
           :colInclude => [:client],
           :colNames => [
@@ -1638,7 +1638,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo0902,
           :title => I18n.t('txt.jqgrid.demo.31userdata'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :data_type => :json,
           :colInclude => [:client],
           :colNames => [
@@ -1693,7 +1693,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo0903,
           :title => I18n.t('txt.jqgrid.demo.31new_methods'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :data_type => :json,
           :colInclude => [:client],
           :colNames => [
@@ -1749,7 +1749,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo0904,
           :title => I18n.t('txt.jqgrid.demo.31post_data'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :data_type => :json,
           :colInclude => [:client],
           :colNames => [
@@ -1805,7 +1805,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo0905,
           :title => I18n.t('txt.jqgrid.demo.31cparams'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :data_type => :json,
           :colInclude => [:client],
           :colNames => [
@@ -1858,7 +1858,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo1001,
           :title => I18n.t('txt.jqgrid.demo.32new_methods'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :data_type => :json,
           :colInclude => [:client],
           :colNames => [
@@ -1914,7 +1914,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo1002,
           :title => I18n.t('txt.jqgrid.demo.32initial'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :data_type => :json,
           :colInclude => [:client],
           :colNames => [
@@ -1971,7 +1971,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo1003,
           :title => I18n.t('txt.jqgrid.demo.32insert'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :data_type => :json,
           :colInclude => [:client],
           :colNames => [
@@ -2029,7 +2029,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo1004,
           :title => I18n.t('txt.jqgrid.demo.32server_errors'),
-          :url => "/jqgrid/demo_false",
+          :url => "/widgets/jqgrid/demo_false",
           :data_type => :json,
           :colInclude => [:client],
           :colNames => [
@@ -2084,7 +2084,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo1005,
           :title => I18n.t('txt.jqgrid.demo.32hide'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :data_type => :json,
           :colInclude => [:client],
           :colNames => [
@@ -2138,7 +2138,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo1006,
           :title => I18n.t('txt.jqgrid.demo.32cbutton'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :restful => true,
           :data_type => :json,
           :colInclude => [:client],
@@ -2195,7 +2195,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo1007,
           :title => I18n.t('txt.jqgrid.demo.32client'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :restful => true,
           :data_type => :json,
           :colInclude => [:client],
@@ -2286,7 +2286,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo1101,
           :title => I18n.t('txt.jqgrid.demo.33dynamic'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :data_type => :json,
           :colInclude => [:client],
           :colNames => [
@@ -2344,7 +2344,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo1103,
           :title => I18n.t('txt.jqgrid.demo.33cell'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :restful => true,
           :data_type => :json,
           :colInclude => [:client],
@@ -2404,7 +2404,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo1104,
           :title => I18n.t('txt.jqgrid.demo.33visible'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :restful => true,
           :data_type => :json,
           :colInclude => [:client],
@@ -2457,7 +2457,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo1106,
           :title => I18n.t('txt.jqgrid.demo.33mtoolbar'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :restful => true,
           :data_type => :json,
           :colNames => [
@@ -2511,7 +2511,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo1107,
           :title => I18n.t('txt.jqgrid.demo.33mform'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :restful => true,
           :data_type => :json,
           :colNames => [
@@ -2617,7 +2617,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo1109,
           :title => I18n.t('txt.jqgrid.demo.33rdnd'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :restful => true,
           :data_type => :json,
           :colInclude => [:client],
@@ -2673,7 +2673,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo1201,
           :title => I18n.t('txt.jqgrid.demo.34format'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :restful => true,
           :data_type => :json,
           :colInclude => [:client],
@@ -2726,7 +2726,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo1202,
           :title => I18n.t('txt.jqgrid.demo.34cformat'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :restful => true,
           :data_type => :json,
           :colInclude => [:client],
@@ -2788,7 +2788,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo1204,
           :title => I18n.t('txt.jqgrid.demo.34autoscroll'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :restful => true,
           :data_type => :json,
           :colInclude => [:client],
@@ -2842,7 +2842,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo1205,
           :title => I18n.t('txt.jqgrid.demo.34scroll'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :restful => true,
           :data_type => :json,
           :colInclude => [:client],
@@ -2903,7 +2903,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo1206,
           :title => I18n.t('txt.jqgrid.demo.34adjacency'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :colInclude => [:client],
           :colNames => [
               I18n.t('activerecord.attributes.invheader.id'),
@@ -2958,7 +2958,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo1301,
           :title => I18n.t('txt.jqgrid.demo.35number'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :data_type => :json,
           :colInclude => [:client],
           :colNames => [
@@ -3013,7 +3013,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo1303,
           :title => I18n.t('txt.jqgrid.demo.35stoolbar'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :data_type => :json,
           :colNames => [
               I18n.t('activerecord.attributes.invheader.id'),
@@ -3065,7 +3065,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo1304,
           :title => I18n.t('txt.jqgrid.demo.35asearch'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :data_type => :json,
           :colInclude => [:client],
           :colNames => [
@@ -3118,7 +3118,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo1305,
           :title => I18n.t('txt.jqgrid.demo.35improvements'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :data_type => :json,
           :colInclude => [:client],
           :colNames => [
@@ -3172,7 +3172,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo1307,
           :title => I18n.t('txt.jqgrid.demo.35navigation'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :data_type => :json,
           :colInclude => [:client],
           :colNames => [
@@ -3226,7 +3226,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo1308,
           :title => I18n.t('txt.jqgrid.demo.35summary'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :data_type => :json,
           :colInclude => [:client],
           :colNames => [
@@ -3283,7 +3283,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo1309,
           :title => I18n.t('txt.jqgrid.demo.35sortable'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :data_type => :json,
           :colInclude => [:client],
           :colNames => [
@@ -3337,7 +3337,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo1401,
           :title => I18n.t('txt.jqgrid.demo.36api'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :data_type => :json,
           :colInclude => [:client],
           :colNames => [
@@ -3391,7 +3391,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo1402,
           :title => I18n.t('txt.jqgrid.demo.36rtl'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :data_type => :json,
           :colInclude => [:client],
           :colNames => [
@@ -3446,7 +3446,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo1403,
           :title => I18n.t('txt.jqgrid.demo.36reordering'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :data_type => :json,
           :colInclude => [:client],
           :colNames => [
@@ -3500,7 +3500,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo1404,
           :title => I18n.t('txt.jqgrid.demo.36chooser'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :data_type => :json,
           :colInclude => [:client],
           :colNames => [
@@ -3554,7 +3554,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo1405,
           :title => I18n.t('txt.jqgrid.demo.36validation'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :data_type => :json,
           :colInclude => [:client],
           :colNames => [
@@ -3613,7 +3613,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo1406,
           :title => I18n.t('txt.jqgrid.demo.36cinput'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :data_type => :json,
           :colInclude => [:client],
           :colNames => [
@@ -3673,7 +3673,7 @@ class Invheader < ActiveRecord::Base
   gridify :demo1407,
           :title => I18n.t('txt.jqgrid.demo.36ajax'),
           :ajax_grid_options => {:type => "GET"},
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :data_type => :json,
           :colInclude => [:client],
           :colNames => [
@@ -3728,7 +3728,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo1409,
           :title => I18n.t('txt.jqgrid.demo.36srows'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :data_type => :json,
           :colInclude => [:client],
           :colNames => [
@@ -3783,7 +3783,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo1411,
           :title => I18n.t('txt.jqgrid.demo.36resizing'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :data_type => :json,
           :colInclude => [:client],
           :colNames => [
@@ -3838,7 +3838,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo1507,
           :title => I18n.t('txt.jqgrid.demo.37crud'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :data_type => :json,
           :colInclude => [:client],
           :colNames => [
@@ -3886,7 +3886,7 @@ class Invheader < ActiveRecord::Base
           :paging_choices => [10, 20, 30],
           :editable => true,
           :select_rows => true,
-          :jqgrid_options => {:edit_url => "/jqgrid/demo",
+          :jqgrid_options => {:edit_url => "/widgets/jqgrid/demo",
                               :viewsortcols => [true, :horizontal, false]},
           :sort_by => :id,
           :sort_order => :desc,
@@ -3899,7 +3899,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo1607,
           :title => I18n.t('txt.jqgrid.demo.38remote1'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :data_type => :json,
           :colInclude => [:client],
           :colNames => [
@@ -3976,7 +3976,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo1608,
           :title => I18n.t('txt.jqgrid.demo.38remote2'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :data_type => :json,
           :colInclude => [:client],
           :colNames => [
@@ -4057,7 +4057,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo1609,
           :title => I18n.t('txt.jqgrid.demo.38remote3'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :data_type => :json,
           :colInclude => [:client],
           :colNames => [
@@ -4137,7 +4137,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo1610,
           :title => I18n.t('txt.jqgrid.demo.38remote4'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :data_type => :json,
           :colInclude => [:client],
           :colNames => [
@@ -4218,7 +4218,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo1611,
           :title => I18n.t('txt.jqgrid.demo.38xml1'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :data_type => :xml,
           :colInclude => [:client],
           :colNames => [
@@ -4296,7 +4296,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo1612,
           :title => I18n.t('txt.jqgrid.demo.38remote5'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :data_type => :json,
           :colInclude => [:client],
           :colNames => [
@@ -4377,7 +4377,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo9901,
           :title => I18n.t('txt.jqgrid.mine.contextmenu2'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :data_type => :json,
           :colInclude => [:client],
           :colNames => [
@@ -4433,13 +4433,13 @@ class Invheader < ActiveRecord::Base
           :refresh_button => true,
           :pager => true,
           :grid_view => false,
-          :jqgrid_options => {:edit_url => "/jqgrid/demo",
+          :jqgrid_options => {:edit_url => "/widgets/jqgrid/demo",
                               :viewsortcols => [true, :horizontal, false],
                               :afterInsertRow => "javascript: afterInsertRow"}
 
   gridify :demo9906,
           :title => I18n.t('txt.jqgrid.mine.cedit') + " - " + I18n.t('txt.jqgrid.mine.cedit1'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :restful => true,
           :data_type => :json,
           :rowActions => :client,
@@ -4467,7 +4467,7 @@ class Invheader < ActiveRecord::Base
                :width => 70,
                :editable => true,
                :edit_type => :select,
-               :edit_options => {'dataUrl' => "/jqgrid/demo/clients"}},
+               :edit_options => {'dataUrl' => "/widgets/jqgrid/demo/clients"}},
               {:name => 'amount',
                :width => 80,
                :align => :right,
@@ -4508,7 +4508,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo9907,
           :title => I18n.t('txt.jqgrid.mine.cedit') + " - " + I18n.t('txt.jqgrid.mine.cedit2'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :restful => true,
           :data_type => :json,
           :rowActions => :client,
@@ -4536,7 +4536,7 @@ class Invheader < ActiveRecord::Base
                :width => 70,
                :editable => true,
                :edit_type => :select,
-               :edit_options => {'dataUrl' => "/jqgrid/demo/clients"}},
+               :edit_options => {'dataUrl' => "/widgets/jqgrid/demo/clients"}},
               {:name => 'amount',
                :width => 80,
                :align => :right,
@@ -4577,7 +4577,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo9908,
           :title => I18n.t('txt.jqgrid.mine.cedit') + " - " + I18n.t('txt.jqgrid.mine.cedit3'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :restful => true,
           :data_type => :json,
           :rowActions => :server,
@@ -4605,7 +4605,7 @@ class Invheader < ActiveRecord::Base
                :width => 70,
                :editable => true,
                :edit_type => :select,
-               :edit_options => {'dataUrl' => "/jqgrid/demo/clients"}},
+               :edit_options => {'dataUrl' => "/widgets/jqgrid/demo/clients"}},
               {:name => 'amount',
                :width => 80,
                :align => :right,
@@ -4645,7 +4645,7 @@ class Invheader < ActiveRecord::Base
 
   gridify :demo9909,
           :title => I18n.t('txt.jqgrid.mine.cedit') + " - " + I18n.t('txt.jqgrid.mine.cedit3'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :restful => true,
           :data_type => :json,
           :rowActions => :server,
@@ -4673,7 +4673,7 @@ class Invheader < ActiveRecord::Base
                :width => 70,
                :editable => true,
                :edit_type => :select,
-               :edit_options => {'dataUrl' => "/jqgrid/demo/clients"}},
+               :edit_options => {'dataUrl' => "/widgets/jqgrid/demo/clients"}},
               {:name => 'amount',
                :width => 80,
                :align => :right,
@@ -4713,7 +4713,7 @@ class Invheader < ActiveRecord::Base
   
   gridify :demo9910,
           :title => I18n.t('txt.jqgrid.mine.cedit') + " - " + I18n.t('txt.jqgrid.mine.cedit3'),
-          :url => "/jqgrid/demo",
+          :url => "/widgets/jqgrid/demo",
           :restful => true,
           :data_type => :json,
           :rowActions => :server,
@@ -4741,7 +4741,7 @@ class Invheader < ActiveRecord::Base
                :width => 70,
                :editable => true,
                :edit_type => :select,
-               :edit_options => {'dataUrl' => "/jqgrid/demo/clients"}},
+               :edit_options => {'dataUrl' => "/widgets/jqgrid/demo/clients"}},
               {:name => 'amount',
                :width => 80,
                :align => :right,

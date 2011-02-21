@@ -1,0 +1,76 @@
+:css
+  .toolbar{ padding: 0.3em; }
+  .ui-button{ font-size: 0.9em; }
+  
+:javascript
+  $(function () {
+    $("button", ".demo").button();
+    
+    $("#move_1").click(function () { 
+      $("#demo4").jstree("move_node","#thtml_4","#thtml_1"); 
+    });
+    $("#move_2").click(function () { 
+      $("#demo4").jstree("move_node","#thtml_4","#thtml_1", "before"); 
+    });
+    $("#move_3").click(function () { 
+      $("#demo4").jstree("move_node","#thtml_1","#thtml_4"); 
+    });
+    $("#demo4").jstree({ 
+      "crrm" : {
+        "move" : {
+          "default_position" : "first",
+          "check_move" : function (m) { return (m.o[0].id === "thtml_1") ? false : true;  }
+        }
+      },
+      "ui" : {
+        "initially_select" : [ "thtml_2" ]
+      },
+      "core" : { "initially_open" : [ "thtml_1" ] },
+      "plugins" : [ "themes", "html_data", "ui", "crrm" ]
+    });
+  
+    $("#rename_1").click(function () { 
+      $("#demo3").jstree("rename"); 
+    });
+    $("#rename_2").click(function () { 
+      $("#demo3").jstree("rename","#shtml_1"); 
+    });
+    $("#demo3").jstree({ 
+      "ui" : {
+        "initially_select" : [ "shtml_2" ]
+      },
+      "core" : { "initially_open" : [ "shtml_1" ] },
+      "plugins" : [ "themes", "html_data", "ui", "crrm" ]
+    });
+
+    $("#remove_1").click(function () { 
+      $("#demo2").jstree("remove"); 
+    });
+    $("#remove_2").click(function () { 
+      $("#demo2").jstree("remove","#rhtml_1"); 
+    });
+    $("#demo2").jstree({ 
+      "ui" : {
+        "initially_select" : [ "rhtml_2" ]
+      },
+      "core" : { "initially_open" : [ "rhtml_1" ] },
+      "plugins" : [ "themes", "html_data", "ui", "crrm" ]
+    });
+    
+    $("#create_1").click(function () { 
+      $("#demo1").jstree("create"); 
+    });
+    $("#create_2").click(function () { 
+      $("#demo1").jstree("create","#phtml_1","first","Enter a new name"); 
+    });
+    $("#create_3").click(function () { 
+      $("#demo1").jstree("create",-1,false,"No rename",false,true); 
+    });
+    $("#demo1").jstree({ 
+      "ui" : {
+        "initially_select" : [ "phtml_2" ]
+      },
+      "core" : { "initially_open" : [ "phtml_1" ] },
+      "plugins" : [ "themes", "html_data", "ui", "crrm" ]
+    });
+  });

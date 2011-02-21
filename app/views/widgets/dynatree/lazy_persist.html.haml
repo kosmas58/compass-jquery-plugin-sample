@@ -1,0 +1,43 @@
+-@title = "#{t('txt.dt.name')} - #{t('txt.dt.lazy')}"
+
+- content_for :content_head do
+  = render(:partial => "lazy_persist.js.haml", :format => :js)
+  = render(:partial => "skin.js.haml", :format => :js)
+
+.demo
+  %h3
+    =image_tag("icons/22x22/tree.png", :border => 0)
+    =@title
+  = render(:partial => "skin_form")
+  #tree
+    / When using initAjax, it may be nice to put a throbber here, that spins until the initial content is loaded:
+    Loading...
+  %div
+    Active node:
+    %span#echoActive
+  %br
+  .toolbar.ui-widget-header.ui-corner-all
+    %button#btnReload
+      Reload tree
+    %button#btnReloadNode
+      Reload active node
+/ End demo
+.demo-description
+  %p
+    Using
+    %code initAjax
+    option to initialize the tree using Ajax.
+    %br
+    The folders have the
+    %code isLazy
+    option set, so that they are also
+    loaded 'on demand', when expanded.
+  %p
+    Using
+    %code persist: true
+    and
+    %code initAjax: { addExpandedKeyList: true }
+    we also support 'lazy persistence' (which has to be supported by the
+    web service, of course).
+/ End demo-description
+

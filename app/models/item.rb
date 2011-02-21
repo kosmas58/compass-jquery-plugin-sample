@@ -9,7 +9,7 @@ class Item < ActiveRecord::Base
   end
 
   gridify :demo0306,
-          :url => "/jqgrid/demo?model=item",
+          :url => "/widgets/jqgrid/demo?model=item",
           :data_type => :json,
           :colNames => [
               'Index',
@@ -38,7 +38,7 @@ class Item < ActiveRecord::Base
 
   gridify :demo1302,
           :title => I18n.t('txt.jqgrid.demo.35view'),
-          :url => "/jqgrid/demo?model=item",
+          :url => "/widgets/jqgrid/demo?model=item",
           :data_type => :json,
           :colNames => [
               'Index',
@@ -68,7 +68,7 @@ class Item < ActiveRecord::Base
 
   gridify :demo1408,
           :title => I18n.t('txt.jqgrid.demo.36tscroll'),
-          :url => "/jqgrid/demo?model=item",
+          :url => "/widgets/jqgrid/demo?model=item",
           :data_type => :json,
           :colNames => [
               'Index',
@@ -99,7 +99,7 @@ class Item < ActiveRecord::Base
 
   gridify :demo1502,
           :title => I18n.t('txt.jqgrid.demo.37server'),
-          :url => "/jqgrid/demo?model=item",
+          :url => "/widgets/jqgrid/demo?model=item",
           :data_type => :json,
           :colNames => [
               'Index',
@@ -128,7 +128,7 @@ class Item < ActiveRecord::Base
 
   gridify :demo1503,
           :title => I18n.t('txt.jqgrid.demo.37single'),
-          :url => "/jqgrid/demo?model=item",
+          :url => "/widgets/jqgrid/demo?model=item",
           :data_type => :json,
           :colNames => [
               'Index',
@@ -159,7 +159,7 @@ class Item < ActiveRecord::Base
 
   gridify :demo1504,
           :title => I18n.t('txt.jqgrid.demo.37multiple'),
-          :url => "/jqgrid/demo?model=item",
+          :url => "/widgets/jqgrid/demo?model=item",
           :data_type => :json,
           :colNames => [
               'Index',
@@ -191,7 +191,7 @@ class Item < ActiveRecord::Base
 
   gridify :demo1505,
           :title => I18n.t('txt.jqgrid.demo.37scroll'),
-          :url => "/jqgrid/demo?model=item",
+          :url => "/widgets/jqgrid/demo?model=item",
           :data_type => :json,
           :colNames => [
               'Index',
@@ -224,7 +224,7 @@ class Item < ActiveRecord::Base
 
   gridify :demo1506,
           :title => I18n.t('txt.jqgrid.demo.37toolbar'),
-          :url => "/jqgrid/demo?model=item",
+          :url => "/widgets/jqgrid/demo?model=item",
           :data_type => :json,
           :colNames => [
               'Index',

@@ -1,0 +1,23 @@
+:javascript
+  $(function () {
+    $("#demo1").jstree({ 
+      "types" : {
+        "valid_children" : [ "root" ],
+        "types" : {
+          "root" : {
+            "icon" : { 
+              "image" : "/images/icons/16x16/root.png"
+            },
+            "valid_children" : [ "default" ],
+            "max_depth" : 2,
+            "hover_node" : false,
+            "select_node" : function () {return false;}
+          },
+          "default" : {
+            "valid_children" : [ "default" ]
+          }
+        }
+      },
+      "plugins" : ["themes","html_data","dnd","ui","types"]
+    });
+  });

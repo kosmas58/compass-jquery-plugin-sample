@@ -1,0 +1,45 @@
+-@title = "#{t('txt.jst.name')} - #{t('txt.jst.ui')}"
+
+- content_for :content_head do
+  = render(:partial => "ui.js.haml", :format => :js)
+
+.demo
+  %h3
+    =image_tag("icons/22x22/tree.png", :border => 0)
+    =@title
+  .span-11
+    %h4
+      Using the UI plugin
+    #demo1.ui-widget-content.ui-corner-all
+      %ul
+        %li#phtml_1
+          %a{:href => "#"} Root node 1
+          %ul
+            %li#phtml_2
+              %a{:href => "#"} Child node 1
+            %li#phtml_3
+              %a{:href => "#"} Child node 2
+        %li#phtml_4
+          %a{:href => "#"} Root node 2
+  .span-12.append-12.last
+    #toolbar.ui-widget-header.ui-corner-all
+      %button#set_theme1
+        Set default theme
+      %button#set_theme2
+        Set aqua theme
+      %button#set_theme3
+        Set aero theme
+      %button#set_theme4
+        Set crystal theme
+      %button#set_theme5
+        Set classic theme
+/ End demo
+.demo-description
+  %p
+    The
+    %b
+      UI plugin
+    handles selecting, deselecting and hovering tree items.
+  %p
+    = link_to raw("Look here for addtional Documentation"), "http://www.jstree.com/documentation/ui"  
+/ End demo-description

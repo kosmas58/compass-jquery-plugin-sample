@@ -12,7 +12,7 @@ class Player < ActiveRecord::Base
 
   gridify :example01,
           :title => "Football players",
-          :url => "/jqgrid/players",
+          :url => "/widgets/jqgrid/players",
           :data_type => :json,
           :only => [
               :id,
@@ -46,7 +46,7 @@ class Player < ActiveRecord::Base
 
   gridify :example02,
           :title => "Football players",
-          :url => "/jqgrid/players",
+          :url => "/widgets/jqgrid/players",
           :data_type => :json,
           :only => [
               :id,
@@ -81,7 +81,7 @@ class Player < ActiveRecord::Base
 
   gridify :example03,
           :title => "Football players",
-          :url => "/jqgrid/players",
+          :url => "/widgets/jqgrid/players",
           :data_type => :json,
           :only => [
               :id,
@@ -116,7 +116,7 @@ class Player < ActiveRecord::Base
 
   gridify :example04,
           :title => "Football players",
-          :url => "/jqgrid/players",
+          :url => "/widgets/jqgrid/players",
           :data_type => :json,
           :only => [
               :id,
@@ -153,7 +153,7 @@ class Player < ActiveRecord::Base
 
   gridify :example05,
           :title => "Football players",
-          :url => "/jqgrid/players",
+          :url => "/widgets/jqgrid/players",
           :data_type => :json,
           :only => [
               :id,
@@ -190,7 +190,7 @@ class Player < ActiveRecord::Base
 
   gridify :example06,
           :title => "Football players",
-          :url => "/jqgrid/players",
+          :url => "/widgets/jqgrid/players",
           :restful => true,
           :data_type => :json,
           :only => [
@@ -229,7 +229,7 @@ class Player < ActiveRecord::Base
 
   gridify :example07,
           :title => "Football players",
-          :url => "/jqgrid/players",
+          :url => "/widgets/jqgrid/players",
           :restful => true,
           :data_type => :json,
           :only => [
@@ -271,7 +271,7 @@ class Player < ActiveRecord::Base
 
   gridify :example08,
           :title => "Football players",
-          :url => "/jqgrid/players",
+          :url => "/widgets/jqgrid/players",
           :restful => true,
           :data_type => :json,
           :only => [
@@ -317,7 +317,7 @@ class Player < ActiveRecord::Base
 
   gridify :example09,
           :title => "Football players",
-          :url => "/jqgrid/players",
+          :url => "/widgets/jqgrid/players",
           :restful => true,
           :data_type => :json,
           :only => [
@@ -364,7 +364,7 @@ class Player < ActiveRecord::Base
 
   gridify :example10,
           :title => "Football players",
-          :url => "/jqgrid/players",
+          :url => "/widgets/jqgrid/players",
           :data_type => :json,
           :only => [
               :id,
@@ -397,7 +397,7 @@ class Player < ActiveRecord::Base
           :refresh_button => true,
           :pager => true,
           :sub_grid => true,
-          :sub_grid_url => "/jqgrid/animals/?example=10",
+          :sub_grid_url => "/widgets/jqgrid/animals/?example=10",
           :sub_grid_model => [
               {
                   :name => ["ID", "Name"],
@@ -408,7 +408,7 @@ class Player < ActiveRecord::Base
 
   gridify :example11,
           :title => "Football players",
-          :url => "/jqgrid/players",
+          :url => "/widgets/jqgrid/players",
           :data_type => :json,
           :only => [
               :id,
@@ -441,7 +441,7 @@ class Player < ActiveRecord::Base
           :refresh_button => true,
           :pager => true,
           :sub_grid => true,
-          :sub_grid_url => "/jqgrid/animals/?example=10",
+          :sub_grid_url => "/widgets/jqgrid/animals/?example=10",
           :sub_grid_model => [
               {
                   :name => ["ID", "Name"],
@@ -452,7 +452,7 @@ class Player < ActiveRecord::Base
 
   gridify :example12,
           :title => "Football players",
-          :url => "/jqgrid/players",
+          :url => "/widgets/jqgrid/players",
           :data_type => :json,
           :only => [
               :id,
@@ -485,7 +485,7 @@ class Player < ActiveRecord::Base
           :refresh_button => true,
           :pager => true,
           :sub_grid => true,
-          :sub_grid_url => "/jqgrid/animals/?example=10",
+          :sub_grid_url => "/widgets/jqgrid/animals/?example=10",
           :sub_grid_model => [
               {
                   :name => ["ID", "Name"],
@@ -496,7 +496,7 @@ class Player < ActiveRecord::Base
 
   gridify :example13,
           :title => "Football players",
-          :url => "/jqgrid/players",
+          :url => "/widgets/jqgrid/players",
           :restful => true,
           :data_type => :json,
           :only => [

@@ -1,0 +1,11 @@
+:javascript
+  $(function(){
+    $("#tree").dynatree({
+      onActivate: function(node) {
+        $("#echoActive").text(node.data.title);
+      },
+      onDeactivate: function(node) {
+        $("#echoActive").text("-");
+      }
+    });
+  });

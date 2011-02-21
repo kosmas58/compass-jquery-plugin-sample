@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
 
   gridify :example05,
           :title => "Players pets",
-          :url => "/jqgrid/animals",
+          :url => "/widgets/jqgrid/animals",
           :height => :auto,
           :search_button => true,
           :refresh_button => true,

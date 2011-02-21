@@ -1,0 +1,13 @@
+:javascript
+  $(function(){
+    $("button", ".demo").button();
+    
+    $("#btnExpand").click(function(){
+      var $tree = parent.$("#tree");
+      var rootNode = parent.$("#tree").dynatree("getRoot");
+      parent.logMsg("%o", rootNode);
+      parent.$("#tree").dynatree("getRoot").visit(function(node){
+        node.toggleExpand();
+        });
+    });
+  });

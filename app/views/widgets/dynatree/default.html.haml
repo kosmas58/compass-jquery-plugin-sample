@@ -1,0 +1,56 @@
+-@title = "#{t('txt.dt.name')} - #{t('txt.dt.default')}"
+
+- content_for :content_head do
+  = render(:partial => "default.js.haml", :format => :js)
+  = render(:partial => "skin.js.haml", :format => :js)
+
+.demo
+  %h3
+    =image_tag("icons/22x22/tree.png", :border => 0)
+    =@title
+  = render(:partial => "skin_form")
+  #tree
+    %ul#treeData{ :style => "display: none;" }
+      %li#id1{ :title => "Look, a tool tip!" }
+        item1 with key and tooltip
+      %li#id2
+        item2
+      %li#id3.folder
+        Folder with some children
+        %ul
+          %li#id3.1
+            Sub-item 3.1
+            %ul
+              %li#id3.1.1
+                Sub-item 3.1.1
+              %li#id3.1.2
+                Sub-item 3.1.2
+          %li#id3.2
+            Sub-item 3.2
+            %ul
+              %li#id3.2.1
+                Sub-item 3.2.1
+              %li#id3.2.2
+                Sub-item 3.2.2
+      %li#id4.expanded
+        Document with some children (expanded on init)
+        %ul
+          %li#id4.1.active.focused
+            Sub-item 4.1 (active and focus on init)
+            %ul
+              %li#id4.1.1
+                Sub-item 4.1.1
+              %li#id4.1.2
+                Sub-item 4.1.2
+          %li#id4.2
+            Sub-item 4.2
+            %ul
+              %li#id4.2.1
+                Sub-item 4.2.1
+              %li#id4.2.2
+                Sub-item 4.2.2
+/ End demo
+.demo-description
+  %p
+    This tree uses default options.
+/ End demo-description

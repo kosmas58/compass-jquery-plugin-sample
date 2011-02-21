@@ -1,0 +1,62 @@
+:css
+  #toolbar{ padding: 0.3em; }
+  .ui-button{ font-size: 0.9em; } 
+  
+:javascript
+  $(function () {
+    $("button", ".demo").button();
+    
+    $("#toggle_dots").click(function () { 
+      $("#demo1").jstree("toggle_dots");
+    });
+    
+    $("#toggle_icons").click(function () { 
+      $("#demo1").jstree("toggle_icons");
+    });
+    
+    $("#show_checkboxes").click(function () { 
+      $("#demo1").jstree("show_checkboxes");
+    });
+    
+    $("#hide_checkboxes").click(function () { 
+      $("#demo1").jstree("hide_checkboxes");
+    });
+    
+    $("#set_theme1").click(function () { 
+      $("#demo1").jstree("set_theme","default");
+    });
+    
+    $("#set_theme2").click(function () { 
+      $("#demo1").jstree("set_theme","aqua");
+    });
+    
+    $("#set_theme3").click(function () { 
+      $("#demo1").jstree("set_theme","aero");
+    });
+    
+    $("#set_theme4").click(function () { 
+      $("#demo1").jstree("set_theme","crystal");
+    });
+    
+    $("#set_theme5").click(function () { 
+      $("#demo1").jstree("set_theme","classic");
+    });
+
+    $("#demo1").jstree({
+      "themes" : {
+        "theme" : "default",
+        "dots" : false,
+        "icons" : false
+      },
+      "json_data" : {
+        "ajax" : {
+          "url" : "data?format=json",
+          "data" : function (n) { 
+            return { id : n.attr ? n.attr("id") : 0 }; 
+          }
+        }
+      },
+      "plugins" : [ "themes", "json_data" ]
+    });
+    $("#demo1").jstree("hide_checkboxes");
+  });

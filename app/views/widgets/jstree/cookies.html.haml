@@ -1,0 +1,36 @@
+-@title = "#{t('txt.jst.name')} - #{t('txt.jst.cookies')}"
+
+- content_for :content_head do
+  = render(:partial => "cookies.js.haml", :format => :js)
+
+.demo
+  %h3
+    =image_tag("icons/22x22/tree.png", :border => 0)
+    =@title
+  .span-24
+    %h4
+      Using the cookies plugin
+    #demo1.ui-widget-content.ui-corner-all
+      %ul
+        %li#phtml_1
+          %a{:href => "#"} Root node 1
+          %ul
+            %li#phtml_2
+              %a{:href => "#"} Child node 1
+            %li#phtml_3
+              %a{:href => "#"} Child node 2
+        %li#phtml_4
+          %a{:href => "#"} Root node 2
+/ End demo
+.demo-description
+  %p
+    The
+    %b
+      cookies plugin
+    enables jstree to save the state of the tree across sessions. What this does is save the opened and
+    selected nodes in a cookie, and reopen & reselect them the next time the user loads the tree.
+    Depends on the
+    = link_to raw("jQuery.cookie plugin."), "http://plugins.jquery.com/project/cookie"
+  %p
+    = link_to raw("Look here for addtional Documentation"), "http://www.jstree.com/documentation/cookies"  
+/ End demo-description

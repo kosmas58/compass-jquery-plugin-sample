@@ -62,7 +62,7 @@ class Account < ActiveRecord::Base
 
   gridify :demo1102,
           :title => I18n.t('txt.jqgrid.demo.33tree'),
-          :url => "/jqgrid/demo?model=account",
+          :url => "/widgets/jqgrid/demo?model=account",
           :data_type => :xml,
           :colNames => [
               I18n.t('activerecord.attributes.account.name'),
@@ -98,7 +98,7 @@ class Account < ActiveRecord::Base
 
   gridify :demo1206,
           :title => I18n.t('txt.jqgrid.demo.34adjacency'),
-          :url => "/jqgrid/demo?model=account",
+          :url => "/widgets/jqgrid/demo?model=account",
           :data_type => :xml,
           :colNames => [
               I18n.t('activerecord.attributes.account.name'),
@@ -134,7 +134,7 @@ class Account < ActiveRecord::Base
 
   gridify :demo1306,
           :title => I18n.t('txt.jqgrid.demo.35real'),
-          :url => "/jqgrid/demo?model=account",
+          :url => "/widgets/jqgrid/demo?model=account",
           :data_type => :xml,
           :colNames => [
               I18n.t('activerecord.attributes.account.name'),
@@ -178,7 +178,7 @@ class Account < ActiveRecord::Base
 
   gridify :demo9903,
           :title => I18n.t('txt.jqgrid.demo.33tree'),
-          :url => "/jqgrid/demo?model=account",
+          :url => "/widgets/jqgrid/demo?model=account",
           :data_type => :json,
           :colNames => [
               I18n.t('activerecord.attributes.account.name'),
@@ -214,7 +214,7 @@ class Account < ActiveRecord::Base
 
   gridify :demo9904,
           :title => I18n.t('txt.jqgrid.demo.34adjacency'),
-          :url => "/jqgrid/demo?model=account",
+          :url => "/widgets/jqgrid/demo?model=account",
           :data_type => :json,
           :colNames => [
               I18n.t('activerecord.attributes.account.name'),
@@ -250,7 +250,7 @@ class Account < ActiveRecord::Base
 
   gridify :demo9905,
           :title => I18n.t('txt.jqgrid.demo.35real'),
-          :url => "/jqgrid/demo?model=account",
+          :url => "/widgets/jqgrid/demo?model=account",
           :data_type => :json,
           :colNames => [
               I18n.t('activerecord.attributes.account.name'),

@@ -1,0 +1,37 @@
+-@title = "#{t('txt.jst.name')} - #{t('txt.jst.unique')}"
+
+- content_for :content_head do
+  = render(:partial => "unique.js.haml", :format => :js)
+
+.demo
+  %h3
+    =image_tag("icons/22x22/tree.png", :border => 0)
+    =@title
+  .span-11.append-13.last
+    %h4
+      Using the unique plugin
+    #demo1.ui-widget-content.ui-corner-all   
+      %ul
+        %li#phtml_1.jstree-open
+          %a{:href => "#"} Root node 1
+          %ul
+            %li#phtml_2
+              %a{:href => "#"} Child node 1
+        %li#phtml_4.jstree-open
+          %a{:href => "#"} Root node 2
+          %ul
+            %li#phtml_3
+              %a{:href => "#"} Child node 1
+      %br
+      %p
+      Try moving the child nodes together (drag'n'drop).
+/ End demo
+.demo-description
+  %p
+    The
+    %b
+      unique plugin
+    prevents from nodes with same titles coexisting (create/move/rename) in the same parent.
+  %p
+    = link_to raw("Look here for addtional Documentation"), "http://www.jstree.com/documentation/unique"  
+/ End demo-description

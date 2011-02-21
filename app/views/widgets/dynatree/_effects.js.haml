@@ -1,0 +1,39 @@
+:javascript
+  $(function(){
+    $("#tree").dynatree({
+      fx: { height: "toggle", duration: 200 },
+      autoCollapse: true,
+      onActivate: function(node) {
+        $("#echoActive").text(node.data.title);
+      },
+      onDeactivate: function(node) {
+        $("#echoActive").text("-");
+      }
+    });
+    $("#cbAutoCollapse")
+    .attr("checked", true) // set state, to prevent caching
+    .click(function(){
+      var f = $(this).attr("checked");
+      $("#tree").dynatree("option", "autoCollapse", f);
+    });
+    $("#cbEffects")
+    .attr("checked", true) // set state, to prevent caching
+    .click(function(){
+      var f = $(this).attr("checked");
+      if(f){
+        $("#tree").dynatree("option", "fx", { height: "toggle", duration: 200 });
+      }else{
+        $("#tree").dynatree("option", "fx", null);
+      }
+    });
+    $("#skinCombo")
+    .val(0) // set state to prevent caching
+    .change(function(){
+      var href = "../src/"
+        + $(this).val()
+        + "/ui.dynatree.css"
+        + "?reload=" + new Date().getTime();
+      $("#skinSheet").attr("href", href);
+    });
+  });
+

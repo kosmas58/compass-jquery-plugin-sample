@@ -10,7 +10,7 @@ class Animal < ActiveRecord::Base
   end
 
   gridify :example05,
-          :url => "/jqgrid/animals",
+          :url => "/widgets/jqgrid/animals",
           :data_type => :json,
           :only => [
               :id,

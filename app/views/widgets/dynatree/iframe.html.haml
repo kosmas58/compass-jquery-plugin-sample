@@ -1,0 +1,41 @@
+-@title = "#{t('txt.dt.name')} - #{t('txt.dt.iframe')}"
+
+- content_for :content_head do
+  = render(:partial => "iframe.js.haml", :format => :js)
+  = render(:partial => "skin.js.haml", :format => :js)
+
+.demo
+  %h3
+    =image_tag("icons/22x22/tree.png", :border => 0)
+    =@title
+  = render(:partial => "skin_form")
+  
+  %table
+    %colgroup
+      %col{ :valign => "top", :width => "300px" }
+        %col{ :width => "90%" }
+    %tr
+      %td{ :valign => "top" }
+        / Add a <div> element where the tree should appear:
+        #tree
+      %td
+        %iframe{ :name => "contentFrame", :src => "iframe_1", :marginwidth => "0", :height => "500", :frameborder => "0", :width => "100%", :scrolling => "yes", :marginheight => "0" }
+          %p
+            Your browser does not support iframes
+/ End demo
+.demo-description
+  %p
+    This sample shows, how to use dynatree as a navigation menu.
+    %br
+    A custom
+    %code
+      url
+    attribute is added to the node data
+    and set as
+    %code
+      src
+    for the embedded &lt;iframe>.
+  %p
+    The [Toggle tree] button in the embedded welcome page also gives an example on
+    how to access a tree that exists outside the own frame.
+/ End demo-description

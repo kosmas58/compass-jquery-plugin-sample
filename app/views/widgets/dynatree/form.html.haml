@@ -1,0 +1,46 @@
+-@title = "#{t('txt.dt.name')} - #{t('txt.dt.form')}"
+
+- content_for :content_head do
+  = render(:partial => "form.js.haml", :format => :js)
+  = render(:partial => "skin.js.haml", :format => :js)
+
+.demo
+  %h3
+    =image_tag("icons/22x22/tree.png", :border => 0)
+    =@title
+  = render(:partial => "skin_form")
+  %form{:action => "http://127.0.0.1:8001/submit_data", :method => "POST"}
+    Username:
+    %input{:name => "userName", :type => "text"}/
+    %br
+    %textarea{:name => "comment"}
+    %p
+      %input{:checked => "", :name => "rb1", :type => "radio", :value => "foo"}
+      Foo
+      %input{:name => "rb1", :type => "radio", :value => "bar"}
+      Bar
+      %input{:name => "rb1", :type => "radio", :value => "baz"}
+      Baz
+      %br
+      %input{:checked => "", :name => "cb1", :type => "checkbox", :value => "John"}
+      John
+      %input{:name => "cb1", :type => "checkbox", :value => "Paul"}
+      Paul
+      %input{:name => "cb1", :type => "checkbox", :value => "George"}
+      George
+      %input{:name => "cb1", :type => "checkbox", :value => "Ringo"}
+      Ringo
+    %p
+      / The name attribute is used by tree.serializeArray()
+      #tree{:name => "selNodes"}
+    %input{:type => "submit", :value => "Send data"}
+/ End demo
+.demo-description
+  %p
+    This tree is embedded in a form and uses a [Submit] button to POST the
+    tree status.
+    %br
+    It also uses form input elements.
+    %br
+    The 'noLink' tree-option is used to make the form and HTML5 elements clickable.
+/ End demo-description

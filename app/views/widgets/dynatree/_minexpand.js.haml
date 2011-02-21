@@ -1,0 +1,34 @@
+:javascript
+  $(function(){
+    $("#tabs").tabs({
+      event: 'mouseover'
+    });
+    
+    $("#tree1").dynatree({
+      initAjax: {
+        url: "data3?format=json"
+      },
+      onActivate: function(node) {
+        logMsg("Activated %o", node);
+      },
+      minExpandLevel: 1
+    });
+    $("#tree2").dynatree({
+      initAjax: {
+        url: "data3?format=json"
+      },
+      onActivate: function(node) {
+        logMsg("Activated %o", node);
+      },
+      minExpandLevel: 2
+    });
+    $("#tree3").dynatree({
+      initAjax: {
+        url: "data3?format=json"
+      },
+      onActivate: function(node) {
+        logMsg("Activated %o", node);
+      },
+      minExpandLevel: 3
+    });
+  });
