@@ -345,10 +345,12 @@ de:
       default: jQuery Ribbon Windows 7 Demo
       office: jQuery Ribbon Office Demo
     history: 
-      name: jQuery History Plugin
-      mvc: MVC Bespielhistorie
-      ajax: Ajax-Beispiel
-      ajax2: Ajax-Beispiel 2
+      name: jQuery-Historie
+      example1: HTML4-Beispiel
+      example2: HTML5-Beispiel
+      example3: Ajax-Beispiel
+      example4: Ajax-Beispiel 2
+      example5: MVC Bespielhistorie
     emu: 
       name: "jQuery auf mobilen Ger\xC3\xA4ten"
       ipad: iPad

@@ -236,10 +236,12 @@ en:
       default: jQuery Ribbon Windows 7 theme
       office: jQuery Ribbon Office theme
     history: 
-      name: jQuery History Plugin
-      mvc: MVC Sample History
-      ajax: Ajax Sample
-      ajax2: Ajax Sample 2
+      name: jQuery History
+      example1: HTML4 Sample
+      example2: HTML5 Sample
+      example3: Ajax Sample
+      example4: Ajax Sample 2
+      example5: MVC Sample History
     emu: 
       name: jQuery on mobile devices
       ipad: iPad

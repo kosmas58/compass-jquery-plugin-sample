@@ -1,0 +1,50 @@
+:javascript
+  if ( typeof JSON === 'undefined' ) {
+    var url = '/javascripts/json2.min.js',
+        scriptEl = document.createElement('script');
+    scriptEl.type = 'text/javascript';
+    scriptEl.src = url;
+    document.body.appendChild(scriptEl,document.body.firstChild);
+  }
+
+  (function(window,undefined){
+      // Establish Variables
+      var
+          History = window.History // Note: We are using a capital H instead of a lower h
+          ;
+
+      // Bind to State Change
+      History.Adapter.bind(window,'statechange',function(){ // Note: We are using statechange instead of popstate
+          // Log the State
+          var State = History.getState(); // Note: We are using History.getState() instead of event.state
+          History.log('statechange:', State.data, State.title, State.url);
+      });
+
+      // Prepare Buttons
+      var
+          scripts = [
+              'History.pushState({state:1}, "State 1", "?state=1"); // logs {state:1}, "State 1", "?state=1"',
+              'History.pushState({state:2}, "State 2", "?state=2"); // logs {state:2}, "State 2", "?state=2"',
+              'History.replaceState({state:3}, "State 3", "?state=3"); // logs {state:3}, "State 3", "?state=3"',
+              'History.pushState(null, null, "?state=4"); // logs {}, "", "?state=4"',
+              'History.back(); // logs {state:3}, "State 3", "?state=3"',
+              'History.back(); // logs {state:1}, "State 1", "?state=1"',
+              'History.back(); // logs {}, "The page you started at", "?"',
+              'History.go(2); // logs {state:3}, "State 3", "?state=3"'
+          ],
+          buttonsHTML = '';
+
+      // Add Buttons
+      for ( var i=0,n=scripts.length; i<n; ++i ) {
+          var _script = scripts[i];
+          buttonsHTML +=
+              '<li><button onclick=\'javascript:'+_script+'\'>'+_script+'</button></li>';
+      }
+      $("#buttons").html(buttonsHTML);
+
+  })(window);
+
+  $(document).ready(function($) {
+
+  });
+

@@ -1,0 +1,22 @@
+-@title = "#{t('txt.history.name')} - #{t('txt.history.example2')}"
+
+- content_for :content_head do
+  = render(:partial => "html5.js.haml", :format => :js)
+
+.demo
+  %h3
+    =image_tag("icons/22x22/html5.png", :border => 0)
+    =@title
+  
+
+/ End demo
+.demo-description
+  #greybox
+  %p
+    The plugin was written by
+    %a{:href => "http://github.com/balupton/History.js/" } Benjamin Lupton
+    and released under the
+    = succeed "." do
+      %a{:href => "http://creativecommons.org/licenses/BSD/", :class => :greybox } New BSD License
+/ End demo-description
+
