@@ -677,7 +677,7 @@ de:
           multiple-calendars: Mehrerer Monate anzeigen
           animation: Animationen
           localization: " Kalender lokalisieren"
-          event-search: Veranstaltungen suchen
+          date-range: Datumsbereich
           dropdown-month-year: "Monat- & Jahresmen\xC3\xBCs anzeigen"
           other-months: Termine in den anderen Monaten
         dialog: 

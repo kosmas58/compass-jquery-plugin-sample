@@ -117,7 +117,7 @@ node_90 = NavigationTree.create_node(:id => parent_id, :seed => true, :position 
 node_91 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 10, :title => 'txt.ui.widgets.datepicker.multiple-calendars', :type => 'default', :icon => '/images/icons/16x16/jquery-ui.png', :url => '/ui/widgets/datepicker/multiple_calendars')
 node_92 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 11, :title => 'txt.ui.widgets.datepicker.icon-trigger', :type => 'default', :icon => '/images/icons/16x16/jquery-ui.png', :url => '/ui/widgets/datepicker/icon_trigger')
 node_93 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 12, :title => 'txt.ui.widgets.datepicker.animation', :type => 'default', :icon => '/images/icons/16x16/jquery-ui.png', :url => '/ui/widgets/datepicker/animation')
-node_94 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 13, :title => 'txt.ui.widgets.datepicker.event-search', :type => 'default', :icon => '/images/icons/16x16/jquery-ui.png', :url => '/ui/widgets/datepicker/event_search')
+node_94 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 13, :title => 'txt.ui.widgets.datepicker.date-range', :type => 'default', :icon => '/images/icons/16x16/jquery-ui.png', :url => '/ui/widgets/datepicker/date_range')
 parent_id = node_50
 node_95 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 4, :title => 'txt.ui.widgets.dialog.default', :type => 'folder', :icon => '/images/icons/16x16/jquery-ui.png')
 parent_id = node_95
@@ -197,19 +197,19 @@ parent_id = node_50
 parent_id = node_2
 node_156 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.ui.effects.default', :type => 'folder', :icon => '/images/icons/16x16/jquery-ui.png')
 parent_id = node_156
-node_157 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.ui.effects.add_class.default', :type => 'default', :icon => '/images/icons/16x16/jquery-ui.png', :url => '/ui/effects/add_class')
-node_158 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.ui.effects.remove_class.default', :type => 'default', :icon => '/images/icons/16x16/jquery-ui.png', :url => '/ui/effects/remove_class')
-node_159 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.ui.effects.switch_class.default', :type => 'default', :icon => '/images/icons/16x16/jquery-ui.png', :url => '/ui/effects/switch_class')
-node_160 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.ui.effects.toggle_class.default', :type => 'default', :icon => '/images/icons/16x16/jquery-ui.png', :url => '/ui/effects/toggle_class')
-node_161 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 4, :title => 'txt.ui.effects.show.default', :type => 'default', :icon => '/images/icons/16x16/jquery-ui.png', :url => '/ui/effects/show')
-node_162 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 5, :title => 'txt.ui.effects.hide.default', :type => 'default', :icon => '/images/icons/16x16/jquery-ui.png', :url => '/ui/effects/hide')
-node_163 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 6, :title => 'txt.ui.effects.toggle.default', :type => 'default', :icon => '/images/icons/16x16/jquery-ui.png', :url => '/ui/effects/toggle')
-node_164 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 7, :title => 'txt.ui.effects.animate.default', :type => 'default', :icon => '/images/icons/16x16/jquery-ui.png', :url => '/ui/effects/animate')
-node_165 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 8, :title => 'txt.ui.effects.effect.default', :type => 'folder', :icon => '/images/icons/16x16/jquery-ui.png')
-parent_id = node_165
-node_166 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.ui.effects.effect.showcase', :type => 'default', :icon => '/images/icons/16x16/jquery-ui.png', :url => '/ui/effects/effect/default')
-node_167 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.ui.effects.effect.easing', :type => 'default', :icon => '/images/icons/16x16/jquery-ui.png', :url => '/ui/effects/effect/easing')
+node_164 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.ui.effects.animate.default', :type => 'default', :icon => '/images/icons/16x16/jquery-ui.png', :url => '/ui/effects/animate')
+node_481 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.ui.effects.toggle_class.default', :type => 'default', :icon => '/images/icons/16x16/jquery-ui.png', :url => '/ui/effects/toggle_class')
+node_482 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.ui.effects.add_class.default', :type => 'default', :icon => '/images/icons/16x16/jquery-ui.png', :url => '/ui/effects/add_class')
+node_483 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.ui.effects.remove_class.default', :type => 'default', :icon => '/images/icons/16x16/jquery-ui.png', :url => '/ui/effects/remove_class')
+node_484 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 4, :title => 'txt.ui.effects.switch_class.default', :type => 'default', :icon => '/images/icons/16x16/jquery-ui.png', :url => '/ui/effects/switch_class')
+node_485 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 5, :title => 'txt.ui.effects.effect.default', :type => 'folder', :icon => '/images/icons/16x16/jquery-ui.png')
+parent_id = node_485
+node_486 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.ui.effects.effect.showcase', :type => 'default', :icon => '/images/icons/16x16/jquery-ui.png', :url => '/ui/effects/effect/default')
+node_487 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.ui.effects.effect.easing', :type => 'default', :icon => '/images/icons/16x16/jquery-ui.png', :url => '/ui/effects/effect/easing')
 parent_id = node_156
+node_488 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 6, :title => 'txt.ui.effects.toggle.default', :type => 'default', :icon => '/images/icons/16x16/jquery-ui.png', :url => '/ui/effects/toggle')
+node_489 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 7, :title => 'txt.ui.effects.hide.default', :type => 'default', :icon => '/images/icons/16x16/jquery-ui.png', :url => '/ui/effects/hide')
+node_490 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 8, :title => 'txt.ui.effects.show.default', :type => 'default', :icon => '/images/icons/16x16/jquery-ui.png', :url => '/ui/effects/show')
 parent_id = node_2
 node_168 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.ui.utilities.default', :type => 'folder', :icon => '/images/icons/16x16/jquery-ui.png')
 parent_id = node_168
@@ -545,36 +545,34 @@ parent_id = node_402
 node_411 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.ical.calendar.listing', :type => 'default', :icon => '/images/icons/16x16/calendar.png', :url => '/widgets/ical/calendars')
 parent_id = node_173
 parent_id = node_172
-node_412 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.graphics.name', :type => 'folder', :icon => '/images/icons/16x16/graphics.png')
-parent_id = node_412
-node_413 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.graphics.ganttview.name', :type => 'folder', :icon => '/images/icons/16x16/gantt.png')
-parent_id = node_413
-node_414 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.graphics.ganttview.default', :type => 'default', :icon => '/images/icons/16x16/gantt.png', :url => '/graphics/gantt_view/default')
-parent_id = node_412
-node_415 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.graphics.sparklines.name', :type => 'folder', :icon => '/images/icons/16x16/sparklines.png')
-parent_id = node_415
-node_416 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.graphics.sparklines.examples', :type => 'default', :icon => '/images/icons/16x16/sparklines.png', :url => '/graphics/sparklines/examples')
-node_417 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.graphics.sparklines.default', :type => 'default', :icon => '/images/icons/16x16/sparklines.png', :url => '/graphics/sparklines/default')
-parent_id = node_412
-parent_id = node_172
-node_418 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.handling.name', :type => 'folder', :icon => '/images/icons/16x16/plugin.png')
-parent_id = node_418
-node_419 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.history.name', :type => 'folder', :icon => '/images/icons/16x16/history.png')
+node_419 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.graphics.name', :type => 'folder', :icon => '/images/icons/16x16/graphics.png')
 parent_id = node_419
-node_473 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.history.example1', :type => 'default', :icon => '/images/icons/16x16/history.png', :url => '/handling/history/html4')
-node_474 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.history.example2', :type => 'default', :icon => '/images/icons/16x16/html5.png', :url => '/handling/history/html5')
-node_478 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.history.example3', :type => 'default', :icon => '/images/icons/16x16/history.png', :url => '/handling/history/ajax')
-node_479 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.history.example4', :type => 'default', :icon => '/images/icons/16x16/history.png', :url => '/handling/history/ajax2')
-node_480 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 4, :title => 'txt.history.example5', :type => 'default', :icon => '/images/icons/16x16/working.png', :url => '/handling/history/mvc')
-parent_id = node_418
-node_423 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.replacetext.name', :type => 'folder', :icon => '/images/icons/16x16/plugin.png')
-parent_id = node_423
-node_424 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.replacetext.default', :type => 'default', :icon => '/images/icons/16x16/plugin.png', :url => '/handling/replace_text/default')
-parent_id = node_418
+node_420 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.graphics.ganttview.name', :type => 'folder', :icon => '/images/icons/16x16/gantt.png')
+parent_id = node_420
+node_421 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.graphics.ganttview.default', :type => 'default', :icon => '/images/icons/16x16/gantt.png', :url => '/graphics/gantt_view/default')
+parent_id = node_419
+node_422 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.graphics.sparklines.name', :type => 'folder', :icon => '/images/icons/16x16/sparklines.png')
+parent_id = node_422
+node_423 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.graphics.sparklines.examples', :type => 'default', :icon => '/images/icons/16x16/sparklines.png', :url => '/graphics/sparklines/examples')
+node_424 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.graphics.sparklines.default', :type => 'default', :icon => '/images/icons/16x16/sparklines.png', :url => '/graphics/sparklines/default')
+parent_id = node_419
 parent_id = node_172
-node_425 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.haml.name', :type => 'folder', :icon => '/images/icons/16x16/haml.png')
-parent_id = node_425
-node_426 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.haml.jhaml', :type => 'default', :icon => '/images/icons/16x16/haml.png', :url => '/haml/jhaml')
+node_472 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.handling.name', :type => 'folder', :icon => '/images/icons/16x16/plugin.png')
+parent_id = node_472
+node_473 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.history.name', :type => 'folder', :icon => '/images/icons/16x16/history.png')
+parent_id = node_473
+node_474 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.history.ajax', :type => 'default', :icon => '/images/icons/16x16/history.png', :url => '/handling/history/ajax')
+node_475 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.history.ajax2', :type => 'default', :icon => '/images/icons/16x16/history.png', :url => '/handling/history/ajax2')
+node_476 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.history.mvc', :type => 'default', :icon => '/images/icons/16x16/working.png', :url => '/handling/history/mvc')
+parent_id = node_472
+node_477 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.replacetext.name', :type => 'folder', :icon => '/images/icons/16x16/plugin.png')
+parent_id = node_477
+node_478 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.replacetext.default', :type => 'default', :icon => '/images/icons/16x16/plugin.png', :url => '/handling/replace_text/default')
+parent_id = node_472
+parent_id = node_172
+node_479 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.haml.name', :type => 'folder', :icon => '/images/icons/16x16/haml.png')
+parent_id = node_479
+node_480 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.haml.jhaml', :type => 'default', :icon => '/images/icons/16x16/haml.png', :url => '/haml/jhaml')
 parent_id = node_172
 parent_id = node_1
 node_427 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.emu.jqm.name', :type => 'accordion', :icon => '/images/icons/16x16/jqmobile.png')

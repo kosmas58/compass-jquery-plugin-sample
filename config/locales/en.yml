@@ -712,7 +712,7 @@ en:
           multiple-calendars: Display multiple months
           animation: Animations
           localization: Localize calendar
-          event-search: Event Search
+          date-range: Date Range
           dropdown-month-year: Display month & year menus
           other-months: Dates in other months
         accordion: 
