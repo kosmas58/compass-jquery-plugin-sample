@@ -1,21 +1,32 @@
 :css
-  #the-content { border: 1px #666 solid; width: 300px; height: 300px; padding:0.5em; }
+  #the-content1 { border: 1px #666 solid; width: 300px; height: 300px; padding:0.5em; }
 
 :javascript
   $(document).ready(function($) {
-    function load(num) {
-      $('#the-content').load(num);
+    function load(url) {
+      if (url === undefined) {
+        var re = new RegExp(document.documentElement.baseURI),
+            href = document.documentURI.replace(re, '');
+        href = href.replace(/^.*#/, '');
+
+        if (href =="") {
+          url = "ajax_1";
+        } else {
+          url = href;
+        }
+      }
+      $('#the-content').load(url);
     }
 
-    $.history.init(function(url) {
-      load(url == "" ? "ajax_1" : url);
-    });
-
     $('#ajax-links a').live('click', function(e) {
-      var url = $(this).attr('href');
-      url = url.replace(/^.*#/, '');
-      $.history.load(url);
+      document.location.hash = $(this).attr('href');
       return false;
     });
+    
+    $(window).bind('hashchange', function(event) {
+      load();
+    });
+    
+    load("ajax_1");
   });
 

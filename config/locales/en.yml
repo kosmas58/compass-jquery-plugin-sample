@@ -236,7 +236,7 @@ en:
       default: jQuery Ribbon Windows 7 theme
       office: jQuery Ribbon Office theme
     history: 
-      name: jQuery History
+      name: History.js
       example1: HTML4 Sample
       example2: HTML5 Sample
       example3: Ajax Sample

@@ -9,27 +9,35 @@
 
       setTimeout(function(){
           history.pushState({page: 1}, "title 1", "?page=1");
+          $("#history").append('<p>history.pushState({page: 1}, "title 1", "?page=1");</p>');
       },1e3);
       setTimeout(function(){
           history.pushState({page: 2}, "title 2", "?page=2");
+          $("#history").append('<p>history.pushState({page: 2}, "title 2", "?page=2");</p>');
       },2e3);
       setTimeout(function(){
           history.replaceState({page: 3}, "title 3", "?page=3");
+          $("#history").append('<p>history.replaceState({page: 3}, "title 3", "?page=3");</p>');
       },3e3);
       setTimeout(function(){
-          document.location.hash = 'asd';
+          document.location.hash = "asd";
+          $("#history").append('<p>document.location.hash = "asd";</p>');
       },4e3);
       setTimeout(function(){
           history.back(); // alerts "location: http://example.com/example.html?page=3#asd, state: {"page":3}"
+          $("#history").append('<p>history.back();</p>');
       },5e3);
       setTimeout(function(){
           history.back(); // alerts "location: http://example.com/example.html?page=1, state: {"page":1}"
+          $("#history").append('<p>history.back();</p>');
       },6e3);
       setTimeout(function(){
           history.back(); // alerts "location: http://example.com/example.html, state: null
+          $("#history").append('<p>history.back();</p>');
       },7e3);
       setTimeout(function(){
           history.go(2);  // alerts "location: http://example.com/example.html?page=3, state: {"page":3}
+          $("#history").append('<p>history.go(2);</p>');
       },8e3);
 
   });
