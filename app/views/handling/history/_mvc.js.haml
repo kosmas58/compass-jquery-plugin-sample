@@ -11,23 +11,37 @@
     $("#tabs").tabs(options);
   });
   
-  $(document).ready(function($) {
-    function load(num) {
-      $("#tabs").tabs("select", num);
-    }
-  
-    $.history.init(function(url) {
-      load(url == "" ? "1" : url.replace(/^.*ui-tabs-/, ''));
-    });
 
-    $(".pager") .live('click', function() {
-      $("#tabs").tabs("select", eval($(this).val()));
-    });
-    
-    // when the tab is selected update the url with the hash
-    $("#tabs").live("tabsselect", function(event, ui) { 
-      url = ui.tab.hash.replace(/^.*#/, '');
-      //window.location.hash = ui.tab.hash;
-      $.history.load(url);
-    });
+  $(document).ready(function($) {
+     function load(tab) {
+       if (tab === undefined) {
+         var re = new RegExp(document.documentElement.baseURI),
+             href = document.documentURI.replace(re, '');
+         href = href.replace(/^.*#ui-tabs-/, '');
+
+         if (href =="") {
+           tab = "";
+         } else {
+           tab = href;
+         }
+       }
+       $("#tabs").tabs("select", tab);
+     }
+
+     $(".pager") .live('click', function() {
+       //$("#tabs").tabs("select", eval($(this).val()));
+       document.location.hash = "ui-tabs-"+eval($(this).val());
+     });
+
+       $("#tabs").live("tabsselect", function(event, ui) {
+         document.location.hash = ui.tab.hash;
+       });
+
+
+     $(window).bind('hashchange', function(event) {
+       //console.log("onhashchange: location: " + document.location.href);
+       load();
+     });
+
+     load("1");
   });

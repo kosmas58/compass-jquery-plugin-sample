@@ -1,0 +1,102 @@
+-@title = "#{t('txt.history.name')} - #{t('txt.history.example5')}"
+
+- content_for :content_head do
+  = stylesheet_link_tag "compiled/jquery/ui/cowboy", :media => 'screen, projection'
+  = render(:partial => "bbq.js.haml", :format => :js)
+
+.demo
+  %h3
+    =image_tag("icons/22x22/history.png", :border => 0)
+    =@title
+
+  %h4 This jQuery UI Tabs widget has id "some_tabs"
+  #some_tabs.tabs
+    %ul
+      %li
+        %a{:href => "#some_tabs_0"} jQuery BBQ
+      %li
+        %a{:href => "#some_tabs_1"} Burgers
+      %li
+        %a{:href => "#some_tabs_2"} Chicken
+      %li
+        %a{:href => "#some_tabs_3"} Kebabs
+    #some_tabs_0
+      %h1
+        jQuery BBQ
+      %img{:height => "150", :src => "/images/demo/bbq/bbq.jpg", :width => "200"}
+      %p
+        Click a tab above to display some delicious content!
+    #some_tabs_1
+      %h1
+        Delicious Burgers
+      %img{:height => "150", :src => "/images/demo/bbq/burger.jpg", :width => "200"}
+      %p
+        It might look like more food than you can eat, but trust me, you'll finish
+        this burger.
+    #some_tabs_2
+      %h1
+        Mesquite Rub Chicken
+      %img{:height => "150", :src => "/images/demo/bbq/chicken.jpg", :width => "200"}
+      %p
+        This spicy meal might have you begging for "cerveza" but you'll be coming back for
+        seconds!
+    #some_tabs_3
+      %h1
+        Savory Shish-Kebabs
+      %img{:height => "150", :src => "/images/demo/bbq/kebabs.jpg", :width => "200"}
+      %p
+        Who doesn't like kebabs? Nobody! That's why this meat and veggie combo is sure
+        to blow your mind!
+    .shim
+  %h4
+    This jQuery UI Tabs widget has id "more_tabs"
+  #more_tabs.tabs
+    %ul
+      %li
+        %a{:href => "#more_tabs_0"} jQuery BBQ
+      %li
+        %a{:href => "#more_tabs_1"} Kielbasa
+      %li
+        %a{:href => "#more_tabs_2"} Ribs
+      %li
+        %a{:href => "#more_tabs_3"} Steak
+    #more_tabs_0
+      %h1
+        jQuery BBQ
+      %img{:height => "150", :src => "/images/demo/bbq/bbq.jpg", :width => "200"}
+      %p
+        And there's plenty more where that came from! Don't forget to click
+        here for some more down-home content.
+    #more_tabs_1
+      %h1
+        Sweet Kielbasa
+      %img{:height => "150", :src => "/images/demo/bbq/kielbasa.jpg", :width => "200"}
+      %p
+        One bite of this kielbasa will have you asking for the recipe, and that's a fact.
+    #more_tabs_2
+      %h1
+        Baby-Back Ribs
+      %img{:height => "150", :src => "/images/demo/bbq/ribs.jpg", :width => "200"}
+      %p
+        What's better than a half-rack of ribs? A full rack!
+    #more_tabs_3
+      %h1
+        Flame-Broiled Steak
+      %img{:height => "150", :src => "/images/demo/bbq/steak.jpg", :width => "200"}
+      %p
+        Seasoned and cooked perfectly, this amazing steak aims to please!
+    .shim
+/ End demo
+.demo-description
+  #greybox
+  %p
+    The example is taken from
+    %a{:href => "http://benalman.com/projects/jquery-bbq-plugin/", :class => :greybox  } "Cowboy" Ben Alman.
+  %p
+    The plugin was written by
+    %a{:href => "http://github.com/balupton/History.js/", :class => :greybox  } Benjamin Lupton
+    and released under the
+    = succeed "." do
+      %a{:href => "http://creativecommons.org/licenses/BSD/", :class => :greybox } New BSD License
+/ End demo-description
+

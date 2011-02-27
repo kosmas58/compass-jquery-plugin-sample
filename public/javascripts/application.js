@@ -42,7 +42,7 @@ $(document).ready(function() {
     
   $("#configure_navigation").button({
     icons: {
-      primary: 'ui-icon-star'
+      secondary: 'ui-icon-star'
     },
     text: false
   });

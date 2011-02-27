@@ -6,19 +6,19 @@
     $('#beginning').button({
       text: false,
       icons: {
-        primary: 'ui-icon-seek-start'
+        secondary: 'ui-icon-seek-start'
       }
     });
     $('#rewind').button({
       text: false,
       icons: {
-        primary: 'ui-icon-seek-prev'
+        secondary: 'ui-icon-seek-prev'
       }
     });
     $('#play').button({
       text: false,
       icons: {
-        primary: 'ui-icon-play'
+        secondary: 'ui-icon-play'
       }
     })
     .click(function() {
@@ -27,14 +27,14 @@
         options = {
           label: 'pause',
           icons: {
-            primary: 'ui-icon-pause'
+            secondary: 'ui-icon-pause'
           }
         };
         } else {
         options = {
           label: 'play',
           icons: {
-            primary: 'ui-icon-play'
+            secondary: 'ui-icon-play'
           }
         };
       }
@@ -43,27 +43,27 @@
     $('#stop').button({
       text: false,
       icons: {
-        primary: 'ui-icon-stop'
+        secondary: 'ui-icon-stop'
       }
     })
     .click(function() {
       $('#play').button('option', {
         label: 'play',
         icons: {
-          primary: 'ui-icon-play'
+          secondary: 'ui-icon-play'
         }
       });
     });
     $('#forward').button({
       text: false,
       icons: {
-        primary: 'ui-icon-seek-next'
+        secondary: 'ui-icon-seek-next'
       }
     });
     $('#end').button({
       text: false,
       icons: {
-        primary: 'ui-icon-seek-end'
+        secondary: 'ui-icon-seek-end'
       }
     });
     $("#shuffle").button();
