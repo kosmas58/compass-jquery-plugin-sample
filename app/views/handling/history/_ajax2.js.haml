@@ -30,10 +30,9 @@
       document.location.hash = "ui-tabs-"+eval($(this).val());
     });
 
-      $("#tabs").live("tabsselect", function(event, ui) {
-        document.location.hash = ui.tab.hash;
-      });
-
+    $("#tabs").live("tabsselect", function(event, ui) {
+      document.location.hash = ui.tab.hash;
+    });
 
     $(window).bind('hashchange', function(event) {
       load();
