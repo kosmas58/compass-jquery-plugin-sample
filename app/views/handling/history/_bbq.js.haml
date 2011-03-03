@@ -36,12 +36,10 @@
 
 :javascript
   $(function(){
-
     // The "tab widgets" to handle.
     var tabs = $('.tabs'),
-
-      // This selector will be reused when selecting actual tab widget A elements.
-      tab_a_selector = 'ul.ui-tabs-nav a';
+        // This selector will be reused when selecting actual tab widget A elements.
+        tab_a_selector = 'ul.ui-tabs-nav a';
 
     // Enable tabs on all tab widgets. The `event` property must be overridden so
     // that the tabs aren't changed on click, and any custom event name can be
