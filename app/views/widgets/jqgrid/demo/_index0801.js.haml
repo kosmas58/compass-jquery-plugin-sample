@@ -1,12 +1,13 @@
 :css
   #toolbar { padding: 0.3em; }
+  #toolbar .ui-button{ font-size: 0.8em; }
   .demo-description td{ vertical-align: top; }
 
 :javascript
   $(function() {
-    $("a", ".demo").button();
+    $("a", "#toolbar").button();
   });
-  
+
   $(document).ready(function() {
     $("#bsdata").click( function(){
       $("#invheaders_demo0801").jqGrid('searchGrid',

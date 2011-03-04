@@ -4,10 +4,15 @@
   #effect { width: 240px; height: 135px; padding: 0.4em; position: relative; }
   #effect h3 { margin: 0; padding: 0.4em; text-align: center; }
   .ui-effects-transfer { border: 2px dotted gray; }
+  	
+  label,select,.ui-select-menu { float: left; margin-right: 10px; }
+  select { width: 120px; }
       
 :javascript
   $(function() {
-    
+    $('select#effectTypes').selectmenu();
+    $("button").button();
+
     //run the currently selected effect
     function runEffect(){
       //get effect type from

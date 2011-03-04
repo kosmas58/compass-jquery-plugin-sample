@@ -1,9 +1,12 @@
 :css
   #toolbar { padding: 0.3em; }
+  #toolbar .ui-button{ font-size: 0.8em; }
+
+= raw @grid
 
 :javascript
   $(function() {
-    $("a", ".demo").button();
+    $("a", "#toolbar").button();
   });
  
   function onSortCol(nm,index){
@@ -15,10 +18,7 @@
   function onHeaderClick(status){
     alert("My status is now: "+ status);
   };
-  
-= raw @grid
 
-:javascript
   $(document).ready(function() {
     $("#snw").click(function (){
       var nw = parseInt($("#setwidth").val());

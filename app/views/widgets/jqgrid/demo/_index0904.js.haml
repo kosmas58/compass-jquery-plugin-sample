@@ -1,14 +1,14 @@
 :css
   #toolbar { padding: 0.3em; }
-
-:javascript
-  $(function() {
-    $("a", ".demo").button();
-  });
+  #toolbar .ui-button{ font-size: 0.8em;
 
 = raw @grid
 
 :javascript
+  $(function() {
+    $("a", "#toolbar").button();
+  });
+  
   $(document).ready(function() {  
     $("#ps1").click( function() {
       $("#invheaders_demo0904").jqGrid('setPostData',{q:1,param1:"p1"});

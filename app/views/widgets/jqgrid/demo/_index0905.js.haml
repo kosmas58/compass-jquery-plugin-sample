@@ -1,14 +1,14 @@
 :css
   #toolbar { padding: 0.3em; }
+  #toolbar .ui-button{ font-size: 0.8em;
+
+= raw @grid
 
 :javascript
   $(function() {
-    $("a", ".demo").button();
+    $("a", "#toolbar").button();
   });
-  
-= raw @grid
 
-:javascript  
   $(document).ready(function() {  
     $("#pp1").click( function() {
       $.extend($.jgrid.defaults,{recordtext: "{0} - {1} of {2} Record(s)",loadtext: "Processing"});

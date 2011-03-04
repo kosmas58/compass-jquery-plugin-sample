@@ -1,14 +1,14 @@
 :css
   #toolbar { padding: 0.3em; }
+  #toolbar .ui-button{ font-size: 0.8em; }
+
+= raw @grid
 
 :javascript
   $(function() {
-    $("a", ".demo").button();
+    $("a", "#toolbar").button();
   });
   
-= raw @grid
-
-:javascript  
   $(document).ready(function() {  
     $("#ttogrid").click( function() {
       tableToGrid("#mytable");;

@@ -1,14 +1,13 @@
 :css
   #toolbar { padding: 0.3em; }
-  
-:javascript
-  $(function() {
-    $("a", ".demo").button();
-  });
+  #toolbar .ui-button{ font-size: 0.8em; }
 
 = raw @grid
 
 :javascript
+  $(function() {
+    $("a", "#toolbar").button();
+  });
   
   $(document).ready(function() {
     $("#cnvxml").click(function(){
