@@ -13,6 +13,7 @@
         Effect
       %p
         Etiam libero neque, luctus a, eleifend nec, semper at, lorem. Sed pede. Nulla lorem metus, adipiscing ut, luctus sed, hendrerit vitae, mi.
+
   %select#effectTypes{ :name => "effects" }
     %option{ :value => "blind" }
       Blind
@@ -44,7 +45,7 @@
       Slide
     %option{ :value => "transfer" }
       Transfer
-  %button{ :href => "#" }
+  %a#button{ :href => "#" }
     Run Effect
 / End demo
 .demo-description
