@@ -23,7 +23,7 @@ class Widgets::Jqgrid::SecretsController < ApplicationController
   def create
     @secret = Secret.new(params[:secret])
     if @secret.save
-      redirect_to widgets_jqgrid_secrets_url
+      redirect_to :action => :index, :format => :html
     else
       return render(:partial => "form")
     end
@@ -32,7 +32,7 @@ class Widgets::Jqgrid::SecretsController < ApplicationController
   def update
     @secret = Secret.update(params[:id], params[:secret])
     if @secret.save
-      redirect_to widgets_jqgrid_secrets_url
+      redirect_to :action => :index, :format => :html
     else
       if request.xhr?
         return render(:partial => "form")
@@ -46,7 +46,7 @@ class Widgets::Jqgrid::SecretsController < ApplicationController
     if request.xhr?
       return render(:nothing => true)
     else
-      redirect_to widgets_jqgrid_secrets_url
+      redirect_to :action => :index, :format => :html
     end
   end
 end
