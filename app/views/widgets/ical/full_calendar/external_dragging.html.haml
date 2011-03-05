@@ -1,0 +1,24 @@
+-@title = t('txt.ical.fullcalendar.name') + " - " + t('txt.ical.fullcalendar.external')
+
+- content_for :content_head do
+  = render(:partial => "external_dragging.js.haml", :format => :js)
+
+.demo
+  %h3
+    =image_tag("icons/22x22/calendar.png", :border => 0)
+    =@title
+
+  #wrap
+    #external-events.ui-widget-content.ui-corner-all{ :style => "background: none; padding: 0.5em;" }
+      %h4 Draggable Events
+      .external-event My Event 1
+      .external-event My Event 2
+      .external-event My Event 3
+      .external-event My Event 4
+      .external-event My Event 5
+      %p
+        %input#drop-remove{:type => "checkbox"}/
+        %label{:for => "drop-remove"} remove after drop
+
+  #calendar.ui-widget-content.ui-corner-all{ :style => "background: none; padding: 0.5em;" }
+  %div{:style => "clear:both"}

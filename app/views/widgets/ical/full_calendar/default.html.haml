@@ -1,0 +1,11 @@
+-@title = t('txt.ical.fullcalendar.name') + " - " + t('txt.ical.fullcalendar.default')
+
+- content_for :content_head do
+  = render(:partial => "default.js.haml", :format => :js)
+
+.demo
+  %h3
+    =image_tag("icons/22x22/calendar.png", :border => 0)
+    =@title
+
+  #calendar.ui-widget-content.ui-corner-all{ :style => "background: none; padding: 0.5em;" }

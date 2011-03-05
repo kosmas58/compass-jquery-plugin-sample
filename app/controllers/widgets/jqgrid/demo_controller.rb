@@ -50,7 +50,7 @@ class Widgets::Jqgrid::DemoController < ApplicationController
         else
           # Default
           @data = @object.find_for_grid(@mylist, params)
-          html =  render_to_string(:partial => 'actions.html.haml') #, locals: { user: @user })
+          html = render_to_string(:partial => 'actions.html.haml') #, locals: { user: @user })
           @userdata = @object.userdata(@data)
           case @datatype
             when :json

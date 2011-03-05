@@ -21,10 +21,8 @@ date:
     short: "%b %d"
     long: "%B %d, %Y"
 txt: 
-  graphics: 
-    ganttview: 
-      name: Gantt View
-      default: Example
+  history: 
+    example5: BBQ
   tools: 
     form: 
       stylable: 
@@ -33,6 +31,17 @@ txt:
         demo02: Scripting styleable Forms
         demo03: Alternate form skin
   hello: Hello world
+  ical: 
+    fullcalendar: 
+      gcal: Google Calendar of US holidays
+      name: FullCalendar plugin
+      selectable: Selecting time ranges for creating an event
+      theme: jQuery UI themed calendar
+      agenda: Agenda view
+      default: Default view
+      json: Getting events through JSON
+      external: Drag external events onto the calendar
+      basic: Basic view
 support: 
   array: 
     words_connector: ", "

@@ -11,20 +11,20 @@ class Widgets::DynatreeController < ApplicationController
   def data1
     json1 =
         '[
-      {"title": "Item 1"},
-      {"title": "Folder 2", "isFolder": true, "key": "folder2",
-        "children": [
-          {"title": "Sub-item 2.1"},
-          {"title": "Sub-item 2.2"}
-        ]
-      },
-      {"title": "Folder 3", "isFolder": true, "key": "folder3",
-        "children": [
-          {"title": "Sub-item 3.1"},
-          {"title": "Sub-item 3.2"}
-        ]
-      },      {"title": "Item 5"}
-    ]'
+        {"title": "Item 1"},
+        {"title": "Folder 2", "isFolder": true, "key": "folder2",
+          "children": [
+            {"title": "Sub-item 2.1"},
+            {"title": "Sub-item 2.2"}
+          ]
+        },
+        {"title": "Folder 3", "isFolder": true, "key": "folder3",
+          "children": [
+            {"title": "Sub-item 3.1"},
+            {"title": "Sub-item 3.2"}
+          ]
+        },      {"title": "Item 5"}
+      ]'
 
     respond_to do |format|
       # Fields order is important in the to_jqgrid_json method (in this case : [:id,:name])

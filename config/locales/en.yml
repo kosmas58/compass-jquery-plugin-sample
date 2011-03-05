@@ -404,7 +404,7 @@ en:
         name: Additional examples
         contextmenu1: Functional example
         contextmenu2: Data Manipulation
-        treegrid: Treegrid using json
+        treegrid: Treegrid using JSON
         contextmenu: Using a ContextMenu
         cedit: Custom Edit
         cedit1: client side with jQuery UI icons
@@ -570,6 +570,16 @@ en:
         ajax: Ajax Demo
         extend: Extending functionality
         convert: AnyTime.Converter
+      fullcalendar:
+        name: FullCalendar plugin
+        agenda: Agenda view
+        basic: Basic view
+        default: Default view
+        external: Drag external events onto the calendar
+        gcal: Google Calendar of US holidays
+        json: Getting events through JSON
+        selectable: Selecting time ranges for creating an event
+        theme: jQuery UI themed calendar
       event: 
         new: New Event
         location: Location

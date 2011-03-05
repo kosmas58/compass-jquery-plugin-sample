@@ -4,7 +4,7 @@
   = render(:partial => "full_calendar.js.haml", :format => :js)
 
 .demo  
-  #calendar
+  #calendar.ui-widget-content.ui-corner-all{ :style => "background: none; padding: 0.5em;" }
     %br
     %p.buttons
       = link_to 'Back', widgets_ical_calendars_path

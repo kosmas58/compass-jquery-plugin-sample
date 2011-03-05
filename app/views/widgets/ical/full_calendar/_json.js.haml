@@ -1,0 +1,29 @@
+:css
+  #loading {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    }
+
+  #calendar {
+    width: 900px;
+    margin: 0 auto;
+    }
+  #calendar h2 { font-size: 1.5em; }
+
+:javascript
+  $(document).ready(function() {
+    $('#calendar').fullCalendar({
+        theme: true,
+        editable: true,
+        events: "/widgets/ical/full_calendar/jsondemo",
+        eventDrop: function(event, delta) {
+            alert(event.title + ' was moved ' + delta + ' days\n' +
+                '(should probably update your database)');
+        },
+        loading: function(bool) {
+            if (bool) $('#loading').show();
+            else $('#loading').hide();
+        }
+    });
+  });

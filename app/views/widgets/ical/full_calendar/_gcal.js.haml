@@ -1,0 +1,34 @@
+:css
+  #loading {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    }
+
+  #calendar {
+    width: 900px;
+    margin: 0 auto;
+    }
+  #calendar h2 { font-size: 1.5em; }
+
+:javascript
+  $(document).ready(function() {
+
+    $('#calendar').fullCalendar({
+        theme: true,
+        // US Holidays
+        events: $.fullCalendar.gcalFeed('http://www.google.com/calendar/feeds/usa__en%40holiday.calendar.google.com/public/basic'),
+        eventClick: function(event) {
+            // opens events in a popup window
+            window.open(event.url, 'gcalevent', 'width=700,height=600');
+            return false;
+        },
+        loading: function(bool) {
+            if (bool) {
+                $('#loading').show();
+            }else{
+                $('#loading').hide();
+            }
+        }
+    });
+  });
