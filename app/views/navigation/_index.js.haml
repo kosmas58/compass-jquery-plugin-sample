@@ -231,7 +231,7 @@
         .bind("move_node.jstree", function (e, data) {
             data.rslt.o.each(function (i) {
                 $.ajax({
-                    async : false,
+                    //async : false,
                     type: 'PUT',
                     url: "/navigation/" + $(this).attr("id").replace("node_","") + "/move",
                     data : { 
