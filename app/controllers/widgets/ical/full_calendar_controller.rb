@@ -1,5 +1,5 @@
 class Widgets::Ical::FullCalendarController < ApplicationController
-  layout 'full_calendar'
+  layout 'ical'
 
   protect_from_forgery
 
