@@ -24,7 +24,12 @@
 
   function clearForm() {
     formVar[0].reset();
+    stateVar.selectmenu('refresh');
   }
+
+  $(document).live("mobileinit", function(){
+    $.mobile.defaultTransistion = 'pop';
+  });
 
   $(document).ready(function() {
     formVar                = $('#claim');
@@ -40,10 +45,10 @@
     contentConfirmationVar = "#contentConfirmation";
     requestVar             = "/mobile/tuts/new_claim/request_processor";
 
-    //clearVar.click(function() {
-    //  clearForm();
-    //  return false;
-    //});
+    clearVar.click(function() {
+      clearForm();
+      return false;
+    });
 
     formVar.submit(function() {
       var err = false;
@@ -72,11 +77,11 @@
       }
 
       if(err == true) {
-        $.mobile.changePage(contentDialogVar, "slide", false, false);
+        $.mobile.changePage(contentDialogVar, "pop", false, false);
         return false;
       }
 
-      $.mobile.changePage(contentTransitionVar, "slide");
+      $.mobile.changePage(contentTransitionVar, "pop");
       $.ajax({
         url:     requestVar,
         data:    formVar.serialize(),
@@ -87,7 +92,7 @@
           clearForm();
         }
       });
-      $.mobile.changePage(contentConfirmationVar, "slide", false, true);
+      $.mobile.changePage(contentConfirmationVar, "pop", false, true);
       return false;
     });
   });

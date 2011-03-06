@@ -92,9 +92,11 @@
       #whatDiv{"data-role" => "fieldcontain"}
         %label#whatLabel{:for => "what"} Please explain what happened*:
         %textarea#what{:cols => "40", :name => "what_r", :rows => "8"}
-      #submitDiv{"data-role" => "fieldcontain"}
-        %input{:type => "submit", "data-theme" => "b", :value => "Submit Claim"}
-        %input#clearForm{:type => "reset",  :value => "Reset form"}
+      %fieldset.ui-grid-a
+        .ui-block-a
+          %button{"data-theme" => "b", :type => "submit"} Submit Claim
+        .ui-block-b
+          %button#clearForm{"data-theme" => "c", :type => "reset"} Reset form
   / contentMain
 //page
 
@@ -105,7 +107,7 @@
   %div{"data-role" => "content", "align" => "center"}
     %h4
       Please fill in all required fields before submitting the form!
-    %a#dialogOK{"data-role" => "button", :href => "#home", :name => "buttonOK"} OK
+    %a#dialogOK{"data-role" => "button", "data-transition" => "reverse pop", :href => "#home", :name => "buttonOK"} OK
 / contentDialog
 
 / contentTransition is displayed after the form is submitted until a response is received back.
@@ -128,5 +130,5 @@
     %h4
       Your confirmation number is:
       %span#confirmation{:name => "confirmation"}
-    %a#confirmationOK{"data-role" => "button", :href => "#home", :name => "buttonOK"} OK
+    %a#confirmationOK{"data-role" => "button", "data-transition" => "reverse pop", :href => "#home", :name => "buttonOK"} OK
 / confirmation
