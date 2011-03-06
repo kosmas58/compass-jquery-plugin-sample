@@ -8,7 +8,7 @@
   %div{"data-backbtn" => "false", "data-role" => "header"}
     %a.ui-btn-right{"data-icon" => "plus", "data-rel" => "dialog", "data-transition" => "pop", :href => "#item_add"} Add item
     %h1 Offline Shopping List
-    %a.ui-btn-left.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile/experiments", :rel => "external"} Home
+    %a.ui-btn-left{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile/experiments", :rel => "external"} Home
   %div{"data-role" => "content", "data-theme" => "a"}
     %ol#items{"data-inset"=> "true", "data-role" => "listview", "data-splittheme" =>"a", "data-split-icon" => "delete", "data-theme" => "a"}
       - if @current_objects.empty?
