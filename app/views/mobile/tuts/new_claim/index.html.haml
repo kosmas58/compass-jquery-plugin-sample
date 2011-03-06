@@ -5,11 +5,11 @@
 
 / Page starts here
 #home{"data-role" => "page", "data-theme" => "b"}
-  #hdrMain{"data-backbtn" => "false", "data-role" => "header", :name => "hdrMain"}
+  %div{"data-backbtn" => "false", "data-role" => "header", :name => "hdrMain"}
     %h1 New Claim
     %a.ui-btn-left{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile/experiments/index", :rel => "external"} Home
   / / header
-  #contentMain{"data-role" => "content", :name => "contentMain"}
+  %div{"data-role" => "content", :name => "contentMain"}
     %form#claim
       #shipDiv{"data-role" => "fieldcontain"}
         %label{:for => "shipNo"} Shipping number*
@@ -96,7 +96,6 @@
         %input{:type => "submit", "data-theme" => "b", :value => "Submit Claim"}
         %input#clearForm{:type => "reset",  :value => "Reset form"}
   / contentMain
-  #ftrMain{"data-role" => "footer", :name => "ftrMain"}
 //page
 
 / contentDialog
@@ -112,7 +111,7 @@
 / contentTransition is displayed after the form is submitted until a response is received back.
 #contentTransition{"data-role" => "page", "data-theme" => "b"}
   %div{"data-backbtn" => "false", "data-position" => "inline", "data-role" => "header"}
-    %h1 Message
+    %h1 Processing...
   %div{"data-role" => "content", "align" => "center"}
     %img#spin{:name => "spin", :src => "/images/demo/mobile/tuts/wait.gif"}
     %h4
@@ -130,5 +129,4 @@
       Your confirmation number is:
       %span#confirmation{:name => "confirmation"}
     %a#confirmationOK{"data-role" => "button", :href => "#home", :name => "buttonOK"} OK
-  %div{"data-role" => "footer"}
 / confirmation

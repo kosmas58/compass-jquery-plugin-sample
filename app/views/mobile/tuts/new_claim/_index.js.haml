@@ -22,6 +22,10 @@
   var EMPTY = "";
   var NO_STATE = "ZZ";
 
+  function clearForm() {
+    formVar[0].reset();
+  }
+
   $(document).ready(function() {
     formVar                = $('#claim');
     clearVar               = $('#clearForm');
@@ -35,10 +39,6 @@
     contentTransitionVar   = "#contentTransition";
     contentConfirmationVar = "#contentConfirmation";
     requestVar             = "/mobile/tuts/new_claim/request_processor";
-
-    function clearForm() {
-      formVar[0].reset();
-    }
 
     //clearVar.click(function() {
     //  clearForm();
