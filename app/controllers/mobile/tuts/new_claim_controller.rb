@@ -1,4 +1,4 @@
-class Mobile::Experiments::NewClaimController < ApplicationController
+class Mobile::Tuts::NewClaimController < ApplicationController
   layout 'mobile'
 
   protect_from_forgery

@@ -93,8 +93,8 @@
         %label#whatLabel{:for => "what"} Please explain what happened*:
         %textarea#what{:cols => "40", :name => "what_r", :rows => "8"}
       #submitDiv{"data-role" => "fieldcontain"}
-        %input#clearForm{"data-inline" => true, :type => "reset",  :value => "Reset form"}
-        %input{"data-inline" => true, :type => "submit", "data-theme" => "b", :value => "Submit Claim"}
+        %input{:type => "submit", "data-theme" => "b", :value => "Submit Claim"}
+        %input#clearForm{:type => "reset",  :value => "Reset form"}
   / contentMain
   #ftrMain{"data-role" => "footer", :name => "ftrMain"}
 //page

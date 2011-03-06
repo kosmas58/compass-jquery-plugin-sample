@@ -5,17 +5,15 @@
   = render(:partial => "index.js.haml", :format => :js)
 
 / Container page
-#categoriesPage{"data-role" => "page", "data-theme" => "a"}
+#containerPage{"data-role" => "page", "data-theme" => "a"}
   / Categories
   #hdrCategories{"data-nobackbtn" => "true", "data-role" => "header"}
     %h1 Categories
-    %a#buttonAddCategory.ui-btn-right{"data-icon" => "plus", "data-inline" => "true", "data-role" => "button", :href => "#selectPage"} Add
+    %a#buttonAddCategory.ui-btn-right{"data-icon" => "plus", "data-inline" => "true", "data-role" => "button", :href => ""} Add
   #contentCategories{"data-role" => "content"}
     %ul#currentNews{"data-role" => "listview", "data-split-icon" => "delete", "data-split-theme" => "d"}
   #ftrCategories{"data-role" => "footer"}
-
-
-#selectPage{"data-role" => "page", "data-theme" => "a"}
+  
   / Category Selection
   #hdrSelect{"data-nobackbtn" => "true", "data-role" => "header"}
     %h1 Select
@@ -36,7 +34,6 @@
   #ftrSelect{"data-role" => "footer"}
   / Progress
 
-#progressPage{"data-role" => "page", "data-theme" => "a"}
   #hdrProgress{"data-nobackbtn" => "true", "data-role" => "header"}
     %h1 Processing...
   #contentProgress{"data-role" => "content"}
@@ -46,13 +43,12 @@
       %img#spin{:src => "/images/demo/mobile/tuts/wait.gif"}/
   #ftrProgress{"data-role" => "footer"}
 
-#newsPage{"data-role" => "page", "data-theme" => "a"}
   / News
   #hdrNews{"data-nobackbtn" => "true", "data-role" => "header"}
     %h1 News
     %a#buttonHdrShowCategories.ui-btn-left{"data-icon" => "arrow-l", "data-inline" => "true", "data-role" => "button", :href => ""} Back
   #contentNews{"data-role" => "content"}
   #ftrNews{"data-role" => "footer"}
-    %a#buttonFtrShowCategories.ui-btn-left{"data-icon" => "arrow-l", "data-inline" => "true", "data-role" => "button", :href => "#categoriesPage"} Back to News Categories
+    %a#buttonFtrShowCategories.ui-btn-left{"data-icon" => "arrow-l", "data-inline" => "true", "data-role" => "button", :href => ""} Back to News Categories
   / containerPage
 / Page ends here

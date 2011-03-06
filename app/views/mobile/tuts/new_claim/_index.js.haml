@@ -34,7 +34,7 @@
     contentDialogVar       = "#contentDialog";
     contentTransitionVar   = "#contentTransition";
     contentConfirmationVar = "#contentConfirmation";
-    requestVar             = "/mobile/experiments/new_claim/request_processor";
+    requestVar             = "/mobile/tuts/new_claim/request_processor";
 
     function clearForm() {
       formVar[0].reset();
@@ -81,9 +81,7 @@
         url:     requestVar,
         data:    formVar.serialize(),
         type:    'GET',
-        async:   false,
         cache:   false,
-        timeout: 30000,
         success: function(data) {
           confirmationVar.text(data);
           clearForm();
