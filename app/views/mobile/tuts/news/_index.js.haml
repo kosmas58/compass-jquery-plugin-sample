@@ -22,9 +22,11 @@
   var GET = 'GET';
   var XML = 'xml';
   var HTML_FRG1 = '';
+  var HTML_FRG2 = '';
+  var HTML_FRG3 = '';
   var HTML_FRG4 = '';
-  var HTML_FRG7 = '';
-  var HTML_FRG8 = '';
+  var HTML_FRG5 = '';
+  var HTML_FRG6 = '';
   var NEWS_URI = '/mobile/tuts/news/bridge?fwd=http://rss.news.yahoo.com/rss/';
   var TWO_SECONDS = 2000;
 
@@ -98,7 +100,7 @@
     var categoryLi = categoryDel + _LI;
     var categoryA = category + _A;
 
-    $(HTML_FRG1 + categoryLi + HTML_FRG2 + categoryA + HTML_FRG3 + desc + HTML_FRG4 + category + HTML_FRG5 + categoryDel + HTML_FRG6).prependTo(currentNewsPage);
+    $(HTML_FRG1 + categoryLi + HTML_FRG2 + categoryA + HTML_FRG3 + desc + HTML_FRG4 + category + HTML_FRG5 + categoryDel + HTML_FRG6).prependTo(currentNewsVar);
 
     var newDeleteItem = document.getElementById(categoryDel);
     $(newDeleteItem).click(function() {
@@ -139,10 +141,6 @@
     $.mobile.changePage(categoriesPage, "pop");
   }
 
-
-
-
-
   getCategoryVar.live('click', function() {
     var selCat = $('#category :selected').val();
     if (selCat != EMPTY) {
@@ -162,13 +160,10 @@
   $(document).ready(function () {
     $.mobile.changePage(progressPage, "pop");
     var storedNewsTxt = $.DSt.get(COOKIE_NAME);
-
-
     if(storedNewsTxt != null && storedNewsTxt.length > 0){
       storedNewsArr = storedNewsTxt.split(COMMA);
     } else {
       storedNewsArr = new Array();
     }
-
     restore();
   });
