@@ -27,6 +27,8 @@
   var HTML_FRG4 = '';
   var HTML_FRG5 = '';
   var HTML_FRG6 = '';
+  var HTML_FRG7 = '';
+  var HTML_FRG8 = '';
   var NEWS_URI = '/mobile/tuts/news/bridge?fwd=http://rss.news.yahoo.com/rss/';
   var TWO_SECONDS = 2000;
 
@@ -36,9 +38,6 @@
   var newsPage = '#newsPage';
   var getCategoryVar = $('#getCategory');
 
-  //var contentCategoriesVar = $('#contentCategories');
-  //var contentSelectVar = $('#contentSelect');
-  //var contentProgressVar = $('#contentProgress');
   var contentNewsVar = $('#contentNews');
   var currentNewsVar = $('#currentNews');
 
@@ -143,6 +142,7 @@
 
   getCategoryVar.live('click', function() {
     var selCat = $('#category :selected').val();
+    //$('#category').selectmenu('refresh');
     if (selCat != EMPTY) {
       $.mobile.changePage(progressPage, "pop");
       return getNews(selCat, addNews);

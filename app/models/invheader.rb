@@ -497,6 +497,7 @@ class Invheader < ActiveRecord::Base
           :pager => true,
           :grid_view => false,
           :sub_grid => true,
+          :jqgrid_options => {'subGridOptions' => {'expandOnLoad' => false}},
           :sub_grid_url => "/widgets/jqgrid/demo?model=invline&subgrid=true&atr[]=num&atr[]=item&atr[]=qty&atr[]=unit&atr[]=total",
           :sub_grid_model => [
               {
@@ -567,6 +568,7 @@ class Invheader < ActiveRecord::Base
           :pager => true,
           :grid_view => false,
           :sub_grid => true,
+          :jqgrid_options => {'subGridOptions' => {'expandOnLoad' => false}},
           :sub_grid_url => "/widgets/jqgrid/demo?model=invline&subgrid=true&atr[]=num&atr[]=item&atr[]=qty&atr[]=unit&atr[]=total",
           :sub_grid_model => [
               {
@@ -749,6 +751,7 @@ class Invheader < ActiveRecord::Base
           :pager => true,
           :grid_view => false,
           :sub_grid => true,
+          :jqgrid_options => {'subGridOptions' => {'expandOnLoad' => false}},
           :sub_grid_url => "/widgets/jqgrid/demo?model=invline&subgrid=true&atr[]=num&atr[]=item&atr[]=qty&atr[]=unit&atr[]=total",
           :sub_grid_model => [
               {

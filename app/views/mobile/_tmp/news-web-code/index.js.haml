@@ -1,304 +1,184 @@
-!!!
-%html
-  %head
-    %title News
-    /
-      <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a2/jquery.mobile-1.0a2.min.css" />
-      <script src="http://code.jquery.com/jquery-1.4.4.min.js"></script>
-      <script src="http://code.jquery.com/mobile/1.0a2/jquery.mobile-1.0a2.min.js"></script>
-    %link{:href => "css-js/jquery.mobile-1.0a2.min.css", :rel => "stylesheet"}/
-    %script{:src => "css-js/jquery-1.4.4.min.js"}
-    %script{:src => "css-js/jquery.mobile-1.0a2.min.js"}
-    %script{:src => "css-js/jquery.ba-dotimeout.js"}
-    %script{:src => "css-js/jquery.dst.js"}
-  %body
-    / Container page
-    #containerPage{"data-role" => "page", "data-theme" => "b"}
-      / Categories
-      #hdrCategories{"data-nobackbtn" => "true", "data-role" => "header"}
-        %h1 Categories
-        %a#buttonAddCategory.ui-btn-left{"data-icon" => "plus", "data-inline" => "true", "data-role" => "button", :href => ""} Add
-      #contentCategories{"data-role" => "content"}
-        %ul#currentNews{"data-role" => "listview", "data-split-icon" => "delete", "data-split-theme" => "d"}
-      #ftrCategories{"data-role" => "footer"}
-      / Category Selection
-      #hdrSelect{"data-nobackbtn" => "true", "data-role" => "header"}
-        %h1 Select
-      #contentSelect{"data-role" => "content"}
-        %form#form1
-          #categoryDiv{"data-role" => "fieldcontain"}
-            %select#category{:tabindex => "2"}
-              %option{:value => ""} Select a Category
-              %option{:value => "topstories"} Top Stories
-              %option{:value => "us"} U.S.
-              %option{:value => "world"} World
-              %option{:value => "politics"} Politics
-              %option{:value => "business"} Business
-              %option{:value => "stocks"} Stocks
-              %option{:value => "economy"} U.S. Economy
-              %option{:value => "eurobiz"} European Economy
-          %a#buttonGetCategory{"data-inline" => "true", "data-role" => "button", :href => ""} Get Category
-      #ftrSelect{"data-role" => "footer"}
-      / Progress
-      #hdrProgress{"data-nobackbtn" => "true", "data-role" => "header"}
-        %h1 Processing...
-      #contentProgress{"data-role" => "content"}
-        %div{:align => "CENTER"}
-          %h4 Please wait.
-        %div{:align => "CENTER"}
-          %img#spin{:src => "img/wait.gif"}/
-      #ftrProgress{"data-role" => "footer"}
-      / News
-      #hdrNews{"data-nobackbtn" => "true", "data-role" => "header"}
-        %h1 News
-        %a#buttonHdrShowCategories.ui-btn-left{"data-icon" => "arrow-l", "data-inline" => "true", "data-role" => "button", :href => ""} Back
-      #contentNews{"data-role" => "content"}
-      #ftrNews{"data-role" => "footer"}
-        %a#buttonFtrShowCategories.ui-btn-left{"data-icon" => "arrow-l", "data-inline" => "true", "data-role" => "button", :href => ""} Back to News Categories
-      :javascript
-        // constants
-        var COOKIE_NAME = 'news';
-        var COMMA = ',';
-        var EMPTY = '';
-        var REFRESH = 'refresh';
-        var LI = 'li';
-        var PAR = 'p';
-        var ID = 'id';
-        var ITEM = 'item';
-        var TITLE = 'title';
-        var CATEGORY = 'category';
-        var DESCR = 'description';
-        var CAT_ = 'cat_';
-        var _D = '_d';
-        var _LI = '_li';
-        var _A = '_a';
-        var GET = 'GET';
-        var XML = 'xml';
-        var HTML_FRG1 = '';
-        var HTML_FRG4 = '';
-        var HTML_FRG7 = '';
-        var HTML_FRG8 = '';
-        var NEWS_URI = 'bridge.php?fwd=http://rss.news.yahoo.com/rss/';
-        var TWO_SECONDS = 2000;
-        
-        // Variables
-        var hdrCategoriesVar = $('#hdrCategories');
-        var contentCategoriesVar = $('#contentCategories');
-        var ftrCategoriesVar = $('#ftrCategories');
-        var hdrSelectVar = $('#hdrSelect');
-        var contentSelectVar = $('#contentSelect');
-        var ftrSelectVar = $('#ftrSelect');
-        var hdrProgressVar = $('#hdrProgress');
-        var contentProgressVar = $('#contentProgress');
-        var ftrProgressVar = $('#ftrProgress');
-        var hdrNewsVar = $('#hdrNews');
-        var contentNewsVar = $('#contentNews');
-        var ftrNewsVar = $('#ftrNews');
-        var currentNewsVar = $('#currentNews');
-        var buttonFtrShowCategoriesVar = $('#buttonFtrShowCategories');
-        var buttonHdrShowCategoriesVar = $('#buttonHdrShowCategories');
-        var buttonGetCategoryVar = $('#buttonGetCategory');
-        var buttonAddCategoryVar = $('#buttonAddCategory');
-        var categoryVar = $('#category');
-        
-        var numNewsToRestore = 0;
-        var numLi = 0;
-        var storedNewsArr;
-        
-        $(document).ready(function () {
-            showProgress();
-            var storedNewsTxt = $.DSt.get(COOKIE_NAME);
-        
-            if (storedNewsTxt != null && storedNewsTxt.length > 0) {
-                storedNewsArr = storedNewsTxt.split(COMMA);
-            } else {
-                storedNewsArr = new Array();
-            }
-            numNewsToRestore = storedNewsArr.length;
-            restore();
-        });
-        
-        function restore() {
-            if (numNewsToRestore > 0) {
-                getNews(storedNewsArr[--numNewsToRestore], restoreNews);
-            } else {
-                showCategories();
-            }
-        }
-        
-        function hideCategories() {
-            hdrCategoriesVar.hide();
-            contentCategoriesVar.hide();
-            ftrCategoriesVar.hide();
-        }
-        
-        function hideSelect() {
-            hdrSelectVar.hide();
-            contentSelectVar.hide();
-            ftrSelectVar.hide();
-        }
-        
-        function showCategories() {
-            hideSelect();
-            hideProgress();
-            hideNews();
-            hdrCategoriesVar.show();
-            contentCategoriesVar.show();
-            ftrCategoriesVar.show();
-        }
-        
-        function showSelect() {
-            hideCategories();
-            hideProgress();
-            hideNews();
-            hdrSelectVar.show();
-            contentSelectVar.show();
-            ftrSelectVar.show();
-        }
-        
-        function showProgress() {
-            hideCategories();
-            hideSelect();
-            hideNews();
-            hdrProgressVar.show();
-            contentProgressVar.show();
-            ftrProgressVar.show();
-        }
-        
-        function hideProgress() {
-            hdrProgressVar.hide();
-            contentProgressVar.hide();
-            ftrProgressVar.hide();
-        }
-        
-        function showNews() {
-            hideCategories();
-            hideSelect();
-            hideProgress();
-            hdrNewsVar.show();
-            contentNewsVar.show();
-            ftrNewsVar.show();
-        }
-        
-        function hideNews() {
-            hdrNewsVar.hide();
-            contentNewsVar.hide();
-            ftrNewsVar.hide();
-        }
-        
-        function animate(pArr, animationTarget, handle) {
-            var len = pArr.length;
-            var currInd = 1;
-            animationTarget.doTimeout(handle, TWO_SECONDS, function() {
-                this.fadeOut(function() {
-                    currInd = currInd % len;
-                    animationTarget.text(pArr[currInd++]);
-                    animationTarget.fadeIn();
-                });
-                return true;
-            });
-        }
-        
-        function storeCurrentNews() {
-            $.DSt.set(COOKIE_NAME, EMPTY);
-            var tmp = EMPTY;
-            currentNewsVar.find(LI).each(function() {
-                tmp = tmp + COMMA + $(this).find(PAR).attr(ID).substring(4);
-            });
-        
-            $.DSt.set(COOKIE_NAME, tmp.substring(1));
-        }
-        
-        function getNews(varCat, handler) {
-            var varURI = NEWS_URI + varCat;
-            //var varURI = "bridge.php?fwd=http://localhost:8001/rss/" + varCat;
-            $.ajax({type: GET, dataType: XML, url: varURI, success: handler});
-            return false;
-        }
-        
-        function populateNewsItems(xml) {
-            var tmpTxt = EMPTY;
-            $(xml).find(ITEM).each(function() {
-                var txt = $(this).find(DESCR).text();
-                tmpTxt = tmpTxt + HTML_FRG7 + txt + HTML_FRG8;
-            });
-        
-            contentNewsVar.html(tmpTxt);
-            showNews();
-        }
-        
-        function populateSingleNews(xml) {
-            var tmpTxt = $(xml).find(CATEGORY).first().text();
-            var desc = $(xml).find(DESCR).first().text();
-            var category = CAT_ + tmpTxt;
-            var categoryDel = category + _D;
-            var categoryLi = categoryDel + _LI;
-            var categoryA = category + _A;
-        
-            $(HTML_FRG1 + categoryLi + HTML_FRG2 + categoryA + HTML_FRG3 + desc + HTML_FRG4 + category + HTML_FRG5 + categoryDel + HTML_FRG6).prependTo(currentNewsVar);
-        
-            var newDeleteItem = document.getElementById(categoryDel);
-            $(newDeleteItem).click(function() {
-                $.doTimeout(categoryLi, false);
-                var newListItem = document.getElementById(categoryLi);
-                $(newListItem).remove();
-                storeCurrentNews();
-            });
-        
-            var newDescItem = document.getElementById(categoryA);
-            $(newDescItem).click(function() {
-                showProgress();
-                getNews(category.substring(4), populateNewsItems);
-            });
-        
-            var ind = 0;
-            var newsArray = new Array();
-            $(xml).find(ITEM).each(function() {
-                var txt = $(this).find(TITLE).text();
-                newsArray[ind++] = txt;
-            });
-        
-            var newItem = document.getElementById(category);
-            $(newItem).text(newsArray[0]);
-        
-            currentNewsVar.listview(REFRESH);
-            animate(newsArray, $(newItem), categoryLi);
-        }
-        
-        function restoreNews(xml) {
-            populateSingleNews(xml);
-            restore();
-        }
-        
-        function addNews(xml) {
-            populateSingleNews(xml);
-            storeCurrentNews();
-            showCategories();
-        }
-        
-        buttonAddCategoryVar.click(function() {
-            showSelect();
-            return false;
-        });
-        
-        buttonGetCategoryVar.click(function() {
-            if (categoryVar.val() != EMPTY) {
-                showProgress();
-                return getNews(categoryVar.val(), addNews);
-            } else {
-                showCategories();
-                return false;
-            }
-        });
-        
-        buttonHdrShowCategoriesVar.click(function() {
-            showCategories();
-            return false;
-        });
-        
-        buttonFtrShowCategoriesVar.click(function() {
-            showCategories();
-            return false;
-        });
-    / containerPage
-    / Page ends here
+:javascript
+  // constants
+  var COOKIE_NAME = 'news';
+  var COMMA = ',';
+  var EMPTY = '';
+  var REFRESH = 'refresh';
+  var LI = 'li';
+  var PAR = 'p';
+  var ID = 'id';
+  var ITEM = 'item';
+  var TITLE = 'title';
+  var CATEGORY = 'category';
+  var DESCR = 'description';
+  var CAT_ = 'cat_';
+  var _D = '_d';
+  var _LI = '_li';
+  var _A = '_a';
+  var GET = 'GET';
+  var XML = 'xml';
+  var HTML_FRG1 = '';
+  var HTML_FRG4 = '';
+  var HTML_FRG7 = '';
+  var HTML_FRG8 = '';
+  var NEWS_URI = 'bridge.php?fwd=http://rss.news.yahoo.com/rss/';
+  var TWO_SECONDS = 2000;
+
+  // Variables
+  var hdrCategoriesVar = $('#hdrCategories');
+  var contentCategoriesVar = $('#contentCategories');
+  var ftrCategoriesVar = $('#ftrCategories');
+  var hdrSelectVar = $('#hdrSelect');
+  var contentSelectVar = $('#contentSelect');
+  var ftrSelectVar = $('#ftrSelect');
+  var hdrProgressVar = $('#hdrProgress');
+  var contentProgressVar = $('#contentProgress');
+  var ftrProgressVar = $('#ftrProgress');
+  var hdrNewsVar = $('#hdrNews');
+  var contentNewsVar = $('#contentNews');
+  var ftrNewsVar = $('#ftrNews');
+  var currentNewsVar = $('#currentNews');
+  var buttonFtrShowCategoriesVar = $('#buttonFtrShowCategories');
+  var buttonHdrShowCategoriesVar = $('#buttonHdrShowCategories');
+  var buttonGetCategoryVar = $('#buttonGetCategory');
+  var buttonAddCategoryVar = $('#buttonAddCategory');
+  var categoryVar = $('#category');
+
+  var numNewsToRestore = 0;
+  var numLi = 0;
+  var storedNewsArr;
+
+  $(document).ready(function () {
+      showProgress();
+      var storedNewsTxt = $.DSt.get(COOKIE_NAME);
+
+      if (storedNewsTxt != null && storedNewsTxt.length > 0) {
+          storedNewsArr = storedNewsTxt.split(COMMA);
+      } else {
+          storedNewsArr = new Array();
+      }
+      numNewsToRestore = storedNewsArr.length;
+      restore();
+  });
+
+  function restore() {
+      if (numNewsToRestore > 0) {
+          getNews(storedNewsArr[--numNewsToRestore], restoreNews);
+      } else {
+          showCategories();
+      }
+  }
+  function animate(pArr, animationTarget, handle) {
+      var len = pArr.length;
+      var currInd = 1;
+      animationTarget.doTimeout(handle, TWO_SECONDS, function() {
+          this.fadeOut(function() {
+              currInd = currInd % len;
+              animationTarget.text(pArr[currInd++]);
+              animationTarget.fadeIn();
+          });
+          return true;
+      });
+  }
+
+  function storeCurrentNews() {
+      $.DSt.set(COOKIE_NAME, EMPTY);
+      var tmp = EMPTY;
+      currentNewsVar.find(LI).each(function() {
+          tmp = tmp + COMMA + $(this).find(PAR).attr(ID).substring(4);
+      });
+
+      $.DSt.set(COOKIE_NAME, tmp.substring(1));
+  }
+
+  function getNews(varCat, handler) {
+      var varURI = NEWS_URI + varCat;
+      //var varURI = "bridge.php?fwd=http://localhost:8001/rss/" + varCat;
+      $.ajax({type: GET, dataType: XML, url: varURI, success: handler});
+      return false;
+  }
+
+  function populateNewsItems(xml) {
+      var tmpTxt = EMPTY;
+      $(xml).find(ITEM).each(function() {
+          var txt = $(this).find(DESCR).text();
+          tmpTxt = tmpTxt + HTML_FRG7 + txt + HTML_FRG8;
+      });
+
+      contentNewsVar.html(tmpTxt);
+      showNews();
+  }
+
+  function populateSingleNews(xml) {
+      var tmpTxt = $(xml).find(CATEGORY).first().text();
+      var desc = $(xml).find(DESCR).first().text();
+      var category = CAT_ + tmpTxt;
+      var categoryDel = category + _D;
+      var categoryLi = categoryDel + _LI;
+      var categoryA = category + _A;
+
+      $(HTML_FRG1 + categoryLi + HTML_FRG2 + categoryA + HTML_FRG3 + desc + HTML_FRG4 + category + HTML_FRG5 + categoryDel + HTML_FRG6).prependTo(currentNewsVar);
+
+      var newDeleteItem = document.getElementById(categoryDel);
+      $(newDeleteItem).click(function() {
+          $.doTimeout(categoryLi, false);
+          var newListItem = document.getElementById(categoryLi);
+          $(newListItem).remove();
+          storeCurrentNews();
+      });
+
+      var newDescItem = document.getElementById(categoryA);
+      $(newDescItem).click(function() {
+          showProgress();
+          getNews(category.substring(4), populateNewsItems);
+      });
+
+      var ind = 0;
+      var newsArray = new Array();
+      $(xml).find(ITEM).each(function() {
+          var txt = $(this).find(TITLE).text();
+          newsArray[ind++] = txt;
+      });
+
+      var newItem = document.getElementById(category);
+      $(newItem).text(newsArray[0]);
+
+      currentNewsVar.listview(REFRESH);
+      animate(newsArray, $(newItem), categoryLi);
+  }
+
+  function restoreNews(xml) {
+      populateSingleNews(xml);
+      restore();
+  }
+
+  function addNews(xml) {
+      populateSingleNews(xml);
+      storeCurrentNews();
+      showCategories();
+  }
+
+  buttonAddCategoryVar.click(function() {
+      showSelect();
+      return false;
+  });
+
+  buttonGetCategoryVar.click(function() {
+      if (categoryVar.val() != EMPTY) {
+          showProgress();
+          return getNews(categoryVar.val(), addNews);
+      } else {
+          showCategories();
+          return false;
+      }
+  });
+
+  buttonHdrShowCategoriesVar.click(function() {
+      showCategories();
+      return false;
+  });
+
+  buttonFtrShowCategoriesVar.click(function() {
+      showCategories();
+      return false;
+  });
