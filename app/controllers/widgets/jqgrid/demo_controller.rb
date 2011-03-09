@@ -50,7 +50,12 @@ class Widgets::Jqgrid::DemoController < ApplicationController
         else
           # Default
           @data = @object.find_for_grid(@mylist, params)
-          html = render_to_string(:partial => 'actions.html.haml') #, locals: { user: @user })
+
+          @data.each do |row|
+             row[:row_actions] = render_to_string :partial => 'actions.html.haml', :locals => { :id => row[:id], :demo => @model.pluralize + "_" + @demo }
+          end
+          # data.merge!(:userdata => userdata) if userdata
+
           @userdata = @object.userdata(@data)
           case @datatype
             when :json

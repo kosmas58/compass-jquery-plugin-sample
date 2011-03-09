@@ -4494,7 +4494,7 @@ class Invheader < ActiveRecord::Base
                :width => 40,
                :editable => true},
               {:name => 'row_actions',
-               :width => 45,
+               :width => 90,
                :sortable => false}
           ],
           :width => 700,
