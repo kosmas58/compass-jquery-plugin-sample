@@ -4586,6 +4586,7 @@ class Invheader < ActiveRecord::Base
           :rowActions => :server,
           :colInclude => [:client],
           :colNames => [
+              I18n.t('txt.jqgrid.demo.actions'),
               I18n.t('activerecord.attributes.invheader.id'),
               I18n.t('activerecord.attributes.invheader.invdate'),
               I18n.t('activerecord.attributes.invheader.client'),
@@ -4594,10 +4595,12 @@ class Invheader < ActiveRecord::Base
               I18n.t('activerecord.attributes.invheader.total'),
               I18n.t('activerecord.attributes.invheader.note'),
               I18n.t('activerecord.attributes.invheader.closed'),
-              I18n.t('activerecord.attributes.invheader.ship_via'),
-              I18n.t('txt.jqgrid.demo.actions')
+              I18n.t('activerecord.attributes.invheader.ship_via')
           ],
           :colModel => [
+              {:name => 'row_actions',
+               :width => 45,
+               :sortable => false},
               {:name => 'id',
                :width => 50,
                :align => :right},
@@ -4630,10 +4633,7 @@ class Invheader < ActiveRecord::Base
                :editable => true},
               {:name => 'ship_via',
                :width => 40,
-               :editable => true},
-              {:name => 'row_actions',
-               :width => 40,
-               :sortable => false}
+               :editable => true}
           ],
           :width => 700,
           :height => :auto,
@@ -4700,7 +4700,7 @@ class Invheader < ActiveRecord::Base
                :width => 40,
                :editable => true},
               {:name => 'row_actions',
-               :width => 40,
+               :width => 45,
                :sortable => false}
           ],
           :width => 700,
@@ -4768,7 +4768,7 @@ class Invheader < ActiveRecord::Base
                :width => 40,
                :editable => true},
               {:name => 'row_actions',
-               :width => 40,
+               :width => 45,
                :sortable => false}
           ],
           :width => 700,

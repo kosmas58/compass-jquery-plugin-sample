@@ -51,10 +51,12 @@ class Widgets::Jqgrid::DemoController < ApplicationController
           # Default
           @data = @object.find_for_grid(@mylist, params)
 
-          @data.each do |row|
-             row[:row_actions] = render_to_string :partial => 'actions.html.haml', :locals => { :id => row[:id], :demo => @model.pluralize + "_" + @demo }
+          if (@demo == "demo9908" || @demo == "demo9909" || @demo == "demo9910")
+            @data.each do |row|
+              html = render_to_string(:partial => @demo +'_actions.html.haml', :locals => { :id => row[:id], :demo => @model.pluralize + "_" + @demo }).delete("\n").gsub(/  /,"")
+              row[:row_actions] = html
+            end
           end
-          # data.merge!(:userdata => userdata) if userdata
 
           @userdata = @object.userdata(@data)
           case @datatype

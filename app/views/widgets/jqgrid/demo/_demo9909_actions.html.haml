@@ -1,0 +1,7 @@
+%ul#icons.ui-widget.ui-helper-clearfix
+  %li.ui-state-default.ui-corner-all{:onclick => "$('##{demo}').jqGrid('editRow','#{id}');", :title => 'Edit row'}
+    %span.ui-icon.ui-icon-pencil
+  %li.ui-state-default.ui-corner-all{:onclick => "$('##{demo}').jqGrid('saveRow','#{id}');", :title => 'Save row'}
+    %span.ui-icon.ui-icon-disk
+  %li.ui-state-default.ui-corner-all{:onclick => "$('##{demo}').jqGrid('restoreRow','#{id}');", :title => 'Restore row'}
+    %span.ui-icon.ui-icon-cancel
