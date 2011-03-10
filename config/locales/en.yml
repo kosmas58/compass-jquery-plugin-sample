@@ -179,6 +179,9 @@ en:
   txt:
     widgets:
       name: Widgets
+    tinymce:
+      name: TinyMCE
+      default: Example
     handling:
       name: Handling
     haml:

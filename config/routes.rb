@@ -96,7 +96,8 @@ ActionController::Routing::Routes.draw do |map|
   end
 
   Translate::Routes.translation_ui(map) if RAILS_ENV != "production "
-
+  TinyMceGzip::Routes.add_routes
+  
   map.root :controller => "welcome"
 
   map.manifest '/manifest', :controller => :manifest, :action => :show

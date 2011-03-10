@@ -1,0 +1,40 @@
+-@title =  "#{t('txt.tinymce.name')} - #{t('txt.tinymce.default')}"
+
+- content_for :content_head do
+  = render(:partial => "default.js.haml", :format => :js)
+
+.demo
+  %h3
+    =image_tag("icons/22x22/alarmclock.png", :border => 0)
+    =raw @title
+
+  .tinymce
+    %form{:action => "http://tinymce.moxiecode.com/dump.php?example=true", :method => "post"}
+      %div
+        %h3 Full featured example using jQuery plugin
+        %p
+          This example shows how TinyMCE can be lazy loaded using jQuery. The jQuery plugin will also attach it's self to various jQuery methods to make it more easy to get/set editor contents etc.
+        / Gets replaced with TinyMCE, remember HTML in a textarea should be encoded
+        %div
+          %textarea#elm1.tinymce{:cols => "80", :name => "elm1", :rows => "15", :style => "width: 80%"}
+            :preserve
+
+                            &lt;p&gt;
+                                This is some example text that you can edit inside the &lt;strong&gt;TinyMCE editor&lt;/strong&gt;.
+                            &lt;/p&gt;
+                            &lt;p&gt;
+                            Nam nisi elit, cursus in rhoncus sit amet, pulvinar laoreet leo. Nam sed lectus quam, ut sagittis tellus. Quisque dignissim mauris a augue rutrum tempor. Donec vitae purus nec massa vestibulum ornare sit amet id tellus. Nunc quam mauris, fermentum nec lacinia eget, sollicitudin nec ante. Aliquam molestie volutpat dapibus. Nunc interdum viverra sodales. Morbi laoreet pulvinar gravida. Quisque ut turpis sagittis nunc accumsan vehicula. Duis elementum congue ultrices. Cras faucibus feugiat arcu quis lacinia. In hac habitasse platea dictumst. Pellentesque fermentum magna sit amet tellus varius ullamcorper. Vestibulum at urna augue, eget varius neque. Fusce facilisis venenatis dapibus. Integer non sem at arcu euismod tempor nec sed nisl. Morbi ultricies, mauris ut ultricies adipiscing, felis odio condimentum massa, et luctus est nunc nec eros.
+                            &lt;/p&gt;
+                                / Some integration calls
+        %a{:href => "javascript:;", :onmousedown => "$('#elm1').tinymce().show();"} [Show]
+        %a{:href => "javascript:;", :onmousedown => "$('#elm1').tinymce().hide();"} [Hide]
+        %a{:href => "javascript:;", :onmousedown => "$('#elm1').tinymce().execCommand('Bold');"} [Bold]
+        %a{:href => "javascript:;", :onmousedown => "alert($('#elm1').html());"} [Get contents]
+        %a{:href => "javascript:;", :onmousedown => "alert($('#elm1').tinymce().selection.getContent());"} [Get selected HTML]
+        %a{:href => "javascript:;", :onmousedown => "alert($('#elm1').tinymce().selection.getContent({format : 'text'}));"} [Get selected text]
+        %a{:href => "javascript:;", :onmousedown => "alert($('#elm1').tinymce().selection.getNode().nodeName);"} [Get selected element]
+        %a{:href => "javascript:;", :onmousedown => "$('#elm1').tinymce().execCommand('mceInsertContent',false,'<b>Hello world!!</b>');"} [Insert HTML]
+        %a{:href => "javascript:;", :onmousedown => "$('#elm1').tinymce().execCommand('mceReplaceContent',false,'<b>{$selection}</b>');"} [Replace selection]
+        %br/
+        %input{:name => "save", :type => "submit", :value => "Submit"}/
+        %input{:name => "reset", :type => "reset", :value => "Reset"}/
