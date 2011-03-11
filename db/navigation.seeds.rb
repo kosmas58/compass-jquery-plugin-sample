@@ -555,9 +555,9 @@ node_419 = NavigationTree.create_node(:id => parent_id, :seed => true, :position
 parent_id = node_402
 node_420 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.ical.calendar.listing', :type => 'default', :icon => '/images/icons/16x16/working.png', :url => '/widgets/ical/calendars')
 parent_id = node_173
-node_484 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 5, :title => 'txt.tinymce.name', :type => 'folder', :icon => '/images/icons/16x16/editor.png')
+node_484 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 5, :title => 'txt.tinymce.name', :type => 'folder', :icon => '/images/icons/16x16/tinymce.png')
 parent_id = node_484
-node_485 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.tinymce.default', :type => 'default', :icon => '/images/icons/16x16/editor.png', :url => '/widgets/tiny_mce/default')
+node_485 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.tinymce.default', :type => 'default', :icon => '/images/icons/16x16/tinymce.png', :url => '/widgets/tiny_mce/default')
 parent_id = node_173
 parent_id = node_172
 node_421 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.graphics.name', :type => 'folder', :icon => '/images/icons/16x16/graphics.png')

@@ -98,7 +98,7 @@
   $(function() {
     $("a, input", ".toolbar").button();
   });
-  
+
   $().ready(function() {
     $('textarea.tinymce').tinymce({
         // Location of TinyMCE script
@@ -138,3 +138,5 @@
   if (document.location.protocol == 'file:') {
     alert("The examples might not work properly on the local file system due to security settings in your browser. Please use a real webserver.");
   }
+
+  //{:action => "/widgets/tiny_mce/dump?example=true", :method => "post"}

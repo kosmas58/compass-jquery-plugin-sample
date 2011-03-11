@@ -5,5 +5,6 @@ class Widgets::TinyMceController < ApplicationController
 
   def dump
     puts "wiili"
+    render :nothing => true, :status => 200
   end
 end

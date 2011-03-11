@@ -5,7 +5,7 @@
 
 .demo
   %h3
-    =image_tag("icons/22x22/editor.png", :border => 0)
+    =image_tag("icons/22x22/tinymce.png", :border => 0)
     =raw @title
   %p
     This example shows how TinyMCE can be lazy loaded using jQuery. The jQuery plugin will also attach it's self to various jQuery methods to make it more easy to get/set editor contents etc.
@@ -20,18 +20,41 @@
     %a{:href => "javascript:;", :onmousedown => "$('#elm1').tinymce().execCommand('mceInsertContent',false,'<b>Hello world!!</b>');"} Insert HTML
     %a{:href => "javascript:;", :onmousedown => "$('#elm1').tinymce().execCommand('mceReplaceContent',false,'<b>{$selection}</b>');"} Replace selection
   .tinymce
-    %form{:action => "/widgets/tiny_mce/dump?example=true", :method => "post"}
+    %form
       %div
         / Gets replaced with TinyMCE, remember HTML in a textarea should be encoded
         %div
-          %textarea#elm1.tinymce{:cols => "80", :name => "elm1", :rows => "15", :style => "width: 100%"}
+          %textarea#elm1.tinymce{:cols => "80", :name => "elm1", :rows => "30", :style => "width: 100%"}
             :preserve
-              &lt;p&gt;
-                This is some example text that you can edit inside the &lt;strong&gt;TinyMCE editor&lt;/strong&gt;.
-              &lt;/p&gt;
-              &lt;p&gt;
-              Nam nisi elit, cursus in rhoncus sit amet, pulvinar laoreet leo. Nam sed lectus quam, ut sagittis tellus. Quisque dignissim mauris a augue rutrum tempor. Donec vitae purus nec massa vestibulum ornare sit amet id tellus. Nunc quam mauris, fermentum nec lacinia eget, sollicitudin nec ante. Aliquam molestie volutpat dapibus. Nunc interdum viverra sodales. Morbi laoreet pulvinar gravida. Quisque ut turpis sagittis nunc accumsan vehicula. Duis elementum congue ultrices. Cras faucibus feugiat arcu quis lacinia. In hac habitasse platea dictumst. Pellentesque fermentum magna sit amet tellus varius ullamcorper. Vestibulum at urna augue, eget varius neque. Fusce facilisis venenatis dapibus. Integer non sem at arcu euismod tempor nec sed nisl. Morbi ultricies, mauris ut ultricies adipiscing, felis odio condimentum massa, et luctus est nunc nec eros.
-              &lt;/p&gt;
+              &lt;h1&gt;&lt;img style=&quot;float: right;&quot; title=&quot;TinyMCE Logo&quot; src=&quot;/images/demo/tinymce.png&quot; alt=&quot;TinyMCE Logo&quot; width=&quot;92&quot; height=&quot;80&quot; /&gt;Welcome to the TinyMCE editor demo!&lt;/h1&gt;
+              &lt;p&gt;Feel free to try out the different features that are provided, please note that the MCImageManager and MCFileManager specific functionality is part of our commercial offering. The demo is to show the integration.&lt;/p&gt;
+              &lt;p&gt;We really recommend &lt;a href=&quot;http://www.getfirefox.com&quot; target=&quot;_blank&quot;&gt;Firefox&lt;/a&gt; as the primary browser for the best editing experience, but of course, TinyMCE is &lt;a href=&quot;../wiki.php/Browser_compatiblity&quot; target=&quot;_blank&quot;&gt;compatible&lt;/a&gt; with all major browsers.&lt;/p&gt;
+              &lt;h2&gt;Got questions or need help?&lt;/h2&gt;
+              &lt;p&gt;If you have questions or need help, feel free to visit our &lt;a href=&quot;../forum/index.php&quot;&gt;community forum&lt;/a&gt;! We also offer Enterprise &lt;a href=&quot;../enterprise/support.php&quot;&gt;support&lt;/a&gt; solutions. Also do not miss out on the &lt;a href=&quot;../wiki.php&quot;&gt;documentation&lt;/a&gt;, its a great resource wiki for understanding how TinyMCE works and integrates.&lt;/p&gt;
+              &lt;h2&gt;Found a bug?&lt;/h2&gt;
+              &lt;p&gt;If you think you have found a bug, you can use the &lt;a href=&quot;../develop/bugtracker.php&quot;&gt;Tracker&lt;/a&gt; to report bugs to the developers.&lt;/p&gt;
+              &lt;p&gt;And here is a simple table for you to play with.&lt;/p&gt;
+              &lt;table border=&quot;0&quot;&gt;
+              &lt;tbody&gt;
+              &lt;tr&gt;
+              &lt;td&gt;&lt;strong&gt;Product&lt;/strong&gt;&lt;/td&gt;
+              &lt;td&gt;&lt;strong&gt;Cost&lt;/strong&gt;&lt;/td&gt;
+              &lt;td&gt;&lt;strong&gt;Really?&lt;/strong&gt;&lt;/td&gt;
+              &lt;/tr&gt;
+              &lt;tr&gt;
+              &lt;td&gt;TinyMCE&lt;/td&gt;
+              &lt;td&gt;Free&lt;/td&gt;
+              &lt;td&gt;YES!&lt;/td&gt;
+              &lt;/tr&gt;
+              &lt;tr&gt;
+              &lt;td&gt;Plupload&lt;/td&gt;
+              &lt;td&gt;Free&lt;/td&gt;
+              &lt;td&gt;YES!&lt;/td&gt;
+              &lt;/tr&gt;
+              &lt;/tbody&gt;
+              &lt;/table&gt;
+              &lt;p&gt;Enjoy our software and create great content!&lt;/p&gt;
+              &lt;p&gt;Oh, and by the way, don't forget to check out our other product called &lt;a href=&quot;http://www.plupload.com&quot; target=&quot;_blank&quot;&gt;Plupload&lt;/a&gt;, your ultimate upload solution with HTML5 upload support!&lt;/p&gt;
       / Some integration calls
       .toolbar.ui-widget-header.ui-corner-all
         %input{:name => "save", :type => "submit", :value => "Submit"}
