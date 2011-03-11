@@ -1,7 +1,7 @@
 -@title =  "#{t('txt.tinymce.name')} - #{t('txt.tinymce.default')}"
 
 - content_for :content_head do
-  = render(:partial => "default.js.haml", :format => :js)
+  = render(:partial => "index.js.haml", :format => :js)
 
 .demo
   %h3
@@ -20,7 +20,7 @@
     %a{:href => "javascript:;", :onmousedown => "$('#elm1').tinymce().execCommand('mceInsertContent',false,'<b>Hello world!!</b>');"} Insert HTML
     %a{:href => "javascript:;", :onmousedown => "$('#elm1').tinymce().execCommand('mceReplaceContent',false,'<b>{$selection}</b>');"} Replace selection
   .tinymce
-    %form
+    %form#example
       %div
         / Gets replaced with TinyMCE, remember HTML in a textarea should be encoded
         %div

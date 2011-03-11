@@ -99,7 +99,7 @@
     $("a, input", ".toolbar").button();
   });
 
-  $().ready(function() {
+  $(document).ready(function() {
     $('textarea.tinymce').tinymce({
         // Location of TinyMCE script
         script_url : '/javascripts/tiny_mce/tiny_mce.js',
@@ -133,10 +133,14 @@
             staffid : "991234"
         }
     });
+
+    $('#example').submit(function() {
+      $.post("/widgets/tiny_mce/dump", $('#example').serialize());
+      return false;
+    });
   });
+
 
   if (document.location.protocol == 'file:') {
     alert("The examples might not work properly on the local file system due to security settings in your browser. Please use a real webserver.");
   }
-
-  //{:action => "/widgets/tiny_mce/dump?example=true", :method => "post"}

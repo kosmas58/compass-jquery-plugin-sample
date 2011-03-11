@@ -84,7 +84,8 @@ ActionController::Routing::Routes.draw do |map|
       jqgrid.resources :mine
     end
 
-    widget.resources :member => {:dump => :post}
+    widget.resources :tiny_mce,
+                     :member => {:dump => :post}
   end
 
   map.namespace :jqtouch do |jqtouch|

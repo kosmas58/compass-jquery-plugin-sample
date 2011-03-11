@@ -4,7 +4,6 @@ class Widgets::TinyMceController < ApplicationController
   protect_from_forgery
 
   def dump
-    puts "wiili"
-    render :nothing => true, :status => 200
+    render :text => "Well done!", :status => 200
   end
 end
