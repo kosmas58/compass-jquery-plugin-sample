@@ -181,7 +181,7 @@ en:
       name: Widgets
     tinymce:
       name: TinyMCE
-      default: Example
+      default: Full featured example using jQuery plugin
     handling:
       name: Handling
     haml:

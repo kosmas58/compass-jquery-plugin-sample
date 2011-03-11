@@ -83,6 +83,8 @@ ActionController::Routing::Routes.draw do |map|
       jqgrid.resources :animals
       jqgrid.resources :mine
     end
+
+    widget.resources :member => {:dump => :post}
   end
 
   map.namespace :jqtouch do |jqtouch|
@@ -96,7 +98,6 @@ ActionController::Routing::Routes.draw do |map|
   end
 
   Translate::Routes.translation_ui(map) if RAILS_ENV != "production "
-  TinyMceGzip::Routes.add_routes
   
   map.root :controller => "welcome"
 

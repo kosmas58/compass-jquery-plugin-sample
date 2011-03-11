@@ -1,18 +1,4 @@
 :css
-  .tinymce {
-      background-color: #FFFFFF;
-      font-family: Verdana, Arial, Helvetica, sans-serif;
-      font-size: 10px;
-      scrollbar-3dlight-color: #F0F0EE;
-      scrollbar-arrow-color: #676662;
-      scrollbar-base-color: #F0F0EE;
-      scrollbar-darkshadow-color: #DDDDDD;
-      scrollbar-face-color: #E0E0DD;
-      scrollbar-highlight-color: #F0F0EE;
-      scrollbar-shadow-color: #F0F0EE;
-      scrollbar-track-color: #F5F5F5;
-  }
-
   .tinymce td {
       font-family: Verdana, Arial, Helvetica, sans-serif;
       font-size: 10px;
@@ -105,7 +91,14 @@
       text-align: inherit;
   }
 
+  .toolbar { padding: 0.3em; }
+  .toolbar .ui-button{ font-size: 0.8em; }
+
 :javascript
+  $(function() {
+    $("a, input", ".toolbar").button();
+  });
+  
   $().ready(function() {
     $('textarea.tinymce').tinymce({
         // Location of TinyMCE script
@@ -126,7 +119,7 @@
         theme_advanced_resizing : true,
 
         // Example content CSS (should be your site CSS)
-        content_css : "css/content.css",
+        //content_css : "css/content.css",
 
         // Drop lists for link/image/media/template dialogs
         template_external_list_url : "lists/template_list.js",

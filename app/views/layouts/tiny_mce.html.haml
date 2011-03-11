@@ -34,5 +34,9 @@
     = yield :content_head
 
   %body{body_attributes}
-    = yield
-    = render :partial => "widgets/tiny_mce/license"
+    #content
+      #flash_messages
+        %span
+          = raw flash_messages
+      = yield
+      = render :partial => "widgets/tiny_mce/license"

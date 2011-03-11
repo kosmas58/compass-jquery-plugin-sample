@@ -30,5 +30,9 @@
     = yield :content_head
 
   %body{body_attributes}
-    = yield
-    = render :partial => "widgets/ribbon/license"
+    #content
+      #flash_messages
+        %span
+          = raw flash_messages
+      = yield
+      = render :partial => "widgets/ribbon/license"

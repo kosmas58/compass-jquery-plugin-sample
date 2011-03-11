@@ -29,8 +29,7 @@ txt:
         demo02: Scripting styleable Forms
         demo03: Alternate form skin
   tinymce: 
-    name: TinyMCE
-    default: example
+    default: Full featured example using jQuery plugin
   hello: Hello world
 support: 
   array: 
