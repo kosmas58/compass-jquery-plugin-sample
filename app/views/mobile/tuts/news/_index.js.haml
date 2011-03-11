@@ -73,11 +73,15 @@
       tmp = tmp + COMMA + $(this).find(PAR).attr(ID).substring(4);
     });
     $.DSt.set(COOKIE_NAME, tmp.substring(1));
+    alert(tmp);
   }
 
   function getNews(varCat,handler){
     var varURI = NEWS_URI + varCat;
-    $.ajax({type: GET, dataType: XML, url: varURI, success: handler});
+    $.ajax({type: GET,
+            dataType: XML,
+            url: varURI,
+            success: handler});
     return false;
   }
 
@@ -98,6 +102,8 @@
     var categoryDel = category + _D;
     var categoryLi = categoryDel + _LI;
     var categoryA = category + _A;
+
+    alert(HTML_FRG1 + categoryLi + HTML_FRG2 + categoryA + HTML_FRG3 + desc + HTML_FRG4 + category + HTML_FRG5 + categoryDel + HTML_FRG6);
 
     $(HTML_FRG1 + categoryLi + HTML_FRG2 + categoryA + HTML_FRG3 + desc + HTML_FRG4 + category + HTML_FRG5 + categoryDel + HTML_FRG6).prependTo(currentNewsVar);
 
@@ -142,7 +148,7 @@
 
   getCategoryVar.live('click', function() {
     var selCat = $('#category :selected').val();
-    //$('#category').selectmenu('refresh');
+    $('#category').selectmenu(REFRESH);
     if (selCat != EMPTY) {
       $.mobile.changePage(progressPage, "pop");
       return getNews(selCat, addNews);
