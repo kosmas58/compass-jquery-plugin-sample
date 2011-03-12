@@ -1,0 +1,39 @@
+-@title = "jQuery Mobile Framework - DST Test"
+-@manifest = "/manifest"
+
+- content_for :content_head do
+  = render(:partial => "index.js.haml", :format => :js)
+
+%div{"data-role" => "page"}
+  %div{"data-backbtn" => "false", "data-role" => "header", "data-theme" => "b"}
+    %h1 jQuery DST Test Page
+    %a.ui-btn-left{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile/experiments/index", :rel => "external"} Home
+  / / header
+  %div{"data-role" => "content", "data-theme" => "b"}
+    %form#dst{:name => "jq_dst_testform"}
+      %div{"data-role" => "fieldcontain"}
+        %label{:for => "name"} Text Input:
+        %input#name{:name => "name", :type => "text", :value => ""}
+      %div{"data-role" => "fieldcontain"}
+        %fieldset{"data-role" => "controlgroup", "data-type" => "horizontal"}
+          %legend Radio Input:
+          %input#radio-choice-1{:name => "radio_input", :type => "radio", :value => "1"}
+          %label{:for => "radio-choice-1"} Option 1
+          %input#radio-choice-2{:name => "radio_input", :type => "radio", :value => "2"}
+          %label{:for => "radio-choice-2"} Option 2
+          %input#radio-choice-3{:name => "radio_input", :type => "radio", :value => "3"}
+          %label{:for => "radio-choice-3"} Option 3
+      %div{"data-role" => "fieldcontain"}
+        %fieldset{"data-role" => "controlgroup"}
+          %legend Checkbox Input:
+          %input#checkbox-a{:name => "checkbox_input", :type => "checkbox"}
+          %label{:for => "checkbox-a"} Ckeck it
+      %div{"data-role" => "fieldcontain"}
+        %label{:for => "textarea"} Textarea Input:
+        %textarea#textarea{:cols => "40", :name => "textarea", :rows => "8"}
+      %p
+        %input#store{:type => "button", :value => "Store"}
+        %input#recall{:type => "button", :value => "Recall"}
+        %input#reset{:type => "button", :value => "Reset Form"}
+  / / content
+/ / page
