@@ -23,6 +23,16 @@
 
       %div{"data-role" => "fieldcontain"}
         %fieldset{"data-role" => "controlgroup"}
+          %legend Radio Input:
+          %input#radio-choice-1{"data-role" => "none", :name => "radio-choice-1", :type => "radio", :value => "choice-1"}
+          %label{:for => "radio-choice-1"} 1
+          %input#radio-choice-2{"data-role" => "none", :name => "radio-choice-1", :type => "radio", :value => "choice-2"}
+          %label{:for => "radio-choice-2"} 2
+          %input#radio-choice-3{"data-role" => "none", :name => "radio-choice-1", :type => "radio", :value => "choice-3"}
+          %label{:for => "radio-choice-3"} 3
+
+      %div{"data-role" => "fieldcontain"}
+        %fieldset{"data-role" => "controlgroup"}
           %legend Checkbox Input:
           %input#checkbox.custom{"data-role" => "none", :name => "checkbox_input", :type => "checkbox"}
 
