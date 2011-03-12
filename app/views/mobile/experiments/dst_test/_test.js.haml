@@ -1,0 +1,14 @@
+%link{:href => "/images/demo/mobile/jquery-mobile-icon.png", :rel => "apple-touch-icon"}/
+
+= javascript_include_tag :dst
+
+:javascript
+  $(document).ready(function() {
+    $("#store").live('click', function(){
+      $.DSt.store_form(this.form);
+    });
+    $("#recall").live('click', function(){
+      $.DSt.recall_form(this.form);
+    });
+  });
+  

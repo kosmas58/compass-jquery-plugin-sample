@@ -1,0 +1,37 @@
+-@title = "jQuery Mobile Framework - DST Test"
+-@manifest = "/manifest"
+
+- content_for :content_head do
+  = render(:partial => "test.js.haml", :format => :js)
+
+%div{"data-role" => "page"}
+  %div{"data-role" => "header", "data-theme" => "b"}
+    %h1
+      jQuery.DSt Test Page
+  / /header
+  %div{"data-role" => "content"}
+    %form{:name => "jq_dst_testform"}
+      %div{"data-role" => "fieldcontain"}
+        %label{:for => "name"} Text Input
+        %input#name{"data-role" => "none", :name => "name", :type => "text", :value => ""}
+
+      %p
+        %label{:for => "radio_input"} Radio Input
+        %input{:name => "radio_input", :type => "radio", :value => "1"} 1 &nbsp;&nbsp;
+        %input{:name => "radio_input", :type => "radio", :value => "2"} 2 &nbsp;&nbsp;
+        %input{:name => "radio_input", :type => "radio", :value => "3"} 3
+      %p
+        %label{:for => "checkbox_input"} Checkbox Input
+        %input{:name => "checkbox_input", :type => "checkbox"}
+
+
+      %div{"data-role" => "fieldcontain"}
+        %label{:for => "textarea"} Textarea:
+        %textarea#textarea{:cols => "40", "data-role" => "none", :name => "textarea", :rows => "8"}
+
+      %p
+        %input#store{:type => "button", :value => "Store"}
+        %input#recall{:type => "button", :value => "Recall"}
+        %input{:type => "reset", :value => "Reset Form"}
+  / / content
+/ / page

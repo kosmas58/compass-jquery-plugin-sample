@@ -21,13 +21,13 @@
         attribute to any form or button element tells the framework to not apply any enhanced styles or scripting. The examples below all have this attribute in place to demonstrate the effect. You may need to write custom styles to lay out your form controls because we try to leave all the default styling intact.
       %div{"data-role" => "fieldcontain"}
         %label{:for => "name"} Text Input:
-        %input#name{"data-role" => "none", :name => "name", :type => "text", :value => ""}/
+        %input#name{"data-role" => "none", :name => "name", :type => "text", :value => ""}
       %div{"data-role" => "fieldcontain"}
         %label{:for => "textarea"} Textarea:
         %textarea#textarea{:cols => "40", "data-role" => "none", :name => "textarea", :rows => "8"}
       %div{"data-role" => "fieldcontain"}
         %label{:for => "search"} Search Input:
-        %input#search{"data-role" => "none", :name => "password", :type => "search", :value => ""}/
+        %input#search{"data-role" => "none", :name => "password", :type => "search", :value => ""}
       %div{"data-role" => "fieldcontain"}
         %label{:for => "slider2"} Flip switch:
         %select#slider2{"data-role" => "none", :name => "slider2"}
@@ -35,47 +35,47 @@
           %option{:value => "on"} On
       %div{"data-role" => "fieldcontain"}
         %label{:for => "slider"} Slider:
-        %input#slider{"data-role" => "none", :max => "100", :min => "0", :name => "slider", :type => "range", :value => "0"}/
+        %input#slider{"data-role" => "none", :max => "100", :min => "0", :name => "slider", :type => "range", :value => "0"}
       %div{"data-role" => "fieldcontain"}
         %fieldset{"data-role" => "controlgroup"}
           %legend Choose as many snacks as you'd like:
-          %input#checkbox-1a.custom{"data-role" => "none", :name => "checkbox-1a", :type => "checkbox"}/
+          %input#checkbox-1a.custom{"data-role" => "none", :name => "checkbox-1a", :type => "checkbox"}
           %label{:for => "checkbox-1a"} Cheetos
-          %input#checkbox-2a.custom{"data-role" => "none", :name => "checkbox-2a", :type => "checkbox"}/
+          %input#checkbox-2a.custom{"data-role" => "none", :name => "checkbox-2a", :type => "checkbox"}
           %label{:for => "checkbox-2a"} Doritos
-          %input#checkbox-3a.custom{"data-role" => "none", :name => "checkbox-3a", :type => "checkbox"}/
+          %input#checkbox-3a.custom{"data-role" => "none", :name => "checkbox-3a", :type => "checkbox"}
           %label{:for => "checkbox-3a"} Fritos
-          %input#checkbox-4a.custom{"data-role" => "none", :name => "checkbox-4a", :type => "checkbox"}/
+          %input#checkbox-4a.custom{"data-role" => "none", :name => "checkbox-4a", :type => "checkbox"}
           %label{:for => "checkbox-4a"} Sun Chips
       %div{"data-role" => "fieldcontain"}
         %fieldset{"data-role" => "controlgroup", "data-type" => "horizontal"}
           %legend Font styling:
-          %input#checkbox-6.custom{"data-role" => "none", :name => "checkbox-6", :type => "checkbox"}/
+          %input#checkbox-6.custom{"data-role" => "none", :name => "checkbox-6", :type => "checkbox"}
           %label{:for => "checkbox-6"} b
-          %input#checkbox-7.custom{"data-role" => "none", :name => "checkbox-7", :type => "checkbox"}/
+          %input#checkbox-7.custom{"data-role" => "none", :name => "checkbox-7", :type => "checkbox"}
           %label{:for => "checkbox-7"}
             %em i
-          %input#checkbox-8.custom{"data-role" => "none", :name => "checkbox-8", :type => "checkbox"}/
+          %input#checkbox-8.custom{"data-role" => "none", :name => "checkbox-8", :type => "checkbox"}
           %label{:for => "checkbox-8"} u
       %div{"data-role" => "fieldcontain"}
         %fieldset{"data-role" => "controlgroup"}
           %legend Choose a pet:
-          %input#radio-choice-1{:checked => "checked", "data-role" => "none", :name => "radio-choice-1", :type => "radio", :value => "choice-1"}/
+          %input#radio-choice-1{:checked => "checked", "data-role" => "none", :name => "radio-choice-1", :type => "radio", :value => "choice-1"}
           %label{:for => "radio-choice-1"} Cat
-          %input#radio-choice-2{"data-role" => "none", :name => "radio-choice-1", :type => "radio", :value => "choice-2"}/
+          %input#radio-choice-2{"data-role" => "none", :name => "radio-choice-1", :type => "radio", :value => "choice-2"}
           %label{:for => "radio-choice-2"} Dog
-          %input#radio-choice-3{"data-role" => "none", :name => "radio-choice-1", :type => "radio", :value => "choice-3"}/
+          %input#radio-choice-3{"data-role" => "none", :name => "radio-choice-1", :type => "radio", :value => "choice-3"}
           %label{:for => "radio-choice-3"} Hamster
-          %input#radio-choice-4{"data-role" => "none", :name => "radio-choice-1", :type => "radio", :value => "choice-4"}/
+          %input#radio-choice-4{"data-role" => "none", :name => "radio-choice-1", :type => "radio", :value => "choice-4"}
           %label{:for => "radio-choice-4"} Lizard
       %div{"data-role" => "fieldcontain"}
         %fieldset{"data-role" => "controlgroup", "data-type" => "horizontal"}
           %legend Layout view:
-          %input#radio-choice-c{:checked => "checked", "data-role" => "none", :name => "radio-choice-b", :type => "radio", :value => "on"}/
+          %input#radio-choice-c{:checked => "checked", "data-role" => "none", :name => "radio-choice-b", :type => "radio", :value => "on"}
           %label{:for => "radio-choice-c"} List
-          %input#radio-choice-d{"data-role" => "none", :name => "radio-choice-b", :type => "radio", :value => "off"}/
+          %input#radio-choice-d{"data-role" => "none", :name => "radio-choice-b", :type => "radio", :value => "off"}
           %label{:for => "radio-choice-d"} Grid
-          %input#radio-choice-e{"data-role" => "none", :name => "radio-choice-b", :type => "radio", :value => "other"}/
+          %input#radio-choice-e{"data-role" => "none", :name => "radio-choice-b", :type => "radio", :value => "other"}
           %label{:for => "radio-choice-e"} Gallery
       %div{"data-role" => "fieldcontain"}
         %label.select{:for => "select-choice-1"} Choose shipping method:
@@ -145,18 +145,18 @@
       %p
         %strong Input type="button"
         based button:
-      %input{"data-role" => "none", :type => "button", :value => "Input type=button"}/
+      %input{"data-role" => "none", :type => "button", :value => "Input type=button"}
       %p
         %strong Input type="submit"
         based button:
-      %input{"data-role" => "none", :type => "submit", :value => "Input type=submit"}/
+      %input{"data-role" => "none", :type => "submit", :value => "Input type=submit"}
       %p
         %strong Input type="reset"
         based button:
-      %input{"data-role" => "none", :type => "reset", :value => "Input type=reset"}/
+      %input{"data-role" => "none", :type => "reset", :value => "Input type=reset"}
       %p
         %strong Input type="image"
         based button:
-      %input{"data-role" => "none", :src => "/images/demo/mobile/jquery-logo.png", :style => "width:120px; padding:5px; background:#fff; border:1px solid #999;", :type => "image", :value => "Input type=image"}/
+      %input{"data-role" => "none", :src => "/images/demo/mobile/jquery-logo.png", :style => "width:120px; padding:5px; background:#fff; border:1px solid #999;", :type => "image", :value => "Input type=image"}
   / /content
 / /page
