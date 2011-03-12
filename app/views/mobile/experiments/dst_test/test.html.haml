@@ -17,13 +17,14 @@
 
       %p
         %label{:for => "radio_input"} Radio Input
-        %input{:name => "radio_input", :type => "radio", :value => "1"} 1 &nbsp;&nbsp;
-        %input{:name => "radio_input", :type => "radio", :value => "2"} 2 &nbsp;&nbsp;
+        %input{:name => "radio_input", :type => "radio", :value => "1"} 1
+        %input{:name => "radio_input", :type => "radio", :value => "2"} 2
         %input{:name => "radio_input", :type => "radio", :value => "3"} 3
-      %p
-        %label{:for => "checkbox_input"} Checkbox Input
-        %input{:name => "checkbox_input", :type => "checkbox"}
 
+      %div{"data-role" => "fieldcontain"}
+        %fieldset{"data-role" => "controlgroup"}
+          %legend Checkbox Input:
+          %input#checkbox.custom{"data-role" => "none", :name => "checkbox_input", :type => "checkbox"}
 
       %div{"data-role" => "fieldcontain"}
         %label{:for => "textarea"} Textarea:
