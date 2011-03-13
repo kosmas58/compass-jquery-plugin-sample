@@ -5,8 +5,8 @@
   .ui-li-thumb { position: relative; }
   #box { background-repeat: no-repeat; background-clip: none; width: 23px; border: 0px; }
 
-= javascript_include_tag :tmpl, :offline
-
+= javascript_include_tag :tmpl, :dst
+4
 %script#item_template{:type => "text/x-jquery-tmpl"}
   %li
     {{if list_item.checked }}
@@ -28,15 +28,15 @@
       Remove ${list_item.name}
 
 :javascript
-  //var holdTheInterval //= setInterval(sendPending, 5000);
-  
+  // Global declarations - assignments made in $(document).ready() below
+  var storageVar = null;
+
   function itemsRefresh() {
-    $.retrieveJSON("/mobile/experiments/list_items?format=json", function(data) {
-      var pendingItems = $.parseJSON(localStorage["pendingItems"]);
+    //$.retrieveJSON("/mobile/experiments/list_items?format=json", function(data) {
+      //var pendingItems = $.parseJSON($.DSt.get(storageVar));
       //$("#items").html($("#item_template").tmpl(data.concat(pendingItems))).listview("refresh");
-      $("#items").html($("#item_template").tmpl(data)).listview("refresh");
-    });
-    //clearInterval(holdTheInterval);
+      //$("#items").html($("#item_template").tmpl(data)).listview("refresh");
+    //});
   };
 
   function itemCreate(name){
@@ -44,87 +44,103 @@
       alert("Name cannot be empty");
     }
     else {
+      var ret;
       $.ajax({
         type:        'POST',
         url:         '/mobile/experiments/list_items?format=jsonr',
-        data:        { 
+        data:        {
                        "authenticity_token" :  AUTH_TOKEN,
                        "list_item"          : { "name" : name }
-                     }, 
-        timeout:     1000,
-        success:     function(response, status) {
-                       itemsRefresh();
                      },
-        error:       function(XMLHttpRequest, textStatus, errorThrown) {
-                       $("#item_name").val(textStatus);
+        timeout:     10000,
+        success:     function(data, textStatus, jqXHR) {
+                       $("#createMsg").html(data["html"]);
+                       ret = true;
+                       //itemsRefresh();
+                     },
+        error:       function(jqXHR, textStatus, errorThrown) {
+                       $("#createMsg").html(textStatus);
+                       ret = false;
+                     },
+        complete:    function(jqXHR, textStatus) {
+                       setTimeout(function(){ $("#createMsg").html(null); }, 3000);
+                       return ret;
                      }
       });
     }
   };
-  
+
   function itemUpdate(item, checked){
     $.ajax({
       type:        'PUT',
       url:         '/mobile/experiments/list_items/'+item,
-      data:        { 
+      data:        {
                      "authenticity_token" :  AUTH_TOKEN,
                      "list_item"          : { "checked" : checked }
-                   }, 
-      dataType:    "json",
-      timeout:     1000,
-      error:       function(XMLHttpRequest, textStatus, errorThrown) {
-                     alert(textStatus);
-                   }
+                   },
+      dataType:    "json"//,
+      //timeout:     1000,
+      //error:       function(XMLHttpRequest, textStatus, errorThrown) {
+      //               alert(textStatus);
+      //             }
     });
   };
-  
+
   function itemDelete(item){
     $.ajax({
       type:        'DELETE',
       url:         '/mobile/experiments/list_items/'+item,
-      data:        { 
+      data:        {
                      "authenticity_token" : AUTH_TOKEN
-                   }, 
-      dataType:    "json",
-      timeout:     1000,
-      error:       function(XMLHttpRequest, textStatus, errorThrown) {
-                     alert(textStatus);
-                   }
+                   },
+      dataType:    "json"//,
+      //timeout:     1000,
+      //error:       function(XMLHttpRequest, textStatus, errorThrown) {
+      //               alert(textStatus);
+      //             }
     });
   };
-  
+
   function sendPending() {
     if (window.navigator.onLine) {
-      var pendingItems = $.parseJSON(localStorage["pendingItems"]);
+      console.log("Online - sending pending items");
+      var pendingItems = $.parseJSON($.DSt.get(storageVar));
       if (pendingItems.length > 0) {
         var pendingItem = pendingItems[0];
         switch( pendingItem["method"] ) {
           case "POST":
-            itemCreate( pendingItem["list_item"]["name"] );
+            if (itemCreate(pendingItem["list_item"]["name"])) {
+              pendingItems.shift();
+              $.DSt.set(storageVar, JSON.stringify(pendingItems));
+              setTimeout(sendPending, 100);
+            }
             break;
           case "PUT":
-            itemUpdate( pendingItem["list_item"]["id"], pendingItem["list_item"]["checked"]);
+            itemUpdate(pendingItem["list_item"]["id"], pendingItem["list_item"]["checked"]);
+            pendingItems.shift();
+            $.DSt.set(storageVar, JSON.stringify(pendingItems));
+            setTimeout(sendPending, 100);
             break;
           case "DELETE":
-            itemDelete( pendingItem["list_item"]["id"] );
+            itemDelete(pendingItem["list_item"]["id"]);
+            pendingItems.shift();
+            $.DSt.set(storageVar, JSON.stringify(pendingItems));
+            setTimeout(sendPending, 100);
             break;
         };
-        var pendingItems = $.parseJSON(localStorage["pendingItems"]);
-        pendingItems.shift();
-        localStorage["pendingItems"] = JSON.stringify(pendingItems)
-        setTimeout(sendPending, 100);
       }
+    } else {
+      console.log("Offline");
     }
   };
-  
+
   function startUp() {
-    if ($.support.localStorage) {
+    if (window.localStorage) {
       $(window.applicationCache).bind("error", function() {
         console.log("There was an error when loading the cache manifest.");
       });
-      
-      if (!localStorage["pendingItems"]) {
-        localStorage["pendingItems"] = JSON.stringify([]);
+      if (!$.DSt.get(storageVar)) {
+        $.DSt.set(storageVar, JSON.stringify([]));
       }
       itemsRefresh();
       sendPending();
@@ -135,6 +151,25 @@
   };
   
   $(document).ready(function() {
+    storageVar = "_shoppingList_pendingItems";
+
+    $("#item_create").live('click', function(){
+      //holdTheInterval = setInterval(itemsRefresh, 5000);
+      var name = $("#item_name").val();
+      var item = {"data":$(this).serialize(), "list_item":{"name": name}, "method": "POST"};
+
+      // Store data locally
+      var pendingItems =$.parseJSON($.DSt.get(storageVar));
+      pendingItems.push(item);
+      $.DSt.set(storageVar, JSON.stringify(pendingItems));
+      sendPending();
+
+      // Refresh interface
+      $("#item_template_new").tmpl(item).appendTo("#items");
+      $("#items").listview("refresh");
+      $("#item_name").val("");
+    });
+
     $("#item").live('click', function(){
       var item = $(this).attr("value");
       var checked;
@@ -148,44 +183,30 @@
           box.addClass("ui-icon-checkbox-on");
           checked = true;
         }
-        
-        // Store data locally 
+
+        // Store data locally
         var pendingItem = {"data":$(this).serialize(), "list_item":{"id": item, "checked": checked}, "method": "PUT"};
-        var pendingItems = $.parseJSON(localStorage["pendingItems"]);
+        var pendingItems = $.parseJSON($.DSt.get(storageVar));
         pendingItems.push(pendingItem);
-        localStorage["pendingItems"] = JSON.stringify(pendingItems);
+        $.DSt.set(storageVar, JSON.stringify(pendingItems));
+        sendPending();
       }
     });
-    
-    $("#item_create").live('click', function(){
-      holdTheInterval = setInterval(itemsRefresh, 5000);
-      var name = $("#item_name").val();
-      var item = {"data":$(this).serialize(), "list_item":{"name": name}, "method": "POST"};
-      
-      // Store data locally 
-      var pendingItems = $.parseJSON(localStorage["pendingItems"]);
-      pendingItems.push(item);
-      localStorage["pendingItems"] = JSON.stringify(pendingItems);
-     
-      // Refresh interface 
-      $("#item_template_new").tmpl(item).appendTo("#items");
-      $("#items").listview("refresh");
-      $("#item_name").val("");
-    });
-    
+
     $("#item_delete").live('click', function(){
       var item = $(this).attr("value");
       if (item) {
-        // Store data locally 
+        // Store data locally
         var pendingItem = {"data":$(this).serialize(), "list_item":{"id": item}, "method": "DELETE"};
-        var pendingItems = $.parseJSON(localStorage["pendingItems"]);
+        var pendingItems = $.parseJSON($.DSt.get(storageVar));
         pendingItems.push(pendingItem);
-        localStorage["pendingItems"] = JSON.stringify(pendingItems);
-        
-        // Refresh interface 
-        $(this).parent().parent().parent().remove(); 
+        $.DSt.set(storageVar, JSON.stringify(pendingItems));
+        //sendPending();
+        // Refresh interface
+        var aaa = $(this).parent().parent().parent(); //.remove();
         $("#items").listview("refresh");
       }
     });
+
     startUp();
   });

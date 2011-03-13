@@ -18,12 +18,8 @@ class Mobile::Experiments::ListItemsController < ApplicationController
     end
 
     response_for :create do |format|
-      format.json do
-        render :nothing => true, :status => 200
-        # render :json => @list_item.to_json
-      end
       format.jsonr do
-        render_json_response :ok, :html => "Id = <b>#{@list_item.id}</b>", :message => "Item created!"
+        render_json_response :ok, :html => "Item <b>#{@list_item.name}</b> added with Id = <b>#{@list_item.id}</b>.", :message => "Item created!"
       end
     end
 
