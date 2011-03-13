@@ -31,11 +31,18 @@
   // Global declarations - assignments made in $(document).ready() below
   var storageVar = null;
 
+  function shiftPending() {
+    var pendingItems = $.parseJSON($.DSt.get(storageVar));
+    pendingItems.shift();
+    $.DSt.set(storageVar, JSON.stringify(pendingItems));
+    setTimeout(sendPending, 100);
+  };
+
   function itemsRefresh() {
     //$.retrieveJSON("/mobile/experiments/list_items?format=json", function(data) {
-      //var pendingItems = $.parseJSON($.DSt.get(storageVar));
-      //$("#items").html($("#item_template").tmpl(data.concat(pendingItems))).listview("refresh");
-      //$("#items").html($("#item_template").tmpl(data)).listview("refresh");
+    //  var pendingItems = $.parseJSON($.DSt.get(storageVar));
+    //  //$("#items").html($("#item_template").tmpl(data.concat(pendingItems))).listview("refresh");
+    //  $("#items").html($("#item_template").tmpl(data)).listview("refresh");
     //});
   };
 
@@ -44,7 +51,6 @@
       alert("Name cannot be empty");
     }
     else {
-      var ret;
       $.ajax({
         type:        'POST',
         url:         '/mobile/experiments/list_items?format=jsonr',
@@ -55,16 +61,14 @@
         timeout:     10000,
         success:     function(data, textStatus, jqXHR) {
                        $("#createMsg").html(data["html"]);
-                       ret = true;
-                       //itemsRefresh();
                      },
         error:       function(jqXHR, textStatus, errorThrown) {
                        $("#createMsg").html(textStatus);
-                       ret = false;
                      },
         complete:    function(jqXHR, textStatus) {
+                       shiftPending();
+                       itemsRefresh();
                        setTimeout(function(){ $("#createMsg").html(null); }, 3000);
-                       return ret;
                      }
       });
     }
@@ -78,11 +82,14 @@
                      "authenticity_token" :  AUTH_TOKEN,
                      "list_item"          : { "checked" : checked }
                    },
-      dataType:    "json"//,
+      dataType:    "json",
       //timeout:     1000,
       //error:       function(XMLHttpRequest, textStatus, errorThrown) {
       //               alert(textStatus);
       //             }
+      complete:    function(jqXHR, textStatus) {
+                     shiftPending();
+                   }
     });
   };
 
@@ -93,11 +100,14 @@
       data:        {
                      "authenticity_token" : AUTH_TOKEN
                    },
-      dataType:    "json"//,
+      dataType:    "json",
       //timeout:     1000,
       //error:       function(XMLHttpRequest, textStatus, errorThrown) {
       //               alert(textStatus);
       //             }
+      complete:    function(jqXHR, textStatus) {
+                     shiftPending();
+                   }
     });
   };
 
@@ -109,23 +119,13 @@
         var pendingItem = pendingItems[0];
         switch( pendingItem["method"] ) {
           case "POST":
-            if (itemCreate(pendingItem["list_item"]["name"])) {
-              pendingItems.shift();
-              $.DSt.set(storageVar, JSON.stringify(pendingItems));
-              setTimeout(sendPending, 100);
-            }
+            itemCreate(pendingItem["list_item"]["name"]);
             break;
           case "PUT":
             itemUpdate(pendingItem["list_item"]["id"], pendingItem["list_item"]["checked"]);
-            pendingItems.shift();
-            $.DSt.set(storageVar, JSON.stringify(pendingItems));
-            setTimeout(sendPending, 100);
             break;
           case "DELETE":
             itemDelete(pendingItem["list_item"]["id"]);
-            pendingItems.shift();
-            $.DSt.set(storageVar, JSON.stringify(pendingItems));
-            setTimeout(sendPending, 100);
             break;
         };
       }
@@ -201,9 +201,9 @@
         var pendingItems = $.parseJSON($.DSt.get(storageVar));
         pendingItems.push(pendingItem);
         $.DSt.set(storageVar, JSON.stringify(pendingItems));
-        //sendPending();
+        sendPending();
         // Refresh interface
-        var aaa = $(this).parent().parent().parent(); //.remove();
+        $(this).parent().remove();
         $("#items").listview("refresh");
       }
     });
