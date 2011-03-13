@@ -39,11 +39,11 @@
   };
 
   function itemsRefresh() {
-    //$.retrieveJSON("/mobile/experiments/list_items?format=json", function(data) {
-    //  var pendingItems = $.parseJSON($.DSt.get(storageVar));
-    //  //$("#items").html($("#item_template").tmpl(data.concat(pendingItems))).listview("refresh");
-    //  $("#items").html($("#item_template").tmpl(data)).listview("refresh");
-    //});
+    $.getJSON("/mobile/experiments/list_items?format=json", function(data) {
+      var pendingItems = $.parseJSON($.DSt.get(storageVar));
+      //$("#items").html($("#item_template").tmpl(data.concat(pendingItems))).listview("refresh");
+      $("#items").html($("#item_template").tmpl(data)).listview("refresh");
+    });
   };
 
   function itemCreate(name){
@@ -58,16 +58,16 @@
                        "authenticity_token" :  AUTH_TOKEN,
                        "list_item"          : { "name" : name }
                      },
-        timeout:     10000,
+        timeout:     5000,
         success:     function(data, textStatus, jqXHR) {
+                       shiftPending();
+                       itemsRefresh();
                        $("#createMsg").html(data["html"]);
                      },
         error:       function(jqXHR, textStatus, errorThrown) {
                        $("#createMsg").html(textStatus);
                      },
         complete:    function(jqXHR, textStatus) {
-                       shiftPending();
-                       itemsRefresh();
                        setTimeout(function(){ $("#createMsg").html(null); }, 3000);
                      }
       });
@@ -83,13 +83,13 @@
                      "list_item"          : { "checked" : checked }
                    },
       dataType:    "json",
-      //timeout:     1000,
+      timeout:     5000,
+      success:     function(data, textStatus, jqXHR) {
+                     shiftPending();
+                   }
       //error:       function(XMLHttpRequest, textStatus, errorThrown) {
       //               alert(textStatus);
       //             }
-      complete:    function(jqXHR, textStatus) {
-                     shiftPending();
-                   }
     });
   };
 
@@ -101,13 +101,13 @@
                      "authenticity_token" : AUTH_TOKEN
                    },
       dataType:    "json",
-      //timeout:     1000,
+      timeout:     5000,
+      success:     function(data, textStatus, jqXHR) {
+                     shiftPending();
+                   }
       //error:       function(XMLHttpRequest, textStatus, errorThrown) {
       //               alert(textStatus);
       //             }
-      complete:    function(jqXHR, textStatus) {
-                     shiftPending();
-                   }
     });
   };
 
@@ -154,7 +154,6 @@
     storageVar = "_shoppingList_pendingItems";
 
     $("#item_create").live('click', function(){
-      //holdTheInterval = setInterval(itemsRefresh, 5000);
       var name = $("#item_name").val();
       var item = {"data":$(this).serialize(), "list_item":{"name": name}, "method": "POST"};
 
