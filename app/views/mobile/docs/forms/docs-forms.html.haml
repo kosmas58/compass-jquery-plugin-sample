@@ -67,7 +67,7 @@
       %code keepNative
       option (which defaults to
       = succeed "." do
-        %code "[data-role="none"]
+        %code [data-role="none"]
       Be sure to configure this option inside an event handler bound to the
       %code mobileinit
       event, so that it applies to the first page as well as subsequent pages that are loaded.
@@ -105,5 +105,31 @@
           &lt;div data-role=&quot;fieldcontain&quot;&gt;
             ...label/input code goes here...
           &lt;/div&gt;
+  %h2 Refreshing form elements
+    %p Every form control -- where applicable -- has a refresh method. Here are some examples:
+    %p Checkboxes:
+    %code
+      $("input[type='checkbox']").attr("checked",true).checkboxradio("refresh");
+    %p Radios:
+    %code
+      $("input[type='radio']").attr("checked",true).checkboxradio("refresh");
+    %p Selects:
+    %code
+      %pre
+        :preserve
+          var myselect = $("select#foo");
+          myselect[0].selectedIndex = 3;
+          myselect.selectmenu("refresh");
+    %p Sliders:
+    %code
+      $("input[type=range]").val(60).slider("refresh");
+    %p Flip switches (they use slider):
+    %code
+      %pre
+        :preserve
+          var myswitch = $("select#bar");
+          myswitch[0].selectedIndex = 1;
+          myswitch .slider("refresh");
+    %p We're considering adding a refresh method to forms to let the framework refresh all the individual elemnts withing but that is a future enhancement.
   / /content
 / /page

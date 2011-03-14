@@ -60,5 +60,9 @@
         %label{:for => "slider-2"} Input slider:
         %input#slider2{ :style => "width: 4.5em;", :max => "5000", :min => "500", :name => "slider2", :type => "range", :value => "2500"}/
       %p Sliders also respond to the keyboards shortcuts. To increase the current value the Right Arrow, Up Arrow, and Page Up keys can be used. To decrease the current value the Left Arrow, Down Arrow, and Page Down keys can be used. To move the slider to its minimum or maximum value use the Home and End keys respectively.
+      %h2 Refreshing a slider
+      %p If you manipulate a slider via JavaScript, you must call the refresh method on it to update the visual styling. Here is an example:
+      %code
+        $("input[type=range]").val(60).slider("refresh");
   / /content
 / /page

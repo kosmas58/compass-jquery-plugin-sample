@@ -42,5 +42,13 @@
         %select#slider{"data-role" => "slider", :name => "slider"}
           %option{:value => "off"} Off
           %option{:value => "on"} On
+      %h2 Refreshing a flip switch
+      %p If you manipulate a flip switch via JavaScript, you must call the refresh method on it to update the visual styling. Here is an example:
+      %code
+        %pre
+          :preserve
+            var myswitch = $("select#bar");
+            myswitch[0].selectedIndex = 1;
+            myswitch .slider("refresh");
   / /content
 / /page

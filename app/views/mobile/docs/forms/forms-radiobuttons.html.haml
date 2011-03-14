@@ -123,5 +123,9 @@
         <label for="radio-noicon3">Maybe</label>
         </fieldset>
         </div>
+      %h2 Refreshing a radio button
+      %p If you manipulate a radio button via JavaScript, you must call the refresh method on it to update the visual styling. Here is an example:
+      %code
+        $("input[type='radio']").attr("checked",true).checkboxradio("refresh");
   / /content
 / /page
