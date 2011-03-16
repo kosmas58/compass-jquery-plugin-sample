@@ -35,14 +35,16 @@
     var pendingItems = $.parseJSON($.DSt.get(storageVar));
     pendingItems.shift();
     $.DSt.set(storageVar, JSON.stringify(pendingItems));
-    setTimeout(sendPending, 100);
+    if (pendingItems.length > 0) {
+      setTimeout(sendPending, 100);
+    }
   };
 
   function itemsRefresh() {
     $.getJSON("/mobile/experiments/list_items?format=json", function(data) {
       var pendingItems = $.parseJSON($.DSt.get(storageVar));
-      //$("#items").html($("#item_template").tmpl(data.concat(pendingItems))).listview("refresh");
-      $("#items").html($("#item_template").tmpl(data)).listview("refresh");
+      $("#items").html($("#item_template").tmpl(data.concat(pendingItems))).listview("refresh");
+      //$("#items").html($("#item_template").tmpl(data)).listview("refresh");
     });
   };
 
@@ -77,7 +79,7 @@
   function itemUpdate(item, checked){
     $.ajax({
       type:        'PUT',
-      url:         '/mobile/experiments/list_items/'+item,
+      url:         '/mobile/experiments/list_items/'+item+'?format=jsonr',
       data:        {
                      "authenticity_token" :  AUTH_TOKEN,
                      "list_item"          : { "checked" : checked }
@@ -86,17 +88,17 @@
       timeout:     5000,
       success:     function(data, textStatus, jqXHR) {
                      shiftPending();
+                   },
+      error:       function(jqXHR, textStatus, errorThrown) {
+                     console.log("Update error: "+textStatus);
                    }
-      //error:       function(XMLHttpRequest, textStatus, errorThrown) {
-      //               alert(textStatus);
-      //             }
     });
   };
 
   function itemDelete(item){
     $.ajax({
       type:        'DELETE',
-      url:         '/mobile/experiments/list_items/'+item,
+      url:         '/mobile/experiments/list_items/'+item+'?format=jsonr',
       data:        {
                      "authenticity_token" : AUTH_TOKEN
                    },
@@ -104,18 +106,19 @@
       timeout:     5000,
       success:     function(data, textStatus, jqXHR) {
                      shiftPending();
+                   },
+      error:       function(jqXHR, textStatus, errorThrown) {
+                     console.log("Delete error: "+textStatus);
                    }
-      //error:       function(XMLHttpRequest, textStatus, errorThrown) {
-      //               alert(textStatus);
-      //             }
     });
   };
 
   function sendPending() {
     if (window.navigator.onLine) {
-      console.log("Online - sending pending items");
+      console.log("Online");
       var pendingItems = $.parseJSON($.DSt.get(storageVar));
       if (pendingItems.length > 0) {
+      console.log("Online - sending pending items");
         var pendingItem = pendingItems[0];
         switch( pendingItem["method"] ) {
           case "POST":

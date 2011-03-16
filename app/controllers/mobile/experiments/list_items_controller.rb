@@ -24,14 +24,14 @@ class Mobile::Experiments::ListItemsController < ApplicationController
     end
 
     response_for :update do |format|
-      format.json do
-        render :nothing => true, :status => 200
+      format.jsonr do
+         render_json_response :ok, :message => "Item updated."
       end
     end
 
     response_for :destroy do |format|
-      format.json do
-        render :nothing => true, :status => 200
+      format.jsonr do
+         render_json_response :ok, :message => "Item deleted."
       end
     end
   end

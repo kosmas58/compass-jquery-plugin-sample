@@ -1,4 +1,4 @@
-$(function() {
+ $(function() {
     if ($.support.localStorage) {
         $(window.applicationCache).bind("error", function() {
             console.log("There was an error when loading the cache manifest.");
@@ -28,7 +28,7 @@ $(function() {
                     $.post("/items", item.data, function(data) {
                         var pendingItems = $.parseJSON(localStorage["pendingItems"]);
                         pendingItems.shift();
-                        localStorage["pendingItems"] = JSON.stringify(pendingItems)
+                        localStorage["pendingItems"] = JSON.stringify(pendingItems);
                         setTimeout(sendPending, 100);
                     });
                 }
