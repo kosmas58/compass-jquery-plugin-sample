@@ -174,9 +174,11 @@ body {
 
 @-webkit-keyframes slideLeftOut {
   0% {
-    -webkit-transform: translateX(0px); }
+    -webkit-transform: translateX(0px);
+    opacity: 1; }
   100% {
-    -webkit-transform: translateX(-100%); } }
+    -webkit-transform: translateX(-100%);
+    opacity: 0; } }
 
 
 /* Slide Right */
@@ -190,9 +192,11 @@ body {
 
 @-webkit-keyframes slideRightOut {
   0% {
-    -webkit-transform: translateX(0); }
+    -webkit-transform: translateX(0);
+    opacity: 1; }
   100% {
-    -webkit-transform: translateX(100%); } }
+    -webkit-transform: translateX(100%);
+    opacity: 0; } }
 
 
 /* Slide Up */
@@ -525,7 +529,7 @@ body {
     background: #ddd; }
   li {
     border-top: 0px solid black !important;
-    color: #000000 !important;
+    color: black !important;
     padding: 0 8px;
     height: 44px;
     overflow: hidden;
