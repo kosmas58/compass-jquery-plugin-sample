@@ -45,7 +45,7 @@ Obtain the source with:
 
 To mount the plugin, add the following to your config/routes.rb file:
 
-Translate::Routes.translation_ui(map) if RAILS_ENV != "production"
+Translate::Routes.translation_ui(map) if ::Rails.env != "production"
 
 Now visit /translate in your web browser to start translating.
 

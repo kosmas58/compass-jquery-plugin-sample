@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
     I18n.locale = session[:locale] || I18n.default_locale
 
     # for i18n-js
-    SimplesIdeias::I18n.export! if RAILS_ENV == "development"
+    SimplesIdeias::I18n.export! if ::Rails.env == "development"
   end
 
   def set_theme

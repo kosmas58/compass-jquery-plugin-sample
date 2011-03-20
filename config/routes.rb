@@ -1,109 +1,161 @@
-ActionController::Routing::Routes.draw do |map|
-  map.resources :emulators do |emulators|
-    emulators.resources :blackberry_landscape,
-                        :collection => {:jqm => :get,
-                                        :jqm_original => :get,
-                                        :jqt => :get,
-                                        :jqt_original => :get}
-    emulators.resources :blackberry_portrait,
-                        :collection => {:jqm => :get,
-                                        :jqm_original => :get,
-                                        :jqt => :get,
-                                        :jqt_original => :get}
-    emulators.resources :ipad_landsacpe,
-                        :collection => {:jqm => :get,
-                                        :jqm_original => :get}
-    emulators.resources :ipad_portrait,
-                        :collection => {:jqm => :get,
-                                        :jqm_original => :get}
-    emulators.resources :iphone_landscape,
-                        :collection => {:jqm => :get,
-                                        :jqm_original => :get,
-                                        :jqt => :get,
-                                        :jqt_original => :get}
-    emulators.resources :iphone_portrait,
-                        :collection => {:jqm => :get,
-                                        :jqm_original => :get,
-                                        :jqt => :get,
-                                        :jqt_original => :get}
-    emulators.resources :palm_landscape,
-                        :collection => {:jqm => :get,
-                                        :jqm_original => :get,
-                                        :jqt => :get,
-                                        :jqt_original => :get}
-    emulators.resources :palm_portrait,
-                        :collection => {:jqm => :get,
-                                        :jqm_original => :get,
-                                        :jqt => :get,
-                                        :jqt_original => :get}
-  end
+Sample3::Application.routes.draw do
 
-  map.resources :navigation,
-                :collection => {:get_children=> :get,
-                                :search => :get,
-                                :analyze => :get,
-                                :configure => :get,
-                                :test => :get,
-                                :seed => :get},
-                :member => {:rename => :post,
-                            :move => :put}
-
-  map.namespace :widgets do |widget|
-    widget.resources :jstree => {:get_children=> :get,
-                                 :search => :get,
-                                 :create_node => :post,
-                                 :remove_node => :delete,
-                                 :rename_node => :post,
-                                 :move_node => :post,
-                                 :analyze => :get,
-                                 :rebuild => :post}
-
-    widget.namespace :ical do |ical|
-      ical.resources :calendars,
-                     :collection => {:iphone => :get} do |calendar|
-        calendar.resources :events,
-                           :collection => {:index_reload => :get,
-                                           :full_calendar => :get},
-                           :member => {:delete => :get}
+  resources :emulators do
+    resources :blackberry_landscape do
+      collection do
+        get :jqm
+        get :jqm_original
+        get :jqt
+        get :jqt_original
       end
     end
-
-    widget.namespace :jqgrid do |jqgrid|
-      jqgrid.resources :animals
-      jqgrid.resources :demo,
-                       :collection => {:books => :get,
-                                       :clients => :get,
-                                       :testxml => :get}
-      jqgrid.resources :players
-      jqgrid.resources :sprockets
-      jqgrid.resources :users,
-                       :collection => {:pets => :get,
-                                       :post_data => :post}
-      jqgrid.resources :secrets
-      jqgrid.resources :animals
-      jqgrid.resources :mine
+    resources :blackberry_portrait do
+      collection do
+        get :jqm
+        get :jqm_original
+        get :jqt
+        get :jqt_original
+      end
     end
-
-    widget.resources :tiny_mce,
-                     :member => {:dump => :post}
-  end
-
-  map.namespace :jqtouch do |jqtouch|
-    jqtouch.resources :demo => {:ajax_post => :post}
-  end
-
-  map.namespace :mobile do |mobile|
-    mobile.namespace :experiments do |experiment|
-      experiment.resources :list_items
+    resources :ipad_landsacpe do
+      collection do
+        get :jqm
+        get :jqm_original
+      end
+    end
+    resources :ipad_portrait do
+      collection do
+        get :jqm
+        get :jqm_original
+      end
+    end
+    resources :iphone_landscape do
+      collection do
+        get :jqm
+        get :jqm_original
+        get :jqt
+        get :jqt_original
+      end
+    end
+    resources :iphone_portrait do
+      collection do
+        get :jqm
+        get :jqm_original
+        get :jqt
+        get :jqt_original
+      end
+    end
+    resources :palm_landscape do
+      collection do
+        get :jqm
+        get :jqm_original
+        get :jqt
+        get :jqt_original
+      end
+    end
+    resources :palm_portrait do
+      collection do
+        get :jqm
+        get :jqm_original
+        get :jqt
+        get :jqt_original
+      end
     end
   end
 
-  Translate::Routes.translation_ui(map) if RAILS_ENV != "production "
-  
-  map.root :controller => "welcome"
+  resources :navigation do
+    collection do
+      get :get_children
+      get :search
+      get :analyze
+      get :configure
+      get :test
+      get :seed
+    end
+    member do
+      post :rename
+      put  :move
+    end
+  end
 
-  map.manifest '/manifest', :controller => :manifest, :action => :show
+  namespace :widgets do
+    resources :jstree do
+      get    :get_children
+      get    :search
+      post   :create_node
+      delete :remove_node
+      post   :rename_node
+      post   :move_node
+      get    :analyze
+      post   :rebuild
+    end
+    namespace :ical do
+      resources :calendars do
+        collection do
+          get :iphone
+        end
+        resources :events do
+          collection do
+            get :index_reload
+            get :full_calendar
+          end
+          member  do
+            get :delete
+          end
+        end
+      end
+    end
+    namespace :jqgrid do
+      resources :animals
+      resources :demo do
+        collection do
+          get :books
+          get :clients
+          get :testxml
+        end
+      end
+      resources :players
+      resources :sprockets
+      resources :users do
+        collection do
+          get  :pets
+          post :post_data
+        end
+      end
+      resources :secrets
+      resources :animals
+      resources :mine
+    end
+    resources :tiny_mce do
+      member do
+        post :dump
+      end
+    end
+  end
 
-  map.connect ':controller/:action/:id'
-  map.connect ':controller/:action/:id.:format'
+  namespace :jqtouch do
+    resources :demo do
+      post :ajax_post
+    end
+  end
+
+  namespace :mobile do
+    namespace :experiments do
+      resources :list_items
+    end
+  end
+
+  #Translate::Routes.translation_ui(map) if ::Rails.env != "production "
+
+  # You can have the root of your site routed with "root"
+  # just remember to delete public/index.html.
+  root :to => "welcome#index"
+
+  match '/manifest' => 'manifest#show'
+
+  # See how all your routes lay out with "rake routes"
+
+  # This is a legacy wild controller route that's not recommended for RESTful applications.
+  # Note: This route will make all actions in every controller accessible via GET requests.
+  match ':controller(/:action(/:id(.:format)))'
 end
