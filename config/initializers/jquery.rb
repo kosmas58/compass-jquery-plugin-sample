@@ -21,12 +21,12 @@ ActionView::Helpers::AssetTagHelper.register_javascript_expansion :jquery => ['j
 ActionView::Helpers::AssetTagHelper.register_javascript_expansion :jquery_ui => ['jquery.min', 'jquery.cookie.min', 'jquery.form.min', 'jquery.layout.min', 'jquery-ui.min', 'jquery.flashMessages.min']
 ActionView::Helpers::AssetTagHelper.register_javascript_expansion :jrails => ['jrails.min']
 ActionView::Helpers::AssetTagHelper.register_javascript_expansion :jhaml => ['jquery.haml.min']
-ActionView::Helpers::AssetTagHelper.register_stylesheet_expansion :contextMenu => ['compiled/jquery/ui/contextMenu.css']
+ActionView::Helpers::AssetTagHelper.register_stylesheet_expansion :contextMenu => ['jquery/ui/contextMenu.css']
 ActionView::Helpers::AssetTagHelper.register_javascript_expansion :contextMenu => ['jquery.contextMenu.min']
 ActionView::Helpers::AssetTagHelper.register_javascript_expansion :cookie => ['jquery.cookie.min']
 ActionView::Helpers::AssetTagHelper.register_javascript_expansion :doTimeout => ['jquery.dotimeout.min']
 ActionView::Helpers::AssetTagHelper.register_javascript_expansion :dst => ['jquery.dst.min']
-ActionView::Helpers::AssetTagHelper.register_stylesheet_expansion :farbtastic => ['compiled/jquery/ui/farbtastic.css']
+ActionView::Helpers::AssetTagHelper.register_stylesheet_expansion :farbtastic => ['jquery/ui/farbtastic.css']
 ActionView::Helpers::AssetTagHelper.register_javascript_expansion :farbtastic => ['jquery.farbtastic.min']
 ActionView::Helpers::AssetTagHelper.register_javascript_expansion :form => ['jquery.form.min']
 ActionView::Helpers::AssetTagHelper.register_javascript_expansion :history => ['history.adapter.jquery.min', 'history.min', 'history.html4.min']
@@ -41,7 +41,7 @@ ActionView::Helpers::AssetTagHelper.register_javascript_expansion :tmpl => ['jqu
 
 require 'jquery/jquery'
 require 'handle_attributes'
-require 'jquery/jquery_selector_assertions' if ::Rails.env == 'test'
+require 'jquery/jquery_selector_assertions' if Rails.env == 'test'
 require 'jquery/jquery_auto_complete'
 require 'jquery/jquery_json_response'
 require 'jquery/flash_messages'
