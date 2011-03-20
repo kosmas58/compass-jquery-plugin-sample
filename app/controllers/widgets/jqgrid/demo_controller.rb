@@ -142,13 +142,13 @@ class Widgets::Jqgrid::DemoController < ApplicationController
 
   def books
     respond_to do |format|
-      format.xml { render :file => File.join(RAILS_ROOT, 'app/views/widgets/jqgrid/demo/books.xml') }
+      format.xml { render :file => File.join(::Rails.root.to_s, 'app/views/widgets/jqgrid/demo/books.xml') }
     end
   end
 
   def testxml
     respond_to do |format|
-      format.xml { render :file => File.join(RAILS_ROOT, 'app/views/widgets/jqgrid/demo/testxml.xml') }
+      format.xml { render :file => File.join(::Rails.root.to_s, 'app/views/widgets/jqgrid/demo/testxml.xml') }
     end
   end
 

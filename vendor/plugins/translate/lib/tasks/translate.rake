@@ -208,8 +208,8 @@ namespace :translate do
     raise "LOCALE_CODE (two letter country code) is not set. Please set one before running the rake task." unless ENV['LOCALE_CODE']
     raise "LOCALE_NAME (translated translation name) is not set. Please set one before running the rake task." unless ENV['SKIP_ACCESS'] || ENV['LOCALE_NAME']
 
-    en = File.join(RAILS_ROOT, "config/locales/en.yml")
-    new_locale = File.join(RAILS_ROOT, "config/locales/#{ENV['LOCALE_CODE']}.yml")
+    en = File.join(::Rails.root.to_s, "config/locales/en.yml")
+    new_locale = File.join(::Rails.root.to_s, "config/locales/#{ENV['LOCALE_CODE']}.yml")
 
     if File.exists?(new_locale)
       puts "config/locales/#{ENV['LOCALE_CODE']}.yml already exists. Skipping locale creation..."
@@ -222,7 +222,7 @@ namespace :translate do
         end
       end
 
-      locales = File.join(RAILS_ROOT, "config/locales.yml")
+      locales = File.join(::Rails.root.to_s, "config/locales.yml")
       unless ENV['SKIP_ACCESS'] || !File.exists?(locales)
         File.open(locales, 'a') do |f|
           f.print "\n#{ENV['LOCALE_CODE']}: #{ENV['LOCALE_NAME']}"
@@ -268,7 +268,7 @@ namespace :translate do
 
       remove_locale_file_if_automatically_created
 
-      puts "Export Completed! XML file saved to #{File.join(RAILS_ROOT, "tmp/#{ENV['LOCALE']}.xml")}"
+      puts "Export Completed! XML file saved to #{File.join(::Rails.root.to_s, "tmp/#{ENV['LOCALE']}.xml")}"
     end
 
     desc 'Import translation from Microsoft Excel 2003 compatible format (pass in FILE_PATH to XML file)'
@@ -322,7 +322,7 @@ namespace :translate do
 
       write values.ya2yaml, :yml
 
-      puts "Import Completed! YAML file saved to #{File.join(RAILS_ROOT, "tmp/#{ENV['LOCALE']}.yml")}"
+      puts "Import Completed! YAML file saved to #{File.join(::Rails.root.to_s, "tmp/#{ENV['LOCALE']}.yml")}"
     end
 
     private
@@ -366,7 +366,7 @@ namespace :translate do
 
       remove_locale_file_if_automatically_created
 
-      puts "Export Completed! XML file saved to #{File.join(RAILS_ROOT, "tmp/#{ENV['LOCALE']}.xml")}"
+      puts "Export Completed! XML file saved to #{File.join(::Rails.root.to_s, "tmp/#{ENV['LOCALE']}.xml")}"
     end
 
     desc 'Import translation from nested XML format (pass in FILE_PATH to XML file)'
@@ -377,7 +377,7 @@ namespace :translate do
       translation_xml = IO.read(ENV['FILE_PATH'])
       write Hash.from_xml(translation_xml)['hash'].to_yaml, :yml
 
-      puts "Import Completed! YAML file saved to #{File.join(RAILS_ROOT, "tmp/#{ENV['LOCALE']}.yml")}"
+      puts "Import Completed! YAML file saved to #{File.join(::Rails.root.to_s, "tmp/#{ENV['LOCALE']}.yml")}"
     end
 
     private
@@ -414,7 +414,7 @@ namespace :translate do
   def ensure_locale_present(file_be_present=true)
     raise 'ERROR: No LOCALE value was set. Please set one when running the task again.' unless ENV['LOCALE']
     if file_be_present
-      @translation_file = File.join(RAILS_ROOT, "config/locales/#{ENV['LOCALE']}.yml")
+      @translation_file = File.join(::Rails.root.to_s, "config/locales/#{ENV['LOCALE']}.yml")
       unless File.exists?(@translation_file)
         ENV['LOCALE_CODE'] = ENV['LOCALE']
         ENV['SKIP_ACCESS'] = 'true'
@@ -426,7 +426,7 @@ namespace :translate do
 
   def remove_locale_file_if_automatically_created
     if @created_file_automatically
-      locale_file = File.join(RAILS_ROOT, "config/locales/#{ENV['LOCALE']}.yml")
+      locale_file = File.join(::Rails.root.to_s, "config/locales/#{ENV['LOCALE']}.yml")
       File.delete(locale_file) if File.exists?(locale_file)
     end
   end
@@ -437,7 +437,7 @@ namespace :translate do
   end
 
   def write(text, format = :xml)
-    @output ||= File.new(File.join(RAILS_ROOT, "tmp/#{ENV['LOCALE']}.#{format.to_s}"), 'w')
+    @output ||= File.new(File.join(::Rails.root.to_s, "tmp/#{ENV['LOCALE']}.#{format.to_s}"), 'w')
     @output.puts text
   end
 

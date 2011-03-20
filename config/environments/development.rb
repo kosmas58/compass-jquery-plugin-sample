@@ -17,4 +17,4 @@ config.action_controller.perform_caching             = true
 config.action_mailer.raise_delivery_errors = false
 
 # Use a different cache store in production
-config.cache_store = :timed_file_store, File.join(RAILS_ROOT, 'tmp', 'cache')
+config.cache_store = :timed_file_store, File.join(::Rails.root.to_s, 'tmp', 'cache')

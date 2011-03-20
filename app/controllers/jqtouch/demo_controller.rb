@@ -15,7 +15,7 @@ class Jqtouch::DemoController < ApplicationController
       @zip = true
     end
 
-    #engine = Haml::Engine.new(File.read(File.join(RAILS_ROOT, 'app/views/jqtouch/demo/_ajax.html.haml')))
+    #engine = Haml::Engine.new(File.read(File.join(::Rails.root.to_s, 'app/views/jqtouch/demo/_ajax.html.haml')))
 
     render(:partial => "ajax_post_b")
   end

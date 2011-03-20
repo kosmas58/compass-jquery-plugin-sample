@@ -174,7 +174,7 @@ puts "\n"
 # Items
 puts "Started creating 20001 items"
 puts "Please be patient ..."
-f = File.open("#{RAILS_ROOT}/db/longtext.txt", "r") 
+f = File.open("#{::Rails.root.to_s}/db/longtext.txt", "r")
 wordlist = f.read.split(/ /)
 wordlist_length = wordlist.length
 
