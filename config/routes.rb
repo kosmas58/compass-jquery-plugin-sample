@@ -1,9 +1,10 @@
-Sample3::Application.routes.draw do
+CompassJqueryPluginSample::Application.routes.draw do
 
-  resources :emulators do
+  namespace :emulators do
     resources :blackberry_landscape do
       collection do
         get :jqm
+        get :jqm2
         get :jqm_original
         get :jqt
         get :jqt_original
@@ -12,20 +13,23 @@ Sample3::Application.routes.draw do
     resources :blackberry_portrait do
       collection do
         get :jqm
+        get :jqm2
         get :jqm_original
         get :jqt
         get :jqt_original
       end
     end
-    resources :ipad_landsacpe do
+    resources :ipad_landscape do
       collection do
         get :jqm
+        get :jqm2
         get :jqm_original
       end
     end
     resources :ipad_portrait do
       collection do
         get :jqm
+        get :jqm2
         get :jqm_original
       end
     end
@@ -40,6 +44,7 @@ Sample3::Application.routes.draw do
     resources :iphone_portrait do
       collection do
         get :jqm
+        get :jqm2
         get :jqm_original
         get :jqt
         get :jqt_original
@@ -48,6 +53,7 @@ Sample3::Application.routes.draw do
     resources :palm_landscape do
       collection do
         get :jqm
+        get :jqm2
         get :jqm_original
         get :jqt
         get :jqt_original
@@ -56,6 +62,7 @@ Sample3::Application.routes.draw do
     resources :palm_portrait do
       collection do
         get :jqm
+        get :jqm2
         get :jqm_original
         get :jqt
         get :jqt_original
@@ -140,7 +147,7 @@ Sample3::Application.routes.draw do
   end
 
   namespace :mobile do
-    namespace :experiments do
+    resource :experiments do
       resources :list_items
     end
   end

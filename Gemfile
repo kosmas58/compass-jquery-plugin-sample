@@ -12,7 +12,7 @@ gem "open3", :platforms => :ruby
 gem "win32-open3", :platforms => :mswin
 
 gem "manifesto", ">= 0.6.0"
-gem "compass-jquery-plugin", "= 0.3.9.9.pre.1", :require => 'jquery'
+gem "compass-jquery-plugin-edge", "= 0.3.9.9.pre.1", :require => 'jquery'
 # gem "sass"
 
 # bundler requires these gems in all environments
