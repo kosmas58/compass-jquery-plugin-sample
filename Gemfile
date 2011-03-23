@@ -20,7 +20,7 @@ gem "nokogiri"
 gem "geokit"
 
 group :development do
-  gem "mongrel"
+  gem "mongrel", "= 1.2.0.pre.2"
   gem "compass-validator"
   # bundler requires these gems in development
   # gem "rails-footnotes"
