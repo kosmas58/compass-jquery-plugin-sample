@@ -15,7 +15,29 @@
       %code action
       and
       %code method
-      properties on your form element.
+      properties on your form element. When unspecified, the method will default to
+      = succeed "," do
+        %code get
+      and the
+      %code action
+      will default to the current page's relative path (found via
+      %code $.mobile.path.get()
+    %p
+      Forms also accept attributes for transitions just like anchors, such as
+      %code data-transition="pop"
+      and
+      = succeed "." do
+        %code data-direction="reverse"
+      To submit a form without Ajax, you can either disable Ajax form handling globally, or per form via the
+      %code data-ajax="false"
+      attribute. The
+      %code target
+      attribute (as in
+      = succeed ")" do
+        %code target="_blank"
+      is respected on forms as well, and will default to the browser's handling of that target when the form submits. Note that unlike anchors, the
+      %code rel
+      attribute is not allowed on forms.
     %h2 Non-Ajax handling
     %p
       To prevent form submissions from being automatically handled with Ajax, add the

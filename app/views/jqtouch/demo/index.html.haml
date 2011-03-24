@@ -35,31 +35,24 @@
       %a.back{ :href => "#" }
         Home
     %ul.rounded
-      Animations
       %li
-        %a{ :href => "#animdemo" }
-          Slide
+        %a.slideleft{:href => "#animdemo"}
+          Slide Left
       %li
-        %a.slideup{ :href => "#animdemo" }
+        %a.slideright{:href => "#animdemo"}
+          Slide Right
+      %li
+        %a.slideup{:href => "#animdemo"}
           Slide Up
       %li
-        %a.fade{ :href => "#animdemo" }
-          Fade
+        %a.flipleft{:href => "#animdemo"}
+          Flip Left
       %li
-        %a.flip{ :href => "#animdemo" }
-          Flip
+        %a.flipright{:href => "#animdemo"}
+          Flip Right
       %li
-        %a.pop{ :href => "#animdemo" }
-          Pop
-      %li
-        %a.swap{ :href => "#animdemo" }
-          Swap
-      %li
-        %a.cube{ :href => "#animdemo" }
-          Cube
-      %li
-        %a.slideup.reverse{ :href => "#animdemo" }
-          Reverse animations&hellip;
+        %a.slideleft{:href => "#animations2"}
+          More...
     %ul.rounded
       Custom animations
       %li
@@ -78,6 +71,30 @@
       %code
         demos/customanimation
       to see how.
+  #animations2
+    .toolbar
+      %h1 Animations
+      %a.back{:href => "#"}
+        Animations
+    %ul.rounded
+      %li
+        %a.cubeleft{:href => "#animdemo"}
+          Cube Left
+      %li
+        %a.cuberight{:href => "#animdemo"}
+          Cube Right
+      %li
+        %a.fade{:href => "#animdemo"}
+          Fade
+      %li
+        %a.dissolve{:href => "#animdemo"}
+          Dissolve
+      %li
+        %a.pop{:href => "#animdemo"}
+          Pop
+      %li
+        %a.swap{:href => "#animdemo"}
+          Swap
   #animdemo
     %div{ :style => "font-size: 1.5em; text-align: center; margin: 160px 0 160px; font-family: Marker felt;" }
       Pretty smooth, eh?
@@ -477,7 +494,7 @@
           %a{ :href => "#animations" }
             Animations
           %small.counter
-            10
+            8
         %li.arrow
           %a{ :href => "/jqtouch/demo/ajax", :target => "_webapp" }
             AJAX
