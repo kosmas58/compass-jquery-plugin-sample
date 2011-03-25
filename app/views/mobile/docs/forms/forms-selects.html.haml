@@ -6,7 +6,7 @@
 %div{"data-role" => "page"}
   %div{"data-role" => "header", "data-theme" => "b"}
     %h1 Select Menus
-    %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile"} Home
+    %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "../../"} Home
   / /header
   %div{"data-role" => "content"}
     %form{:action => "#", :method => "get"}
@@ -14,8 +14,8 @@
       %p
         The select menus are driven off native
         %code select
-        elements, but the native selects are hidden from view and replaced with more style-friendly markup. The replacement buttons and menus are ARIA-enabled and are keyboard accessible on the desktop as well.
-      %p When clicked, if the menu has room it will appear as an overlay listbox, but if there are too many options to fit in the window without scrolling, the page content is wrapped in a div and hidden, and the menu is appended as a whole new page. This lets us take advantage of native scrolling while the menu is in use.
+        elements, but the native selects are hidden from view and replaced with a custom-styled select button that matches the look and feel of the jQuery Mobile framework. The replacement selects are ARIA-enabled and are keyboard accessible on the desktop as well.
+      %p When the select button is clicked, the native select menu picker for the OS will open. When a value is selected in the menu, the custom select button is updated to match the new selection.
       %p
         To add a select widget to your page, start with a standard
         %code select
@@ -48,7 +48,7 @@
                 &lt;option value=&quot;overnight&quot;&gt;Overnight&lt;/option&gt;
               &lt;/select&gt;
             &lt;/div&gt;
-      %p If there is a small number of options that will fit on the device's screen, it will appear as a small overlay with a pop transition.
+      %p When clicked, if the menu has room it will appear as an overlay listbox, but if there are too many options to fit in the window without scrolling, the page content is wrapped in a div and hidden, and the menu is appended as a whole new page. This lets us take advantage of native scrolling while the menu is in use.
       %div{"data-role" => "fieldcontain"}
         %label.select{:for => "select-choice-1"} Choose shipping method:
         %select#select-choice-1{:name => "select-choice-1"}
@@ -56,10 +56,7 @@
           %option{:value => "rush"} Rush: 3 days
           %option{:value => "express"} Express: next day
           %option{:value => "overnight"} Overnight
-      %p
-        If there is a select menu with too many options to show on the device's screen, the framework will automatically create a new &quot;page&quot; populated with a standard list view that contains all the options. This allows us to use the native scrolling included on the device for moving through a long list. The text inside the
-        %code label
-        is used as the title for this page.
+      %p Here is an example of a select with a long list of options:
       %div{"data-role" => "fieldcontain"}
         %label.select{:for => "select-choice-3"} Your state:
         %select#select-choice-3{:name => "select-choice-3"}
@@ -113,31 +110,48 @@
           %option{:value => "WV"} West Virginia
           %option{:value => "WI"} Wisconsin
           %option{:value => "WY"} Wyoming
-      %h2 Option to use native menus
+      %h2 Option to use custom menus
       %p
-        The custom select menus add the ability to theme the select and provide visual consistency across platforms In addition, it fixes over some missing functionality on certain platforms:
+        You can optionally use custom-styled select menus instead of the native versions. This adds the ability to theme the menu to better match the look and feel of your site and provides visual consistency across platforms. In addition, it restores  missing functionality on certain platforms such as
         %code optgroup
-        support on Android, multi-select capability on WebOS, and adds an elegant way to handle placeholder values (explained below).
+        support on Android,  and adds an elegant way to handle placeholder values (explained below). Lastly, the custom menus will look better on desktop browsers because native menus on the desktop tend to be fairly small compared their mobile counterparts and this can look a bit odd if desktop if a priority for your project.
+      %p Keep in mind that there is overhead involved in parsing the native select to build a custom menu. If there are a lot of selects on a page, or a select has a long list of options, this can impact the performance of the page so we recommend using custom menus sparingly.
       %p
-        However, there is overhead involved in parsing the native select to build a custom menu and if the number of selects or options within are fairly large, this can impact the performance of the page. By adding the
-        %code data-native-menu="true"
-        attribute to the
+        To use custom menus on a specific
         = succeed "," do
           %code select
-        the framework will use the browser's native select menu when the select button is clicked. Because this option doesn't use any of the custom menu parsing and menu generation logic, it is significantly faster than the custom menu version.
-      %p
-        You can also programmatically set the select menu's configuration option to true in a callback bound to the
+        just add the
+        %code data-native-menu="false"
+        attribute. Alternately, this can also programmatically set the select menu's
+        %code nativeMenu
+        configuration option to
+        %code false
+        in a callback bound to the
         %code mobileinit
-        event to achieve the same effect. The following must be included in the page after jQuery is loaded but before jQuery Mobile is loaded.
+        event to achieve the same effect. This will globally make all selects use the custom menu by default. The following must be included in the page after jQuery is loaded but before jQuery Mobile is loaded.
+      %p
       %code
         %pre
           :preserve
             $(document).bind('mobileinit',function(){
-            	$.mobile.selectmenu.prototype.options.nativeMenu = true;
+              $.mobile.selectmenu.prototype.options.nativeMenu = false;
             });
+      %p If there is a small number of options that will fit on the device's screen, it will appear as a small overlay with a pop transition.
+      %div{"data-role" => "fieldcontain"}
+        %label.select{:for => "select-choice-custom"} Choose shipping method:
+        %select#select-choice-custom{"data-native-menu" => "false", :name => "select-choice-1"}
+          %option{:value => "standard"} Standard: 7 day
+          %option{:value => "rush"} Rush: 3 days
+          %option{:value => "express"} Express: next day
+          %option{:value => "overnight"} Overnight
+      %p
+        If there is a select menu with too many options to show on the device's screen, the framework will automatically create a new &quot;page&quot; populated with a standard list view that contains all the options. This allows us to use the native scrolling included on the device for moving through a long list. The text inside the
+        %code label
+        is used as the title for this page.
+      %p When clicked, the native select picker menu will open. When a value is selected in the menu, the custom select button will be updated to match the new selection. if the menu has room it will appear as an overlay listbox, but if there are too many options to fit in the window without scrolling, the page content is wrapped in a div and hidden, and the menu is appended as a whole new page. This lets us take advantage of native scrolling while the menu is in use.
       %div{"data-role" => "fieldcontain"}
         %label.select{:for => "select-choice-3"} Your state:
-        %select#select-choice-3{"data-native-menu" => "true", :name => "select-choice-3"}
+        %select#select-choice-3{"data-native-menu" => "false", :name => "select-choice-3"}
           %option{:value => "AL"} Alabama
           %option{:value => "AK"} Alaska
           %option{:value => "AZ"} Arizona
@@ -203,12 +217,12 @@
         option, like this:
       %pre
         %code
-          :preserve            
+          :preserve
             $.mobile.selectmenu.prototype.options.hidePlaceholderMenuItems = false;
       %p Here's a demo of various placeholder options:
       %div{"data-role" => "fieldcontain"}
         %label.select{:for => "select-choice-4"} Choose shipping method:
-        %select#select-choice-4{:name => "select-choice-4"}
+        %select#select-choice-4{"data-native-menu" => "false", :name => "select-choice-4"}
           %option
           %option{:value => "standard"} Standard: 7 day
           %option{:value => "rush"} Rush: 3 days
@@ -216,7 +230,7 @@
           %option{:value => "overnight"} Overnight
       %div{"data-role" => "fieldcontain"}
         %label.select{:for => "select-choice-5"} Choose shipping method:
-        %select#select-choice-5{:name => "select-choice-5"}
+        %select#select-choice-5{"data-native-menu" => "false", :name => "select-choice-5"}
           %option Choose one...
           %option{:value => "standard"} Standard: 7 day
           %option{:value => "rush"} Rush: 3 days
@@ -224,7 +238,7 @@
           %option{:value => "overnight"} Overnight
       %div{"data-role" => "fieldcontain"}
         %label.select{:for => "select-choice-6"} Choose shipping method:
-        %select#select-choice-6{:name => "select-choice-6"}
+        %select#select-choice-6{"data-native-menu" => "false", :name => "select-choice-6"}
           %option{"data-placeholder" => "true", :value => "choose-one"} Choose one...
           %option{:value => "standard"} Standard: 7 day
           %option{:value => "rush"} Rush: 3 days
@@ -237,7 +251,7 @@
         attribute.  In the demo below, the second option &quot;Rush: 3 days&quot; has been set to disabled.
       %div{"data-role" => "fieldcontain"}
         %label.select{:for => "select-choice-7"} Choose shipping method:
-        %select#select-choice-7{:name => "select-choice-7"}
+        %select#select-choice-7{"data-native-menu" => "false", :name => "select-choice-7"}
           %option{:value => "standard"} Standard: 7 day
           %option{:disabled => "disabled", :value => "rush"} Rush: 3 days
           %option{:value => "express"} Express: next day
@@ -251,7 +265,7 @@
         attribute's text:
       %div{"data-role" => "fieldcontain"}
         %label.select{:for => "select-choice-8"} Choose shipping method:
-        %select#select-choice-8{:name => "select-choice-8"}
+        %select#select-choice-8{"data-native-menu" => "false", :name => "select-choice-8"}
           %optgroup{:label => "USPS"}
             %option{:value => "standard"} Standard: 7 day
             %option{:value => "rush"} Rush: 3 days
@@ -276,7 +290,7 @@
         %li If no placeholder element exists, the default button text will be blank and the header will appear with just a close button. Because this isn't a friendly user experience, we recommended that you always specify a placeholder element when using multiple select boxes.
       %div{"data-role" => "fieldcontain"}
         %label.select{:for => "select-choice-9"} Choose shipping method(s):
-        %select#select-choice-9{:multiple => "multiple", :name => "select-choice-9"}
+        %select#select-choice-9{"data-native-menu" => "false", :multiple => "multiple", :name => "select-choice-9"}
           %option Choose options
           %option{:value => "standard"} Standard: 7 day
           %option{:value => "rush"} Rush: 3 days
@@ -288,7 +302,7 @@
         text is displayed in the menu's header.  This differs from smaller overlay menus where the placeholder text is displayed in both the button and the header, and from full-page single selects where the placeholder text is not used at all.
       %div{"data-role" => "fieldcontain"}
         %label.select{:for => "select-choice-10"} Choose state(s):
-        %select#select-choice-10{:multiple => "multiple", :name => "select-choice-10"}
+        %select#select-choice-10{"data-native-menu" => "false", :multiple => "multiple", :name => "select-choice-10"}
           %option Choose options
           %option{:value => "AL"} Alabama
           %option{:value => "AK"} Alaska
@@ -344,7 +358,7 @@
       %p You can specify any jQuery Mobile button data- attribute on a select element too. In this example, we're setting the theme, icon and inline properties though data- attributes.
       %div{"data-role" => "fieldcontain"}
         %label.select{:for => "select-choice-11"} Actions
-        %select#select-choice-11{"data-icon" => "gear", "data-inline" => "true", "data-theme" => "a", :name => "select-choice-11"}
+        %select#select-choice-11{"data-icon" => "gear", "data-inline" => "true", "data-native-menu" => "false", "data-theme" => "a", :name => "select-choice-11"}
           %option{:value => "edit"} Edit user
           %option{:value => "delete"} Delete user
       %h2 Refreshing a select
