@@ -24,6 +24,8 @@ CompassJqueryPluginSample::Application.routes.draw do
         get :jqm
         get :jqm2
         get :jqm_original
+        get :jqt
+        get :jqt_original
       end
     end
     resources :ipad_portrait do
@@ -31,6 +33,8 @@ CompassJqueryPluginSample::Application.routes.draw do
         get :jqm
         get :jqm2
         get :jqm_original
+        get :jqt
+        get :jqt_original
       end
     end
     resources :iphone_landscape do
@@ -70,6 +74,96 @@ CompassJqueryPluginSample::Application.routes.draw do
     end
   end
 
+  namespace :graphics do
+    resources :gantt_view do
+      collection do
+        get :default
+      end
+    end
+    resources :sparklines do
+      collection do
+        get :default
+        get :examples
+      end
+    end
+  end
+
+  resources :haml do
+    collection do
+      get :jhaml
+    end
+  end
+
+  namespace :handling do
+    resources :history do
+      collection do
+        get :ajax
+        get :ajax2
+        get :bbq
+        get :html4
+        get :html5
+        get :mvc
+      end
+    end
+    resources :replace_text do
+      collection do
+        get :default
+      end
+    end    
+  end
+
+  namespace :jqtouch do
+    resources :clocks
+    namespace :custom do
+      resources :animation1
+      resources :animation2
+    end
+    resources :demo do
+      collection do
+        get :ajax
+        get :ajax_get
+        get :ajax_long
+        post :ajax_post
+      end
+    end
+    resources :demo2
+    namespace :ext do
+      resources :autotitles
+      resources :floaty
+      resources :gestures
+      resources :location
+      resources :offline
+    end
+    resources :ical do
+      collection do
+        get :index2
+        get :month
+      end
+    end
+    namespace :jonathan_stark do
+      resources :kilo
+      resources :kilo_offline
+      resources :offline
+    end
+    resources :mail
+    resources :mobione do
+      get :demo1
+      get :demo2
+      get :demo3
+      get :demo4
+      get :demo5
+      get :events
+      get :virtual
+    end
+    resources :todo
+  end
+
+  namespace :mobile do
+    resource :experiments do
+      resources :list_items
+    end
+  end
+
   resources :navigation do
     collection do
       get :get_children
@@ -82,6 +176,13 @@ CompassJqueryPluginSample::Application.routes.draw do
     member do
       post :rename
       put  :move
+    end
+  end
+
+  namespace :ui do
+    namespace :interactions do
+      resources :draggable
+      
     end
   end
 
@@ -137,18 +238,6 @@ CompassJqueryPluginSample::Application.routes.draw do
       member do
         post :dump
       end
-    end
-  end
-
-  namespace :jqtouch do
-    resources :demo do
-      post :ajax_post
-    end
-  end
-
-  namespace :mobile do
-    resource :experiments do
-      resources :list_items
     end
   end
 

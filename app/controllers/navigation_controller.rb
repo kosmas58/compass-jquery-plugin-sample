@@ -33,7 +33,7 @@ class NavigationController < ApplicationController
   end
 
   def test
-    #@accordions = NavigationTree.find_by_title("ROOT").children
+    @accordions = NavigationTree.find_by_title("ROOT").children
   end
 
   def get_children
