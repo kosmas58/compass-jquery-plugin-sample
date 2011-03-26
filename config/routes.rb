@@ -277,59 +277,43 @@ CompassJqueryPluginSample::Application.routes.draw do
     end
     namespace :experiments do
       resources :main
-      resources :api_viewer do
-        collection do
-          get :accessibility
-        end
-      end
-      resources :converter do
-        collection do
-          get :accessibility
-        end
-      end
-      resources :datepicker do
-        collection do
-          get :accessibility
-        end
-      end
-      resources :dst_test do
-        collection do
-          get :accessibility
-        end
-      end
+      resources :api_viewer
+      resources :converter
+      resources :datepicker
+      resources :dst_test
       resources :google_maps do
         collection do
-          get :accessibility
+          get :map
         end
       end
-      resources :list_items do
-        collection do
-          get :accessibility
-        end
-      end
-      resources :navbar_glyphish do
-        collection do
-          get :accessibility
-        end
-      end
+      resources :list_items
+      resources :navbar_glyphish
       resources :photos do
         collection do
-          get :accessibility
-        end
-      end
-      resources :progressbar do
-        collection do
-          get :accessibility
+          get :photo2
+          get :photo3
+          get :photo4
+          get :photo5
+          get :photo6
         end
       end
       resources :scrollview do
         collection do
-          get :accessibility
+          get :direction
+          get :list_divider
+          get :sv_test_01
+          get :sv_test_02
         end
       end
-      resources :weather do
+      resources :weather
+    end
+    namespace :tuts do
+      resources :new_claim
+      resources :news
+      resources :tuts do
         collection do
-          get :accessibility
+          get :article
+          get :site
         end
       end
     end
