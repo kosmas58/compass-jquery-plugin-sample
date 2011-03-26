@@ -159,8 +159,179 @@ CompassJqueryPluginSample::Application.routes.draw do
   end
 
   namespace :mobile do
-    resource :experiments do
-      resources :list_items
+    namespace :docs do
+      resources :main
+      resources :about do
+        collection do
+          get :accessibility
+          get :features
+          get :intro
+          get :platforms
+        end
+      end
+      resources :api do
+        collection do
+          get :events
+          get :globalconfig
+          get :mediahelpers
+          get :methods
+          get :themes
+        end
+      end
+      resources :buttons do
+        collection do
+          get :api_buttons
+          get :buttons_grouped
+          get :buttons_icons
+          get :buttons_inline
+          get :buttons_themes
+          get :buttons_types
+        end
+      end
+      resources :content do
+        collection do
+          get :api_content
+          get :content_collapsible
+          get :content_grids
+          get :content_html
+          get :content_themes
+        end
+      end
+      resources :forms do
+        collection do
+          get :api_forms
+          get :doc_forms
+          get :forms_all
+          get :forms_all_native
+          get :forms_checkboxes
+          get :forms_radiobuttons
+          get :forms_sample
+          get :forms_sample_repsonse
+          get :fomrs_search
+          get :forms_selects
+          get :forms_slider
+          get :forms_switch
+          get :forms_text
+          get :plugin_eventsmethods
+        end
+      end
+      resources :lists do
+        collection do
+          get :api_lists
+          get :docs_lists
+          get :lists_count
+          get :lists_divider
+          get :lists_formatting
+          get :lists_icons
+          get :lists_inset
+          get :lists_nested
+          get :lists_ol
+          get :lists_performance
+          get :lists_readonly
+          get :lists_search
+          get :lists_search_inset
+          get :lists_search_with_dividers
+          get :lists_split
+          get :lists_split_purchase
+          get :lists_themes
+          get :lists_thumbnails
+          get :lists_ul
+        end
+      end
+      resources :pages do
+        collection do
+          get :api_pages
+          get :dialog
+          get :dialog_alt
+          get :dialog_buttons
+          get :dialog_success
+          get :docs_dialogs
+          get :docs_link_scenarios
+          get :docs_links
+          get :docs_links_urltest
+          get :docs_navmodel
+          get :docs_pages
+          get :docs_transitions
+          get :link_formats
+          get :multipage_template
+          get :page_template
+          get :pages_themes
+          get :transition_success
+        end
+      end
+      resources :toolbars do
+        collection do
+          get :api_bars
+          get :bars_fixed
+          get :bars_fullscreen
+          get :bars_themes
+          get :docs_bars
+          get :docs_footers
+          get :docs_headers
+          get :docs_navbar
+          get :footer_persist_a
+          get :footer_persist_b
+          get :footer_persist_c
+        end
+      end
+    end
+    namespace :experiments do
+      resources :main
+      resources :api_viewer do
+        collection do
+          get :accessibility
+        end
+      end
+      resources :converter do
+        collection do
+          get :accessibility
+        end
+      end
+      resources :datepicker do
+        collection do
+          get :accessibility
+        end
+      end
+      resources :dst_test do
+        collection do
+          get :accessibility
+        end
+      end
+      resources :google_maps do
+        collection do
+          get :accessibility
+        end
+      end
+      resources :list_items do
+        collection do
+          get :accessibility
+        end
+      end
+      resources :navbar_glyphish do
+        collection do
+          get :accessibility
+        end
+      end
+      resources :photos do
+        collection do
+          get :accessibility
+        end
+      end
+      resources :progressbar do
+        collection do
+          get :accessibility
+        end
+      end
+      resources :scrollview do
+        collection do
+          get :accessibility
+        end
+      end
+      resources :weather do
+        collection do
+          get :accessibility
+        end
+      end
     end
   end
 

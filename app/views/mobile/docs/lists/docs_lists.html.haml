@@ -22,7 +22,7 @@
             &lt;li&gt;&lt;a href=&quot;audi.html&quot;&gt;Audi&lt;/a&gt;&lt;/li&gt;
             &lt;li&gt;&lt;a href=&quot;bmw.html&quot;&gt;BMW&lt;/a&gt;&lt;/li&gt;
           &lt;/ul&gt;
-    %a{"data-icon" => "arrow-r", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/lists/lists-ul"} Basic list example
+    %a{"data-icon" => "arrow-r", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/lists/lists_ul"} Basic list example
     %h2 Nested lists
     %p
       By nesting child
@@ -34,16 +34,16 @@
       To set the swatch color of the child list views,
       %code data-theme
       attribute on each list inside.
-    %a{"data-icon" => "arrow-r", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/lists/lists-nested"} Nested list example
+    %a{"data-icon" => "arrow-r", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/lists/lists_nested"} Nested list example
     %h2 Numbered lists
     %p
       Lists can also be created from ordered lists
       %code (ol)
       which is useful when presented items that are in a sequence such as search results or a movie queue. When the enhanced markup is applied to the list view, jQuery Mobile will try to first use CSS to add numbers to the list and, if not supported, will fall back to injecting numbers with JavaScript.
-    %a{"data-icon" => "arrow-r", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/lists/lists-ol"} Numbered list example
+    %a{"data-icon" => "arrow-r", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/lists/lists_ol"} Numbered list example
     %h2 Read-only lists
     %p List views can also be used to display a non-interactive list of items, usually as an inset list. This list is built from an unordered or ordered list that don't have linked list items. The framework defaults to styling these list with the "c" theme swatch (flat white in the default theme) and sets the text size to a smaller size than the clickable lists to save a bit of space.
-    %a{"data-icon" => "arrow-r", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/lists/lists-readonly"} Read-only list example
+    %a{"data-icon" => "arrow-r", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/lists/lists_readonly"} Read-only list example
     %h2 Split button lists
     %p
       In cases where there is more than one possible action per list item, a split button can be used to offer two independently clickable items -- the list item and a small arrow icon in the far right. To make a split list item, simply add a second link inside the
@@ -55,11 +55,11 @@
       You can set the icon for the right split icon by specifying a
       %code data-split-icon
       attribute with the
-      %a{:href => "/mobile/docs/buttons/buttons-themes"} icon name
+      %a{:href => "/mobile/docs/buttons/buttons_themes"} icon name
       you want. The theme swatch color of the split button can be set by specifying a swatch letter in the
       %code data-split-theme
       attribute
-    %a{"data-icon" => "arrow-r", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/lists/lists-split"} Split list example
+    %a{"data-icon" => "arrow-r", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/lists/lists_split"} Split list example
     %h2 List dividers
     %p
       List items can be turned into dividers to organize and group the list items. This is done by adding the
@@ -67,13 +67,13 @@
       to any list item. These items are styled with the body swatch "b" by default (light gray in the default theme) but you can specify a theme for dividers by adding the
       %code data-dividertheme
       attribute to the list element (ul or ol) and specifying a theme swatch letter.
-    %a{"data-icon" => "arrow-r", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/lists/lists-divider"} List divider example
+    %a{"data-icon" => "arrow-r", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/lists/lists_divider"} List divider example
     %h2 Search filter
     %p
       jQuery Mobile provides a very easy way to filter a list with a simple client-side search feature. To make a list filterable, simply add the
       %code data-filter="true"
       attribute to the list. The framework will then append a search box above the list and add the behavior to filter out list items that don't contain the current search string as the user types.
-    %a{"data-icon" => "arrow-r", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/lists/lists-search"} Search filter example
+    %a{"data-icon" => "arrow-r", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/lists/lists_search"} Search filter example
     %h2 Text formatting &amp; counts
     %p The framework includes text formatting conventions for common list patterns like header/descriptions, secondary information, counts through HTML semantic markup.
     %ul
@@ -84,21 +84,21 @@
       %li
         Supplemental information can be added to the right of each list item by wrapping content in an element with a class of
         %code ui-li-aside
-    %a{"data-icon" => "arrow-r", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/lists/lists-count"} List with count bubbles
-    %a{"data-icon" => "arrow-r", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/lists/lists-formatting"} List with text formatting
+    %a{"data-icon" => "arrow-r", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/lists/lists_count"} List with count bubbles
+    %a{"data-icon" => "arrow-r", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/lists/lists_formatting"} List with text formatting
     %h2 Thumbnails &amp; icons
     %p
       To add thumbnails to the left of a list item, simply add an image inside a list item as the first child element. The framework will scale the image to 80 pixels square. To use standard 16x16 pixel icons in list items, add the class of
       %code ui-li-icon
       to the image element to size.
-    %a{"data-icon" => "arrow-r", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/lists/lists-thumbnails"} List with thumbnail images
-    %a{"data-icon" => "arrow-r", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/lists/lists-icons"} List with icon images
+    %a{"data-icon" => "arrow-r", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/lists/lists_thumbnails"} List with thumbnail images
+    %a{"data-icon" => "arrow-r", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/lists/lists_icons"} List with icon images
     %h2 Inset lists
     %p
       If lists are embedded in a page with other types of content, an inset list packages the list into a block that sits inside the content area with a bit of margin and rounded corners (theme controlled). By adding the
       %code data-inset="true"
       attribute to the list (ul or ol), applies the inset appearance.
-    %a{"data-icon" => "arrow-r", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/lists/lists-inset"} Inset list example
+    %a{"data-icon" => "arrow-r", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/lists/lists_inset"} Inset list example
     %h2 Updating lists
     %p
       If you add items to a listview, you'll need to call the
