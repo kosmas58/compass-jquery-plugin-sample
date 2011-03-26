@@ -35,7 +35,7 @@
       %p
         The framework will find all
         %code select
-        elements and automatically enhance them into the custom select menus.
+        elements and automatically enhance them into the custom select menus. Here is a typical select menu:
       %pre
         %code
           :preserve
@@ -48,7 +48,7 @@
                 &lt;option value=&quot;overnight&quot;&gt;Overnight&lt;/option&gt;
               &lt;/select&gt;
             &lt;/div&gt;
-      %p When clicked, if the menu has room it will appear as an overlay listbox, but if there are too many options to fit in the window without scrolling, the page content is wrapped in a div and hidden, and the menu is appended as a whole new page. This lets us take advantage of native scrolling while the menu is in use.
+      %p This produces this select:
       %div{"data-role" => "fieldcontain"}
         %label.select{:for => "select-choice-1"} Choose shipping method:
         %select#select-choice-1{:name => "select-choice-1"}
@@ -110,9 +110,30 @@
           %option{:value => "WV"} West Virginia
           %option{:value => "WI"} Wisconsin
           %option{:value => "WY"} Wyoming
+      %p This example organizes the options with optgroup elements and has a disabled option.
+      %div{"data-role" => "fieldcontain"}
+        %label.select{:for => "select-choice-nc"} Preferred delivery:
+        %select#select-choice-nc{:name => "select-choice-8"}
+          %optgroup{:label => "FedEx"}
+            %option{:value => "firstOvernight"} First Overnight
+            %option{:value => "expressSaver"} Express Saver
+            %option{:value => "ground"} Ground
+          %optgroup{:label => "UPS"}
+            %option{:value => "firstOvernight"} First Overnight
+            %option{:value => "expressSaver"} Express Saver
+            %option{:value => "ground"} Ground
+          %optgroup{:label => "US Mail"}
+            %option{:value => "standard"} Standard: 7 day
+            %option{:value => "rush"} Rush: 3 days
+            %option{:disabled => "disabled", :value => "express"} Express: next day (disabled)
+            %option{:value => "overnight"} Overnight
+      %p
+        Note that the native menus don't support multiple selection via the
+        %code multiple="multiple"
+        attribute. If this feature is needed, we recommend using custom menus.
       %h2 Option to use custom menus
       %p
-        You can optionally use custom-styled select menus instead of the native versions. This adds the ability to theme the menu to better match the look and feel of your site and provides visual consistency across platforms. In addition, it restores  missing functionality on certain platforms such as
+        You can optionally use custom-styled select menus instead of the native versions. This adds the ability to theme the menu to better match the look and feel of your site and provides visual consistency across platforms. In addition, it supports multiple selection, restores missing functionality on certain platforms such as
         %code optgroup
         support on Android,  and adds an elegant way to handle placeholder values (explained below). Lastly, the custom menus will look better on desktop browsers because native menus on the desktop tend to be fairly small compared their mobile counterparts and this can look a bit odd if desktop if a priority for your project.
       %p Keep in mind that there is overhead involved in parsing the native select to build a custom menu. If there are a lot of selects on a page, or a select has a long list of options, this can impact the performance of the page so we recommend using custom menus sparingly.
@@ -129,7 +150,6 @@
         in a callback bound to the
         %code mobileinit
         event to achieve the same effect. This will globally make all selects use the custom menu by default. The following must be included in the page after jQuery is loaded but before jQuery Mobile is loaded.
-      %p
       %code
         %pre
           :preserve
@@ -148,7 +168,6 @@
         If there is a select menu with too many options to show on the device's screen, the framework will automatically create a new &quot;page&quot; populated with a standard list view that contains all the options. This allows us to use the native scrolling included on the device for moving through a long list. The text inside the
         %code label
         is used as the title for this page.
-      %p When clicked, the native select picker menu will open. When a value is selected in the menu, the custom select button will be updated to match the new selection. if the menu has room it will appear as an overlay listbox, but if there are too many options to fit in the window without scrolling, the page content is wrapped in a div and hidden, and the menu is appended as a whole new page. This lets us take advantage of native scrolling while the menu is in use.
       %div{"data-role" => "fieldcontain"}
         %label.select{:for => "select-choice-3"} Your state:
         %select#select-choice-3{"data-native-menu" => "false", :name => "select-choice-3"}
