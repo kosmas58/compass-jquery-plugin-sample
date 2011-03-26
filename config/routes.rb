@@ -335,9 +335,231 @@ CompassJqueryPluginSample::Application.routes.draw do
   end
 
   namespace :ui do
+    namespace :effects do
+      resources :add_class
+      resources :animate
+      resources :effect do
+        collection do
+          get :default
+          get :easing
+        end
+      end
+      resources :hide
+      resources :remove_clase
+      resources :show
+      resources :switch_class
+      resources :toggle
+      resources :toggle_class
+    end
     namespace :interactions do
-      resources :draggable
-      
+      resources :draggable do
+        collection do
+          get :default
+          get :constrain_movement
+          get :cursor_style
+          get :delay_start
+          get :events
+          get :handle
+          get :revert
+          get :scroll
+          get :snap_to
+          get :sortable
+          get :visual_feedback
+        end
+      end
+      resources :droppable do
+        collection do
+          get :default
+          get :accepted_elements
+          get :photo_manager
+          get :propagation
+          get :revert
+          get :shopping_cart
+          get :visual_feedback
+        end
+      end
+      resources :resizable do
+        collection do
+          get :default
+          get :animate
+          get :aspect_ratio
+          get :constrain_area
+          get :cursor_style
+          get :delay_start
+          get :helper
+          get :max_min
+          get :snap_to_grid
+          get :synchronous_resize
+          get :textarea
+          get :visual_feedback
+        end
+      end
+      resources :selectable do
+        collection do
+          get :default
+          get :display_grid
+          get :serialize
+        end
+      end
+      resources :sortable do
+        collection do
+          get :default
+          get :connect_lists
+          get :connect_lists_through_tabs
+          get :delay_start
+          get :display_grid
+          get :empty_lists
+          get :items
+          get :placeholder
+          get :portlets
+        end
+      end
+    end
+    namespace :utilities do
+      resources :position do
+        collection do
+          get :default
+          get :cycler
+        end
+      end
+    end
+    namespace :widgets do
+      resources :accordion do
+        collection do
+          get :default
+          get :collapsible
+          get :custom_icons
+          get :fillspace
+          get :hoverintent
+          get :mouseover
+          get :no_auto_height
+          get :sortable
+        end
+      end
+      resources :autocomplete do
+        collection do
+          get :default
+          get :categories
+          get :combobox
+          get :custom_data
+          get :folding
+          get :maxheight
+          get :multiple
+          get :multiple_remote
+          get :remote
+          get :remote_jsonp
+          get :remote_with_cache
+          get :remote_xml
+        end
+      end
+      resources :button do
+        collection do
+          get :default
+          get :checkbox
+          get :icon
+          get :radio
+          get :splitbutton
+          get :toolbar
+        end
+      end
+      resources :datepicker do
+        collection do
+          get :default
+          get :alt_field
+          get :animation
+          get :buttonbar
+          get :date_formats
+          get :date_range
+          get :dropdown_month_year
+          get :icon_trigger
+          get :inline
+          get :localization
+          get :min_max
+          get :multiple_calendars
+          get :other_months
+          get :show_week
+        end
+      end
+      resources :dialog do
+        collection do
+          get :default
+          get :animated
+          get :greybox
+          get :modal
+          get :modal_confirmation
+          get :modal_form
+          get :modal_message
+        end
+      end
+      resources :panel do
+        collection do
+          get :default
+          get :accordion
+          get :cookie
+          get :demo
+          get :left
+          get :right1
+          get :right2
+          get :simple
+        end
+      end
+      resources :progressbar do
+        collection do
+          get :default
+          get :animated
+          get :resize
+        end
+      end
+      resources :selectmenu do
+        collection do
+          get :default
+          get :ajax
+          get :background
+          get :custom_icons
+          get :custom_icons2
+          get :dependency
+          get :disable_enable
+          get :dropdown
+          get :get_data
+          get :icons
+          get :maxheight
+          get :menuwidth
+          get :methods
+          get :optgroups
+          get :positioning
+          get :text_formatting
+          get :without_id
+        end
+      end
+      resources :slider do
+        collection do
+          get :default
+          get :colorpicker
+          get :hotelrooms
+          get :multiple_vertical
+          get :range
+          get :range_vertical
+          get :rangemax
+          get :rangemin
+          get :side_scroll
+          get :slider_vertical
+          get :steps
+          get :tabs
+        end
+      end
+      resources :tabs do
+        collection do
+          get :default
+          get :ajax
+          get :bottom
+          get :collapsible
+          get :cookie
+          get :manipulation
+          get :mouseover
+          get :sortable
+          get :vertical
+        end
+      end
     end
   end
 
