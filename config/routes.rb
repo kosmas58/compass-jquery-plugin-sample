@@ -345,7 +345,7 @@ CompassJqueryPluginSample::Application.routes.draw do
         end
       end
       resources :hide
-      resources :remove_clase
+      resources :remove_class
       resources :show
       resources :switch_class
       resources :toggle
