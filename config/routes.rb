@@ -564,29 +564,68 @@ CompassJqueryPluginSample::Application.routes.draw do
   end
 
   namespace :widgets do
-    resources :jstree do
-      get    :get_children
-      get    :search
-      post   :create_node
-      delete :remove_node
-      post   :rename_node
-      post   :move_node
-      get    :analyze
-      post   :rebuild
+    resources :dynatree do
+      collection do
+        get :default
+        get :api
+        get :contextmenu
+        get :dnd
+        get :dnd2
+        get :dnd3
+        get :effects
+        get :events
+        get :form
+        get :iframe
+        get :iframe_1
+        get :json
+        get :lazy
+        get :lazy_persist
+        get :minexpand
+        get :multiline
+        get :persist
+        get :quick
+        get :select
+        get :test_bench
+        get :theming
+        get :ul
+      end
     end
     namespace :ical do
+      resources :anytime do
+        collection do
+          get :default
+          get :ajax
+          get :convert
+          get :css
+          get :extend
+          get :inline
+          get :separate
+        end
+      end
       resources :calendars do
         collection do
           get :iphone
         end
-        resources :events do
-          collection do
-            get :index_reload
-            get :full_calendar
-          end
-          member  do
-            get :delete
-          end
+      end
+      resources :events do
+        collection do
+          get :index_reload
+          get :full_calendar
+        end
+        member  do
+          get :delete
+        end
+      end
+      resources :full_calendar do
+        collection do
+          get :default
+          get :agenda_views
+          get :basic_views
+          get :external_dragging
+          get :gcal
+          get :json
+          get :selectable
+          get :theme
         end
       end
     end
@@ -611,9 +650,46 @@ CompassJqueryPluginSample::Application.routes.draw do
       resources :animals
       resources :mine
     end
+    resources :jstree do
+      get    :get_children
+      get    :search
+      post   :create_node
+      delete :remove_node
+      post   :rename_node
+      post   :move_node
+      get    :analyze
+      post   :rebuild
+    end
+    resources :ribbon do
+      collection do
+
+      end
+    end
     resources :tiny_mce do
       member do
         post :dump
+      end
+    end
+    namespace :tools do
+      resources :combinations do
+        collection do
+
+        end
+      end
+      resources :expose do
+        collection do
+
+        end
+      end
+      resources :overlay do
+        collection do
+
+        end
+      end
+      resources :tooltips do
+        collection do
+
+        end
       end
     end
   end
