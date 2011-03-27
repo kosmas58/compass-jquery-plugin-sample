@@ -11,7 +11,7 @@ gem "sqlite3"
 gem "open3", :platforms => :ruby
 gem "win32-open3", :platforms => :mswin
 
-gem "manifesto", ">= 0.6.0"
+gem "rack-offline"
 gem "compass-jquery-plugin-edge", "= 0.3.9.9.pre.1", :require => 'jquery'
 # gem "sass"
 

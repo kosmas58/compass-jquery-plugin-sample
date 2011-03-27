@@ -662,7 +662,9 @@ CompassJqueryPluginSample::Application.routes.draw do
     end
     resources :ribbon do
       collection do
-
+        get :default
+        get :office
+        get :simple
       end
     end
     resources :tiny_mce do
@@ -673,22 +675,45 @@ CompassJqueryPluginSample::Application.routes.draw do
     namespace :tools do
       resources :combinations do
         collection do
-
+          get :demo01
+          get :demo02
+          get :demo03
         end
       end
       resources :expose do
         collection do
-
+          get :demo01
+          get :demo02
+          get :demo03
+          get :demo04
+          get :demo05
         end
       end
       resources :overlay do
         collection do
-
+          get :default
+          get :demo01
+          get :demo02
+          get :demo03
+          get :demo04
+          get :demo05
+          get :demo06
+          get :demo07
+          get :demo08
+          get :content1
+          get :content2
         end
       end
       resources :tooltips do
         collection do
-
+          get :default
+          get :demo01
+          get :demo02
+          get :demo03
+          get :demo04
+          get :demo05
+          get :demo06
+          get :demo07
         end
       end
     end
@@ -700,7 +725,7 @@ CompassJqueryPluginSample::Application.routes.draw do
   # just remember to delete public/index.html.
   root :to => "welcome#index"
 
-  match '/manifest' => 'manifest#show'
+  match "/application.manifest" => Rails::Offline
 
   # See how all your routes lay out with "rake routes"
 
