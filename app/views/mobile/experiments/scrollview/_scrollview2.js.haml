@@ -460,7 +460,7 @@
         {
             var svh = [];
             this._$clip.parents(".ui-scrollview-clip").each(function(){
-                var d = $(this).data("scrollview");
+                var d = $(this).jqmData("scrollview");
                 if (d) svh.unshift(d);
             });
             return svh;
@@ -947,7 +947,7 @@
             // XXX: Note that we need to update this cache if we ever support lists
             //      that can dynamically update their content.
 
-            this._$dividers = this._$view.find("[data-"+ $.mobile.ns +"role=list-divider]");
+            this._$dividers = this._$view.find(":jqmData(role='list-divider')");
             this._lastDivider = null;
         },
 
@@ -1019,6 +1019,7 @@
          $content.height(wh - (hh + fh) - (pt + pb));
      }
 
+     $(":jqmData(role='page')").live("pageshow", function(event) {
      $("[data-"+ $.mobile.ns +"role=page]").live("pageshow", function(event) {
          var $page = $(this);
 
@@ -1031,7 +1032,7 @@
          // into the jqm page processing code when scrollview support is "official"
          // instead of "experimental".
 
-         $page.find("[data-"+ $.mobile.ns +"scroll]:not(.ui-scrollview-clip)").each(function(){
+         $page.find(":jqmData(scroll):not(.ui-scrollview-clip)").each(function(){
              var $this = $(this);
              // XXX: Remove this check for ui-scrolllistview once we've
              //      integrated list divider support into the main scrollview class.
@@ -1039,7 +1040,7 @@
                  $this.scrolllistview();
              else
              {
-                 var st = $this.data("scroll") + "";
+                 var st = $this.jqmData("scroll") + "";
                  var paging = st && st.search(/^[xy]p$/) != -1;
                  var dir = st && st.search(/^[xy]/) != -1 ? st.charAt(0) : null;
 
@@ -1049,7 +1050,7 @@
                  if (paging)
                      opts.pagingEnabled = true;
 
-                 var method = $this.data("scroll-method");
+                 var method = $this.jqmData("scroll-method");
                  if (method)
                      opts.scrollMethod = method;
 
