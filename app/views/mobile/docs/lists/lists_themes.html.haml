@@ -6,7 +6,7 @@
 %div{"data-role" => "page"}
   %div{"data-role" => "header", "data-theme" => "b"}
     %h1 Theming lists
-    %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile"} Home
+    %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "../../"} Home
   / /header
   .ui-body{"data-role" => "content"}
     %p All the standard button swatches can be applied to lists. The framework assigns a default list theme swatch of &quot;c&quot; (silver in the default theme) and swatch &quot;b&quot; (blue in default theme) for dividers. Below is a default themed list.
@@ -15,14 +15,17 @@
     %ul{"data-inset" => "true", "data-role" => "listview"}
       %li{"data-role" => "list-divider"} Divider
       %li
-        %a{:href => "/mobile/docs/lists"} Inbox
-        %span.ui-li-count 12
+        %a{:href => "/mobile/docs/lists"}
+          Inbox
+          %span.ui-li-count 12
       %li
-        %a{:href => "/mobile/docs/lists"} Outbox
-        %span.ui-li-count 0
+        %a{:href => "/mobile/docs/lists"}
+          Outbox
+          %span.ui-li-count 0
       %li
-        %a{:href => "/mobile/docs/lists"} Sent
-        %span.ui-li-count 328
+        %a{:href => "/mobile/docs/lists"}
+          Sent
+          %span.ui-li-count 328
     %h2 Theming list items
     %p
       The list item color scheme can be changed to any button color theme swatch by adding the
@@ -33,28 +36,34 @@
     %ul{"data-inset" => "true", "data-role" => "listview", "data-theme" => "d"}
       %li{"data-role" => "list-divider"} Divider
       %li
-        %a{:href => "/mobile/docs/lists"} Inbox
-        %span.ui-li-count 12
+        %a{:href => "/mobile/docs/lists"}
+          Inbox
+          %span.ui-li-count 12
       %li
-        %a{:href => "/mobile/docs/lists"} Outbox
-        %span.ui-li-count 0
+        %a{:href => "/mobile/docs/lists"}
+          Outbox
+          %span.ui-li-count 0
       %li
-        %a{:href => "/mobile/docs/lists"} Sent
-        %span.ui-li-count 328
-    %p Data-theme attributes also work at the LI-level, for styling a single item.
+        %a{:href => "/mobile/docs/lists"}
+          Sent
+          %span.ui-li-count 328
+    %p data-theme attributes also work at the LI-level, for styling a single item.
     %ul{"data-inset" => "true", "data-role" => "listview", "data-theme" => "d"}
       %li{"data-role" => "list-divider"} Divider
       %li
-        %a{:href => "/mobile/docs/lists"} Inbox
-        %span.ui-li-count 12
+        %a{:href => "/mobile/docs/lists"}
+          Inbox
+          %span.ui-li-count 12
       %li
-        %a{:href => "/mobile/docs/lists"} Outbox
-        %span.ui-li-count 0
+        %a{:href => "/mobile/docs/lists"}
+          Outbox
+          %span.ui-li-count 0
       %li
-        %a{:href => "/mobile/docs/lists"} Sent
-        %span.ui-li-count 328
+        %a{:href => "/mobile/docs/lists"}
+          Sent
+          %span.ui-li-count 328
       %li{"data-theme" => "a"}
-        %a{:href => "/mobile/docs/lists"} Trash
+        Trash
         %span.ui-li-count 34
     %h2 Theming dividers
     %p
@@ -68,14 +77,17 @@
     %ul{"data-dividertheme" => "c", "data-inset" => "true", "data-role" => "listview", "data-theme" => "d"}
       %li{"data-role" => "list-divider"} Divider
       %li
-        %a{:href => "/mobile/docs/lists"} Inbox
-        %span.ui-li-count 12
+        %a{:href => "/mobile/docs/lists"}
+          Inbox
+          %span.ui-li-count 12
       %li
-        %a{:href => "/mobile/docs/lists"} Outbox
-        %span.ui-li-count 0
+        %a{:href => "/mobile/docs/lists"}
+          Outbox
+          %span.ui-li-count 0
       %li
-        %a{:href => "/mobile/docs/lists"} Sent
-        %span.ui-li-count 328
+        %a{:href => "/mobile/docs/lists"}
+          Sent
+          %span.ui-li-count 328
     %h2 Theming count bubbles
     %p
       The theme for
@@ -88,14 +100,17 @@
     %ul{"data-counttheme" => "e", "data-dividertheme" => "d", "data-inset" => "true", "data-role" => "listview", "data-theme" => "a"}
       %li{"data-role" => "list-divider"} Divider
       %li
-        %a{:href => "/mobile/docs/lists"} Inbox
-        %span.ui-li-count 12
+        %a{:href => "/mobile/docs/lists"}
+          Inbox
+          %span.ui-li-count 12
       %li
-        %a{:href => "/mobile/docs/lists"} Outbox
-        %span.ui-li-count 0
+        %a{:href => "/mobile/docs/lists"}
+          Outbox
+          %span.ui-li-count 0
       %li
-        %a{:href => "/mobile/docs/lists"} Sent
-        %span.ui-li-count 328
+        %a{:href => "/mobile/docs/lists"}
+          Sent
+          %span.ui-li-count 328
     %h2 Theming icons
     %p
       The default icon for each list item is
@@ -118,25 +133,25 @@
     %ul{"data-icon" => "false", "data-inset" => "true", "data-role" => "listview"}
       %li{"data-role" => "list-divider"} Divider
       %li{"data-icon" => "info"}
-        %a{:href => "/mobile/docs/lists"} Notices
+        Notices
       %li{"data-icon" => "alert"}
-        %a{:href => "/mobile/docs/lists"} Alerts
+        Alerts
       %li{"data-icon" => "false"}
-        %a{:href => "/mobile/docs/lists"} All Notifications
+        All Notifications
     %h2 Theming split buttons
     %p For split lists which a second button, the framework default to &quot;b&quot; for the theme swatch (blue in the default theme)  Here is a default split list:
     %ul{"data-inset" => "true", "data-role" => "listview"}
       %li
-        %img{:src => "/images/demo/mobile/album/album-bb.jpg"}/
-        %h3
-          %a{:href => "/mobile/docs/lists"} Broken Bells
-        %p Broken Bells
+        %a{:href => "/mobile/docs/lists"}
+          %img{:src => "/images/demo/mobile/album/album-bb.jpg"}/
+          %h3 Broken Bells
+          %p Broken Bells
         %a{:href => "/mobile/docs/lists"} Purchase album
       %li
-        %img{:src => "/images/demo/mobile/album/album-hc.jpg"}/
-        %h3
-          %a{:href => "/mobile/docs/lists"} Warning
-        %p Hot Chip
+        %a{:href => "/mobile/docs/lists"}
+          %img{:src => "/images/demo/mobile/album/album-hc.jpg"}/
+          %h3 Warning
+          %p Hot Chip
         %a{:href => "/mobile/docs/lists"} Purchase album
     %code
       \&lt;ul data-role=&quot;listview&quot; data-inset=&quot;true&quot; data-splittheme=&quot;a&quot;&gt;
@@ -148,16 +163,16 @@
       attribute to specific links  (see second list item).
     %ul{"data-inset" => "true", "data-role" => "listview", "data-splittheme" => "a"}
       %li
-        %img{:src => "/images/demo/mobile/album/album-bb.jpg"}/
-        %h3
-          %a{:href => "/mobile/docs/lists"} Broken Bells
-        %p Broken Bells
+        %a{:href => "/mobile/docs/lists"}
+          %img{:src => "/images/demo/mobile/album/album-bb.jpg"}/
+          %h3 Broken Bells
+          %p Broken Bells
         %a{:href => "/mobile/docs/lists"} Purchase album
       %li
-        %img{:src => "/images/demo/mobile/album/album-hc.jpg"}/
-        %h3
-          %a{:href => "/mobile/docs/lists"} Warning
-        %p Hot Chip
+        %a{:href => "/mobile/docs/lists"}
+          %img{:src => "/images/demo/mobile/album/album-hc.jpg"}/
+          %h3 Warning
+          %p Hot Chip
         %a{"data-theme" => "e", :href => "/mobile/docs/lists"} Purchase album
     %p
       The icon for the split theme can set at the list level by adding the
@@ -172,16 +187,16 @@
       \&lt;ul data-role=&quot;listview&quot; data-inset=&quot;true&quot; data-splittheme=&quot;a&quot; data-spliticon=&quot;plus&quot;&gt;
     %ul{"data-inset" => "true", "data-role" => "listview", "data-spliticon" => "plus", "data-splittheme" => "a"}
       %li
-        %img{:src => "/images/demo/mobile/album/album-bb.jpg"}/
-        %h3
-          %a{:href => "/mobile/docs/lists"} Broken Bells
-        %p Broken Bells
-        %a{:href => "/mobile/docs/lists"} Purchase album
+        %a{:href => "/mobile/docs/lists"}
+          %img{:src => "/images/demo/mobile/album/album-bb.jpg"}/
+          %h3 Broken Bells
+          %p Broken Bells
+        %a{"data-icon" => "delete", "data-theme" => "e", :href => "/mobile/docs/lists"} Purchase album
       %li
-        %img{:src => "/images/demo/mobile/album/album-hc.jpg"}/
-        %h3
-          %a{:href => "/mobile/docs/lists"} Warning
-        %p Hot Chip
+        %a{:href => "/mobile/docs/lists"}
+          %img{:src => "/images/demo/mobile/album/album-hc.jpg"}/
+          %h3 Warning
+          %p Hot Chip
         %a{"data-icon" => "delete", "data-theme" => "e", :href => "/mobile/docs/lists"} Purchase album
     %h2 Examples of all basic list swatches
     %p
@@ -189,65 +204,80 @@
       swatch
     %ul{"data-inset" => "true", "data-role" => "listview", "data-theme" => "a"}
       %li
-        %a{:href => "/mobile/docs/lists"} Inbox
-        %span.ui-li-count 12
+        %a{:href => "/mobile/docs/lists"}
+          Inbox
+          %span.ui-li-count 12
       %li
-        %a{:href => "/mobile/docs/lists"} Outbox
-        %span.ui-li-count 0
+        %a{:href => "/mobile/docs/lists"}
+          Outbox
+          %span.ui-li-count 0
       %li
-        %a{:href => "/mobile/docs/lists"} Trash
-        %span.ui-li-count 62
+        %a{:href => "/mobile/docs/lists"}
+          Trash
+          %span.ui-li-count 62
     %p
       %strong B
       swatch
     %ul{"data-inset" => "true", "data-role" => "listview", "data-theme" => "b"}
       %li
-        %a{:href => "/mobile/docs/lists"} Inbox
-        %span.ui-li-count 12
+        %a{:href => "/mobile/docs/lists"}
+          Inbox
+          %span.ui-li-count 12
       %li
-        %a{:href => "/mobile/docs/lists"} Outbox
-        %span.ui-li-count 0
+        %a{:href => "/mobile/docs/lists"}
+          Outbox
+          %span.ui-li-count 0
       %li
-        %a{:href => "/mobile/docs/lists"} Trash
-        %span.ui-li-count 62
+        %a{:href => "/mobile/docs/lists"}
+          Trash
+          %span.ui-li-count 62
     %p
       %strong C
       swatch
     %ul{"data-inset" => "true", "data-role" => "listview", "data-theme" => "c"}
       %li
-        %a{:href => "/mobile/docs/lists"} Inbox
-        %span.ui-li-count 12
+        %a{:href => "/mobile/docs/lists"}
+          Inbox
+          %span.ui-li-count 12
       %li
-        %a{:href => "/mobile/docs/lists"} Outbox
-        %span.ui-li-count 0
+        %a{:href => "/mobile/docs/lists"}
+          Outbox
+          %span.ui-li-count 0
       %li
-        %a{:href => "/mobile/docs/lists"} Trash
-        %span.ui-li-count 62
+        %a{:href => "/mobile/docs/lists"}
+          Trash
+          %span.ui-li-count 62
     %p
       %strong D
       swatch
     %ul{"data-inset" => "true", "data-role" => "listview", "data-theme" => "d"}
       %li
-        %a{:href => "/mobile/docs/lists"} Inbox
-        %span.ui-li-count 12
+        %a{:href => "/mobile/docs/lists"}
+          Inbox
+          %span.ui-li-count 12
       %li
-        %a{:href => "/mobile/docs/lists"} Outbox
-        %span.ui-li-count 0
+        %a{:href => "/mobile/docs/lists"}
+          Outbox
+          %span.ui-li-count 0
       %li
-        %a{:href => "/mobile/docs/lists"} Trash
-        %span.ui-li-count 62
+        %a{:href => "/mobile/docs/lists"}
+          Trash
+          %span.ui-li-count 62
     %p
       %strong E
       swatch
     %ul{"data-inset" => "true", "data-role" => "listview", "data-theme" => "e"}
       %li
-        %a{:href => "/mobile/docs/lists"} Inbox
-        %span.ui-li-count 12
+        %a{:href => "/mobile/docs/lists"}
+          Inbox
+          %span.ui-li-count 12
       %li
-        %a{:href => "/mobile/docs/lists"} Outbox
-        %span.ui-li-count 0
+        %a{:href => "/mobile/docs/lists"}
+          Outbox
+          %span.ui-li-count 0
       %li
-        %a{:href => "/mobile/docs/lists"} Trash
-        %span.ui-li-count 62
+        %a{:href => "/mobile/docs/lists"}
+          Trash
+          %span.ui-li-count 62
   / /content
 / /page

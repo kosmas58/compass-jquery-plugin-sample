@@ -65,6 +65,45 @@
             //transition to the "confirm" page with a "pop" transition without tracking it in history
             $.mobile.changePage("../alerts/confirm.html", "pop", false, false);
       %dt
+        %code jqmData(), jqmRemoveData(), and jqmHasData()
+        (
+        %em> method
+        )
+      %dd
+        When working with jQuery Mobile,
+        %code jqmData
+        and
+        %code jqmRemoveData
+        should be used in place of jQuery core's
+        %code data
+        and
+        %code removeData
+        methods (note that this includes $.fn.data, $.fn.removeData, and the $.data, $.removeData, and $.hasData utilities), as they automatically incorporate getting and setting of namespaced data attributes (even if no namespace is currently in use).
+      %dd
+        %dl
+          %dt Arguments:
+          %dd
+            See jQuery's
+            %a{:href => "http://api.jquery.com/jQuery.data/"} data
+            and
+            %a{:href => "http://api.jquery.com/jQuery.removeData/"} removeData
+            methods
+          %dt Also:
+          %dd
+            When finding elements by their jQuery Mobile data attribute, please use the custom selector
+            = succeed "," do
+              %code :jqmData()
+            as it automatically incorporates namespaced data attributes into the lookup when they are in use. For example, instead of calling
+            = succeed "," do
+              %code $("div[data-role='page']")
+            you should use
+            = succeed "," do
+              %code $("div:jqmData(role='page')")
+            which internally maps to
+            %code $("div[data-"+ $.mobile.ns +"role='page']")
+            without forcing you to concatenate a namespace into your selectors manually.
+
+      %dt
         %code $.mobile.pageLoading
         (
         %em> method

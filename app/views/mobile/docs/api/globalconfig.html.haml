@@ -63,8 +63,11 @@
       %dt
         ns (
         %em> string
-        , default: "jq-"):
-      %dd The namespaced used in data- attributes, for example, data-role. Can be set to anything, including a blank string.
+        , default: ""):
+      %dd
+        The namespaced used in data- attributes, for example, data-role. Can be set to anything, including a blank string which is the default. When using, it's clearest if you include a trailing dash, such as "mynamespace-" which maps to
+        = succeed "." do
+          %code data-mynamespace-foo="..."
       %dt
         subPageUrlKey (
         %em> string
