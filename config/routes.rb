@@ -147,13 +147,15 @@ CompassJqueryPluginSample::Application.routes.draw do
     end
     resources :mail
     resources :mobione do
-      get :demo1
-      get :demo2
-      get :demo3
-      get :demo4
-      get :demo5
-      get :events
-      get :virtual
+      collection do
+        get :demo1
+        get :demo2
+        get :demo3
+        get :demo4
+        get :demo5
+        get :events
+        get :virtual
+      end
     end
     resources :todo
   end
@@ -566,6 +568,11 @@ CompassJqueryPluginSample::Application.routes.draw do
   namespace :widgets do
     resources :dynatree do
       collection do
+        get :iframe_1
+        get :data1
+        get :data2
+        get :data3
+        get :get_skin
         get :default
         get :api
         get :contextmenu
@@ -595,6 +602,7 @@ CompassJqueryPluginSample::Application.routes.draw do
         collection do
           get :default
           get :ajax
+          get :ajaxdemo
           get :convert
           get :css
           get :extend
@@ -624,6 +632,7 @@ CompassJqueryPluginSample::Application.routes.draw do
           get :external_dragging
           get :gcal
           get :json
+          get :json_demo
           get :selectable
           get :theme
         end
@@ -651,14 +660,37 @@ CompassJqueryPluginSample::Application.routes.draw do
       resources :mine
     end
     resources :jstree do
-      get    :get_children
-      get    :search
-      post   :create_node
-      delete :remove_node
-      post   :rename_node
-      post   :move_node
-      get    :analyze
-      post   :rebuild
+      collection do
+        get    :demo
+        get    :data
+        get    :get_children
+        get    :search
+        post   :create_node
+        delete :remove_node
+        post   :rename_node
+        put    :move_node
+        get    :analyze
+        post   :rebuild
+        get    :checkbox
+        get    :contextmenu
+        get    :cookies
+        get    :core
+        get    :crrm
+        get    :dnd
+        get    :hotkeys
+        get    :html
+        get    :json
+        get    :languages
+        get    :radio
+        get    :searching
+        get    :sort
+        get    :themeroller
+        get    :themes
+        get    :types
+        get    :ui
+        get    :unique
+        get    :xml
+      end
     end
     resources :ribbon do
       collection do

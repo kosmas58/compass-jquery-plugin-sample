@@ -1,6 +1,6 @@
-= link_to image_tag("icons/16x16/calendar.png", :border => 0, :title => t('txt.ical.calendar.actions.show')), full_calendar_widgets_ical_calendar_events_path(calendar)
+= link_to image_tag("icons/16x16/calendar.png", :border => 0, :title => t('txt.ical.calendar.actions.show')), full_calendar_widgets_ical_events_path(calendar)
 = link_to image_tag("icons/16x16/ical.png", :border => 0, :title => t('txt.ical.calendar.actions.ical')), widgets_ical_calendar_path(calendar, :format => :ics)
-= link_to image_tag("icons/16x16/calendar_list.png", :border => 0, :title => t('txt.ical.event.listing')), widgets_ical_calendar_events_path(calendar)
+= link_to image_tag("icons/16x16/calendar_list.png", :border => 0, :title => t('txt.ical.event.listing')), widgets_ical_events_path(calendar)
 = link_to image_tag("icons/16x16/show.png", :border => 0, :title => t('txt.ical.calendar.show')), widgets_ical_calendar_path(calendar)
 = link_to image_tag("icons/16x16/edit.png", :border => 0, :title => t('txt.ical.calendar.edit')), edit_widgets_ical_calendar_path(calendar)
 = link_to image_tag("icons/16x16/delete.png", :border => 0, :title => t('txt.ical.calendar.delete')), widgets_ical_calendar_path(calendar), :confirm => t('txt.ical.calendar.confirm'), :method => :delete
