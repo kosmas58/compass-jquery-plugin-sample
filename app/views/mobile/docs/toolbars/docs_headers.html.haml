@@ -116,7 +116,12 @@
         attribute on your page element, or set it programmatically via the page plugin's options:
         = succeed "." do
           %code $.mobile.page.prototype.options.backBtnText = "previous";
-        If you're doing this programmatically, set this option inside the mobileinit event handler.
+        %h3 Default back button style
+        %p
+          If you'd like to configure the back button role-theme, you can use:
+          = succeed "." do
+            %code $.mobile.page.prototype.options.backBtnTheme = "a";
+          If you're doing this programmatically, set this option inside the mobileinit event handler.
       %h2 Custom header configurations
       %p
         If you need to to create a header that doesn't follow the default configuration, simply wrap your custom styled markup in a container
