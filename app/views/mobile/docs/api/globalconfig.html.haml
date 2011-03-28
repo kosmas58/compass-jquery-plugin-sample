@@ -126,6 +126,11 @@
         , default: "loading"):
       %dd Set the text that appears when a page is loading. If set to false, the message will not appear at all.
       %dt
+        pageLoadErrorMessage (
+        %em> string
+        , default: "Error Loading Page"):
+      %dd Set the text that appears when a page fails to load through Ajax.
+      %dt
         gradeA (
         %em> function that returns a boolean
         , default: a function returning the value of $.support.mediaquery):

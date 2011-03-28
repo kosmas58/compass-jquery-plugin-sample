@@ -72,7 +72,13 @@
     %p
       jQuery Mobile provides a very easy way to filter a list with a simple client-side search feature. To make a list filterable, simply add the
       %code data-filter="true"
-      attribute to the list. The framework will then append a search box above the list and add the behavior to filter out list items that don't contain the current search string as the user types.
+      attribute to the list. The framework will then append a search box above the list and add the behavior to filter out list items that don't contain the current search string as the user types. The input's placeholder text defaults to "Filter items...". To configure the placeholder text in the search input, you can either bind to the
+      %code mobileinit
+      event and set the
+      %code $.mobile.listview.prototype.options.filterPlaceholder
+      option to a string of your choosing, or use the data-attribute
+      %code data-filter-placeholder
+      on your listview.
     %a{"data-icon" => "arrow-r", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/lists/lists_search"} Search filter example
     %h2 Text formatting &amp; counts
     %p The framework includes text formatting conventions for common list patterns like header/descriptions, secondary information, counts through HTML semantic markup.
