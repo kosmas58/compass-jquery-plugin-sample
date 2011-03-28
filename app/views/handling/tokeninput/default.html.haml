@@ -1,0 +1,71 @@
+-@title = "#{t('txt.tokeninput.name')} - #{t('txt.tokeninput.default')}"
+
+- content_for :content_head do
+  = render(:partial => "default.js.haml", :format => :js)
+
+.demo
+  %h3
+    =image_tag("icons/22x22/plugin.png", :border => 0)
+    =@title
+    
+  %h4 Simple Server-Backed Search
+  %div
+    %input#demo-input{:name => "blah", :type => "text"}
+    %input{:type => "button", :value => "Submit"}
+  
+  %h4 Simple Local Data Search
+  %div
+    %input#demo-input-local{:name => "blah", :type => "text"}
+    %input{:type => "button", :value => "Submit"}
+  
+  %h4#theme Facebook Theme
+  %div
+    %input#demo-input-facebook-theme{:name => "blah2", :type => "text"}
+    %input{:type => "button", :value => "Submit"}
+  
+  %h4#custom-labels Custom Labels
+  %div
+    %input#demo-input-custom-labels{:name => "blah", :type => "text"}
+    %input{:type => "button", :value => "Submit"}
+    
+  %h4#custom-delete Custom Delete Icon
+  %div
+    %input#demo-input-custom-delete{:name => "blah", :type => "text"}
+    %input{:type => "button", :value => "Submit"}
+    
+  %h4#custom-limits Custom Search Delay, Search Limit &amp; Token Limit
+  %div
+    %input#demo-input-custom-limits{:name => "blah", :type => "text"}
+    %input{:type => "button", :value => "Submit"}
+  
+  %h4#prevent-custom-delimiter Custom Token Delimiter
+  %div
+    %input#demo-input-custom-delimiter{:name => "blah", :type => "text"}
+    %input{:type => "button", :value => "Submit"}
+  
+  %h4#prevent-duplicates No Duplicates
+  %div
+    %input#demo-input-prevent-duplicates{:name => "blah", :type => "text"}
+    %input{:type => "button", :value => "Submit"}
+
+  %h4#pre-populated Pre-populated
+  %div
+    %input#demo-input-pre-populated{:name => "blah", :type => "text"}
+    %input{:type => "button", :value => "Submit"}
+
+  %h4#disable-animation Disable Animation on Dropdown
+  %div
+    %input#demo-input-disable-animation{:name => "blah", :type => "text"}
+    %input{:type => "button", :value => "Submit"}
+      
+  %h4#onresult Modify Response with onResult Callback
+  %div
+    %input#demo-input-onresult{:name => "blah", :type => "text"}
+    %input{:type => "button", :value => "Submit"}
+    
+  %h4#onadd-ondelete Using onAdd and onDelete Callbacks
+  %div
+    %input#demo-input-onadd-ondelete{:name => "blah", :type => "text"}
+    %input{:type => "button", :value => "Submit"}
+/ end demo
+    

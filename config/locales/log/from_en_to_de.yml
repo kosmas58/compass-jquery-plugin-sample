@@ -28,8 +28,8 @@ txt:
         demo01: Minimal setup for Styleable
         demo02: Scripting styleable Forms
         demo03: Alternate form skin
-  tinymce: 
-    default: Full featured example using jQuery plugin
+  tokeninput: 
+    demo: Instant Demo
   hello: Hello world
 support: 
   array: 

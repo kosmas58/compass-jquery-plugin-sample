@@ -430,6 +430,10 @@ en:
     replacetext: 
       name: replaceText
       default: Example
+    tokeninput:
+      name: Tokeninput
+      default: jQuery Tokenizing Autocomplete Input
+      demo: jQuery Tokeninput Demos
     tools: 
       name: jQuery TOOLS
       toolbox: 

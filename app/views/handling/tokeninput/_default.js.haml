@@ -1,0 +1,81 @@
+:javascript
+  $(document).ready(function() {
+    $("input[type=button]").click(function () {
+      alert("Would submit: " + $(this).siblings("input[type=text]").val());
+
+      $("#demo-input").tokenInput("http://shell.loopj.com/tokeninput/tvshows.php");
+
+      $("#demo-input-local").tokenInput([
+          {id: 7, name: "Ruby"},
+          {id: 11, name: "Python"},
+          {id: 13, name: "JavaScript"},
+          {id: 17, name: "ActionScript"},
+          {id: 19, name: "Scheme"},
+          {id: 23, name: "Lisp"},
+          {id: 29, name: "C#"},
+          {id: 31, name: "Fortran"},
+          {id: 37, name: "Visual Basic"},
+          {id: 41, name: "C"},
+          {id: 43, name: "C++"},
+          {id: 47, name: "Java"}
+      ]);
+
+      $("#demo-input-facebook-theme").tokenInput("http://shell.loopj.com/tokeninput/tvshows.php", {
+          theme: "facebook"
+      });
+
+      $("#demo-input-custom-labels").tokenInput("http://shell.loopj.com/tokeninput/tvshows.php", {
+          hintText: "I can has tv shows?",
+          noResultsText: "O noes",
+          searchingText: "Meowing..."
+      });
+      
+      $("#demo-input-custom-delete").tokenInput("http://shell.loopj.com/tokeninput/tvshows.php", {
+          deleteText: "&#x2603;"
+      });
+
+      $("#demo-input-custom-limits").tokenInput("http://shell.loopj.com/tokeninput/tvshows.php", {
+          searchDelay: 2000,
+          minChars: 4,
+          tokenLimit: 3
+      });
+
+      $("#demo-input-custom-delimiter").tokenInput("http://shell.loopj.com/tokeninput/tvshows.php", {
+          tokenDelimiter: "|"
+      });
+
+      $("#demo-input-prevent-duplicates").tokenInput("http://shell.loopj.com/tokeninput/tvshows.php", {
+          preventDuplicates: true
+      });
+
+      $("#demo-input-pre-populated").tokenInput("http://shell.loopj.com/tokeninput/tvshows.php", {
+          prePopulate: [
+              {id: 123, name: "Slurms MacKenzie"},
+              {id: 555, name: "Bob Hoskins"},
+              {id: 9000, name: "Kriss Akabusi"}
+          ]
+      });
+
+      $("#demo-input-disable-animation").tokenInput("http://shell.loopj.com/tokeninput/tvshows.php", {
+          animateDropdown: false
+      });
+
+      $("#demo-input-onresult").tokenInput("http://shell.loopj.com/tokeninput/tvshows.php", {
+          onResult: function (results) {
+              $.each(results, function (index, value) {
+                  value.name = "OMG: " + value.name;
+              });
+
+              return results;
+          }
+      });
+
+      $("#demo-input-onadd-ondelete").tokenInput("http://shell.loopj.com/tokeninput/tvshows.php", {
+          onAdd: function (item) {
+              alert("Added " + item.name);
+          },
+          onDelete: function (item) {
+              alert("Deleted " + item.name);
+          }
+      });
+  });

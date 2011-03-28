@@ -1,0 +1,37 @@
+-@title = "#{t('txt.tokeninput.name')} - #{t('txt.tokeninput.demo')}"
+
+- content_for :content_head do
+  = render(:partial => "demo.js.haml", :format => :js)
+
+
+.demo
+  %h3
+    =image_tag("icons/22x22/plugin.png", :border => 0)
+    =@title
+  %p
+    Start typing TV show names in the box below.
+  %p
+    %h4 List style
+    %input#tokenize{:name => "blah", :type => "text"}
+  %p
+    %h4 Facebook style
+    %input#tokenize2{:name => "blah2", :type => "text"}
+
+  %h4 Overview
+  %p
+    Tokeninput is a jQuery plugin which allows your users to select multiple items from a predefined list, using autocompletion as they type
+    to find each item. You may have seen a similar type of text entry when filling in the recipients field sending messages on facebook.
+
+  %h4 Features
+  %ul
+    %li Intuitive UI for selecting multiple items from a large list
+    %li Easy to skin/style purely in css, no images required
+    %li Supports any backend which can generate JSON, including PHP, Rails, Django, ASP.net
+    %li Smooth animations when results load
+    %li Select, delete and navigate items using the mouse or keyboard
+    %li Client-side result caching to reduce server load
+    %li New! Crossdomain support via JSONP
+    %li New! Callbacks when items are added or removed from the list
+    %li New! Preprocess results from the server with the onResult callback
+/ end demo
+    
