@@ -4,10 +4,9 @@
   = render(:partial => "/mobile/index.js.haml", :format => :js)
 
 %div{"data-role" => "page"}
-  %div{"data-position" => "fixed", "data-role" => "header"}
+  %div{"data-position" => "fixed", "data-role" => "header", "data-theme" => "b"}
     %h1 Fixed toolbars
-    %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile"} Home
-  / / header
+    %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "../../"} Home
   %div{"data-role" => "content"}
     %h2 Fixed toolbars will re-appear after you scroll
     %p This is a demo of the "fixed" headers and footers used in the jQuery Mobile framework. The page content flows naturally, allowing us to take advantage of native scrolling instead of a scripting a faux-scrolling workaround. The header and footer divs are right in the flow of the document, but whenever they are out of view, you can tap the screen to make them appear. Tapping again or scrolling the page will cause them to appear back in the flow of the page (at the top and bottom).
@@ -18,10 +17,11 @@
     %pre
       %code
         :preserve
+          
           &lt;div data-role=&quot;header&quot; data-position=&quot;fixed&quot;&gt;
             &lt;h1&gt;Fixed toolbars&lt;/h1&gt;
           &lt;/div&gt;
-    %h4 Here is some text to make the page very long
+    %h3 Some text to make the page very long
     %p
       Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.
       %em Aenean ultricies mi vitae est.
@@ -36,103 +36,29 @@
       = succeed "," do
         %code commodo vitae
       ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui.Donec non enim in turpis pulvinar facilisis. Ut felis.
-    %p
-      Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.
-      %em Aenean ultricies mi vitae est.
-      Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed,
-      = succeed "," do
-        %code commodo vitae
-      ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui.Donec non enim in turpis pulvinar facilisis. Ut felis.
-    %h4 And an inset list
+    %h3 And an inset list
     %ul{"data-inset" => "true", "data-role" => "listview"}
       %li
-        %img{:src => "/images/demo/mobile/album/album-bb.jpg"}/
-        %h3
-          %a{:href => "/mobile/docs/toolbars"} Broken Bells
-        %p Broken Bells
-        %p.ui-li-aside
-          $
-          %strong 11.99
+        %a{:href => "/mobile/docs/toolbars"}
+          Inbox
+          %span.ui-li-count 12
       %li
-        %img{:src => "/images/demo/mobile/album/album-hc.jpg"}/
-        %h3
-          %a{:href => "/mobile/docs/toolbars"} Warning
-        %p Hot Chip
-        %p.ui-li-aside
-          $
-          %strong 12.99
+        %a{:href => "/mobile/docs/toolbars"}
+          Outbox
+          %span.ui-li-count 0
       %li
-        %img{:src => "/images/demo/mobile/album/album-p.jpg"}/
-        %h3
-          %a{:href => "/mobile/docs/toolbars"} Wolfgang Amadeus Phoenix
-        %p Phoenix
-        %p.ui-li-aside
-          $
-          %strong 11.99
+        %a{:href => "/mobile/docs/toolbars"}
+          Drafts
+          %span.ui-li-count 4
       %li
-        %img{:src => "/images/demo/mobile/album/album-ok.jpg"}/
-        %h3
-          %a{:href => "/mobile/docs/toolbars"} Of The Blue Colour Of The Sky
-        %p Ok Go
-        %p.ui-li-aside
-          $
-          %strong 10.99
+        %a{:href => "/mobile/docs/toolbars"}
+          Sent
+          %span.ui-li-count 328
       %li
-        %img{:src => "/images/demo/mobile/album/album-ws.jpg"}/
-        %h3
-          %a{:href => "/mobile/docs/toolbars"} Elephant
-        %p The White Stripes
-        %p.ui-li-aside
-          $
-          %strong 9.99
-      %li
-        %img{:src => "/images/demo/mobile/album/album-rh.jpg"}/
-        %h3
-          %a{:href => "/mobile/docs/toolbars"} Kid A
-        %p Radiohead
-        %p.ui-li-aside
-          $
-          %strong 11.99
-      %li
-        %img{:src => "/images/demo/mobile/album/album-xx.jpg"}/
-        %h3
-          %a{:href => "/mobile/docs/toolbars"} XX
-        %p XX
-        %p.ui-li-aside
-          $
-          %strong 10.99
-      %li
-        %img{:src => "/images/demo/mobile/album/album-mg.jpg"}/
-        %h3
-          %a{:href => "/mobile/docs/toolbars"} Congratulations
-        %p MGMT
-        %p.ui-li-aside
-          $
-          %strong 12.99
-      %li
-        %img{:src => "/images/demo/mobile/album/album-ag.jpg"}/
-        %h3
-          %a{:href => "/mobile/docs/toolbars"} Ashes Grammar
-        %p A Sunny Day in Glasgow
-        %p.ui-li-aside
-          $
-          %strong 11.99
-      %li
-        %img{:src => "/images/demo/mobile/album/album-k.jpg"}/
-        %h3
-          %a{:href => "/mobile/docs/toolbars"} Hot Fuss
-        %p Killers
-        %p.ui-li-aside
-          $
-          %strong 12.99
-      %li
-        %img{:src => "/images/demo/mobile/album/album-af.jpg"}/
-        %h3
-          %a{:href => "/mobile/docs/toolbars"} The Suburbs
-        %p Arcade Fire
-        %p.ui-li-aside
-          $
-          %strong 12.99
+        %a{:href => "/mobile/docs/toolbars"}
+          Trash
+          %span.ui-li-count 62
+    %br/
     %p
       Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.
       %em Aenean ultricies mi vitae est.
@@ -147,6 +73,36 @@
       = succeed "," do
         %code commodo vitae
       ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui.Donec non enim in turpis pulvinar facilisis. Ut felis.
+    %h3 Embedded form
+    %form{:action => "#", :method => "get"}
+      %div{"data-role" => "fieldcontain"}
+        %label{:for => "name"} Text Input:
+        %input#name{:name => "name", :type => "text", :value => ""}
+      %div{"data-role" => "fieldcontain"}
+        %label{:for => "textarea"} Textarea:
+        %textarea#textarea{:cols => "40", :name => "textarea", :rows => "8"}
+      %div{"data-role" => "fieldcontain"}
+        %label{:for => "slider2"} Flip switch:
+        %select#slider2{"data-role" => "slider", :name => "slider2"}
+          %option{:value => "off"} Off
+          %option{:value => "on"} On
+      %div{"data-role" => "fieldcontain"}
+        %label{:for => "slider"} Slider:
+        %input#slider{:max => "100", :min => "0", :name => "slider", :type => "range", :value => "0"}
+      %div{"data-role" => "fieldcontain"}
+        %label.select{:for => "select-choice-1"} Choose shipping method:
+        %select#select-choice-1{:name => "select-choice-1"}
+          %option{:value => "standard"} Standard: 7 day
+          %option{:value => "rush"} Rush: 3 days
+          %option{:value => "express"} Express: next day
+          %option{:value => "overnight"} Overnight
+      .ui-body.ui-body-b
+        %fieldset.ui-grid-a
+          .ui-block-a
+            %button{"data-theme" => "d", :type => "submit"} Cancel
+          .ui-block-b
+            %button{"data-theme" => "b", :type => "submit"} Submit
+    %h3 A bit more text
     %p
       Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.
       %em Aenean ultricies mi vitae est.
@@ -154,5 +110,5 @@
       = succeed "," do
         %code commodo vitae
       ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui.Donec non enim in turpis pulvinar facilisis. Ut felis.
-  %div{"data-position" => "fixed", "data-role" => "footer"}
+  %div{"data-position" => "fixed", "data-role" => "footer", "data-theme" => "a"}
     %h1 Fixed Footer
