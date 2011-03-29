@@ -6,7 +6,10 @@ class NavigationController < ApplicationController
     @tree = NavigationTree.find(params[:id])
 
     respond_to do |format|
-      format.html
+      format.html do
+        flash[:notice] = ""
+        render(:partial => "form", :layout => false)
+      end
       format.js do
         flash[:notice] = ""
         render(:partial => "form", :layout => false)
@@ -20,7 +23,14 @@ class NavigationController < ApplicationController
     @tree.save
 
     respond_to do |format|
-      format.html
+      format.html do
+        if request.xhr?
+          flash[:notice] = I18n.t('make_resourceful.update.success')
+          render(:partial => "form", :layout => false)
+        else
+          redirect_to :action => :index
+        end
+      end
       format.js do
         if request.xhr?
           flash[:notice] = I18n.t('make_resourceful.update.success')
@@ -33,7 +43,7 @@ class NavigationController < ApplicationController
   end
 
   def test
-    @accordions = NavigationTree.find_by_title("ROOT").children
+    #@accordions = NavigationTree.find_by_title("ROOT").children
   end
 
   def get_children
