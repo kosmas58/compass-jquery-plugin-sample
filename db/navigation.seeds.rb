@@ -571,10 +571,66 @@ node_424 = NavigationTree.create_node(:id => parent_id, :seed => true, :position
 parent_id = node_424
 node_425 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.graphics.ganttview.default', :type => 'default', :icon => '/images/icons/16x16/gantt.png', :url => '/graphics/gantt_view/default')
 parent_id = node_423
-node_426 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.graphics.sparklines.name', :type => 'folder', :icon => '/images/icons/16x16/sparklines.png')
-parent_id = node_426
-node_427 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.graphics.sparklines.examples', :type => 'default', :icon => '/images/icons/16x16/sparklines.png', :url => '/graphics/sparklines/examples')
-node_428 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.graphics.sparklines.default', :type => 'default', :icon => '/images/icons/16x16/sparklines.png', :url => '/graphics/sparklines/default')
+node_489 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.graphics.highcharts.name', :type => 'folder', :icon => '/images/icons/16x16/graphics.png')
+parent_id = node_489
+node_499 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.graphics.highcharts.line.name', :type => 'folder', :icon => '/images/icons/16x16/graphics.png')
+parent_id = node_499
+node_508 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.graphics.highcharts.line.basic', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/line_basic')
+node_509 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.graphics.highcharts.line.ajax', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/line_ajax')
+node_510 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.graphics.highcharts.line.labels', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/line_labels')
+node_511 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.graphics.highcharts.line.time_series', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/line_time_series')
+node_512 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 4, :title => 'txt.graphics.highcharts.spline.inverted', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/spline_inverted')
+node_513 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 5, :title => 'txt.graphics.highcharts.spline.symbols', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/spline_symbols')
+node_514 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 6, :title => 'txt.graphics.highcharts.spline.plot_bands', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/spline_plot_bands')
+node_515 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 7, :title => 'txt.graphics.highcharts.scatter', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/scatter')
+parent_id = node_489
+node_501 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.graphics.highcharts.area.name', :type => 'folder', :icon => '/images/icons/16x16/graphics.png')
+parent_id = node_501
+node_516 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.graphics.highcharts.area.basic', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/area_basic')
+node_517 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.graphics.highcharts.area.negative', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/area_negative')
+node_518 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.graphics.highcharts.area.stacked', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/area_stacked')
+node_519 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.graphics.highcharts.area.stacked_percent', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/area_stacked_percent')
+node_520 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 4, :title => 'txt.graphics.highcharts.area.missing', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/area_missing')
+node_521 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 5, :title => 'txt.graphics.highcharts.area.inverted', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/area_inverted')
+node_522 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 6, :title => 'txt.graphics.highcharts.area.spline', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/area_spline')
+parent_id = node_489
+node_502 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.graphics.highcharts.bar.name', :type => 'folder', :icon => '/images/icons/16x16/graphics.png')
+parent_id = node_502
+node_523 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.graphics.highcharts.bar.basic', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/bar_basic')
+node_524 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.graphics.highcharts.bar.stacked', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/bar_stacked')
+node_525 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.graphics.highcharts.bar.negative_stack', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/bar_negative_stack')
+node_526 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.graphics.highcharts.column.basic', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/column_basic')
+node_527 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 4, :title => 'txt.graphics.highcharts.column.negative', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/column_negative')
+node_528 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 5, :title => 'txt.graphics.highcharts.column.stacked', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/column_stacked')
+node_529 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 6, :title => 'txt.graphics.highcharts.column.stacked_and_grouped', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/column_stacked_and_grouped')
+node_530 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 7, :title => 'txt.graphics.highcharts.column.stacked_percent', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/column_stacked_percent')
+node_531 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 8, :title => 'txt.graphics.highcharts.column.rotated_labels', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/column_rotated_labels')
+node_532 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 9, :title => 'txt.graphics.highcharts.column.parsed', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/column_parsed')
+parent_id = node_489
+node_503 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.graphics.highcharts.pie.name', :type => 'folder', :icon => '/images/icons/16x16/graphics.png')
+parent_id = node_503
+node_533 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.graphics.highcharts.pie.basic', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/pie_basic')
+node_534 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.graphics.highcharts.pie.donut', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/pie_donut')
+node_535 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.graphics.highcharts.pie.legend', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/pie_legend')
+parent_id = node_489
+node_504 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 4, :title => 'txt.graphics.highcharts.dynamic.name', :type => 'folder', :icon => '/images/icons/16x16/graphics.png')
+parent_id = node_504
+node_536 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.graphics.highcharts.dynamic.update', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/dynamic_update')
+node_537 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.graphics.highcharts.dynamic.click_to_add', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/dynamic_click_to_add')
+node_538 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.graphics.highcharts.dynamic.master_detail', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/dynamic_master_detail')
+parent_id = node_489
+node_506 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 5, :title => 'txt.graphics.highcharts.combo.name', :type => 'folder', :icon => '/images/icons/16x16/graphics.png')
+parent_id = node_506
+node_539 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.graphics.highcharts.combo.default', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/combo')
+node_540 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.graphics.highcharts.combo.dual_axes', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/combo_dual_axes')
+node_541 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.graphics.highcharts.combo.multi_axes', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/combo_multi_axes')
+node_542 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.graphics.highcharts.combo.regression', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/combo_regression')
+parent_id = node_489
+parent_id = node_423
+node_496 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.graphics.sparklines.name', :type => 'folder', :icon => '/images/icons/16x16/sparklines.png')
+parent_id = node_496
+node_497 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.graphics.sparklines.examples', :type => 'default', :icon => '/images/icons/16x16/sparklines.png', :url => '/graphics/sparklines/examples')
+node_498 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.graphics.sparklines.default', :type => 'default', :icon => '/images/icons/16x16/sparklines.png', :url => '/graphics/sparklines/default')
 parent_id = node_423
 parent_id = node_172
 node_429 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.handling.name', :type => 'folder', :icon => '/images/icons/16x16/plugin.png')

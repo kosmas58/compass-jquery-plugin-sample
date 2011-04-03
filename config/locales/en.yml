@@ -427,6 +427,57 @@ en:
       ganttview:
         name: Gantt View
         default: Example
+      highcharts:
+        name: Highcharts
+        line:
+          name: Line and scatter charts
+          basic: Basic Line
+          ajax: "Ajax loaded data, clickable points"
+          labels: With data labels
+          time_series: "Time series, zoomable"
+        spline:
+          inverted: Spline with inverted axes
+          symbols: Spline with symbols
+          plot_bands: Spline with plot bands
+        scatter: Scatter plot
+        area:
+          name: Area charts
+          basic: Basic area
+          negative: Area with negative values
+          stacked: Stacked area
+          stacked_percent: Percentage area
+          missing: Area with missing points
+          inverted: Inverted axes
+          spline: Area-spline
+        bar:
+          name: Column and bar charts
+          basic: Basic bar
+          stacked: Stacked bar
+          negative_stack: Bar with negative stack
+        column:
+          basic: Basic column
+          negative: Column with negative values
+          stacked: Stacked column
+          stacked_and_grouped: Stacked and grouped column
+          stacked_percent: Stacked percentage column
+          rotated_labels: Column with rotated labels
+          parsed: Data defined in a HTML table
+        pie:
+          name: Pie charts
+          basic: Pie chart
+          donut: Donut chart
+          legend: Pie with legend
+        dynamic:
+          name: Dynamic charts
+          update: Spline updating each second
+          click_to_add: Click to add a point
+          master_detail: Master-detail chart
+        combo:
+          name: Combinations
+          default: "Column, line and pie"
+          dual_axes: "Dual axes, line and column"
+          multi_axes: Multiple axes
+          regression: Scatter with regression line
     replacetext: 
       name: replaceText
       default: Example

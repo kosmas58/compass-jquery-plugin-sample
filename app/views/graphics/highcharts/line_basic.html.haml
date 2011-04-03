@@ -1,0 +1,47 @@
+-@title = "#{t('txt.graphics.highcharts.name')} - #{t('txt.graphics.highcharts.line.name')} - #{t('txt.graphics.highcharts.line.basic')}"
+
+- content_for :content_head do
+  = render(:partial => "line_basic.js.haml", :format => :js)
+
+.demo
+  %h3
+    =image_tag("icons/22x22/graphics.png", :border => 0)
+    =@title
+  #tabs
+    %ul
+      %li
+        %a{ :href => "#tabs-1" }
+          Default theme
+      %li
+        %a{ :href => "#tabs-2" }
+          Dark-blue theme
+      %li
+        %a{ :href => "#tabs-3" }
+          Dark-green theme
+      %li
+        %a{ :href => "#tabs-4" }
+          Gray theme
+      %li
+        %a{ :href => "#tabs-5" }
+          Grid theme
+    #tabs-1
+      #container{:style => "width: 800px; height: 400px; margin: 0 auto"}
+    #tabs-2
+      #container2{:style => "width: 800px; height: 400px; margin: 0 auto"}
+    #tabs-3
+      #container3{:style => "width: 800px; height: 400px; margin: 0 auto"}
+    #tabs-4
+      #container4{:style => "width: 800px; height: 400px; margin: 0 auto"}
+    #tabs-5
+      #container5{:style => "width: 800px; height: 400px; margin: 0 auto"}
+/ End demo
+-#
+.demo-description
+  %p
+    The plugin was written by
+    %a{ :href => "http://github.com/thegrubbsian/jquery.ganttView", :class => :greybox } Frank (JC) Grubbs
+    and released under the
+    = succeed "." do
+      %a{ :href => "http://www.opensource.org/licenses/mit-license.php", :class => :greybox } MIT License
+    #greybox
+/ End demo-description
