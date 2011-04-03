@@ -260,7 +260,7 @@ en:
         name: jQuery mobile framework
         experiments: Additional demos
         default: jQuery mobile Demo
-        home: "&alpha;3@jquerymobile.com"
+        home: "&alpha;4@jquerymobile.com"
       iphone: iPhone
       palm: Palm Pre
     jqgrid: 

@@ -1,0 +1,163 @@
+%html
+  %head
+    %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js", :type => "text/javascript"}
+    %script{:src => "src/jquery.tokeninput.js", :type => "text/javascript"}
+    %link{:href => "styles/token-input.css", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "styles/token-input-facebook.css", :rel => "stylesheet", :type => "text/css"}/
+    :javascript
+      $(document).ready(function() {
+          $("input[type=button]").click(function () {
+              alert("Would submit: " + $(this).siblings("input[type=text]").val());
+          });
+      });
+        %body
+    %h1 jQuery Tokeninput Demos
+    %h2 Simple Server-Backed Search
+    %div
+      %input#demo-input{:name => "blah", :type => "text"}/
+      %input{:type => "button", :value => "Submit"}/
+      :javascript
+        $(document).ready(function() {
+            $("#demo-input").tokenInput("http://shell.loopj.com/tokeninput/tvshows.php");
+        });
+            %h2 Simple Local Data Search
+    %div
+      %input#demo-input-local{:name => "blah", :type => "text"}/
+      %input{:type => "button", :value => "Submit"}/
+      :javascript
+        $(document).ready(function() {
+            $("#demo-input-local").tokenInput([
+                {id: 7, name: "Ruby"},
+                {id: 11, name: "Python"},
+                {id: 13, name: "JavaScript"},
+                {id: 17, name: "ActionScript"},
+                {id: 19, name: "Scheme"},
+                {id: 23, name: "Lisp"},
+                {id: 29, name: "C#"},
+                {id: 31, name: "Fortran"},
+                {id: 37, name: "Visual Basic"},
+                {id: 41, name: "C"},
+                {id: 43, name: "C++"},
+                {id: 47, name: "Java"}
+            ]);
+        });
+            %h2#theme Facebook Theme
+    %div
+      %input#demo-input-facebook-theme{:name => "blah2", :type => "text"}/
+      %input{:type => "button", :value => "Submit"}/
+      :javascript
+        $(document).ready(function() {
+            $("#demo-input-facebook-theme").tokenInput("http://shell.loopj.com/tokeninput/tvshows.php", {
+                theme: "facebook"
+            });
+        });
+            %h2#custom-labels Custom Labels
+    %div
+      %input#demo-input-custom-labels{:name => "blah", :type => "text"}/
+      %input{:type => "button", :value => "Submit"}/
+      :javascript
+        $(document).ready(function() {
+            $("#demo-input-custom-labels").tokenInput("http://shell.loopj.com/tokeninput/tvshows.php", {
+                hintText: "I can has tv shows?",
+                noResultsText: "O noes",
+                searchingText: "Meowing..."
+            });
+        });
+            %h2#custom-delete Custom Delete Icon
+    %div
+      %input#demo-input-custom-delete{:name => "blah", :type => "text"}/
+      %input{:type => "button", :value => "Submit"}/
+      :javascript
+        $(document).ready(function() {
+            $("#demo-input-custom-delete").tokenInput("http://shell.loopj.com/tokeninput/tvshows.php", {
+                deleteText: "&#x2603;"
+            });
+        });
+            %h2#custom-limits Custom Search Delay, Search Limit &amp; Token Limit
+    %div
+      %input#demo-input-custom-limits{:name => "blah", :type => "text"}/
+      %input{:type => "button", :value => "Submit"}/
+      :javascript
+        $(document).ready(function() {
+            $("#demo-input-custom-limits").tokenInput("http://shell.loopj.com/tokeninput/tvshows.php", {
+                searchDelay: 2000,
+                minChars: 4,
+                tokenLimit: 3
+            });
+        });
+            %h2#prevent-custom-delimiter Custom Token Delimiter
+    %div
+      %input#demo-input-custom-delimiter{:name => "blah", :type => "text"}/
+      %input{:type => "button", :value => "Submit"}/
+      :javascript
+        $(document).ready(function() {
+            $("#demo-input-custom-delimiter").tokenInput("http://shell.loopj.com/tokeninput/tvshows.php", {
+                tokenDelimiter: "|"
+            });
+        });
+            %h2#prevent-duplicates No Duplicates
+    %div
+      %input#demo-input-prevent-duplicates{:name => "blah", :type => "text"}/
+      %input{:type => "button", :value => "Submit"}/
+      :javascript
+        $(document).ready(function() {
+            $("#demo-input-prevent-duplicates").tokenInput("http://shell.loopj.com/tokeninput/tvshows.php", {
+                preventDuplicates: true
+            });
+        });
+            %h2#pre-populated Pre-populated
+    %div
+      %input#demo-input-pre-populated{:name => "blah", :type => "text"}/
+      %input{:type => "button", :value => "Submit"}/
+      :javascript
+        $(document).ready(function() {
+            $("#demo-input-pre-populated").tokenInput("http://shell.loopj.com/tokeninput/tvshows.php", {
+                prePopulate: [
+                    {id: 123, name: "Slurms MacKenzie"},
+                    {id: 555, name: "Bob Hoskins"},
+                    {id: 9000, name: "Kriss Akabusi"}
+                ]
+            });
+        });
+            %h2#disable-animation Disable Animation on Dropdown
+    %div
+      %input#demo-input-disable-animation{:name => "blah", :type => "text"}/
+      %input{:type => "button", :value => "Submit"}/
+      :javascript
+        $(document).ready(function() {
+            $("#demo-input-disable-animation").tokenInput("http://shell.loopj.com/tokeninput/tvshows.php", {
+                animateDropdown: false
+            });
+        });
+            %h2#onresult Modify Response with onResult Callback
+    %div
+      %input#demo-input-onresult{:name => "blah", :type => "text"}/
+      %input{:type => "button", :value => "Submit"}/
+      :javascript
+        $(document).ready(function() {
+            $("#demo-input-onresult").tokenInput("http://shell.loopj.com/tokeninput/tvshows.php", {
+                onResult: function (results) {
+                    $.each(results, function (index, value) {
+                        value.name = "OMG: " + value.name;
+                    });
+
+                    return results;
+                }
+            });
+        });
+            %h2#onadd-ondelete Using onAdd and onDelete Callbacks
+    %div
+      %input#demo-input-onadd-ondelete{:name => "blah", :type => "text"}/
+      %input{:type => "button", :value => "Submit"}/
+      :javascript
+        $(document).ready(function() {
+            $("#demo-input-onadd-ondelete").tokenInput("http://shell.loopj.com/tokeninput/tvshows.php", {
+                onAdd: function (item) {
+                    alert("Added " + item.name);
+                },
+                onDelete: function (item) {
+                    alert("Deleted " + item.name);
+                }
+            });
+        });
+        

@@ -559,171 +559,171 @@ node_421 = NavigationTree.create_node(:id => parent_id, :seed => true, :position
 parent_id = node_421
 node_422 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.tinymce.default', :type => 'default', :icon => '/images/icons/16x16/editor.png', :url => '/widgets/tiny_mce')
 parent_id = node_173
-node_486 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 6, :title => 'txt.tokeninput.name', :type => 'folder', :icon => '/images/icons/16x16/plugin.png')
-parent_id = node_486
-node_487 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.tokeninput.demo', :type => 'default', :icon => '/images/icons/16x16/plugin.png', :url => '/widgets/tokeninput/demo')
-node_488 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.tokeninput.default', :type => 'default', :icon => '/images/icons/16x16/plugin.png', :url => '/widgets/tokeninput/default')
+node_423 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 6, :title => 'txt.tokeninput.name', :type => 'folder', :icon => '/images/icons/16x16/plugin.png')
+parent_id = node_423
+node_424 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.tokeninput.demo', :type => 'default', :icon => '/images/icons/16x16/plugin.png', :url => '/widgets/tokeninput/demo')
+node_425 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.tokeninput.default', :type => 'default', :icon => '/images/icons/16x16/plugin.png', :url => '/widgets/tokeninput/default')
 parent_id = node_173
 parent_id = node_172
-node_423 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.graphics.name', :type => 'folder', :icon => '/images/icons/16x16/graphics.png')
-parent_id = node_423
-node_424 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.graphics.ganttview.name', :type => 'folder', :icon => '/images/icons/16x16/gantt.png')
-parent_id = node_424
-node_425 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.graphics.ganttview.default', :type => 'default', :icon => '/images/icons/16x16/gantt.png', :url => '/graphics/gantt_view/default')
-parent_id = node_423
-node_489 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.graphics.highcharts.name', :type => 'folder', :icon => '/images/icons/16x16/graphics.png')
-parent_id = node_489
-node_499 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.graphics.highcharts.line.name', :type => 'folder', :icon => '/images/icons/16x16/graphics.png')
-parent_id = node_499
-node_508 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.graphics.highcharts.line.basic', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/line_basic')
-node_509 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.graphics.highcharts.line.ajax', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/line_ajax')
-node_510 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.graphics.highcharts.line.labels', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/line_labels')
-node_511 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.graphics.highcharts.line.time_series', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/line_time_series')
-node_512 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 4, :title => 'txt.graphics.highcharts.spline.inverted', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/spline_inverted')
-node_513 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 5, :title => 'txt.graphics.highcharts.spline.symbols', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/spline_symbols')
-node_514 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 6, :title => 'txt.graphics.highcharts.spline.plot_bands', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/spline_plot_bands')
-node_515 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 7, :title => 'txt.graphics.highcharts.scatter', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/scatter')
-parent_id = node_489
-node_501 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.graphics.highcharts.area.name', :type => 'folder', :icon => '/images/icons/16x16/graphics.png')
-parent_id = node_501
-node_516 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.graphics.highcharts.area.basic', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/area_basic')
-node_517 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.graphics.highcharts.area.negative', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/area_negative')
-node_518 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.graphics.highcharts.area.stacked', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/area_stacked')
-node_519 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.graphics.highcharts.area.stacked_percent', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/area_stacked_percent')
-node_520 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 4, :title => 'txt.graphics.highcharts.area.missing', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/area_missing')
-node_521 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 5, :title => 'txt.graphics.highcharts.area.inverted', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/area_inverted')
-node_522 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 6, :title => 'txt.graphics.highcharts.area.spline', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/area_spline')
-parent_id = node_489
-node_502 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.graphics.highcharts.bar.name', :type => 'folder', :icon => '/images/icons/16x16/graphics.png')
-parent_id = node_502
-node_523 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.graphics.highcharts.bar.basic', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/bar_basic')
-node_524 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.graphics.highcharts.bar.stacked', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/bar_stacked')
-node_525 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.graphics.highcharts.bar.negative_stack', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/bar_negative_stack')
-node_526 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.graphics.highcharts.column.basic', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/column_basic')
-node_527 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 4, :title => 'txt.graphics.highcharts.column.negative', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/column_negative')
-node_528 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 5, :title => 'txt.graphics.highcharts.column.stacked', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/column_stacked')
-node_529 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 6, :title => 'txt.graphics.highcharts.column.stacked_and_grouped', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/column_stacked_and_grouped')
-node_530 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 7, :title => 'txt.graphics.highcharts.column.stacked_percent', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/column_stacked_percent')
-node_531 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 8, :title => 'txt.graphics.highcharts.column.rotated_labels', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/column_rotated_labels')
-node_532 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 9, :title => 'txt.graphics.highcharts.column.parsed', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/column_parsed')
-parent_id = node_489
-node_503 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.graphics.highcharts.pie.name', :type => 'folder', :icon => '/images/icons/16x16/graphics.png')
-parent_id = node_503
-node_533 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.graphics.highcharts.pie.basic', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/pie_basic')
-node_534 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.graphics.highcharts.pie.donut', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/pie_donut')
-node_535 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.graphics.highcharts.pie.legend', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/pie_legend')
-parent_id = node_489
-node_504 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 4, :title => 'txt.graphics.highcharts.dynamic.name', :type => 'folder', :icon => '/images/icons/16x16/graphics.png')
-parent_id = node_504
-node_536 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.graphics.highcharts.dynamic.update', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/dynamic_update')
-node_537 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.graphics.highcharts.dynamic.click_to_add', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/dynamic_click_to_add')
-node_538 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.graphics.highcharts.dynamic.master_detail', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/dynamic_master_detail')
-parent_id = node_489
-node_506 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 5, :title => 'txt.graphics.highcharts.combo.name', :type => 'folder', :icon => '/images/icons/16x16/graphics.png')
-parent_id = node_506
-node_539 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.graphics.highcharts.combo.default', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/combo')
-node_540 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.graphics.highcharts.combo.dual_axes', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/combo_dual_axes')
-node_541 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.graphics.highcharts.combo.multi_axes', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/combo_multi_axes')
-node_542 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.graphics.highcharts.combo.regression', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/combo_regression')
-parent_id = node_489
-parent_id = node_423
-node_496 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.graphics.sparklines.name', :type => 'folder', :icon => '/images/icons/16x16/sparklines.png')
-parent_id = node_496
-node_497 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.graphics.sparklines.examples', :type => 'default', :icon => '/images/icons/16x16/sparklines.png', :url => '/graphics/sparklines/examples')
-node_498 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.graphics.sparklines.default', :type => 'default', :icon => '/images/icons/16x16/sparklines.png', :url => '/graphics/sparklines/default')
-parent_id = node_423
-parent_id = node_172
-node_429 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.handling.name', :type => 'folder', :icon => '/images/icons/16x16/plugin.png')
+node_426 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.graphics.name', :type => 'folder', :icon => '/images/icons/16x16/graphics.png')
+parent_id = node_426
+node_427 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.graphics.ganttview.name', :type => 'folder', :icon => '/images/icons/16x16/gantt.png')
+parent_id = node_427
+node_428 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.graphics.ganttview.default', :type => 'default', :icon => '/images/icons/16x16/gantt.png', :url => '/graphics/gantt_view/default')
+parent_id = node_426
+node_429 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.graphics.highcharts.name', :type => 'folder', :icon => '/images/icons/16x16/graphics.png')
 parent_id = node_429
-node_430 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.history.name', :type => 'folder', :icon => '/images/icons/16x16/history.png')
+node_430 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.graphics.highcharts.line.name', :type => 'folder', :icon => '/images/icons/16x16/graphics.png')
 parent_id = node_430
-node_431 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.history.example1', :type => 'default', :icon => '/images/icons/16x16/history.png', :url => '/handling/history/html4')
-node_432 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.history.example2', :type => 'default', :icon => '/images/icons/16x16/html5.png', :url => '/handling/history/html5')
-node_433 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.history.example3', :type => 'default', :icon => '/images/icons/16x16/history.png', :url => '/handling/history/ajax')
-node_434 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.history.example4', :type => 'default', :icon => '/images/icons/16x16/history.png', :url => '/handling/history/ajax2')
-node_435 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 4, :title => 'txt.history.example5', :type => 'default', :icon => '/images/icons/16x16/html5.png', :url => '/handling/history/bbq')
-node_436 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 5, :title => 'txt.history.example6', :type => 'default', :icon => '/images/icons/16x16/history.png', :url => '/handling/history/mvc')
+node_431 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.graphics.highcharts.line.basic', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/line_basic')
+node_432 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.graphics.highcharts.line.ajax', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/line_ajax')
+node_433 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.graphics.highcharts.line.labels', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/line_labels')
+node_434 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.graphics.highcharts.line.time_series', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/line_time_series')
+node_435 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 4, :title => 'txt.graphics.highcharts.spline.inverted', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/spline_inverted')
+node_436 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 5, :title => 'txt.graphics.highcharts.spline.symbols', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/spline_symbols')
+node_437 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 6, :title => 'txt.graphics.highcharts.spline.plot_bands', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/spline_plot_bands')
+node_438 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 7, :title => 'txt.graphics.highcharts.scatter', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/scatter')
 parent_id = node_429
-node_437 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.replacetext.name', :type => 'folder', :icon => '/images/icons/16x16/plugin.png')
-parent_id = node_437
-node_438 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.replacetext.default', :type => 'default', :icon => '/images/icons/16x16/plugin.png', :url => '/handling/replace_text/default')
-parent_id = node_429
-parent_id = node_172
-node_439 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.haml.name', :type => 'folder', :icon => '/images/icons/16x16/haml.png')
+node_439 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.graphics.highcharts.area.name', :type => 'folder', :icon => '/images/icons/16x16/graphics.png')
 parent_id = node_439
-node_440 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.haml.jhaml', :type => 'default', :icon => '/images/icons/16x16/haml.png', :url => '/haml/jhaml')
+node_440 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.graphics.highcharts.area.basic', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/area_basic')
+node_441 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.graphics.highcharts.area.negative', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/area_negative')
+node_442 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.graphics.highcharts.area.stacked', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/area_stacked')
+node_443 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.graphics.highcharts.area.stacked_percent', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/area_stacked_percent')
+node_444 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 4, :title => 'txt.graphics.highcharts.area.missing', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/area_missing')
+node_445 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 5, :title => 'txt.graphics.highcharts.area.inverted', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/area_inverted')
+node_446 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 6, :title => 'txt.graphics.highcharts.area.spline', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/area_spline')
+parent_id = node_429
+node_447 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.graphics.highcharts.bar.name', :type => 'folder', :icon => '/images/icons/16x16/graphics.png')
+parent_id = node_447
+node_448 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.graphics.highcharts.bar.basic', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/bar_basic')
+node_449 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.graphics.highcharts.bar.stacked', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/bar_stacked')
+node_450 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.graphics.highcharts.bar.negative_stack', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/bar_negative_stack')
+node_451 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.graphics.highcharts.column.basic', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/column_basic')
+node_452 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 4, :title => 'txt.graphics.highcharts.column.negative', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/column_negative')
+node_453 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 5, :title => 'txt.graphics.highcharts.column.stacked', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/column_stacked')
+node_454 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 6, :title => 'txt.graphics.highcharts.column.stacked_and_grouped', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/column_stacked_and_grouped')
+node_455 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 7, :title => 'txt.graphics.highcharts.column.stacked_percent', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/column_stacked_percent')
+node_456 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 8, :title => 'txt.graphics.highcharts.column.rotated_labels', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/column_rotated_labels')
+node_457 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 9, :title => 'txt.graphics.highcharts.column.parsed', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/column_parsed')
+parent_id = node_429
+node_458 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.graphics.highcharts.pie.name', :type => 'folder', :icon => '/images/icons/16x16/graphics.png')
+parent_id = node_458
+node_459 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.graphics.highcharts.pie.basic', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/pie_basic')
+node_460 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.graphics.highcharts.pie.donut', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/pie_donut')
+node_461 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.graphics.highcharts.pie.legend', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/pie_legend')
+parent_id = node_429
+node_462 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 4, :title => 'txt.graphics.highcharts.dynamic.name', :type => 'folder', :icon => '/images/icons/16x16/graphics.png')
+parent_id = node_462
+node_463 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.graphics.highcharts.dynamic.update', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/dynamic_update')
+node_464 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.graphics.highcharts.dynamic.click_to_add', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/dynamic_click_to_add')
+node_465 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.graphics.highcharts.dynamic.master_detail', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/dynamic_master_detail')
+parent_id = node_429
+node_466 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 5, :title => 'txt.graphics.highcharts.combo.name', :type => 'folder', :icon => '/images/icons/16x16/graphics.png')
+parent_id = node_466
+node_467 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.graphics.highcharts.combo.default', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/combo')
+node_468 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.graphics.highcharts.combo.dual_axes', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/combo_dual_axes')
+node_469 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.graphics.highcharts.combo.multi_axes', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/combo_multi_axes')
+node_470 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.graphics.highcharts.combo.regression', :type => 'default', :icon => '/images/icons/16x16/graphics.png', :url => '/graphics/highcharts/combo_regression')
+parent_id = node_429
+parent_id = node_426
+node_471 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.graphics.sparklines.name', :type => 'folder', :icon => '/images/icons/16x16/sparklines.png')
+parent_id = node_471
+node_472 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.graphics.sparklines.examples', :type => 'default', :icon => '/images/icons/16x16/sparklines.png', :url => '/graphics/sparklines/examples')
+node_473 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.graphics.sparklines.default', :type => 'default', :icon => '/images/icons/16x16/sparklines.png', :url => '/graphics/sparklines/default')
+parent_id = node_426
+parent_id = node_172
+node_474 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.handling.name', :type => 'folder', :icon => '/images/icons/16x16/plugin.png')
+parent_id = node_474
+node_475 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.history.name', :type => 'folder', :icon => '/images/icons/16x16/history.png')
+parent_id = node_475
+node_476 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.history.example1', :type => 'default', :icon => '/images/icons/16x16/history.png', :url => '/handling/history/html4')
+node_477 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.history.example2', :type => 'default', :icon => '/images/icons/16x16/html5.png', :url => '/handling/history/html5')
+node_478 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.history.example3', :type => 'default', :icon => '/images/icons/16x16/history.png', :url => '/handling/history/ajax')
+node_479 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.history.example4', :type => 'default', :icon => '/images/icons/16x16/history.png', :url => '/handling/history/ajax2')
+node_480 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 4, :title => 'txt.history.example5', :type => 'default', :icon => '/images/icons/16x16/html5.png', :url => '/handling/history/bbq')
+node_481 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 5, :title => 'txt.history.example6', :type => 'default', :icon => '/images/icons/16x16/history.png', :url => '/handling/history/mvc')
+parent_id = node_474
+node_482 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.replacetext.name', :type => 'folder', :icon => '/images/icons/16x16/plugin.png')
+parent_id = node_482
+node_483 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.replacetext.default', :type => 'default', :icon => '/images/icons/16x16/plugin.png', :url => '/handling/replace_text/default')
+parent_id = node_474
+parent_id = node_172
+node_484 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.haml.name', :type => 'folder', :icon => '/images/icons/16x16/haml.png')
+parent_id = node_484
+node_485 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.haml.jhaml', :type => 'default', :icon => '/images/icons/16x16/haml.png', :url => '/haml/jhaml')
 parent_id = node_172
 parent_id = node_1
-node_441 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.emu.jqm.name', :type => 'accordion', :icon => '/images/icons/16x16/jqmobile.png')
-parent_id = node_441
-node_442 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.black', :type => 'folder', :icon => '/images/icons/16x16/blackberry.png')
-parent_id = node_442
-node_443 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.port', :type => 'folder', :icon => '/images/icons/16x16/portrait.png')
-parent_id = node_443
-node_444 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.jqm.default', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators/blackberry_portrait/jqm')
-node_445 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.jqm.experiments', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators/blackberry_portrait/jqm2')
-node_446 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.emu.jqm.home', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators/blackberry_portrait/jqm_original')
-parent_id = node_442
-node_447 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.land', :type => 'folder', :icon => '/images/icons/16x16/landscape.png')
-parent_id = node_447
-node_448 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.jqm.default', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators/blackberry_landscape/jqm')
-node_449 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.jqm.experiments', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators/blackberry_landscape/jqm2')
-node_450 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.emu.jqm.home', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators/blackberry_landscape/jqm_original')
-parent_id = node_442
-parent_id = node_441
-node_451 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.ipad', :type => 'folder', :icon => '/images/icons/16x16/ipad.png')
-parent_id = node_451
-node_452 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.port', :type => 'folder', :icon => '/images/icons/16x16/portrait.png')
-parent_id = node_452
-node_453 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.jqm.default', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators/ipad_portrait/jqm')
-node_454 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.jqm.experiments', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators/ipad_portrait/jqm2')
-node_455 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.emu.jqm.home', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators/ipad_portrait/jqm_original')
-node_456 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.emu.jqt.default', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators/ipad_portrait/jqt')
-node_457 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 4, :title => 'txt.emu.jqt.home', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators/ipad_portrait/jqt_original')
-parent_id = node_451
-node_458 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.land', :type => 'folder', :icon => '/images/icons/16x16/landscape.png')
-parent_id = node_458
-node_459 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.jqm.default', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators/ipad_landscape/jqm')
-node_460 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.jqm.experiments', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators/ipad_landscape/jqm2')
-node_461 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.emu.jqm.home', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators/ipad_landscape/jqm_original')
-node_462 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.emu.jqt.default', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators/ipad_landscape/jqt')
-node_463 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 4, :title => 'txt.emu.jqt.home', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators/ipad_landscape/jqt_original')
-parent_id = node_451
-parent_id = node_441
-node_464 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.emu.iphone', :type => 'folder', :icon => '/images/icons/16x16/iphone.png')
-parent_id = node_464
-node_465 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.port', :type => 'folder', :icon => '/images/icons/16x16/portrait.png')
-parent_id = node_465
-node_466 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.jqm.default', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators/iphone_portrait/jqm')
-node_467 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.jqm.experiments', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators/iphone_portrait/jqm2')
-node_468 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.emu.jqm.home', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators/iphone_portrait/jqm_original')
-node_469 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.emu.jqt.default', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators/iphone_portrait/jqt')
-node_470 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 4, :title => 'txt.emu.jqt.home', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators/iphone_portrait/jqt_original')
-parent_id = node_464
-node_471 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.land', :type => 'folder', :icon => '/images/icons/16x16/landscape.png')
-parent_id = node_471
-node_472 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.jqm.default', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators/iphone_landscape/jqm')
-node_473 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.jqm.experiments', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators/iphone_landscape/jqm2')
-node_474 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.emu.jqm.home', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators/iphone_landscape/jqm_original')
-node_475 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.emu.jqt.default', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators/iphone_landscape/jqt')
-node_476 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 4, :title => 'txt.emu.jqt.home', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators/iphone_landscape/jqt_original')
-parent_id = node_464
-parent_id = node_441
-node_477 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.emu.palm', :type => 'folder', :icon => '/images/icons/16x16/palm.png')
-parent_id = node_477
-node_478 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.port', :type => 'folder', :icon => '/images/icons/16x16/portrait.png')
-parent_id = node_478
-node_479 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.jqm.default', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators/palm_portrait/jqm')
-node_480 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.jqm.experiments', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators/palm_portrait/jqm2')
-node_481 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.emu.jqm.home', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators/palm_portrait/jqm_original')
-parent_id = node_477
-node_482 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.land', :type => 'folder', :icon => '/images/icons/16x16/landscape.png')
-parent_id = node_482
-node_483 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.jqm.default', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators/palm_landscape/jqm')
-node_484 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.jqm.experiments', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators/palm_landscape/jqm2')
-node_485 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.emu.jqm.home', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators/palm_landscape/jqm_original')
-parent_id = node_477
-parent_id = node_441
+node_486 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.emu.jqm.name', :type => 'accordion', :icon => '/images/icons/16x16/jqmobile.png')
+parent_id = node_486
+node_487 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.black', :type => 'folder', :icon => '/images/icons/16x16/blackberry.png')
+parent_id = node_487
+node_488 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.port', :type => 'folder', :icon => '/images/icons/16x16/portrait.png')
+parent_id = node_488
+node_489 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.jqm.default', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators/blackberry_portrait/jqm')
+node_490 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.jqm.experiments', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators/blackberry_portrait/jqm2')
+node_491 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.emu.jqm.home', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators/blackberry_portrait/jqm_original')
+parent_id = node_487
+node_492 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.land', :type => 'folder', :icon => '/images/icons/16x16/landscape.png')
+parent_id = node_492
+node_493 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.jqm.default', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators/blackberry_landscape/jqm')
+node_494 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.jqm.experiments', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators/blackberry_landscape/jqm2')
+node_495 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.emu.jqm.home', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators/blackberry_landscape/jqm_original')
+parent_id = node_487
+parent_id = node_486
+node_496 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.ipad', :type => 'folder', :icon => '/images/icons/16x16/ipad.png')
+parent_id = node_496
+node_497 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.port', :type => 'folder', :icon => '/images/icons/16x16/portrait.png')
+parent_id = node_497
+node_498 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.jqm.default', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators/ipad_portrait/jqm')
+node_499 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.jqm.experiments', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators/ipad_portrait/jqm2')
+node_500 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.emu.jqm.home', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators/ipad_portrait/jqm_original')
+node_501 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.emu.jqt.default', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators/ipad_portrait/jqt')
+node_502 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 4, :title => 'txt.emu.jqt.home', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators/ipad_portrait/jqt_original')
+parent_id = node_496
+node_503 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.land', :type => 'folder', :icon => '/images/icons/16x16/landscape.png')
+parent_id = node_503
+node_504 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.jqm.default', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators/ipad_landscape/jqm')
+node_505 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.jqm.experiments', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators/ipad_landscape/jqm2')
+node_506 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.emu.jqm.home', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators/ipad_landscape/jqm_original')
+node_507 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.emu.jqt.default', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators/ipad_landscape/jqt')
+node_508 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 4, :title => 'txt.emu.jqt.home', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators/ipad_landscape/jqt_original')
+parent_id = node_496
+parent_id = node_486
+node_509 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.emu.iphone', :type => 'folder', :icon => '/images/icons/16x16/iphone.png')
+parent_id = node_509
+node_510 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.port', :type => 'folder', :icon => '/images/icons/16x16/portrait.png')
+parent_id = node_510
+node_511 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.jqm.default', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators/iphone_portrait/jqm')
+node_512 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.jqm.experiments', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators/iphone_portrait/jqm2')
+node_513 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.emu.jqm.home', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators/iphone_portrait/jqm_original')
+node_514 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.emu.jqt.default', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators/iphone_portrait/jqt')
+node_515 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 4, :title => 'txt.emu.jqt.home', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators/iphone_portrait/jqt_original')
+parent_id = node_509
+node_516 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.land', :type => 'folder', :icon => '/images/icons/16x16/landscape.png')
+parent_id = node_516
+node_517 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.jqm.default', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators/iphone_landscape/jqm')
+node_518 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.jqm.experiments', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators/iphone_landscape/jqm2')
+node_519 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.emu.jqm.home', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators/iphone_landscape/jqm_original')
+node_520 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.emu.jqt.default', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators/iphone_landscape/jqt')
+node_521 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 4, :title => 'txt.emu.jqt.home', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators/iphone_landscape/jqt_original')
+parent_id = node_509
+parent_id = node_486
+node_522 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.emu.palm', :type => 'folder', :icon => '/images/icons/16x16/palm.png')
+parent_id = node_522
+node_523 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.port', :type => 'folder', :icon => '/images/icons/16x16/portrait.png')
+parent_id = node_523
+node_524 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.jqm.default', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators/palm_portrait/jqm')
+node_525 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.jqm.experiments', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators/palm_portrait/jqm2')
+node_526 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.emu.jqm.home', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators/palm_portrait/jqm_original')
+parent_id = node_522
+node_527 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.land', :type => 'folder', :icon => '/images/icons/16x16/landscape.png')
+parent_id = node_527
+node_528 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.jqm.default', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators/palm_landscape/jqm')
+node_529 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.jqm.experiments', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators/palm_landscape/jqm2')
+node_530 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.emu.jqm.home', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators/palm_landscape/jqm_original')
+parent_id = node_522
+parent_id = node_486
 parent_id = node_1
 puts "Finished creating navigation tree"
 

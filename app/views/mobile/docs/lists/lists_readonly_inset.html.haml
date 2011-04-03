@@ -1,23 +1,23 @@
--@title = "jQuery Mobile Docs - Lists"
+-@title = "jQuery Mobile Docs - Readonly Inset Lists"
 
 - content_for :content_head do
   = render(:partial => "/mobile/index.js.haml", :format => :js)
-
+  
 %div{"data-role" => "page"}
   %div{"data-role" => "header", "data-theme" => "b"}
-    %h1 Inset Readonly Lists
+    %h1 Readonly Inset Lists
     %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "../../"} Home
   / /header
   %div{"data-role" => "content"}
     %h2 Simple list
-    %ul{"data-role" => "listview"}
+    %ul{"data-inset" => "true", "data-role" => "listview"}
       %li Acura
       %li Audi
       %li BMW
       %li Cadillac
       %li Ferrari
     %h2 Count bubbles
-    %ul{"data-role" => "listview"}
+    %ul{"data-inset" => "true", "data-role" => "listview"}
       %li
         Inbox
         %span.ui-li-count 12
@@ -34,14 +34,14 @@
         Trash
         %span.ui-li-count 62
     %h2 Numbered list
-    %ol{"data-role" => "listview"}
+    %ol{"data-inset" => "true", "data-role" => "listview"}
       %li The Godfather
       %li Inception
       %li The Good, the Bad and the Ugly
       %li Pulp Fiction
       %li Schindler's List
     %h2 Divided, formatted content
-    %ul{"data-role" => "listview"}
+    %ul{"data-inset" => "true", "data-role" => "listview"}
       %li
         %h3 Stephen Weber
         %p
@@ -59,7 +59,7 @@
           %strong> 9:18
           AM
     %h2 Icon list
-    %ul{"data-role" => "listview"}
+    %ul{"data-inset" => "true", "data-role" => "listview"}
       %li
         %img.ui-li-icon{:alt => "France", :src => "/images/demo/mobile/flags/gf.png"}
           France
@@ -85,7 +85,7 @@
           United States
           %span.ui-li-count 62
     %h2 Thumbnail list
-    %ul{"data-role" => "listview"}
+    %ul{"data-inset" => "true", "data-role" => "listview"}
       %li
         %img{:src => "/images/demo/mobile/album/album-bb.jpg"}/
         %h3 Broken Bells
@@ -99,7 +99,7 @@
         %h3 Wolfgang Amadeus Phoenix
         %p Phoenix
     %h2 Divided, filterable list
-    %ul{"data-filter" => "true", "data-role" => "listview"}
+    %ul{"data-filter" => "true", "data-inset" => "true", "data-role" => "listview"}
       %li{"data-role" => "list-divider"} A
       %li Adam Kinkaid
       %li Alex Wickerham

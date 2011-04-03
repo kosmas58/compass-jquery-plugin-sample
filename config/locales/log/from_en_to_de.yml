@@ -21,16 +21,14 @@ date:
     short: "%b %d"
     long: "%B %d, %Y"
 txt: 
-  tools: 
-    form: 
-      stylable: 
-        name: Stylable
-        demo01: Minimal setup for Styleable
-        demo02: Scripting styleable Forms
-        demo03: Alternate form skin
-  tokeninput: 
-    demo: Instant Demo
-  hello: Hello world
+  graphics: 
+    highcharts: 
+      pie: 
+        name: Pie charts
+        legend: Pie with legend
+        basic: Pie chart
+      combo: 
+        default: Column, line and pie
 support: 
   array: 
     words_connector: ", "

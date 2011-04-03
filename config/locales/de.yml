@@ -62,8 +62,8 @@ de:
       account: 
         name: Name
         debit: Soll
-        credit: Haben
         enabled: Aktiviert
+        credit: Haben
         balance: Kontostand
         acc_num: Kontonr.
       event: 
@@ -75,19 +75,19 @@ de:
         all_day: "Gant\xC3\xA4giges Ereignis"
       client: 
         name: Name
-      pet: 
-        name: Name
       user: 
         pseudo: Pseudonym
         role: Rolle
         lastname: Nachname
         firstname: Vorname
         email: E-Mail
+      pet: 
+        name: Name
+      animal: 
+        name: Name
       item: 
         cd: CD
         item: Element
-      animal: 
-        name: Name
     errors: 
       messages: 
         record_invalid: "G\xC3\xBCltigkeitspr\xC3\xBCfung ist fehlgeschlagen: %{errors}"
@@ -125,12 +125,70 @@ de:
       short: "%d. %B, %H:%M Uhr"
       long: "%A, %d. %B %Y, %H:%M Uhr"
     pm: nachmittags
+  activemodel: 
+    errors: 
+      template: 
+        body: "Bitte \xC3\xBCberpr\xC3\xBCfen Sie die folgenden Felder:"
+        header: 
+          one: "Konnte %{model} nicht speichern: ein Fehler."
+          other: "Konnte %{model} nicht speichern: %{count} Fehler."
   txt: 
     graphics: 
       name: Graphik
       ganttview: 
         name: Gantt-Ansicht
         default: Beispiel
+      highcharts: 
+        name: Highcharts
+        spline: 
+          plot_bands: "Spline mit Grundst\xC3\xBCck Bands"
+          inverted: Spline mit invertierten Achsen
+          symbols: Spline mit Symbolen
+        scatter: Streudiagramm
+        pie: 
+          name: Kreisdiagramme
+          legend: Kreisdiagramm mit Legende
+          donut: Ringdiagramm
+          basic: Kreisdiagramm
+        line: 
+          time_series: Zeitreihe, zoombar
+          name: Linien-  und Streudiagramme
+          ajax: Ajax geladenen Daten, anklickbare Punkte
+          basic: Linie Basis
+          labels: Mit Datenbeschriftungen
+        column: 
+          rotated_labels: "S\xC3\xA4ule mit gedrehtem Bezeichnungen"
+          stacked_percent: "Gestapelte S\xC3\xA4ule mit Prozenten"
+          negative: "S\xC3\xA4ule mit negativen Werten"
+          stacked: "Gestapelte S\xC3\xA4ule"
+          basic: "S\xC3\xA4ule Basis"
+          parsed: Daten definiert in einer HTML-Tabelle
+          stacked_and_grouped: "Gestapelte und gruppierte S\xC3\xA4ule"
+        combo: 
+          name: Kombinationen
+          default: "S\xC3\xA4ulen-, Linien- und Kreisdiagramme"
+          regression: Streudiagramm mit Regressionsgeraden
+          multi_axes: Mehrere Achsen
+          dual_axes: "Zweiachsige Linien und S\xC3\xA4ulen"
+        area: 
+          name: "Fl\xC3\xA4chendiagramme"
+          spline: "Fl\xC3\xA4che Spline"
+          inverted: Invertierte Achsen
+          stacked_percent: "Prozentuale Fl\xC3\xA4che"
+          negative: "Fl\xC3\xA4che mit negativen Werten"
+          stacked: "Gestapelte Fl\xC3\xA4che"
+          basic: "Fl\xC3\xA4che Basis"
+          missing: "Fl\xC3\xA4che mit fehlenden Punkte"
+        bar: 
+          name: "S\xC3\xA4ulen-und Balkendiagramme"
+          stacked: Balken gestapelt
+          basic: Balken Basis
+          negative_stack: Balken mit negativen Stapel
+        dynamic: 
+          name: Dynamische Tabellen
+          click_to_add: "Klicken Sie um einen Punkt hinzuzuf\xC3\xBCgen"
+          master_detail: Master-Detail-Diagramm
+          update: Splineaktualisierung jede Sekunde
       sparklines: 
         name: Sparklines
         examples: Beispiele
@@ -139,22 +197,22 @@ de:
       name: jsTree
       html: HTML-Daten
       plugins: Plugins
-      themeroller: Themenwahl
       hotkeys: Hotkeys
       xml: XML-Daten
+      themeroller: Themenwahl
       dnd: Drag'n Drop
       checkbox: "Auswahlk\xC3\xA4stchen"
-      demo: Demonstration
       radio: Umschalttasten
-      cookies: Cookies
+      demo: Demonstration
       json: JSON-Daten
+      cookies: Cookies
       types: Typen
       contextmenu: "Kontextmen\xC3\xBC"
       lang: Sprachen
       sort: Sortieren
       unique: Eindeutig
-      ui: UI
       core: "Basisfunktionalit\xC3\xA4t"
+      ui: UI
       search: Suche
       crrm: CRRM
       themes: Themen
@@ -164,8 +222,8 @@ de:
       colon: ":"
       back: "Zur\xC3\xBCck"
       edit: Bearbeiten
-      theme: Thema
       delete: "L\xC3\xB6schen"
+      theme: Thema
       cancel: Abbrechen
       from: von
       language: Sprache
@@ -184,11 +242,36 @@ de:
     trees: !binary |
       QsOkdW1l
 
-    haml: 
-      name: Javascript und Haml.
-      jhaml: jQuery-haml-Plugin
+    emu: 
+      name: "jQuery auf mobilen Ger\xC3\xA4ten"
+      ipad: iPad
+      black: Blackberry Torch
+      jqt: 
+        name: "<i>(Ben\xC3\xB6tigt einen WebKit-Engine)</i>"
+        default: jQTouch Demonstration
+        home: "&beta;@jqtouch.com"
+      port: Hochformat
+      land: Querformat
+      jqm: 
+        name: jQuery mobile Framework
+        experiments: Weitere Demos
+        default: jQuery mobile Demonstration
+        home: "&alpha;4@jquerymobile.com"
+      palm: Palm Pre
+      iphone: iPhone
+    ribbon: 
+      name: Multifunktionsleiste
+      simple: jQuery Ribbon Simple Demo
+      default: jQuery Ribbon Windows 7 Demo
+      office: jQuery Ribbon Office Demo
     jqgrid: 
       name: jqGrid
+      manipulation: 
+        name: Datenmanipulation
+        inline: "mit Inline-\xC3\x84nderung"
+        modal: "mit modaler \xC3\x84nderung"
+        datepicker: mit Datumsauswahl (Nachname)
+        input: mit verschiedenen Eingabetypen
       simple: 
         name: Einfache Datengitter
         direct: mit direkter Auswahl und automatischer Weite
@@ -196,12 +279,6 @@ de:
         master: mit Haupt- und Detailsicht
         selection: mit Auswahllink und Suche deaktiviert
         multiple: mit Mehrfachauswahl + Zeilennummern
-      manipulation: 
-        name: Datenmanipulation
-        inline: "mit Inline-\xC3\x84nderung"
-        modal: "mit modaler \xC3\x84nderung"
-        datepicker: mit Datumsauswahl (Nachname)
-        input: mit verschiedenen Eingabetypen
       demo: 
         30xml_map: XML-Mapping
         30resizable: "Vergr\xC3\xB6\xC3\x9Ferbare Spalten"
@@ -281,8 +358,8 @@ de:
         37toolbar: Werkzeugleistensuche
         35view: Modus Gitteransicht
         30full: Vollzugriff
-        30hide: Spalten anzeigen/verbergen
         30events: Ereignisse nutzen
+        30hide: Spalten anzeigen/verbergen
         36srows: Sortierbare Zeilen
         38xml1: Gruppierung mit XML-Daten
         20resizing: "Gitter vergr\xC3\xB6\xC3\x9Fern"
@@ -330,12 +407,12 @@ de:
       mine: 
         name: Weitere Beispiele
         contextmenu1: Funktionsbeispiel
-        contextmenu2: Datenmanipulation
-        cedit: "Benutzerdefiniertes \xC3\x84ndern"
         treegrid: Treegrids mit JSON
         cedit1: client-seitig mit jQuery UI-Symbolen
-        cedit2: client-seitig mit eigenen Symbolen
+        contextmenu2: Datenmanipulation
+        cedit: "Benutzerdefiniertes \xC3\x84ndern"
         contextmenu: "Mit einem Kontextmen\xC3\xBC"
+        cedit2: client-seitig mit eigenen Symbolen
         cedit3: server-seitig
         cedit4: server-seitig mit jQuery UI-Symbolen
         cedit5: server-seitig mit eigenen Symbolen
@@ -350,28 +427,9 @@ de:
       example6: MVC Bespielhistorie
       example1: HTML4-Beispiel
       example2: HTML5-Beispiel
-    emu: 
-      name: "jQuery auf mobilen Ger\xC3\xA4ten"
-      ipad: iPad
-      black: Blackberry Torch
-      jqt: 
-        name: "<i>(Ben\xC3\xB6tigt einen WebKit-Engine)</i>"
-        default: jQTouch Demonstration
-        home: "&beta;@jqtouch.com"
-      port: Hochformat
-      land: Querformat
-      jqm: 
-        name: jQuery mobile Framework
-        experiments: Weitere Demos
-        default: jQuery mobile Demonstration
-        home: "&alpha;3@jquerymobile.com"
-      palm: Palm Pre
-      iphone: iPhone
-    ribbon: 
-      name: Multifunktionsleiste
-      simple: jQuery Ribbon Simple Demo
-      default: jQuery Ribbon Windows 7 Demo
-      office: jQuery Ribbon Office Demo
+    haml: 
+      name: Javascript und Haml.
+      jhaml: jQuery-haml-Plugin
     replacetext: 
       name: replaceText
       default: Beispiel
@@ -385,9 +443,9 @@ de:
       default: Standardeinstellungen
       dnd2: "Dynatree: Ziehen und Ablegen 2"
       api: Programmier-API
-      iframe: iframe und URL-Navigation
-      quick: JS-Objekt initialisieren
       dnd: "Dynatree: Ziehen und Ablegen"
+      quick: JS-Objekt initialisieren
+      iframe: iframe und URL-Navigation
       minexpand: Feste Expansionsebene
       dnd3: "jQUery UI: Ziehen und Ablegen"
       events: Ergeignisverarbeitung
@@ -508,29 +566,31 @@ de:
           demo03: 4 verschiedene Skins mit CSS
           demo04: Mit Mouseover Registerkarten wechseln
           demo05: Assistenten mit Registerkarten
-    tinymce: 
-      name: TinyMCE
-      default: "Vollst\xC3\xA4ndiges Beispiel mit jQuery-Plugin"
     tokeninput: 
       name: Tokeninput
       default: jQuery Tokenizing Autocomplete Input
       demo: jQuery Tokeninput Demos
+    tinymce: 
+      name: TinyMCE
+      default: "Vollst\xC3\xA4ndiges Beispiel mit jQuery-Plugin"
+    handling: 
+      name: Handhabung
     ical: 
       name: iCalendar
       anytime: 
         name: Any+Time&trade;
         default: "Standardfunktionalit\xC3\xA4t"
-        separate: Datum und Uhrzeit getrennt
         inline: Eingebettet anzeigen
         css: Benutzerdefiniertes Layout
+        separate: Datum und Uhrzeit getrennt
         ajax: Ajax Demo
         extend: "Erweiterung der Funktionalit\xC3\xA4t"
         convert: AnyTime.Converter
       fullcalendar: 
         name: FullCalendar Plugin
         gcal: Google-Kalender der US-Feiertage
-        theme: Kalender mit jQuery UI Thema
         selectable: "Zeitbereiche f\xC3\xBCr das Erstellen eines Ereignisses ausw\xC3\xA4hlen"
+        theme: Kalender mit jQuery UI Thema
         default: Standardansicht
         agenda: Agenda-Ansicht
         external: Ziehen Sie externe Ereignisse auf den Kalender
@@ -561,8 +621,6 @@ de:
         listing: iCalendar auflisten
         show: " iCalendar anzeigen"
         iphone: Zeigen es auf einem iPhone
-    handling: 
-      name: Handhabung
     hello: ""
     ui: 
       name: jQquery UI
@@ -578,18 +636,6 @@ de:
           default: "W\xC3\xA4hlbar"
           display-grid: Als Gitter anzeigen
         default: Interaktionen
-        resizable: 
-          aspect-ratio: "Seitenverh\xC3\xA4ltnis beibehalten"
-          snap-to-grid: Im Gitter einrasten
-          max-min: "Maximal-  / Minimalgr\xC3\xB6\xC3\x9Fe"
-          default: "Vergr\xC3\xB6\xC3\x9Ferbar"
-          animate: Animieren
-          synchronous-resize: "Synchrones Vergr\xC3\xB6\xC3\x9Fern"
-          helper: "Vergr\xC3\xB6\xC3\x9Ferungshelfer"
-          textarea: Texfeld
-          delay-start: "Start verz\xC3\xB6gern"
-          constrain-area: "Vergr\xC3\xB6\xC3\x9Ferungsfl\xC3\xA4che einschr\xC3\xA4nken"
-          visual-feedback: Visuelles Feedback
         sortable: 
           items: "Elemente ein- / ausschlie\xC3\x9Fen"
           empty-lists: Leere Listen handhaben
@@ -600,6 +646,18 @@ de:
           display-grid: Als Gitter anzeigen
           connect-lists: Listen verbinden
           placeholder: "Platzhalter f\xC3\xBCr den Abwurf"
+        resizable: 
+          aspect-ratio: "Seitenverh\xC3\xA4ltnis beibehalten"
+          snap-to-grid: Im Gitter einrasten
+          max-min: "Maximal-  / Minimalgr\xC3\xB6\xC3\x9Fe"
+          default: "Vergr\xC3\xB6\xC3\x9Ferbar"
+          animate: Animieren
+          synchronous-resize: "Synchrones Vergr\xC3\xB6\xC3\x9Fern"
+          helper: "Vergr\xC3\xB6\xC3\x9Ferungshelfer"
+          delay-start: "Start verz\xC3\xB6gern"
+          textarea: Texfeld
+          constrain-area: "Vergr\xC3\xB6\xC3\x9Ferungsfl\xC3\xA4che einschr\xC3\xA4nken"
+          visual-feedback: Visuelles Feedback
         draggable: 
           handle: Position des Griffs
           snap-to: In Element oder Gitter einrasten
@@ -608,9 +666,9 @@ de:
           sortable: Zieh- und sortierbar
           constrain-movement: "Einschr\xC3\xA4nken der Bewegung"
           events: Ereignisse
-          cursor-style: Cursorstil
-          revert: "Zur Position zur\xC3\xBCckkehren"
           delay-start: "Start verz\xC3\xB6gern"
+          revert: "Zur Position zur\xC3\xBCckkehren"
+          cursor-style: Cursorstil
           visual-feedback: Visuelles Feedback
         droppable: 
           default: Ablegbar
@@ -623,8 +681,8 @@ de:
       widgets: 
         button: 
           default: "Schaltfl\xC3\xA4che"
-          icon: Symbole
           checkbox: Auswahltasten
+          icon: Symbole
           radio: Umschalttasten
           toolbar: Werkzeugleiste
           splitbutton: "Geteilte Schaltfl\xC3\xA4che"
@@ -638,14 +696,14 @@ de:
           range-vertical: Vertikaler Regler mit Bereich
           range: Regler mit Bereich
           rangemax: Bereich mit festgesetzten Maximum
-          hotelrooms: Zimmerreservierung
           colorpicker: Einfache Farbauswahl
+          hotelrooms: Zimmerreservierung
           tabs: Registerkarte per Schieberegler kontrollieren
           rangemin: Bereich mit festgesetztem Mininum
         panel: 
           name: Entwurf Panel
-          simple: Einfaches Beispielpanel
           left: Von links einblenden
+          simple: Einfaches Beispielpanel
           right1: Von rechts einblenden 1
           right2: Von rechts einblenden 2
           default: Zusammenklappbares Panel
@@ -663,8 +721,8 @@ de:
           background: "Beispiel: Hintergrundbild"
           icons: "Stil: <b>Popup</b> mit UI-Symbolen"
           ajax: "Beispiel: Callback mit AJAX"
-          text-formatting: "Stil: <b>Popup</b> mit der Option Textformatierung"
           optgroups: "Stil: <b>Popup</b> mit optgroups"
+          text-formatting: "Stil: <b>Popup</b> mit der Option Textformatierung"
           positioning: Positionierung
           menuwidth: "Stil: <b>Dropdown</b> mit menuWidth und Textformatierung"
           custom-icons: "Stil: <b>Popup</b> mit benutzerdefinierten Icons"
@@ -683,8 +741,8 @@ de:
           show-week: Zeige Kalanderwoche
           icon-trigger: "\xC3\x9Cber Symbol aktivieren"
           date-formats: Datum formatieren
-          animation: Animationen
           multiple-calendars: Mehrerer Monate anzeigen
+          animation: Animationen
           localization: " Kalender lokalisieren"
           dropdown-month-year: "Monat- & Jahresmen\xC3\xBCs anzeigen"
           other-months: Termine in den anderen Monaten
@@ -707,6 +765,19 @@ de:
           mouseover: "\xC3\x96ffnen, wenn die Maus dar\xC3\xBCberf\xC3\xA4hrt"
           cookie: "Persistenz \xC3\xBCber Cookie"
           collapsible: Inhalt wegklappen
+        autocomplete: 
+          maxheight: Scrollbare Ergebnisse
+          default: "Autovervollst\xC3\xA4ndigung"
+          remote-jsonp: Entfernte JSONP-Datenquelle
+          multiple-remote: Mehrfachwerte, entfernt
+          folding: "Akzente ber\xC3\xBCcksichtigen"
+          custom-data: Benutzerdefinierte Daten und Anzeige
+          remote-with-cache: Entfernt mit Caching
+          multiple: Mehrfachwerte
+          categories: Kategorien
+          remote: Entfernte Datenquelle
+          combobox: Auswahleiste
+          remote-xml: XML-Daten einmalig geparsed
         dialog: 
           greybox: Greybox
           default: Dialog
@@ -715,19 +786,6 @@ de:
           animated: Animierter Dialog
           modal-form: Modale Form
           modal-message: Modale Nachricht
-        autocomplete: 
-          maxheight: Scrollbare Ergebnisse
-          default: "Autovervollst\xC3\xA4ndigung"
-          folding: "Akzente ber\xC3\xBCcksichtigen"
-          remote-jsonp: Entfernte JSONP-Datenquelle
-          multiple-remote: Mehrfachwerte, entfernt
-          custom-data: Benutzerdefinierte Daten und Anzeige
-          remote-with-cache: Entfernt mit Caching
-          multiple: Mehrfachwerte
-          categories: Kategorien
-          remote: Entfernte Datenquelle
-          remote-xml: XML-Daten einmalig geparsed
-          combobox: Auswahleiste
       form: 
         new: Anlegen
         edit: Bearbeiten
@@ -762,13 +820,6 @@ de:
         initial: Thema wechseln
     tree: 
       name: Tree Widgets
-  activemodel: 
-    errors: 
-      template: 
-        body: "Bitte \xC3\xBCberpr\xC3\xBCfen Sie die folgenden Felder:"
-        header: 
-          one: "Konnte %{model} nicht speichern: ein Fehler."
-          other: "Konnte %{model} nicht speichern: %{count} Fehler."
   date: 
     month_names: 
     - 
