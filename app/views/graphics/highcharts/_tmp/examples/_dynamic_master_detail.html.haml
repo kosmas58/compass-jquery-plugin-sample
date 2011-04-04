@@ -332,7 +332,7 @@
       }
 
       // make the container smaller and add a second container for the master chart
-      var $container = $("#container")
+      var $container = $('#container')
           .css('position', 'relative');
 
       var $detailContainer = $('')
@@ -346,10 +346,6 @@
       createMaster();
   });
 
--@title = "#{t('txt.graphics.highcharts.name')} - #{t('txt.graphics.highcharts.dynamic.name')} - #{t('txt.graphics.highcharts.dynamic.master_detail')}"
-
-%h3
-  =image_tag("icons/22x22/graphics.png", :border => 0)
-  =@title
-
+    %body
+/ 3. Add the container
 #container{:style => "width: 800px; height: 400px; margin: 0 auto"}

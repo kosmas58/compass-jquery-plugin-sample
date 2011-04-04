@@ -1,59 +1,48 @@
-!!! Strict
-%html
-  %head
-    %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}
-      %title Highcharts Example
-      / 1. Add these JavaScript inclusions in the head of your page
-      %script{:src => "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js", :type => "text/javascript"}
-      %script{:src => "../js/highcharts.js", :type => "text/javascript"}
-      / 1a) Optional: add a theme file
-      /
-        <script type="text/javascript" src="../js/themes/gray.js"></script>
-      / 1b) Optional: the exporting module
-      %script{:src => "../js/modules/exporting.js", :type => "text/javascript"}
-      / 2. Add the JavaScript to initialize the chart on document ready
-      :javascript
-        var chart;
-        $(document).ready(function() {
-        	chart = new Highcharts.Chart({
-        		chart: {
-        			renderTo: 'container'
-        		},
-        		xAxis: {
-        			min: -0.5,
-        			max: 5.5
-        		},
-        		yAxis: {
-        			min: 0
-        		},
-        		title: {
-        			text: 'Scatter plot with regression line'
-        		},
-        		series: [{
-        			type: 'line',
-        			name: 'Regression Line',
-        			data: [[0, 1.11], [5, 4.51]],
-        			marker: {
-        				enabled: false
-        			},
-        			states: {
-        				hover: {
-        					lineWidth: 0
-        				}
-        			},
-        			enableMouseTracking: false
-        		}, {
-        			type: 'scatter',
-        			name: 'Observations',
-        			data: [1, 1.5, 2.8, 3.5, 3.9, 4.2],
-        			marker: {
-        				radius: 4
-        			}
-        		}]
-        	});
-        	
-        });
-        	
-		  %body
-    / 3. Add the container
-    #container{:style => "width: 800px; height: 400px; margin: 0 auto"}
+:javascript
+  var chart;
+  $(document).ready(function() {
+      chart = new Highcharts.Chart({
+          chart: {
+              renderTo: 'container'
+          },
+          xAxis: {
+              min: -0.5,
+              max: 5.5
+          },
+          yAxis: {
+              min: 0
+          },
+          title: {
+              text: 'Scatter plot with regression line'
+          },
+          series: [{
+              type: 'line',
+              name: 'Regression Line',
+              data: [[0, 1.11], [5, 4.51]],
+              marker: {
+                  enabled: false
+              },
+              states: {
+                  hover: {
+                      lineWidth: 0
+                  }
+              },
+              enableMouseTracking: false
+          }, {
+              type: 'scatter',
+              name: 'Observations',
+              data: [1, 1.5, 2.8, 3.5, 3.9, 4.2],
+              marker: {
+                  radius: 4
+              }
+          }]
+      });
+  });
+
+-@title = "#{t('txt.graphics.highcharts.name')} - #{t('txt.graphics.highcharts.combo.name')} - #{t('txt.graphics.highcharts.combo.regression')}"
+
+%h3
+  =image_tag("icons/22x22/graphics.png", :border => 0)
+  =@title
+
+#container{:style => "width: 800px; height: 400px; margin: 0 auto"}
