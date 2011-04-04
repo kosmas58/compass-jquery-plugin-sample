@@ -3,6 +3,10 @@ class Graphics::HighchartsController < ApplicationController
 
   protect_from_forgery
 
+  def examples
+    @example = params[:example] || "line_basic"
+  end
+
   def default
     example = params[:example] || "line_basic"
     render :partial => "default", :locals => {:example => example}

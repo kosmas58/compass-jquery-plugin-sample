@@ -192,3 +192,11 @@
           ]
       });
   });
+
+-@title = "#{t('txt.graphics.highcharts.name')} - #{t('txt.graphics.highcharts.line.name')} - #{t('txt.graphics.highcharts.line.time_series')}"
+
+%h3
+  =image_tag("icons/22x22/graphics.png", :border => 0)
+  =@title
+
+#container{:style => "width: 800px; height: 400px; margin: 0 auto"}
