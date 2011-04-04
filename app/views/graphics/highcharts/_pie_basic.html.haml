@@ -1,0 +1,69 @@
+!!! Strict
+%html
+  %head
+    %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}
+      %title Highcharts Example
+      / 1. Add these JavaScript inclusions in the head of your page
+      %script{:src => "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js", :type => "text/javascript"}
+      %script{:src => "../js/highcharts.js", :type => "text/javascript"}
+      / 1a) Optional: add a theme file
+      /
+        <script type="text/javascript" src="../js/themes/gray.js"></script>
+      / 1b) Optional: the exporting module
+      %script{:src => "../js/modules/exporting.js", :type => "text/javascript"}
+      / 2. Add the JavaScript to initialize the chart on document ready
+      :javascript
+        var chart;
+        $(document).ready(function() {
+        	chart = new Highcharts.Chart({
+        		chart: {
+        			renderTo: 'container',
+        			plotBackgroundColor: null,
+        			plotBorderWidth: null,
+        			plotShadow: false
+        		},
+        		title: {
+        			text: 'Browser market shares at a specific website, 2010'
+        		},
+        		tooltip: {
+        			formatter: function() {
+        				return ''+ this.point.name +': '+ this.y +' %';
+        			}
+        		},
+        		plotOptions: {
+        			pie: {
+        				allowPointSelect: true,
+        				cursor: 'pointer',
+        				dataLabels: {
+        					enabled: true,
+        					color: '#000000',
+        					connectorColor: '#000000',
+        					formatter: function() {
+        						return ''+ this.point.name +': '+ this.y +' %';
+        					}
+        				}
+        			}
+        		},
+        	    series: [{
+        			type: 'pie',
+        			name: 'Browser share',
+        			data: [
+        				['Firefox',   45.0],
+        				['IE',       26.8],
+        				{
+        					name: 'Chrome',    
+        					y: 12.8,
+        					sliced: true,
+        					selected: true
+        				},
+        				['Safari',    8.5],
+        				['Opera',     6.2],
+        				['Others',   0.7]
+        			]
+        		}]
+        	});
+        });
+        	
+		  %body
+    / 3. Add the container
+    #container{:style => "width: 800px; height: 400px; margin: 0 auto"}
