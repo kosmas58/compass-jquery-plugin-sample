@@ -38,6 +38,16 @@ ActionController::Routing::Routes.draw do |map|
                                         :jqt_original => :get}
   end
 
+  map.namespace :jqtouch do |jqtouch|
+    jqtouch.resources :demo => {:ajax_post => :post}
+  end
+
+  map.namespace :mobile do |mobile|
+    mobile.namespace :experiments do |experiment|
+      experiment.resources :list_items
+    end
+  end
+
   map.resources :navigation,
                 :collection => {:get_children=> :get,
                                 :search => :get,
@@ -49,15 +59,6 @@ ActionController::Routing::Routes.draw do |map|
                             :move => :put}
 
   map.namespace :widgets do |widget|
-    widget.resources :jstree => {:get_children=> :get,
-                                 :search => :get,
-                                 :create_node => :post,
-                                 :remove_node => :delete,
-                                 :rename_node => :post,
-                                 :move_node => :post,
-                                 :analyze => :get,
-                                 :rebuild => :post}
-
     widget.namespace :ical do |ical|
       ical.resources :calendars,
                      :collection => {:iphone => :get} do |calendar|
@@ -84,18 +85,17 @@ ActionController::Routing::Routes.draw do |map|
       jqgrid.resources :mine
     end
 
+    widget.resources :jstree => {:get_children=> :get,
+                                 :search => :get,
+                                 :create_node => :post,
+                                 :remove_node => :delete,
+                                 :rename_node => :post,
+                                 :move_node => :post,
+                                 :analyze => :get,
+                                 :rebuild => :post}
+
     widget.resources :tiny_mce,
                      :member => {:dump => :post}
-  end
-
-  map.namespace :jqtouch do |jqtouch|
-    jqtouch.resources :demo => {:ajax_post => :post}
-  end
-
-  map.namespace :mobile do |mobile|
-    mobile.namespace :experiments do |experiment|
-      experiment.resources :list_items
-    end
   end
 
   Translate::Routes.translation_ui(map) if RAILS_ENV != "production "

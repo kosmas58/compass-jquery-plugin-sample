@@ -1,0 +1,25 @@
+- content_for :content_head do
+  = render(:partial => "examples.js.haml", :format => :js)
+
+.demo
+  #highcharts_themes
+    %ul
+      %li
+        %a{ :href => "default" }
+          Default
+      %li
+        %a{ :href => "grid" }
+          Grid
+      %li
+        %a{ :href => "skies" }
+          Skies
+      %li
+        %a{ :href => "gray" }
+          Gray
+      %li
+        %a{ :href => "blue" }
+          Dark blue
+      %li
+        %a{ :href => "green" }
+          Dark green
+/ End demo
