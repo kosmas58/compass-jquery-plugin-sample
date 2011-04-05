@@ -246,6 +246,12 @@ en:
       example4: Ajax Sample 2
       example5: BBQ
       example6: MVC Sample History
+      example7: WebKit popstate 1
+      example8: Webkit popstate 2
+      example9: Chrome History API
+      example10: HTML5 History API
+      example11: Navigator Output
+      example12: Safari History Bug
     emu: 
       name: jQuery on mobile devices
       ipad: iPad

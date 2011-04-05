@@ -345,11 +345,12 @@
       // create master and in its callback, create the detail chart
       createMaster();
   });
-
+  
 -@title = "#{t('txt.graphics.highcharts.name')} - #{t('txt.graphics.highcharts.dynamic.name')} - #{t('txt.graphics.highcharts.dynamic.master_detail')}"
 
-%h3
+%h4
   =image_tag("icons/22x22/graphics.png", :border => 0)
   =@title
 
 #container{:style => "width: 800px; height: 400px; margin: 0 auto"}
+

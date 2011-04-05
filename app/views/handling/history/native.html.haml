@@ -1,0 +1,74 @@
+-@title = "#{t('txt.history.name')} - #{t('txt.history.example10')}"
+
+- content_for :content_head do
+  = render(:partial => "safari.js.haml", :format => :js)
+
+.demo
+  %h3
+    =image_tag("icons/22x22/html5.png", :border => 0)
+    =@title
+  %textarea#log{:style => "width:100%;height:400px;margin:1em;"}
+  #url{:style => "border:1px black dotted;height:1em;margin:1em;"}
+  #buttons{:style => "margin:1em;"}
+  :javascript
+    var $url = document.getElementById('url'), $log = document.getElementById('log');
+
+    window.onpopstate = function(event) {
+      var message =
+          "onpopstate: "+
+          "location: " + location.href + ", " +
+          "data: " + JSON.stringify(event.state) +
+          "\n\n"
+          ;
+
+      $url.innerHTML = location.href;
+      $log.innerHTML += message;
+      console.log(message);
+    };
+
+    window.onhashchange = function(event) {
+      var message =
+          "onhashchange: "+
+          "location: " + location.href + ", "+
+          "hash: " + location.hash +
+          "\n\n"
+          ;
+
+      $url.innerHTML = location.href;
+      $log.innerHTML += message;
+      console.log(message);
+    };
+
+    // Prepare Buttons
+    var
+      buttons = document.getElementById('buttons'),
+      scripts = [
+          'history.pushState({state:1}, "State 1", "?state=1");',
+          'history.pushState({state:2}, "State 2", "?state=2");',
+          'history.replaceState({state:3}, "State 3", "?state=3");',
+          'location.hash = Math.random();',
+          'history.back();',
+          'history.forward();',
+          'document.location.href = document.location.href.replace(/[\#\?].*/,"");'
+      ],
+      buttonsHTML = ''
+      ;
+
+    // Add Buttons
+    for ( var i=0,n=scripts.length; i<n; ++i ) {
+      var _script = scripts[i];
+      buttonsHTML +=
+          ''+_script+'';
+    }
+    buttons.innerHTML = buttonsHTML;
+/ End demo
+.demo-description
+  #greybox
+  %p
+    The plugin was written by
+    %a{:href => "http://github.com/balupton/History.js/", :class => :greybox  } Benjamin Lupton
+    and released under the
+    = succeed "." do
+      %a{:href => "http://creativecommons.org/licenses/BSD/", :class => :greybox } New BSD License
+/ End demo-description
+

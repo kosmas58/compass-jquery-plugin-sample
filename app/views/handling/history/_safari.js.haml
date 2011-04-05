@@ -1,0 +1,45 @@
+:javascript
+  (function(){
+
+    window.onpopstate = function(event) {
+        var message = ("onpopstate: location: " + document.location.href);
+        document.getElementById('log').innerHTML += message+"\n\n";
+    };
+
+    window.onhashchange = function(event) {
+        var message = ("onhashchange: location: " + document.location.href);
+        document.getElementById('log').innerHTML += message+"\n\n";
+    };
+
+    document.getElementById('bug').onclick = function(){
+        setTimeout(function(){
+            document.location.hash = Math.random();
+        },1e3);
+
+        setTimeout(function(){
+            history.replaceState(null,'','?blah');
+        },2e3);
+
+        setTimeout(function(){
+            history.back(); // should take us to the initial page, it doesn't
+        },3e3);
+    };
+
+    document.getElementById('workaround').onclick = function(){
+        setTimeout(function(){
+            history.pushState(null,'','#'+Math.random());
+        },1e3);
+
+        setTimeout(function(){
+            history.replaceState(null,'','?blah');
+        },2e3);
+
+        setTimeout(function(){
+            history.back(); // will take us to the initial page
+        },3e3);
+    };
+
+    document.getElementById('reset').onclick = function(){
+        document.location.href = document.location.href.replace(/[\#\?].*/,"");
+    };
+  })();

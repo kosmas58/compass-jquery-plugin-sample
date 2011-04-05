@@ -37,4 +37,8 @@ class Graphics::HighchartsController < ApplicationController
     render :partial => "green", :locals => {:example => example}
   end
 
+  def analytics
+    render :file => File.join(RAILS_ROOT, 'app/views/graphics/highcharts/analytics.tsv')
+  end
+
 end
