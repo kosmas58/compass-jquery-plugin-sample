@@ -19,11 +19,11 @@
         - @current_objects.each do |item|
           %li
             %a#item{ :value => item.id, :href => "#" }
-              -#-if item.checked
-              -#  %img#box.ui-icon-checkbox-off.ui-icon-checkbox-on{ :src => "/images/demo/empty.png" }
-              -#-else
-              -#  %img#box.ui-icon-checkbox-off.ui-icon-checkbox-off{ :src => "/images/demo/empty.png" }
-              = item.name
+              -if item.checked
+                %s.checked
+                  = item.name
+              -else
+                = item.name
             %a#item_delete{:value => item.id, :href => "#", "data-rel" => "dialog", "data-transition" => "pop"}
               Remove
               = item.name

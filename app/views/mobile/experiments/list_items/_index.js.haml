@@ -9,19 +9,17 @@
 4
 %script#item_template{:type => "text/x-jquery-tmpl"}
   %li
-    -#{{if list_item.checked }}
-    -#%img#box.ui-icon-checkbox-off.ui-icon-checkbox-on{ :src => "/images/demo/empty.png" }
-    -#{{else}}
-    -#%img#box.ui-icon-checkbox-off.ui-icon-checkbox-off{ :src => "/images/demo/empty.png" }
-    -#{{/if}}
     %a#item{ :value => "${list_item.id}", :href => "#" }
+      {{if list_item.checked }}
+      %s.checked ${list_item.name}
+      {{else}}
       ${list_item.name}
+      {{/if}}
     %a#item_delete{:value => "${list_item.id}", :href => "#", "data-rel" => "dialog", "data-transition" => "pop" }
       Remove ${list_item.name}
 
 %script#item_template_new{:type => "text/x-jquery-tmpl"}
   %li
-    -#%img#box.ui-icon-checkbox-off.ui-icon-checkbox-off{ :src => "/images/demo/empty.png" }
     %a#item
       ${list_item.name}
     %a#item_delete{ "data-rel" => "dialog", "data-transition" => "pop" }
@@ -182,7 +180,6 @@
           checked = false;
         }
         else {
-          box.addClass("ui-icon-checkbox-on");
           checked = true;
         }
 
