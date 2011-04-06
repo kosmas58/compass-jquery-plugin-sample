@@ -18,11 +18,12 @@
       - else
         - @current_objects.each do |item|
           %li
-            %a#item{ :value => item.id, :href => "#" }
-              -if item.checked
-                %s.checked
+            -if item.checked
+              %a#item.checked{ :value => item.id, :href => "#" }
+                %s
                   = item.name
-              -else
+            -else
+              %a#item{ :value => item.id, :href => "#" }
                 = item.name
             %a#item_delete{:value => item.id, :href => "#", "data-rel" => "dialog", "data-transition" => "pop"}
               Remove

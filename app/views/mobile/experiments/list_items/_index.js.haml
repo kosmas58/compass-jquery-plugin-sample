@@ -11,7 +11,7 @@
   %li
     %a#item{ :value => "${list_item.id}", :href => "#" }
       {{if list_item.checked }}
-      %s.checked ${list_item.name}
+      %s ${list_item.name}
       {{else}}
       ${list_item.name}
       {{/if}}
@@ -86,6 +86,7 @@
       timeout:     5000,
       success:     function(data, textStatus, jqXHR) {
                      shiftPending();
+                     itemsRefresh();
                    },
       error:       function(jqXHR, textStatus, errorThrown) {
                      console.log("Update error: "+textStatus);
@@ -174,13 +175,15 @@
       var item = $(this).attr("value");
       var checked;
       if (item) {
-        var box = $(this).parent().children("#box");
-        if (box.hasClass("ui-icon-checkbox-on")) {
-          box.removeClass("ui-icon-checkbox-on");
+        if ($(this).hasClass("checked")) {
+          $(this).removeClass("checked");
           checked = false;
+          alert("uncheck");
         }
         else {
+          $(this).addClass("checked");
           checked = true;
+          alert("check");
         }
 
         // Store data locally
