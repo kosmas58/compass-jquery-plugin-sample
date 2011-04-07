@@ -21,14 +21,23 @@ date:
     short: "%b %d"
     long: "%B %d, %Y"
 txt: 
-  graphics: 
-    highcharts: 
-      pie: 
-        name: Pie charts
-        legend: Pie with legend
-        basic: Pie chart
-      combo: 
-        default: Column, line and pie
+  history: 
+    example10: HTML5 History API
+    example11: Navigator Output
+    example12: Safari History Bug
+    example7: WebKit popstate 1
+    example8: Webkit popstate 2
+    example9: Chrome History API
+  emu: 
+    galaxy7: Galaxy Tab 7
+  tools: 
+    form: 
+      stylable: 
+        name: Stylable
+        demo01: Minimal setup for Styleable
+        demo02: Scripting styleable Forms
+        demo03: Alternate form skin
+  hello: Hello world
 support: 
   array: 
     words_connector: ", "

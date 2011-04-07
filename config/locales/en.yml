@@ -256,6 +256,7 @@ en:
       name: jQuery on mobile devices
       ipad: iPad
       black: Blackberry Torch
+      galaxy7: Galaxy Tab 7
       jqt: 
         name: <i>(needs a WebKit engine)</i>
         default: jQTouch Demo
