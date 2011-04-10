@@ -255,6 +255,11 @@ en:
     emu: 
       name: jQuery on mobile devices
       ipad: iPad
+      os:
+        ios: iOS
+        bos: Blackerry OS
+        android: Android
+        webos: web OS
       black: Blackberry Torch
       galaxys: Galaxy S
       galaxy7: Galaxy Tab 7
@@ -269,8 +274,8 @@ en:
         experiments: Additional demos
         default: jQuery mobile Demo
         home: "&alpha;4@jquerymobile.com"
-      iphone: iPhone
-      palm: Palm Pre
+      iphone: iPhone 3
+      palm: Pre 2
     jqgrid: 
       simple: 
         name: Simple Data Grids

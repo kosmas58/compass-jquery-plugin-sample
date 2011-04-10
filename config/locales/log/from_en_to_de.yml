@@ -21,6 +21,12 @@ date:
     short: "%b %d"
     long: "%B %d, %Y"
 txt: 
+  emu: 
+    os: 
+      webos: web OS
+      ios: iOS
+      android: Android
+      bos: Blackerry OS
   history: 
     example10: HTML5 History API
     example11: Navigator Output
@@ -28,8 +34,6 @@ txt:
     example7: WebKit popstate 1
     example8: Webkit popstate 2
     example9: Chrome History API
-  emu: 
-    galaxy7: Galaxy Tab 7
   tools: 
     form: 
       stylable: 
