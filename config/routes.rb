@@ -6,16 +6,30 @@ ActionController::Routing::Routes.draw do |map|
                                         :jqt => :get,
                                         :jqt_original => :get}
     emulators.resources :blackberry_portrait,
+                        :collect8ion => {:jqm => :get,
+                                        :jqm_original => :get,
+                                        :jqt => :get,
+                                        :jqt_original => :get}
+    emulators.resources :galaxy_s_landsacpe,
+                        :collection => {:jqm => :get,
+                                        :jqm_original => :get,
+                                        :jqt => :get,
+                                        :jqt_original => :get}
+    emulators.resources :galaxy_s_portrait,
                         :collection => {:jqm => :get,
                                         :jqm_original => :get,
                                         :jqt => :get,
                                         :jqt_original => :get}
     emulators.resources :galaxy7_landsacpe,
                         :collection => {:jqm => :get,
-                                        :jqm_original => :get}
+                                        :jqm_original => :get,
+                                        :jqt => :get,
+                                        :jqt_original => :get}
     emulators.resources :galaxy7_portrait,
                         :collection => {:jqm => :get,
-                                        :jqm_original => :get}
+                                        :jqm_original => :get,
+                                        :jqt => :get,
+                                        :jqt_original => :get}
     emulators.resources :ipad_landsacpe,
                         :collection => {:jqm => :get,
                                         :jqm_original => :get}
