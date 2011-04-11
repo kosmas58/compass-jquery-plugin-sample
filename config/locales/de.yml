@@ -407,7 +407,7 @@ de:
     emu: 
       name: "jQuery auf mobilen Ger\xC3\xA4ten"
       ipad: iPad
-      black: Blackberry Torch
+      black: BlackBerry Torch
       jqt: 
         name: "<i>(Ben\xC3\xB6tigt einen WebKit-Engine)</i>"
         default: jQTouch Demonstration
@@ -419,7 +419,7 @@ de:
         ios: iOS
         webos: webOS
         android: Android
-        bos: Blackerry OS
+        bos: BlackBerry OS
       jqm: 
         name: jQuery mobile Framework
         experiments: Weitere Demos

@@ -257,10 +257,10 @@ en:
       ipad: iPad
       os:
         ios: iOS
-        bos: Blackerry OS
+        bos: BlackBerry OS
         android: Android
         webos: webOS
-      black: Blackberry Torch
+      black: BlackBerry Torch
       galaxys: Galaxy S
       galaxy7: Galaxy Tab 7
       jqt: 
