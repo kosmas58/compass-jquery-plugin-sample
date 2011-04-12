@@ -62,7 +62,7 @@
       %fieldset
         %div{"data-role" => "fieldcontain"}
           %label.select{:for => "shipping"} Choose shipping method:
-          %select#shipping{:name => "shipping"}
+          %select#shipping{"data-native-menu" => "false", :name => "shipping"}
             %option{:value => "Standard shipping"} Standard: 7 day
             %option{:value => "Rush shipping"} Rush: 3 days
             %option{:value => "Express shipping"} Express: next day

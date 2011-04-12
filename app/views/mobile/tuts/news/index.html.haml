@@ -17,7 +17,7 @@
     %h1 Select a news category
   %div{"data-role" => "content"}
     %div{"data-role" => "fieldcontain"}
-      %select#category
+      %select#category{"data-native-menu" => "false"}
         %option{:value => ""} Select a Category
         %option{:value => "topstories"} Top Stories
         %option{:value => "us"} U.S.

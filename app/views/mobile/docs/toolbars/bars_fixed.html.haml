@@ -91,7 +91,7 @@
         %input#slider{:max => "100", :min => "0", :name => "slider", :type => "range", :value => "0"}
       %div{"data-role" => "fieldcontain"}
         %label.select{:for => "select-choice-1"} Choose shipping method:
-        %select#select-choice-1{:name => "select-choice-1"}
+        %select#select-choice-1{"data-native-menu" => "false", :name => "select-choice-1"}
           %option{:value => "standard"} Standard: 7 day
           %option{:value => "rush"} Rush: 3 days
           %option{:value => "express"} Express: next day

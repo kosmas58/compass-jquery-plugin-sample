@@ -34,7 +34,7 @@
         %input#city{:name => "city_r", :type => "text"}
       #stateDiv{"data-role" => "fieldcontain"}
         %label#stateLabel{:for => "state"} State*
-        %select#state{:name => "state_r", :tabindex => "2"}
+        %select#state{"data-native-menu" => "false", :name => "state_r", :tabindex => "2"}
           %option{:value => "ZZ"} Please select a state
           %option{:value => "AL"} Alabama
           %option{:value => "AK"} Alaska

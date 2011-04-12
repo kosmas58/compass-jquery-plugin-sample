@@ -77,7 +77,7 @@
     %p Form elements and other content can also be added to toolbars. Here is an example of a select menu inside a footer bar:
     .ui-bar{"data-position" => "inline", "data-role" => "footer"}
       %label{:for => "select-choice-1"} Shipping:
-      %select#select-choice-1{"data-theme" => "a", :name => "select-choice-1"}
+      %select#select-choice-1{"data-native-menu" => "false", "data-theme" => "a", :name => "select-choice-1"}
         %option{:value => "standard"} Standard: 7 day
         %option{:value => "rush"} Rush: 3 days
         %option{:value => "express"} Express: next day

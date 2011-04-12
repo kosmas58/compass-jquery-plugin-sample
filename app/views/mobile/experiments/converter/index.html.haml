@@ -32,13 +32,13 @@
     %h2 Select currencies to convert:
     %div{"data-role" => "fieldcontain"}
       %label{:for => "currency-options-from"} From
-      %select#currency-options-from{"data-theme" => "c", :name => "currency-options"}
+      %select#currency-options-from{"data-native-menu" => "false", "data-theme" => "c", :name => "currency-options"}
         %option{:value => "EUR"} EUR to Euro
         %option{:value => "USD"} USD to US Dollar
         %option{:value => "GBP"} GBP to Great Britain Pound
     %div{"data-role" => "fieldcontain"}
       %label{:for => "currency-options-to"} To
-      %select#currency-options-to{"data-theme" => "c", :name => "currency-options"}
+      %select#currency-options-to{"data-native-menu" => "false", "data-theme" => "c", :name => "currency-options"}
         %option{:value => "EUR"} EUR to Euro
         %option{:value => "USD"} USD to US Dollar
         %option{:value => "GBP"} GBP to Great Britain Pound
