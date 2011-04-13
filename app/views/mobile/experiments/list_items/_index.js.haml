@@ -117,7 +117,7 @@
       console.log("Online");
       var pendingItems = $.parseJSON($.DSt.get(storageVar));
       if (pendingItems.length > 0) {
-      console.log("Online - sending pending items");
+        console.log("Online - sending pending items");
         var pendingItem = pendingItems[0];
         switch( pendingItem["method"] ) {
           case "POST":
