@@ -1,0 +1,38 @@
+:javascript
+    //dualColumn widget for jqurey mobile version 0.3 for JQMalpha3
+    //Author: naugtur License: MIT
+    //jquerymobiledictionary.dyndns.org
+    (function($, undefined) {
+        $.widget("mobile.dualColumn", $.mobile.widget, {
+            options: {
+                width:"30%",
+                outer:false
+            },
+            _create: function() {
+                var $h = $('html');
+                var $m = this.element;
+                o = this.options;
+                if ($m.is("[data-role='menu']") && $h.hasClass('min-width-768px')) {
+                    var $p = $m.parents("[data-role='page']");
+                    if (o.outer) {
+                        $p.before($m);
+                        $m.css({"width":o.width,"float":"left","position":"absolute","z-index":"1"}).addClass('ui-menu').height($p.height()).page();
+                        $p.children().css('margin-left', o.width).width('auto');
+                        $('div').live('pagebeforeshow', function(e) {
+                            $(this).children().css('margin-left', o.width).width('auto');
+                        });
+                    } else {
+                        var c = $p.find("[data-role='content']").before($m);
+                        $m.css({"width":o.width,"float":"left","overflow":"auto"}).addClass('ui-menu').height(c.height()).page();
+                        $('div').live('pagebeforeshow', function(e) {
+                            $(this).find("[data-role='content']").before($m);
+                        });
+                    }
+                }
+            }
+        });
+        $(function() {
+            $("[data-role='page']:first [data-role='menu']").dualColumn();
+        });
+    })(jQuery);
+

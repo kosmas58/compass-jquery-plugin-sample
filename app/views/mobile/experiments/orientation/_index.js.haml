@@ -1,48 +1,4 @@
-:css
-  .portrait {
-    background-color: rgba(0, 25, 255, 0.5);
-    width: 100%;
-    height: 100%;
-  }
-  .landscape {
-    background-color: rgba(255, 25, 0, 0.5);
-    width: 100%;
-    height: 100%;
-  }
-  p{
-    font-size:24px;
-    color:white;
-  }
-
-:javascript
-  // Change the style dependengt on orientation
-  function changeOrientation(ori){
-    // Remove all classes separated by spaces
-    $("#orientation").removeClass('portrait landscape');
-    $("#orientation").addClass(ori);
-    $("#orientation").html("<p>"+ori.toUpperCase()+"</p>");
-  }
-
-  $(document).ready(function() {
-    // Set Inital orientation
-    // get the initial orientation from window which
-    // returns 0 for portrait and 1 for landscape
-    if(window.orientation == 0){
-      var ori = "portrait";
-    } else {
-      var ori = "landscape";
-    }
-    changeOrientation(ori);
-  });
-
-  // Orientation Change
-  // When orientation changes event is triggered
-  // exposing an orientation property of either
-  // landscape or portrait
-  $(document).bind("orientationchange", function(event) {
-    changeOrientation(event.orientation);
-  });
-
+:
 
 
 
