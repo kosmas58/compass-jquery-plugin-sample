@@ -414,6 +414,8 @@ de:
         home: "&beta;@jqtouch.com"
       port: Hochformat
       galaxys: Galaxy S
+      galaxy7: Galaxy Tab 7
+      galaxy10: Galaxy Tab 10.1
       land: Querformat
       os: 
         ios: iOS
@@ -421,11 +423,10 @@ de:
         android: Android
         bos: BlackBerry OS
       jqm: 
-        name: jQuery mobile Framework
+        name: jQuery Mobile Framework
         experiments: Weitere Demos
-        default: jQuery mobile Demonstration
+        default: jQuery Mobile Demonstration
         home: "&alpha;4@jquerymobile.com"
-      galaxy7: Galaxy Tab 7
       iphone: iPhone 3
       palm: Pre 2
     haml: 

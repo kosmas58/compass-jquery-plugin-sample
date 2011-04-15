@@ -702,6 +702,25 @@ node_600 = NavigationTree.create_node(:id => parent_id, :seed => true, :position
 node_601 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 4, :title => 'txt.emu.jqt.home', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators/galaxy7_landscape/jqt_original')
 parent_id = node_589
 parent_id = node_563
+node_637 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.emu.galaxy10', :type => 'folder', :icon => '/images/icons/16x16/galaxy10.png')
+parent_id = node_637
+node_638 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.port', :type => 'folder', :icon => '/images/icons/16x16/portrait.png')
+parent_id = node_638
+node_639 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.jqm.default', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators/galaxy10_portrait/jqm')
+node_640 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.jqm.experiments', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators/galaxy10_portrait/jqm2')
+node_641 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.emu.jqm.home', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators/galaxy10_portrait/jqm_original')
+node_642 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.emu.jqt.default', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators/galaxy10_portrait/jqt')
+node_643 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 4, :title => 'txt.emu.jqt.home', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators/galaxy10_portrait/jqt_original')
+parent_id = node_637
+node_644 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.land', :type => 'folder', :icon => '/images/icons/16x16/landscape.png')
+parent_id = node_644
+node_645 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.jqm.default', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators/galaxy10_landscape/jqm')
+node_646 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.jqm.experiments', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators/galaxy10_landscape/jqm2')
+node_647 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.emu.jqm.home', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators/galaxy10_landscape/jqm_original')
+node_648 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.emu.jqt.default', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators/galaxy10_landscape/jqt')
+node_649 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 4, :title => 'txt.emu.jqt.home', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators/galaxy10_landscape/jqt_original')
+parent_id = node_637
+parent_id = node_563
 parent_id = node_492
 node_564 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.os.bos', :type => 'folder', :icon => '/images/icons/16x16/blackberry_logo.png')
 parent_id = node_564

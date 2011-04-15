@@ -183,8 +183,7 @@
                     "id" : ( data.rslt.parent == -1) ? -1 : data.rslt.parent.attr("id").replace("node_",""), 
                     "position" : data.rslt.position,
                     "title" : data.rslt.name,
-                    "type" : data.rslt.obj.attr("rel"),
-                    "data" : {"authenticity_token" : AUTH_TOKEN}
+                    "type" : data.rslt.obj.attr("rel")
                 }, 
                 function (r) {
                     if(r.status) {
@@ -205,7 +204,6 @@
                     //data : { 
                     //    "id" : this.id.replace("node_","")
                     //},
-                    data: {"authenticity_token" : AUTH_TOKEN},
                     success : function (r) {
                         if(!r.status) {
                             data.inst.refresh();
@@ -218,8 +216,7 @@
     			$.post(
     				"/navigation/" + data.rslt.obj.attr("id").replace("node_","") + "/rename",
     				{
-    					"title" : data.rslt.new_name,
-    	                "data" : {"authenticity_token" : AUTH_TOKEN}				
+    					"title" : data.rslt.new_name
     				},
     				function (r) {
     					if(!r.status) {
@@ -239,8 +236,7 @@
                         "ref" : data.rslt.np.attr("id").replace("node_",""), 
                         "position" : data.rslt.cp + i,
                         "title" : data.rslt.name,
-                        "copy" : data.rslt.cy ? 1 : 0,
-                        "authenticity_token" : AUTH_TOKEN
+                        "copy" : data.rslt.cy ? 1 : 0
                     },
                     success : function (r) {
                         if(!r.status) {

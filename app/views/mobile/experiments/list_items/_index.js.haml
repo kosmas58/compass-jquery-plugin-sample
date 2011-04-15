@@ -55,8 +55,7 @@
         type:        'POST',
         url:         '/mobile/experiments/list_items?format=jsonr',
         data:        {
-                       "authenticity_token" :  AUTH_TOKEN,
-                       "list_item"          : { "name" : name }
+                       "list_item" : { "name" : name }
                      },
         timeout:     5000,
         success:     function(data, textStatus, jqXHR) {
@@ -79,8 +78,7 @@
       type:        'PUT',
       url:         '/mobile/experiments/list_items/'+item+'?format=jsonr',
       data:        {
-                     "authenticity_token" :  AUTH_TOKEN,
-                     "list_item"          : { "checked" : checked }
+                     "list_item" : { "checked" : checked }
                    },
       dataType:    "json",
       timeout:     5000,
@@ -98,9 +96,6 @@
     $.ajax({
       type:        'DELETE',
       url:         '/mobile/experiments/list_items/'+item+'?format=jsonr',
-      data:        {
-                     "authenticity_token" : AUTH_TOKEN
-                   },
       dataType:    "json",
       timeout:     5000,
       success:     function(data, textStatus, jqXHR) {

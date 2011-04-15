@@ -263,6 +263,7 @@ en:
       black: BlackBerry Torch
       galaxys: Galaxy S
       galaxy7: Galaxy Tab 7
+      galaxy10: Galaxy Tab 10.1
       jqt: 
         name: <i>(needs a WebKit engine)</i>
         default: jQTouch Demo
@@ -270,9 +271,9 @@ en:
       port: Portrait
       land: Landscape
       jqm: 
-        name: jQuery mobile framework
+        name: jQuery Mobile framework
         experiments: Additional demos
-        default: jQuery mobile Demo
+        default: jQuery Mobile Demo
         home: "&alpha;4@jquerymobile.com"
       iphone: iPhone 3
       palm: Pre 2

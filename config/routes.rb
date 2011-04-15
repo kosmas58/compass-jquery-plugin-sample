@@ -29,6 +29,16 @@ ActionController::Routing::Routes.draw do |map|
                         :collection => {:jqm => :get,
                                         :jqm_original => :get,
                                         :jqt => :get,
+                                        :jqt_original => :get}					
+    emulators.resources :galaxy10_landsacpe,
+                        :collection => {:jqm => :get,
+                                        :jqm_original => :get,
+                                        :jqt => :get,
+                                        :jqt_original => :get}
+    emulators.resources :galaxy10_portrait,
+                        :collection => {:jqm => :get,
+                                        :jqm_original => :get,
+                                        :jqt => :get,
                                         :jqt_original => :get}
     emulators.resources :ipad_landsacpe,
                         :collection => {:jqm => :get,
