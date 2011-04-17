@@ -7,7 +7,7 @@
 //   time for fadeOut
 //
 
-$(document).ready(function() {
+$(function() {
     $("#flash_messages").flashMessages(null, 10000, 1500);
 });
 

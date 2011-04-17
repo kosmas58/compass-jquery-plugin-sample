@@ -9,7 +9,7 @@
     $("a", "#toolbar").button();
   });
   
-  $(document).ready(function() {  
+  $(function() {
     $("#ps1").click( function() {
       $("#invheaders_demo0904").jqGrid('setPostData',{q:1,param1:"p1"});
       $("#invheaders_demo0904").trigger("reloadGrid");

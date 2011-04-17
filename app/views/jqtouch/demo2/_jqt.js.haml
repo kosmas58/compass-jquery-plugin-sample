@@ -215,7 +215,7 @@
     });
   };
   
-  $(document).ready(function() { // Init - keeps the user from scrolling the panel
+  $(function() { // Init - keeps the user from scrolling the panel
     window.scrollTo(0,0);
     document.addEventListener('touchmove', function(e){ e.preventDefault(); return false; }, false);
     // document.onselectstart=new Function ("return false"); // Disables selections

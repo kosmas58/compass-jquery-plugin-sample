@@ -228,7 +228,7 @@ en:
       show: Show
       create: Create
       update: Update
-      dpi:
+      ppi:
         configure: Emulator configuration - Adjust display resolution
         tooltip: "Emulator configuration\nActual screen resolution:"
       navigation: 

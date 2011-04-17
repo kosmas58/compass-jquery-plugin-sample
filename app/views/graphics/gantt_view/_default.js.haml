@@ -7,7 +7,7 @@
 = render(:partial => "data.js.haml", :format => :js)
 
 :javascript
-  $(document).ready(function() { 
+  $(function() {
     $("#ganttChart").ganttView({
         data: ganttData,
         slideWidth: 900,

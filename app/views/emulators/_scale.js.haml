@@ -1,0 +1,25 @@
+:javascript
+  function resize(width, height, scale) {
+    $("div.emulator").css('-moz-transform', 'scale('+scale+')');
+    $("div.emulator").css('-o-transform', 'scale('+scale+')');
+    $("div.emulator").css('-webkit-transform', 'scale('+scale+')');
+    $("#disp-area").attr("width", Math.round(width/scale));
+    $("#disp-area").attr("height", Math.round(height/scale));
+  }
+
+  $(function() {
+    var scale  = #{scale};
+    var width  = $("#disp-area").attr("width");
+    var height = $("#disp-area").attr("height");
+    resize(width, height, scale);
+    $("#zoom").click(function() {
+      if(scale == #{scale}) {
+        scale = 1;
+      } else {
+        scale = #{scale};
+      }
+      resize(width, height, scale);
+      return false;
+    });
+  });
+

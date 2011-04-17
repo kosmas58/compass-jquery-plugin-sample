@@ -13,7 +13,7 @@
     %input#demo-input{:name => "blah", :type => "text"}/
     %input{:type => "button", :value => "Submit"}/
     :javascript
-      $(document).ready(function() {
+      $(function() {
           $("#demo-input").tokenInput("http://shell.loopj.com/tokeninput/tvshows.php");
       });
 
@@ -22,7 +22,7 @@
     %input#demo-input-local{:name => "blah", :type => "text"}/
     %input{:type => "button", :value => "Submit"}/
     :javascript
-      $(document).ready(function() {
+      $(function() {
           $("#demo-input-local").tokenInput([
               {id: 7, name: "Ruby"},
               {id: 11, name: "Python"},
@@ -44,7 +44,7 @@
     %input#demo-input-facebook-theme{:name => "blah2", :type => "text"}/
     %input{:type => "button", :value => "Submit"}/
     :javascript
-      $(document).ready(function() {
+      $(function() {
           $("#demo-input-facebook-theme").tokenInput("http://shell.loopj.com/tokeninput/tvshows.php", {
               theme: "facebook"
           });
@@ -55,7 +55,7 @@
     %input#demo-input-custom-labels{:name => "blah", :type => "text"}/
     %input{:type => "button", :value => "Submit"}/
     :javascript
-      $(document).ready(function() {
+      $(function() {
           $("#demo-input-custom-labels").tokenInput("http://shell.loopj.com/tokeninput/tvshows.php", {
               hintText: "I can has tv shows?",
               noResultsText: "O noes",
@@ -68,7 +68,7 @@
     %input#demo-input-custom-delete{:name => "blah", :type => "text"}/
     %input{:type => "button", :value => "Submit"}/
     :javascript
-      $(document).ready(function() {
+      $(function() {
           $("#demo-input-custom-delete").tokenInput("http://shell.loopj.com/tokeninput/tvshows.php", {
               deleteText: "&#x2603;"
           });
@@ -78,7 +78,7 @@
     %input#demo-input-custom-limits{:name => "blah", :type => "text"}/
     %input{:type => "button", :value => "Submit"}/
     :javascript
-      $(document).ready(function() {
+      $(function() {
           $("#demo-input-custom-limits").tokenInput("http://shell.loopj.com/tokeninput/tvshows.php", {
               searchDelay: 2000,
               minChars: 4,
@@ -91,7 +91,7 @@
     %input#demo-input-custom-delimiter{:name => "blah", :type => "text"}/
     %input{:type => "button", :value => "Submit"}/
     :javascript
-      $(document).ready(function() {
+      $(function() {
           $("#demo-input-custom-delimiter").tokenInput("http://shell.loopj.com/tokeninput/tvshows.php", {
               tokenDelimiter: "|"
           });
@@ -102,7 +102,7 @@
     %input#demo-input-prevent-duplicates{:name => "blah", :type => "text"}/
     %input{:type => "button", :value => "Submit"}/
     :javascript
-      $(document).ready(function() {
+      $(function() {
           $("#demo-input-prevent-duplicates").tokenInput("http://shell.loopj.com/tokeninput/tvshows.php", {
               preventDuplicates: true
           });
@@ -113,7 +113,7 @@
     %input#demo-input-pre-populated{:name => "blah", :type => "text"}/
     %input{:type => "button", :value => "Submit"}/
     :javascript
-      $(document).ready(function() {
+      $(function() {
           $("#demo-input-pre-populated").tokenInput("http://shell.loopj.com/tokeninput/tvshows.php", {
               prePopulate: [
                   {id: 123, name: "Slurms MacKenzie"},
@@ -128,7 +128,7 @@
     %input#demo-input-disable-animation{:name => "blah", :type => "text"}/
     %input{:type => "button", :value => "Submit"}/
     :javascript
-      $(document).ready(function() {
+      $(function() {
           $("#demo-input-disable-animation").tokenInput("http://shell.loopj.com/tokeninput/tvshows.php", {
               animateDropdown: false
           });
@@ -139,7 +139,7 @@
     %input#demo-input-onresult{:name => "blah", :type => "text"}/
     %input{:type => "button", :value => "Submit"}/
     :javascript
-      $(document).ready(function() {
+      $(function() {
           $("#demo-input-onresult").tokenInput("http://shell.loopj.com/tokeninput/tvshows.php", {
               onResult: function (results) {
                   $.each(results, function (index, value) {
@@ -156,7 +156,7 @@
     %input#demo-input-onadd-ondelete{:name => "blah", :type => "text"}/
     %input{:type => "button", :value => "Submit"}/
     :javascript
-      $(document).ready(function() {
+      $(function() {
           $("#demo-input-onadd-ondelete").tokenInput("http://shell.loopj.com/tokeninput/tvshows.php", {
               onAdd: function (item) {
                   alert("Added " + item.name);

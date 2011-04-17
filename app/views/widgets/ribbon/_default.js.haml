@@ -1,5 +1,5 @@
 :javascript
-  $(document).ready(function() {
+  $(function() {
     $().Ribbon({ theme: 'windows7', backStage: true });
     $('ul.ribbon-theme li').click(function() { $().Ribbon({ theme: $(this).attr('class').substring(7), backStage: true }); });
     $('.orb').click();

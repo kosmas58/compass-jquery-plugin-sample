@@ -27,6 +27,6 @@ class Widgets::Ical::CalendarsController < ApplicationController
   end
 
   def iphone
-    render :iphone, :layout => 'iphone_portrait'
+    render :iphone, :layout => 'iphone3_portrait'
   end
 end

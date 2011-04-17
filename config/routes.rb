@@ -1,6 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :emulators do |emulators|
-    emulators.resources :dpi
+    emulators.resources :ppi
     emulators.resources :blackberry_landscape,
                         :collection => {:jqm => :get,
                                         :jqm_original => :get,
@@ -47,12 +47,12 @@ ActionController::Routing::Routes.draw do |map|
     emulators.resources :ipad_portrait,
                         :collection => {:jqm => :get,
                                         :jqm_original => :get}
-    emulators.resources :iphone_landscape,
+    emulators.resources :iphone3_landscape,
                         :collection => {:jqm => :get,
                                         :jqm_original => :get,
                                         :jqt => :get,
                                         :jqt_original => :get}
-    emulators.resources :iphone_portrait,
+    emulators.resources :iphone3_portrait,
                         :collection => {:jqm => :get,
                                         :jqm_original => :get,
                                         :jqt => :get,

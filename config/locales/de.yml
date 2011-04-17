@@ -223,7 +223,7 @@ de:
       language: Sprache
       footer: 
         legalese: "Copyright \xC2\xA9 2009-2011 Kosmas Sch\xC3\xBCtz. N\xC3\xA4heres finden Sie unter LICENSE."
-      dpi: 
+      ppi:
         configure: "Emulator-Konfiguration - Aufl\xC3\xB6sung anpassen"
         tooltip: "Emulatorkonfiguration\r\n\
           Aktuelle Bildschirmaufl\xC3\xB6sung"

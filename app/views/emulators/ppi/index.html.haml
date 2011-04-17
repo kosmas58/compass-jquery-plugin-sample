@@ -1,11 +1,11 @@
--@title = t('txt.layout.dpi.configure')
+-@title = t('txt.layout.ppi.configure')
 
 - content_for :content_head do
   = render(:partial => "index.js.haml", :format => :js)
 
 .demo
   %h3
-    =image_tag("icons/22x22/dpi.png", :border => 0)
+    =image_tag("icons/22x22/ppi.png", :border => 0)
     =@title
 
   %h4
@@ -14,7 +14,7 @@
     Calculator for displays with square
     %a{:href => "http://en.wikipedia.org/wiki/Pixel"} pixels
 
-  %form{:action => "#", :onsubmit => "do_dpi()"}
+  %form{:action => "#", :onsubmit => "do_ppi()"}
     %fieldset.ui-widget-content.ui-corner-all{ :style => "background: none; padding: 0.5em;" }
       %legend
         %string
@@ -24,7 +24,7 @@
           Horizontal resolution
           = t('txt.layout.colon')
         .span-17
-          %input#hor{:onkeyup => "do_dpi()", :size => "4", :type => "text", :value => "1680"}
+          %input#hor{:onkeyup => "do_ppi()", :size => "4", :type => "text", :value => "1680"}
           .floatLeft
             pixels
       .formrow.clearfix
@@ -32,7 +32,7 @@
           Vertical resolution
           = t('txt.layout.colon')
         .span-17
-          %input#vert{:onkeyup => "do_dpi()", :size => "4", :type => "text", :value => "1050"}
+          %input#vert{:onkeyup => "do_ppi()", :size => "4", :type => "text", :value => "1050"}
           .floatLeft
             pixels
       .formrow.clearfix
@@ -40,7 +40,7 @@
           Diagonal
           = t('txt.layout.colon')
         .span-17
-          %input#diag{:onkeyup => "do_dpi()", :size => "4", :type => "text", :value => "22"}
+          %input#diag{:onkeyup => "do_ppi()", :size => "4", :type => "text", :value => "22"}
           .floatLeft
             inches (
             %span#diagmetric> xx
@@ -61,17 +61,17 @@
             Display resolution
             = t('txt.layout.colon')
           .span-17
-            #dpi
+            #ppi
               Loading...
       %br
       .formrow.clearfix
         %b
-          .span-6{:for => :dpi}
+          .span-6{:for => :ppi}
             Emulator is actually configured to
             = t('txt.layout.colon')
-          #actual_dpi.span-17
-            #{session[:dpi]}
+          #actual_ppi.span-17
+            #{session[:ppi]}
             PPI
     %br
-    %button#set_dpi
+    %button#set_ppi
         

@@ -13,7 +13,7 @@
   #AnyTime--field2 .AnyTime-hdr {background-color:#FFC030;color:white}
 
 :javascript  
-  $(document).ready(function() {
+  $(function() {
     AnyTime.picker( "field1", { format: "%W, %M %D in the Year %z %E", firstDOW: 1 } );
     $("#field2").AnyTime_picker( { format: "%H:%i", labelTitle: "Hora", labelHour: "Hora", labelMinute: "Minuto" } );
   });

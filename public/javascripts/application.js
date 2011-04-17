@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(function() {
   // From http://dev.jqueryui.com/ticket/3613
   // Cookie persistence missing
   // start
@@ -40,15 +40,15 @@ $(document).ready(function() {
     //'stackable':false
   });
 
-  $("#configure_dpi").button({
+  $("#configure_ppi").button({
     icons: {
       primary: 'ui-icon-arrow-4-diag'
     },
     text: false
   });
 
-  $("#configure_dpi").click(function() {
-    $("[name=contentFrame]").attr("src", "/emulators/dpi/index");
+  $("#configure_ppi").click(function() {
+    $("[name=contentFrame]").attr("src", "/emulators/ppi/index");
   });
 
   $("#configure_navigation").button({
