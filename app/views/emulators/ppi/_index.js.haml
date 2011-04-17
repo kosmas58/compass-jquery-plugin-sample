@@ -39,8 +39,7 @@
   $(function () {
     $("#set_ppi").button()
     .click(function() {
-      //$('#navigationtree').jstree('refresh',-1);
-      $.cookie('emulator-ppi', ppi, { expires: 7 });
+      $.cookie("emulator-ppi", ppi);
       $("#actual_ppi").html(ppi + " PPI");
     });
   });

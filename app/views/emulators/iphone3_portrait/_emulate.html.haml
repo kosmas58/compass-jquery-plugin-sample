@@ -1,10 +1,7 @@
 %center
-  .iphone
-    .emulator
-      .display-area
-        %iframe{ :src => url, :width => "320", :height => "460", :frameborder => "0" }
-        %p
-          If the IFrame could not be shown.
-        %br
-        %a{ :href => url }
-          Click here
+  .emulator
+    .actions
+      %a#zoom{:href => "#"}
+        =image_tag("icons/32x32/ppi.png", :border => 0)
+    .display-area
+      %iframe#disp-area{ :src => url, :width => "320", :height => "460", :frameborder => "0" }
