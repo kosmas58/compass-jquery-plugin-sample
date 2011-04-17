@@ -1,1 +1,5 @@
-= render :partial => "emulate", :locals => {:url => "/jqtouch/demo" }
+- scale = (session[:ppi]/169.55).round_to(2)
+- content_for :content_head do
+  = render :partial => "/emulators/scale.js.haml", :format => :js, :locals => { :scale => scale }
+
+= render :partial => "emulate", :locals => {:url => "/jqtouch/demo", :scale => scale }
