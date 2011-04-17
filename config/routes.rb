@@ -1,5 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :emulators do |emulators|
+    emulators.resources :dpi
     emulators.resources :blackberry_landscape,
                         :collection => {:jqm => :get,
                                         :jqm_original => :get,

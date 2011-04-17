@@ -21,12 +21,13 @@ date:
     short: "%b %d"
     long: "%B %d, %Y"
 txt: 
-  emu: 
-    os: 
-      webos: web OS
-      ios: iOS
-      android: Android
-      bos: Blackerry OS
+  layout: 
+    dpi: 
+      tooltip: |-
+        Configure emulator
+        Actual screen resolution:
+    navigation: 
+      tooltip: Click to configure navigation
   history: 
     example10: HTML5 History API
     example11: Navigator Output

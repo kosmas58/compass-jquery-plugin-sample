@@ -228,8 +228,12 @@ en:
       show: Show
       create: Create
       update: Update
+      dpi:
+        configure: Emulator configuration - Adjust display resolution for your monitor
+        tooltip: "Emulator configuration\nActual screen resolution:"
       navigation: 
         configure: Configure navigation
+        tooltip: Click to configure navigation
         seed: Successfully created /db/navigation.seeds.rb.
         browse: Browse through the examples
       until: until

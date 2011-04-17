@@ -39,7 +39,18 @@ $(document).ready(function() {
     //'collapseType':'slide-left',
     //'stackable':false
   });
-    
+
+  $("#configure_dpi").button({
+    icons: {
+      primary: 'ui-icon-arrow-4-diag'
+    },
+    text: false
+  });
+
+  $("#configure_dpi").click(function() {
+    $("[name=contentFrame]").attr("src", "/emulators/dpi/index");
+  });
+
   $("#configure_navigation").button({
     icons: {
       secondary: 'ui-icon-star'
@@ -50,7 +61,7 @@ $(document).ready(function() {
   $("#configure_navigation").click(function() {
     $("[name=contentFrame]").attr("src", "/navigation");
   });
-    
+
   $("#license").dialog({
     autoOpen: false,
     bgiframe: true,
