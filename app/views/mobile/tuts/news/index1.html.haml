@@ -1,0 +1,48 @@
+-@title = "jQuery Mobile Framework - News Reader App"
+-@manifest = "/manifest"
+
+- content_for :content_head do
+  = render(:partial => "index.js.haml", :format => :js)
+
+#categoriesPage{"data-role" => "page", "data-theme" => "b"}
+  %div{"data-nobackbtn" => "true", "data-role" => "header"}
+    %h1 Categories
+    %a.ui-btn-left{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile/experiments/main", :rel => "external"} Home
+    %a#buttonAddCategory.ui-btn-right{"data-icon" => "plus", "data-inline" => "true", "data-role" => "button", :href => "#selectPage"} Add
+  #contentCategories{"data-role" => "content"}
+    %ul#currentNews{"data-role" => "listview", "data-split-icon" => "delete", "data-split-theme" => "d"}
+
+#selectPage{"data-role" => "page", "data-theme" => "b"}
+  %div{"data-backbtn" => "false", "data-role" => "header"}
+    %h1 Select a news category
+  %div{"data-role" => "content"}
+    %div{"data-role" => "fieldcontain"}
+      %select#category{"data-native-menu" => "false"}
+        %option{:value => ""} Select a Category
+        %option{:value => "topstories"} Top Stories
+        %option{:value => "us"} U.S.
+        %option{:value => "world"} World
+        %option{:value => "politics"} Politics
+        %option{:value => "business"} Business
+        %option{:value => "stocks"} Stocks
+        %option{:value => "economy"} U.S. Economy
+        %option{:value => "eurobiz"} European Economy
+      %div{"data-role" => "fieldcontain"}
+        %button#getCategory{"data-theme" => "b", :type => "button"} Get Category
+
+#progressPage{"data-role" => "page", "data-theme" => "b"}
+  %div{"data-backbtn" => "false", "data-role" => "header"}
+    %h1 Processing...
+  #contentProgress{"data-role" => "content"}
+    %div{:align => "CENTER"}
+      %img#spin{:src => "/images/demo/mobile/tuts/wait.gif"}
+      %h4 Please wait.
+
+#newsPage{"data-role" => "page", "data-theme" => "b"}
+  %div{"data-backbtn" => "false", "data-role" => "header"}
+    %h1 News
+    %a#buttonHdrShowCategories.ui-btn-left{"data-icon" => "arrow-l", "data-inline" => "true", "data-role" => "button", :href => ""} Back
+  #contentNews{"data-role" => "content"}
+  #ftrNews{"data-role" => "footer"}
+    %a#buttonFtrShowCategories.ui-btn-left{"data-icon" => "arrow-l", "data-inline" => "true", "data-role" => "button", :href => "#categoriesPage"} Back to News Categories
+
