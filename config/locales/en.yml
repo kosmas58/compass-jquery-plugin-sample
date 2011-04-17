@@ -229,7 +229,7 @@ en:
       create: Create
       update: Update
       dpi:
-        configure: Emulator configuration - Adjust display resolution for your monitor
+        configure: Emulator configuration - Adjust display resolution
         tooltip: "Emulator configuration\nActual screen resolution:"
       navigation: 
         configure: Configure navigation

@@ -53,7 +53,7 @@ $(document).ready(function() {
 
   $("#configure_navigation").button({
     icons: {
-      secondary: 'ui-icon-star'
+      secondary: 'ui-icon-wrench'
     },
     text: false
   });

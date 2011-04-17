@@ -21,20 +21,8 @@ date:
     short: "%b %d"
     long: "%B %d, %Y"
 txt: 
-  layout: 
-    dpi: 
-      tooltip: |-
-        Configure emulator
-        Actual screen resolution:
-    navigation: 
-      tooltip: Click to configure navigation
   history: 
-    example10: HTML5 History API
     example11: Navigator Output
-    example12: Safari History Bug
-    example7: WebKit popstate 1
-    example8: Webkit popstate 2
-    example9: Chrome History API
   tools: 
     form: 
       stylable: 
