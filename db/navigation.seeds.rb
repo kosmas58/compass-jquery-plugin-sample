@@ -662,7 +662,7 @@ parent_id = node_172
 parent_id = node_1
 node_492 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.emu.jqm.name', :type => 'accordion', :icon => '/images/icons/16x16/jqmobile.png')
 parent_id = node_492
-node_493 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.os.android', :type => 'folder', :icon => '/images/icons/16x16/android_logo.png')
+node_493 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.os.android', :type => 'folder', :icon => '/images/icons/16x16/android_logo2.png')
 parent_id = node_493
 node_494 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.galaxys', :type => 'folder', :icon => '/images/icons/16x16/galaxys.png')
 parent_id = node_494
