@@ -21,6 +21,16 @@ ActionController::Routing::Routes.draw do |map|
                                         :jqm_original => :get,
                                         :jqt => :get,
                                         :jqt_original => :get}
+    emulators.resources :galaxy_s2_landsacpe,
+                        :collection => {:jqm => :get,
+                                        :jqm_original => :get,
+                                        :jqt => :get,
+                                        :jqt_original => :get}
+    emulators.resources :galaxy_s2_portrait,
+                        :collection => {:jqm => :get,
+                                        :jqm_original => :get,
+                                        :jqt => :get,
+                                        :jqt_original => :get}
     emulators.resources :galaxy7_landsacpe,
                         :collection => {:jqm => :get,
                                         :jqm_original => :get,
@@ -53,6 +63,16 @@ ActionController::Routing::Routes.draw do |map|
                                         :jqt => :get,
                                         :jqt_original => :get}
     emulators.resources :iphone3_portrait,
+                        :collection => {:jqm => :get,
+                                        :jqm_original => :get,
+                                        :jqt => :get,
+                                        :jqt_original => :get}
+    emulators.resources :iphone4_landscape,
+                        :collection => {:jqm => :get,
+                                        :jqm_original => :get,
+                                        :jqt => :get,
+                                        :jqt_original => :get}
+    emulators.resources :iphone4_portrait,
                         :collection => {:jqm => :get,
                                         :jqm_original => :get,
                                         :jqt => :get,

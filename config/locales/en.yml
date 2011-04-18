@@ -266,6 +266,7 @@ en:
         webos: webOS
       black: BlackBerry Torch
       galaxys: Galaxy S
+      galaxys2: Galaxy S2
       galaxy7: Galaxy Tab 7
       galaxy10: Galaxy Tab 10.1
       jqt: 
@@ -279,7 +280,8 @@ en:
         experiments: Additional demos
         default: jQuery Mobile Demo
         home: "&alpha;4@jquerymobile.com"
-      iphone: iPhone 3
+      iphone3: iPhone 3
+      iphone4: iPhone 4
       palm: Pre 2
     jqgrid: 
       simple: 

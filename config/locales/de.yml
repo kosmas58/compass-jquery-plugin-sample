@@ -250,6 +250,7 @@ de:
       black: BlackBerry Torch
       port: Hochformat
       galaxys: Galaxy S
+      galaxys2: Galaxy S2
       os: 
         webos: webOS
         ios: iOS
@@ -264,7 +265,8 @@ de:
       galaxy7: Galaxy Tab 7
       galaxy10: Galaxy Tab 10.1
       palm: Pre 2
-      iphone: iPhone 3
+      iphone3: iPhone 3
+      iphone4: iPhone 4
     history: 
       name: History.js
       example3: Ajax-Beispiel
