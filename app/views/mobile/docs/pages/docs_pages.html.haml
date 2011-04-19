@@ -186,6 +186,21 @@
       instead of the native behavior of scrolling to the content with that
       = succeed "." do
         %code ID
+    %h2 Auto-updating page titles for Ajax navigation
+    %p
+      When you load the first page of a jQuery Mobile based site, then click a link or submit a form, the jQuery Mobile uses Ajax to pull in the content
+      of the requested page. Having both pages in the DOM is essential to enable the animated page transitions but one downside of this approach is that
+      the page title is always that of the first page, not the subsequent page you’re viewing. To remedy this, the framework automatically parses the
+      %code
+        title
+      of the page pulled via Ajax and changes the
+      %code
+        title
+      attribute of the parent document to match. On multi-page sites, add the
+      %code
+        data-title
+      attribute to each page container to manually define a title. Since we already support the browser’s history stack, back button and bookmarking of
+      these Ajax-based pages, this really helps when looking through your browsing history.
     %h2 Back linking
     %p
       If you use the attribute
