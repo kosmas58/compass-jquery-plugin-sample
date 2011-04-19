@@ -1,94 +1,12 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :emulators,
-                :collection => {:edit   => :get,
-                                :update => :put} do |emulators|
-    emulators.resources :blackberry_landscape,
-                        :collection => {:jqm => :get,
-                                        :jqm_original => :get,
-                                        :jqt => :get,
-                                        :jqt_original => :get}
-    emulators.resources :blackberry_portrait,
-                        :collect8ion => {:jqm => :get,
-                                        :jqm_original => :get,
-                                        :jqt => :get,
-                                        :jqt_original => :get}
-    emulators.resources :galaxy_s_landsacpe,
-                        :collection => {:jqm => :get,
-                                        :jqm_original => :get,
-                                        :jqt => :get,
-                                        :jqt_original => :get}
-    emulators.resources :galaxy_s_portrait,
-                        :collection => {:jqm => :get,
-                                        :jqm_original => :get,
-                                        :jqt => :get,
-                                        :jqt_original => :get}
-    emulators.resources :galaxy_s2_landsacpe,
-                        :collection => {:jqm => :get,
-                                        :jqm_original => :get,
-                                        :jqt => :get,
-                                        :jqt_original => :get}
-    emulators.resources :galaxy_s2_portrait,
-                        :collection => {:jqm => :get,
-                                        :jqm_original => :get,
-                                        :jqt => :get,
-                                        :jqt_original => :get}
-    emulators.resources :galaxy7_landsacpe,
-                        :collection => {:jqm => :get,
-                                        :jqm_original => :get,
-                                        :jqt => :get,
-                                        :jqt_original => :get}
-    emulators.resources :galaxy7_portrait,
-                        :collection => {:jqm => :get,
-                                        :jqm_original => :get,
-                                        :jqt => :get,
-                                        :jqt_original => :get}					
-    emulators.resources :galaxy10_landsacpe,
-                        :collection => {:jqm => :get,
-                                        :jqm_original => :get,
-                                        :jqt => :get,
-                                        :jqt_original => :get}
-    emulators.resources :galaxy10_portrait,
-                        :collection => {:jqm => :get,
-                                        :jqm_original => :get,
-                                        :jqt => :get,
-                                        :jqt_original => :get}
-    emulators.resources :ipad_landsacpe,
-                        :collection => {:jqm => :get,
-                                        :jqm_original => :get}
-    emulators.resources :ipad_portrait,
-                        :collection => {:jqm => :get,
-                                        :jqm_original => :get}
-    emulators.resources :iphone3_landscape,
-                        :collection => {:jqm => :get,
-                                        :jqm_original => :get,
-                                        :jqt => :get,
-                                        :jqt_original => :get}
-    emulators.resources :iphone3_portrait,
-                        :collection => {:jqm => :get,
-                                        :jqm_original => :get,
-                                        :jqt => :get,
-                                        :jqt_original => :get}
-    emulators.resources :iphone4_landscape,
-                        :collection => {:jqm => :get,
-                                        :jqm_original => :get,
-                                        :jqt => :get,
-                                        :jqt_original => :get}
-    emulators.resources :iphone4_portrait,
-                        :collection => {:jqm => :get,
-                                        :jqm_original => :get,
-                                        :jqt => :get,
-                                        :jqt_original => :get}
-    emulators.resources :palm_landscape,
-                        :collection => {:jqm => :get,
-                                        :jqm_original => :get,
-                                        :jqt => :get,
-                                        :jqt_original => :get}
-    emulators.resources :palm_portrait,
-                        :collection => {:jqm => :get,
-                                        :jqm_original => :get,
-                                        :jqt => :get,
-                                        :jqt_original => :get}
-  end
+                :collection => {:edit         => :get,
+                                :update       => :put,
+                                :jqm          => :get,
+                                :jqm2         => :get,
+                                :jqm_original => :get,
+                                :jqt          => :get,
+                                :jqt_original => :get}
 
   map.namespace :jqtouch do |jqtouch|
     jqtouch.resources :demo => {:ajax_post => :post}
