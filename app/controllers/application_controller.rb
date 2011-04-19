@@ -12,6 +12,8 @@ class ApplicationController < ActionController::Base
   before_filter :set_theme
   before_filter :set_ppi
 
+  protected
+
   def set_locale
     # update session if passed
     session[:locale] = params[:locale] if params[:locale]
@@ -32,8 +34,8 @@ class ApplicationController < ActionController::Base
   end
 
    def set_ppi
-    if cookies['emulator-ppi']
-      session[:ppi] = cookies['emulator-ppi'].to_s
+    if cookies['ppi']
+      session[:ppi] = cookies['ppi']
     else
       session[:ppi] = 90
     end

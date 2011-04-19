@@ -48,7 +48,7 @@ $(function() {
   });
 
   $("#configure_ppi").click(function() {
-    $("[name=contentFrame]").attr("src", "/emulators/ppi/index");
+    $("[name=contentFrame]").attr("src", "/emulators/edit");
   });
 
   $("#configure_navigation").button({
