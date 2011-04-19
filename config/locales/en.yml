@@ -230,7 +230,7 @@ en:
       update: Update
       ppi:
         configure: Emulator configuration - Adjust display resolution
-        tooltip: "Emulator configuration\nActual screen resolution:"
+        tooltip: Emulator configuration
       navigation: 
         configure: Configure navigation
         tooltip: Click to configure navigation

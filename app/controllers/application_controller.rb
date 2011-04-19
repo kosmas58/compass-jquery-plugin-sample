@@ -33,7 +33,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-   def set_ppi
+  def set_ppi
     if cookies['ppi']
       session[:ppi] = cookies['ppi']
     else

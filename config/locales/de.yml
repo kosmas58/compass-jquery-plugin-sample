@@ -225,8 +225,7 @@ de:
         legalese: "Copyright \xC2\xA9 2009-2011 Kosmas Sch\xC3\xBCtz. N\xC3\xA4heres finden Sie unter LICENSE."
       ppi:
         configure: "Emulator-Konfiguration - Aufl\xC3\xB6sung anpassen"
-        tooltip: "Emulatorkonfiguration\r\n\
-          Aktuelle Bildschirmaufl\xC3\xB6sung"
+        tooltip: Emulatorkonfiguration
       save: Sichern
       show: Anzeigen
       create: Anlegen

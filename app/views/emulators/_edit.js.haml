@@ -46,6 +46,7 @@
         data : { "ppi": ppi },
         success : function () {
           $("#actual_ppi").html(ppi + " PPI");
+          window.location.reload();
         }
       });
     });
