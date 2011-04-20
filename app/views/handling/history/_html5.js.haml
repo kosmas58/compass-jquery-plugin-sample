@@ -2,7 +2,7 @@
   #history { padding:0.5em; }
 
 :javascript
-  $(document).ready(function($) {
+  $(function() {
       window.onpopstate = function(event) {
           console.log("onpopstate: location: " + document.location.href + ", data: " + JSON.stringify(event.state));
       };

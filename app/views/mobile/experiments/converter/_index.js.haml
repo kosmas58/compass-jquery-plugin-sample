@@ -1,5 +1,5 @@
-%link{:href => "/images/demo/mobile/converter-icon.png", :rel => "apple-touch-icon"}/
-
+%link{:href => "/images/demo/mobile/converter-icon.png", :rel => "apple-touch-icon"}
+= render(:partial => "/mobile/mobile_init.js.haml", :format => :js)
 = render(:partial => "converter.js.haml", :format => :js)
 = javascript_include_tag :tmpl
 = render(:partial => "storage.js.haml", :format => :js)

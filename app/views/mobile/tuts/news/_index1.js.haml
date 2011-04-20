@@ -163,7 +163,7 @@
     $.mobile.ajaxFormsEnabled = false;
   });
 
-  $(document).ready(function () {
+  $(function() {
     $.mobile.changePage(progressPage, "pop");
     var storedNewsTxt = $.DSt.get(COOKIE_NAME);
     if(storedNewsTxt != null && storedNewsTxt.length > 0){

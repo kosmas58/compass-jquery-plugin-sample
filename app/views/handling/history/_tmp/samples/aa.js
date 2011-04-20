@@ -1,4 +1,4 @@
-$('document').ready(function() {
+$(function() {
 // For forward and back
     $.address.change(function(event) {
         $("#tabs").tabs("select", window.location.hash)

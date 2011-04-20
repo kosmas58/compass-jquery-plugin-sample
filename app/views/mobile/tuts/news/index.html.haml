@@ -1,7 +1,7 @@
 -@title = "jQuery Mobile Framework - News Reader App"
 -@manifest = "/manifest"
 
-- content_for :content_head do
+- content_for :content_custom_scripts do
   = render(:partial => "index.js.haml", :format => :js)
 
 #containerPage{"data-role" => "page", "data-theme" => "b"}
@@ -96,7 +96,7 @@
     var numLi = 0;
     var storedNewsArr;
 
-    $(document).ready(function () {
+    $(function () {
         showProgress();
         var storedNewsTxt = $.DSt.get(COOKIE_NAME);
 
