@@ -6,7 +6,7 @@
       } else {
         rotateTo = "landscape";
       }
-      parent.$("[id=demoframe]").attr("src", "/emulators?device=#{device};orientation="+rotateTo+";url=/#{url}");
+      parent.$("[id=demoframe]").attr("src", "/emulators?device=#{device};orientation="+rotateTo+";url=#{url}");
       return false;
     });
   });
