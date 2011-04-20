@@ -1,0 +1,47 @@
+:css
+  #toolbar { padding: 0.3em 0.3em 0.3em 0.3em; margin-bottom: 0.5em; }
+  #toolbar .ui-button-icon-only { height: 1.5em; width: 1.5em; }
+
+
+:javascript
+  function set_icon_resize() {
+     if($.cookie('scaling') == 'real_size') {
+       var options = { text: false, icons: { primary: 'ui-icon-zoomin' }};
+       $("#resize").button("option", options);
+       $("#resize").attr("title", "#{t('txt.layout.resize.pixel')}");
+     } else {
+       var options = { text: false, icons: { primary: 'ui-icon-zoomout' }};
+       $("#resize").button("option", options );
+       $("#resize").attr("title", "#{t('txt.layout.resize.real')}");
+     }
+  }
+
+  function set_icon_rotate() {
+     if("#{orientation}" == "landscape") {
+       var options = { text: false, icons: { primary: 'ui-icon-arrowreturnthick-1-n' }};
+       $("#rotate").button("option", options);
+       $("#rotate").attr("title", "#{t('txt.layout.rotate.portrait')}");
+     } else {
+       var options = { text: false, icons: { primary: 'ui-icon-arrowreturnthick-1-s' }};
+       $("#rotate").button("option", options);
+       $("#rotate").attr("title", "#{t('txt.layout.rotate.landscape')}");
+     }
+  }
+
+  $(function() {
+    $("#resize").button();
+    set_icon_resize();
+    $("#rotate").button();
+    set_icon_rotate();
+
+    $('#configure_ppi')
+    .button({
+      text: false,
+      icons: {
+        primary: 'ui-icon-arrow-4-diag'
+      }
+    })
+    .click(function() {
+      parent.$("[id=demoframe]").attr("src", "/emulators/edit");
+    });
+  });

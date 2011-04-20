@@ -1,5 +1,6 @@
 class EmulatorsController < ApplicationController
-  layout 'emulators'
+  layout 'emulators' , :except => [ :edit ]
+  #layout 'emulators2' , :only => [ :edit ]
 
   protect_from_forgery
 
@@ -50,6 +51,10 @@ class EmulatorsController < ApplicationController
         @width  = @orientation == "landscape" ? 480 : 320
         @height = @orientation == "landscape" ? 300 : 460
     end
+  end
+
+  def edit
+    render :layout => 'emulators2'
   end
 
   protected

@@ -1,9 +1,10 @@
-%center
-  .emulator
-    .actions
-      %a#resize{:href => "#", :title => "#{t('txt.layout.resize')}"}
-        =image_tag("icons/64x64/ppi.png", :border => 0)
-      %a#rotate{:href => "#", :title => "#{t('txt.layout.rotate')}"}
-        =image_tag("icons/64x64/rotate.png", :border => 0)
-    .display-area
-      %iframe#disp-area{ :src => url, :width => width, :height => height }
+.span-24.last
+  #toolbar.ui-widget-header.ui-corner-all
+    %button#resize
+    %button#rotate 
+    %button#configure_ppi #{t('txt.layout.ppi.tooltip')}
+
+  %center
+    .emulator
+      .display-area
+        %iframe#disp-area{ :src => url, :width => width, :height => height }

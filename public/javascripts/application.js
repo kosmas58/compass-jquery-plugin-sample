@@ -39,18 +39,7 @@ $(function() {
     //'collapseType':'slide-left',
     //'stackable':false
   });
-
-  $("#configure_ppi").button({
-    icons: {
-      primary: 'ui-icon-arrow-4-diag'
-    },
-    text: false
-  });
-
-  $("#configure_ppi").click(function() {
-    $("[id=demoframe]").attr("src", "/emulators/edit");
-  });
-
+    
   $("#configure_navigation").button({
     icons: {
       secondary: 'ui-icon-wrench'

@@ -214,8 +214,12 @@ en:
       name: jQuery plugins
     trees: Trees
     layout:
-      resize: Change scale
-      rotate: Change orientation
+      resize:
+        real: Show it in real size
+        pixel: Show it in pixel size
+      rotate:
+        landscape: Show as landscape
+        portrait: Show as portrait
       back: Back
       colon: ":"
       edit: Edit

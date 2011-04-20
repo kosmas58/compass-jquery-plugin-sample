@@ -75,14 +75,14 @@ de:
         all_day: "Gant\xC3\xA4giges Ereignis"
       client: 
         name: Name
+      pet: 
+        name: Name
       user: 
         pseudo: Pseudonym
         role: Rolle
         lastname: Nachname
         firstname: Vorname
         email: E-Mail
-      pet: 
-        name: Name
       animal: 
         name: Name
       item: 
@@ -90,8 +90,8 @@ de:
         item: Element
     errors: 
       messages: 
-        greater_than_or_equal_to: "muss gr\xC3\xB6\xC3\x9Fer oder gleich %{count} sein"
         record_invalid: "G\xC3\xBCltigkeitspr\xC3\xBCfung ist fehlgeschlagen: %{errors}"
+        greater_than_or_equal_to: "muss gr\xC3\xB6\xC3\x9Fer oder gleich %{count} sein"
         less_than_or_equal_to: muss kleiner oder gleich %{count} sein
         confirmation: "stimmt nicht mit der Best\xC3\xA4tigung \xC3\xBCberein"
         blank: "muss ausgef\xC3\xBCllt werden"
@@ -125,13 +125,6 @@ de:
       short: "%d. %B, %H:%M Uhr"
       long: "%A, %d. %B %Y, %H:%M Uhr"
     pm: nachmittags
-  activemodel: 
-    errors: 
-      template: 
-        body: "Bitte \xC3\xBCberpr\xC3\xBCfen Sie die folgenden Felder:"
-        header: 
-          one: "Konnte %{model} nicht speichern: ein Fehler."
-          other: "Konnte %{model} nicht speichern: %{count} Fehler."
   txt: 
     graphics: 
       name: Graphik
@@ -148,8 +141,8 @@ de:
           inverted: Spline mit invertierten Achsen
           symbols: Spline mit Symbolen
         line: 
-          time_series: Zeitreihe, zoombar
           name: Linien-  und Streudiagramme
+          time_series: Zeitreihe, zoombar
           ajax: Ajax geladenen Daten, anklickbare Punkte
           basic: Linie Basis
           labels: Mit Datenbeschriftungen
@@ -198,8 +191,8 @@ de:
       html: HTML-Daten
       plugins: Plugins
       xml: XML-Daten
-      hotkeys: Hotkeys
       themeroller: Themenwahl
+      hotkeys: Hotkeys
       dnd: Drag'n Drop
       checkbox: "Auswahlk\xC3\xA4stchen"
       radio: Umschalttasten
@@ -211,30 +204,31 @@ de:
       types: Typen
       sort: Sortieren
       unique: Eindeutig
-      core: "Basisfunktionalit\xC3\xA4t"
       ui: UI
+      core: "Basisfunktionalit\xC3\xA4t"
       search: Suche
       crrm: CRRM
       themes: Themen
     plugins: 
       name: jQuery-Plugins
-    trees: !binary |
-      QsOkdW1l
-
     layout: 
-      back: "Zur\xC3\xBCck"
       colon: ":"
+      back: "Zur\xC3\xBCck"
       edit: Bearbeiten
-      cancel: Abbrechen
       theme: Thema
+      cancel: Abbrechen
       delete: "L\xC3\xB6schen"
-      resize: "Skalierung \xC3\xA4ndern"
+      resize: 
+        real: "In Originalgr\xC3\xB6\xC3\x9Fe zeigen"
+        pixel: "In Pixelgr\xC3\xB6\xC3\x9Fe zeigen"
       from: von
       navigation browse: Browsen Sie durch die Beispiele
       language: Sprache
-      rotate: " Orientierung \xC3\xA4ndern"
       footer: 
         legalese: "Copyright \xC2\xA9 2009-2011 Kosmas Sch\xC3\xBCtz. N\xC3\xA4heres finden Sie unter LICENSE."
+      rotate: 
+        landscape: Im Querformat zeigen
+        portrait: Im Hochformat zeigen
       save: Sichern
       show: Anzeigen
       create: Anlegen
@@ -248,16 +242,19 @@ de:
         tooltip: Klicken Sie um die Navigation zu konfigurieren
         browse: Browsen Sie durch die Beispiele
       until: bis
+    trees: !binary |
+      QsOkdW1l
+
     history: 
-      name: History.js
       example3: Ajax-Beispiel
+      name: History.js
       example4: Ajax-Beispiel 2
       example10: HTML5-History-API
       example5: BBQ
       example11: Navigator-Ausgabe
       example6: MVC Bespielhistorie
-      example7: WebKit popstate 1
       example12: Safari History-Bug
+      example7: WebKit popstate 1
       example8: Webkit popstate 2
       example9: Chrome History-API
       example1: HTML4-Beispiel
@@ -267,24 +264,49 @@ de:
       simple: jQuery Ribbon Simple Demo
       default: jQuery Ribbon Windows 7 Demo
       office: jQuery Ribbon Office Demo
-    haml: 
-      name: Javascript und Haml.
-      jhaml: jQuery-haml-Plugin
+    emu: 
+      name: "jQuery auf mobilen Ger\xC3\xA4ten"
+      ipad: iPad
+      black: BlackBerry Torch
+      jqt: 
+        name: "<i>(Ben\xC3\xB6tigt einen WebKit-Engine)</i>"
+        default: jQTouch Demonstration
+        home: "&beta;@jqtouch.com"
+      port: Hochformat
+      galaxys: Galaxy S
+      land: Querformat
+      os: 
+        webos: webOS
+        ios: iOS
+        android: Android
+        bos: BlackBerry OS
+      iphone3: iPhone 3
+      jqm: 
+        name: jQuery Mobile Framework
+        experiments: Weitere Demos
+        default: jQuery Mobile Demonstration
+        home: "&alpha;4@jquerymobile.com"
+      iphone4: iPhone 4
+      galaxy7: Galaxy Tab 7
+      galaxys2: Galaxy S2
+      galaxy10: Galaxy Tab 10.1
+      palm: Pre 2
+      galaxy9: Galaxy Tab 8.9
     jqgrid: 
       name: jqGrid
+      simple: 
+        name: Einfache Datengitter
+        direct: mit direkter Auswahl und automatischer Weite
+        default: "mit Standardfunktionalit\xC3\xA4t"
+        master: mit Haupt- und Detailsicht
+        selection: mit Auswahllink und Suche deaktiviert
+        multiple: mit Mehrfachauswahl + Zeilennummern
       manipulation: 
         name: Datenmanipulation
         inline: "mit Inline-\xC3\x84nderung"
         modal: "mit modaler \xC3\x84nderung"
         datepicker: mit Datumsauswahl (Nachname)
         input: mit verschiedenen Eingabetypen
-      simple: 
-        direct: mit direkter Auswahl und automatischer Weite
-        name: Einfache Datengitter
-        default: "mit Standardfunktionalit\xC3\xA4t"
-        master: mit Haupt- und Detailsicht
-        selection: mit Auswahllink und Suche deaktiviert
-        multiple: mit Mehrfachauswahl + Zeilennummern
       demo: 
         30xml_map: XML-Mapping
         30resizable: "Vergr\xC3\xB6\xC3\x9Ferbare Spalten"
@@ -305,15 +327,15 @@ de:
         20data: Gitterdaten
         34format: Formatierer
         38array3: Kopfzeile konfigurieren
-        37scroll: Virtuelles Scrollen
         20once: Einmaliges Laden
         38remote1: Entfernte Daten (sortiert)
+        37scroll: Virtuelles Scrollen
         37multiple: Mehrfachsuche
         37v: Neu in Version 3.7
+        38array4: "RNL-Unterst\xC3\xBCtzung"
         38remote2: Entfernte Daten (sortiert mit Gesamtsummen)
         35asearch: Erweiterte Suche
         32hide: Spalten anzeigen/verbergen
-        38array4: "RNL-Unterst\xC3\xBCtzung"
         38remote3: Entfernte Daten (unsortiert mit Gesamtsummen)
         36api: Neues API
         38array5: Zeilen verbergen
@@ -343,17 +365,17 @@ de:
         32insert: "Ereignis nach Einf\xC3\xBCgen einer Zeile"
         37server: Daten auf einmal vom Server laden
         35real: "Reales Beispiel eines Baumgitters "
-        33mform: Mehrfache Formularsuche
         20subgrid: Untergitter
-        30json_map: JSON-Mapping
+        33mform: Mehrfache Formularsuche
         20json_data: JSON-Daten
         33rdnd: Drag and Drop von Zeilen
+        30json_map: JSON-Mapping
         35v: Neu in Version 3.5
         35stoolbar: Integrierte Suchleiste
-        20loading: Laden von Daten
-        20multi: Mehrfachauswahl
-        36chooser: Spaltenauswahl
         35number: Automatische Breite und Reihennummerierung
+        20multi: Mehrfachauswahl
+        20loading: Laden von Daten
+        36chooser: Spaltenauswahl
         actions: Aktionen
         30basic: Einfaches Beispiel
         38v: Gruppierung
@@ -362,16 +384,16 @@ de:
         34adjacency: Baumgitter mit Adjazenzliste
         20set: Set-Methoden
         37toolbar: Werkzeugleistensuche
-        30events: Ereignisse nutzen
         35view: Modus Gitteransicht
         30full: Vollzugriff
+        30events: Ereignisse nutzen
         30hide: Spalten anzeigen/verbergen
         36srows: Sortierbare Zeilen
         38xml1: Gruppierung mit XML-Daten
         20resizing: "Gitter vergr\xC3\xB6\xC3\x9Fern"
         33cell: "Zellen \xC3\xA4ndern"
-        34scroll: Scrollen mit dynamischen Zeilenauswahl
         30mapping: Daten-Mapping
+        34scroll: Scrollen mit dynamischen Zeilenauswahl
         33dynamic: "Dynamische H\xC3\xB6he und Breite"
         34cformat: Benutzerdefinierter Formatierer
         34import: Konfiguration aus XML importieren
@@ -383,15 +405,15 @@ de:
         30types: Eingabetypen
         20master: Haupt- und Detailsicht
         36v: Neu in Version 3.6
-        37array: Matrixdaten auf einmal laden
         30datepicker: Datumsauswahl
         30row: "Zeilen \xC3\xA4ndern"
+        37array: Matrixdaten auf einmal laden
         33mtoolbar: Mehrfache Symbolleistensuche
         33visible: Sichtbare Spalten
         2dc: 2dc_jqGrid Beispiele
+        31userdata: Benutzerdaten
         20xml_data: XML-Daten
         35navigation: Formularnavigation
-        31userdata: Benutzerdaten
         33function: Datentyp als Funktion
         36rtl: "RNL-Unterst\xC3\xBCtzung"
         20manipulating: Manipulation
@@ -400,9 +422,9 @@ de:
         36ajax: Ajax-Verbesserungen
         36reordering: Neuanordnung von Spalten
         32initial: "Zun\xC3\xA4chst verstecktes Gitter"
-        30after_load: Callback nach dem Laden
         30json_subgrid: Untergitter mit JSON
         33html: Gitter aus HTML-Tabelle
+        30after_load: Callback nach dem Laden
         31post_data: Post Data
         30delete_row: "Zeile l\xC3\xB6schen"
       subgrids: 
@@ -422,37 +444,12 @@ de:
         cedit3: server-seitig
         cedit4: server-seitig mit jQuery UI-Symbolen
         cedit5: server-seitig mit eigenen Symbolen
+      secret: Secret Sauce jqGrid
       improvements: 
         name: mit Verbesserungen der Form
-      secret: Secret Sauce jqGrid
-    emu: 
-      name: "jQuery auf mobilen Ger\xC3\xA4ten"
-      ipad: iPad
-      jqt: 
-        name: "<i>(Ben\xC3\xB6tigt einen WebKit-Engine)</i>"
-        default: jQTouch Demonstration
-        home: "&beta;@jqtouch.com"
-      black: BlackBerry Torch
-      port: Hochformat
-      galaxys: Galaxy S
-      land: Querformat
-      os: 
-        webos: webOS
-        ios: iOS
-        android: Android
-        bos: BlackBerry OS
-      iphone3: iPhone 3
-      jqm: 
-        name: jQuery Mobile Framework
-        experiments: Weitere Demos
-        default: jQuery Mobile Demonstration
-        home: "&alpha;4@jquerymobile.com"
-      iphone4: iPhone 4
-      galaxy7: Galaxy Tab 7
-      galaxys2: Galaxy S2
-      galaxy10: Galaxy Tab 10.1
-      galaxy9: Galaxy Tab 8.9
-      palm: Pre 2
+    haml: 
+      name: Javascript und Haml.
+      jhaml: jQuery-haml-Plugin
     replacetext: 
       name: replaceText
       default: Beispiel
@@ -464,11 +461,11 @@ de:
       lazy: "Sp\xC3\xA4tes Laden"
       persist: Persistenz
       default: Standardeinstellungen
-      dnd2: "Dynatree: Ziehen und Ablegen 2"
-      dnd: "Dynatree: Ziehen und Ablegen"
       api: Programmier-API
-      iframe: iframe und URL-Navigation
       quick: JS-Objekt initialisieren
+      dnd: "Dynatree: Ziehen und Ablegen"
+      iframe: iframe und URL-Navigation
+      dnd2: "Dynatree: Ziehen und Ablegen 2"
       minexpand: Feste Expansionsebene
       dnd3: "jQUery UI: Ziehen und Ablegen"
       events: Ergeignisverarbeitung
@@ -476,8 +473,8 @@ de:
       effects: Effekte
       json: Aus externen Daten initialisieren
       contextmenu: "Kontextmen\xC3\xBC,  Kopieren / Einf\xC3\xBCgen"
-      select: "K\xC3\xA4stchen & Auswahl"
       multiline: "Gro\xC3\x9Fe Knoten"
+      select: "K\xC3\xA4stchen & Auswahl"
       benchmark: "Benchmark f\xC3\xBCr gro\xC3\x9Fe B\xC3\xA4ume"
       lazy_persist: Langsames Laden
       theming: 
@@ -551,16 +548,6 @@ de:
           demo03: Browser-Standard-Tooltips imitieren
           demo04: Tooltips in Formularfeldern
           demo05: Tooltips in Tabellen oder Listen
-        overlay: 
-          name: Overlay
-          demo06: Laden von externen Seiten in Overlay
-          demo07: Mehrere Overlays auf der gleichen Seite
-          demo08: Erstellen eines benutzerdefinierten Overlay-Effekt
-          demo01: "Minimales Setup f\xC3\xBCr Overlay"
-          demo02: "Der Apple-Effekt f\xC3\xBCr Overlay"
-          demo03: "Modale Dialoge mit Overlay erstellen "
-          demo04: "Overlays programmatisch \xC3\xB6ffnen"
-          demo05: Overlays mit verschiedenen Stilen
         scrollable: 
           name: Bildlauf
           demo06: Bildlauf-Plugin in Aktion
@@ -574,6 +561,16 @@ de:
           demo03: Eine einfache scrollbare Bildergalerie
           demo04: Eine weitere scrollbare Galerie
           demo05: Ein scrollbarer Registrierungsassistent
+        overlay: 
+          name: Overlay
+          demo06: Laden von externen Seiten in Overlay
+          demo07: Mehrere Overlays auf der gleichen Seite
+          demo08: Erstellen eines benutzerdefinierten Overlay-Effekt
+          demo01: "Minimales Setup f\xC3\xBCr Overlay"
+          demo02: "Der Apple-Effekt f\xC3\xBCr Overlay"
+          demo03: "Modale Dialoge mit Overlay erstellen "
+          demo04: "Overlays programmatisch \xC3\xB6ffnen"
+          demo05: Overlays mit verschiedenen Stilen
         tabs: 
           name: Registerkarten
           demo06: Akkordeons mit Registerkarten
@@ -611,10 +608,10 @@ de:
         extend: "Erweiterung der Funktionalit\xC3\xA4t"
         convert: AnyTime.Converter
       fullcalendar: 
-        gcal: Google-Kalender der US-Feiertage
         name: FullCalendar Plugin
-        selectable: "Zeitbereiche f\xC3\xBCr das Erstellen eines Ereignisses ausw\xC3\xA4hlen"
+        gcal: Google-Kalender der US-Feiertage
         theme: Kalender mit jQuery UI Thema
+        selectable: "Zeitbereiche f\xC3\xBCr das Erstellen eines Ereignisses ausw\xC3\xA4hlen"
         default: Standardansicht
         agenda: Agenda-Ansicht
         external: Ziehen Sie externe Ereignisse auf den Kalender
@@ -677,20 +674,20 @@ de:
           animate: Animieren
           synchronous-resize: "Synchrones Vergr\xC3\xB6\xC3\x9Fern"
           helper: "Vergr\xC3\xB6\xC3\x9Ferungshelfer"
-          delay-start: "Start verz\xC3\xB6gern"
           textarea: Texfeld
+          delay-start: "Start verz\xC3\xB6gern"
           constrain-area: "Vergr\xC3\xB6\xC3\x9Ferungsfl\xC3\xA4che einschr\xC3\xA4nken"
           visual-feedback: Visuelles Feedback
         draggable: 
-          handle: Position des Griffs
           snap-to: In Element oder Gitter einrasten
+          handle: Position des Griffs
           scroll: Autoscrollen
           default: Ziehbar
           sortable: Zieh- und sortierbar
           constrain-movement: "Einschr\xC3\xA4nken der Bewegung"
           events: Ereignisse
-          cursor-style: Cursorstil
           revert: "Zur Position zur\xC3\xBCckkehren"
+          cursor-style: Cursorstil
           delay-start: "Start verz\xC3\xB6gern"
           visual-feedback: Visuelles Feedback
         droppable: 
@@ -734,9 +731,9 @@ de:
           cookie: Panelstatus im Cookie
           accordion: Akkordeon von Panels
         selectmenu: 
+          maxheight: "Stil: <b>Popup</b> mit maxheight gesetzt"
           name: "Auswahlmen\xC3\xBC"
           methods: Wie benutzt man eine Methode
-          maxheight: "Stil: <b>Popup</b> mit maxheight gesetzt"
           dependency: "Beispiel :Einfache Abh\xC3\xA4ngigkeit"
           custom-icons2: "Stil: <b>Dropdown</b> Sprachen mit Flaggensymbolen"
           without-id: "Stil: <b>Popup</b> ohne ID"
@@ -745,11 +742,11 @@ de:
           icons: "Stil: <b>Popup</b> mit UI-Symbolen"
           ajax: "Beispiel: Callback mit AJAX"
           optgroups: "Stil: <b>Popup</b> mit optgroups"
-          text-formatting: "Stil: <b>Popup</b> mit der Option Textformatierung"
           positioning: Positionierung
+          text-formatting: "Stil: <b>Popup</b> mit der Option Textformatierung"
           menuwidth: "Stil: <b>Dropdown</b> mit menuWidth und Textformatierung"
-          custom-icons: "Stil: <b>Popup</b> mit benutzerdefinierten Icons"
           disable-enable: "Beispiel: Deaktivieren"
+          custom-icons: "Stil: <b>Popup</b> mit benutzerdefinierten Icons"
           dropdown: "Stil: <b>Popup</b>-Stil"
         progressbar: 
           resize: "Vergr\xC3\xB6\xC3\x9Ferbarer Fortschrittsbalken"
@@ -773,20 +770,12 @@ de:
           show-week: Zeige Kalanderwoche
           icon-trigger: "\xC3\x9Cber Symbol aktivieren"
           date-formats: Datum formatieren
-          animation: Animationen
           multiple-calendars: Mehrerer Monate anzeigen
+          animation: Animationen
           localization: " Kalender lokalisieren"
           dropdown-month-year: "Monat- & Jahresmen\xC3\xBCs anzeigen"
           other-months: Termine in den anderen Monaten
           date-range: Datumsbereich
-        dialog: 
-          greybox: Greybox
-          default: Dialog
-          modal-confirmation: "Modale Best\xC3\xA4tigung"
-          modal: Modaler Dialog
-          animated: Animierter Dialog
-          modal-form: Modale Form
-          modal-message: Modale Nachricht
         tabs: 
           manipulation: Einfache Handhabung
           bottom: Registerkarte unterhalb des Inhalts
@@ -796,19 +785,27 @@ de:
           mouseover: "\xC3\x96ffnen, wenn die Maus dar\xC3\xBCberf\xC3\xA4hrt"
           cookie: "Persistenz \xC3\xBCber Cookie"
           collapsible: Inhalt wegklappen
+        dialog: 
+          greybox: Greybox
+          default: Dialog
+          modal-confirmation: "Modale Best\xC3\xA4tigung"
+          modal: Modaler Dialog
+          animated: Animierter Dialog
+          modal-form: Modale Form
+          modal-message: Modale Nachricht
         autocomplete: 
           maxheight: Scrollbare Ergebnisse
           default: "Autovervollst\xC3\xA4ndigung"
-          folding: "Akzente ber\xC3\xBCcksichtigen"
           remote-jsonp: Entfernte JSONP-Datenquelle
           multiple-remote: Mehrfachwerte, entfernt
+          folding: "Akzente ber\xC3\xBCcksichtigen"
           custom-data: Benutzerdefinierte Daten und Anzeige
           remote-with-cache: Entfernt mit Caching
           multiple: Mehrfachwerte
           remote: Entfernte Datenquelle
           categories: Kategorien
-          combobox: Auswahleiste
           remote-xml: XML-Daten einmalig geparsed
+          combobox: Auswahleiste
       form: 
         new: Anlegen
         edit: Bearbeiten
@@ -824,10 +821,10 @@ de:
         default: Effekte
         animate: 
           default: Farbanimation
-        toggle_class: 
-          default: Klasse umschalten
         switch_class: 
           default: Klasse wechseln
+        toggle_class: 
+          default: Klasse umschalten
         add_class: 
           default: "Klasse hinzuf\xC3\xBCgen"
         show: 
@@ -843,6 +840,13 @@ de:
         initial: Thema wechseln
     tree: 
       name: Tree Widgets
+  activemodel: 
+    errors: 
+      template: 
+        body: "Bitte \xC3\xBCberpr\xC3\xBCfen Sie die folgenden Felder:"
+        header: 
+          one: "Konnte %{model} nicht speichern: ein Fehler."
+          other: "Konnte %{model} nicht speichern: %{count} Fehler."
   date: 
     month_names: 
     - 

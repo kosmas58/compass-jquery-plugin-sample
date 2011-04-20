@@ -35,11 +35,11 @@ class ApplicationController < ActionController::Base
   end
 
   def set_ppi
-    cookies['ppi']  = 90 if !cookies['ppi']
+    cookies[:ppi]  = 90 if !cookies[:ppi]
   end
 
   def set_scaling
-    cookies[:scaling] = 'real_size' if !cookies['scaling']
+    cookies[:scaling] = 'real_size' if !cookies[:scaling]
   end
 
 end

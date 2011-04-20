@@ -664,204 +664,94 @@ node_492 = NavigationTree.create_node(:id => parent_id, :seed => true, :position
 parent_id = node_492
 node_493 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.os.android', :type => 'folder', :icon => '/images/icons/16x16/android_logo2.png')
 parent_id = node_493
-node_494 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.galaxys', :type => 'folder', :icon => '/images/icons/16x16/galaxys.png')
-parent_id = node_494
-node_495 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.port', :type => 'folder', :icon => '/images/icons/16x16/portrait.png')
-parent_id = node_495
-node_496 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.jqm.default', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=galaxy.s;orientation=portrait;url=/mobile')
-node_497 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.jqm.experiments', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=galaxy.s;orientation=portrait;url=/mobile/experiments/main')
-node_498 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.emu.jqm.home', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=galaxy.s;orientation=portrait;url=http://jquerymobile.com/demos/1.0a4/')
-node_499 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.emu.jqt.default', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators?device=galaxy.s;orientation=portrait;url=/jqtouch/demo')
-node_500 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 4, :title => 'txt.emu.jqt.home', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators?device=galaxy.s;orientation=portrait;url=http://www.jqtouch.com/preview/demos/main/')
-parent_id = node_494
-node_501 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.land', :type => 'folder', :icon => '/images/icons/16x16/landscape.png')
-parent_id = node_501
-node_502 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.jqm.default', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=galaxy.s;orientation=landscape;url=/mobile')
-node_503 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.jqm.experiments', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=galaxy.s;orientation=landscape;url=/mobile/experiments/main')
-node_504 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.emu.jqm.home', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=galaxy.s;orientation=landscape;url=http://jquerymobile.com/demos/1.0a4/')
-node_505 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.emu.jqt.default', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators?device=galaxy.s;orientation=landscape;url=/jqtouch/demo')
-node_506 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 4, :title => 'txt.emu.jqt.home', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators?device=galaxy.s;orientation=landscape;url=http://www.jqtouch.com/preview/demos/main/')
-parent_id = node_494
+node_627 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.galaxys', :type => 'folder', :icon => '/images/icons/16x16/galaxys.png')
+parent_id = node_627
+node_628 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.jqm.default', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=galaxy.s;orientation=portrait;url=/mobile')
+node_629 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.jqm.experiments', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=galaxy.s;orientation=portrait;url=/mobile/experiments/main')
+node_630 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.emu.jqm.home', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=galaxy.s;orientation=portrait;url=http://jquerymobile.com/demos/1.0a4/')
+node_631 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.emu.jqt.default', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators?device=galaxy.s;orientation=portrait;url=/jqtouch/demo')
+node_632 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 4, :title => 'txt.emu.jqt.home', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators?device=galaxy.s;orientation=portrait;url=http://www.jqtouch.com/preview/demos/main/')
 parent_id = node_493
-node_507 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.galaxys2', :type => 'folder', :icon => '/images/icons/16x16/galaxys.png')
-parent_id = node_507
-node_508 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.port', :type => 'folder', :icon => '/images/icons/16x16/portrait.png')
-parent_id = node_508
-node_509 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.jqm.default', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=galaxy.s2;orientation=portrait;url=/mobile')
-node_510 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.jqm.experiments', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=galaxy.s2;orientation=portrait;url=/mobile/experiments/main')
-node_511 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.emu.jqm.home', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=galaxy.s2;orientation=portrait;url=http://jquerymobile.com/demos/1.0a4/')
-node_512 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.emu.jqt.default', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators?device=galaxy.s2;orientation=portrait;url=/jqtouch/demo')
-node_513 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 4, :title => 'txt.emu.jqt.home', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators?device=galaxy.s2;orientation=portrait;url=http://www.jqtouch.com/preview/demos/main/')
-parent_id = node_507
-node_514 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.land', :type => 'folder', :icon => '/images/icons/16x16/landscape.png')
-parent_id = node_514
-node_515 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.jqm.default', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=galaxy.s2;orientation=landscape;url=/mobile')
-node_516 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.jqm.experiments', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=galaxy.s2;orientation=landscape;url=/mobile/experiments/main')
-node_517 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.emu.jqm.home', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=galaxy.s2;orientation=landscape;url=http://jquerymobile.com/demos/1.0a4/')
-node_518 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.emu.jqt.default', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators?device=galaxy.s2;orientation=landscape;url=/jqtouch/demo')
-node_519 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 4, :title => 'txt.emu.jqt.home', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators?device=galaxy.s2;orientation=landscape;url=http://www.jqtouch.com/preview/demos/main/')
-parent_id = node_507
+node_633 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.galaxys2', :type => 'folder', :icon => '/images/icons/16x16/galaxys.png')
+parent_id = node_633
+node_634 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.jqm.default', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=galaxy.s2;orientation=portrait;url=/mobile')
+node_635 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.jqm.experiments', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=galaxy.s2;orientation=portrait;url=/mobile/experiments/main')
+node_636 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.emu.jqm.home', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=galaxy.s2;orientation=portrait;url=http://jquerymobile.com/demos/1.0a4/')
+node_637 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.emu.jqt.default', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators?device=galaxy.s2;orientation=portrait;url=/jqtouch/demo')
+node_638 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 4, :title => 'txt.emu.jqt.home', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators?device=galaxy.s2;orientation=portrait;url=http://www.jqtouch.com/preview/demos/main/')
 parent_id = node_493
-node_520 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.emu.galaxy7', :type => 'folder', :icon => '/images/icons/16x16/galaxy7.png')
-parent_id = node_520
-node_521 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.port', :type => 'folder', :icon => '/images/icons/16x16/portrait.png')
-parent_id = node_521
-node_522 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.jqm.default', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=galaxy.tab.7;orientation=portrait;url=/mobile')
-node_523 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.jqm.experiments', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=galaxy.tab.7;orientation=portrait;url=/mobile/experiments/main')
-node_524 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.emu.jqm.home', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=galaxy.tab.7;orientation=portrait;url=http://jquerymobile.com/demos/1.0a4/')
-node_525 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.emu.jqt.default', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators?device=galaxy.tab.7;orientation=portrait;url=/jqtouch/demo')
-node_526 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 4, :title => 'txt.emu.jqt.home', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators?device=galaxy.tab.7;orientation=portrait;url=http://www.jqtouch.com/preview/demos/main/')
-parent_id = node_520
-node_527 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.land', :type => 'folder', :icon => '/images/icons/16x16/landscape.png')
-parent_id = node_527
-node_528 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.jqm.default', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=galaxy.tab.7;orientation=landscape;url=/mobile')
-node_529 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.jqm.experiments', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=galaxy.tab.7;orientation=landscape;url=/mobile/experiments/main')
-node_530 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.emu.jqm.home', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=galaxy.tab.7;orientation=landscape;url=http://jquerymobile.com/demos/1.0a4/')
-node_531 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.emu.jqt.default', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators?device=galaxy.tab.7;orientation=landscape;url=/jqtouch/demo')
-node_532 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 4, :title => 'txt.emu.jqt.home', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators?device=galaxy.tab.7;orientation=landscape;url=http://www.jqtouch.com/preview/demos/main/')
-parent_id = node_520
+node_669 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.emu.galaxy7', :type => 'folder', :icon => '/images/icons/16x16/galaxy7.png')
+parent_id = node_669
+node_670 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.jqm.default', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=galaxy.tab.7;orientation=portrait;url=/mobile')
+node_671 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.jqm.experiments', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=galaxy.tab.7;orientation=portrait;url=/mobile/experiments/main')
+node_672 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.emu.jqm.home', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=galaxy.tab.7;orientation=portrait;url=http://jquerymobile.com/demos/1.0a4/')
+node_673 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.emu.jqt.default', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators?device=galaxy.tab.7;orientation=portrait;url=/jqtouch/demo')
+node_674 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 4, :title => 'txt.emu.jqt.home', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators?device=galaxy.tab.7;orientation=portrait;url=http://www.jqtouch.com/preview/demos/main/')
 parent_id = node_493
-node_533 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.emu.galaxy9', :type => 'folder', :icon => '/images/icons/16x16/galaxy10.png')
-parent_id = node_533
-node_534 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.port', :type => 'folder', :icon => '/images/icons/16x16/portrait.png')
-parent_id = node_534
-node_535 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.jqm.default', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=galaxy.tab.8.9;orientation=portrait;url=/mobile')
-node_536 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.jqm.experiments', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=galaxy.tab.8.9;orientation=portrait;url=/mobile/experiments/main')
-node_537 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.emu.jqm.home', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=galaxy.tab.8.9;orientation=portrait;url=http://jquerymobile.com/demos/1.0a4/')
-node_538 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.emu.jqt.default', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators?device=galaxy.tab.8.9;orientation=portrait;url=/jqtouch/demo')
-node_539 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 4, :title => 'txt.emu.jqt.home', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators?device=galaxy.tab.8.9;orientation=portrait;url=http://www.jqtouch.com/preview/demos/main/')
-parent_id = node_533
-node_540 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.land', :type => 'folder', :icon => '/images/icons/16x16/landscape.png')
-parent_id = node_540
-node_541 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.jqm.default', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=galaxy.tab.8.9;orientation=landscape;url=/mobile')
-node_542 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.jqm.experiments', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=galaxy.tab.8.9;orientation=landscape;url=/mobile/experiments/main')
-node_543 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.emu.jqm.home', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=galaxy.tab.8.9;orientation=landscape;url=http://jquerymobile.com/demos/1.0a4/')
-node_544 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.emu.jqt.default', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators?device=galaxy.tab.8.9;orientation=landscape;url=/jqtouch/demo')
-node_545 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 4, :title => 'txt.emu.jqt.home', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators?device=galaxy.tab.8.9;orientation=landscape;url=http://www.jqtouch.com/preview/demos/main/')
-parent_id = node_533
+node_693 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.emu.galaxy9', :type => 'folder', :icon => '/images/icons/16x16/galaxy10.png')
+parent_id = node_693
+node_694 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.jqm.default', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=galaxy.tab.8.9;orientation=landscape;url=/mobile')
+node_695 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.jqm.experiments', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=galaxy.tab.8.9;orientation=landscape;url=/mobile/experiments/main')
+node_696 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.emu.jqm.home', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=galaxy.tab.8.9;orientation=landscape;url=http://jquerymobile.com/demos/1.0a4/')
+node_697 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.emu.jqt.default', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators?device=galaxy.tab.8.9;orientation=landscape;url=/jqtouch/demo')
+node_698 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 4, :title => 'txt.emu.jqt.home', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators?device=galaxy.tab.8.9;orientation=landscape;url=http://www.jqtouch.com/preview/demos/main/')
 parent_id = node_493
-node_546 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 4, :title => 'txt.emu.galaxy10', :type => 'folder', :icon => '/images/icons/16x16/galaxy10.png')
-parent_id = node_546
-node_547 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.port', :type => 'folder', :icon => '/images/icons/16x16/portrait.png')
-parent_id = node_547
-node_548 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.jqm.default', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=galaxy.tab.10.1;orientation=portrait;url=/mobile')
-node_549 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.jqm.experiments', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=galaxy.tab.10.1;orientation=portrait;url=/mobile/experiments/main')
-node_550 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.emu.jqm.home', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=galaxy.tab.10.1;orientation=portrait;url=http://jquerymobile.com/demos/1.0a4/')
-node_551 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.emu.jqt.default', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators?device=galaxy.tab.10.1;orientation=portrait;url=/jqtouch/demo')
-node_552 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 4, :title => 'txt.emu.jqt.home', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators?device=galaxy.tab.10.1;orientation=portrait;url=http://www.jqtouch.com/preview/demos/main/')
-parent_id = node_546
-node_553 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.land', :type => 'folder', :icon => '/images/icons/16x16/landscape.png')
-parent_id = node_553
-node_554 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.jqm.default', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=galaxy.tab.10.1;orientation=landscape;url=/mobile')
-node_555 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.jqm.experiments', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=galaxy.tab.10.1;orientation=landscape;url=/mobile/experiments/main')
-node_556 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.emu.jqm.home', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=galaxy.tab.10.1;orientation=landscape;url=http://jquerymobile.com/demos/1.0a4/')
-node_557 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.emu.jqt.default', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators?device=galaxy.tab.10.1;orientation=landscape;url=/jqtouch/demo')
-node_558 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 4, :title => 'txt.emu.jqt.home', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators?device=galaxy.tab.10.1;orientation=landscape;url=http://www.jqtouch.com/preview/demos/main/')
-parent_id = node_546
+node_705 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 4, :title => 'txt.emu.galaxy10', :type => 'folder', :icon => '/images/icons/16x16/galaxy10.png')
+parent_id = node_705
+node_706 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.jqm.default', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=galaxy.tab.10.1;orientation=landscape;url=/mobile')
+node_707 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.jqm.experiments', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=galaxy.tab.10.1;orientation=landscape;url=/mobile/experiments/main')
+node_708 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.emu.jqm.home', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=galaxy.tab.10.1;orientation=landscape;url=http://jquerymobile.com/demos/1.0a4/')
+node_709 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.emu.jqt.default', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators?device=galaxy.tab.10.1;orientation=landscape;url=/jqtouch/demo')
+node_710 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 4, :title => 'txt.emu.jqt.home', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators?device=galaxy.tab.10.1;orientation=landscape;url=http://www.jqtouch.com/preview/demos/main/')
 parent_id = node_493
 parent_id = node_492
 node_559 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.os.bos', :type => 'folder', :icon => '/images/icons/16x16/blackberry_logo.png')
 parent_id = node_559
-node_560 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.black', :type => 'folder', :icon => '/images/icons/16x16/blackberry.png')
-parent_id = node_560
-node_561 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.port', :type => 'folder', :icon => '/images/icons/16x16/portrait.png')
-parent_id = node_561
-node_562 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.jqm.default', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=blackberry.torch;orientation=portrait;url=/mobile')
-node_563 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.jqm.experiments', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=blackberry.torch;orientation=portrait;url=/mobile/experiments/main')
-node_564 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.emu.jqm.home', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=blackberry.torch;orientation=portrait;url=http://jquerymobile.com/demos/1.0a4/')
-node_565 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.emu.jqt.default', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators?device=blackberry.torch;orientation=portrait;url=/jqtouch/demo')
-node_566 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 4, :title => 'txt.emu.jqt.home', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators?device=blackberry.torch;orientation=portrait;url=http://www.jqtouch.com/preview/demos/main/')
-parent_id = node_560
-node_567 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.land', :type => 'folder', :icon => '/images/icons/16x16/landscape.png')
-parent_id = node_567
-node_568 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.jqm.default', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=blackberry.torch;orientation=landscape;url=/mobile')
-node_569 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.jqm.experiments', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=blackberry.torch;orientation=landscape;url=/mobile/experiments/main')
-node_570 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.emu.jqm.home', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=blackberry.torch;orientation=landscape;url=http://jquerymobile.com/demos/1.0a4/')
-node_571 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.emu.jqt.default', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators?device=blackberry.torch;orientation=landscape;url=/jqtouch/demo')
-node_572 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 4, :title => 'txt.emu.jqt.home', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators?device=blackberry.torch;orientation=landscape;url=http://www.jqtouch.com/preview/demos/main/')
-parent_id = node_560
+node_711 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.black', :type => 'folder', :icon => '/images/icons/16x16/blackberry.png')
+parent_id = node_711
+node_712 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.jqm.default', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=blackberry.torch;orientation=portrait;url=/mobile')
+node_713 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.jqm.experiments', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=blackberry.torch;orientation=portrait;url=/mobile/experiments/main')
+node_714 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.emu.jqm.home', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=blackberry.torch;orientation=portrait;url=http://jquerymobile.com/demos/1.0a4/')
+node_715 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.emu.jqt.default', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators?device=blackberry.torch;orientation=portrait;url=/jqtouch/demo')
+node_716 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 4, :title => 'txt.emu.jqt.home', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators?device=blackberry.torch;orientation=portrait;url=http://www.jqtouch.com/preview/demos/main/')
 parent_id = node_559
 parent_id = node_492
 node_573 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.emu.os.ios', :type => 'folder', :icon => '/images/icons/16x16/apple_logo.png')
 parent_id = node_573
-node_574 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.ipad', :type => 'folder', :icon => '/images/icons/16x16/ipad.png')
-parent_id = node_574
-node_575 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.port', :type => 'folder', :icon => '/images/icons/16x16/portrait.png')
-parent_id = node_575
-node_576 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.jqm.default', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=ipad;orientation=portrait;url=/mobile')
-node_577 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.jqm.experiments', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=ipad;orientation=portrait;url=/mobile/experiments/main')
-node_578 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.emu.jqm.home', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=ipad;orientation=portrait;url=http://jquerymobile.com/demos/1.0a4/')
-node_579 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.emu.jqt.default', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators?device=ipad;orientation=portrait;url=/jqtouch/demo')
-node_580 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 4, :title => 'txt.emu.jqt.home', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators?device=ipad;orientation=portrait;url=http://www.jqtouch.com/preview/demos/main/')
-parent_id = node_574
-node_581 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.land', :type => 'folder', :icon => '/images/icons/16x16/landscape.png')
-parent_id = node_581
-node_582 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.jqm.default', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=ipad;orientation=landscape;url=/mobile')
-node_583 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.jqm.experiments', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=ipad;orientation=landscape;url=/mobile/experiments/main')
-node_584 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.emu.jqm.home', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=ipad;orientation=landscape;url=http://jquerymobile.com/demos/1.0a4/')
-node_585 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.emu.jqt.default', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators?device=ipad;orientation=landscape;url=/jqtouch/demo')
-node_586 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 4, :title => 'txt.emu.jqt.home', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators?device=ipad;orientation=landscape;url=http://www.jqtouch.com/preview/demos/main/')
-parent_id = node_574
+node_645 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.ipad', :type => 'folder', :icon => '/images/icons/16x16/ipad.png')
+parent_id = node_645
+node_646 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.jqm.default', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=ipad;orientation=landscape;url=/mobile')
+node_647 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.jqm.experiments', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=ipad;orientation=landscape;url=/mobile/experiments/main')
+node_648 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.emu.jqm.home', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=ipad;orientation=landscape;url=http://jquerymobile.com/demos/1.0a4/')
+node_649 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.emu.jqt.default', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators?device=ipad;orientation=landscape;url=/jqtouch/demo')
+node_650 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 4, :title => 'txt.emu.jqt.home', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators?device=ipad;orientation=landscape;url=http://www.jqtouch.com/preview/demos/main/')
 parent_id = node_573
-node_587 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.iphone3', :type => 'folder', :icon => '/images/icons/16x16/iphone.png')
-parent_id = node_587
-node_588 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.port', :type => 'folder', :icon => '/images/icons/16x16/portrait.png')
-parent_id = node_588
-node_589 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.jqm.default', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=iphone.3;orientation=portrait;url=/mobile')
-node_590 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.jqm.experiments', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=iphone.3;orientation=portrait;url=/mobile/experiments/main')
-node_591 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.emu.jqm.home', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=iphone.3;orientation=portrait;url=http://jquerymobile.com/demos/1.0a4/')
-node_592 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.emu.jqt.default', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators?device=iphone.3;orientation=portrait;url=/jqtouch/demo')
-node_593 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 4, :title => 'txt.emu.jqt.home', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators?device=iphone.3;orientation=portrait;url=http://www.jqtouch.com/preview/demos/main/')
-parent_id = node_587
-node_594 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.land', :type => 'folder', :icon => '/images/icons/16x16/landscape.png')
-parent_id = node_594
-node_595 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.jqm.default', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=iphone.3;orientation=landscape;url=/mobile')
-node_596 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.jqm.experiments', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=iphone.3;orientation=landscape;url=/mobile/experiments/main')
-node_597 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.emu.jqm.home', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=iphone.3;orientation=landscape;url=http://jquerymobile.com/demos/1.0a4/')
-node_598 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.emu.jqt.default', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators?device=iphone.3;orientation=landscape;url=/jqtouch/demo')
-node_599 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 4, :title => 'txt.emu.jqt.home', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators?device=iphone.3;orientation=landscape;url=http://www.jqtouch.com/preview/demos/main/')
-parent_id = node_587
+node_651 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.iphone3', :type => 'folder', :icon => '/images/icons/16x16/iphone.png')
+parent_id = node_651
+node_652 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.jqm.default', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=iphone.3;orientation=portrait;url=/mobile')
+node_653 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.jqm.experiments', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=iphone.3;orientation=portrait;url=/mobile/experiments/main')
+node_654 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.emu.jqm.home', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=iphone.3;orientation=portrait;url=http://jquerymobile.com/demos/1.0a4/')
+node_655 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.emu.jqt.default', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators?device=iphone.3;orientation=portrait;url=/jqtouch/demo')
+node_656 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 4, :title => 'txt.emu.jqt.home', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators?device=iphone.3;orientation=portrait;url=http://www.jqtouch.com/preview/demos/main/')
 parent_id = node_573
-node_600 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.emu.iphone4', :type => 'folder', :icon => '/images/icons/16x16/iphone.png')
-parent_id = node_600
-node_601 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.port', :type => 'folder', :icon => '/images/icons/16x16/portrait.png')
-parent_id = node_601
-node_602 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.jqm.default', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=iphone.4;orientation=portrait;url=/mobile')
-node_603 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.jqm.experiments', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=iphone.4;orientation=portrait;url=/mobile/experiments/main')
-node_604 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.emu.jqm.home', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=iphone.4;orientation=portrait;url=http://jquerymobile.com/demos/1.0a4/')
-node_605 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.emu.jqt.default', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators?device=iphone.4;orientation=portrait;url=/jqtouch/demo')
-node_606 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 4, :title => 'txt.emu.jqt.home', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators?device=iphone.4;orientation=portrait;url=http://www.jqtouch.com/preview/demos/main/')
-parent_id = node_600
-node_607 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.land', :type => 'folder', :icon => '/images/icons/16x16/landscape.png')
-parent_id = node_607
-node_608 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.jqm.default', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=iphone.4;orientation=landscape;url=/mobile')
-node_609 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.jqm.experiments', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=iphone.4;orientation=landscape;url=/mobile/experiments/main')
-node_610 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.emu.jqm.home', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=iphone.4;orientation=landscape;url=http://jquerymobile.com/demos/1.0a4/')
-node_611 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.emu.jqt.default', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators?device=iphone.4;orientation=landscape;url=/jqtouch/demo')
-node_612 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 4, :title => 'txt.emu.jqt.home', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators?device=iphone.4;orientation=landscape;url=http://www.jqtouch.com/preview/demos/main/')
-parent_id = node_600
+node_657 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.emu.iphone4', :type => 'folder', :icon => '/images/icons/16x16/iphone.png')
+parent_id = node_657
+node_658 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.jqm.default', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=iphone.4;orientation=portrait;url=/mobile')
+node_659 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.jqm.experiments', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=iphone.4;orientation=portrait;url=/mobile/experiments/main')
+node_660 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.emu.jqm.home', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=iphone.4;orientation=portrait;url=http://jquerymobile.com/demos/1.0a4/')
+node_661 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.emu.jqt.default', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators?device=iphone.4;orientation=portrait;url=/jqtouch/demo')
+node_662 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 4, :title => 'txt.emu.jqt.home', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators?device=iphone.4;orientation=portrait;url=http://www.jqtouch.com/preview/demos/main/')
 parent_id = node_573
 parent_id = node_492
 node_613 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.emu.os.webos', :type => 'folder', :icon => '/images/icons/16x16/webos_logo.png')
 parent_id = node_613
-node_614 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.palm', :type => 'folder', :icon => '/images/icons/16x16/palm.png')
-parent_id = node_614
-node_615 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.port', :type => 'folder', :icon => '/images/icons/16x16/portrait.png')
-parent_id = node_615
-node_616 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.jqm.default', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=palm.pre.2;orientation=portrait;url=/mobile')
-node_617 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.jqm.experiments', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=palm.pre.2;orientation=portrait;url=/mobile/experiments/main')
-node_618 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.emu.jqm.home', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=palm.pre.2;orientation=portrait;url=http://jquerymobile.com/demos/1.0a4/')
-node_619 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.emu.jqt.default', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators?device=palm.pre.2;orientation=portrait;url=/jqtouch/demo')
-node_620 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 4, :title => 'txt.emu.jqt.home', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators?device=palm.pre.2;orientation=portrait;url=http://www.jqtouch.com/preview/demos/main/')
-parent_id = node_614
-node_621 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.land', :type => 'folder', :icon => '/images/icons/16x16/landscape.png')
-parent_id = node_621
-node_622 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.jqm.default', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=palm.pre.2;orientation=landscape;url=/mobile')
-node_623 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.jqm.experiments', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=palm.pre.2;orientation=landscape;url=/mobile/experiments/main')
-node_624 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.emu.jqm.home', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=palm.pre.2;orientation=landscape;url=http://jquerymobile.com/demos/1.0a4/')
-node_625 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.emu.jqt.default', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators?device=palm.pre.2;orientation=landscape;url=/jqtouch/demo')
-node_626 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 4, :title => 'txt.emu.jqt.home', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators?device=palm.pre.2;orientation=landscape;url=http://www.jqtouch.com/preview/demos/main/')
-parent_id = node_614
+node_639 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.palm', :type => 'folder', :icon => '/images/icons/16x16/palm.png')
+parent_id = node_639
+node_640 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.emu.jqm.default', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=palm.pre.2;orientation=portrait;url=/mobile')
+node_641 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.emu.jqm.experiments', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=palm.pre.2;orientation=portrait;url=/mobile/experiments/main')
+node_642 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.emu.jqm.home', :type => 'default', :icon => '/images/icons/16x16/jqmobile.png', :url => '/emulators?device=palm.pre.2;orientation=portrait;url=http://jquerymobile.com/demos/1.0a4/')
+node_643 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.emu.jqt.default', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators?device=palm.pre.2;orientation=portrait;url=/jqtouch/demo')
+node_644 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 4, :title => 'txt.emu.jqt.home', :type => 'default', :icon => '/images/icons/16x16/jqtouch.png', :url => '/emulators?device=palm.pre.2;orientation=portrait;url=http://www.jqtouch.com/preview/demos/main/')
 parent_id = node_613
 parent_id = node_492
 parent_id = node_1
