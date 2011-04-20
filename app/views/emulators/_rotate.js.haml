@@ -1,0 +1,13 @@
+:javascript
+  $(function() {
+    $("#rotate").click(function() {
+      if("#{orientation}" == "landscape") {
+        rotateTo = "portrait";
+      } else {
+        rotateTo = "landscape";
+      }
+      parent.$("[id=demoframe]").attr("src", "/emulators?device=#{device};orientation="+rotateTo+";url=/#{url}");
+      return false;
+    });
+  });
+

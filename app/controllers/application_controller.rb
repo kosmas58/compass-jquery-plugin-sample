@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
   before_filter :set_locale
   before_filter :set_theme
   before_filter :set_ppi
+  before_filter :set_scaling
 
   protected
 
@@ -34,11 +35,11 @@ class ApplicationController < ActionController::Base
   end
 
   def set_ppi
-    if cookies['ppi']
-      session[:ppi] = cookies['ppi']
-    else
-      session[:ppi] = 90
-    end
+    cookies['ppi']  = 90 if !cookies['ppi']
+  end
+
+  def set_scaling
+    cookies[:scaling] = 'real_size' if !cookies['scaling']
   end
 
 end

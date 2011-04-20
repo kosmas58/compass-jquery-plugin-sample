@@ -1,6 +1,7 @@
 - content_for :content_head do
-  = render :partial => "/emulators/scale.js.haml", :format => :js, :locals => { :scale => @scale }
+  = render :partial => "scale.js.haml", :format => :js
+  = render :partial => "rotate.js.haml", :format => :js, :locals => { :device => @device, :orientation => @orientation, :url => @action }
   = render(:partial => "ppi.js.haml", :format => :js)
   = stylesheet_link_tag ["compiled/emulators/#{@device}.#{@orientation}.css"]
 
-= render :partial => "emulate", :locals => { :url => @action, :scale => @scale, :width => @width, :height => @height }
+= render :partial => "emulate", :locals => { :url => @action, :width => @width, :height => @height }

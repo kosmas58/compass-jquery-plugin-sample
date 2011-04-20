@@ -213,7 +213,9 @@ en:
     plugins: 
       name: jQuery plugins
     trees: Trees
-    layout: 
+    layout:
+      resize: Change scale
+      rotate: Change orientation
       back: Back
       colon: ":"
       edit: Edit

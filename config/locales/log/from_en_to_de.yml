@@ -21,8 +21,9 @@ date:
     short: "%b %d"
     long: "%B %d, %Y"
 txt: 
-  history: 
-    example11: Navigator Output
+  layout: 
+    resize: Change scale
+    rotate: Change orientation
   tools: 
     form: 
       stylable: 

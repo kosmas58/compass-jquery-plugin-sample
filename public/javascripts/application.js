@@ -48,7 +48,7 @@ $(function() {
   });
 
   $("#configure_ppi").click(function() {
-    $("[name=contentFrame]").attr("src", "/emulators/edit");
+    $("[id=demoframe]").attr("src", "/emulators/edit");
   });
 
   $("#configure_navigation").button({
@@ -59,7 +59,7 @@ $(function() {
   });
     
   $("#configure_navigation").click(function() {
-    $("[name=contentFrame]").attr("src", "/navigation");
+    $("[id=demoframe]").attr("src", "/navigation");
   });
 
   $("#license").dialog({

@@ -62,8 +62,8 @@ de:
       account: 
         name: Name
         debit: Soll
-        enabled: Aktiviert
         credit: Haben
+        enabled: Aktiviert
         balance: Kontostand
         acc_num: Kontonr.
       event: 
@@ -90,8 +90,8 @@ de:
         item: Element
     errors: 
       messages: 
-        record_invalid: "G\xC3\xBCltigkeitspr\xC3\xBCfung ist fehlgeschlagen: %{errors}"
         greater_than_or_equal_to: "muss gr\xC3\xB6\xC3\x9Fer oder gleich %{count} sein"
+        record_invalid: "G\xC3\xBCltigkeitspr\xC3\xBCfung ist fehlgeschlagen: %{errors}"
         less_than_or_equal_to: muss kleiner oder gleich %{count} sein
         confirmation: "stimmt nicht mit der Best\xC3\xA4tigung \xC3\xBCberein"
         blank: "muss ausgef\xC3\xBCllt werden"
@@ -125,6 +125,13 @@ de:
       short: "%d. %B, %H:%M Uhr"
       long: "%A, %d. %B %Y, %H:%M Uhr"
     pm: nachmittags
+  activemodel: 
+    errors: 
+      template: 
+        body: "Bitte \xC3\xBCberpr\xC3\xBCfen Sie die folgenden Felder:"
+        header: 
+          one: "Konnte %{model} nicht speichern: ein Fehler."
+          other: "Konnte %{model} nicht speichern: %{count} Fehler."
   txt: 
     graphics: 
       name: Graphik
@@ -141,8 +148,8 @@ de:
           inverted: Spline mit invertierten Achsen
           symbols: Spline mit Symbolen
         line: 
-          name: Linien-  und Streudiagramme
           time_series: Zeitreihe, zoombar
+          name: Linien-  und Streudiagramme
           ajax: Ajax geladenen Daten, anklickbare Punkte
           basic: Linie Basis
           labels: Mit Datenbeschriftungen
@@ -190,9 +197,9 @@ de:
       name: jsTree
       html: HTML-Daten
       plugins: Plugins
-      themeroller: Themenwahl
       xml: XML-Daten
       hotkeys: Hotkeys
+      themeroller: Themenwahl
       dnd: Drag'n Drop
       checkbox: "Auswahlk\xC3\xA4stchen"
       radio: Umschalttasten
@@ -204,77 +211,51 @@ de:
       types: Typen
       sort: Sortieren
       unique: Eindeutig
-      ui: UI
       core: "Basisfunktionalit\xC3\xA4t"
+      ui: UI
       search: Suche
       crrm: CRRM
       themes: Themen
     plugins: 
       name: jQuery-Plugins
+    trees: !binary |
+      QsOkdW1l
+
     layout: 
-      colon: ":"
       back: "Zur\xC3\xBCck"
+      colon: ":"
       edit: Bearbeiten
       cancel: Abbrechen
-      delete: "L\xC3\xB6schen"
       theme: Thema
+      delete: "L\xC3\xB6schen"
+      resize: "Skalierung \xC3\xA4ndern"
       from: von
       navigation browse: Browsen Sie durch die Beispiele
       language: Sprache
+      rotate: " Orientierung \xC3\xA4ndern"
       footer: 
         legalese: "Copyright \xC2\xA9 2009-2011 Kosmas Sch\xC3\xBCtz. N\xC3\xA4heres finden Sie unter LICENSE."
-      ppi:
-        configure: "Emulator-Konfiguration - Aufl\xC3\xB6sung anpassen"
-        tooltip: Emulatorkonfiguration
       save: Sichern
       show: Anzeigen
       create: Anlegen
+      update: Aktualisieren
+      ppi: 
+        configure: "Emulator-Konfiguration - Aufl\xC3\xB6sung anpassen"
+        tooltip: Emulatorkonfiguration
       navigation: 
         seed: /db/navigation.seeds.rb erfolgreich erstellt.
         configure: Navigation konfigurieren
         tooltip: Klicken Sie um die Navigation zu konfigurieren
         browse: Browsen Sie durch die Beispiele
-      update: Aktualisieren
       until: bis
-    trees: !binary |
-      QsOkdW1l
-
-    emu: 
-      name: "jQuery auf mobilen Ger\xC3\xA4ten"
-      ipad: iPad
-      jqt: 
-        name: "<i>(Ben\xC3\xB6tigt einen WebKit-Engine)</i>"
-        default: jQTouch Demonstration
-        home: "&beta;@jqtouch.com"
-      black: BlackBerry Torch
-      port: Hochformat
-      galaxys: Galaxy S
-      galaxys2: Galaxy S2
-      os: 
-        webos: webOS
-        ios: iOS
-        android: Android
-        bos: BlackBerry OS
-      land: Querformat
-      jqm: 
-        name: jQuery Mobile Framework
-        experiments: Weitere Demos
-        default: jQuery Mobile Demonstration
-        home: "&alpha;4@jquerymobile.com"
-      galaxy7: Galaxy Tab 7
-      galaxy9: Galaxy Tab 8.9
-      galaxy10: Galaxy Tab 10.1
-      palm: Pre 2
-      iphone3: iPhone 3
-      iphone4: iPhone 4
     history: 
       name: History.js
       example3: Ajax-Beispiel
       example4: Ajax-Beispiel 2
       example10: HTML5-History-API
       example5: BBQ
-      example6: MVC Bespielhistorie
       example11: Navigator-Ausgabe
+      example6: MVC Bespielhistorie
       example7: WebKit popstate 1
       example12: Safari History-Bug
       example8: Webkit popstate 2
@@ -286,6 +267,9 @@ de:
       simple: jQuery Ribbon Simple Demo
       default: jQuery Ribbon Windows 7 Demo
       office: jQuery Ribbon Office Demo
+    haml: 
+      name: Javascript und Haml.
+      jhaml: jQuery-haml-Plugin
     jqgrid: 
       name: jqGrid
       manipulation: 
@@ -295,8 +279,8 @@ de:
         datepicker: mit Datumsauswahl (Nachname)
         input: mit verschiedenen Eingabetypen
       simple: 
-        name: Einfache Datengitter
         direct: mit direkter Auswahl und automatischer Weite
+        name: Einfache Datengitter
         default: "mit Standardfunktionalit\xC3\xA4t"
         master: mit Haupt- und Detailsicht
         selection: mit Auswahllink und Suche deaktiviert
@@ -321,19 +305,19 @@ de:
         20data: Gitterdaten
         34format: Formatierer
         38array3: Kopfzeile konfigurieren
+        37scroll: Virtuelles Scrollen
         20once: Einmaliges Laden
         38remote1: Entfernte Daten (sortiert)
-        37scroll: Virtuelles Scrollen
         37multiple: Mehrfachsuche
         37v: Neu in Version 3.7
-        35asearch: Erweiterte Suche
         38remote2: Entfernte Daten (sortiert mit Gesamtsummen)
+        35asearch: Erweiterte Suche
         32hide: Spalten anzeigen/verbergen
         38array4: "RNL-Unterst\xC3\xBCtzung"
         38remote3: Entfernte Daten (unsortiert mit Gesamtsummen)
         36api: Neues API
-        default: Angepasste Demo-Beispiele
         38array5: Zeilen verbergen
+        default: Angepasste Demo-Beispiele
         38remote4: "Dynamische Ver\xC3\xA4nderung der Gruppierung"
         34autoscroll: Das automatische Laden von Daten beim Scrollen
         38array6: "Summarische Fu\xC3\x9Fzeilen"
@@ -341,14 +325,14 @@ de:
         30searching: Daten suchen
         31cparams: "Gebr\xC3\xA4uchliche Parameter"
         38remote5: Summenzeile anzeigen
-        32new_methods: Neue Methoden
         36tscroll: Echte scrollende Zeilen
+        32new_methods: Neue Methoden
         20array: Daten aus einer Matrix
         37single: Einfache Suche
         30edit_row: "Zeile \xC3\xA4ndern"
-        gridify: 2dc-Beispiele mit gridify umgesetzt
         30live: Live Datenmanipulation
         name: Demo
+        gridify: 2dc-Beispiele mit gridify umgesetzt
         30integrations: Integrationen
         31toolbar: Symbolleisten
         31new_methods: Neue Methoden
@@ -359,15 +343,15 @@ de:
         32insert: "Ereignis nach Einf\xC3\xBCgen einer Zeile"
         37server: Daten auf einmal vom Server laden
         35real: "Reales Beispiel eines Baumgitters "
-        20subgrid: Untergitter
         33mform: Mehrfache Formularsuche
+        20subgrid: Untergitter
+        30json_map: JSON-Mapping
         20json_data: JSON-Daten
         33rdnd: Drag and Drop von Zeilen
-        30json_map: JSON-Mapping
         35v: Neu in Version 3.5
         35stoolbar: Integrierte Suchleiste
-        20multi: Mehrfachauswahl
         20loading: Laden von Daten
+        20multi: Mehrfachauswahl
         36chooser: Spaltenauswahl
         35number: Automatische Breite und Reihennummerierung
         actions: Aktionen
@@ -378,14 +362,14 @@ de:
         34adjacency: Baumgitter mit Adjazenzliste
         20set: Set-Methoden
         37toolbar: Werkzeugleistensuche
+        30events: Ereignisse nutzen
         35view: Modus Gitteransicht
         30full: Vollzugriff
         30hide: Spalten anzeigen/verbergen
-        30events: Ereignisse nutzen
-        33cell: "Zellen \xC3\xA4ndern"
         36srows: Sortierbare Zeilen
         38xml1: Gruppierung mit XML-Daten
         20resizing: "Gitter vergr\xC3\xB6\xC3\x9Fern"
+        33cell: "Zellen \xC3\xA4ndern"
         34scroll: Scrollen mit dynamischen Zeilenauswahl
         30mapping: Daten-Mapping
         33dynamic: "Dynamische H\xC3\xB6he und Breite"
@@ -399,9 +383,9 @@ de:
         30types: Eingabetypen
         20master: Haupt- und Detailsicht
         36v: Neu in Version 3.6
+        37array: Matrixdaten auf einmal laden
         30datepicker: Datumsauswahl
         30row: "Zeilen \xC3\xA4ndern"
-        37array: Matrixdaten auf einmal laden
         33mtoolbar: Mehrfache Symbolleistensuche
         33visible: Sichtbare Spalten
         2dc: 2dc_jqGrid Beispiele
@@ -416,9 +400,9 @@ de:
         36ajax: Ajax-Verbesserungen
         36reordering: Neuanordnung von Spalten
         32initial: "Zun\xC3\xA4chst verstecktes Gitter"
+        30after_load: Callback nach dem Laden
         30json_subgrid: Untergitter mit JSON
         33html: Gitter aus HTML-Tabelle
-        30after_load: Callback nach dem Laden
         31post_data: Post Data
         30delete_row: "Zeile l\xC3\xB6schen"
       subgrids: 
@@ -433,17 +417,42 @@ de:
         contextmenu2: Datenmanipulation
         cedit: "Benutzerdefiniertes \xC3\x84ndern"
         treegrid: Treegrids mit JSON
-        cedit2: client-seitig mit eigenen Symbolen
         contextmenu: "Mit einem Kontextmen\xC3\xBC"
+        cedit2: client-seitig mit eigenen Symbolen
         cedit3: server-seitig
         cedit4: server-seitig mit jQuery UI-Symbolen
         cedit5: server-seitig mit eigenen Symbolen
-      secret: Secret Sauce jqGrid
       improvements: 
         name: mit Verbesserungen der Form
-    haml: 
-      name: Javascript und Haml.
-      jhaml: jQuery-haml-Plugin
+      secret: Secret Sauce jqGrid
+    emu: 
+      name: "jQuery auf mobilen Ger\xC3\xA4ten"
+      ipad: iPad
+      jqt: 
+        name: "<i>(Ben\xC3\xB6tigt einen WebKit-Engine)</i>"
+        default: jQTouch Demonstration
+        home: "&beta;@jqtouch.com"
+      black: BlackBerry Torch
+      port: Hochformat
+      galaxys: Galaxy S
+      land: Querformat
+      os: 
+        webos: webOS
+        ios: iOS
+        android: Android
+        bos: BlackBerry OS
+      iphone3: iPhone 3
+      jqm: 
+        name: jQuery Mobile Framework
+        experiments: Weitere Demos
+        default: jQuery Mobile Demonstration
+        home: "&alpha;4@jquerymobile.com"
+      iphone4: iPhone 4
+      galaxy7: Galaxy Tab 7
+      galaxys2: Galaxy S2
+      galaxy10: Galaxy Tab 10.1
+      galaxy9: Galaxy Tab 8.9
+      palm: Pre 2
     replacetext: 
       name: replaceText
       default: Beispiel
@@ -456,19 +465,19 @@ de:
       persist: Persistenz
       default: Standardeinstellungen
       dnd2: "Dynatree: Ziehen und Ablegen 2"
+      dnd: "Dynatree: Ziehen und Ablegen"
       api: Programmier-API
       iframe: iframe und URL-Navigation
       quick: JS-Objekt initialisieren
-      dnd: "Dynatree: Ziehen und Ablegen"
       minexpand: Feste Expansionsebene
       dnd3: "jQUery UI: Ziehen und Ablegen"
       events: Ergeignisverarbeitung
       form: In Formular integriert
-      json: Aus externen Daten initialisieren
       effects: Effekte
+      json: Aus externen Daten initialisieren
       contextmenu: "Kontextmen\xC3\xBC,  Kopieren / Einf\xC3\xBCgen"
-      multiline: "Gro\xC3\x9Fe Knoten"
       select: "K\xC3\xA4stchen & Auswahl"
+      multiline: "Gro\xC3\x9Fe Knoten"
       benchmark: "Benchmark f\xC3\xBCr gro\xC3\x9Fe B\xC3\xA4ume"
       lazy_persist: Langsames Laden
       theming: 
@@ -604,8 +613,8 @@ de:
       fullcalendar: 
         gcal: Google-Kalender der US-Feiertage
         name: FullCalendar Plugin
-        theme: Kalender mit jQuery UI Thema
         selectable: "Zeitbereiche f\xC3\xBCr das Erstellen eines Ereignisses ausw\xC3\xA4hlen"
+        theme: Kalender mit jQuery UI Thema
         default: Standardansicht
         agenda: Agenda-Ansicht
         external: Ziehen Sie externe Ereignisse auf den Kalender
@@ -681,23 +690,23 @@ de:
           constrain-movement: "Einschr\xC3\xA4nken der Bewegung"
           events: Ereignisse
           cursor-style: Cursorstil
-          delay-start: "Start verz\xC3\xB6gern"
           revert: "Zur Position zur\xC3\xBCckkehren"
+          delay-start: "Start verz\xC3\xB6gern"
           visual-feedback: Visuelles Feedback
         droppable: 
           default: Ablegbar
           propagation: Weitergabe verhindern
           revert: "R\xC3\xBCckkehr zur  Position"
           shopping-cart: Einkaufswagen
+          visual-feedback: Visuelles Feedback
           accepted-elements: Akzeptierte Elemente
           photo-manager: Einfacher Photomanager
-          visual-feedback: Visuelles Feedback
       widgets: 
         button: 
           default: "Schaltfl\xC3\xA4che"
           checkbox: Auswahltasten
-          icon: Symbole
           radio: Umschalttasten
+          icon: Symbole
           toolbar: Werkzeugleiste
           splitbutton: "Geteilte Schaltfl\xC3\xA4che"
         default: Widgets
@@ -726,22 +735,26 @@ de:
           accordion: Akkordeon von Panels
         selectmenu: 
           name: "Auswahlmen\xC3\xBC"
-          maxheight: "Stil: <b>Popup</b> mit maxheight gesetzt"
           methods: Wie benutzt man eine Methode
+          maxheight: "Stil: <b>Popup</b> mit maxheight gesetzt"
           dependency: "Beispiel :Einfache Abh\xC3\xA4ngigkeit"
-          without-id: "Stil: <b>Popup</b> ohne ID"
           custom-icons2: "Stil: <b>Dropdown</b> Sprachen mit Flaggensymbolen"
+          without-id: "Stil: <b>Popup</b> ohne ID"
           default: "Stil: <b>Popup</b>"
           background: "Beispiel: Hintergrundbild"
-          ajax: "Beispiel: Callback mit AJAX"
           icons: "Stil: <b>Popup</b> mit UI-Symbolen"
-          positioning: Positionierung
-          text-formatting: "Stil: <b>Popup</b> mit der Option Textformatierung"
+          ajax: "Beispiel: Callback mit AJAX"
           optgroups: "Stil: <b>Popup</b> mit optgroups"
+          text-formatting: "Stil: <b>Popup</b> mit der Option Textformatierung"
+          positioning: Positionierung
           menuwidth: "Stil: <b>Dropdown</b> mit menuWidth und Textformatierung"
           custom-icons: "Stil: <b>Popup</b> mit benutzerdefinierten Icons"
           disable-enable: "Beispiel: Deaktivieren"
           dropdown: "Stil: <b>Popup</b>-Stil"
+        progressbar: 
+          resize: "Vergr\xC3\xB6\xC3\x9Ferbarer Fortschrittsbalken"
+          default: Fortschrittsbalken
+          animated: Animiert
         accordion: 
           hoverintent: "\xC3\x96ffnen bei hoverintent"
           default: Akkordeon
@@ -751,10 +764,6 @@ de:
           mouseover: "\xC3\x96ffnen, wenn die Maus dar\xC3\xBCberf\xC3\xA4hrt"
           custom-icons: Benutzerdefinierte Symbole
           collapsible: Inhalt einklappen
-        progressbar: 
-          resize: "Vergr\xC3\xB6\xC3\x9Ferbarer Fortschrittsbalken"
-          default: Fortschrittsbalken
-          animated: Animiert
         datepicker: 
           alt-field: "Alternatives Feld f\xC3\xBCllen"
           buttonbar: "Schaltfl\xC3\xA4chen anzeigen"
@@ -764,12 +773,20 @@ de:
           show-week: Zeige Kalanderwoche
           icon-trigger: "\xC3\x9Cber Symbol aktivieren"
           date-formats: Datum formatieren
-          multiple-calendars: Mehrerer Monate anzeigen
           animation: Animationen
+          multiple-calendars: Mehrerer Monate anzeigen
           localization: " Kalender lokalisieren"
           dropdown-month-year: "Monat- & Jahresmen\xC3\xBCs anzeigen"
           other-months: Termine in den anderen Monaten
           date-range: Datumsbereich
+        dialog: 
+          greybox: Greybox
+          default: Dialog
+          modal-confirmation: "Modale Best\xC3\xA4tigung"
+          modal: Modaler Dialog
+          animated: Animierter Dialog
+          modal-form: Modale Form
+          modal-message: Modale Nachricht
         tabs: 
           manipulation: Einfache Handhabung
           bottom: Registerkarte unterhalb des Inhalts
@@ -779,14 +796,6 @@ de:
           mouseover: "\xC3\x96ffnen, wenn die Maus dar\xC3\xBCberf\xC3\xA4hrt"
           cookie: "Persistenz \xC3\xBCber Cookie"
           collapsible: Inhalt wegklappen
-        dialog: 
-          greybox: Greybox
-          default: Dialog
-          modal-confirmation: "Modale Best\xC3\xA4tigung"
-          modal: Modaler Dialog
-          animated: Animierter Dialog
-          modal-form: Modale Form
-          modal-message: Modale Nachricht
         autocomplete: 
           maxheight: Scrollbare Ergebnisse
           default: "Autovervollst\xC3\xA4ndigung"
@@ -834,13 +843,6 @@ de:
         initial: Thema wechseln
     tree: 
       name: Tree Widgets
-  activemodel: 
-    errors: 
-      template: 
-        body: "Bitte \xC3\xBCberpr\xC3\xBCfen Sie die folgenden Felder:"
-        header: 
-          one: "Konnte %{model} nicht speichern: ein Fehler."
-          other: "Konnte %{model} nicht speichern: %{count} Fehler."
   date: 
     month_names: 
     - 

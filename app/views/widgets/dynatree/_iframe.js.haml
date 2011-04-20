@@ -21,7 +21,7 @@
       onActivate: function(node) {
         // Use our custom attribute to load the new target content:
         if( node.data.url )
-          $("[name=contentFrame]").attr("src", node.data.url);
+          $("[id=iframe_1]").attr("src", node.data.url);
       },
       children: [
         {title: "Search engines", isFolder: true, expand: true,
@@ -40,7 +40,7 @@
         },
         {title: "Misc", isFolder: true, expand: true,
           children: [
-            {title: "Welcome", url: "sample-iframe-1.html"}
+            {title: "Welcome", url: "/widgets/dynatree/iframe_1"}
           ]
         }
       ]

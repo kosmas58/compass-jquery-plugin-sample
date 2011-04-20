@@ -1,24 +1,30 @@
 :javascript
-  function resize(width, height, scale) {
-    $("div.emulator").css('-moz-transform', 'scale('+scale+')');
-    $("div.emulator").css('-o-transform', 'scale('+scale+')');
-    $("div.emulator").css('-webkit-transform', 'scale('+scale+')');
-    $("#disp-area").attr("width", Math.round(width/scale));
-    $("#disp-area").attr("height", Math.round(height/scale));
+  function resize(width, height) {
+    if($.cookie('scaling') == 'real_size') {
+      scalingValue = $.cookie('scaling_factor');
+    } else {
+      scalingValue = 1
+    }
+    $("div.emulator").css('-moz-transform', 'scale('+scalingValue+')');
+    $("div.emulator").css('-o-transform', 'scale('+scalingValue+')');
+    $("div.emulator").css('-webkit-transform', 'scale('+scalingValue+')');
+    $("#disp-area").attr("width", Math.round(width/scalingValue));
+    $("#disp-area").attr("height", Math.round(height/scalingValue));
   }
 
   $(function() {
-    var scale  = #{scale};
     var width  = $("#disp-area").attr("width");
     var height = $("#disp-area").attr("height");
-    resize(width, height, scale);
-    $("#zoom").click(function() {
-      if(scale == #{scale}) {
-        scale = 1;
+    resize(width, height);
+    
+    $("#resize").click(function() {
+      if($.cookie('scaling') == 'real_size') {
+        scalingValue = 'pixel_size';
       } else {
-        scale = #{scale};
+        scalingValue = 'real_size';
       }
-      resize(width, height, scale);
+      $.cookie('scaling', scalingValue);
+      resize(width, height);
       return false;
     });
   });

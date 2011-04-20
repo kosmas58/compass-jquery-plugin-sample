@@ -1,5 +1,5 @@
 :javascript
-  var ppi = #{session[:ppi]};
+  var ppi = $.cookie('ppi');
   function round2 (i) {
     return Math.round(i * 100) / 100;
   }
@@ -40,14 +40,7 @@
     $("#set_ppi").button()
     .click(function() {
       $.cookie('ppi', ppi);
-      $.ajax({
-        type: 'PUT',
-        url: "/emulators/update",
-        data : { "ppi": ppi },
-        success : function () {
-          $("#actual_ppi").html(ppi + " PPI");
-          window.location.reload();
-        }
-      });
+      $("#actual_ppi").html(ppi + " PPI");
+      window.location.reload();
     });
   });
