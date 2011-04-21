@@ -1,5 +1,5 @@
 class Mobile::Experiments::DualColumnController < ApplicationController
-  layout 'mobile_scrollview'
+  layout 'mobile'
 
   protect_from_forgery
 end

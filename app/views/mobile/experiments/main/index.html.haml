@@ -1,4 +1,4 @@
-- content_for :content_custom_scripts do
+- content_for :content_scripts_before_mobile do
   = render(:partial => "/mobile/index.js.haml", :format => :js)
 
 #jqm-home{"data-role" => "page", "data-theme" => "b"}
@@ -33,7 +33,10 @@
         %a{:href => "/mobile/experiments/photos"} Photos
       %li
         %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/jqmobile.png"}
-        %a{:href => "/mobile/experiments/scrollview", :rel => "external"} Scrollview
+        %a{:href => "/mobile/experiments/scrollview", :rel => "external"} Scroll View
+      %li
+        %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/jqmobile.png"}
+        %a{:href => "/mobile/experiments/splitview", :rel => "external"} Split View
       %li
         %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/jqmobile.png"}
         %a{:href => "/mobile/experiments/weather"} Weather forecast

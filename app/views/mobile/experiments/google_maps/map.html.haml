@@ -1,6 +1,6 @@
 -@title = "jQuery Mobile Framework - Goggle Maps Example"
 
-- content_for :content_custom_scripts do
+- content_for :content_scripts_before_mobile do
   = render(:partial => "map.js.haml", :format => :js)
   
 .page-map{"data-role" => "page"}

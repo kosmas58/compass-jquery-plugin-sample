@@ -1,5 +1,6 @@
-:javascript
-  $(document).bind("mobileinit", function(event) {
-    $.mobile.addResolutionBreakpoints([360, 600, 640, 800, 960, 1280]);
-    //$.mobile.loadingMessage("Its working");
-  });
+- content_for :content_scripts_before_mobile do
+  :javascript
+    $(document).bind("mobileinit", function(event) {
+      $.mobile.addResolutionBreakpoints([360, 600, 640, 800, 960, 1280]);
+      //$.mobile.loadingMessage("Its working");
+    });

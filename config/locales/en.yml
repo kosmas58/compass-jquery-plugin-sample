@@ -284,7 +284,7 @@ en:
       land: Landscape
       jqm: 
         name: jQuery Mobile framework
-        experiments: Additional demos
+        experiments: Additional Demos
         default: jQuery Mobile Demo
         home: "&alpha;4@jquerymobile.com"
       iphone3: iPhone 3
