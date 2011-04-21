@@ -3,85 +3,14 @@
 - content_for :content_custom_scripts do
   = render(:partial => "/mobile/experiments/scrollview.css.js.haml", :format => :js)
   = render(:partial => "/mobile/docs/docs.js.haml", :format => :js)
-  :css
-    .ui-content.ui-scrollview-clip {
-      padding: 0;
-    }
-    .ui-content.ui-scrollview-clip > div.ui-scrollview-view {
-      margin: 0;
-      padding: 15px;
-    }
-    .ui-content.ui-scrollview-clip > .ui-listview.ui-scrollview-view {
-      margin: 0;
-    }
-
-    .ui-scrollview-clip {
-      background-color: #999;
-    }
-
-    .ui-scrollview-view {
-      background-color: white;
-    }
-
-    .square {
-      width: 200px;
-      height: 200px;
-      text-align: center;
-      line-height: 200px;
-      font-size: 160px;
-    }
-
-    .ui-scrollview-clip .ui-scrollview-clip .square {
-      background-color: #3CF;
-    }
-
-    .ui-scrollview-clip .ui-scrollview-clip .ui-scrollview-clip .square {
-      background-color: #F39;
-    }
-
-    .ui-scrollview-clip .ui-scrollview-clip .ui-scrollview-clip .ui-scrollview-clip .square {
-      background-color: #0F6;
-    }
-
-    .ui-scrollview-clip .ui-scrollview-clip .ui-scrollview-clip .ui-scrollview-clip .ui-scrollview-clip .square {
-      background-color: #FF6;
-    }
-
-    .single-block-view-h, .single-block-view-v {
-      width: 200px;
-      height: 200px;
-    }
-    .double-block-view-h {
-      border: solid 1px black;
-      width: 400px;
-      height: 200px;
-    }
-
-    .double-block-view-v {
-      border: solid 1px black;
-      width: 200px;
-      height: 400px;
-    }
-
-    .single-block-view-h > .view, .double-block-view-h > .view {
-      width: 1400px;
-      height: 200px;
-    }
-
-    .single-block-view-h > .view > .square, .double-block-view-h > .view > .square {
-      float: left;
-    }
-
-    .single-block-view-v > .view, .double-block-view-v > .view {
-      width: 200px;
-      height: 1400px;
-    }
+  = render(:partial => "nested.js.haml", :format => :js)
   = render(:partial => "/mobile/experiments/scrollview.js.haml", :format => :js)
 
-%div{"data-role" => "page"}
-  %div{"data-role" => "header"}
-    %h1 Nested Scrollviews
-  / /header
+#jqm{"data-role" => "page"}
+  %div{"data-backbtn" => "false", "data-role" => "header", "data-theme" => "a"}
+    %h1 Nested Scroll Views
+    %a.ui-btn-left{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile/experiments/scrollview", :rel => "external"} Home
+  / / header
   %div{"data-role" => "content"}
     %h4 Example 1
     %p In the following example the #4 is actually a vertical scrollview embedded within a horizontal scrollview.

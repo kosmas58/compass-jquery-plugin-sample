@@ -1,0 +1,107 @@
+:css
+  #evtCatcher {
+    border: solid 1px black;
+    background-color: #FF9;
+    padding: 10px;
+    height: 300px;
+  }
+  #evtCatcher .ui-scrollview-view {
+    padding: 10px;
+  }
+
+:javascript
+  $("[ data-role=page]").live("pageshow", function(event) {
+    var $page = $(this);
+    $page.find("[data-scroll]:not(.ui-scrollview-clip)").each(function(){
+        var $this = $(this);
+        // XXX: Remove this check for ui-scrolllistview once we've
+        //      integrated list divider support into the main scrollview class.
+        if ($this.hasClass("ui-scrolllistview"))
+            $this.scrolllistview();
+        else
+        {
+            var st = $this.data("scroll") + "";
+            var paging = st && st.search(/^[xy]p$/) != -1;
+            var dir = st && st.search(/^[xy]/) != -1 ? st.charAt(0) : null;
+
+            var opts = {};
+            if (dir)
+                opts.direction = dir;
+            if (paging)
+                opts.pagingEnabled = true;
+
+            $this.scrollview(opts);
+        }
+    });
+
+    changeDelayFormElementClick();
+  });
+
+  function changeScrollMethod()
+  {
+    var val = $("#s_method").val();
+    var $sv = $("#evtCatcher").scrollview("scrollTo", 0, 0);
+    if (val === "scroll") {
+        $sv.css("overflow", "scroll");
+    }
+    else {
+        $sv.css("overflow", "hidden");
+    }
+    $sv.data("scrollview").options.scrollMethod = val;
+  }
+
+  function changeDelayFormElementClick()
+  {
+    $("#evtCatcher").data("scrollview").options.delayedClickEnabled = ($("#s_delay").val() === "yes");
+  }
+
+  var cb_hd_pd,
+      cb_hd_sp,
+      cb_hm_pd,
+      cb_hm_sp,
+      cb_hu_pd,
+      cb_hu_sp;
+
+  var hd = $.mobile.scrollview.prototype._handleDragStart;
+  var hm = $.mobile.scrollview.prototype._handleDragMove;
+  var hu = $.mobile.scrollview.prototype._handleDragStop;
+
+  function getDummyEvent(o)
+  {
+    return { target: o.target, _pd: false, _sp: false, preventDefault: function(){ this._pd = true; }, stopPropagation: function(){ this._sp = true; }};
+  }
+
+  function updateEvent(e, cb_pd, cb_sp)
+  {
+    if (cb_pd.checked)
+        e.preventDefault();
+    if (cb_sp.checked)
+        e.stopPropagation();
+  }
+
+  $.mobile.scrollview.prototype._handleDragStart = function(e,x,y)
+  {
+    hd.call(this, getDummyEvent(e), x, y);
+    updateEvent(e, cb_hd_pd, cb_hd_sp);
+  };
+
+  $.mobile.scrollview.prototype._handleDragMove = function(e,x,y)
+  {
+    hm.call(this, getDummyEvent(e), x, y);
+    updateEvent(e, cb_hm_pd, cb_hm_sp);
+  };
+
+  $.mobile.scrollview.prototype._handleDragStop = function(e)
+  {
+    hu.call(this, getDummyEvent(e));
+    updateEvent(e, cb_hu_pd, cb_hu_sp);
+  };
+
+  $(function(){
+    cb_hd_pd = $("#cb_hd_pd")[0];
+    cb_hd_sp = $("#cb_hd_sp")[0];
+    cb_hm_pd = $("#cb_hm_pd")[0];
+    cb_hm_sp = $("#cb_hm_sp")[0];
+    cb_hu_pd = $("#cb_hu_pd")[0];
+    cb_hu_sp = $("#cb_hu_sp")[0];
+  });

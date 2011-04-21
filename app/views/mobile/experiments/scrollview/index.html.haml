@@ -2,14 +2,16 @@
 
 - content_for :content_custom_scripts do
   = render(:partial => "/mobile/index.js.haml", :format => :js)
-  
-#jqm-home{"data-role" => "page", "data-theme" => "b"}
-  #jqm-homeheader
-    %h1#jqm-logo
-      %img{:alt => "jQuery Mobile Framework", :height => "61", :src => "/images/demo/mobile/jquery-logo.png", :width => "235"}
-    %p A few examples tweaked to make use of the scrollview component.
-    %p#jqm-version Alpha Release
+
+
+#jqm{"data-role" => "page"}
+  %div{"data-backbtn" => "false", "data-role" => "header", "data-theme" => "b"}
+    %h1 jQuery Scroll View Plugin
+    %a.ui-btn-left{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile/experiments/main", :rel => "external"} Home
+  / / header
   %div{"data-role" => "content"}
+    %p
+      A few examples tweaked to make use of the scrollview component.
     %ul{"data-dividertheme" => "b", "data-inset" => "true", "data-role" => "listview", "data-theme" => "c"}
       %li{"data-role" => "list-divider"} Tests
       %li
@@ -20,4 +22,6 @@
         %a{:href => "/mobile/experiments/scrollview/sv_test_01", :rel => "external"} Form Elements Event Test
       %li
         %a{:href => "/mobile/experiments/scrollview/sv_test_02", :rel => "external"} Form Elements in Scrollview Event Test
+  / / content
+/ / page
 

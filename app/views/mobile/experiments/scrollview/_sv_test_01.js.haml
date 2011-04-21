@@ -1,0 +1,24 @@
+:css
+  #evtCatcher {
+    border: solid 1px black;
+    background-color: #FF9;
+    padding: 10px;
+  }
+
+:javascript
+  function getEvtHandler(cb_pd, cb_sp)
+  {
+    return function(e) {
+        if (cb_pd.checked)
+            e.preventDefault();
+        if (cb_sp.checked)
+            e.stopPropagation();
+    };
+  }
+
+  $(function(){
+    $("#evtCatcher")
+        .bind("touchstart", getEvtHandler($("#cb_hd_pd")[0], $("#cb_hd_sp")[0]))
+        .bind("touchmove",  getEvtHandler($("#cb_hm_pd")[0], $("#cb_hm_sp")[0]))
+        .bind("touchstop",  getEvtHandler($("#cb_hu_pd")[0], $("#cb_hu_sp")[0]));
+  });

@@ -3,35 +3,13 @@
 - content_for :content_custom_scripts do
   = render(:partial => "/mobile/experiments/scrollview.css.js.haml", :format => :js)
   = render(:partial => "/mobile/docs/docs.js.haml", :format => :js)
-  :css
-    #evtCatcher {
-      border: solid 1px black;
-      background-color: #FF9;
-      padding: 10px;	
-    }
-    
-  :javascript
-    function getEvtHandler(cb_pd, cb_sp)
-    {
-      return function(e) {
-          if (cb_pd.checked)
-              e.preventDefault();
-          if (cb_sp.checked)
-              e.stopPropagation();
-      };
-    }
-    
-    $(function(){
-      $("#evtCatcher")
-          .bind("touchstart", getEvtHandler($("#cb_hd_pd")[0], $("#cb_hd_sp")[0]))
-          .bind("touchmove",  getEvtHandler($("#cb_hm_pd")[0], $("#cb_hm_sp")[0]))
-          .bind("touchstop",  getEvtHandler($("#cb_hu_pd")[0], $("#cb_hu_sp")[0]));
-    });
+  = render(:partial => "sv_test_01.js.haml", :format => :js)
 
-%div{"data-role" => "page", "data-theme" => "c"}
-  %div{"data-role" => "header"}
+#jqm{"data-role" => "page"}
+  %div{"data-backbtn" => "false", "data-role" => "header", "data-theme" => "c"}
     %h1 Form Element Event Test
-  / /header
+    %a.ui-btn-left{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile/experiments/scrollview", :rel => "external"} Home
+  / / header
   %div{"data-role" => "content", "data-theme" => "c"}
     %p The form elements on this page are wrapped by a special div that has event handlers for touchstart, touchmove and touchstop. The checkboxes below control how the event within these handlers is treated when they fire. Use this page to figure out how the various event treatments impact the form elements on you mobile device, then add to the notes at the bottom of the page.
     %p All scrolling on this page is performed by the native viewport, there are no scrollviews on this page.

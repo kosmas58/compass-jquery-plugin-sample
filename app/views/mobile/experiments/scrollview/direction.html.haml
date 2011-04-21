@@ -6,10 +6,11 @@
   = render(:partial => "direction.js.haml", :format => :js)
   = render(:partial => "/mobile/experiments/scrollview.js.haml", :format => :js)
 
-%div{"data-role" => "page"}
-  %div{"data-role" => "header"}
+#jqm{"data-role" => "page"}
+  %div{"data-backbtn" => "false", "data-role" => "header", "data-theme" => "a"}
     %h1 Scroll View Direction Locking
-  / /header
+    %a.ui-btn-left{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile/experiments/scrollview", :rel => "external"} Home
+  / / header
   %div{"data-role" => "content"}
     %h4 Scrollview
     %p To turn an element into a scrollview, simply add a data-scroll="true" to the element. By default, a scrollview can scroll in both the horizontal and vertical directions. If the user drags the view horizontally (left or right), or vertically (up or down), scrolling will be locked so that it only scrolls in that one dimension. If the user drags the view diagonally, he will be able to scroll in both directions at the same time.
