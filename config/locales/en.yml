@@ -505,7 +505,10 @@ en:
           dual_axes: "Dual axes, line and column"
           multi_axes: Multiple axes
           regression: Scatter with regression line
-    replacetext: 
+    mediahelpers:
+      name: jQuery Media Helper Utilities
+      default: Example
+    replacetext:
       name: replaceText
       default: Example
     tokeninput:

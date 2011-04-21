@@ -21,21 +21,9 @@ date:
     short: "%b %d"
     long: "%B %d, %Y"
 txt: 
-  layout: 
-    resize: 
-      real: Show it in real size
-      pixel: Show it in pixel size
-    rotate: 
-      landscape: Show as landscape
-      portrait: Show as portrait
-  tools: 
-    form: 
-      stylable: 
-        name: Stylable
-        demo01: Minimal setup for Styleable
-        demo02: Scripting styleable Forms
-        demo03: Alternate form skin
-  hello: Hello world
+  mediahelpers: 
+    name: jQuery Media Helper Utilities
+    default: Example
 support: 
   array: 
     words_connector: ", "

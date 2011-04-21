@@ -1,12 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :emulators,
-                :collection => {:edit         => :get,
-                                :update       => :put,
-                                :jqm          => :get,
-                                :jqm2         => :get,
-                                :jqm_original => :get,
-                                :jqt          => :get,
-                                :jqt_original => :get}
+  map.resources :emulators
 
   map.namespace :jqtouch do |jqtouch|
     jqtouch.resources :demo => {:ajax_post => :post}
