@@ -1,2 +1,5 @@
-%link{:href => "/images/demo/mobile/homeicon.png", :rel => "apple-touch-icon"}/
-%script{:src => "http://maps.google.com/maps/api/js?sensor=false"}
+- content_for :content_scripts_before_jquery do
+  %link{:href => "/images/demo/mobile/homeicon.png", :rel => "apple-touch-icon"}/
+
+- content_for :content_scripts_before_mobile do
+  %script{:src => "http://maps.google.com/maps/api/js?sensor=false"}

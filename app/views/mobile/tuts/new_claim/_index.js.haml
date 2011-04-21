@@ -1,99 +1,101 @@
-%link{:href => "/images/demo/mobile/jquery-mobile-icon.png", :rel => "apple-touch-icon"}/
+- content_for :content_scripts_before_jquery do
+  %link{:href => "/images/demo/mobile/jquery-mobile-icon.png", :rel => "apple-touch-icon"}/
+  :css
+    label.missing { color:#FF0000; font-weight:bold; }
+
 = render(:partial => "/mobile/mobile_init.js.haml", :format => :js)
 
-:css
-  label.missing { color:#FF0000; font-weight:bold; }
+- content_for :content_scripts_before_mobile do
+  :javascript
+    // Global declarations - assignments made in $(document).ready() below
+    var formVar = null;
+    var stateLabelVar = null;
+    var whatLabelVar = null;
+    var stateVar = null;
+    var whatVar = null;
+    var inputMapVar = null;
+    var contentDialogVar = null;
+    var contentTransitionVar = null;
+    var contentConfirmationVar = null;
+    var confirmationVar = null;
+    var requestVar = null;
 
-:javascript
-  // Global declarations - assignments made in $(document).ready() below
-  var formVar = null;
-  var stateLabelVar = null;
-  var whatLabelVar = null;
-  var stateVar = null;
-  var whatVar = null;
-  var inputMapVar = null;
-  var contentDialogVar = null;
-  var contentTransitionVar = null;
-  var contentConfirmationVar = null;
-  var confirmationVar = null;
-  var requestVar = null;
+    // Constants
+    var MISSING = "missing";
+    var EMPTY = "";
+    var NO_STATE = "ZZ";
 
-  // Constants
-  var MISSING = "missing";
-  var EMPTY = "";
-  var NO_STATE = "ZZ";
+    function clearForm() {
+      formVar[0].reset();
+      stateVar.selectmenu('refresh');
+    }
 
-  function clearForm() {
-    formVar[0].reset();
-    stateVar.selectmenu('refresh');
-  }
-
-  $(document).live("mobileinit", function(){
-    $.mobile.defaultTransistion = 'pop';
-  });
-
-  $(function() {
-    formVar                = $('#claim');
-    clearVar               = $('#clearForm');
-    stateLabelVar          = $('#stateLabel');
-    whatLabelVar           = $('#whatLabel');
-    stateVar               = $('#state');
-    whatVar                = $('#what');
-    inputMapVar            = $('input[name*="_r"]');
-    confirmationVar        = $('#confirmation');
-    contentDialogVar       = "#contentDialog";
-    contentTransitionVar   = "#contentTransition";
-    contentConfirmationVar = "#contentConfirmation";
-    requestVar             = "/mobile/tuts/new_claim/request_processor";
-
-    clearVar.click(function() {
-      clearForm();
-      return false;
+    $(document).live("mobileinit", function(){
+      $.mobile.defaultTransistion = 'pop';
     });
 
-    formVar.submit(function() {
-      var err = false;
+    $(function() {
+      formVar                = $('#claim');
+      clearVar               = $('#clearForm');
+      stateLabelVar          = $('#stateLabel');
+      whatLabelVar           = $('#whatLabel');
+      stateVar               = $('#state');
+      whatVar                = $('#what');
+      inputMapVar            = $('input[name*="_r"]');
+      confirmationVar        = $('#confirmation');
+      contentDialogVar       = "#contentDialog";
+      contentTransitionVar   = "#contentTransition";
+      contentConfirmationVar = "#contentConfirmation";
+      requestVar             = "/mobile/tuts/new_claim/request_processor";
 
-      // Reset the previously highlighted form elements
-      stateLabelVar.removeClass(MISSING);
-      whatLabelVar.removeClass(MISSING);
-      inputMapVar.each(function(index) {
-        $(this).prev().removeClass(MISSING);
+      clearVar.click(function() {
+        clearForm();
+        return false;
       });
 
-      // Perform form validation
-      inputMapVar.each(function(index){
-        if($(this).val()==null || $(this).val()==EMPTY){
-          $(this).prev().addClass(MISSING);
+      formVar.submit(function() {
+        var err = false;
+
+        // Reset the previously highlighted form elements
+        stateLabelVar.removeClass(MISSING);
+        whatLabelVar.removeClass(MISSING);
+        inputMapVar.each(function(index) {
+          $(this).prev().removeClass(MISSING);
+        });
+
+        // Perform form validation
+        inputMapVar.each(function(index){
+          if($(this).val()==null || $(this).val()==EMPTY){
+            $(this).prev().addClass(MISSING);
+            err = true;
+          }
+        });
+        if(stateVar.val()==NO_STATE){
+          stateLabelVar.addClass(MISSING);
           err = true;
         }
-      });
-      if(stateVar.val()==NO_STATE){
-        stateLabelVar.addClass(MISSING);
-        err = true;
-      }
-      if(whatVar.val()==null||whatVar.val()==EMPTY){
-        whatLabelVar.addClass(MISSING);
-        err = true;
-      }
-
-      if(err == true) {
-        $.mobile.changePage(contentDialogVar, "pop", false, false);
-        return false;
-      }
-
-      $.mobile.changePage(contentTransitionVar, "pop");
-      $.ajax({
-        url:     requestVar,
-        data:    formVar.serialize(),
-        type:    'GET',
-        cache:   false,
-        success: function(data) {
-          confirmationVar.text(data);
-          clearForm();
+        if(whatVar.val()==null||whatVar.val()==EMPTY){
+          whatLabelVar.addClass(MISSING);
+          err = true;
         }
+
+        if(err == true) {
+          $.mobile.changePage(contentDialogVar, "pop", false, false);
+          return false;
+        }
+
+        $.mobile.changePage(contentTransitionVar, "pop");
+        $.ajax({
+          url:     requestVar,
+          data:    formVar.serialize(),
+          type:    'GET',
+          cache:   false,
+          success: function(data) {
+            confirmationVar.text(data);
+            clearForm();
+          }
+        });
+        $.mobile.changePage(contentConfirmationVar, "pop", false, true);
+        return false;
       });
-      $.mobile.changePage(contentConfirmationVar, "pop", false, true);
-      return false;
     });
-  });

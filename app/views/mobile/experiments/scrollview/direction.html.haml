@@ -1,10 +1,9 @@
 -@title = "jQuery Mobile: Demos and Documentation"
 
-- content_for :content_scripts_after_mobile do
-  = render(:partial => "/mobile/experiments/scrollview.css.js.haml", :format => :js)
-  = render(:partial => "/mobile/docs/docs.js.haml", :format => :js)
-  = render(:partial => "direction.js.haml", :format => :js)
-  = render(:partial => "/mobile/experiments/scrollview.js.haml", :format => :js)
+= render(:partial => "/mobile/experiments/scrollview.css.js.haml", :format => :js)
+= render(:partial => "/mobile/docs/docs.js.haml", :format => :js)
+= render(:partial => "direction.css.js.haml", :format => :js)
+= render(:partial => "/mobile/experiments/scrollview.js.haml", :format => :js)
 
 #jqm{"data-role" => "page"}
   %div{"data-backbtn" => "false", "data-role" => "header", "data-theme" => "a"}

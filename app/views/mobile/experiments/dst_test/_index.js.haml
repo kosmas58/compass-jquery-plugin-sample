@@ -1,26 +1,29 @@
-%link{:href => "/images/demo/mobile/jquery-mobile-icon.png", :rel => "apple-touch-icon"}
+- content_for :content_scripts_before_jquery do
+  %link{:href => "/images/demo/mobile/jquery-mobile-icon.png", :rel => "apple-touch-icon"}
+
 = render(:partial => "/mobile/mobile_init.js.haml", :format => :js)
 
-= javascript_include_tag :dst
+- content_for :content_scripts_before_mobile do
+  = javascript_include_tag :dst
 
-:javascript
-  $(function() {
-    $("#store").live('click', function(){
-      $.DSt.store_form(this.form);
+  :javascript
+    $(function() {
+      $("#store").live('click', function(){
+        $.DSt.store_form(this.form);
+      });
+      $("#recall").live('click', function(){
+        $.DSt.recall_form(this.form);
+      });
+      //$("#reset").live('click', function(){
+        //$('textarea','.dst').val('');
+        //$('input','.dst')
+        //.not('button, submit, reset, hidden')
+        //.val('')
+        //.removeAttr('checked')
+        //.removeAttr('selected');
+        //$('#radio-choice-1').checkboxradio('refresh');
+        //$('#radio-choice-2').checkboxradio('refresh');
+        //$('#radio-choice-3').checkboxradio('refresh');
+        //$('#checkbox-a').checkboxradio('refresh');
+      //});
     });
-    $("#recall").live('click', function(){
-      $.DSt.recall_form(this.form);
-    });
-    //$("#reset").live('click', function(){
-      //$('textarea','.dst').val('');
-      //$('input','.dst')
-      //.not('button, submit, reset, hidden')
-      //.val('')
-      //.removeAttr('checked')
-      //.removeAttr('selected');
-      //$('#radio-choice-1').checkboxradio('refresh');
-      //$('#radio-choice-2').checkboxradio('refresh');
-      //$('#radio-choice-3').checkboxradio('refresh');
-      //$('#checkbox-a').checkboxradio('refresh');
-    //});
-  });

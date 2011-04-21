@@ -1,4 +1,7 @@
-%link{:href => "/images/demo/mobile/tuts/tutsTouchIcon.png", :rel => "apple-touch-icon"}/
+- content_for :content_scripts_before_jquery do
+  %link{:href => "/images/demo/mobile/tuts/tutsTouchIcon.png", :rel => "apple-touch-icon"}/
+
 = render(:partial => "/mobile/mobile_init.js.haml", :format => :js)
 
-= javascript_include_tag :doTimeout, :dst
+- content_for :content_scripts_before_mobile do
+  = javascript_include_tag :doTimeout, :dst
