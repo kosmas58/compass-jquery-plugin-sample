@@ -43,5 +43,16 @@
   // exposing an orientation property of either
   // landscape or portrait
   $(document).bind("orientationchange", function(event) {
-    changeOrientation(event.orientation);
+    //setTimeout("oPhoto.sizePict()",100);
+    //alert("chnaged");
+    //changeOrientation(event.orientation);
   });
+  $(window).bind("orientationchange", function (event) {
+      // Check and display the orientation from the event
+      $("#orientation").html($("#orientation").html() + "Event: " + event.orientation + "<br />");
+
+      // Check and display the orientation from CSS classes
+      if ($(".portrait").length > 0) $("#orientation").html($("#orientation").html() + "CSS Check: portrait<br />");
+      if ($(".landscape").length > 0) $("#orientation").html($("#orientation").html() + "CSS Check: landscape<br />");
+  });
+

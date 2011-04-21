@@ -1,5 +1,5 @@
 class Mobile::Experiments::DualColumnController < ApplicationController
-  layout 'mobile_offline'
+  layout 'mobile'
 
   protect_from_forgery
 end

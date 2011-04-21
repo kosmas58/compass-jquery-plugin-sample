@@ -1,7 +1,8 @@
 -@title = "jQuery Mobile: Demos and Documentation"
 
 - content_for :content_custom_scripts do
-  = render(:partial => "scrollview1.js.haml", :format => :js)
+  = render(:partial => "/mobile/experiments/scrollview.css.js.haml", :format => :js)
+  = render(:partial => "/mobile/docs/docs.js.haml", :format => :js)
   :css
     .ui-content.ui-scrollview-clip {
       padding: 0;
@@ -75,7 +76,7 @@
       width: 200px;
       height: 1400px;
     }
-  = render(:partial => "scrollview2.js.haml", :format => :js)
+  = render(:partial => "/mobile/experiments/scrollview.js.haml", :format => :js)
 
 %div{"data-role" => "page"}
   %div{"data-role" => "header"}

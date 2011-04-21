@@ -71,6 +71,10 @@
 #content {
   padding: 0.5em 0em 0em 0em; }
 
+#content2 {
+  .main {
+    padding: 0.5em 0.5em 0.5em 0.5em; } }
+
 @mixin two-column($header, $left, $center, $footer) {
   #{$header} {
     @include column(24, last); }
