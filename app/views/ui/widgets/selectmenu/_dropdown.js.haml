@@ -1,10 +1,14 @@
-:css
-  fieldset { border:0;  margin-bottom: 40px;}	
-  label,select,.ui-select-menu { float: left; margin-right: 10px; }
-  select { width: 200px; }
+- content_for :head_stylesheets do
+  :css
+    fieldset { border:0;  margin-bottom: 40px;}
+    label,select,.ui-select-menu { float: left; margin-right: 10px; }
+    select { width: 200px; }
 
-:javascript
-  $(function() {
-    $('select#speedC').selectmenu({style:'dropdown'});
-  });
-  
+- content_for :head_scripts do
+  :javascript
+    $(function() {
+      $('select#speedC').selectmenu({style:'dropdown'});
+    });
+
+- content_for :license do
+  = render :partial => "ui/license"

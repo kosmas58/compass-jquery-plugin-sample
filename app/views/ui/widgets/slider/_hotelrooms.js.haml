@@ -1,19 +1,27 @@
-:css
-  #demo-frame > div.demo { padding: 10px !important; };
-    
-:javascript
-  $(function() {
-    var select = $("#minbeds");
-    var slider = $('<br/><br/><div id="slider"></div>').insertAfter(select).slider({
-      min: 1,
-      max: 6,
-      range: "min",
-      value: select[0].selectedIndex + 1,
-      slide: function(event, ui) {
-        select[0].selectedIndex = ui.value - 1;
-      }
+- content_for :head_stylesheets do
+  :css
+    #demo-frame > div.demo { padding: 10px !important; };
+    label,select,.ui-select-menu { float: left; margin-right: 10px; }
+    select { width: 60px; }
+
+- content_for :head_scripts do
+  :javascript
+    $(function() {
+      var select = $("#minbeds").selectmenu();
+      var slider = $('<br/><br/><div id="slider"></div>').html(slider).slider({
+        min: 1,
+        max: 6,
+        range: "min",
+        value: select[0].selectedIndex + 1,
+        slide: function(event, ui) {
+          select[0].selectedIndex = ui.value - 1;
+        }
+      });
+      $("#minbeds").change(function() {
+        slider.slider("value", this.selectedIndex + 1);
+      });
     });
-    $("#minbeds").click(function() {
-      slider.slider("value", this.selectedIndex + 1);
-    });
-  });
+
+- content_for :license do
+  = render :partial => "ui/license"
+

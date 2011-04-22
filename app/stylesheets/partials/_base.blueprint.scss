@@ -15,7 +15,9 @@
 
 #site-actions {
   float: right;
-  @include horizontal-list; }
+  @include horizontal-list;
+  #language {
+    padding-top: 3px; } }
 
 @mixin header {
  }

@@ -1,33 +1,35 @@
-:css
-  fieldset { border:0;  margin-bottom: 40px;}	
-  label,select,.ui-select-menu { float: left; margin-right: 10px; }
-  select { width: 200px; }
-  #radio{ float: left; }
+- content_for :head_stylesheets do
+  :css
+    fieldset { border:0;  margin-bottom: 40px;}
+    label,select,.ui-select-menu { float: left; margin-right: 10px; }
+    select { width: 200px; }
+    #radio{ float: left; }
 
-:javascript
-  $(function() {
-    $("#radio").buttonset();
-    
-    var speedA_depends = $('select#speedA_depends').selectmenu();
-    var speedA = $('select#speedA').selectmenu({
-      select: function(event, options) {
-        if (options.value == "on") { 
-          speedA_depends.selectmenu('enable');
-        } else {
-          speedA_depends.selectmenu('disable');
+- content_for :head_scripts do
+  :javascript
+    $(function() {
+      $("#radio").buttonset();
+
+      var speedA_depends = $('select#speedA_depends').selectmenu();
+      var speedA = $('select#speedA').selectmenu({
+        select: function(event, options) {
+          if (options.value == "on") {
+            speedA_depends.selectmenu('enable');
+          } else {
+            speedA_depends.selectmenu('disable');
+          }
         }
-      }
+      });
+
+      var speedB = $('select#speedB').selectmenu();
+      $("#on").click(function(){
+        speedB.selectmenu("enable");
+      });
+      $("#off").click(function(){
+        speedB.selectmenu("disable");
+      });
+
+      var speedC = $('select#speedC').selectmenu();
+
+      var speedD = $('select#speedD').selectmenu();
     });
-    
-    var speedB = $('select#speedB').selectmenu();
-    $("#on").click(function(){
-      speedB.selectmenu("enable");
-    });      
-    $("#off").click(function(){
-      speedB.selectmenu("disable");
-    });      
-    
-    var speedC = $('select#speedC').selectmenu();
-    
-    var speedD = $('select#speedD').selectmenu();
-  });

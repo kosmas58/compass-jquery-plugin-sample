@@ -1,27 +1,33 @@
-:css
-  #demo-frame > div.demo { padding: 10px !important; }
-  #eq span {
-    height:120px; float:left; margin:15px
-  }
-    
-:javascript
-  $(function() {
-    // setup master volume
-    $("#master").slider({
-      value: 60,
-      orientation: "horizontal",
-      range: "min",
-      animate: true
-    });
-    // setup graphic EQ
-    $("#eq > span").each(function() {
-      // read initial values from markup and remove that
-      var value = parseInt($(this).text());
-      $(this).empty().slider({
-        value: value,
+- content_for :head_stylesheets do
+  :css
+    #demo-frame > div.demo { padding: 10px !important; }
+    #eq span {
+      height:120px; float:left; margin:15px
+    }
+
+- content_for :head_scripts do
+  :javascript
+    $(function() {
+      // setup master volume
+      $("#master").slider({
+        value: 60,
+        orientation: "horizontal",
         range: "min",
-        animate: true,
-        orientation: "vertical"
+        animate: true
+      });
+      // setup graphic EQ
+      $("#eq > span").each(function() {
+        // read initial values from markup and remove that
+        var value = parseInt($(this).text());
+        $(this).empty().slider({
+          value: value,
+          range: "min",
+          animate: true,
+          orientation: "vertical"
+        });
       });
     });
-  });
+
+- content_for :license do
+  = render :partial => "ui/license"
+

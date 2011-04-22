@@ -9,12 +9,12 @@
   #site   
     #site-actions
       %ul
-        %li{ :style => "padding-top: 3px;" }
+        %li#language
           = t('txt.layout.language')
         %li
           - form_tag('', :method => :get) do
             .flagicons
-              = select_tag("locale", options_for_select_with_class(LOCALES_AVAILABLE, I18n.locale.to_s))  
+              = select_tag("locale", options_for_select_with_class(LOCALES_AVAILABLE, I18n.locale.to_s))
         %li
           %div#switcher
   
