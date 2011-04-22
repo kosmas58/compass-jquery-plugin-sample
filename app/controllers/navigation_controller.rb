@@ -1,5 +1,4 @@
 class NavigationController < ApplicationController
-  layout 'navigation'
   protect_from_forgery
 
   def edit

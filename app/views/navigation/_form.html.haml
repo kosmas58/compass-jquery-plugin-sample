@@ -1,14 +1,15 @@
-:css
-  .ui-state-error {
-    min-width: 420px;
-  }
-  .ui-state-error .errorExplanation h2, .ui-state-error .errorExplanation p {
-    font-size: normal;
-    font-weight: bold;
-  }
-  .ui-state-error .errorExplanation ul li {
-    font-size: normal;
-  }
+- content_for :head_stylesheets do
+  :css
+    .ui-state-error {
+      min-width: 420px;
+    }
+    .ui-state-error .errorExplanation h2, .ui-state-error .errorExplanation p {
+      font-size: normal;
+      font-weight: bold;
+    }
+    .ui-state-error .errorExplanation ul li {
+      font-size: normal;
+    }
 
 - form_for(@tree, :url => "/navigation") do |f|
 
