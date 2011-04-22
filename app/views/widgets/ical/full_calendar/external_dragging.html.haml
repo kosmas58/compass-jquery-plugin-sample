@@ -1,6 +1,6 @@
 -@title = t('txt.ical.fullcalendar.name') + " - " + t('txt.ical.fullcalendar.external')
 
-- content_for :content_head do
+- content_for :head_scripts do
   = render :partial => "external_dragging.js.haml", :format => :js
 
 .demo

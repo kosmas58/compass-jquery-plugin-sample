@@ -1,6 +1,6 @@
 -@title = "#{t('txt.ui.name')} #{t('txt.ui.interactions.draggable.default')} - #{t('txt.ui.interactions.draggable.delay-start')}"
 
-- content_for :content_head do
+- content_for :head_scripts do
   = render :partial => "delay_start.js.haml", :format => :js
       
 .demo

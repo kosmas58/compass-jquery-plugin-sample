@@ -1,6 +1,6 @@
 -@title = "#{t('txt.ui.name')} #{t('txt.ui.widgets.accordion.default')} - #{t('txt.ui.widgets.accordion.mouseover')}"
 
-- content_for :content_head do
+- content_for :head_scripts do
   = render :partial => "mouseover.js.haml", :format => :js
     
 .demo

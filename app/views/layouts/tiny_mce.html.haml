@@ -11,11 +11,11 @@
     /[if lt IE 8]
       = stylesheet_link_tag 'compiled/ie.css', :media => 'screen, projection'
       = javascript_include_tag 'jquery.pngFix'
-
     = stylesheet_link_tag "compiled/jquery/ui/smoothness", :media => 'screen, projection'
     //= stylesheet_link_tag 'jquery.ui.checkbox.css', :media => 'screen, projection'
     = stylesheet_link_tag 'demos.css', :media => 'screen, projection'
     = stylesheet_link_tag :ical
+    = yield :head_stylesheets
 
     = javascript_include_tag :jquery_ui
     = javascript_include_tag :jrails
@@ -30,7 +30,7 @@
     = javascript_include_tag 'flash_messages'
     = javascript_include_tag 'greybox'
 
-    = yield :content_head
+    = yield :head_scripts
 
   %body{body_attributes}
     #content

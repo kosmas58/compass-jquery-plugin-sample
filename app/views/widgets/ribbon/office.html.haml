@@ -1,7 +1,7 @@
 -@title = "#{t('txt.ribbon.name')} - #{t('txt.ribbon.theming.name')} - #{t('txt.ribbon.theming.windows7')}"
 -@ribbon_theme = 'ribbon.office'
 
-- content_for :content_head do
+- content_for :head_scripts do
   = render :partial => "office.js.haml", :format => :js
 
 #header 

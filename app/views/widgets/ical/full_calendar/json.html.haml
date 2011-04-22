@@ -1,6 +1,6 @@
 -@title = t('txt.ical.fullcalendar.name') + " - " + t('txt.ical.fullcalendar.json')
 
-- content_for :content_head do
+- content_for :head_scripts do
   = render :partial => "json.js.haml", :format => :js
 
 .demo

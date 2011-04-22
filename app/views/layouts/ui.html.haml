@@ -11,9 +11,9 @@
     /[if lt IE 8]
       = stylesheet_link_tag 'compiled/ie.css', :media => 'screen, projection'
       = javascript_include_tag 'jquery.pngFix'
-
     = stylesheet_link_tag "compiled/jquery/ui/#{session[:theme]}", :media => 'screen, projection'
     = stylesheet_link_tag 'demos.css', :media => 'screen, projection'
+    = yield :head_stylesheets
 
     = javascript_include_tag :jquery_ui
     = javascript_include_tag :jrails
@@ -26,7 +26,7 @@
     = javascript_include_tag 'ajax'
     = javascript_include_tag 'greybox'
 
-    = yield :content_head
+    = yield :head_scripts
 
   %body{body_attributes}
     #content

@@ -1,6 +1,6 @@
 -@title = "#{t('txt.dt.name')} - #{t('txt.dt.lazy')}"
 
-- content_for :content_head do
+- content_for :head_scripts do
   = render :partial => "lazy_persist.js.haml", :format => :js
   = render :partial => "skin.js.haml", :format => :js
 

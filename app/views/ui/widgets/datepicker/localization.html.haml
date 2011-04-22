@@ -1,6 +1,6 @@
 -@title = "#{t('txt.ui.name')} #{t('txt.ui.widgets.datepicker.default')} - #{t('txt.ui.widgets.datepicker.localization')}"
      
-- content_for :content_head do  
+- content_for :head_scripts do
   = render :partial => "layouts/datepicker_i18n"
   = render :partial => 'localization.js.haml', :format => :js
  

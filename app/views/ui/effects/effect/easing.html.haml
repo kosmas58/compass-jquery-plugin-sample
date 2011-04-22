@@ -1,6 +1,6 @@
 -@title = "#{t('txt.ui.name')} #{t('txt.ui.effects.default')} - #{t('txt.ui.effects.effect.easing')}"
 
-- content_for :content_head do
+- content_for :head_scripts do
   = render :partial => "easing.js.haml", :format => :js
 
 .demo
