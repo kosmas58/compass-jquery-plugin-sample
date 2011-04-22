@@ -1,30 +1,36 @@
-:css
-  a:active { outline:none; }
-  :focus { -moz-outline-style:none; }
-  .tooltip { display:none; background:transparent url(/images/demo/tools/tooltips/black_arrow.png); font-size:12px; height:70px; width:160px; padding:25px; color:#fff; }
-   #tooltip img { border:0; cursor:pointer; margin:0 8px; }
+- content_for :head_stylesheets do
+  :css
+    a:active { outline:none; }
+    :focus { -moz-outline-style:none; }
+    .tooltip { display:none; background:transparent url(/images/demo/tools/tooltips/black_arrow.png); font-size:12px; height:70px; width:160px; padding:25px; color:#fff; }
+     #tooltip img { border:0; cursor:pointer; margin:0 8px; }
 
-:javascript
-   // create custom animation algorithm for jQuery called "bouncy"
-  $.easing.bouncy = function (x, t, b, c, d) {
-    var s = 1.70158;
-    if ((t/=d/2) < 1) return c/2*(t*t*(((s*=(1.525))+1)*t - s)) + b;
-    return c/2*((t-=2)*t*(((s*=(1.525))+1)*t + s) + 2) + b;
-  }
-  // create custom tooltip effect for jQuery Tooltip
-  $.tools.tooltip.addEffect("bouncy",
-    // opening animation
-    function(done) {
-      this.getTip().animate({top: '+=15'}, 500, 'bouncy', done).show();
-    },    
-    // closing animation
-    function(done) {
-      this.getTip().animate({top: '-=15'}, 500, 'bouncy', function()  {
-      $(this).hide();
-      done.call();
+- content_for :head_scripts do
+  = javascript_include_tag :tools
+  :javascript
+     // create custom animation algorithm for jQuery called "bouncy"
+    $.easing.bouncy = function (x, t, b, c, d) {
+      var s = 1.70158;
+      if ((t/=d/2) < 1) return c/2*(t*t*(((s*=(1.525))+1)*t - s)) + b;
+      return c/2*((t-=2)*t*(((s*=(1.525))+1)*t + s) + 2) + b;
+    }
+    // create custom tooltip effect for jQuery Tooltip
+    $.tools.tooltip.addEffect("bouncy",
+      // opening animation
+      function(done) {
+        this.getTip().animate({top: '+=15'}, 500, 'bouncy', done).show();
+      },
+      // closing animation
+      function(done) {
+        this.getTip().animate({top: '-=15'}, 500, 'bouncy', function()  {
+        $(this).hide();
+        done.call();
+      });
     });
-  });
 
-  $(function() {
-    $("#tooltip img[title]").tooltip({effect: 'bouncy'});
-  });
+    $(function() {
+      $("#tooltip img[title]").tooltip({effect: 'bouncy'});
+    });
+
+- content_for :license do
+  = render :partial => "widgets/tools/license"

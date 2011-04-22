@@ -1,24 +1,31 @@
-:javascript
-  $(function() {
-      $("#tokenize").tokenInput("http://shell.loopj.com/tokeninput/tvshows.php", {
-          hintText: "Type in the names of your favorite TV shows",
-          noResultsText: "No results",
-          searchingText: "Searching..."
-      });
+- content_for :head_stylesheets do
+  = stylesheet_link_tag :tokeninput
+  = stylesheet_link_tag :tokeninput_facebook
+  = stylesheet_link_tag :tokeninput_mac
 
-      $("#tokenize2").tokenInput("http://shell.loopj.com/tokeninput/tvshows.php", {
-          classes: {
-              tokenList: "token-input-list-facebook",
-              token: "token-input-token-facebook",
-              tokenDelete: "token-input-delete-token-facebook",
-              selectedToken: "token-input-selected-token-facebook",
-              highlightedToken: "token-input-highlighted-token-facebook",
-              dropdown: "token-input-dropdown-facebook",
-              dropdownItem: "token-input-dropdown-item-facebook",
-              dropdownItem2: "token-input-dropdown-item2-facebook",
-              selectedDropdownItem: "token-input-selected-dropdown-item-facebook",
-              inputToken: "token-input-input-token-facebook"
-          }
-      });
-  });
+- content_for :head_scripts do
+  = javascript_include_tag :tokeninput
+  :javascript
+    $(function() {
+        $("#tokenize").tokenInput("http://shell.loopj.com/tokeninput/tvshows.php", {
+            hintText: "Type in the names of your favorite TV shows",
+            noResultsText: "No results",
+            searchingText: "Searching..."
+        });
+
+        $("#tokenize2").tokenInput("http://shell.loopj.com/tokeninput/tvshows.php", {
+            classes: {
+                tokenList: "token-input-list-facebook",
+                token: "token-input-token-facebook",
+                tokenDelete: "token-input-delete-token-facebook",
+                selectedToken: "token-input-selected-token-facebook",
+                highlightedToken: "token-input-highlighted-token-facebook",
+                dropdown: "token-input-dropdown-facebook",
+                dropdownItem: "token-input-dropdown-item-facebook",
+                dropdownItem2: "token-input-dropdown-item2-facebook",
+                selectedDropdownItem: "token-input-selected-dropdown-item-facebook",
+                inputToken: "token-input-input-token-facebook"
+            }
+        });
+    });
   

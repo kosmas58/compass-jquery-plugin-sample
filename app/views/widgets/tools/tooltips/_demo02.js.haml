@@ -1,15 +1,20 @@
-:css
-  :focus { -moz-outline-style:none; }
-  #download_now { background:transparent url(/images/demo/tools/img/download.png) no-repeat scroll 0 0; display:block; height:44px; margin-bottom:30px; overflow:hidden; text-indent:-999em; width:159px; cursor:pointer; }
-  #download_now:hover { background-position:0 -44px ; }
-  #download_now:focus { background-position:0 -88px; }
-  .tooltip {  display:none; background:url(/images/demo/tools/tooltips/black_arrow_big.png); height:163px; padding:40px 30px 10px 30px; width:310px; font-size:11px; color:#fff; }
-  .tooltip .label { color:yellow; width:35px; }
-  .tooltip a { color:#ad4; font-size:11px; font-weight:bold; }
-  .tooltip a:active { outline:none; }
-  
-:javascript
-  $(function() {
-    $("#download_now").tooltip({ effect: 'slide'});
-  });
+- content_for :head_stylesheets do
+  :css
+    :focus { -moz-outline-style:none; }
+    #download_now { background:transparent url(/images/demo/tools/img/download.png) no-repeat scroll 0 0; display:block; height:44px; margin-bottom:30px; overflow:hidden; text-indent:-999em; width:159px; cursor:pointer; }
+    #download_now:hover { background-position:0 -44px ; }
+    #download_now:focus { background-position:0 -88px; }
+    .tooltip {  display:none; background:url(/images/demo/tools/tooltips/black_arrow_big.png); height:163px; padding:40px 30px 10px 30px; width:310px; font-size:11px; color:#fff; }
+    .tooltip .label { color:yellow; width:35px; }
+    .tooltip a { color:#ad4; font-size:11px; font-weight:bold; }
+    .tooltip a:active { outline:none; }
 
+- content_for :head_scripts do
+  = javascript_include_tag :tools
+  :javascript
+    $(function() {
+      $("#download_now").tooltip({ effect: 'slide'});
+    });
+
+- content_for :license do
+  = render :partial => "widgets/tools/license"

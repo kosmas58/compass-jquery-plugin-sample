@@ -1,24 +1,30 @@
-:css
-  #mask { background-position: 50% -330px !important; }
-  /*#ball { margin-left:95px; }*/
-  #exposeMask { background:#072a88 url(/images/demo/tools/mask/mask_star_1600px.png) no-repeat 50% -330px; }
-    
-:javascript
-  // What is $(document).ready ? See: http://flowplayer.org${jqt}/documentation/basics.html#document_ready
-  $(function() {
-    // setup exposing
-    $("#ball").click(function()  {
-      var el = $(this);
-      el.expose({
-        // grow the ball when exposing starts
-        onBeforeLoad: function() {
-          el.animate({width: 298});
-        },
-        // shrink the ball when exposing closes
-        onBeforeClose: function() {
-          el.animate({width: 130});
-        }
-      }); 
+- content_for :head_stylesheets do
+  :css
+    #mask { background-position: 50% -330px !important; }
+    /*#ball { margin-left:95px; }*/
+    #exposeMask { background:#072a88 url(/images/demo/tools/mask/mask_star_1600px.png) no-repeat 50% -330px; }
+
+- content_for :head_scripts do
+  = javascript_include_tag :tools
+  :javascript
+    // What is $(document).ready ? See: http://flowplayer.org${jqt}/documentation/basics.html#document_ready
+    $(function() {
+      // setup exposing
+      $("#ball").click(function()  {
+        var el = $(this);
+        el.expose({
+          // grow the ball when exposing starts
+          onBeforeLoad: function() {
+            el.animate({width: 298});
+          },
+          // shrink the ball when exposing closes
+          onBeforeClose: function() {
+            el.animate({width: 130});
+          }
+        });
+      });
     });
-  });
+
+- content_for :license do
+  = render :partial => "widgets/tools/license"
 

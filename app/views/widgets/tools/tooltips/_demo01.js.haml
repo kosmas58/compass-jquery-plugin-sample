@@ -1,11 +1,16 @@
-:css
-  a:active { outline:none; }
-  :focus { -moz-outline-style:none; }
-  .tooltip { display:none; background:transparent url(/images/demo/tools/tooltips/black_arrow.png); font-size:12px; height:70px; width:160px; padding:25px; color:#fff; }
-  #tooltip img { border:0; cursor:pointer; margin:0 8px; }
+- content_for :head_stylesheets do
+  :css
+    a:active { outline:none; }
+    :focus { -moz-outline-style:none; }
+    .tooltip { display:none; background:transparent url(/images/demo/tools/tooltips/black_arrow.png); font-size:12px; height:70px; width:160px; padding:25px; color:#fff; }
+    #tooltip img { border:0; cursor:pointer; margin:0 8px; }
 
-:javascript
-  $(function() {
-    $("#tooltip img[title]").tooltip();
-  });
+- content_for :head_scripts do
+  = javascript_include_tag :tools
+  :javascript
+    $(function() {
+      $("#tooltip img[title]").tooltip();
+    });
 
+- content_for :license do
+  = render :partial => "widgets/tools/license"

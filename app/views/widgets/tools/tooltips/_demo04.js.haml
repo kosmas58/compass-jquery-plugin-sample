@@ -1,65 +1,70 @@
-:css
-  /* simple css-based tooltip */
-  .tooltip {
-    background-color:#000;
-    border:1px solid #fff;
-    padding:10px 15px;
-    width:200px;
-    display:none;
-    color:#fff;
-    text-align:left;
-    font-size:12px;
-    /* outline radius for mozilla/firefox only */
-    -moz-box-shadow:0 0 10px #000;
-    -webkit-box-shadow:0 0 10px #000;
-  }
+- content_for :head_stylesheets do
+  :css
+    /* simple css-based tooltip */
+    .tooltip {
+      background-color:#000;
+      border:1px solid #fff;
+      padding:10px 15px;
+      width:200px;
+      display:none;
+      color:#fff;
+      text-align:left;
+      font-size:12px;
+      /* outline radius for mozilla/firefox only */
+      -moz-box-shadow:0 0 10px #000;
+      -webkit-box-shadow:0 0 10px #000;
+    }
 
-  #myform {
-    border:1px outset #ccc;
-    background:#fff url(/images/demo/tools/gradient/h600.png) repeat-x;
-    padding:20px;
-    margin:20px 0;
-    width:350px;
-    font-size:12px;
-    -moz-border-radius:4px;
-  }
-  
-  #myform h3 {
-    text-align:center;
-    margin:0 0 10px 0;
-  }
-  
-  /* http://www.quirksmode.org/css/forms.html */
-  #inputs label, #inputs input, #inputs textarea, #inputs select {
-    display: block;
-    width: 150px;
-    float: left;
-    margin-bottom: 20px;
-  }
-  
-  #inputs label {
-    text-align: right;
-    width: 75px;
-    padding-right: 20px;
-  }
-  
-  #inputs br {
-    clear: left;
-  }
-  
-:javascript
-  // execute your scripts when the DOM is ready. this is a good habit
-  $(function() {
-    // select all desired input fields and attach tooltips to them
-    $("#myform :input").tooltip({
-      // place tooltip on the right edge
-      position: "center right",
-      // a little tweaking of the position
-      offset: [-2, 10],
-      // use the built-in fadeIn/fadeOut effect
-      effect: "fade",
-      // custom opacity setting
-      opacity: 0.7
+    #myform {
+      border:1px outset #ccc;
+      background:#fff url(/images/demo/tools/gradient/h600.png) repeat-x;
+      padding:20px;
+      margin:20px 0;
+      width:350px;
+      font-size:12px;
+      -moz-border-radius:4px;
+    }
+
+    #myform h3 {
+      text-align:center;
+      margin:0 0 10px 0;
+    }
+
+    /* http://www.quirksmode.org/css/forms.html */
+    #inputs label, #inputs input, #inputs textarea, #inputs select {
+      display: block;
+      width: 150px;
+      float: left;
+      margin-bottom: 20px;
+    }
+
+    #inputs label {
+      text-align: right;
+      width: 75px;
+      padding-right: 20px;
+    }
+
+    #inputs br {
+      clear: left;
+    }
+
+- content_for :head_scripts do
+  = javascript_include_tag :tools
+  :javascript
+    // execute your scripts when the DOM is ready. this is a good habit
+    $(function() {
+      // select all desired input fields and attach tooltips to them
+      $("#myform :input").tooltip({
+        // place tooltip on the right edge
+        position: "center right",
+        // a little tweaking of the position
+        offset: [-2, 10],
+        // use the built-in fadeIn/fadeOut effect
+        effect: "fade",
+        // custom opacity setting
+        opacity: 0.7
+      });
     });
-  });
 
+- content_for :license do
+  = render :partial => "widgets/tools/license"

@@ -1,22 +1,28 @@
-:css
-  a:active { outline:none; }
-  :focus { -moz-outline-style:none; }
-  .tooltip { display:none; background-color:#ffa; border:1px solid #cc9; padding:3px; font-size:13px; -moz-box-shadow: 2px 2px 11px #666; -webkit-box-shadow: 2px 2px 11px #666; }
-  #triggers img { border:0; cursor:pointer; margin-left:11px; } 
- 
-:javascript
-  $(function() {
-    $("#triggers img[title]:gt(1)").tooltip({
-      // use div.tooltip as our tooltip
-      //tip: '.tooltip',
-      // use the fade effect instead of the default
-      effect: 'fade',
-      // make fadeOutSpeed similar to the browser's default
-      fadeOutSpeed: 100,
-      // the time before the tooltip is shown
-      predelay: 400,
-      // tweak the position
-      position: "bottom right",
-      offset: [-50, -80]
+- content_for :head_stylesheets do
+  :css
+    a:active { outline:none; }
+    :focus { -moz-outline-style:none; }
+    .tooltip { display:none; background-color:#ffa; border:1px solid #cc9; padding:3px; font-size:13px; -moz-box-shadow: 2px 2px 11px #666; -webkit-box-shadow: 2px 2px 11px #666; }
+    #triggers img { border:0; cursor:pointer; margin-left:11px; }
+
+- content_for :head_scripts do
+  = javascript_include_tag :tools
+  :javascript
+    $(function() {
+      $("#triggers img[title]:gt(1)").tooltip({
+        // use div.tooltip as our tooltip
+        //tip: '.tooltip',
+        // use the fade effect instead of the default
+        effect: 'fade',
+        // make fadeOutSpeed similar to the browser's default
+        fadeOutSpeed: 100,
+        // the time before the tooltip is shown
+        predelay: 400,
+        // tweak the position
+        position: "bottom right",
+        offset: [-50, -80]
+      });
     });
-  });
+
+- content_for :license do
+  = render :partial => "widgets/tools/license"

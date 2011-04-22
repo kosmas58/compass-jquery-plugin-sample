@@ -1,104 +1,109 @@
-:css
-  /* the overlayed element */
-  .apple_overlay {
-    /* initially overlay is hidden */
-    display:none;    
-    /* growing background image */
-    background-image:url(/images/demo/tools/overlay/white.png); 
-    width:640px;
-    /* some padding to layout nested elements nicely  */
-    padding:35px;
-    /* a little styling */	
-    font-size:11px;
-  }
-  
-  /* default close button positioned on upper right corner */
-  .apple_overlay .close {
-    background-image:url(/images/demo/tools/overlay/close.png);
-    position:absolute; right:5px; top:5px;
-    cursor:pointer;
-    height:35px;
-    width:35px;
-  }
-  
-  /* use a semi-transparent image for the overlay */
-  #overlay {
-    background-image:url(/images/demo/tools/overlay/transparent.png);
-    color:#efefef;
-    height:450px;
-  }
-  
-  #overlay2 {
-    color:#efefef;
-    height:450px;
-  }
-  
-  /* container for external content. uses vertical scrollbar, if needed */
-  div.contentWrap {
-    height:441px;
-    overflow-y:auto;
-  }  
-  
-:javascript
-  $(function() {
-    $("button", ".demo").button();
-  });
-  
-  function doAjax(url, target){
-    if(url.match('^http')){
-      $.getJSON("http://query.yahooapis.com/v1/public/yql?"+
-                "q=select%20*%20from%20html%20where%20url%3D%22"+
-                encodeURIComponent(url)+
-                "%22&format=xml'&callback=?",
-        function(data){
-          if(data.results[0]){
-            var data = filterData(data.results[0]);
-            target.html(data);
-          } else {
-            var errormsg = '<p>Error: could not load the page.</p>';
-            target.html(errormsg);
-          }
-        }
-      );
-    } else {
-      target.load(url);
+- content_for :head_stylesheets do
+  :css
+    /* the overlayed element */
+    .apple_overlay {
+      /* initially overlay is hidden */
+      display:none;
+      /* growing background image */
+      background-image:url(/images/demo/tools/overlay/white.png);
+      width:640px;
+      /* some padding to layout nested elements nicely  */
+      padding:35px;
+      /* a little styling */
+      font-size:11px;
     }
-  };
-  
-  function filterData(data){
-    data = data.replace(/<?\/body[^>]*>/g,'');
-    data = data.replace(/[\r|\n]+/g,'');
-    data = data.replace(/<--[\S\s]*?-->/g,'');
-    data = data.replace(/<noscript[^>]*>[\S\s]*?<\/noscript>/g,'');
-    data = data.replace(/<script[^>]*>[\S\s]*?<\/script>/g,'');
-    data = data.replace(/<script.*\/>/,'');
-    return data;
-  };
-  
-  $(function() {
-    // if the function argument is given to overlay,
-    // it is assumed to be the onBeforeLoad event listener
-    $("#internal a[rel]").overlay({
-      mask: 'darkred',
-      effect: 'apple',
-      onBeforeLoad: function() {
-        // grab wrapper element inside content
-        var wrap = this.getOverlay().find(".contentWrap");
-        //load the page specified in the trigger
-        wrap.load(this.getTrigger().attr("href"));
-      }
+
+    /* default close button positioned on upper right corner */
+    .apple_overlay .close {
+      background-image:url(/images/demo/tools/overlay/close.png);
+      position:absolute; right:5px; top:5px;
+      cursor:pointer;
+      height:35px;
+      width:35px;
+    }
+
+    /* use a semi-transparent image for the overlay */
+    #overlay {
+      background-image:url(/images/demo/tools/overlay/transparent.png);
+      color:#efefef;
+      height:450px;
+    }
+
+    #overlay2 {
+      color:#efefef;
+      height:450px;
+    }
+
+    /* container for external content. uses vertical scrollbar, if needed */
+    div.contentWrap {
+      height:441px;
+      overflow-y:auto;
+    }
+
+- content_for :head_scripts do
+  = javascript_include_tag :tools
+  :javascript
+    $(function() {
+      $("button", ".demo").button();
     });
-    
-     $("#external a[rel]").overlay({
-      mask: 'darkred',
-      effect: 'apple',
-      onBeforeLoad: function() {
-        // grab wrapper element inside content
-        var target = this.getOverlay().find(".contentWrap");
-        //load the page specified in the trigger
-        var url = this.getTrigger().attr("href");
-        doAjax(url, target);
+
+    function doAjax(url, target){
+      if(url.match('^http')){
+        $.getJSON("http://query.yahooapis.com/v1/public/yql?"+
+                  "q=select%20*%20from%20html%20where%20url%3D%22"+
+                  encodeURIComponent(url)+
+                  "%22&format=xml'&callback=?",
+          function(data){
+            if(data.results[0]){
+              var data = filterData(data.results[0]);
+              target.html(data);
+            } else {
+              var errormsg = '<p>Error: could not load the page.</p>';
+              target.html(errormsg);
+            }
+          }
+        );
+      } else {
+        target.load(url);
       }
+    };
+
+    function filterData(data){
+      data = data.replace(/<?\/body[^>]*>/g,'');
+      data = data.replace(/[\r|\n]+/g,'');
+      data = data.replace(/<--[\S\s]*?-->/g,'');
+      data = data.replace(/<noscript[^>]*>[\S\s]*?<\/noscript>/g,'');
+      data = data.replace(/<script[^>]*>[\S\s]*?<\/script>/g,'');
+      data = data.replace(/<script.*\/>/,'');
+      return data;
+    };
+
+    $(function() {
+      // if the function argument is given to overlay,
+      // it is assumed to be the onBeforeLoad event listener
+      $("#internal a[rel]").overlay({
+        mask: 'darkred',
+        effect: 'apple',
+        onBeforeLoad: function() {
+          // grab wrapper element inside content
+          var wrap = this.getOverlay().find(".contentWrap");
+          //load the page specified in the trigger
+          wrap.load(this.getTrigger().attr("href"));
+        }
+      });
+
+       $("#external a[rel]").overlay({
+        mask: 'darkred',
+        effect: 'apple',
+        onBeforeLoad: function() {
+          // grab wrapper element inside content
+          var target = this.getOverlay().find(".contentWrap");
+          //load the page specified in the trigger
+          var url = this.getTrigger().attr("href");
+          doAjax(url, target);
+        }
+      });
     });
-  });
-  
+
+- content_for :license do
+  = render :partial => "widgets/tools/license"
