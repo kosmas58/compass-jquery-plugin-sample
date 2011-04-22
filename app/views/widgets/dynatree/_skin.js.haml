@@ -1,14 +1,20 @@
-:css
-  fieldset { border:0;  margin-bottom: 40px;}	
-  label,select,.ui-select-menu { float: left; margin-right: 10px; }
-  select { width: 120px; }
+- content_for :head_stylesheets do
+  = stylesheet_link_tag "compiled/jquery/ui/#{@dynatree_theme}.css", :media => 'screen, projection'
+  = stylesheet_link_tag "compiled/jquery/dynatree/#{@dynatree_skin}", :media => 'screen, projection'
+  = stylesheet_link_tag :contextMenu
+  :css
+    fieldset { border:0;  margin-bottom: 40px;}
+    label,select,.ui-select-menu { float: left; margin-right: 10px; }
+    select { width: 120px; }
 
-:javascript
-  $(function() {
-    $("#dynatree_skin").selectmenu({
-      style: 'dropdown'
-    })
-    .change(function(){
-      this.form.submit();
+- content_for :head_scripts do
+  :javascript
+    $(function() {
+      $("#dynatree_skin").selectmenu({
+        style: 'dropdown'
+      })
+      .change(function(){
+        this.form.submit();
+      });
     });
-  });
+    

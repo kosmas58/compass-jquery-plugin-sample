@@ -1,10 +1,10 @@
 class Widgets::DynatreeController < ApplicationController
-  layout 'dynatree', :except => [:iframe_1]
+  layout 'application', :except => [:iframe_1]
   protect_from_forgery
 
   def iframe_1
     respond_to do |format|
-      format.html { render :layout => 'dynatree_iframe' }
+      format.html { render :layout => 'dynatree' }
     end
   end
 

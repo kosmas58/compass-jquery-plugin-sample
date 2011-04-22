@@ -1,6 +1,12 @@
-:javascript
-  $(function() {
-    $("#tree").dynatree({
-      // using default options
+- content_for :head_scripts do
+  = javascript_include_tag :dynatree
+  = javascript_include_tag :contextMenu
+  :javascript
+    $(function() {
+      $("#tree").dynatree({
+        // using default options
+      });
     });
-  });
+
+- content_for :license do
+  = render :partial => "widgets/dynatree/license"

@@ -1,78 +1,85 @@
-:css
-  .ui-button{ font-size: 0.8em; }
+- content_for :head_stylesheets do
+  :css
+    .ui-button{ font-size: 0.8em; }
 
-:javascript
-  $(function() {
-    $("button", ".demo").button();
-    
-    $("#tree").dynatree({
-      children: [
-        {title: "Add 100 nodes (flat, force update)...", isFolder: true, isLazy: true, mode: "add100_flat_u" },
-        {title: "Add 100 nodes (flat)...", isFolder: true, isLazy: true, mode: "add100_flat" },
-        {title: "Add 1.000 nodes (flat)...", isFolder: true, isLazy: true, mode: "add1000_flat" },
-        {title: "Add 1.000 nodes (deep)...", isFolder: true, isLazy: true, mode: "add1000_deep" },
-        {title: "Add 10.000 nodes (deep)...", isFolder: true, isLazy: true, mode: "add10000_deep" }
-      ],
-      onSelect: function(node) {
-        alert("You selected " + node.data.title);
-      },
-      onLazyRead: function(node) {
-        var tree = node.tree;
-        logMsg("Benchmarking mode='" + node.data.mode + "'...");
-        switch( node.data.mode ) {
-          case "add100_flat_u":
-            addNodes(node, 100, 0, 0, true)
-            break;
-          case "add100_flat":
-            addNodes(node, 100, 0, 0)
-            break;
-          case "add1000_flat":
-            addNodes(node, 1000, 0, 0)
-            break;
-          case "add1000_deep":
-            addNodes(node, 10, 10, 10)
-            break;
-          case "add10000_deep":
-            addNodes(node, 10, 100, 10)
-            break;
+- content_for :head_scripts do
+  = javascript_include_tag :dynatree
+  = javascript_include_tag :contextMenu
+  :javascript
+    $(function() {
+      $("button", ".demo").button();
+
+      $("#tree").dynatree({
+        children: [
+          {title: "Add 100 nodes (flat, force update)...", isFolder: true, isLazy: true, mode: "add100_flat_u" },
+          {title: "Add 100 nodes (flat)...", isFolder: true, isLazy: true, mode: "add100_flat" },
+          {title: "Add 1.000 nodes (flat)...", isFolder: true, isLazy: true, mode: "add1000_flat" },
+          {title: "Add 1.000 nodes (deep)...", isFolder: true, isLazy: true, mode: "add1000_deep" },
+          {title: "Add 10.000 nodes (deep)...", isFolder: true, isLazy: true, mode: "add10000_deep" }
+        ],
+        onSelect: function(node) {
+          alert("You selected " + node.data.title);
+        },
+        onLazyRead: function(node) {
+          var tree = node.tree;
+          logMsg("Benchmarking mode='" + node.data.mode + "'...");
+          switch( node.data.mode ) {
+            case "add100_flat_u":
+              addNodes(node, 100, 0, 0, true)
+              break;
+            case "add100_flat":
+              addNodes(node, 100, 0, 0)
+              break;
+            case "add1000_flat":
+              addNodes(node, 1000, 0, 0)
+              break;
+            case "add1000_deep":
+              addNodes(node, 10, 10, 10)
+              break;
+            case "add10000_deep":
+              addNodes(node, 10, 100, 10)
+              break;
+          }
+          // node.setLazyNodeStatus(DTNodeStatus_Ok);
+          logMsg("Benchmarking mode='" + node.data.mode + "' done.");
+          // Return true, to show we're finished
+          return true;
         }
-        // node.setLazyNodeStatus(DTNodeStatus_Ok);
-        logMsg("Benchmarking mode='" + node.data.mode + "' done.");
-        // Return true, to show we're finished
-        return true;
-      }
+      });
+
+      $("#btnClear").click(function(){
+        var root = $("#tree").dynatree("getRoot");
+        for(var i = 0; i<root.childList.length; i++)
+          root.childList[i].removeChildren();
+      });
     });
 
-    $("#btnClear").click(function(){
-      var root = $("#tree").dynatree("getRoot");
-      for(var i = 0; i<root.childList.length; i++)
-        root.childList[i].removeChildren();
-    });
-  });
+    function addNodes(node, level1, level2, level3, forceUpdate) {
+      if( forceUpdate != true )
+        node.tree.enableUpdate(false);
 
-  function addNodes(node, level1, level2, level3, forceUpdate) {
-    if( forceUpdate != true )
-      node.tree.enableUpdate(false);
-
-    var key;
-    for (var i=0; i<level1; i++) {
-      key = "" + (i+1);
-      var f = node.addChild({title: "Folder_" + key,
-                   key: key,
-                   isFolder: true
-                   });
-      for (var j=0; j<level2; j++) {
-        key = "" + (i+1) + "." + (j+1);
-        var d = f.addChild({title: "Node_" + key,
+      var key;
+      for (var i=0; i<level1; i++) {
+        key = "" + (i+1);
+        var f = node.addChild({title: "Folder_" + key,
+                     key: key,
+                     isFolder: true
+                     });
+        for (var j=0; j<level2; j++) {
+          key = "" + (i+1) + "." + (j+1);
+          var d = f.addChild({title: "Node_" + key,
+                    key: key
+                    });
+          for (var k=0; k<level3; k++) {
+            key = "" + (i+1) + "." + (j+1) + "." + (k+1);
+            d.addChild({title: "Node_" + key,
                   key: key
                   });
-        for (var k=0; k<level3; k++) {
-          key = "" + (i+1) + "." + (j+1) + "." + (k+1);
-          d.addChild({title: "Node_" + key,
-                key: key
-                });
+          }
         }
       }
+      node.tree.enableUpdate(true);
     }
-    node.tree.enableUpdate(true);
-  }
+
+- content_for :license do
+  = render :partial => "widgets/dynatree/license"

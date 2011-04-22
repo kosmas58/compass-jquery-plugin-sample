@@ -1,8 +1,6 @@
 -@title = "#{t('txt.dt.name')} - #{t('txt.dt.effects')}"
-
-- content_for :head_scripts do
-  = render :partial => "effects.js.haml", :format => :js
-  = render :partial => "skin.js.haml", :format => :js
+= render :partial => "effects.js.haml", :format => :js
+= render :partial => "skin.js.haml", :format => :js
 
 .demo
   %h3

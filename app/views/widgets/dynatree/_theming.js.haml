@@ -1,83 +1,92 @@
-:css
-  /*******************************************************************************
-   * Sample for a Dynatree custom stylesheet.
-   * This is expected to be included after the standard ui.dynatree.css, thus
-   * overridung the defaults. 
-   */
-  .dynatree-has-children span.dynatree-icon
-  {
-      background-position: 0 0;
-      background-image: url("/images/demo/dynatree/doc_with_children.png");
-  }
-  
-  .dynatree-ico-cf span.dynatree-icon  /* Collapsed Folder */
-  {
-      background-image: url("/images/demo/dynatree/folder_docs.png");
-  }
-  
-  .dynatree-ico-ef span.dynatree-icon  /* Expanded Folder */
-  {
-      background-image: url("/images/demo/dynatree/folder_images.png");
-  }
-  
-  
-  /*******************************************************************************
-   * Node titles
-   */
-  
-  span.dynatree-has-children a
-  {
-      font-style: oblique;
-  }
-  
-  span.dynatree-selected a
-  {
-      color: green;
-      font-style: italic;
-  }
-  
-  span.dynatree-active a,
-  span.dynatree-active a:hover
-  {
-      border: 1px solid maroon;
-      background-color: #FAD8F0 !important; /* reddish */
-  }
-  
-  
-  /*******************************************************************************
-   * Custom node classes (sample)
-   */
-  
-  span1 a
-  {
-      background-color: #ffffbb;
-      color: maroon;
-  }
-  span1 span.dynatree-icon
-  {
-      background-position: 0 0;
-      background-image: url("/images/demo/dynatree/customDoc2.png");
-  }
-  
-  span2 a
-  {
-      font-weight: bold;
-      background-color: silver;
-      color: navy;
-  }
-  span2 span.dynatree-icon
-  {
-      background-position: 0 0;
-      background-image: url("/images/demo/dynatree/folder_page.png");
-  }
+- content_for :head_stylesheets do
+  = stylesheet_link_tag "compiled/jquery/ui/#{@dynatree_theme}.css", :media => 'screen, projection'
+  = stylesheet_link_tag "compiled/jquery/dynatree/#{@dynatree_skin}", :media => 'screen, projection'
+  = stylesheet_link_tag :contextMenu
+  :css
+    /*******************************************************************************
+     * Sample for a Dynatree custom stylesheet.
+     * This is expected to be included after the standard ui.dynatree.css, thus
+     * overridung the defaults.
+     */
+    .dynatree-has-children span.dynatree-icon
+    {
+        background-position: 0 0;
+        background-image: url("/images/demo/dynatree/doc_with_children.png");
+    }
 
-:javascript
-  $(function() {
-    $("#tree").dynatree({
-      imagePath: "/images/demo/dynatree/", // Image folder used for data.icon attribute.
-      onSelect: function(node) {
-        alert ("You selected " + node);
-      }
+    .dynatree-ico-cf span.dynatree-icon  /* Collapsed Folder */
+    {
+        background-image: url("/images/demo/dynatree/folder_docs.png");
+    }
+
+    .dynatree-ico-ef span.dynatree-icon  /* Expanded Folder */
+    {
+        background-image: url("/images/demo/dynatree/folder_images.png");
+    }
+
+
+    /*******************************************************************************
+     * Node titles
+     */
+
+    span.dynatree-has-children a
+    {
+        font-style: oblique;
+    }
+
+    span.dynatree-selected a
+    {
+        color: green;
+        font-style: italic;
+    }
+
+    span.dynatree-active a,
+    span.dynatree-active a:hover
+    {
+        border: 1px solid maroon;
+        background-color: #FAD8F0 !important; /* reddish */
+    }
+
+
+    /*******************************************************************************
+     * Custom node classes (sample)
+     */
+
+    span1 a
+    {
+        background-color: #ffffbb;
+        color: maroon;
+    }
+    span1 span.dynatree-icon
+    {
+        background-position: 0 0;
+        background-image: url("/images/demo/dynatree/customDoc2.png");
+    }
+
+    span2 a
+    {
+        font-weight: bold;
+        background-color: silver;
+        color: navy;
+    }
+    span2 span.dynatree-icon
+    {
+        background-position: 0 0;
+        background-image: url("/images/demo/dynatree/folder_page.png");
+    }
+
+- content_for :head_scripts do
+  = javascript_include_tag :dynatree
+  = javascript_include_tag :contextMenu
+  :javascript
+    $(function() {
+      $("#tree").dynatree({
+        imagePath: "/images/demo/dynatree/", // Image folder used for data.icon attribute.
+        onSelect: function(node) {
+          alert ("You selected " + node);
+        }
+      });
     });
-  });
-  
+
+- content_for :license do
+  = render :partial => "widgets/dynatree/license"

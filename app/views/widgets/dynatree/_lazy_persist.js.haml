@@ -1,62 +1,69 @@
-:css
-  .toolbar{ padding: 0.3em; }
-  .ui-button{ font-size: 0.8em; }
+- content_for :head_stylesheets do
+  :css
+    .toolbar{ padding: 0.3em; }
+    .ui-button{ font-size: 0.8em; }
 
-:javascript
-  var _activeKey = null;
-  
-  $(function() {
-    $("button", ".demo").button();
-    
-    $("#tree").ajaxComplete(function(event, XMLHttpRequest, ajaxOptions) {
-      _log("debug", "ajaxComplete: %o", this); // dom element listening
-    });
-    // --- Initialize sample trees
-    $("#tree").dynatree({
-      title: "Lazy loading sample",
-      persist: true,
-      checkbox: true,
-      selectMode: 3,
-      onPostInit: function(isReloading, isError) {
-        // alert("reloading: "+isReloading+", error:"+isError);
-        // logMsg("onPostInit(%o, %o) - %o", isReloading, isError, this);
-        // Re-fire onActivate, so the text is updated
-        this.reactivate();
-      },
-      fx: { height: "toggle", duration: 200 },
-      // initAjax is hard to fake, so we pass the children as object array:
-      initAjax: { url: "data1?format=json",
-        dataType: "json", // Enable JSONP, so this sample can be run from the local file system against a localhost server
-        data: {key: "",
-          sleep: 1,
-          depth: 3,
-          mode: "baseFolders"
+- content_for :head_scripts do
+  = javascript_include_tag :dynatree
+  = javascript_include_tag :contextMenu
+  :javascript
+    var _activeKey = null;
+
+    $(function() {
+      $("button", ".demo").button();
+
+      $("#tree").ajaxComplete(function(event, XMLHttpRequest, ajaxOptions) {
+        _log("debug", "ajaxComplete: %o", this); // dom element listening
+      });
+      // --- Initialize sample trees
+      $("#tree").dynatree({
+        title: "Lazy loading sample",
+        persist: true,
+        checkbox: true,
+        selectMode: 3,
+        onPostInit: function(isReloading, isError) {
+          // alert("reloading: "+isReloading+", error:"+isError);
+          // logMsg("onPostInit(%o, %o) - %o", isReloading, isError, this);
+          // Re-fire onActivate, so the text is updated
+          this.reactivate();
         },
-        addExpandedKeyList: true // Send list of expanded keys, so the webservice can deliver these children also
-      },
-      onLazyRead: function(node){
-        node.appendAjax({ 
-          url: "http://127.0.0.1:8001",
-          dataType: "jsonp", // Enable JSONP, so this sample can be run from the local file system against a localhost server
-          data: {
-            key: node.data.key,
+        fx: { height: "toggle", duration: 200 },
+        // initAjax is hard to fake, so we pass the children as object array:
+        initAjax: { url: "data1?format=json",
+          dataType: "json", // Enable JSONP, so this sample can be run from the local file system against a localhost server
+          data: {key: "",
             sleep: 1,
-            mode: "branch"
-          }
-        });
-      },
-      onActivate: function(node) {
-        $("#echoActive").text(node.data.tooltip + ", key=" + node.data.key);
-        _activeKey = node.data.key;
-      }
+            depth: 3,
+            mode: "baseFolders"
+          },
+          addExpandedKeyList: true // Send list of expanded keys, so the webservice can deliver these children also
+        },
+        onLazyRead: function(node){
+          node.appendAjax({
+            url: "http://127.0.0.1:8001",
+            dataType: "jsonp", // Enable JSONP, so this sample can be run from the local file system against a localhost server
+            data: {
+              key: node.data.key,
+              sleep: 1,
+              mode: "branch"
+            }
+          });
+        },
+        onActivate: function(node) {
+          $("#echoActive").text(node.data.tooltip + ", key=" + node.data.key);
+          _activeKey = node.data.key;
+        }
+      });
+
+      $("#btnReload").click(function(){
+        $("#tree").dynatree("getTree").reload();
+        return false;
+      });
+      $("#btnReloadNode").click(function(){
+        $("#tree").dynatree("getTree").getNodeByKey(_activeKey).reloadChildren();
+        return false;
+      });
     });
 
-    $("#btnReload").click(function(){
-      $("#tree").dynatree("getTree").reload();
-      return false;
-    });
-    $("#btnReloadNode").click(function(){
-      $("#tree").dynatree("getTree").getNodeByKey(_activeKey).reloadChildren();
-      return false;
-    });
-  });
+- content_for :license do
+  = render :partial => "widgets/dynatree/license"
