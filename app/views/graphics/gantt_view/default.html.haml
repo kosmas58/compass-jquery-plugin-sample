@@ -1,7 +1,6 @@
 -@title = "#{t('txt.graphics.ganttview.name')} - #{t('txt.graphics.ganttview.default')}"
-
-- content_for :head_scripts do
-  = render :partial => "default.js.haml", :format => :js
+= render :partial => "data.js.haml", :format => :js
+= render :partial => "default.js.haml", :format => :js
 
 .demo
   %h3
