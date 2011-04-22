@@ -3,6 +3,6 @@
   = render :partial => "emulate.js.haml", :format => :js, :locals => { :orientation => @orientation }
   = render :partial => "scale.js.haml", :format => :js
   = render :partial => "rotate.js.haml", :format => :js, :locals => { :device => @device, :orientation => @orientation, :url => @action }
-  = render(:partial => "ppi.js.haml", :format => :js)
+  = render :partial => "ppi.js.haml", :format => :js
   
 = render :partial => "emulate", :locals => { :url => @action, :width => @width, :height => @height }

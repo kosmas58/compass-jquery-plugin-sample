@@ -1,7 +1,7 @@
 -@title = "#{t('txt.ui.name')} #{t('txt.ui.widgets.accordion.default')} - #{t('txt.ui.widgets.accordion.no-auto-height')}"
 
 - content_for :content_head do
-  = render(:partial => "no_auto_height.js.haml", :format => :js)
+  = render :partial => "no_auto_height.js.haml", :format => :js
       
 .demo
   %h3

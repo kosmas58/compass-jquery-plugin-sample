@@ -1,7 +1,7 @@
 -@title = "#{t('txt.jst.name')} - #{t('txt.jst.cookies')}"
 
 - content_for :content_head do
-  = render(:partial => "cookies.js.haml", :format => :js)
+  = render :partial => "cookies.js.haml", :format => :js
 
 .demo
   %h3

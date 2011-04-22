@@ -21,13 +21,13 @@
     = raw jquery_javascripts(I18n.locale)
     = javascript_include_tag :jstree, :themeSwitcher
     = javascript_include_tag 'i18n', 'locales'
-    = render(:partial => "shared/locale.js.haml", :format => :js)
+    = render :partial => "shared/locale.js.haml", :format => :js
     = csrf_meta_tag
     = javascript_include_tag 'common'
     = javascript_include_tag 'ajax'
     = javascript_include_tag 'application'
 
-    = render(:partial => "layouts/sidebar.js.haml", :format => :js)
+    = render :partial => "layouts/sidebar.js.haml", :format => :js
 
   %body{body_attributes}
     .container

@@ -1,7 +1,7 @@
 - content_for :head_scripts_before_jquery do
   %link{:href => "/images/demo/mobile/jquery-mobile-icon.png", :rel => "apple-touch-icon"}
 
-= render(:partial => "/mobile/mobile_init.js.haml", :format => :js)
+= render :partial => "/mobile/mobile_init.js.haml", :format => :js
 
 - content_for :head_scripts_before_mobile do
   :javascript

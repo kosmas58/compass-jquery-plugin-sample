@@ -6,7 +6,7 @@
     .ui-li-thumb { position: relative; }
     #box { background-repeat: no-repeat; background-clip: none; width: 23px; border: 0px; }
 
-= render(:partial => "/mobile/mobile_init.js.haml", :format => :js)
+= render :partial => "/mobile/mobile_init.js.haml", :format => :js
 
 - content_for :head_scripts_before_mobile do
   = javascript_include_tag :tmpl, :dst

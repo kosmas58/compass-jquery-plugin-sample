@@ -10,7 +10,7 @@ class Widgets::Ical::EventsController < ApplicationController
     response_for :index_reload do |format|
       format.html
       format.js do
-        render(:partial => "index_reload", :layout => false)
+        render :partial => "index_reload", :layout => false
       end
     end
 
@@ -18,7 +18,7 @@ class Widgets::Ical::EventsController < ApplicationController
       format.html
       format.js do
         flash[:notice] = ""
-        render(:partial => "form", :layout => false)
+        render :partial => "form", :layout => false
       end
     end
 
@@ -26,7 +26,7 @@ class Widgets::Ical::EventsController < ApplicationController
       format.html
       format.js do
         flash[:notice] = ""
-        render(:partial => "form", :layout => false)
+        render :partial => "form", :layout => false
       end
     end
 
@@ -35,7 +35,7 @@ class Widgets::Ical::EventsController < ApplicationController
       format.js do
         if request.xhr?
           flash[:notice] = I18n.t('make_resourceful.update.success')
-          render(:partial => "form", :layout => false)
+          render :partial => "form", :layout => false
         else
           redirect_to :action => :index
         end
@@ -46,7 +46,7 @@ class Widgets::Ical::EventsController < ApplicationController
       format.html
       format.js do
         flash[:notice] = "Do you really want to delete this event?"
-        render(:partial => "form_delete", :layout => false)
+        render :partial => "form_delete", :layout => false
       end
     end
 
@@ -56,7 +56,7 @@ class Widgets::Ical::EventsController < ApplicationController
         if request.xhr?
           flash[:notice] = I18n.t('make_resourceful.destroy.success')
           redirect_to :action => :index
-          #render(:partial => "form_delete", :layout => false)
+          #render :partial => "form_delete", :layout => false
         else
           redirect_to :action => :index
         end
@@ -69,10 +69,10 @@ class Widgets::Ical::EventsController < ApplicationController
     @event.calendar_id = params[:calendar_id]
     if @event.save
       flash[:notice] = I18n.t('make_resourceful.create.success')
-      return render(:partial => "form")
+      return render :partial => "form"
       #redirect_to ical_calendar_events_url
     else
-      return render(:partial => "form")
+      return render :partial => "form"
     end
   end
 

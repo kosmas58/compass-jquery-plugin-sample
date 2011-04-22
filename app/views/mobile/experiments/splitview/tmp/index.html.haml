@@ -1,9 +1,9 @@
 -@title = "jQuery Mobile Framework - Split View 1"
 
 - content_for :head_scripts_before_mobile do
-  = render(:partial => "/mobile/experiments/splitview.css.js.haml", :format => :js)
-  = render(:partial => "/mobile/experiments/scrollview.css.js.haml", :format => :js)
-  = render(:partial => "/mobile/experiments/splitview.js.haml", :format => :js)
+  = render :partial => "/mobile/experiments/splitview.css.js.haml", :format => :js
+  = render :partial => "/mobile/experiments/scrollview.css.js.haml", :format => :js
+  = render :partial => "/mobile/experiments/splitview.js.haml", :format => :js
 
 %div{"data-context" => "a#default", "data-hash" => "crumbs", "data-id" => "menu", "data-role" => "panel"}
   / Start of first page
@@ -381,4 +381,4 @@
   / /page
 / panel
 
-= render(:partial => "/mobile/experiments/scrollview.js.haml", :format => :js)
+= render :partial => "/mobile/experiments/scrollview.js.haml", :format => :js

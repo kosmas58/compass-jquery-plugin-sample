@@ -1,5 +1,5 @@
-= render(:partial => "index.js.haml", :format => :js)
-= render(:partial => "article.js.haml", :format => :js)
+= render :partial => "index.js.haml", :format => :js
+= render :partial => "article.js.haml", :format => :js
 
 %div{"data-role" => "page"}
   %header{:class => [@siteName], "data-role" => "header"}

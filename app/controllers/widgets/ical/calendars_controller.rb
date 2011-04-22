@@ -17,7 +17,7 @@ class Widgets::Ical::CalendarsController < ApplicationController
     response_for :show do |format|
       format.html
       format.ics do
-        render(:text => @current_object.to_ics())
+        render :text => @current_object.to_ics()
       end
     end
 

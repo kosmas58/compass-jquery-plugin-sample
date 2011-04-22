@@ -1,14 +1,14 @@
 -@title = "#{t('txt.dt.name')} - #{t('txt.dt.lazy')}"
 
 - content_for :content_head do
-  = render(:partial => "lazy_persist.js.haml", :format => :js)
-  = render(:partial => "skin.js.haml", :format => :js)
+  = render :partial => "lazy_persist.js.haml", :format => :js
+  = render :partial => "skin.js.haml", :format => :js
 
 .demo
   %h3
     =image_tag("icons/22x22/tree.png", :border => 0)
     =@title
-  = render(:partial => "skin_form")
+  = render :partial => "skin_form"
   #tree
     / When using initAjax, it may be nice to put a throbber here, that spins until the initial content is loaded:
     Loading...

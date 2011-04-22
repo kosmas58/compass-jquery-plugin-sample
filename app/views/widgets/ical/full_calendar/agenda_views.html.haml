@@ -1,7 +1,7 @@
 -@title = t('txt.ical.fullcalendar.name') + " - " + t('txt.ical.fullcalendar.agenda')
 
 - content_for :content_head do
-  = render(:partial => "agenda_views.js.haml", :format => :js)
+  = render :partial => "agenda_views.js.haml", :format => :js
 
 .demo
   %h3

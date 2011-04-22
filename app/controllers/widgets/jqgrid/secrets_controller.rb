@@ -12,12 +12,12 @@ class Widgets::Jqgrid::SecretsController < ApplicationController
 
   def edit
     @secret = Secret.find(params[:id])
-    return render(:partial => "form")
+    return render :partial => "form"
   end
 
   def new
     @secret = Secret.new
-    return render(:partial => "form")
+    return render :partial => "form"
   end
 
   def create
@@ -25,7 +25,7 @@ class Widgets::Jqgrid::SecretsController < ApplicationController
     if @secret.save
       redirect_to :action => :index, :format => :html
     else
-      return render(:partial => "form")
+      return render :partial => "form"
     end
   end
 
@@ -35,7 +35,7 @@ class Widgets::Jqgrid::SecretsController < ApplicationController
       redirect_to :action => :index, :format => :html
     else
       if request.xhr?
-        return render(:partial => "form")
+        return render :partial => "form"
       end
     end
   end
@@ -44,7 +44,7 @@ class Widgets::Jqgrid::SecretsController < ApplicationController
     @secret = Secret.find(params[:id])
     @secret.destroy
     if request.xhr?
-      return render(:nothing => true)
+      return render :nothing => true
     else
       redirect_to :action => :index, :format => :html
     end

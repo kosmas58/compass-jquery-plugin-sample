@@ -1,7 +1,7 @@
 -@title = "#{t('txt.ui.name')} #{t('txt.ui.widgets.progressbar.default')} - #{t('txt.ui.widgets.progressbar.resize')}"
 
 - content_for :content_head do
-  = render(:partial => "resize.js.haml", :format => :js)
+  = render :partial => "resize.js.haml", :format => :js
  
 .demo
   %h3

@@ -2,7 +2,7 @@
 
 - content_for :content_head do
   = stylesheet_link_tag "compiled/jquery/ui/cowboy", :media => 'screen, projection'
-  = render(:partial => "bbq.js.haml", :format => :js)
+  = render :partial => "bbq.js.haml", :format => :js
 
 .demo
   %h3
