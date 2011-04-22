@@ -1,15 +1,13 @@
-- content_for :head_scripts_before_jquery do
-  %link{:href => "/images/demo/mobile/converter-icon.png", :rel => "apple-touch-icon"}
-  :css
-    .field { padding: 15px; }
-  = render :partial => "converter.js.haml", :format => :js
-    
+= render :partial => "converter.css.haml"
 = render :partial => "/mobile/mobile_init.js.haml", :format => :js
+- content_for :head_scripts_after_mobile do
+  = javascript_include_tag :tmpl
 = render :partial => "storage.js.haml", :format => :js
 = render :partial => "application.js.haml", :format => :js
 
 - content_for :head_scripts_after_mobile do
-  = javascript_include_tag :tmpl
+  :css
+    .field { padding: 15px; }
   %script#conversion-field{:type => "text/x-jquery-tmpl"}
     %li
       %p.currency-from

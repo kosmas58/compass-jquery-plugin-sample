@@ -1,4 +1,4 @@
-- content_for :head_scripts_before_jquery do
+- content_for :head_stylesheets do
   :css
     @charset "utf-8";
 
@@ -89,7 +89,7 @@
       margin: 0;
     }
 
-= render :partial => "/mobile/docs/docs.html.haml", :format => :js
+= render :partial => "/mobile/docs/docs.html.haml"
 
 - content_for :head_scripts_before_mobile do
   :javascript

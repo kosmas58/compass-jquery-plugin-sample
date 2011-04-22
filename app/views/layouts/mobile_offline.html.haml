@@ -6,6 +6,7 @@
     %title
       = @title || 'jQuery Mobile Framework'
     = stylesheet_link_tag :mobile_default, :media => 'screen, projection'
+    = yield :head_stylesheets
 
     = yield :head_scripts_before_jquery
     = javascript_include_tag :jquery
@@ -18,8 +19,6 @@
     = render :partial => "shared/locale.js.haml", :format => :js
     = csrf_meta_tag
     = javascript_include_tag 'common'
-
-    = yield :content_head
 
   %body
     = yield

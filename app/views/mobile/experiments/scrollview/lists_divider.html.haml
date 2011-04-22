@@ -1,19 +1,9 @@
 -@title = "jQuery Mobile: Demos and Documentation"
 
-- content_for :head_scripts_after_mobile do
-  = render :partial => "/mobile/experiments/scrollview.css.js.haml", :format => :js
-  = render :partial => "/mobile/docs/docs.html.haml", :format => :js
-  :css
-    .ui-content.ui-scrollview-clip {
-      padding: 0;
-    }
-    .ui-content.ui-scrollview-clip > div.ui-scrollview-view {
-      margin: 0;
-      padding: 15px;
-    }
-    .ui-content.ui-scrollview-clip > .ui-listview.ui-scrollview-view {
-      margin: 0;
-    }
+
+= render :partial => "lists_divider.css.haml"
+= render :partial => "/mobile/experiments/scrollview.css.haml"
+= render :partial => "/mobile/docs/docs.html.haml"
 
 - content_for :head_scripts_after_mobile do
   = render :partial => "/mobile/experiments/scrollview.js.haml", :format => :js

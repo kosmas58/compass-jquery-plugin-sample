@@ -1,4 +1,4 @@
-- content_for :head_scripts_before_jquery do
+- content_for :head_stylesheets do
   :css
     .ui-content.ui-scrollview-clip {
       padding: 0;
@@ -10,21 +10,13 @@
     .ui-content.ui-scrollview-clip > .ui-listview.ui-scrollview-view {
       margin: 0;
     }
-
-    .ui-scrollview-clip {
-      background-color: #999;
-    }
-
-    .ui-scrollview-view {
-      background-color: white;
-    }
-
     .square {
-      width: 200px;
-      height: 200px;
+      width: 98px;
+      height: 98px;
+      border: solid 1px #333;
       text-align: center;
-      line-height: 200px;
-      font-size: 160px;
+      line-height: 100px;
+      font-size: 60px;
     }
 
     .ui-scrollview-clip .ui-scrollview-clip .square {
@@ -43,32 +35,19 @@
       background-color: #FF6;
     }
 
-    .single-block-view-h, .single-block-view-v {
-      width: 200px;
-      height: 200px;
-    }
-    .double-block-view-h {
+    .threeByThree {
       border: solid 1px black;
-      width: 400px;
-      height: 200px;
+      background-color: #999;
+      overflow: hidden;
+      width: 300px;
+      height: 300px;
     }
 
-    .double-block-view-v {
-      border: solid 1px black;
-      width: 200px;
-      height: 400px;
+    .threeByThree > .ui-scrollview-view {
+      width: 1300px;
+      background-color: white;
     }
 
-    .single-block-view-h > .view, .double-block-view-h > .view {
-      width: 1400px;
-      height: 200px;
-    }
-
-    .single-block-view-h > .view > .square, .double-block-view-h > .view > .square {
+    .threeByThree .square {
       float: left;
-    }
-
-    .single-block-view-v > .view, .double-block-view-v > .view {
-      width: 200px;
-      height: 1400px;
     }
