@@ -1,16 +1,21 @@
-:css
-  .demo ul { list-style-type: none; margin: 0; padding: 0; margin-bottom: 10px; }
-  .demo li { margin: 5px; padding: 5px; width: 150px; }
+- content_for :head_stylesheets do
+  :css
+    .demo ul { list-style-type: none; margin: 0; padding: 0; margin-bottom: 10px; }
+    .demo li { margin: 5px; padding: 5px; width: 150px; }
 
-:javascript
-  $(function() {
-    $("#sortable").sortable({
-      revert: true
+- content_for :head_scripts do
+  :javascript
+    $(function() {
+      $("#sortable").sortable({
+        revert: true
+      });
+      $("#draggable").draggable({
+        connectToSortable: '#sortable',
+        helper: 'clone',
+        revert: 'invalid'
+      })
+      $("ul, li").disableSelection();
     });
-    $("#draggable").draggable({
-      connectToSortable: '#sortable',
-      helper: 'clone',
-      revert: 'invalid'
-    })
-    $("ul, li").disableSelection();
-  });
+
+- content_for :license do
+  = render :partial => "ui/license"

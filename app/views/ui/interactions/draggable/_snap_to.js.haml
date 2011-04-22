@@ -1,13 +1,19 @@
-:css
-  .demo .draggable { width: 90px; height: 80px; padding: 5px; float: left; margin: 0 10px 10px 0; font-size: .9em; }
-  .demo .ui-widget-header p, .demo .ui-widget-content p { margin: 0; }    
-  #snaptarget { height: 140px; }
+- content_for :head_stylesheets do
+  :css
+    .demo .draggable { width: 90px; height: 80px; padding: 5px; float: left; margin: 0 10px 10px 0; font-size: .9em; }
+    .demo .ui-widget-header p, .demo .ui-widget-content p { margin: 0; }
+    #snaptarget { height: 140px; }
 
-:javascript
-  $(function() {
-    $("#draggable").draggable({ snap: true });
-    $("#draggable2").draggable({ snap: '.ui-widget-header' });
-    $("#draggable3").draggable({ snap: '.ui-widget-header', snapMode: 'outer' });
-    $("#draggable4").draggable({ grid: [20,20] });
-    $("#draggable5").draggable({ grid: [80, 80] });
-  });
+- content_for :head_scripts do
+  :javascript
+    $(function() {
+      $("#draggable").draggable({ snap: true });
+      $("#draggable2").draggable({ snap: '.ui-widget-header' });
+      $("#draggable3").draggable({ snap: '.ui-widget-header', snapMode: 'outer' });
+      $("#draggable4").draggable({ grid: [20,20] });
+      $("#draggable5").draggable({ grid: [80, 80] });
+    });
+
+- content_for :license do
+  = render :partial => "ui/license"
+

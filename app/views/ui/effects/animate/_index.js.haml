@@ -1,18 +1,23 @@
-:css
-  .toggler { width: 500px; height: 200px; position: relative;}
-  #button { top: 3px; height: 2.2em; }
-  #effect { width: 240px; height: 135px; padding: 0.4em; position: relative; background: #fff; }
-  #effect h3 { margin: 0; padding: 0.4em; text-align: center; }
+- content_for :head_stylesheets do
+  :css
+    .toggler { width: 500px; height: 200px; position: relative;}
+    #button { top: 3px; height: 2.2em; }
+    #effect { width: 240px; height: 135px; padding: 0.4em; position: relative; background: #fff; }
+    #effect h3 { margin: 0; padding: 0.4em; text-align: center; }
 
-:javascript
-  $(function() {
-    $("#button").button();
-    $("#button").toggle(
-      function() {
-        $("#effect").animate({backgroundColor: '#aa0000', color: '#fff', width: 500}, 1000);
-      },
-      function() {
-        $("#effect").animate({backgroundColor: '#fff', color: '#000', width: 240}, 1000);
-      }
-    );
-  });
+- content_for :head_scripts do
+  :javascript
+    $(function() {
+      $("#button").button();
+      $("#button").toggle(
+        function() {
+          $("#effect").animate({backgroundColor: '#aa0000', color: '#fff', width: 500}, 1000);
+        },
+        function() {
+          $("#effect").animate({backgroundColor: '#fff', color: '#000', width: 240}, 1000);
+        }
+      );
+    });
+
+- content_for :license do
+  = render :partial => "ui/license"

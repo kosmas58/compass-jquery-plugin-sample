@@ -1,17 +1,21 @@
-:css
-  .toggler { width: 500px; height: 200px; position: relative;}
-  #button { top: 3px; height: 2.2em; }
-  #effect {position: relative;  width: 240px;  padding: 1em;  font-size: 1.2em; border: 1px solid #000; background: #eee; color: #333; }
-  .newClass { width: 240px;  padding: 1em; letter-spacing: 0; font-size: 1.2em; }
-  .anotherNewClass { text-indent: 40px; letter-spacing: .4em; width: 410px; height: 100px; padding: 30px; margin: 10px; font-size: 1.6em; }
-    
-:javascript
-  $(function() {
-    $("#button").button();
-    $("#button").click(function(){
-      $(".newClass").switchClass('newClass', 'anotherNewClass', 1000);
-      $(".anotherNewClass").switchClass('anotherNewClass', 'newClass', 1000);
-      return false;
+- content_for :head_stylesheets do
+  :css
+    .toggler { width: 500px; height: 200px; position: relative;}
+    #button { top: 3px; height: 2.2em; }
+    #effect {position: relative;  width: 240px;  padding: 1em;  font-size: 1.2em; border: 1px solid #000; background: #eee; color: #333; }
+    .newClass { width: 240px;  padding: 1em; letter-spacing: 0; font-size: 1.2em; }
+    .anotherNewClass { text-indent: 40px; letter-spacing: .4em; width: 410px; height: 100px; padding: 30px; margin: 10px; font-size: 1.6em; }
+
+- content_for :head_scripts do
+  :javascript
+    $(function() {
+      $("#button").button();
+      $("#button").click(function(){
+        $(".newClass").switchClass('newClass', 'anotherNewClass', 1000);
+        $(".anotherNewClass").switchClass('anotherNewClass', 'newClass', 1000);
+        return false;
+      });
     });
-  });
-      
+
+- content_for :license do
+  = render :partial => "ui/license"

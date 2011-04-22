@@ -1,6 +1,5 @@
 class EmulatorsController < ApplicationController
   layout 'emulators' , :except => [ :edit ]
-  #layout 'emulators2' , :only => [ :edit ]
 
   protect_from_forgery
 

@@ -1,20 +1,25 @@
-:css
-  .toggler { width: 500px; height: 200px; position: relative;}
-  #button { top: 3px; height: 2.2em; }
-  #effect {position: relative;  width: 240px;  padding: 1em;  letter-spacing: 0; font-size: 1.2em; border: 1px solid #000; background: #eee; color: #333; }
-  .newClass { text-indent: 40px; letter-spacing: .4em; width: 410px; height: 100px; padding: 30px; margin: 10px; font-size: 1.6em; }
+- content_for :head_stylesheets do
+  :css
+    .toggler { width: 500px; height: 200px; position: relative;}
+    #button { top: 3px; height: 2.2em; }
+    #effect {position: relative;  width: 240px;  padding: 1em;  letter-spacing: 0; font-size: 1.2em; border: 1px solid #000; background: #eee; color: #333; }
+    .newClass { text-indent: 40px; letter-spacing: .4em; width: 410px; height: 100px; padding: 30px; margin: 10px; font-size: 1.6em; }
 
-:javascript
-  $(function() {
-    $("#button").button();
-    $("#button").click(function() {
-      $('#effect').removeClass('newClass', 1000, callback);
-      return false;
+- content_for :head_scripts do
+  :javascript
+    $(function() {
+      $("#button").button();
+      $("#button").click(function() {
+        $('#effect').removeClass('newClass', 1000, callback);
+        return false;
+      });
+
+      function callback(){
+        setTimeout(function(){
+          $('#effect').addClass('newClass');
+        }, 1500);
+      }
     });
-    
-    function callback(){
-      setTimeout(function(){
-        $('#effect').addClass('newClass');
-      }, 1500);
-    }
-  });
+
+- content_for :license do
+  = render :partial => "ui/license"
