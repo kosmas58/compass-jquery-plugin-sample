@@ -1,46 +1,47 @@
-:javascript
-  var ppi = $.cookie('ppi');
-  function round2 (i) {
-    return Math.round(i * 100) / 100;
-  }
+- content_for :head_scripts do
+  :javascript
+    var ppi = $.cookie('ppi');
+    function round2 (i) {
+      return Math.round(i * 100) / 100;
+    }
 
-  function do_ppi () {
-    var x = $("#hor").val();
-    var y = $("#vert").val();
-    if (y == 0 || x == 0) return;
-    var diag = $("#diag").val();
-    //$("#diagmetric").firstChild.data = round2(diag * 2.54);
-    var ratio = y/x;
-    var xd = Math.sqrt( Math.pow(diag,2) / ( 1 + Math.pow(ratio, 2) ));
-    var yd = xd * ratio;
-    var pitch = 25.4/(x/xd);
-    ppi = round2(x/xd);
-    $("#size").html(round2(xd) + '" &times; ' + round2(yd) + '" (' + round2(2.54*xd) + 'cm &times; ' + round2(2.54*yd) + 'cm)');
-    $("#ppi").html(ppi + /* ' &times; ' + round2(y/yd) + */
-                   ' <abbr title="pixels per inch">PPI</abbr>, ' +
-                   Math.round(pitch * 10000)/10000 +
-                   'mm <a href="http://en.wikipedia.org/wiki/Dot_pitch">dot pitch</a>, ' +
-                   Math.round(x/xd * y/yd) +
-                   ' <abbr title="pixels per square inch">PPI&sup2;</abbr>');
-    $("#set_ppi span").text("Set emulator display resolution to : " + ppi +  " PPI");
-  }
+    function do_ppi () {
+      var x = $("#hor").val();
+      var y = $("#vert").val();
+      if (y == 0 || x == 0) return;
+      var diag = $("#diag").val();
+      //$("#diagmetric").firstChild.data = round2(diag * 2.54);
+      var ratio = y/x;
+      var xd = Math.sqrt( Math.pow(diag,2) / ( 1 + Math.pow(ratio, 2) ));
+      var yd = xd * ratio;
+      var pitch = 25.4/(x/xd);
+      ppi = round2(x/xd);
+      $("#size").html(round2(xd) + '" &times; ' + round2(yd) + '" (' + round2(2.54*xd) + 'cm &times; ' + round2(2.54*yd) + 'cm)');
+      $("#ppi").html(ppi + /* ' &times; ' + round2(y/yd) + */
+                     ' <abbr title="pixels per inch">PPI</abbr>, ' +
+                     Math.round(pitch * 10000)/10000 +
+                     'mm <a href="http://en.wikipedia.org/wiki/Dot_pitch">dot pitch</a>, ' +
+                     Math.round(x/xd * y/yd) +
+                     ' <abbr title="pixels per square inch">PPI&sup2;</abbr>');
+      $("#set_ppi span").text("Set emulator display resolution to : " + ppi +  " PPI");
+    }
 
-  function set_mon (x, y, diag) {
-    if (x)
-      $("#hor").val(x);
-    if (y)
-     $("#vert").val(y);
-    if (diag)
-      $("#diag").val(diag);
-    do_ppi();
-  }
+    function set_mon (x, y, diag) {
+      if (x)
+        $("#hor").val(x);
+      if (y)
+       $("#vert").val(y);
+      if (diag)
+        $("#diag").val(diag);
+      do_ppi();
+    }
 
 
-  $(function () {
-    $("#set_ppi").button()
-    .click(function() {
-      $.cookie('ppi', ppi);
-      $("#actual_ppi").html(ppi + " PPI");
-      window.location.reload();
+    $(function () {
+      $("#set_ppi").button()
+      .click(function() {
+        $.cookie('ppi', ppi);
+        $("#actual_ppi").html(ppi + " PPI");
+        window.location.reload();
+      });
     });
-  });
