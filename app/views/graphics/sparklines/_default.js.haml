@@ -1,77 +1,81 @@
-:css
-  .coptions { display: none; }
-  #customize { padding: 15px; margin-left: 0px; font-size: 0.9em; background-color: #fafaff; position: relative}
-  #customize h3 { text-align:  center; margin-top: 0px; margin-bottom: 5px; font-size: 1.0em}
-  #customize ul { margin: 0px; list-style: none; }
-  #customize li { padding-bottom: 5px; }
-  #customize input { font-size: 0.9em; }
-  .typetitle { text-decoration: underline; }
-  .section { display: none; clear: both}
-  #customresult { text-align: center; font-size: 1.2em}
- 
-:javascript
-  $(function() {
-    /** Handle updating the "try it" graphs form in the examples section **/
-    function updateLine() {
-      var type = $('#charttype').val();
-      var negbarcolor = '';
-      var barwidth = '';
-      var barspacing = '';
-      switch(type) {
-        case 'bar':
-          negbarcolor = $('#barnegbarcolor').val();
-          barwidth = parseInt($('#barbarwidth').val());
-          barspacing = parseInt($('#barbarspacing').val());
-          break;
-        case 'tristate':
-          negbarcolor = $('#trinegbarcolor').val();
-          barwidth = parseInt($('#tribarwidth').val());
-          barspacing = parseInt($('#tribarspacing').val());
-          break;
-      }
-      $('#dynamicline').sparkline($('#'+type+'vals').val().split(','),  {
-          type: type,
-          height: $('#chartheight').val(),
-          width: $('#chartwidth').val(),
-          lineColor: $('#linecol').val(),
-          fillColor: $('#fillcol').val(),
-          spotColor: $('#spotcol').val(),
-          spotRadius: parseInt($('#spotsize').val()),
-          lineWidth: parseFloat($('#linewidth').val()),
-          barColor: $('#barcolor').val(),
-          posBarColor: $('#posbarcolor').val(),
-          negBarColor: negbarcolor,
-          zeroBarColor: $('#zerobarcolor').val(),
-          zeroColor: $('#zerocolor').val() || undefined,
-          barWidth: barwidth,
-          barSpacing: barspacing,
-          lineHeight: parseInt($('#lineheight').val()) || undefined,
-          thresholdValue: parseInt($('#thresholdvalue').val()),
-          thresholdColor: $('#thresholdcolor').val(),
-          targetColor: $('#targetcolor').val(),
-          performanceColor: $('#performancecolor').val(),
-          rangeColors: $('#rangecolors').val().split(','),
-          targetWidth: parseInt($('#targetwidth').val()),
-          sliceColors: $('#slicecolors').val().split(','),
-          boxLineColor: $('#boxlinecol').val(),
-          boxFillColor: $('#boxfillcol').val(),
-          whiskerColor: $('#whiskercol').val(),
-          outlierLineColor: $('#outlierlinecol').val(),
-          outlierFillColor: $('#outlierfillcol').val(),
-          medianColor: $('#mediancol').val(),
-          showOutliers: $('#showoutliers').attr('checked'),
-          outlierIQR: parseFloat($('#outlieriqr').val()),
-          target: parseFloat($('#boxtarget').val())
-        });
-        $('.coptions').hide();
-        $('.'+type+'options').show();
-        if ($.browser.msie) 
-          $('input').hide().show(); // workaround weird ie layout glitch
-        return false;
-      }
-      updateLine();
-      $('#dynform input').change(updateLine);
-      $('#dynform select').change(updateLine);
-      $('#dynform').submit(updateLine);
-  });
+- content_for :head_stylesheets do
+  = stylesheet_link_tag :ganttView, :media => 'screen, projection'
+  :css
+    .coptions { display: none; }
+    #customize { padding: 15px; margin-left: 0px; font-size: 0.9em; background-color: #fafaff; position: relative}
+    #customize h3 { text-align:  center; margin-top: 0px; margin-bottom: 5px; font-size: 1.0em}
+    #customize ul { margin: 0px; list-style: none; }
+    #customize li { padding-bottom: 5px; }
+    #customize input { font-size: 0.9em; }
+    .typetitle { text-decoration: underline; }
+    .section { display: none; clear: both}
+    #customresult { text-align: center; font-size: 1.2em}
+
+- content_for :head_scripts do
+  = javascript_include_tag :sparklines
+  :javascript
+    $(function() {
+      /** Handle updating the "try it" graphs form in the examples section **/
+      function updateLine() {
+        var type = $('#charttype').val();
+        var negbarcolor = '';
+        var barwidth = '';
+        var barspacing = '';
+        switch(type) {
+          case 'bar':
+            negbarcolor = $('#barnegbarcolor').val();
+            barwidth = parseInt($('#barbarwidth').val());
+            barspacing = parseInt($('#barbarspacing').val());
+            break;
+          case 'tristate':
+            negbarcolor = $('#trinegbarcolor').val();
+            barwidth = parseInt($('#tribarwidth').val());
+            barspacing = parseInt($('#tribarspacing').val());
+            break;
+        }
+        $('#dynamicline').sparkline($('#'+type+'vals').val().split(','),  {
+            type: type,
+            height: $('#chartheight').val(),
+            width: $('#chartwidth').val(),
+            lineColor: $('#linecol').val(),
+            fillColor: $('#fillcol').val(),
+            spotColor: $('#spotcol').val(),
+            spotRadius: parseInt($('#spotsize').val()),
+            lineWidth: parseFloat($('#linewidth').val()),
+            barColor: $('#barcolor').val(),
+            posBarColor: $('#posbarcolor').val(),
+            negBarColor: negbarcolor,
+            zeroBarColor: $('#zerobarcolor').val(),
+            zeroColor: $('#zerocolor').val() || undefined,
+            barWidth: barwidth,
+            barSpacing: barspacing,
+            lineHeight: parseInt($('#lineheight').val()) || undefined,
+            thresholdValue: parseInt($('#thresholdvalue').val()),
+            thresholdColor: $('#thresholdcolor').val(),
+            targetColor: $('#targetcolor').val(),
+            performanceColor: $('#performancecolor').val(),
+            rangeColors: $('#rangecolors').val().split(','),
+            targetWidth: parseInt($('#targetwidth').val()),
+            sliceColors: $('#slicecolors').val().split(','),
+            boxLineColor: $('#boxlinecol').val(),
+            boxFillColor: $('#boxfillcol').val(),
+            whiskerColor: $('#whiskercol').val(),
+            outlierLineColor: $('#outlierlinecol').val(),
+            outlierFillColor: $('#outlierfillcol').val(),
+            medianColor: $('#mediancol').val(),
+            showOutliers: $('#showoutliers').attr('checked'),
+            outlierIQR: parseFloat($('#outlieriqr').val()),
+            target: parseFloat($('#boxtarget').val())
+          });
+          $('.coptions').hide();
+          $('.'+type+'options').show();
+          if ($.browser.msie)
+            $('input').hide().show(); // workaround weird ie layout glitch
+          return false;
+        }
+        updateLine();
+        $('#dynform input').change(updateLine);
+        $('#dynform select').change(updateLine);
+        $('#dynform').submit(updateLine);
+    });
 
