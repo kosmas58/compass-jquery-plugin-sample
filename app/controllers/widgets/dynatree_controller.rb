@@ -1,5 +1,4 @@
 class Widgets::DynatreeController < ApplicationController
-  layout 'application', :except => [:iframe_1]
   protect_from_forgery
 
   def iframe_1
