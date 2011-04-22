@@ -1,10 +1,15 @@
-:css
-  #resizable { width: 160px; height: 90px; padding: 0.5em; }
-  #resizable h3 { text-align: center; margin: 0; }
+- content_for :head_stylesheets do
+  :css
+    #resizable { width: 160px; height: 90px; padding: 0.5em; }
+    #resizable h3 { text-align: center; margin: 0; }
 
-:javascript
-  $(function() {
-    $("#resizable").resizable({
-      aspectRatio: 16/9
+- content_for :head_scripts do
+  :javascript
+    $(function() {
+      $("#resizable").resizable({
+        aspectRatio: 16/9
+      });
     });
-  });
+
+- content_for :license do
+  = render :partial => "ui/license"

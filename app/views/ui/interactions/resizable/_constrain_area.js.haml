@@ -1,12 +1,17 @@
-:css
-  #container { width: 300px; height: 300px; }
-  #container h3 { text-align: center; margin: 0; margin-bottom: 10px; }
-  #resizable { background-position: top left; width: 150px; height: 150px; }
-  #resizable, #container { padding: 0.5em; }
+- content_for :head_stylesheets do
+  :css
+    #container { width: 300px; height: 300px; }
+    #container h3 { text-align: center; margin: 0; margin-bottom: 10px; }
+    #resizable { background-position: top left; width: 150px; height: 150px; }
+    #resizable, #container { padding: 0.5em; }
 
-:javascript
-  $(function() {
-    $("#resizable").resizable({
-      containment: '#container'
+- content_for :head_scripts do
+  :javascript
+    $(function() {
+      $("#resizable").resizable({
+        containment: '#container'
+      });
     });
-  });
+
+- content_for :license do
+  = render :partial => "ui/license"

@@ -1,27 +1,32 @@
-:css
-  #draggable { width: 100px; height: 40px; padding: 0.5em; float: left; margin: 10px 10px 10px 0; }
-  #droppable, #droppable2 { width: 230px; height: 120px; padding: 0.5em; float: left; margin: 10px; }
-  #droppable-inner, #droppable2-inner { width: 170px; height: 60px; padding: 0.5em; float: left; margin: 10px; }
-    
-:javascript
-  $(function() {
-    $("#draggable").draggable();
+- content_for :head_stylesheets do
+  :css
+    #draggable { width: 100px; height: 40px; padding: 0.5em; float: left; margin: 10px 10px 10px 0; }
+    #droppable, #droppable2 { width: 230px; height: 120px; padding: 0.5em; float: left; margin: 10px; }
+    #droppable-inner, #droppable2-inner { width: 170px; height: 60px; padding: 0.5em; float: left; margin: 10px; }
 
-    $("#droppable, #droppable-inner").droppable({
-     activeClass: 'ui-state-hover',
-     hoverClass: 'ui-state-active',
-     drop: function(event, ui) {
-       $(this).addClass('ui-state-highlight').find('> p').html('Dropped!');
-       return false;
-     }
+- content_for :head_scripts do
+  :javascript
+    $(function() {
+      $("#draggable").draggable();
+
+      $("#droppable, #droppable-inner").droppable({
+       activeClass: 'ui-state-hover',
+       hoverClass: 'ui-state-active',
+       drop: function(event, ui) {
+         $(this).addClass('ui-state-highlight').find('> p').html('Dropped!');
+         return false;
+       }
+      });
+
+      $("#droppable2, #droppable2-inner").droppable({
+        greedy: true,
+        activeClass: 'ui-state-hover',
+        hoverClass: 'ui-state-active',
+        drop: function(event, ui) {
+          $(this).addClass('ui-state-highlight').find('> p').html('Dropped!');
+        }
+      });
     });
 
-    $("#droppable2, #droppable2-inner").droppable({
-      greedy: true,
-      activeClass: 'ui-state-hover',
-      hoverClass: 'ui-state-active',
-      drop: function(event, ui) {
-        $(this).addClass('ui-state-highlight').find('> p').html('Dropped!');
-      }
-    });
-  });
+- content_for :license do
+  = render :partial => "ui/license"

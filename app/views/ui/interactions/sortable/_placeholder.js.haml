@@ -1,13 +1,18 @@
-:css
-  #sortable { list-style-type: none; margin: 0; padding: 0; width: 60%; }
-  #sortable li { margin: 0 5px 5px 5px; padding: 5px; font-size: 1.2em; height: 1.5em; }
-  html>body #sortable li { height: 1.5em; line-height: 1.2em; }
-  .ui-state-highlight { height: 1.5em; line-height: 1.2em; }
-      
-:javascript
-  $(function() {
-    $("#sortable").sortable({
-      placeholder: 'ui-state-highlight'
+- content_for :head_stylesheets do
+  :css
+    #sortable { list-style-type: none; margin: 0; padding: 0; width: 60%; }
+    #sortable li { margin: 0 5px 5px 5px; padding: 5px; font-size: 1.2em; height: 1.5em; }
+    html>body #sortable li { height: 1.5em; line-height: 1.2em; }
+    .ui-state-highlight { height: 1.5em; line-height: 1.2em; }
+
+- content_for :head_scripts do
+  :javascript
+    $(function() {
+      $("#sortable").sortable({
+        placeholder: 'ui-state-highlight'
+      });
+      $("#sortable").disableSelection();
     });
-    $("#sortable").disableSelection();
-  });
+
+- content_for :license do
+  = render :partial => "ui/license"
