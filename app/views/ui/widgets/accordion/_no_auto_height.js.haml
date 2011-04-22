@@ -1,6 +1,10 @@
-:javascript
-  $(function() {
-    $("#accordionDemo").accordion({
-      autoHeight: false
+- content_for :head_scripts do
+  :javascript
+    $(function() {
+      $("#accordionDemo").accordion({
+        autoHeight: false
+      });
     });
-  });
+
+- content_for :license do
+  = render :partial => "ui/license"

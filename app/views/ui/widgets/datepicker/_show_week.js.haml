@@ -1,4 +1,8 @@
-:javascript
-  $(function() {
-    $("#datepicker").datepicker({showWeek: true, firstDay: 1});
-  });
+- content_for :head_scripts do
+  :javascript
+    $(function() {
+      $("#datepicker").datepicker({showWeek: true, firstDay: 1});
+    });
+
+- content_for :license do
+  = render :partial => "ui/license"

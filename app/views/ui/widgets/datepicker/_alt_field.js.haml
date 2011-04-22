@@ -1,4 +1,8 @@
-:javascript
-  $(function() {
-    $("#datepicker").datepicker({altField: '#alternate', altFormat: 'DD, d MM, yy'});
-  });
+- content_for :head_scripts do
+  :javascript
+    $(function() {
+      $("#datepicker").datepicker({altField: '#alternate', altFormat: 'DD, d MM, yy'});
+    });
+
+- content_for :license do
+  = render :partial => "ui/license"

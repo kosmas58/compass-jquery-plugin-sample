@@ -1,5 +1,8 @@
-:javascript
-  $(function() {
-    $("#accordionDemo").accordion();
-  });
-  
+- content_for :head_scripts do
+  :javascript
+    $(function() {
+      $("#accordionDemo").accordion();
+    });
+
+- content_for :license do
+  = render :partial => "ui/license"

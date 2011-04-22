@@ -1,6 +1,10 @@
-:javascript
-  $(function() {
-    $('#datepicker').datepicker({
-      showButtonPanel: true
+- content_for :head_scripts do
+  :javascript
+    $(function() {
+      $('#datepicker').datepicker({
+        showButtonPanel: true
+      });
     });
-  });
+	
+- content_for :license do
+  = render :partial => "ui/license"

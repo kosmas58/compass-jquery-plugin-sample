@@ -1,15 +1,19 @@
-:javascript
-  $(function() {
-    $("#accordionDemo").accordion({
-      fillSpace: true
+- content_for :head_scripts do
+  :javascript
+    $(function() {
+      $("#accordionDemo").accordion({
+        fillSpace: true
+      });
     });
-  });
-  
-  $(function() {
-    $("#accordionDemoResizer").resizable({
-      resize: function() {
-        $("#accordionDemo").accordion("resize");
-      },
-      minHeight: 140
+
+    $(function() {
+      $("#accordionDemoResizer").resizable({
+        resize: function() {
+          $("#accordionDemo").accordion("resize");
+        },
+        minHeight: 140
+      });
     });
-  });
+
+- content_for :license do
+  = render :partial => "ui/license"

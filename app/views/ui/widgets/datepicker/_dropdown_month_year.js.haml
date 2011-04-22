@@ -1,8 +1,11 @@
-:javascript
-  $(function() {
-    $('#datepicker').datepicker({
-      changeMonth: true,
-      changeYear: true
+- content_for :head_scripts do
+  :javascript
+    $(function() {
+      $('#datepicker').datepicker({
+        changeMonth: true,
+        changeYear: true
+      });
     });
-  });
-  
+
+- content_for :license do
+  = render :partial => "ui/license"

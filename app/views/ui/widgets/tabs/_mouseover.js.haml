@@ -1,6 +1,10 @@
-:javascript
-  $(function() {
-    $("#tabs").tabs({
-      event: 'mouseover'
+- content_for :head_scripts do
+  :javascript
+    $(function() {
+      $("#tabs").tabs({
+        event: 'mouseover'
+      });
     });
-  });
+
+- content_for :license do
+  = render :partial => "ui/license"

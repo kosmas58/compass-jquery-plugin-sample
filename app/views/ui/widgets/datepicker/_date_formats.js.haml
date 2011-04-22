@@ -1,9 +1,14 @@
-:css
-  select { width: 500px; } 
+- content_for :head_stylesheets do
+  :css
+    select { width: 500px; }
 
-:javascript
-  $(function() {
-    $("#datepicker").datepicker();
-    $("#dateFormat").selectmenu();
-    $("#dateFormat").change(function() { $('#datepicker').datepicker('option', {dateFormat: $(this).val()}); });
-  });
+- content_for :head_scripts do
+  :javascript
+    $(function() {
+      $("#datepicker").datepicker();
+      $("#dateFormat").selectmenu();
+      $("#dateFormat").change(function() { $('#datepicker').datepicker('option', {dateFormat: $(this).val()}); });
+    });
+
+- content_for :license do
+  = render :partial => "ui/license"

@@ -1,9 +1,13 @@
-:javascript
-  $(function() {
-    $("#accordionDemo").accordion({
-      icons: {
-        header: "ui-icon-circle-arrow-e",
-        headerSelected: "ui-icon-circle-arrow-s"
-      }
+- content_for :head_scripts do
+  :javascript
+    $(function() {
+      $("#accordionDemo").accordion({
+        icons: {
+          header: "ui-icon-circle-arrow-e",
+          headerSelected: "ui-icon-circle-arrow-s"
+        }
+      });
     });
-  });
+
+- content_for :license do
+  = render :partial => "ui/license"

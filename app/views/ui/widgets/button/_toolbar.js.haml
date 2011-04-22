@@ -1,71 +1,76 @@
-:css
-  #toolbar { padding: 0.3em; }
-    
-:javascript
-  $(function() {
-    $('#beginning').button({
-      text: false,
-      icons: {
-        secondary: 'ui-icon-seek-start'
-      }
-    });
-    $('#rewind').button({
-      text: false,
-      icons: {
-        secondary: 'ui-icon-seek-prev'
-      }
-    });
-    $('#play').button({
-      text: false,
-      icons: {
-        secondary: 'ui-icon-play'
-      }
-    })
-    .click(function() {
-      var options;
-      if ($(this).text() == 'play') {
-        options = {
-          label: 'pause',
-          icons: {
-            secondary: 'ui-icon-pause'
-          }
-        };
-        } else {
-        options = {
+- content_for :head_stylesheets do
+  :css
+    #toolbar { padding: 0.3em; }
+
+- content_for :head_scripts do
+  :javascript
+    $(function() {
+      $('#beginning').button({
+        text: false,
+        icons: {
+          secondary: 'ui-icon-seek-start'
+        }
+      });
+      $('#rewind').button({
+        text: false,
+        icons: {
+          secondary: 'ui-icon-seek-prev'
+        }
+      });
+      $('#play').button({
+        text: false,
+        icons: {
+          secondary: 'ui-icon-play'
+        }
+      })
+      .click(function() {
+        var options;
+        if ($(this).text() == 'play') {
+          options = {
+            label: 'pause',
+            icons: {
+              secondary: 'ui-icon-pause'
+            }
+          };
+          } else {
+          options = {
+            label: 'play',
+            icons: {
+              secondary: 'ui-icon-play'
+            }
+          };
+        }
+        $(this).button('option', options);
+      });
+      $('#stop').button({
+        text: false,
+        icons: {
+          secondary: 'ui-icon-stop'
+        }
+      })
+      .click(function() {
+        $('#play').button('option', {
           label: 'play',
           icons: {
             secondary: 'ui-icon-play'
           }
-        };
-      }
-      $(this).button('option', options);
-    });
-    $('#stop').button({
-      text: false,
-      icons: {
-        secondary: 'ui-icon-stop'
-      }
-    })
-    .click(function() {
-      $('#play').button('option', {
-        label: 'play',
+        });
+      });
+      $('#forward').button({
+        text: false,
         icons: {
-          secondary: 'ui-icon-play'
+          secondary: 'ui-icon-seek-next'
         }
       });
+      $('#end').button({
+        text: false,
+        icons: {
+          secondary: 'ui-icon-seek-end'
+        }
+      });
+      $("#shuffle").button();
+      $("#repeat").buttonset();
     });
-    $('#forward').button({
-      text: false,
-      icons: {
-        secondary: 'ui-icon-seek-next'
-      }
-    });
-    $('#end').button({
-      text: false,
-      icons: {
-        secondary: 'ui-icon-seek-end'
-      }
-    });
-    $("#shuffle").button();
-    $("#repeat").buttonset();
-  });
+
+- content_for :license do
+  = render :partial => "ui/license"
