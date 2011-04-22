@@ -14,16 +14,16 @@
 //    - 01.08.2007 CSS background-image support extension added by Scott Jehl, scott@filamentgroup.com, http://www.filamentgroup.com
 //    31.05.2007 initial Version 1.0
 // --------------------------------------------------------------------
-// @example $(function(){$(document).pngFix();});
+// @example $(function() {$(document).pngFix();});
 // @desc Fixes all PNG's in the document on document.ready
 //
 // jQuery(function(){jQuery(document).pngFix();});
 // @desc Fixes all PNG's in the document on document.ready when using noConflict
 //
-// @example $(function(){$('div.examples').pngFix();});
+// @example $(function() {$('div.examples').pngFix();});
 // @desc Fixes all PNG's within div with class examples
 //
-// @example $(function(){$('div.examples').pngFix( { blankgif:'ext.gif' } );});
+// @example $(function() {$('div.examples').pngFix( { blankgif:'ext.gif' } );});
 // @desc Fixes all PNG's within div with class examples, provides blank gif for input with png
 // --------------------------------------------------------------------
 

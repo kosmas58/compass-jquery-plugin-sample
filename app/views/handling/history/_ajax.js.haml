@@ -1,32 +1,35 @@
-:css
-  #the-content { padding:0.5em; }
+- content_for :head_stylesheets do
+  :css
+    .jhaml{ padding: 0.5em; background: #eee;}
 
-:javascript
-  $(function() {
-    function load(url) {
-      if (url === undefined) {
-        var re = new RegExp(document.documentElement.baseURI),
-            href = document.documentURI.replace(re, '');
-        href = href.replace(/^.*#/, '');
+- content_for :head_scripts do
+  = javascript_include_tag :history
+  :javascript
+    $(function() {
+      function load(url) {
+        if (url === undefined) {
+          var re = new RegExp(document.documentElement.baseURI),
+              href = document.documentURI.replace(re, '');
+          href = href.replace(/^.*#/, '');
 
-        if (href =="") {
-          url = "ajax_1";
-        } else {
-          url = href;
+          if (href =="") {
+            url = "ajax_1";
+          } else {
+            url = href;
+          }
         }
+        $('#the-content').load(url);
       }
-      $('#the-content').load(url);
-    }
 
-    $('#ajax-links a').live('click', function(e) {
-      document.location.hash = $(this).attr('href');
-      return false;
+      $('#ajax-links a').live('click', function(e) {
+        document.location.hash = $(this).attr('href');
+        return false;
+      });
+
+      $(window).bind('hashchange', function(event) {
+        load();
+      });
+
+      load("ajax_1");
     });
-    
-    $(window).bind('hashchange', function(event) {
-      load();
-    });
-    
-    load("ajax_1");
-  });
 

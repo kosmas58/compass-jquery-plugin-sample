@@ -1,4 +1,5 @@
 -@title = "#{t('txt.history.name')} - #{t('txt.history.example9')}"
+= render :partial => "chrome.js.haml", :format => :js
 
 .demo
   %h3
@@ -15,7 +16,7 @@
   %button#reset reset
   %textarea#log{:style => "width:100%;height:200px;margin-top:1em;"}
   :javascript
-    (function(){
+    $(function(){
 
       window.onpopstate = function(event) {
           var message = ("onpopstate: location: " + document.location.href + ", data: " + JSON.stringify(event.state));

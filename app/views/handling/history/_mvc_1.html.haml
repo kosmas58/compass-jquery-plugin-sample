@@ -1,8 +1,10 @@
+- content_for :head_scripts do
+  = javascript_include_tag :history
+
 :javascript
   $(function() {
     $("#tabs-1").tabs(options);
   });
-  
 
 .demo
   #tabs-1

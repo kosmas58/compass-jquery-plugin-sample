@@ -13,7 +13,6 @@
     /[if lt IE 8]
       = stylesheet_link_tag 'compiled/ie.css', :media => 'screen, projection'
       = javascript_include_tag 'jquery.pngFix'
-
     = stylesheet_link_tag "compiled/jquery/ui/#{session[:theme]}", :media => 'screen, projection'
     
     = javascript_include_tag :jquery_ui
@@ -26,7 +25,6 @@
     = javascript_include_tag 'common'
     = javascript_include_tag 'ajax'
     = javascript_include_tag 'application'
-
     = render :partial => "layouts/sidebar.js.haml", :format => :js
 
   %body{body_attributes}

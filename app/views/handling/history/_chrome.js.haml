@@ -1,0 +1,11 @@
+- content_for :head_stylesheets do
+  :css
+    .ui-button-text { font-size: 0.8em; }
+    
+- content_for :head_scripts do
+  = javascript_include_tag :history
+  :javascript
+    $(function() {
+      $("button").button();
+    });
+  

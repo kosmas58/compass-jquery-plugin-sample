@@ -1,4 +1,9 @@
-:css
-  label { font-weight:bold; }
-  label:after { content: ":"; margin-right:5px; }
+- content_for :head_stylesheets do
+  :css
+    label { font-weight:bold; }
+    label:after { content: ":"; margin-right:5px; }
+
+- content_for :head_scripts do
+  = javascript_include_tag :history
+
   

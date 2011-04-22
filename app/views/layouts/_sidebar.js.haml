@@ -1,27 +1,27 @@
 :css
   #navtree { width:auto; height:auto; overflow:auto; }
-  
+
 :javascript
   $(function() {
     var navfirst = false;
-    
+
     $("#navtree")
       .jstree({
         "plugins" : [ "themes", "json_data", "ui", "cookies", "types" ],
-        "json_data" : { 
+        "json_data" : {
           "ajax" : {
             "url" : "/navigation/get_children",
-            "data" : function (n) { 
-              return { 
-                "id" : n.attr ? n.attr("id").replace("node_","") : 1 
-              }; 
+            "data" : function (n) {
+              return {
+                "id" : n.attr ? n.attr("id").replace("node_","") : 1
+              };
             }
           }
         },
         "themes" : {
           "theme" : "aero",
-          "dots"  : false 
-    		},
+          "dots"  : false
+            },
         "types" : {
           "max_depth" : -2,
           "max_children" : -2,
@@ -41,10 +41,10 @@
             }
           }
         },
-    		"core" : { 
-          "html_titles" : true 
-        }                            
-      })        
+            "core" : {
+          "html_titles" : true
+        }
+      })
       .bind("reselect.jstree", function(event, data) {
         navfirst = true;
       })
@@ -55,6 +55,5 @@
             $("[id=demoframe]").attr("src", url);
           }
         }
-      });        
+      });
     });
-  

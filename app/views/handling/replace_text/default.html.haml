@@ -13,21 +13,21 @@
     jQuery replaceText will replace text in specified elements. Note that only text content will be modified, leaving all
     tags and attributes untouched.
   %h4
-    Click these links:
+    Click these buttons:
   %ol#nav
     %li
-      %a.link1{:href => "#"} Replace all 'text' words with 'TEXT'
+      %button.link1{:href => "#"} Replace all 'text' words with 'TEXT'
     %li
-      %a.link2{:href => "#"} Wrap all 'this' words in quotes.
+      %button.link2{:href => "#"} Wrap all 'this' words in quotes.
       (try clicking multiple times)
     %li
-      %a.link3{:href => "#"} Wrap all 'text' words with &lt;span class="red"/&gt;
+      %button.link3{:href => "#"} Wrap all 'text' words with &lt;span class="red"/&gt;
       (try clicking multiple times)
     %li
-      %a.link4{:href => "#"} Wrap all 'a' words, not already wrapped, with &lt;b/&gt;, but as text only
+      %button.link4{:href => "#"} Wrap all 'a' words, not already wrapped, with &lt;b/&gt;, but as text only
       (try clicking multiple times)
     %li
-      %a.link5{:href => "#"} Wrap all words starting with 'li' with &lt;span class="green"/&gt;, but only if they aren't already wrapped in a span with class of green
+      %button.link5{:href => "#"} Wrap all words starting with 'li' with &lt;span class="green"/&gt;, but only if they aren't already wrapped in a span with class of green
       (try clicking multiple times)
   %div.ui-widget-border.ui-corner-all.customize
     %h4
@@ -75,9 +75,8 @@
   / End demo
 .demo-description
   %p
-    %a{ :href => "http://benalman.com/code/projects/jquery-replacetext/docs/files/jquery-ba-replacetext-js.html", :class => :greybox }
+    %button{ :href => "http://benalman.com/code/projects/jquery-replacetext/docs/files/jquery-ba-replacetext-js.html", :class => :greybox }
       Look here for addtional Documentation
-    \.
   %p
     The replaceText plugin is released under the license
     %a{ :href => "http://benalman.com/about/license/", :class => :greybox }

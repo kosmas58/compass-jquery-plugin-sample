@@ -5234,7 +5234,7 @@ function changeBack(target) {
  * Use: This extension adds a function called resetHeight() to JQTouch that should be called
  * when the page loads, whenever new ajax content is added, and when orientation is changed.
  * <code>
- $(function(){
+ $(function() {
  // reset our heights on page load
  jQT.resetHeight();
  });

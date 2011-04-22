@@ -1,5 +1,4 @@
 class Handling::HistoryController < ApplicationController
-  layout 'history'
   protect_from_forgery
 
   def ajax_1
