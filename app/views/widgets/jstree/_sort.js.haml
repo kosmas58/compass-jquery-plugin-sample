@@ -1,17 +1,22 @@
-:css
-  .toolbar{ padding: 0.3em; }
-  .ui-button{ font-size: 0.9em; }
-  
-:javascript
-  $(function () {
-    $("button", ".demo").button();
-    
-    $("#rename").click(function () { 
-      $("#demo1").jstree("rename");
+- content_for :head_stylesheets do
+  :css
+    .toolbar{ padding: 0.3em; }
+    .ui-button{ font-size: 0.9em; }
+
+- content_for :head_scripts do
+  = javascript_include_tag :jstree
+  :javascript
+    $(function () {
+      $("button", ".demo").button();
+
+      $("#rename").click(function () {
+        $("#demo1").jstree("rename");
+      });
+
+      $("#demo1").jstree({
+        "plugins" : [ "themes", "html_data", "ui", "crrm", "sort" ]
+      });
     });
-    
-    $("#demo1").jstree({ 
-      "plugins" : [ "themes", "html_data", "ui", "crrm", "sort" ]
-    });
-  });
-      
+
+- content_for :license do
+  = render :partial => "widgets/jstree/license"

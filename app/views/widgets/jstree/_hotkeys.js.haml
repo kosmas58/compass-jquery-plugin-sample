@@ -1,13 +1,19 @@
-:css
-  .toolbar{ padding: 0.3em; }
-  .ui-button{ font-size: 0.9em; }
+- content_for :head_stylesheets do
+  :css
+    .toolbar{ padding: 0.3em; }
+    .ui-button{ font-size: 0.9em; }
 
-:javascript
-  $(function() {
-    $("button", ".demo").button();
-    
-    $("#demo1").jstree({ 
-      "core" : { "initially_open" : [ "phtml_1" ] },
-      "plugins" : ["themes","html_data","ui","crrm","hotkeys"]
+- content_for :head_scripts do
+  = javascript_include_tag :jstree
+  :javascript
+    $(function() {
+      $("button", ".demo").button();
+
+      $("#demo1").jstree({
+        "core" : { "initially_open" : [ "phtml_1" ] },
+        "plugins" : ["themes","html_data","ui","crrm","hotkeys"]
+      });
     });
-  });
+
+- content_for :license do
+  = render :partial => "widgets/jstree/license"

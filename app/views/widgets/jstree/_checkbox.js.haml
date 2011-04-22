@@ -1,32 +1,38 @@
-:css
-  #toolbar{ padding: 0.3em; }
-  .ui-button{ font-size: 0.9em; } 
-  
-:javascript
-  $(function () {
-    $("button", ".demo").button();
-    
-    $("#set_theme1").click(function () { 
-      $("#demo1").jstree("set_theme","default");
-    });
-    
-    $("#set_theme2").click(function () { 
-      $("#demo1").jstree("set_theme","aqua");
-    });
-    
-    $("#set_theme3").click(function () { 
-      $("#demo1").jstree("set_theme","aero");
-    });
-    
-    $("#set_theme4").click(function () { 
-      $("#demo1").jstree("set_theme","crystal");
-    });
-    
-    $("#set_theme5").click(function () { 
-      $("#demo1").jstree("set_theme","classic");
+- content_for :head_stylesheets do
+  :css
+    #toolbar{ padding: 0.3em; }
+    .ui-button{ font-size: 0.9em; }
+
+- content_for :head_scripts do
+  = javascript_include_tag :jstree
+  :javascript
+    $(function () {
+      $("button", ".demo").button();
+
+      $("#set_theme1").click(function () {
+        $("#demo1").jstree("set_theme","default");
+      });
+
+      $("#set_theme2").click(function () {
+        $("#demo1").jstree("set_theme","aqua");
+      });
+
+      $("#set_theme3").click(function () {
+        $("#demo1").jstree("set_theme","aero");
+      });
+
+      $("#set_theme4").click(function () {
+        $("#demo1").jstree("set_theme","crystal");
+      });
+
+      $("#set_theme5").click(function () {
+        $("#demo1").jstree("set_theme","classic");
+      });
+
+      $("#demo1").jstree({
+        "plugins" : [ "themes", "html_data", "checkbox" ]
+      });
     });
 
-    $("#demo1").jstree({ 
-      "plugins" : [ "themes", "html_data", "checkbox" ]
-    });
-  });
+- content_for :license do
+  = render :partial => "widgets/jstree/license"
