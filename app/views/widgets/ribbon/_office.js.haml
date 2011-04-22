@@ -1,8 +1,11 @@
-:javascript
-  $(function() {
-    $().Ribbon({ theme: 'office', backStage: true });
-    $('ul.ribbon-theme li').click(function() { $().Ribbon({ theme: $(this).attr('class').substring(7), backStage: true }); });
-    $('ul.ribbon-header li').click(function() { $().Ribbon({ theme: $(this).attr('class').substring(7), backStage: true }); });
-    $('.orb').click();
-  });
-  
+- content_for :head_scripts do
+  :javascript
+    $(function() {
+      $().Ribbon({ theme: 'office', backStage: true });
+      $('ul.ribbon-theme li').click(function() { $().Ribbon({ theme: $(this).attr('class').substring(7), backStage: true }); });
+      $('ul.ribbon-header li').click(function() { $().Ribbon({ theme: $(this).attr('class').substring(7), backStage: true }); });
+      $('.orb').click();
+    });
+
+- content_for :license do
+  = render :partial => "widgets/ribbon/license"
