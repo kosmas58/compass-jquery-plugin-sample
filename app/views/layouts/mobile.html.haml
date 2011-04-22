@@ -7,12 +7,13 @@
     %title
       = @title || 'jQuery Mobile Framework'
     = stylesheet_link_tag :mobile_default, :media => 'screen, projection'
+    = yield :head_stylesheets
 
-    = yield :content_scripts_before_jquery
+    = yield :head_scripts_before_jquery
     = javascript_include_tag :jquery
-    = yield :content_scripts_before_mobile
+    = yield :head_scripts_before_mobile
     = javascript_include_tag :mobile
-    = yield :content_scripts_after_mobile
+    = yield :head_scripts_after_mobile
 
     - # = javascript_include_tag 'multitouch-fake'
     = javascript_include_tag 'i18n', 'locales'

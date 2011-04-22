@@ -1,4 +1,4 @@
-- content_for :content_scripts_before_jquery do
+- content_for :head_scripts_before_jquery do
   :css
     #evtCatcher {
       border: solid 1px black;
@@ -10,7 +10,7 @@
       padding: 10px;
     }
 
-- content_for :content_scripts_after_mobile do
+- content_for :head_scripts_after_mobile do
   :javascript
     $("[ data-role=page]").live("pageshow", function(event) {
       var $page = $(this);

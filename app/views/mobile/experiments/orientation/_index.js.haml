@@ -1,4 +1,4 @@
-- content_for :content_scripts_before_jquery do
+- content_for :head_scripts_before_jquery do
   %link{:href => "/images/demo/mobile/homeicon.png", :rel => "apple-touch-icon"}
   :css
     .portrait {
@@ -18,7 +18,7 @@
 
 = render(:partial => "/mobile/mobile_init.js.haml", :format => :js)
 
-- content_for :content_scripts_before_mobile do
+- content_for :head_scripts_before_mobile do
   :javascript
     // Change the style dependengt on orientation
     function changeOrientation(ori){

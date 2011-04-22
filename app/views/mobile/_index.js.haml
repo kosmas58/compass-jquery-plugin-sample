@@ -1,6 +1,6 @@
-= render(:partial => "/mobile/docs/docs.js.haml", :format => :js)
+= render(:partial => "/mobile/docs/docs.html.haml", :format => :js)
 
-- content_for :content_scripts_before_mobile do
+- content_for :head_scripts_before_mobile do
   :javascript
     $('div').live('pagecreate', function(event){
       if(!$(this).is('.ui-dialog')){

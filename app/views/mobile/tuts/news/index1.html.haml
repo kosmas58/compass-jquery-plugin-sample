@@ -1,7 +1,7 @@
 -@title = "jQuery Mobile Framework - News Reader App"
 -@manifest = "/manifest"
 
-- content_for :content_scripts_before_mobile do
+- content_for :head_scripts_before_mobile do
   = render(:partial => "index.js.haml", :format => :js)
 
 #categoriesPage{"data-role" => "page", "data-theme" => "b"}

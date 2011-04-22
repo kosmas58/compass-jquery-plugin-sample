@@ -1,11 +1,11 @@
-- content_for :content_scripts_before_jquery do
+- content_for :head_scripts_before_jquery do
   %link{:href => "/images/demo/mobile/jquery-mobile-icon.png", :rel => "apple-touch-icon"}/
   :css
     label.missing { color:#FF0000; font-weight:bold; }
 
 = render(:partial => "/mobile/mobile_init.js.haml", :format => :js)
 
-- content_for :content_scripts_before_mobile do
+- content_for :head_scripts_before_mobile do
   :javascript
     // Global declarations - assignments made in $(document).ready() below
     var formVar = null;

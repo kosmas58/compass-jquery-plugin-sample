@@ -1,9 +1,9 @@
-- content_for :content_scripts_before_jquery do
+- content_for :head_scripts_before_jquery do
   %link{:href => "/images/demo/mobile/jquery-mobile-icon.png", :rel => "apple-touch-icon"}
 
 = render(:partial => "/mobile/mobile_init.js.haml", :format => :js)
 
-- content_for :content_scripts_before_mobile do
+- content_for :head_scripts_before_mobile do
   :javascript
     $(function(){
       var widthBreakpoints = [320, 360, 480, 600, 640, 768, 800, 960, 1024, 1200, 1280];

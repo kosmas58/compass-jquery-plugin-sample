@@ -1,4 +1,4 @@
-- content_for :content_scripts_before_jquery do
+- content_for :head_scripts_before_jquery do
   %link{:href => "/images/demo/mobile/converter-icon.png", :rel => "apple-touch-icon"}
   :css
     .field { padding: 15px; }
@@ -8,7 +8,7 @@
 = render(:partial => "storage.js.haml", :format => :js)
 = render(:partial => "application.js.haml", :format => :js)
 
-- content_for :content_scripts_after_mobile do
+- content_for :head_scripts_after_mobile do
   = javascript_include_tag :tmpl
   %script#conversion-field{:type => "text/x-jquery-tmpl"}
     %li
