@@ -1,14 +1,22 @@
-:css
-  ul#icons {
-    margin: 0;
-    padding: 0;
-  }
-  ul#icons li {
-    margin: 2px;
-    position: relative;
-    padding: 4px 0;
-    cursor: pointer;
-    float: left;
-    list-style: none;
-  }
-= raw @grid
+- content_for :head_stylesheets do
+  = stylesheet_link_tag :jqGrid
+  :css
+    ul#icons {
+      margin: 0;
+      padding: 0;
+    }
+    ul#icons li {
+      margin: 2px;
+      position: relative;
+      padding: 4px 0;
+      cursor: pointer;
+      float: left;
+      list-style: none;
+    }
+
+- content_for :head_scripts do
+  = raw jqgrid_javascripts(I18n.locale)
+  = raw @grid
+
+- content_for :license do
+  = render :partial =>  "widgets/jqgrid/license"

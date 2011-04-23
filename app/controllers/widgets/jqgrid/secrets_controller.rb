@@ -1,6 +1,4 @@
 class Widgets::Jqgrid::SecretsController < ApplicationController
-  layout 'secret_sauce'
-
   protect_from_forgery
 
   def index

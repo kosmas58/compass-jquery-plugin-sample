@@ -1,12 +1,21 @@
-:javascript
-  $(function() {
-    $("#players_example04_select_button").button();
+- content_for :head_stylesheets do
+  = stylesheet_link_tag :jqGrid
+
+- content_for :head_scripts do
+  = raw jqgrid_javascripts(I18n.locale)
+  :javascript
+    $(function() {
+      $("#players_example04_select_button").button();
+
+      $("#players_example04_select_button").click(function() {
+        var id = $("#players_example04").jqGrid('getGridParam', 'selarrrow');
+        alert('ID selected : ' + id);
+      return false;
+      });
+    });
     
-    $("#players_example04_select_button").click(function() { 
-      var id = $("#players_example04").jqGrid('getGridParam', 'selarrrow'); 
-      alert('ID selected : ' + id);
-    return false; 
-    });    
-  });
-  
-= raw @grid_players
+  = raw @grid_players
+
+- content_for :license do
+  = render :partial =>  "widgets/jqgrid/license"
+

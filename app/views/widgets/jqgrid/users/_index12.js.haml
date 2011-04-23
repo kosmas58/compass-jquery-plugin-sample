@@ -1,7 +1,14 @@
-:javascript
-  function handleSubSelection(id) {
-    alert('ID selected : ' + id);
-  }
-  
-= raw jqgrid("Football users", "users_12", "/widgets/jqgrid/users", [ { :field => "id", :label => "ID", :width => 35, :resizable => false }, { :field => "pseudo", :label => "Pseudo" }, { :field => "firstname", :label => "Firstname" }, { :field => "lastname", :label => "Lastname" }, { :field => "email", :label => "Email" }, { :field => "role", :label => "Role" } ], { :height => :auto,  :subgrid => { :url => "/widgets/jqgrid/users/pets", :direct_selection => true, :selection_handler => "handleSubSelection", :columns => [ { :field => "id", :label => "ID", :width => 35, :resizable => false, :editable => true }, { :field => "name", :label => "Name", :editable => true } ] } } )
-  
+- content_for :head_stylesheets do
+  = stylesheet_link_tag :jqGrid
+
+- content_for :head_scripts do
+  = raw jqgrid_javascripts(I18n.locale)
+  :javascript
+    function handleSubSelection(id) {
+      alert('ID selected : ' + id);
+    }
+
+  = raw jqgrid("Football users", "users_12", "/widgets/jqgrid/users", [ { :field => "id", :label => "ID", :width => 35, :resizable => false }, { :field => "pseudo", :label => "Pseudo" }, { :field => "firstname", :label => "Firstname" }, { :field => "lastname", :label => "Lastname" }, { :field => "email", :label => "Email" }, { :field => "role", :label => "Role" } ], { :height => :auto,  :subgrid => { :url => "/widgets/jqgrid/users/pets", :direct_selection => true, :selection_handler => "handleSubSelection", :columns => [ { :field => "id", :label => "ID", :width => 35, :resizable => false, :editable => true }, { :field => "name", :label => "Name", :editable => true } ] } } )
+
+- content_for :license do
+  = render :partial =>  "widgets/jqgrid/license"

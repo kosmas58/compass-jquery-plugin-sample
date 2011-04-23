@@ -1,6 +1,14 @@
-:javascript
-  function handleSubSelection(id) {
-    alert('ID selected : ' + id);
-  }
-  
-= raw @grid_players
+- content_for :head_stylesheets do
+  = stylesheet_link_tag :jqGrid
+
+- content_for :head_scripts do
+  = raw jqgrid_javascripts(I18n.locale)
+  :javascript
+    function handleSubSelection(id) {
+      alert('ID selected : ' + id);
+    }
+
+  = raw @grid_players
+
+- content_for :license do
+  = render :partial =>  "widgets/jqgrid/license"

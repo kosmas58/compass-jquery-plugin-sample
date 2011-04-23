@@ -1,103 +1,109 @@
-= stylesheet_link_tag :contextMenu
-= javascript_include_tag :contextMenu
+- content_for :head_stylesheets do
+  = stylesheet_link_tag :jqGrid
+  = stylesheet_link_tag :contextMenu
+  = javascript_include_tag :contextMenu
+  :css
+    .contextMenu { width: 120px; }
+    .contextMenu A { padding-left: 5px; }
 
-:css
-  .contextMenu { width: 120px; }
-  .contextMenu A { padding-left: 5px; }
-
-:javascript
-  //var ci,rowid,ptr,td;
-  $('#treegrid2').contextMenu('myMenu1', {
-    bindings: {
-    'mchild': function(t) {
-      if(ptr && rowid && ci >=1) {
-        var gcn = $("#treegrid2").jqGrid('getFullTreeNode',ptr);
-        $(gcn).each(function(i,v){
-          $("td:eq("+ci+")",this).each(function(){
-            if(!$("input[type='checkbox']",this).attr("checked")) {
-              $(this).toggleClass("changed");
-              $("input[type='checkbox']",this).attr("defaultChecked",true).attr("checked","checked");
-            }
+- content_for :head_scripts do
+  = raw jqgrid_javascripts(I18n.locale)
+  :javascript
+    //var ci,rowid,ptr,td;
+    $('#treegrid2').contextMenu('myMenu1', {
+      bindings: {
+      'mchild': function(t) {
+        if(ptr && rowid && ci >=1) {
+          var gcn = $("#treegrid2").jqGrid('getFullTreeNode',ptr);
+          $(gcn).each(function(i,v){
+            $("td:eq("+ci+")",this).each(function(){
+              if(!$("input[type='checkbox']",this).attr("checked")) {
+                $(this).toggleClass("changed");
+                $("input[type='checkbox']",this).attr("defaultChecked",true).attr("checked","checked");
+              }
+            });
           });
-        });
-        ptr = rowid=ci=null;
-      }
-    },
-    'umchild': function(t) {
-      if(ptr && rowid && ci >=1) {
-        var gcn = $("#treegrid2").jqGrid('getFullTreeNode',ptr);
-        $(gcn).each(function(){
-          $("td:eq("+ci+")",this).each(function(){
-            if($("input[type='checkbox']",this).attr("checked")) {
-              $(this).toggleClass("changed");
-              $("input[type='checkbox']",this).removeAttr("checked").attr("defaultChecked","");
-            }
+          ptr = rowid=ci=null;
+        }
+      },
+      'umchild': function(t) {
+        if(ptr && rowid && ci >=1) {
+          var gcn = $("#treegrid2").jqGrid('getFullTreeNode',ptr);
+          $(gcn).each(function(){
+            $("td:eq("+ci+")",this).each(function(){
+              if($("input[type='checkbox']",this).attr("checked")) {
+                $(this).toggleClass("changed");
+                $("input[type='checkbox']",this).removeAttr("checked").attr("defaultChecked","");
+              }
+            });
           });
-        });
-        ptr = rowid=ci=null;
+          ptr = rowid=ci=null;
+        }
       }
-    }
-    },
-    onContextMenu: function(e, menu) {
-      td = e.target || e.srcElement;
-      ptr = $(td).parents("tr.jqgrow")[0];
-      ci = !$(td).is('td') ? $(td).parents("td:first")[0].cellIndex : td.cellIndex;
-      if($.browser.msie) {
-        ci = $.jgrid.getCellIndex(td);
+      },
+      onContextMenu: function(e, menu) {
+        td = e.target || e.srcElement;
+        ptr = $(td).parents("tr.jqgrow")[0];
+        ci = !$(td).is('td') ? $(td).parents("td:first")[0].cellIndex : td.cellIndex;
+        if($.browser.msie) {
+          ci = $.jgrid.getCellIndex(td);
+        }
+        if( ci >=1 ) {
+          rowid = ptr.id;
+          $('#treegrid2').jqGrid('setSelection',rowid,false);
+          return true;
+      } else {
+      //alert(ptr.id+" : "+ptr.rowIndex+" : "+ci);
+        return false;
       }
-      if( ci >=1 ) {
-        rowid = ptr.id;
-        $('#treegrid2').jqGrid('setSelection',rowid,false);
-        return true;
-    } else {
-    //alert(ptr.id+" : "+ptr.rowIndex+" : "+ci);
-      return false;
-    }
-    }
-  });
+      }
+    });
 
-  
-  
-  
-  
-  var grid = $("#accounts_demo9905");
-  var ptr, rowId, rowIndex;
-  
-  function markChilds() {
-    if (rowIndex) {
-      //alert(rowId+" : "+rowIndex+" : ");
 
-      var gcn = grid.jqGrid('getFullTreeNode',ptr);
-        $(gcn).each(function(i,v){
-          //$("td:eq("+ci+")",this).each(function(){
-          //  if(!$("input[type='checkbox']",this).attr("checked")) {
-          //    $(this).toggleClass("changed");
-          //    $("input[type='checkbox']",this).attr("defaultChecked",true).attr("checked","checked");
-          //  }
-          //});
-        });
-    }
-    else {
-      alert("No rows are selected");
-    }
-  };
 
-  function handleContextMenu(action, el, pos) {
-    ptr = el
-    rowId = ptr.attr("id");
-    rowIndex = ptr.attr("rowIndex");
-    switch (action) {
-      case "mark":
-        markChilds();
-        break;
-      case "unmark":
-        //unmarkChilds();
-        break;
+
+
+    var grid = $("#accounts_demo9905");
+    var ptr, rowId, rowIndex;
+
+    function markChilds() {
+      if (rowIndex) {
+        //alert(rowId+" : "+rowIndex+" : ");
+
+        var gcn = grid.jqGrid('getFullTreeNode',ptr);
+          $(gcn).each(function(i,v){
+            //$("td:eq("+ci+")",this).each(function(){
+            //  if(!$("input[type='checkbox']",this).attr("checked")) {
+            //    $(this).toggleClass("changed");
+            //    $("input[type='checkbox']",this).attr("defaultChecked",true).attr("checked","checked");
+            //  }
+            //});
+          });
+      }
+      else {
+        alert("No rows are selected");
+      }
     };
-  };
 
-  function afterInsertRow(rowid, rowdata, rowelem) {
-    $('#' + rowid).contextMenu({menu: "MenuJqGrid"}, handleContextMenu);
-  };
-  
-= raw @grid
+    function handleContextMenu(action, el, pos) {
+      ptr = el
+      rowId = ptr.attr("id");
+      rowIndex = ptr.attr("rowIndex");
+      switch (action) {
+        case "mark":
+          markChilds();
+          break;
+        case "unmark":
+          //unmarkChilds();
+          break;
+      };
+    };
+
+    function afterInsertRow(rowid, rowdata, rowelem) {
+      $('#' + rowid).contextMenu({menu: "MenuJqGrid"}, handleContextMenu);
+    };
+
+  = raw @grid
+
+- content_for :license do
+  = render :partial =>  "widgets/jqgrid/license"
