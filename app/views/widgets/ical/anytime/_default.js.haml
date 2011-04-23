@@ -1,9 +1,18 @@
-:javascript  
-  $(function() {
-    $("#DateTimeDemo").AnyTime_picker({
-      format: "%Y-%m-%d %H:%i:%s %E %#",
-      formatUtcOffset: "%: (%@)",
-      //hideInput: true,
-      //placement: "inline"
+- content_for :head_stylesheets do
+  = stylesheet_link_tag :ical, :media => 'screen, projection'
+  = stylesheet_link_tag :ical_print, :media => 'print'
+
+- content_for :head_scripts do
+  = javascript_include_tag :ical
+  :javascript
+    $(function() {
+      $("#DateTimeDemo").AnyTime_picker({
+        format: "%Y-%m-%d %H:%i:%s %E %#",
+        formatUtcOffset: "%: (%@)",
+        //hideInput: true,
+        //placement: "inline"
+      });
     });
-  });
+
+- content_for :license do
+  = render :partial =>  "widgets/ical/license"

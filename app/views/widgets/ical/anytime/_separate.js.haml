@@ -1,20 +1,29 @@
-:javascript  
-  $(function() {
-    var fmt1 = '%m/%d/%Y';
-    var fmt2 = '%h:%i';
-    var conv1 = new AnyTime.Converter({format:fmt1});               
-    var conv2 = new AnyTime.Converter({format:fmt2});
-    var now = new Date();               
-    $('#Demo1')[0].value = conv1.format( now );
-    $('#Demo2')[0].value = conv2.format( now );
-    AnyTime.picker('Demo1', { 
-      format: fmt1,
-      hideInput: true,
-      placement: "inline"
+- content_for :head_stylesheets do
+  = stylesheet_link_tag :ical, :media => 'screen, projection'
+  = stylesheet_link_tag :ical_print, :media => 'print'
+
+- content_for :head_scripts do
+  = javascript_include_tag :ical
+  :javascript
+    $(function() {
+      var fmt1 = '%m/%d/%Y';
+      var fmt2 = '%h:%i';
+      var conv1 = new AnyTime.Converter({format:fmt1});
+      var conv2 = new AnyTime.Converter({format:fmt2});
+      var now = new Date();
+      $('#Demo1')[0].value = conv1.format( now );
+      $('#Demo2')[0].value = conv2.format( now );
+      AnyTime.picker('Demo1', {
+        format: fmt1,
+        hideInput: true,
+        placement: "inline"
+      });
+      $('#Demo2').AnyTime_picker({
+        format: fmt2,
+        hideInput: true,
+        placement: "inline"
+      });
     });
-    $('#Demo2').AnyTime_picker({
-      format: fmt2,
-      hideInput: true,
-      placement: "inline"
-    });
-  });
+
+- content_for :license do
+  = render :partial =>  "widgets/ical/license"

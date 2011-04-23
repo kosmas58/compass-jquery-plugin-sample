@@ -1,6 +1,4 @@
 class Widgets::Ical::CalendarsController < ApplicationController
-  layout 'ical', :except => [:iphone]
-
   protect_from_forgery
 
   make_resourceful do

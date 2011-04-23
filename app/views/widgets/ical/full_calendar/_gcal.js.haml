@@ -1,34 +1,42 @@
-:css
-  #loading {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    }
+- content_for :head_stylesheets do
+  = stylesheet_link_tag :ical, :media => 'screen, projection'
+  = stylesheet_link_tag :ical_print, :media => 'print'
+  :css
+    #loading {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      }
 
-  #calendar {
-    width: 900px;
-    margin: 0 auto;
-    }
-  #calendar h2 { font-size: 1.5em; }
+    #calendar {
+      width: 900px;
+      margin: 0 auto;
+      }
+    #calendar h2 { font-size: 1.5em; }
 
-:javascript
-  $(function() {
+- content_for :head_scripts do
+  = javascript_include_tag :ical
+  :javascript
+    $(function() {
 
-    $('#calendar').fullCalendar({
-        theme: true,
-        // US Holidays
-        events: $.fullCalendar.gcalFeed('http://www.google.com/calendar/feeds/usa__en%40holiday.calendar.google.com/public/basic'),
-        eventClick: function(event) {
-            // opens events in a popup window
-            window.open(event.url, 'gcalevent', 'width=700,height=600');
-            return false;
-        },
-        loading: function(bool) {
-            if (bool) {
-                $('#loading').show();
-            }else{
-                $('#loading').hide();
-            }
-        }
+      $('#calendar').fullCalendar({
+          theme: true,
+          // US Holidays
+          events: $.fullCalendar.gcalFeed('http://www.google.com/calendar/feeds/usa__en%40holiday.calendar.google.com/public/basic'),
+          eventClick: function(event) {
+              // opens events in a popup window
+              window.open(event.url, 'gcalevent', 'width=700,height=600');
+              return false;
+          },
+          loading: function(bool) {
+              if (bool) {
+                  $('#loading').show();
+              }else{
+                  $('#loading').hide();
+              }
+          }
+      });
     });
-  });
+
+- content_for :license do
+  = render :partial =>  "widgets/ical/license"

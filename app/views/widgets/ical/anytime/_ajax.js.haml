@@ -1,11 +1,19 @@
-:javascript  
-  $(function() {
-    AnyTime.picker( "AjaxDemo", { 
-      ajaxOptions: { url: "ajaxdemo" },
-      baseYear: 2000,
-      earliest: new Date(2000,0,1,0,0,0),
-      format: "%b %e, '%y",
-      latest: new Date(2099,11,31,23,59,59)
+- content_for :head_stylesheets do
+  = stylesheet_link_tag :ical, :media => 'screen, projection'
+  = stylesheet_link_tag :ical_print, :media => 'print'
+
+- content_for :head_scripts do
+  = javascript_include_tag :ical
+  :javascript
+    $(function() {
+      AnyTime.picker( "AjaxDemo", {
+        ajaxOptions: { url: "ajaxdemo" },
+        baseYear: 2000,
+        earliest: new Date(2000,0,1,0,0,0),
+        format: "%b %e, '%y",
+        latest: new Date(2099,11,31,23,59,59)
+      });
     });
-  });        
-  
+
+- content_for :license do
+  = render :partial =>  "widgets/ical/license"

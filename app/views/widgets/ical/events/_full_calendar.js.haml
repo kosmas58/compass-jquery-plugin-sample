@@ -1,34 +1,41 @@
-:css
-  #calendar { width: 800px; margin: 0 auto; font-size: 13px; }
+- content_for :head_stylesheets do
+  = stylesheet_link_tag :ical, :media => 'screen, projection'
+  = stylesheet_link_tag :ical_print, :media => 'print'
+  :css
+    #calendar { width: 800px; margin: 0 auto; font-size: 13px; }
 
-:javascript
-  $(function() {
-    $("button, a", ".buttons").button();
-  });
-  
-  $(function() {
-    var date = new Date();
-    var d = date.getDate();
-    var m = date.getMonth();
-    var y = date.getFullYear();
-    $('#calendar').fullCalendar({
-      theme: true,
-      firstDay: 1,
-      header: {
-        left: 'prev,next today',
-        center: 'title',
-        right: 'month,agendaWeek,agendaDay'
-      },
-      editable: true,
-      events: "#{full_calendar_widgets_ical_calendar_events_path(:format => :json)}",
-  		eventDrop: function(event, delta) {
-  			alert(event.title + ' was moved ' + delta + ' days\n' +
-  				'(should probably update your database)');
-  		},  		
-  		loading: function(bool) {
-  			if (bool) $('#loading').show();
-  			else $('#loading').hide();
-  		}
-    });		
-  });
-    	
+- content_for :head_scripts do
+  = javascript_include_tag :ical
+  :javascript
+    $(function() {
+      $("button, a", ".buttons").button();
+    });
+
+    $(function() {
+      var date = new Date();
+      var d = date.getDate();
+      var m = date.getMonth();
+      var y = date.getFullYear();
+      $('#calendar').fullCalendar({
+        theme: true,
+        firstDay: 1,
+        header: {
+          left: 'prev,next today',
+          center: 'title',
+          right: 'month,agendaWeek,agendaDay'
+        },
+        editable: true,
+        events: "#{full_calendar_widgets_ical_calendar_events_path(:format => :json)}",
+          eventDrop: function(event, delta) {
+              alert(event.title + ' was moved ' + delta + ' days\n' +
+                  '(should probably update your database)');
+          },
+          loading: function(bool) {
+              if (bool) $('#loading').show();
+              else $('#loading').hide();
+          }
+      });
+    });
+
+- content_for :license do
+  = render :partial =>  "widgets/ical/license"

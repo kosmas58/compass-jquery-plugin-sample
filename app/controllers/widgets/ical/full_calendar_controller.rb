@@ -1,6 +1,4 @@
 class Widgets::Ical::FullCalendarController < ApplicationController
-  layout 'ical'
-
   protect_from_forgery
 
   def jsondemo

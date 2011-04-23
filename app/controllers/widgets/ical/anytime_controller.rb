@@ -1,6 +1,4 @@
 class Widgets::Ical::AnytimeController < ApplicationController
-  layout 'ical'
-
   protect_from_forgery
 
   def ajaxdemo

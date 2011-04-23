@@ -1,19 +1,27 @@
-:css
-  #field2 { background-image:url("/images/jquery/ical/clock.png");
-  background-position:right center; background-repeat:no-repeat;
-  border:1px solid #FFC030;color:#3090C0;font-weight:bold}
-  #AnyTime--field2 {background-color:#EFEFEF;border:1px solid #CCC}
-  #AnyTime--field2 * {font-weight:bold}
-  #AnyTime--field2 .AnyTime-btn {background-color:#F9F9FC;
-  border:1px solid #CCC;color:#3090C0}
-  #AnyTime--field2 .AnyTime-cur-btn {background-color:#FCF9F6;
-  border:1px solid #FFC030;color:#FFC030}
-  #AnyTime--field2 .AnyTime-focus-btn {border-style:dotted}
-  #AnyTime--field2 .AnyTime-lbl {color:black}
-  #AnyTime--field2 .AnyTime-hdr {background-color:#FFC030;color:white}
+- content_for :head_stylesheets do
+  = stylesheet_link_tag :ical, :media => 'screen, projection'
+  = stylesheet_link_tag :ical_print, :media => 'print'
+  :css
+    #field2 { background-image:url("/images/jquery/ical/clock.png");
+    background-position:right center; background-repeat:no-repeat;
+    border:1px solid #FFC030;color:#3090C0;font-weight:bold}
+    #AnyTime--field2 {background-color:#EFEFEF;border:1px solid #CCC}
+    #AnyTime--field2 * {font-weight:bold}
+    #AnyTime--field2 .AnyTime-btn {background-color:#F9F9FC;
+    border:1px solid #CCC;color:#3090C0}
+    #AnyTime--field2 .AnyTime-cur-btn {background-color:#FCF9F6;
+    border:1px solid #FFC030;color:#FFC030}
+    #AnyTime--field2 .AnyTime-focus-btn {border-style:dotted}
+    #AnyTime--field2 .AnyTime-lbl {color:black}
+    #AnyTime--field2 .AnyTime-hdr {background-color:#FFC030;color:white}
 
-:javascript  
-  $(function() {
-    AnyTime.picker( "field1", { format: "%W, %M %D in the Year %z %E", firstDOW: 1 } );
-    $("#field2").AnyTime_picker( { format: "%H:%i", labelTitle: "Hora", labelHour: "Hora", labelMinute: "Minuto" } );
-  });
+- content_for :head_scripts do
+  = javascript_include_tag :ical
+  :javascript
+    $(function() {
+      AnyTime.picker( "field1", { format: "%W, %M %D in the Year %z %E", firstDOW: 1 } );
+      $("#field2").AnyTime_picker( { format: "%H:%i", labelTitle: "Hora", labelHour: "Hora", labelMinute: "Minuto" } );
+    });
+
+- content_for :license do
+  = render :partial =>  "widgets/ical/license"

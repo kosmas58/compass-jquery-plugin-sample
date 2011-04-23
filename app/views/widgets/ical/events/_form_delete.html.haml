@@ -1,15 +1,18 @@
-:css
-  .ui-state-error {
-    min-width: 420px;
-  }
-  .ui-state-error .errorExplanation h2, .ui-state-error .errorExplanation p {
-    font-size: normal;
-    font-weight: bold;
-  }
-  .ui-state-error .errorExplanation ul li {
-    font-size: normal;
-  }
-  
+- content_for :head_stylesheets do
+  = stylesheet_link_tag :ical, :media => 'screen, projection'
+  = stylesheet_link_tag :ical_print, :media => 'print'
+  :css
+    .ui-state-error {
+      min-width: 420px;
+    }
+    .ui-state-error .errorExplanation h2, .ui-state-error .errorExplanation p {
+      font-size: normal;
+      font-weight: bold;
+    }
+    .ui-state-error .errorExplanation ul li {
+      font-size: normal;
+    }
+
 - form_for(@event, :url => widgets_ical_calendar_events_url) do |f|
 
   - if !flash[:error].blank?
@@ -18,7 +21,7 @@
         %p
           %span.ui-icon.ui-icon-alert{ :style => "float: left; margin-right: 0.3em" }
           = flash[:errore]
-          
+
   - elsif !flash[:notice].blank?
     .ui-widget
       .ui-state-highlight.ui-corner-all{ :style => "padding: 0pt 0.7em;" }
@@ -69,4 +72,3 @@
     .span-12
       %strong
         = @event.description
-  
