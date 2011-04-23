@@ -150,7 +150,7 @@
 
   - if actions[:delete]
     :javascript
-      $(function() {
+      $(document).ready(function() {
         $(".#{domid}_delete").live('click', function() {
           live_delete($(this).attr('value'));
         });
@@ -158,7 +158,7 @@
       
   - if actions[:update]
     :javascript
-      $(function() {
+      $(document).ready(function() {
         $(".#{domid}_update").live('click', function() {
           live_update($(this).attr('value'));
         });
@@ -166,7 +166,7 @@
       
   - if actions[:create]
     :javascript
-      $(function() {
+      $(document).ready(function() {
         $(".#{domid}_create").live('click', function() {
           live_create();
         });

@@ -1,5 +1,5 @@
 :javascript
-  $(function() {
+  $(document).ready(function() {
     $.jgrid.no_legacy_api = true;
     $('##{name}_table').jqGrid(#{options.to_json});
     $('##{name}_table').jqGrid('navGrid',"##{name}_pager", #{nav.to_json});
@@ -8,7 +8,7 @@
 - if actions
   - if actions[:destroy]
     :javascript
-      $(function() {
+      $(document).ready(function() {  
         $("##{name}_table").jqGrid('navButtonAdd',"##{name}_pager", {
           caption: "",
           position: "first",
@@ -35,7 +35,7 @@
 
   - if actions[:update]
     :javascript
-      $(function() {
+      $(document).ready(function() {
         $("##{name}_table").jqGrid('navButtonAdd',"##{name}_pager", {
           caption: "",
           position: "first",
@@ -92,7 +92,7 @@
 
   - if actions[:create]
     :javascript
-      $(function() {
+      $(document).ready(function() {
         $("##{name}_table").jqGrid('navButtonAdd',"##{name}_pager", {
           caption: "",
           position: "first",
