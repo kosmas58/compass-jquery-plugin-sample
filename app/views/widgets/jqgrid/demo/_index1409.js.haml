@@ -1,7 +1,14 @@
-= raw @grid
+- content_for :head_stylesheets do
+  = stylesheet_link_tag :jqGrid
 
-:javascript  
-  $(function() {
-    $("#invheaders_demo1409").jqGrid('sortableRows'); 
-   });  
+- content_for :head_scripts do
+  = raw jqgrid_javascripts(I18n.locale)
+  = raw @grid
+  :javascript
+    $(function() {
+      $("#invheaders_demo1409").jqGrid('sortableRows');
+     });
+
+- content_for :license do
+  = render :partial =>  "widgets/jqgrid/license"
   

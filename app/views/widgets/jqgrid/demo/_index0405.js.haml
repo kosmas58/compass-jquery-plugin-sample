@@ -1,19 +1,27 @@
-:css
-  #toolbar { padding: 0.3em; }
-  #toolbar .ui-button{ font-size: 0.8em; }
-  
-:javascript 
-  $(function() {
-    $("#radio").buttonset();
-  });
-  
-  $(function() {
-    $("#hc").click( function() {
-      $("#invheaders_demo0405").jqGrid('hideCol',"tax");
+- content_for :head_stylesheets do
+  = stylesheet_link_tag :jqGrid
+  :css
+    #toolbar { padding: 0.3em; }
+    #toolbar .ui-button{ font-size: 0.8em; }
+
+- content_for :head_scripts do
+  = raw jqgrid_javascripts(I18n.locale)
+  = raw @grid
+  :javascript
+    $(function() {
+      $("#radio").buttonset();
     });
-    $("#sc").click( function() {
-      $("#invheaders_demo0405").jqGrid('showCol',"tax");
+
+    $(function() {
+      $("#hc").click( function() {
+        $("#invheaders_demo0405").jqGrid('hideCol',"tax");
+      });
+      $("#sc").click( function() {
+        $("#invheaders_demo0405").jqGrid('showCol',"tax");
+      });
     });
-  });
-  
-= raw @grid
+
+  = raw @grid
+
+- content_for :license do
+  = render :partial =>  "widgets/jqgrid/license"

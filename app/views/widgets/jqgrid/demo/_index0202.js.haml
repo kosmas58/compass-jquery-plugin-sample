@@ -1,40 +1,47 @@
-:css
-  #toolbar { padding: 0.3em; }  #toolbar { padding: 0.3em; }
-  #toolbar .ui-button{ font-size: 0.8em; }
+- content_for :head_stylesheets do
+  = stylesheet_link_tag :jqGrid
+  :css
+    #toolbar { padding: 0.3em; }  #toolbar { padding: 0.3em; }
+    #toolbar .ui-button{ font-size: 0.8em; }
 
-:javascript
-  $(function() {
-    $("a", "#toolbar").button();
-  });  
-  
-  $(function() {
-    $("#g1").click( function() {
-      alert($('#invheaders_demo0202').jqGrid('getGridParam','url'));
+- content_for :head_scripts do
+  = raw jqgrid_javascripts(I18n.locale)
+  :javascript
+    $(function() {
+      $("a", "#toolbar").button();
     });
-    $("#g2").click( function() {
-      alert($('#invheaders_demo0202').jqGrid('getGridParam','sortname'));
-    });
-    $("#g3").click( function() {
-      alert($('#invheaders_demo0202').jqGrid('getGridParam','sortorder'));
-    });
-    $("#g4").click( function() {
-      alert($('#invheaders_demo0202').jqGrid('getGridParam','selrow'));
-    });
-    $("#g5").click( function() {
-      alert($('#invheaders_demo0202').jqGrid('getGridParam','page'));
-    });
-    $("#g6").click( function() {
-      alert($('#invheaders_demo0202').jqGrid('getGridParam','rowNum'));
-    });
-    $("#g7").click( function() {
-      alert('See Multi select rows example');
-    });
-    $("#g8").click( function() {
-      alert($('#invheaders_demo0202').jqGrid('getGridParam','datatype'));
-    });
-    $("#g9").click( function() {
-      alert($('#invheaders_demo0202').jqGrid('getGridParam','records'));
-    });
-  });
 
-= raw @grid
+    $(function() {
+      $("#g1").click( function() {
+        alert($('#invheaders_demo0202').jqGrid('getGridParam','url'));
+      });
+      $("#g2").click( function() {
+        alert($('#invheaders_demo0202').jqGrid('getGridParam','sortname'));
+      });
+      $("#g3").click( function() {
+        alert($('#invheaders_demo0202').jqGrid('getGridParam','sortorder'));
+      });
+      $("#g4").click( function() {
+        alert($('#invheaders_demo0202').jqGrid('getGridParam','selrow'));
+      });
+      $("#g5").click( function() {
+        alert($('#invheaders_demo0202').jqGrid('getGridParam','page'));
+      });
+      $("#g6").click( function() {
+        alert($('#invheaders_demo0202').jqGrid('getGridParam','rowNum'));
+      });
+      $("#g7").click( function() {
+        alert('See Multi select rows example');
+      });
+      $("#g8").click( function() {
+        alert($('#invheaders_demo0202').jqGrid('getGridParam','datatype'));
+      });
+      $("#g9").click( function() {
+        alert($('#invheaders_demo0202').jqGrid('getGridParam','records'));
+      });
+    });
+
+  = raw @grid
+
+- content_for :license do
+  = render :partial =>  "widgets/jqgrid/license"

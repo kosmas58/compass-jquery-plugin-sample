@@ -1,17 +1,23 @@
-:css
-  #toolbar { padding: 0.3em; }
-  #toolbar .ui-button{ font-size: 0.8em;
+- content_for :head_stylesheets do
+  = stylesheet_link_tag :jqGrid
+  :css
+    #toolbar { padding: 0.3em; }
+    #toolbar .ui-button{ font-size: 0.8em;
 
-= raw @grid
+- content_for :head_scripts do
+  = raw jqgrid_javascripts(I18n.locale)
+  = raw @grid
+  :javascript
+    $(function() {
+      $("a", "#toolbar").button();
+    });
 
-:javascript
-  $(function() {
-    $("a", "#toolbar").button();
-  });
+    $(function() {
+      $("#pp1").click( function() {
+        $.extend($.jgrid.defaults,{recordtext: "{0} - {1} of {2} Record(s)",loadtext: "Processing"});
+        alert("New parameters are set - reopen the grid");    });
+    });
 
-  $(function() {
-    $("#pp1").click( function() {
-      $.extend($.jgrid.defaults,{recordtext: "{0} - {1} of {2} Record(s)",loadtext: "Processing"});
-      alert("New parameters are set - reopen the grid");    }); 
-  });  
-  
+- content_for :license do
+  = render :partial =>  "widgets/jqgrid/license"
+

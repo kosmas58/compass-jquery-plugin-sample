@@ -1,13 +1,13 @@
 - content_for :head_stylesheets do
   = stylesheet_link_tag :jqGrid
   = stylesheet_link_tag :contextMenu
-  = javascript_include_tag :contextMenu
   :css
     .contextMenu { width: 120px; }
     .contextMenu A { padding-left: 5px; }
 
 - content_for :head_scripts do
   = raw jqgrid_javascripts(I18n.locale)
+  = javascript_include_tag :contextMenu
   :javascript
     //var ci,rowid,ptr,td;
     $('#treegrid2').contextMenu('myMenu1', {

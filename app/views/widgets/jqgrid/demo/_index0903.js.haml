@@ -1,27 +1,34 @@
-:css
-  #toolbar { padding: 0.3em; }
-  #toolbar .ui-button{ font-size: 0.8em;
+- content_for :head_stylesheets do
+  = stylesheet_link_tag :jqGrid
+  :css
+    #toolbar { padding: 0.3em; }
+    #toolbar .ui-button{ font-size: 0.8em;
 
-= raw @grid
-
-:javascript
-  $(function() {
-    $("a", "#toolbar").button();
-  });
-
-  $(function() {
-    $("#sm1").click( function(){
-      alert($("#invheaders_demo0903").jqGrid('getGridParam',"records"));
+- content_for :head_scripts do
+  = raw jqgrid_javascripts(I18n.locale)
+  = raw @grid
+  :javascript
+    $(function() {
+      $("a", "#toolbar").button();
     });
-    $("#sm2").click( function(){
-      $("#invheaders_demo0903").jqGrid('setGridParam',{
-        onSelectRow : function(id) {
-          $("#resp").html("I'm row number: "+id +" and setted dynamically").css("color","red");
-        }
+
+    $(function() {
+      $("#sm1").click( function(){
+        alert($("#invheaders_demo0903").jqGrid('getGridParam',"records"));
       });
-      alert("Try to select row");
+      $("#sm2").click( function(){
+        $("#invheaders_demo0903").jqGrid('setGridParam',{
+          onSelectRow : function(id) {
+            $("#resp").html("I'm row number: "+id +" and setted dynamically").css("color","red");
+          }
+        });
+        alert("Try to select row");
+      });
+      $("#sm3").click( function(){
+        $("#invheaders_demo0903").jqGrid('resetSelection');
+      });
     });
-    $("#sm3").click( function(){
-      $("#invheaders_demo0903").jqGrid('resetSelection');
-    });
-  });
+
+- content_for :license do
+  = render :partial =>  "widgets/jqgrid/license"
+

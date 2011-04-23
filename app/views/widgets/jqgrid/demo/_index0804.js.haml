@@ -1,23 +1,31 @@
-:css
-  #toolbar { padding: 0.3em; }
-  #toolbar .ui-button{ font-size: 0.8em; }
-  .demo-description td{ vertical-align: top; }
+- content_for :head_stylesheets do
+  = stylesheet_link_tag :jqGrid
+  :css
+    #toolbar { padding: 0.3em; }
+    #toolbar .ui-button{ font-size: 0.8em; }
+    .demo-description td{ vertical-align: top; }
 
-:javascript
-  $(function() {
-    $("a", "#toolbar").button();
-  });
-  
-  $(function() {
-    $("#dedata").click( function(){
-      var gr = $("#invheaders_demo0804").jqGrid('getGridParam','selrow');
-      //getSelectedRow();
-      if( gr != null )
-        $("#invheaders_demo0804").jqGrid('delGridRow',gr,{reloadAfterSubmit:false});
-      else
-        alert("Please Select Row to delete!");
+- content_for :head_scripts do
+  = raw jqgrid_javascripts(I18n.locale)
+  = raw @grid
+  :javascript
+    $(function() {
+      $("a", "#toolbar").button();
     });
-  });
-  
-= raw @grid
+
+    $(function() {
+      $("#dedata").click( function(){
+        var gr = $("#invheaders_demo0804").jqGrid('getGridParam','selrow');
+        //getSelectedRow();
+        if( gr != null )
+          $("#invheaders_demo0804").jqGrid('delGridRow',gr,{reloadAfterSubmit:false});
+        else
+          alert("Please Select Row to delete!");
+      });
+    });
+
+  = raw @grid
+
+- content_for :license do
+  = render :partial =>  "widgets/jqgrid/license"
 

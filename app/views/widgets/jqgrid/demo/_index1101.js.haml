@@ -1,38 +1,46 @@
-:css
-  #toolbar { padding: 0.3em; }
-  #toolbar .ui-button{ font-size: 0.8em; }
+- content_for :head_stylesheets do
+  = stylesheet_link_tag :jqGrid
+  :css
+    #toolbar { padding: 0.3em; }
+    #toolbar .ui-button{ font-size: 0.8em; }
 
-= raw @grid
+- content_for :head_scripts do
+  = raw jqgrid_javascripts(I18n.locale)
+  = raw @grid
 
-:javascript
-  $(function() {
-    $("a", "#toolbar").button();
-  });
- 
-  function onSortCol(nm,index){
-    if (nm == "invdate") {
-      $("#invheaders_demo1101").jqGrid('setGridParam',{sortname:'client_id'});
-    }
-  };
-    
-  function onHeaderClick(status){
-    alert("My status is now: "+ status);
-  };
-
-  $(function() {
-    $("#snw").click(function (){
-      var nw = parseInt($("#setwidth").val());
-      if(isNaN(nw)) {
-        alert("Value must be a number");
-      } else if (nw<200 || nw > 700) {
-        alert("Value can be between 200 and 700")
-      } else {
-        $("#invheaders_demo1101").jqGrid('setGridWidth',nw);
-      }
+  :javascript
+    $(function() {
+      $("a", "#toolbar").button();
     });
-    
-    $("#snh").click(function (){
-      var nh = $("#setheight").val();
-      $("#invheaders_demo1101").jqGrid('setGridHeight',nh);
-    });  
-  });    
+
+    function onSortCol(nm,index){
+      if (nm == "invdate") {
+        $("#invheaders_demo1101").jqGrid('setGridParam',{sortname:'client_id'});
+      }
+    };
+
+    function onHeaderClick(status){
+      alert("My status is now: "+ status);
+    };
+
+    $(function() {
+      $("#snw").click(function (){
+        var nw = parseInt($("#setwidth").val());
+        if(isNaN(nw)) {
+          alert("Value must be a number");
+        } else if (nw<200 || nw > 700) {
+          alert("Value can be between 200 and 700")
+        } else {
+          $("#invheaders_demo1101").jqGrid('setGridWidth',nw);
+        }
+      });
+
+      $("#snh").click(function (){
+        var nh = $("#setheight").val();
+        $("#invheaders_demo1101").jqGrid('setGridHeight',nh);
+      });
+    });
+
+- content_for :license do
+  = render :partial =>  "widgets/jqgrid/license"
+

@@ -1,16 +1,25 @@
-:javascript
-  function dataFunction(pdata) {
-    $.ajax({
-      url:'/widgets/jqgrid/demo',
-      data:pdata,
-      dataType:"json",
-      complete: function(jsondata,stat){
-        if(stat=="success") {
-          var thegrid = $("#invheaders_demo1108")[0];
-          thegrid.addJSONData(eval("("+jsondata.responseText+")"))
-        }
-      }
-    });
-  };
+- content_for :head_stylesheets do
+  = stylesheet_link_tag :jqGrid
 
-= raw @grid
+- content_for :head_scripts do
+  = raw jqgrid_javascripts(I18n.locale)
+  :javascript
+    function dataFunction(pdata) {
+      $.ajax({
+        url:'/widgets/jqgrid/demo',
+        data:pdata,
+        dataType:"json",
+        complete: function(jsondata,stat){
+          if(stat=="success") {
+            var thegrid = $("#invheaders_demo1108")[0];
+            thegrid.addJSONData(eval("("+jsondata.responseText+")"))
+          }
+        }
+      });
+    };
+
+  = raw @grid
+
+- content_for :license do
+  = render :partial =>  "widgets/jqgrid/license"
+

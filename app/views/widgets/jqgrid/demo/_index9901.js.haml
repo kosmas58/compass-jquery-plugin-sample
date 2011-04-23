@@ -1,7 +1,6 @@
 - content_for :head_stylesheets do
   = stylesheet_link_tag :jqGrid
   = stylesheet_link_tag :contextMenu
-  = javascript_include_tag :contextMenu
   :css
     //.contextMenu LI.add A {}
     //.ui-icon.ui-icon-plus
@@ -11,7 +10,8 @@
     //.ui-icon.ui-icon-trash
 
 - content_for :head_scripts do
-  = raw jqgrid_javascripts(I18n.locale)  
+  = raw jqgrid_javascripts(I18n.locale)
+  = javascript_include_tag :contextMenu
   :javascript
     function addRow() {
       var grid = $("#invheaders_demo9901");

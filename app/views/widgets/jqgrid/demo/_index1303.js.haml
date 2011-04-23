@@ -1,22 +1,30 @@
-= raw @grid
+- content_for :head_stylesheets do
+  = stylesheet_link_tag :jqGrid
 
-:javascript  
-  $(function() {
-    $("#invheaders_demo1303").jqGrid('navButtonAdd',"#invheaders_demo1303_pager",{ 
-      caption:"Toggle",
-      title:"Toggle Search Toolbar", 
-      buttonicon :'ui-icon-pin-s',
-      onClickButton:function(){
-        grid_invheaders_demo1303[0].toggleToolbar()
-     } 
+- content_for :head_scripts do
+  = raw jqgrid_javascripts(I18n.locale)
+  = raw @grid
+
+  :javascript
+    $(function() {
+      $("#invheaders_demo1303").jqGrid('navButtonAdd',"#invheaders_demo1303_pager",{
+        caption:"Toggle",
+        title:"Toggle Search Toolbar",
+        buttonicon :'ui-icon-pin-s',
+        onClickButton:function(){
+          grid_invheaders_demo1303[0].toggleToolbar()
+       }
+      });
+      $("#invheaders_demo1303").jqGrid('navButtonAdd',"#invheaders_demo1303_pager",{
+        caption:"Clear",
+        title:"Clear Search",
+        buttonicon :'ui-icon-refresh',
+        onClickButton:function(){
+          grid_invheaders_demo1303[0].clearToolbar()
+        }
+      });
+      $("#invheaders_demo1303").jqGrid('filterToolbar');
     });
-    $("#invheaders_demo1303").jqGrid('navButtonAdd',"#invheaders_demo1303_pager",{
-      caption:"Clear",
-      title:"Clear Search",
-      buttonicon :'ui-icon-refresh',
-      onClickButton:function(){
-        grid_invheaders_demo1303[0].clearToolbar()
-      } 
-    });
-    $("#invheaders_demo1303").jqGrid('filterToolbar');
-  }); 
+
+- content_for :license do
+  = render :partial =>  "widgets/jqgrid/license"

@@ -1,55 +1,62 @@
-:css
-  #toolbar { padding: 0.3em; }
-  #toolbar .ui-button{ font-size: 0.8em; }
+- content_for :head_stylesheets do
+  = stylesheet_link_tag :jqGrid
+  :css
+    #toolbar { padding: 0.3em; }
+    #toolbar .ui-button{ font-size: 0.8em; }
 
-:javascript
-  $(function() {
-    $("a", "#toolbar").button();
-  });  
-  
-  $(function() {
-    $("#s1").click( function() {
-      $("#invheaders_demo0203").jqGrid('setGridParam', {
-        url:"/widgets/jqgrid/demo"
-      }).trigger("reloadGrid")
+- content_for :head_scripts do
+  = raw jqgrid_javascripts(I18n.locale)
+  :javascript
+    $(function() {
+      $("a", "#toolbar").button();
     });
-    $("#s2").click( function() {
-      $("#invheaders_demo0203").jqGrid('setGridParam', {
-        sortname : "amount", sortorder : "asc"
-      }).trigger("reloadGrid");
+
+    $(function() {
+      $("#s1").click( function() {
+        $("#invheaders_demo0203").jqGrid('setGridParam', {
+          url:"/widgets/jqgrid/demo"
+        }).trigger("reloadGrid")
+      });
+      $("#s2").click( function() {
+        $("#invheaders_demo0203").jqGrid('setGridParam', {
+          sortname : "amount", sortorder : "asc"
+        }).trigger("reloadGrid");
+      });
+      $("#s3").click( function() {
+        var so = $("#invheaders_demo0203").jqGrid('getGridParam','sortorder');
+        so = so == "asc" ? "desc" : "asc";
+        $("#invheaders_demo0203").jqGrid('setGridParam', {
+          sortorder : so
+        }).trigger("reloadGrid");
+      });
+      $("#s4").click( function() {
+        $("#invheaders_demo0203").jqGrid('setGridParam', {
+          page : 2
+        }).trigger("reloadGrid");
+      });
+      $("#s5").click( function() {
+        $("#invheaders_demo0203").jqGrid('setGridParam', {
+          rowNum : 15
+        }).trigger("reloadGrid");
+      });
+      $("#s6").click( function() {
+        $("#invheaders_demo0203").jqGrid('setGridParam', {
+          postData :{ "grid": "demo0203", "datatype" : "xml" }
+        }).trigger('reloadGrid');
+      });
+      $("#s7").click( function() {
+        $("#invheaders_demo0203").jqGrid('setCaption',
+          "New Caption"
+        );
+      });
+      $("#s8").click( function() {
+        $("#invheaders_demo0203").jqGrid('sortGrid',
+          "client.name", false
+        );
+      });
     });
-    $("#s3").click( function() {
-      var so = $("#invheaders_demo0203").jqGrid('getGridParam','sortorder');
-      so = so == "asc" ? "desc" : "asc";
-      $("#invheaders_demo0203").jqGrid('setGridParam', {
-        sortorder : so
-      }).trigger("reloadGrid");
-    });
-    $("#s4").click( function() {
-      $("#invheaders_demo0203").jqGrid('setGridParam', {
-        page : 2
-      }).trigger("reloadGrid");
-    });
-    $("#s5").click( function() {
-      $("#invheaders_demo0203").jqGrid('setGridParam', {
-        rowNum : 15
-      }).trigger("reloadGrid");
-    });
-    $("#s6").click( function() {
-      $("#invheaders_demo0203").jqGrid('setGridParam', {
-        postData :{ "grid": "demo0203", "datatype" : "xml" }
-      }).trigger('reloadGrid');
-    });
-    $("#s7").click( function() {
-      $("#invheaders_demo0203").jqGrid('setCaption', 
-        "New Caption"
-      );
-    });
-    $("#s8").click( function() {
-      $("#invheaders_demo0203").jqGrid('sortGrid', 
-        "client.name", false
-      );
-    });
-  });
-    
-= raw @grid
+
+  = raw @grid
+
+- content_for :license do
+  = render :partial =>  "widgets/jqgrid/license"

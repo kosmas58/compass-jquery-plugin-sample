@@ -1,18 +1,25 @@
-:css
-  #toolbar { padding: 0.3em; }
-  #toolbar .ui-button{ font-size: 0.8em; }
+- content_for :head_stylesheets do
+  = stylesheet_link_tag :jqGrid
+  :css
+    #toolbar { padding: 0.3em; }
+    #toolbar .ui-button{ font-size: 0.8em; }
 
-= raw @grid
+- content_for :head_scripts do
+  = raw jqgrid_javascripts(I18n.locale)
+  = raw @grid
 
-:javascript
-  $(function() {
-    $("a", "#toolbar").button();
-  });
-  
-  $(function() {
-    $("#cnvxml").click(function(){
-      $("#invheaders_demo1203").jqGrid('jqGridImport',{impurl:"demo/testxml.xml"});
-      $(this).hide();      
+  :javascript
+    $(function() {
+      $("a", "#toolbar").button();
     });
-  });
- 
+
+    $(function() {
+      $("#cnvxml").click(function(){
+        $("#invheaders_demo1203").jqGrid('jqGridImport',{impurl:"demo/testxml.xml"});
+        $(this).hide();
+      });
+    });
+
+- content_for :license do
+  = render :partial =>  "widgets/jqgrid/license"
+
