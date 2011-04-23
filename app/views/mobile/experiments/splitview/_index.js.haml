@@ -1,0 +1,12 @@
+- content_for :head_stylesheets do
+  = render :partial => "/mobile/experiments/jquery.splitview.css.haml"
+  = render :partial => "/mobile/experiments/jquery.scrollview.css.haml"
+  = render :partial => "/mobile/experiments/grids.collapsible.css.haml"
+
+- content_for :head_scripts_before_mobile do
+  = render :partial => "/mobile/experiments/jquery.splitview.js.haml", :format => :js
+
+- content_for :head_scripts_after_mobile do
+  = render :partial => "/mobile/experiments/easing.js.haml", :format => :js
+  = render :partial => "/mobile/experiments/jquery.scrollview.js.haml", :format => :js
+  

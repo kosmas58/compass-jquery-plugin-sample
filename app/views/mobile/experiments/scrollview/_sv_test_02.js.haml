@@ -1,4 +1,6 @@
 - content_for :head_stylesheets do
+  = render :partial => "/mobile/experiments/jquery.scrollview.css.haml"
+  = render :partial => "/mobile/docs/docs.html.haml"
   :css
     #evtCatcher {
       border: solid 1px black;
@@ -10,6 +12,7 @@
       padding: 10px;
     }
 
+= render :partial => "/mobile/experiments/jquery.scrollview.js.haml", :format => :js
 - content_for :head_scripts_after_mobile do
   :javascript
     $("[ data-role=page]").live("pageshow", function(event) {

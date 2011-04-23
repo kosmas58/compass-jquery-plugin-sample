@@ -1,5 +1,4 @@
 -@title = "jQuery Mobile: Scrollview Demos and Tests"
-
 = render :partial => "/mobile/index.js.haml", :format => :js
 
 #jqm{"data-role" => "page"}
@@ -10,6 +9,10 @@
   %div{"data-role" => "content"}
     %p
       A few examples tweaked to make use of the scrollview component.
+    %ul{"data-dividertheme" => "b", "data-inset" => "true", "data-role" => "listview", "data-theme" => "c"}
+      %li{"data-role" => "list-divider"} List Views
+      %li
+        %a{:href => "/mobile/experiments/scrollview/lists_divider", :rel => "external"} Sticky list dividers
     %ul{"data-dividertheme" => "b", "data-inset" => "true", "data-role" => "listview", "data-theme" => "c"}
       %li{"data-role" => "list-divider"} Tests
       %li
@@ -22,4 +25,6 @@
         %a{:href => "/mobile/experiments/scrollview/sv_test_02", :rel => "external"} Form Elements in Scrollview Event Test
   / / content
 / / page
+
+
 

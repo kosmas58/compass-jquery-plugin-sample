@@ -1,17 +1,11 @@
 -@title = "jQuery Mobile: Demos and Documentation"
-
-
-= render :partial => "lists_divider.css.haml"
-= render :partial => "/mobile/experiments/scrollview.css.haml"
-= render :partial => "/mobile/docs/docs.html.haml"
-
-- content_for :head_scripts_after_mobile do
-  = render :partial => "/mobile/experiments/scrollview.js.haml", :format => :js
+= render :partial => "lists_divider.js.haml"
   
 %div{"data-role" => "page"}
   %div{"data-role" => "header"}
     %h1 List dividers
-  / /header
+    %a.ui-btn-left{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile/experiments/scrollview", :rel => "external"} Home
+  / / header
   .ui-scrolllistview{"data-role" => "content"}
     %ul{"data-role" => "listview"}
       %li{"data-role" => "list-divider"} A
