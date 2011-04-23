@@ -1,5 +1,5 @@
 class Jqtouch::Ext::GesturesController < ApplicationController
-  layout 'jqt_jqt'
+  layout 'jqtouch'
 
   protect_from_forgery
 end

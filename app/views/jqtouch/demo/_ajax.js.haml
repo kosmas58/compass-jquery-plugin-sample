@@ -1,52 +1,53 @@
-:css   
-  /* Just for looks */
-  div#jqt #callback_content { font-size: 1.5em; text-align: center; margin: 160px 0 0; font-family: Marker felt; }
+- content_for :head_stylesheets do
+  = stylesheet_link_tag :jqt_jqt
+  :css
+    /* Just for looks */
+    div#jqt #callback_content { font-size: 1.5em; text-align: center; margin: 160px 0 0; font-family: Marker felt; }
 
-
-:javascript
-  var jQT = new $.jQTouch({
-    icon: '/images/jquery/touch/jqtouch.png',
-    addGlossToIcon: false,
-    startupScreen: '/images/jquery/touch/jqt_startup.png',
-    statusBar: 'black',
-    preloadImages: [
-        '/images/jquery/touch/jqtouch.png',
-        '/images/jquery/touch/jqt/back_button.png',
-        '/images/jquery/touch/jqt/back_button_clicked.png',
-        '/images/jquery/touch/jqt/button_clicked.png',
-        '/images/jquery/touch/jqt/grayButton.png',
-        '/images/jquery/touch/jqt/whiteButton.png',
-        '/images/jquery/touch/jqt/loading.gif'
-      ]
-  });
-    
-  // Some sample Javascript functions:
-  $(function() {
-    jQT.resetHeight();
-         
-    // Page animations end with AJAX callback event, example 1 (load remote HTML only first time)
-    $('#callback').live('pageAnimationEnd', function(e, info){
-      // Make sure the data hasn't already been loaded (we'll set 'loaded' to true a couple lines further down)
-      if (!$(this).data('loaded')) {
-        // Append a placeholder in case the remote HTML takes its sweet time making it back
-        $("#content").replaceWith($("<div id='callback_content'><img src='/images/jquery/touch/jqt/loading.gif' /> Loading</div>"))
-        
-        // Set the 'loaded' var to true so we know not to re-load the HTML next time the #callback div animation ends
-        $(this).data('loaded', true);  
-                       
-        
-        // Overwrite the "Loading" placeholder text with the remote HTML
-        //load('ajax.html .info', function() {   
-        // Set the 'loaded' var to true so we know not to re-load the HTML next time the #callback div animation ends
-        //}));     
-       
-        //$("#callback_content").replaceWith("<%= escape_javascript(render :partial => 'ajax')) %>";
-        
-        //engine = Haml::Engine.new("%p Haml code!")
-        //engine.render #=> "<p>Haml code!</p>\n"
-        
-     
-      }
+- content_for :head_scripts do
+  :javascript
+    var jQT = new $.jQTouch({
+      icon: '/images/jquery/touch/jqtouch.png',
+      addGlossToIcon: false,
+      startupScreen: '/images/jquery/touch/jqt_startup.png',
+      statusBar: 'black',
+      preloadImages: [
+          '/images/jquery/touch/jqtouch.png',
+          '/images/jquery/touch/jqt/back_button.png',
+          '/images/jquery/touch/jqt/back_button_clicked.png',
+          '/images/jquery/touch/jqt/button_clicked.png',
+          '/images/jquery/touch/jqt/grayButton.png',
+          '/images/jquery/touch/jqt/whiteButton.png',
+          '/images/jquery/touch/jqt/loading.gif'
+        ]
     });
-  });
-    
+
+    // Some sample Javascript functions:
+    $(function() {
+      jQT.resetHeight();
+
+      // Page animations end with AJAX callback event, example 1 (load remote HTML only first time)
+      $('#callback').live('pageAnimationEnd', function(e, info){
+        // Make sure the data hasn't already been loaded (we'll set 'loaded' to true a couple lines further down)
+        if (!$(this).data('loaded')) {
+          // Append a placeholder in case the remote HTML takes its sweet time making it back
+          $("#content").replaceWith($("<div id='callback_content'><img src='/images/jquery/touch/jqt/loading.gif' /> Loading</div>"))
+
+          // Set the 'loaded' var to true so we know not to re-load the HTML next time the #callback div animation ends
+          $(this).data('loaded', true);
+
+
+          // Overwrite the "Loading" placeholder text with the remote HTML
+          //load('ajax.html .info', function() {
+          // Set the 'loaded' var to true so we know not to re-load the HTML next time the #callback div animation ends
+          //}));
+
+          //$("#callback_content").replaceWith("<%= escape_javascript(render :partial => 'ajax')) %>";
+
+          //engine = Haml::Engine.new("%p Haml code!")
+          //engine.render #=> "<p>Haml code!</p>\n"
+
+
+        }
+      });
+    });

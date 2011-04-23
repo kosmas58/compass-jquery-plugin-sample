@@ -1,27 +1,29 @@
-:css
-  .edgetoedge li a .preview, .edgetoedge li a .subject { display: block; color: #999; font-size: 12px; font-weight: normal; }
-  .edgetoedge li a .subject { color: #000; font-size: 14px; }		
+- content_for :head_stylesheets do
+  = stylesheet_link_tag :jqt_apple
+  :css
+    .edgetoedge li a .preview, .edgetoedge li a .subject { display: block; color: #999; font-size: 12px; font-weight: normal; }
+    .edgetoedge li a .subject { color: #000; font-size: 14px; }
 
-:javascript
-  var jqtouch = $.jQTouch({
-    icon: '/images/demo/touch/mail/mail.png',
-    preloadImages: [
-      '/images/jquery/touch/jqt/chevron_white.png',
-      '/images/jquery/touch/jqt/bg_row_select.gif',
-      '/images/jquery/touch/jqt/back_button.png',
-      '/images/jquery/touch/jqt/back_button_clicked.png',
-      '/images/jquery/touch/jqt/button_clicked.png',
-      '/images/jquery/touch/jqt/grayButton.png',
-      '/images/jquery/touch/jqt/whiteButton.png'
-    ]
-  });
-  // Add an onload function
-  $(function() {
-    jQT.resetHeight();
-      
-    // Dynamically set next page titles after clicking certain links
-    $('#home ul a, #mailbox ul a').click(function(){
-      $( $(this).attr('href') + ' h1' ).html($(this).html());
+- content_for :head_scripts do  
+  :javascript
+    var jqtouch = $.jQTouch({
+      icon: '/images/demo/touch/mail/mail.png',
+      preloadImages: [
+        '/images/jquery/touch/jqt/chevron_white.png',
+        '/images/jquery/touch/jqt/bg_row_select.gif',
+        '/images/jquery/touch/jqt/back_button.png',
+        '/images/jquery/touch/jqt/back_button_clicked.png',
+        '/images/jquery/touch/jqt/button_clicked.png',
+        '/images/jquery/touch/jqt/grayButton.png',
+        '/images/jquery/touch/jqt/whiteButton.png'
+      ]
     });
-  });  
-  
+    // Add an onload function
+    $(function() {
+      jQT.resetHeight();
+
+      // Dynamically set next page titles after clicking certain links
+      $('#home ul a, #mailbox ul a').click(function(){
+        $( $(this).attr('href') + ' h1' ).html($(this).html());
+      });
+    });

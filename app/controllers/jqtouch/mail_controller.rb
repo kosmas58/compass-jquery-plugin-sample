@@ -1,5 +1,5 @@
 class Jqtouch::MailController < ApplicationController
-  layout 'jqt_apple'
+  layout 'jqtouch'
 
   protect_from_forgery
 end

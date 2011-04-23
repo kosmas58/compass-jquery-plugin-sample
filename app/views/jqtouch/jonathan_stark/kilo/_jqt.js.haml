@@ -1,135 +1,138 @@
-:css
-  #date ul li {
-      position: relative;
-  }
-  #date ul li span {
-      color: #FFFFFF;
-      text-shadow: rgba(0,0,0,.7) 0 1px 2px;
-  }
-  #date ul li .delete {
-      position: absolute;
-      top: 5px;
-      right: 6px;
-      font-size: 12px;
-      line-height: 30px;
-      padding: 0 3px;
-      border-width: 0 5px;
-      -webkit-border-image: url(/images/jquery/touch/jqt/button.png) 0 5 0 5;
-  }
-  
-:javascript
-  var jQT = $.jQTouch({
-    icon: '/images/demo/touch/jonathan_stark/kilo-icon.png',
-    addGlossToIcon: true,
-    startupScreen: '/images/demo/touch/jonathan_stark/kilo-startup.png',
-    statusBar: 'black'
-  });
-  
-  var db;
-  function saveSettings() {
-    localStorage.age = $('#age').val();
-    localStorage.budget = $('#budget').val();
-    localStorage.weight = $('#weight').val();
-    jQT.goBack();
-    return false;
-  }
-  
-  function loadSettings() {
-    $('#age').val(localStorage.age);
-    $('#budget').val(localStorage.budget);
-    $('#weight').val(localStorage.weight);
-  }
-  
-  function refreshEntries() {
-    var currentDate = sessionStorage.currentDate;
-    $('#date h1').text(currentDate);
-    $('#date ul li:gt(0)').remove();
-    db.transaction(
-      function(transaction) {
-        transaction.executeSql(
-          'SELECT * FROM entries WHERE date = ? ORDER BY food;',
-          [currentDate],
-          function (transaction, result) {
-            for (var i=0; i < result.rows.length; i++) {
-              var row = result.rows.item(i);
-              var newEntryRow = $('#entryTemplate').clone();
-              newEntryRow.removeAttr('id');
-              newEntryRow.removeAttr('style');
-              newEntryRow.data('entryId', row.id);
-              newEntryRow.appendTo('#date ul');
-              newEntryRow.find('.label').text(row.food);
-              newEntryRow.find('.calories').text(row.calories);
-              newEntryRow.find('.delete').click(function(){
-                var clickedEntry = $(this).parent();
-                var clickedEntryId = clickedEntry.data('entryId');
-                deleteEntryById(clickedEntryId);
-                clickedEntry.slideUp();
-              });
-            }
-          },
-          errorHandler
-        );
-      }
-    );
-  }
-  
-  function createEntry() {
-    var date = sessionStorage.currentDate;
-    var calories = $('#calories').val();
-    var food = $('#food').val();
-    db.transaction(
-      function(transaction) {
-        transaction.executeSql(
-          'INSERT INTO entries (date, calories, food) VALUES (?, ?, ?);',
-          [date, calories, food],
-          function(){
-            refreshEntries();
-            jQT.goBack();
-          },
-          errorHandler
-        );
-      }
-    );
-    return false;
-  }
-  
-  function errorHandler(transaction, error) {
-    alert('Oops. Error was '+error.message+' (Code '+error.code+')');
-    return true;
-  }
-  
-  function deleteEntryById(id) {
-    db.transaction(
-      function (transaction) {
-        transaction.executeSql('DELETE FROM entries WHERE id=?;', [id], null, errorHandler);
-      }
-    );
-  }
+- content_for :head_stylesheets do
+  = stylesheet_link_tag :jqt_jqt
+  :css
+    #date ul li {
+        position: relative;
+    }
+    #date ul li span {
+        color: #FFFFFF;
+        text-shadow: rgba(0,0,0,.7) 0 1px 2px;
+    }
+    #date ul li .delete {
+        position: absolute;
+        top: 5px;
+        right: 6px;
+        font-size: 12px;
+        line-height: 30px;
+        padding: 0 3px;
+        border-width: 0 5px;
+        -webkit-border-image: url(/images/jquery/touch/jqt/button.png) 0 5 0 5;
+    }
 
-  $(function() {
-    $('#saveEntry').click(createEntry);
-    $('#saveSettings').click(saveSettings);
-    $('#settings').bind('pageAnimationStart', loadSettings);
-    $('#dates li a').click(function(){
-      var dayOffset = this.id;
-      var date = new Date();
-      date.setDate(date.getDate() - dayOffset);
-      sessionStorage.currentDate = date.getMonth() + 1 + '/' + date.getDate() + '/' + date.getFullYear();
-      refreshEntries();
+- content_for :head_scripts do
+  :javascript
+    var jQT = $.jQTouch({
+      icon: '/images/demo/touch/jonathan_stark/kilo-icon.png',
+      addGlossToIcon: true,
+      startupScreen: '/images/demo/touch/jonathan_stark/kilo-startup.png',
+      statusBar: 'black'
     });
-    var shortName = 'Kilo';
-    var version = '1.0';
-    var displayName = 'Kilo';
-    var maxSize = 65536;
-    db = openDatabase(shortName, version, displayName, maxSize);
-    db.transaction(
-      function(transaction) {
-        transaction.executeSql(
-          'CREATE TABLE IF NOT EXISTS entries ' +
-          ' (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, ' +
-          ' date DATE NOT NULL, food TEXT NOT NULL, ' +
-          ' calories INTEGER NOT NULL );'
-        );
-      }
-    );
-  });
+
+    var db;
+    function saveSettings() {
+      localStorage.age = $('#age').val();
+      localStorage.budget = $('#budget').val();
+      localStorage.weight = $('#weight').val();
+      jQT.goBack();
+      return false;
+    }
+
+    function loadSettings() {
+      $('#age').val(localStorage.age);
+      $('#budget').val(localStorage.budget);
+      $('#weight').val(localStorage.weight);
+    }
+
+    function refreshEntries() {
+      var currentDate = sessionStorage.currentDate;
+      $('#date h1').text(currentDate);
+      $('#date ul li:gt(0)').remove();
+      db.transaction(
+        function(transaction) {
+          transaction.executeSql(
+            'SELECT * FROM entries WHERE date = ? ORDER BY food;',
+            [currentDate],
+            function (transaction, result) {
+              for (var i=0; i < result.rows.length; i++) {
+                var row = result.rows.item(i);
+                var newEntryRow = $('#entryTemplate').clone();
+                newEntryRow.removeAttr('id');
+                newEntryRow.removeAttr('style');
+                newEntryRow.data('entryId', row.id);
+                newEntryRow.appendTo('#date ul');
+                newEntryRow.find('.label').text(row.food);
+                newEntryRow.find('.calories').text(row.calories);
+                newEntryRow.find('.delete').click(function(){
+                  var clickedEntry = $(this).parent();
+                  var clickedEntryId = clickedEntry.data('entryId');
+                  deleteEntryById(clickedEntryId);
+                  clickedEntry.slideUp();
+                });
+              }
+            },
+            errorHandler
+          );
+        }
+      );
+    }
+
+    function createEntry() {
+      var date = sessionStorage.currentDate;
+      var calories = $('#calories').val();
+      var food = $('#food').val();
+      db.transaction(
+        function(transaction) {
+          transaction.executeSql(
+            'INSERT INTO entries (date, calories, food) VALUES (?, ?, ?);',
+            [date, calories, food],
+            function(){
+              refreshEntries();
+              jQT.goBack();
+            },
+            errorHandler
+          );
+        }
+      );
+      return false;
+    }
+
+    function errorHandler(transaction, error) {
+      alert('Oops. Error was '+error.message+' (Code '+error.code+')');
+      return true;
+    }
+
+    function deleteEntryById(id) {
+      db.transaction(
+        function (transaction) {
+          transaction.executeSql('DELETE FROM entries WHERE id=?;', [id], null, errorHandler);
+        }
+      );
+    }
+
+    $(function() {
+      $('#saveEntry').click(createEntry);
+      $('#saveSettings').click(saveSettings);
+      $('#settings').bind('pageAnimationStart', loadSettings);
+      $('#dates li a').click(function(){
+        var dayOffset = this.id;
+        var date = new Date();
+        date.setDate(date.getDate() - dayOffset);
+        sessionStorage.currentDate = date.getMonth() + 1 + '/' + date.getDate() + '/' + date.getFullYear();
+        refreshEntries();
+      });
+      var shortName = 'Kilo';
+      var version = '1.0';
+      var displayName = 'Kilo';
+      var maxSize = 65536;
+      db = openDatabase(shortName, version, displayName, maxSize);
+      db.transaction(
+        function(transaction) {
+          transaction.executeSql(
+            'CREATE TABLE IF NOT EXISTS entries ' +
+            ' (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, ' +
+            ' date DATE NOT NULL, food TEXT NOT NULL, ' +
+            ' calories INTEGER NOT NULL );'
+          );
+        }
+      );
+    });

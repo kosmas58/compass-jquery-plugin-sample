@@ -1,140 +1,143 @@
-:javascript
-  var jQT = new $.jQTouch({
-    slideSelector: '#jqt li a, .slide',
-    icon: '/images/jquery/touch/jqtouch.png',
-    icon4: '/images/jquery/touch/jqtouch4.png',
-    addGlossToIcon: false,
-    startupScreen: '/images/jquery/touch/jqt_startup.png',
-    statusBar: 'black',
-    preloadImages: [
-        '/images/jquery/touch/jqt/activeButton.png',
-        '/images/jquery/touch/jqt/back_button.png',
-        '/images/jquery/touch/jqt/back_button_clicked.png',
-        '/images/jquery/touch/jqt/blueButton.png',
-        '/images/jquery/touch/jqt/button.png',
-        '/images/jquery/touch/jqt/button_clicked.png',
-        '/images/jquery/touch/jqt/grayButton.png',
-        '/images/jquery/touch/jqt/greenButton.png',
-        '/images/jquery/touch/jqt/redButton.png',
-        '/images/jquery/touch/jqt/whiteButton.png',
-        '/images/jquery/touch/jqt/loading.gif'
-        
-      ]
-  });
-  
-  var friends = [{firstName: "Mike", lastName: "Vaninetti"},
-                 {firstName: "Mithulan", lastName: "Jegapragasan"},
-                 {firstName: "Chris", lastName: "Williams"},
-                 {firstName: "Orges", lastName: "Beqiri"},
-                 {firstName: "Nick", lastName: "Prionas"}];
-  
-  function filter() {
-    $("#friends").items("filter", $("#search").val());
-  };
-  
-  function friendclick(event) {
-    var element = (event.target.nodeName == "SPAN") ? event.target.parentNode : event.target;
-    var first = $(element).children("span.firstName").text();
-    var last = $(element).children("span.lastName").text();
-    
-    $("#thedetails").item("replace", {firstName:first, lastName:last}).chain();
-  };
-                     
-  // Some sample Javascript functions:
-  $(function() {
-    jQT.resetHeight();
-    
-    jQT.dbOpen("databaseTest", "1.0","jqTouch web application database", 200000); 
-    jQT.dbDropTable("favoriteThing")
-      var jsonTb= { "createTables" :
-        [
-          {"table": "favoriteThing",  "property":
-            [
-              {"name": "id", "type": "INTEGER PRIMARY KEY AUTOINCREMENT" },
-              {"name": "name", "type": "TEXT" },
-              {"name": "link", "type": "TEXT" },
-              {"name": "content", "type": "TEXT" }
-            ]
-          }
-        ]
-      }
-    jQT.dbCreateTables(jsonTb)
-      var jsonAddRow1 = { "addRow" :
-        [
-          {"table": "favoriteThing",  "property":
-            [
-              {"name": "name", "value": "Field from database 1" },
-              {"name": "link", "value": "database1" },
-              {"name": "content", "value": "This text is coming from the database 1" }
-            ]
-          },
-          {"table": "favoriteThing",  "property":
-            [
-              {"name": "name", "value": "Field from database 2" },
-              {"name": "link", "value": "database2" },
-              {"name": "content", "value": "This text is coming from the database2" }
-            ]
-          },
-        ]
-      }
-    jQT.dbInsertRows(jsonAddRow1)
+- content_for :head_stylesheets do
+  = stylesheet_link_tag :jqt_jqt
+  :css
+    #jqt.fullscreen #home .info { display: none; }
+    div#jqt #about { padding: 100px 10px 40px; text-shadow: rgba(255, 255, 255, 0.3) 0px -1px 0; font-size: 13px; text-align: center; background: #161618; }
+    div#jqt #about p { margin-bottom: 8px; }
+    div#jqt #about a { color: #fff; font-weight: bold; text-decoration: none; }
 
-    jQT.dbSelectAll("favoriteThing",function(result){
-      for (var i = 0; i < result.rows.length; ++i) {
-        var row = result.rows.item(i);
-        $("ul#database").append('<li class=""><a href="#'+row['link']+'">'+row['name']+'</a></li>')
-      }
-    })
+- content_for :head_scripts do
+  :javascript
+    var jQT = new $.jQTouch({
+      slideSelector: '#jqt li a, .slide',
+      icon: '/images/jquery/touch/jqtouch.png',
+      icon4: '/images/jquery/touch/jqtouch4.png',
+      addGlossToIcon: false,
+      startupScreen: '/images/jquery/touch/jqt_startup.png',
+      statusBar: 'black',
+      preloadImages: [
+          '/images/jquery/touch/jqt/activeButton.png',
+          '/images/jquery/touch/jqt/back_button.png',
+          '/images/jquery/touch/jqt/back_button_clicked.png',
+          '/images/jquery/touch/jqt/blueButton.png',
+          '/images/jquery/touch/jqt/button.png',
+          '/images/jquery/touch/jqt/button_clicked.png',
+          '/images/jquery/touch/jqt/grayButton.png',
+          '/images/jquery/touch/jqt/greenButton.png',
+          '/images/jquery/touch/jqt/redButton.png',
+          '/images/jquery/touch/jqt/whiteButton.png',
+          '/images/jquery/touch/jqt/loading.gif'
 
-    // Show a swipe event on swipe test
-    $('#swipeme').swipe(function(evt, data) {
-      $(this).html('You swiped <strong>' + data.direction + '/' + data.deltaX +':' + data.deltaY + '</strong>!');
-      $(this).parent().after('<li>swiped!</li>');
+        ]
     });
-    $('#tapme').tap(function(){
-        $(this).parent().after('<li>tapped!</li>')
-    });
-    $('a[target="_blank"]').click(function() {
-      if (confirm('This link opens in a new window.')) {
-        return true;
-      } else {
-        //$(this).removeClass('active');
-        return false;
-      }
-    });
-    // Page animation callback events
-    $('#pageevents').live('pageAnimationStart', function(e, info){ 
-        $(this).find('.info').append('Started animating ' + info.direction + '&hellip; ');
-      }).live('pageAnimationEnd', function(e, info){
-        $(this).find('.info').append(' finished animating ' + info.direction + '.<br /><br />');
+
+    var friends = [{firstName: "Mike", lastName: "Vaninetti"},
+                   {firstName: "Mithulan", lastName: "Jegapragasan"},
+                   {firstName: "Chris", lastName: "Williams"},
+                   {firstName: "Orges", lastName: "Beqiri"},
+                   {firstName: "Nick", lastName: "Prionas"}];
+
+    function filter() {
+      $("#friends").items("filter", $("#search").val());
+    };
+
+    function friendclick(event) {
+      var element = (event.target.nodeName == "SPAN") ? event.target.parentNode : event.target;
+      var first = $(element).children("span.firstName").text();
+      var last = $(element).children("span.lastName").text();
+
+      $("#thedetails").item("replace", {firstName:first, lastName:last}).chain();
+    };
+
+    // Some sample Javascript functions:
+    $(function() {
+      jQT.resetHeight();
+
+      jQT.dbOpen("databaseTest", "1.0","jqTouch web application database", 200000);
+      jQT.dbDropTable("favoriteThing")
+        var jsonTb= { "createTables" :
+          [
+            {"table": "favoriteThing",  "property":
+              [
+                {"name": "id", "type": "INTEGER PRIMARY KEY AUTOINCREMENT" },
+                {"name": "name", "type": "TEXT" },
+                {"name": "link", "type": "TEXT" },
+                {"name": "content", "type": "TEXT" }
+              ]
+            }
+          ]
+        }
+      jQT.dbCreateTables(jsonTb)
+        var jsonAddRow1 = { "addRow" :
+          [
+            {"table": "favoriteThing",  "property":
+              [
+                {"name": "name", "value": "Field from database 1" },
+                {"name": "link", "value": "database1" },
+                {"name": "content", "value": "This text is coming from the database 1" }
+              ]
+            },
+            {"table": "favoriteThing",  "property":
+              [
+                {"name": "name", "value": "Field from database 2" },
+                {"name": "link", "value": "database2" },
+                {"name": "content", "value": "This text is coming from the database2" }
+              ]
+            },
+          ]
+        }
+      jQT.dbInsertRows(jsonAddRow1)
+
+      jQT.dbSelectAll("favoriteThing",function(result){
+        for (var i = 0; i < result.rows.length; ++i) {
+          var row = result.rows.item(i);
+          $("ul#database").append('<li class=""><a href="#'+row['link']+'">'+row['name']+'</a></li>')
+        }
+      })
+
+      // Show a swipe event on swipe test
+      $('#swipeme').swipe(function(evt, data) {
+        $(this).html('You swiped <strong>' + data.direction + '/' + data.deltaX +':' + data.deltaY + '</strong>!');
+        $(this).parent().after('<li>swiped!</li>');
       });
-    // Orientation callback event
-    $('body').live('turn', function(e, data){
-      $('#orient').html('Orientation: ' + data.orientation);
+      $('#tapme').tap(function(){
+          $(this).parent().after('<li>tapped!</li>')
+      });
+      $('a[target="_blank"]').click(function() {
+        if (confirm('This link opens in a new window.')) {
+          return true;
+        } else {
+          //$(this).removeClass('active');
+          return false;
+        }
+      });
+      // Page animation callback events
+      $('#pageevents').live('pageAnimationStart', function(e, info){
+          $(this).find('.info').append('Started animating ' + info.direction + '&hellip; ');
+        }).live('pageAnimationEnd', function(e, info){
+          $(this).find('.info').append(' finished animating ' + info.direction + '.<br /><br />');
+        });
+      // Orientation callback event
+      $('body').live('turn', function(e, data){
+        $('#orient').html('Orientation: ' + data.orientation);
+      });
+      // Video stuff
+      $('#play_movie').live('tap', function(){
+        $('#movie').get(0).play();
+        $(this).removeClass('active');
+      });
+      $('#play_movie').live('click', function(){
+        $('#movie').get(0).play();
+        $(this).removeClass('active');
+      });
+      $('#video').live('pageAnimationStart', function(e, info){
+        $('#movie').css('display', 'none');
+      }).live('pageAnimationEnd', function(e, info){
+        if (info.direction == 'in')
+        {
+          $('#movie').css('display', 'block');
+        }
+      });
+      $("#friends").items(friends).chain();
+      $("#thedetails").item({}).chain();
     });
-    // Video stuff
-    $('#play_movie').live('tap', function(){
-      $('#movie').get(0).play();
-      $(this).removeClass('active');
-    });      
-    $('#play_movie').live('click', function(){
-      $('#movie').get(0).play();
-      $(this).removeClass('active');
-    });      
-    $('#video').live('pageAnimationStart', function(e, info){
-      $('#movie').css('display', 'none');
-    }).live('pageAnimationEnd', function(e, info){
-      if (info.direction == 'in')
-      {
-        $('#movie').css('display', 'block');
-      }
-    });
-    $("#friends").items(friends).chain();
-    $("#thedetails").item({}).chain();
-  });
-  
-:css
-  #jqt.fullscreen #home .info { display: none; }
-  div#jqt #about { padding: 100px 10px 40px; text-shadow: rgba(255, 255, 255, 0.3) 0px -1px 0; font-size: 13px; text-align: center; background: #161618; }
-  div#jqt #about p { margin-bottom: 8px; }
-  div#jqt #about a { color: #fff; font-weight: bold; text-decoration: none; }

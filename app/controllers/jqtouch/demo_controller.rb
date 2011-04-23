@@ -1,5 +1,5 @@
 class Jqtouch::DemoController < ApplicationController
-  layout 'jqt_jqt'
+  layout 'jqtouch'
 
   protect_from_forgery
 

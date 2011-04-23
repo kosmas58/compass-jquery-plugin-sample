@@ -1,5 +1,5 @@
 class Jqtouch::JonathanStark::KiloOfflineController < ApplicationController
-  layout 'jqt_offline'
+  layout 'jqtouch'
 
   protect_from_forgery
 end
