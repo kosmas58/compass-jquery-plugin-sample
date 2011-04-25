@@ -1,0 +1,10 @@
+.span-24.last
+  #toolbar.ui-widget-header.ui-corner-all
+    %button#resize
+    %button#rotate
+    %button#configure_ppi #{t('txt.layout.ppi.tooltip')}
+
+  %center
+    .emulator
+      .display-area
+        %iframe#disp-area{ :src => url, :width => width, :height => height }

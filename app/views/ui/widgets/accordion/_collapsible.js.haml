@@ -1,6 +1,10 @@
-:javascript 
-  $(function() {
-    $("#accordionDemo").accordion({
-      collapsible: true
+- content_for :head_scripts do
+  :javascript
+    $(function() {
+      $("#accordionDemo").accordion({
+        collapsible: true
+      });
     });
-  });
+
+- content_for :license do
+  = render :partial => "ui/license"

@@ -1,4 +1,8 @@
-:javascript
-  $(function() {
-    $("#tabs").tabs().find(".ui-tabs-nav").sortable({axis:'x'});
-  });
+- content_for :head_scripts do
+  :javascript
+    $(function() {
+      $("#tabs").tabs().find(".ui-tabs-nav").sortable({axis:'x'});
+    });
+
+- content_for :license do
+  = render :partial => "ui/license"

@@ -1,6 +1,4 @@
 class Widgets::Ical::CalendarsController < ApplicationController
-  layout 'ical', :except => [:iphone]
-
   protect_from_forgery
 
   make_resourceful do
@@ -17,7 +15,7 @@ class Widgets::Ical::CalendarsController < ApplicationController
     response_for :show do |format|
       format.html
       format.ics do
-        render(:text => @current_object.to_ics())
+        render :text => @current_object.to_ics()
       end
     end
 
@@ -27,6 +25,6 @@ class Widgets::Ical::CalendarsController < ApplicationController
   end
 
   def iphone
-    render :iphone, :layout => 'iphone_portrait'
+    render :iphone, :layout => 'iphone3_portrait'
   end
 end

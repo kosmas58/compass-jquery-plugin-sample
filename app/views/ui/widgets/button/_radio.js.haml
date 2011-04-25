@@ -1,5 +1,8 @@
-:javascript
-  $(function() {
-    $("#radio").buttonset();
-  });
-  
+- content_for :head_scripts do
+  :javascript
+    $(function() {
+      $("#radio").buttonset();
+    });
+
+- content_for :license do
+  = render :partial => "ui/license"

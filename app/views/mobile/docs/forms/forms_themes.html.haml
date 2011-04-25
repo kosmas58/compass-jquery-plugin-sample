@@ -1,7 +1,6 @@
--@title = "jQuery Mobile Docs - Forms"
+-@title = "jQuery Mobile Docs - Theming Forms"
 
-- content_for :content_head do
-  = render(:partial => "/mobile/index.js.haml", :format => :js)
+= render :partial => "/mobile/index.js.haml", :format => :js
 
 %div{"data-role" => "page"}
   %div{"data-role" => "header", "data-theme" => "b"}
@@ -56,7 +55,7 @@
           %label{:for => "radio-choice-4a"} Lizard
       %div{"data-role" => "fieldcontain"}
         %label.select{:for => "select-choice-a"} Choose shipping method:
-        %select#select-choice-a{:name => "select-choice-a"}
+        %select#select-choice-a{"data-native-menu" => "false", :name => "select-choice-a"}
           %option{:value => "standard"} Standard: 7 day
           %option{:value => "rush"} Rush: 3 days
           %option{:value => "express"} Express: next day
@@ -98,7 +97,7 @@
           %label{:for => "radio-choice-4b"} Lizard
       %div{"data-role" => "fieldcontain"}
         %label.select{:for => "select-choice-b"} Choose shipping method:
-        %select#select-choice-b{:name => "select-choice-b"}
+        %select#select-choice-b{"data-native-menu" => "false", :name => "select-choice-b"}
           %option{:value => "standard"} Standard: 7 day
           %option{:value => "rush"} Rush: 3 days
           %option{:value => "express"} Express: next day
@@ -140,7 +139,7 @@
           %label{:for => "radio-choice-4c"} Lizard
       %div{"data-role" => "fieldcontain"}
         %label.select{:for => "select-choice-c"} Choose shipping method:
-        %select#select-choice-c{:name => "select-choice-c"}
+        %select#select-choice-c{"data-native-menu" => "false", :name => "select-choice-c"}
           %option{:value => "standard"} Standard: 7 day
           %option{:value => "rush"} Rush: 3 days
           %option{:value => "express"} Express: next day
@@ -182,7 +181,7 @@
           %label{:for => "radio-choice-4d"} Lizard
       %div{"data-role" => "fieldcontain"}
         %label.select{:for => "select-choice-d"} Choose shipping method:
-        %select#select-choice-d{:name => "select-choice-d"}
+        %select#select-choice-d{"data-native-menu" => "false", :name => "select-choice-d"}
           %option{:value => "standard"} Standard: 7 day
           %option{:value => "rush"} Rush: 3 days
           %option{:value => "express"} Express: next day
@@ -224,7 +223,7 @@
           %label{:for => "radio-choice-4e"} Lizard
       %div{"data-role" => "fieldcontain"}
         %label.select{:for => "select-choice-e"} Choose shipping method:
-        %select#select-choice-e{:name => "select-choice-e"}
+        %select#select-choice-e{"data-native-menu" => "false", :name => "select-choice-e"}
           %option{:value => "standard"} Standard: 7 day
           %option{:value => "rush"} Rush: 3 days
           %option{:value => "express"} Express: next day

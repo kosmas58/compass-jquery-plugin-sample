@@ -1,0 +1,377 @@
+-@title = "jQuery Mobile Framework - Split View"
+= render :partial => "index.js.haml", :format => :
+
+%div{"data-context" => "a#default", "data-hash" => "crumbs", "data-id" => "menu", "data-role" => "panel"}
+  / Start of first page
+  #main{"data-role" => "page"}
+    %div{"data-backbtn" => "false", "data-role" => "header"}
+      %h1 Main
+    / /header
+    %div{"data-role" => "content"}
+      %ul{"data-role" => "listview", "data-theme" => "g"}
+        %li
+          About
+          %ul
+            %li
+              %a{"data-panel" => "main", :href => "#aboutus"} About Us
+            %li
+              %a{"data-panel" => "main", :href => "#aboutsv"} About Splitview
+        %li
+          Features
+          %ul
+            %li
+              %a{"data-panel" => "main", :href => "#panels"} Panels
+            %li
+              %a{"data-panel" => "main", :href => "#orientation"} Orientation
+            %li
+              %a{"data-panel" => "main", :href => "#scroll"} Scroll
+        %li
+          %a{"data-panel" => "main", :href => "#credits"} Credits
+        %li
+          %a{"data-panel" => "main", :href => "#source"} Source@Github
+    / /content
+    %div{"data-id" => "ew-footer", "data-position" => "fixed", "data-role" => "footer"}
+      %div{"data-role" => "navbar"}
+        %ul
+          %li
+            %a.ui-btn-active{"data-transition" => "slideup", :href => "#main"} Main
+          %li
+            %a{"data-transition" => "slideup", :href => "#demo"} Demos
+      / /navbar
+      %h2 Engineworks &copy CS8
+    / /footer
+  / /page
+  / Start of 2nd page
+  #demo{"data-role" => "page"}
+    %div{"data-backbtn" => "false", "data-role" => "header"}
+      %h1 Demos
+    / /header
+    %div{"data-role" => "content"}
+      %ul{"data-role" => "listview", "data-theme" => "g"}
+        %li
+          %a#default{"data-panel" => "main", :href => "#bar"} Bar
+        %li
+          %a{"data-panel" => "main", :href => "#badz"} badz
+        %li
+          First level list
+          %ul
+            %li
+              Second level list
+              %ul
+                %li
+                  %a{"data-panel" => "main", :href => "#bar"} long list test
+                %li
+                  %a{"data-panel" => "main", :href => "#badz"} badz
+                %li
+                  %a{"data-panel" => "main", :href => "#badz"} badz
+                %li
+                  %a{"data-panel" => "main", :href => "#badz"} badz
+                %li
+                  %a{"data-panel" => "main", :href => "#badz"} badz
+                %li
+                  %a{"data-panel" => "main", :href => "#badz"} badz
+                %li
+                  %a{"data-panel" => "main", :href => "#badz"} badz
+                %li
+                  %a{"data-panel" => "main", :href => "#badz"} badz
+                %li
+                  %a{"data-panel" => "main", :href => "#badz"} badz
+                %li
+                  %a{"data-panel" => "main", :href => "#badz"} badz
+                %li
+                  %a{"data-panel" => "main", :href => "#badz"} badz
+                %li
+                  %a{"data-panel" => "main", :href => "#badz"} badz
+                %li
+                  %a{"data-panel" => "main", :href => "#badz"} badz
+                %li
+                  %a{"data-panel" => "main", :href => "#badz"} badz
+                %li
+                  %a{"data-panel" => "main", :href => "#badz"} badz
+                %li
+                  %a{"data-panel" => "main", :href => "#badz"} badz
+                %li
+                  %a{"data-panel" => "main", :href => "#badz"} badz
+                %li
+                  %a{"data-panel" => "main", :href => "#badz"} badz
+                %li
+                  %a{"data-panel" => "main", :href => "#badz"} badz
+                %li
+                  %a{"data-panel" => "main", :href => "#badz"} badz
+                %li
+                  %a{"data-panel" => "main", :href => "#badz"} badz
+                %li
+                  %a{"data-panel" => "main", :href => "#badz"} badz
+                %li
+                  %a{"data-panel" => "main", :href => "#badz"} badz
+                %li
+                  %a{"data-panel" => "main", :href => "#badz"} badz
+                %li
+                  %a{"data-panel" => "main", :href => "#badz"} badz
+                %li
+                  %a{"data-panel" => "main", :href => "#badz"} badz
+                %li
+                  %a{"data-panel" => "main", :href => "#badz"} badz
+            %li
+              %a{"data-panel" => "main", :href => "#bar"} Bar
+            %li
+              %a{"data-panel" => "main", :href => "#badz"} badz
+    / /content
+    %div{"data-id" => "ew-footer", "data-position" => "fixed", "data-role" => "footer"}
+      %div{"data-role" => "navbar"}
+        %ul
+          %li
+            %a.ui-btn-active{"data-transition" => "slideup", :href => "#main"} Main
+          %li
+            %a{"data-transition" => "slideup", :href => "#demo"} Demos
+      / /navbar
+      %h2 Engineworks &copy CS8
+    / /footer
+  / /page
+/ panel menu
+%div{"data-id" => "main", "data-role" => "panel"}
+  / Start of 6th page
+  #aboutsv{"data-role" => "page"}
+    %div{"data-role" => "header"}
+      %h1 About SplitView
+    / /header
+    %div{"data-role" => "content"}
+      %p We first started to look into jQuery Mobile when had a project that needed us to build web applications that would work great on all platforms: Desktop, Tablets(iPad), and Mobile
+      %p Although jQuery Mobile was still in alpha 1 at that time, we felt that it provided the most in terms of what we needed. so we set ahead trying to see if we could help others who had the same interest as we did: get it to work well on the Desktop/iPad - as a SplitView
+      %p A few months later, around alpha 3, we finally got our first splitview to work, and thanks to support from jQuery Mobile's own core team members, Splitview for jQMobile is what it is today
+      %p There are still a lot of things to do, but we hope you enjoy using this plugin, and contribute back to it by reporting bugs, requesting features, and best of all, submitting your own code contributions. Thanks!
+      %p
+        %b NOTE:
+        keep in mind that I added some namespacing to event handlers in jQMobile core. use the version of jQuerymobile found in the experiments/splitview/ folder of my fork.
+    / /content
+    %div{"data-id" => "ew-footer", "data-position" => "fixed", "data-role" => "footer"}
+      %div{"data-role" => "navbar"}
+        %ul
+          %li
+            %a.ui-btn-active{"data-transition" => "slideup", :href => "#main"} Main
+          %li
+            %a{"data-transition" => "slideup", :href => "#demo"} Demos
+      / /navbar
+      %h2 Engineworks &copy CS8
+    / /footer
+  / /page
+  / Start of 5th page
+  #aboutus{"data-role" => "page"}
+    %div{"data-role" => "header"}
+      %h1 About Us
+    / /header
+    %div{"data-role" => "content"}
+      %h3 CS8
+      %p We're a bunch of guys who love to code. Ruby on Rails, Wordpress, Drupal, and OpenERP - we love 'em all... and we'll soon be introducing our own open-source project, based on jQueryMobile, and Ruby on Rails.
+      %p
+        So stay tuned, check back here often, or follow us on facebook or twitter! details below:
+        %p
+          %b Twitter:
+          asyraf9
+        %p
+          %b Facebook:
+          asyraf9
+        %p
+          %b Website:
+          %a{:href => "http://www.cs8.my"} www.cs8.my
+    / /content
+    %div{"data-id" => "ew-footer", "data-position" => "fixed", "data-role" => "footer"}
+      %div{"data-role" => "navbar"}
+        %ul
+          %li
+            %a.ui-btn-active{"data-transition" => "slideup", :href => "#main"} Main
+          %li
+            %a{"data-transition" => "slideup", :href => "#demo"} Demos
+      / /navbar
+      %h2 Engineworks &copy CS8
+    / /footer
+  / /page
+  / Start of 7th page
+  #panels{"data-role" => "page"}
+    %div{"data-role" => "header"}
+      %h1 Panels
+    / /header
+    %div{"data-role" => "content"}
+      %p
+        In order for splitview to work, we defined two more
+        %b &lt;div&gt;
+        tags to enclose the pages - one called 'main', the right hand panel, and 'menu' which is the left sidebar panel
+      %p This provides us with a few advantages:
+      %p
+        1. It allows us to define the area new pages should be loaded in. We do this by using data-panel attributes on anchor tags. example:
+        %br/
+        %br/
+        %b{:style => "padding-left:30px;"} &lt;a href="some_other_page" data-panel="main"&gt;
+      %p 2. It allows us to define if a panel's page transitions should be tracked in history or not.
+      %p{:style => "padding-left:30px;"}
+        This uses the data-hash attribute on the panels. It takes three options - 'true','false', and 'crumbs' with true as default.
+        The 'crumbs' setting changes the panel's back button into a button that points to the previous page, and disables jQMobile from tracking the panel's history
+      %p 3. It allows us to hide and show the panel depending on screen orientation, and unobtrusively disable it when the site is viewed on mobile browsers
+    / /content
+    %div{"data-id" => "ew-footer", "data-position" => "fixed", "data-role" => "footer"}
+      %div{"data-role" => "navbar"}
+        %ul
+          %li
+            %a.ui-btn-active{"data-transition" => "slideup", :href => "#main"} Main
+          %li
+            %a{"data-transition" => "slideup", :href => "#demo"} Demos
+      / /navbar
+      %h2 Engineworks &copy CS8
+    / /footer
+  / /page
+  / Start of 8th page
+  #orientation{"data-role" => "page"}
+    %div{"data-role" => "header"}
+      %h1 Orientation and Resize
+    / /header
+    %div{"data-role" => "content"}
+      %p Very simply put, SplitView dynamically lays out the pages based on your tablet's (iPad, etc) orientation, as well as your desktop's screen size. Try it out, resize your browser, or turn your iPad to see it in portrait and landscape modes!
+      %p NOTE: you may have to refresh the view if you scale the browser window down to a mobile size - less than 480px - Splitview determines upon page load if it should lay the pages out in splitview mode or mobile mode (the default jQmobile implementation)
+    / /content
+    %div{"data-id" => "ew-footer", "data-position" => "fixed", "data-role" => "footer"}
+      %div{"data-role" => "navbar"}
+        %ul
+          %li
+            %a.ui-btn-active{"data-transition" => "slideup", :href => "#main"} Main
+          %li
+            %a{"data-transition" => "slideup", :href => "#demo"} Demos
+      / /navbar
+      %h2 Engineworks &copy CS8
+    / /footer
+  / /page
+  / Start of 9th page
+  #scroll{"data-role" => "page"}
+    %div{"data-role" => "header"}
+      %h1 Scrolling
+    / /header
+    %div{"data-role" => "content"}
+      %p
+        Splitview detects if your device is touch enabled or not. it will then implement the proper scrolling mechanism for your device. This is possible thanks to the jQuery Mobile team's experimental momentum scroll implementation, which the team promptly pointed us to. Thanks!
+    / /content
+    %div{"data-id" => "ew-footer", "data-position" => "fixed", "data-role" => "footer"}
+      %div{"data-role" => "navbar"}
+        %ul
+          %li
+            %a.ui-btn-active{"data-transition" => "slideup", :href => "#main"} Main
+          %li
+            %a{"data-transition" => "slideup", :href => "#demo"} Demos
+      / /navbar
+      %h2 Engineworks &copy CS8
+    / /footer
+  / /page
+  / Start of 10th page
+  #credits{"data-role" => "page"}
+    %div{"data-role" => "header"}
+      %h1 Credits
+    / /header
+    %div{"data-role" => "content"}
+      %p We could not have made Splitview possible without the work of the following folks:
+      %h3
+        %a{:href => "http://www.jquerymobile.com"} The jQuery Mobile team
+      %p For such a wonderfully well thought piece of code that allows us to plug into it. the core that makes Splitview possible. Thank you! especially to Todd Parker, who pointed us to scrollview.js and supported us the whole way.
+      %h3 @naugtur from the Jquery Forums
+      %p
+        naugtur's initial work on a splitview version of jQuery Mobile helped provide the foundation for us to begin our work on this plugin. You can find his work at:
+        %a{:href => "http://jquerymobiledictionary.dyndns.org/dualColumn.html"} http://jquerymobiledictionary.dyndns.org/dualColumn.html
+        Thanks!
+      %h3
+        %a{:href => "http://www.fellowshiptech.com"} The FellowshipTech Team
+      %p
+        Fellowshiptech's work on slablet provided us with the foundation to produce the CSS that worked well for a double column layout. You can find their work at:
+        %a{:href => "https://github.com/fellowshiptech/slablet"} https://github.com/fellowshiptech/slablet
+        Thanks!
+      %h3
+        Folks at
+        %a{:href => "http://www.cagintranet.com"} Cagintranet
+      %p
+        We couldn't have done the iPad style popover without some help from the tutorial these guys provided at
+        %a{:href => "http://www.cagintranet.com/archive/create-an-ipad-like-dropdown-popover/"} http://www.cagintranet.com/archive/create-an-ipad-like-dropdown-popover/
+        Thanks!
+    / /content
+    %div{"data-id" => "ew-footer", "data-position" => "fixed", "data-role" => "footer"}
+      %div{"data-role" => "navbar"}
+        %ul
+          %li
+            %a.ui-btn-active{"data-transition" => "slideup", :href => "#main"} Main
+          %li
+            %a{"data-transition" => "slideup", :href => "#demo"} Demos
+      / /navbar
+      %h2 Engineworks &copy CS8
+    / /footer
+  / /page
+  #source{"data-role" => "page"}
+    %div{"data-role" => "header"}
+      %h1 Source@Github
+    / /header
+    %div{"data-role" => "content"}
+      %p
+        Get our source at our fork of jquery-mobile at github:
+        %p
+          %p{:style => "padding-left: 30px;"}
+            %a{:href => "https://github.com/asyraf9/jquery-mobile/"} https://github.com/asyraf9/jquery-mobile/
+          %p codes and this sample html file are located in the /experiments/splitview folder. Splitview still needs work, so help us make it better by submitting bug reports, feature request and patches!
+          %p To report bugs (and there are still a few of them!), file an issue under our fork of jquery-mobile at github. Thanks!
+          %p
+            %b NOTE:
+            keep in mind that I added some namespacing to event handlers in jQMobile core. use the version of jQuerymobile found in the experiments/splitview/ folder of my fork.
+    / /content
+    %div{"data-id" => "ew-footer", "data-position" => "fixed", "data-role" => "footer"}
+      %div{"data-role" => "navbar"}
+        %ul
+          %li
+            %a.ui-btn-active{"data-transition" => "slideup", :href => "#main"} Main
+          %li
+            %a{"data-transition" => "slideup", :href => "#demo"} Demos
+      / /navbar
+      %h2 Engineworks &copy CS8
+    / /footer
+  / /page
+  / Start of 3rd page
+  #bar{"data-role" => "page"}
+    %div{"data-role" => "header"}
+      %h1 Bar
+    / /header
+    %div{"data-role" => "content"}
+      %p I'm first in the source order so I'm shown as the page.
+      %p
+        %a{:href => "#badz"} Back to badz
+    / /content
+    %div{"data-id" => "ew-footer", "data-position" => "fixed", "data-role" => "footer"}
+      %div{"data-role" => "navbar"}
+        %ul
+          %li
+            %a.ui-btn-active{"data-transition" => "slideup", :href => "#main"} Main
+          %li
+            %a{"data-transition" => "slideup", :href => "#demo"} Demos
+      / /navbar
+      %h2 Engineworks &copy CS8
+    / /footer
+  / /page
+  / Start of 4th page
+  #badz{"data-role" => "page"}
+    %div{"data-role" => "header"}
+      %h1 badz
+    / /header
+    %div{"data-role" => "content"}
+      %p I'm first in the source order so I'm shown as the page.
+      %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque consectetur, ligula quis convallis gravida, tortor odio mattis purus, a fringilla mauris velit eu nisi. Vivamus laoreet tincidunt diam, sit amet tristique purus lobortis ac. Etiam commodo placerat elit. In aliquam dapibus felis, molestie molestie purus scelerisque sit amet. Donec vitae varius arcu. Aliquam dapibus dolor magna, nec posuere felis. Nullam in suscipit massa. Duis nec nulla nec urna sollicitudin fringilla. Proin at rutrum mi. Maecenas vitae urna ante, ac gravida tortor.
+      %p Vestibulum porta pretium nunc, at adipiscing tortor fringilla sit amet. Sed venenatis varius turpis, vel fringilla purus egestas in. Curabitur interdum mauris nec velit vehicula sed aliquam nulla convallis. Nulla id magna libero, sagittis fringilla metus. Suspendisse dapibus tincidunt tristique. Fusce interdum tincidunt tincidunt. Phasellus tempus fringilla augue eget tincidunt. Donec facilisis mauris ut metus eleifend eget scelerisque nulla sagittis. Ut vel elit non risus dapibus luctus. Pellentesque vel nibh tortor.
+      %p Fusce a nisi at dolor rutrum tristique. Donec faucibus metus vitae lorem scelerisque malesuada scelerisque enim imperdiet. Aliquam in erat orci. Ut ultrices, erat eu luctus accumsan, lorem nibh cursus purus, in laoreet nisi tellus interdum sem. Nulla fringilla molestie lectus nec hendrerit. In in mollis tortor. Nunc lectus tortor, porttitor vitae viverra non, dignissim ac ligula. In tincidunt libero id turpis gravida iaculis rhoncus dolor aliquam. Vestibulum congue massa nec nibh sagittis tempor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Quisque quis urna arcu. Quisque feugiat ante id turpis ultrices vel imperdiet ipsum volutpat. Donec enim magna, pretium eu scelerisque ut, pretium placerat risus.
+      Sed sed lacinia ante. Aenean non quam in ipsum pharetra condimentum.
+      %p Donec turpis lacus, pharetra ac viverra sit amet, lobortis eu nisl. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur porttitor dignissim orci ut feugiat. Praesent quis auctor purus. Suspendisse non elit accumsan mi pellentesque laoreet. Nullam et sapien sed nibh dictum tempor sit amet ut velit. Vestibulum varius ultricies lorem sed ultricies. Vestibulum auctor velit vitae ante eleifend eget bibendum metus rutrum. Nulla facilisis luctus mi laoreet rutrum. Nunc accumsan urna at elit pellentesque ut venenatis lectus adipiscing. Ut et arcu urna. Aliquam eros leo, ultricies vel porta nec, tempor sit amet leo. Quisque imperdiet facilisis orci ut malesuada. Nunc eget elit mauris. Mauris sed felis lectus.
+      %p Duis purus sem, condimentum eget posuere sed, vulputate non lorem. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras risus urna, commodo quis interdum sit amet, elementum vitae lacus. Ut tempor hendrerit ante et facilisis. Vivamus elementum purus justo, ut auctor arcu. Cras varius rhoncus venenatis. Nulla dignissim velit a erat euismod pretium. In sed leo orci, et consectetur justo. Vestibulum ipsum urna, cursus in placerat in, malesuada eu odio. Nunc eget ullamcorper tortor. In commodo, turpis sed egestas egestas, dolor sem mattis nulla, eu semper lectus metus at eros. Sed cursus nisl id risus fermentum quis aliquam odio pretium. Quisque justo eros, blandit gravida tristique eget, rhoncus in magna. Integer volutpat faucibus dolor, sit amet tempor metus ornare consequat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nunc et lacus enim, sit amet consequat turpis.
+      %p
+        %a{:href => "#foo"} Back to foo
+    / /content
+    %div{"data-id" => "ew-footer", "data-position" => "fixed", "data-role" => "footer"}
+      %div{"data-role" => "navbar"}
+        %ul
+          %li
+            %a.ui-btn-active{"data-transition" => "slideup", :href => "#main"} Main
+          %li
+            %a{"data-transition" => "slideup", :href => "#demo"} Demos
+      / /navbar
+      %h2 Engineworks &copy CS8
+    / /footer
+  / /page
+/ panel main

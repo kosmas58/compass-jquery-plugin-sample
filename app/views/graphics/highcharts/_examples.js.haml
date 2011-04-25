@@ -1,0 +1,17 @@
+- content_for :head_scripts do
+  = javascript_include_tag :highcharts
+  :javascript
+    $(function() {
+      $("#highcharts_themes").tabs({
+        cookie: {
+          // store cookie for a day, without, it would be a session cookie
+          expires: 1
+        },
+        select: function(event, ui) {
+          location.reload(true);
+        }
+      });
+    });
+
+- content_for :license do
+      = render :partial => "ui/license"

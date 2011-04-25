@@ -1,0 +1,13 @@
+- content_for :head_stylesheets do
+  = stylesheet_link_tag :tokeninput
+  = stylesheet_link_tag :tokeninput_facebook
+  = stylesheet_link_tag :tokeninput_mac
+
+- content_for :head_scripts do
+  = javascript_include_tag :tokeninput
+  :javascript
+    $(function() {
+      $("input[type=button]").click(function () {
+        alert("Would submit: " + $(this).siblings("input[type=text]").val());
+      });
+    });

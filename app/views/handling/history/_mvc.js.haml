@@ -1,47 +1,49 @@
-:javascript
-  var options = { ajaxOptions: { 
-                    error: function(xhr, status, index, anchor) {
-                      $(anchor.hash).html("Couldn't load this tab. We'll try to fix this as soon as possible. If this wouldn't be a demo.");
-                    }
-                  }//,
-                  //event: 'mouseover'
-                };
-        
-  $(function() {
-    $("#tabs").tabs(options);
-  });
-  
+- content_for :head_scripts do
+  = javascript_include_tag :history
+  :javascript
+      var options = { ajaxOptions: {
+                      error: function(xhr, status, index, anchor) {
+                        $(anchor.hash).html("Couldn't load this tab. We'll try to fix this as soon as possible. If this wouldn't be a demo.");
+                      }
+                    }//,
+                    //event: 'mouseover'
+                  };
 
-  $(document).ready(function($) {
-     function load(tab) {
-       if (tab === undefined) {
-         var re = new RegExp(document.documentElement.baseURI),
-             href = document.documentURI.replace(re, '');
-         href = href.replace(/^.*#ui-tabs-/, '');
+    $(function() {
+      $("#tabs").tabs(options);
+    });
 
-         if (href =="") {
-           tab = "";
-         } else {
-           tab = href;
+
+    $(function() {
+       function load(tab) {
+         if (tab === undefined) {
+           var re = new RegExp(document.documentElement.baseURI),
+               href = document.documentURI.replace(re, '');
+           href = href.replace(/^.*#ui-tabs-/, '');
+
+           if (href =="") {
+             tab = "";
+           } else {
+             tab = href;
+           }
          }
+         $("#tabs").tabs("select", tab);
        }
-       $("#tabs").tabs("select", tab);
-     }
 
-     $(".pager") .live('click', function() {
-       //$("#tabs").tabs("select", eval($(this).val()));
-       document.location.hash = "ui-tabs-"+eval($(this).val());
-     });
-
-       $("#tabs").live("tabsselect", function(event, ui) {
-         document.location.hash = ui.tab.hash;
+       $(".pager") .live('click', function() {
+         //$("#tabs").tabs("select", eval($(this).val()));
+         document.location.hash = "ui-tabs-"+eval($(this).val());
        });
 
+         $("#tabs").live("tabsselect", function(event, ui) {
+           document.location.hash = ui.tab.hash;
+         });
 
-     $(window).bind('hashchange', function(event) {
-       //console.log("onhashchange: location: " + document.location.href);
-       load();
-     });
 
-     load("1");
-  });
+       $(window).bind('hashchange', function(event) {
+         //console.log("onhashchange: location: " + document.location.href);
+         load();
+       });
+
+       load("1");
+    });

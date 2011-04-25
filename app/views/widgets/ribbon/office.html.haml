@@ -1,8 +1,6 @@
 -@title = "#{t('txt.ribbon.name')} - #{t('txt.ribbon.theming.name')} - #{t('txt.ribbon.theming.windows7')}"
 -@ribbon_theme = 'ribbon.office'
-
-- content_for :content_head do
-  = render(:partial => "office.js.haml", :format => :js)
+= render :partial => "office.js.haml", :format => :js
 
 #header 
   .mainContainer
@@ -354,7 +352,7 @@
         To enable the ribbon you just have to add this code snippet:
       %pre
         :preserve
-          $().ready(function() {
+          $(function() {
             $().Ribbon();
           });
       %p

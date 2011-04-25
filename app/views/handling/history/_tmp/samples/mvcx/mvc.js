@@ -3,7 +3,7 @@ jQuery.fn.hashValue = function() {
     return href ? href.replace(/^.*#/, '') : href;
 }
 
-jQuery(document).ready(function($) {
+$(function() {
     // ----- Model ----
     var Model = {
         pages: [],

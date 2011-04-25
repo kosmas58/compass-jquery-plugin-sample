@@ -1,34 +1,40 @@
-:javascript
-  $(function(){
-    $("#tabs").tabs({
-      event: 'mouseover'
+- content_for :head_scripts do
+  = javascript_include_tag :dynatree
+  = javascript_include_tag :contextMenu
+  :javascript
+    $(function() {
+      $("#tabs").tabs({
+        event: 'mouseover'
+      });
+
+      $("#tree1").dynatree({
+        initAjax: {
+          url: "data3?format=json"
+        },
+        onActivate: function(node) {
+          logMsg("Activated %o", node);
+        },
+        minExpandLevel: 1
+      });
+      $("#tree2").dynatree({
+        initAjax: {
+          url: "data3?format=json"
+        },
+        onActivate: function(node) {
+          logMsg("Activated %o", node);
+        },
+        minExpandLevel: 2
+      });
+      $("#tree3").dynatree({
+        initAjax: {
+          url: "data3?format=json"
+        },
+        onActivate: function(node) {
+          logMsg("Activated %o", node);
+        },
+        minExpandLevel: 3
+      });
     });
-    
-    $("#tree1").dynatree({
-      initAjax: {
-        url: "data3?format=json"
-      },
-      onActivate: function(node) {
-        logMsg("Activated %o", node);
-      },
-      minExpandLevel: 1
-    });
-    $("#tree2").dynatree({
-      initAjax: {
-        url: "data3?format=json"
-      },
-      onActivate: function(node) {
-        logMsg("Activated %o", node);
-      },
-      minExpandLevel: 2
-    });
-    $("#tree3").dynatree({
-      initAjax: {
-        url: "data3?format=json"
-      },
-      onActivate: function(node) {
-        logMsg("Activated %o", node);
-      },
-      minExpandLevel: 3
-    });
-  });
+
+- content_for :license do
+  = render :partial => "widgets/dynatree/license"

@@ -1,6 +1,4 @@
 class Widgets::Jqgrid::UsersController < ApplicationController
-  layout 'jqgrid'
-
   protect_from_forgery :except => [:post_data]
 
   # Don't forget to edit routes if you're using RESTful routing (see config/routes.rb)

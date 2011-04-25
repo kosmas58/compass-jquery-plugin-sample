@@ -1,110 +1,114 @@
-- content_for :content_head do
-  = render(:partial => "hello.js.haml", :format => :js)
+= render :partial => "hello.js.haml", :format => :js
     
 .welcome
   %h4.ui-widget-header.ui-corner-all
     compass-jquery-plugin
-  %p
-    A Sass-based Meta-Framework for Compass that allows you to mix and match any of the following:
+  .main
+    %p
+      A Sass-based Meta-Framework for Compass that allows you to mix and match any of the following:
+      %ul
+        %li
+          %p
+            %b
+              = link_to raw("<b>jquery-rails</b>"), "http://github.com/indirect/jquery-rails", :class=> :greybox
+              with
+              = link_to raw("<b>jQuery 1.5.2</b>"), "http://jquery.com", :class=> :greybox
+              and
+              = link_to raw("<b>jQuery UI 1.8.12</b>"), "http://jqueryui.com", :class=> :greybox
+              including themes
+        %li
+          %p
+            %b
+              jQuery widgets plugins
+          %ul
+            %li
+              %p
+                iCalendar functionalities with:
+              %ul
+                %li
+                  = link_to raw("<b>Any+Time&trade;</b>"), "http://www.ama3.com/anytime/", :class=> :greybox
+                %br
+                %li
+                  = link_to raw("<b>FullCalendar</b>"), "http://arshaw.com/fullcalendar/", :class=> :greybox
+                %br
+            %li
+              %p
+                jQuery Grid widget plugin
+                = link_to raw("<b>jquery.jqGrid.js</b>"), "http://github.com/tonytomov/jqGrid", :class=> :greybox
+            %li
+              %p
+                jQuery Ribbon widget plugin
+                = link_to raw("<b>jquery.ribbon.js</b>"), "http://jqueryribbon.codeplex.com/", :class=> :greybox
+            %li
+              %p
+                jQuery TOOLS
+                = link_to raw("<b>jquery.tools.js</b>"), "http://github.com/jquerytools/jquerytools", :class=> :greybox
+            %li
+              %p
+                TinyMCE Javascript WYSIWYG Editor plugin
+                = link_to raw("<b>jquery.tinymce.js</b>"), "http://tinymce.moxiecode.com/index.php", :class=> :greybox
+            %li
+              %p
+                2 tree widget plugins:
+              %ul
+                %li
+                  %p
+                    jsTree
+                    = link_to raw("<b>jquery.jstree.js</b>"), "http://jstree.com", :class=> :greybox
+                %li
+                  %p
+                    Dynamic Tree
+                    = link_to raw("<b>jquery.dynatree.js</b>"), "http://wwwendt.de/", :class=> :greybox
+        %li
+          %p
+            %b
+              jQuery graphics plugins
+          %ul
+            %li
+              %p
+                GanttView plugin
+                = link_to raw("<b>jquery.ganttViews.js</b>"), "http://github.com/thegrubbsian/jquery.ganttView", :class=> :greybox
+            %li
+              %p
+                Highcharts
+                = link_to raw("<b>jquery.highcharts.js</b>"), "http://www.highcharts.com", :class=> :greybox
+            %li
+              %p
+                Sparklines plugin
+                = link_to raw("<b>jquery.sparklines.js</b>"), "http://omnipotent.net/jquery.sparkline/", :class=> :greybox
+        %li
+          %p
+            %b
+              jQuery on mobile devices
+            %em
+              (using pure haml/sass without compass)
+          %ul
+            %li
+              %p
+                jQuery mobile framework for the mobile devices
+                = link_to raw("<b>jquery.mobile.js</b>"), "http://www.jquerymobile.com", :class=> :greybox
+            %li
+              %p
+                jQTouch plugin  for the iPhone and iPod touch
+                = link_to raw("<b>jquery.jqtouch.js</b>"), "http://www.jqtouch.com", :class=> :greybox
+
+    %h5.ui-widget-header.ui-corner-all
+      Requirements
     %ul
       %li
         %p
-          %b
-            = link_to raw("<b>jquery-rails</b>"), "http://github.com/indirect/jquery-rails", :class=> :greybox
-            and
-            = link_to raw("<b>jQuery 1.5.1</b>"), "http://jquery.com", :class=> :greybox
-            and
-            = link_to raw("<b>jQuery UI 1.8.11</b>"), "http://jqueryui.com", :class=> :greybox
-            including themes
+          This library requires
+          = link_to raw("<b>Compass</b>") , "http://wiki.github.com/chriseppstein/compass", :class=> :greybox
+          \.
       %li
         %p
-          %b
-            jQuery widgets plugins
-        %ul
-          %li
-            %p
-              jQuery TOOLS
-              = link_to raw("<b>jquery.tools.js</b>"), "http://github.com/jquerytools/jquerytools", :class=> :greybox
-          %li
-            %p
-              2 tree widget plugins:
-            %ul
-              %li
-                %p
-                  jsTree
-                  = link_to raw("<b>jquery.jstree.js</b>"), "http://jstree.com", :class=> :greybox
-              %li
-                %p
-                  Dynamic Tree 
-                  = link_to raw("<b>jquery.dynatree.js</b>"), "http://wwwendt.de/", :class=> :greybox
-          %li
-            %p
-              Ribbon widget plugin
-              = link_to raw("<b>jquery.ribbon.js</b>"), "http://jqueryribbon.codeplex.com/", :class=> :greybox
-          %li
-            %p
-              Grid widget plugin
-              = link_to raw("<b>jquery.jqGrid.js</b>"), "http://github.com/tonytomov/jqGrid", :class=> :greybox
-          %li
-            %p
-              iCalendar functionalities with:
-            %ul
-              %li
-                = link_to raw("<b>Any+Time&trade;</b>"), "http://www.ama3.com/anytime/", :class=> :greybox
-              %br
-              %li
-                = link_to raw("<b>FullCalendar</b>"), "http://arshaw.com/fullcalendar/", :class=> :greybox
-              %br
-          %li
-            %p
-              TinyMCE Javascript WYSIWYG Editor plugin
-              = link_to raw("<b>jquery.tinymce.js</b>"), "http://tinymce.moxiecode.com/index.php", :class=> :greybox
+          Get gem from
+          = link_to raw("<b>Gemcutter</b>"), "http://gemcutter.org/gems/compass-jquery-plugin", :class=> :greybox
+          \.
       %li
         %p
-          %b
-            jQuery graphics plugins
-        %ul
-          %li
-            %p
-              GanttView plugin
-              = link_to raw("<b>jquery.ganttViews.js</b>"), "http://github.com/thegrubbsian/jquery.ganttView", :class=> :greybox
-          %li
-            %p
-              Sparklines plugin
-              = link_to raw("<b>jquery.sparklines.js</b>"), "http://omnipotent.net/jquery.sparkline/", :class=> :greybox
-      %li
-        %p
-          %b
-            jQuery on mobile devices
-          %em
-            (using pure haml/sass without compass)
-        %ul
-          %li
-            %p
-              jQuery mobile framework for the mobile devices
-              = link_to raw("<b>jquery.mobile.js</b>"), "http://www.jquerymobile.com", :class=> :greybox
-          %li
-            %p
-              jQTouch plugin  for the iPhone and iPod touch
-              = link_to raw("<b>jquery.jqtouch.js</b>"), "http://www.jqtouch.com", :class=> :greybox
-            
-  %h5.ui-widget-header.ui-corner-all
-    Requirements
-  %ul
-    %li
-      %p
-        This library requires 
-        = link_to raw("<b>Compass</b>") , "http://wiki.github.com/chriseppstein/compass", :class=> :greybox
-        \.        
-    %li
-      %p
-        Get gem from 
-        = link_to raw("<b>Gemcutter</b>"), "http://gemcutter.org/gems/compass-jquery-plugin", :class=> :greybox
-        \.      
-    %li
-      %p
-        Get source from 
-        = link_to raw("<b>github</b>"), "http://github.com/kosmas58/compass-jquery-plugin", :class=> :greybox
-        \.
+          Get source from
+          = link_to raw("<b>github</b>"), "http://github.com/kosmas58/compass-jquery-plugin", :class=> :greybox
+          \.
   #greybox
     

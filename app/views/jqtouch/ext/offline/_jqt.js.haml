@@ -1,12 +1,16 @@
-:javascript
-  var jQT = new $.jQTouch({
-    icon: '/images/jquery/touch/jqtouch.png',
-    addGlossToIcon: true,
-    fullScreen: false
-  });
+- content_for :head_stylesheets do
+  = stylesheet_link_tag :jqt_jqt
 
-  $(function(){
-    jQT.resetHeight();
-      
-    console.log('Document.ready test');
-  });
+- content_for :head_scripts do
+  :javascript
+    var jQT = new $.jQTouch({
+      icon: '/images/jquery/touch/jqtouch.png',
+      addGlossToIcon: true,
+      fullScreen: false
+    });
+
+    $(function() {
+      jQT.resetHeight();
+
+      console.log('Document.ready test');
+    });

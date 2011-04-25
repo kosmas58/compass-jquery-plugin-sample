@@ -1,7 +1,7 @@
-%script.javascript{:src => "http://net.tutsplus.com/wp-content/plugins/google-syntax-highlighter/Scripts/shCore.js"}
-%script.javascript{:src => "http://net.tutsplus.com/wp-content/plugins/google-syntax-highlighter/Scripts/shBrushAll.js"}
-
-:javascript
-  dp.SyntaxHighlighter.ClipboardSwf = 'http://net.tutsplus.com/wp-content/plugins/google-syntax-highlighter/Scripts/clipboard.swf';
-  dp.SyntaxHighlighter.HighlightAll('code');
-  $('img, embed, object').removeAttr('height').removeAttr('width');
+- content_for :head_scripts_after_mobile do
+  %script.javascript{:src => "http://net.tutsplus.com/wp-content/plugins/google-syntax-highlighter/Scripts/shCore.js"}
+  %script.javascript{:src => "http://net.tutsplus.com/wp-content/plugins/google-syntax-highlighter/Scripts/shBrushAll.js"}
+  :javascript
+    dp.SyntaxHighlighter.ClipboardSwf = 'http://net.tutsplus.com/wp-content/plugins/google-syntax-highlighter/Scripts/clipboard.swf';
+    dp.SyntaxHighlighter.HighlightAll('code');
+    $('img, embed, object').removeAttr('height').removeAttr('width');

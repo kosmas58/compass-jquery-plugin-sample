@@ -1,7 +1,6 @@
--@title = "jQuery Mobile Docs - Forms"
+-@title = "jQuery Mobile Docs - Select"
 
-- content_for :content_head do
-  = render(:partial => "/mobile/index.js.haml", :format => :js)
+= render :partial => "/mobile/index.js.haml", :format => :js
 
 %div{"data-role" => "page"}
   %div{"data-role" => "header", "data-theme" => "b"}
@@ -51,7 +50,7 @@
       %p This produces this select:
       %div{"data-role" => "fieldcontain"}
         %label.select{:for => "select-choice-1"} Choose shipping method:
-        %select#select-choice-1{:name => "select-choice-1"}
+        %select#select-choice-1{"data-native-menu" => "false", :name => "select-choice-1"}
           %option{:value => "standard"} Standard: 7 day
           %option{:value => "rush"} Rush: 3 days
           %option{:value => "express"} Express: next day
@@ -59,7 +58,7 @@
       %p Here is an example of a select with a long list of options:
       %div{"data-role" => "fieldcontain"}
         %label.select{:for => "select-choice-3"} Your state:
-        %select#select-choice-3{:name => "select-choice-3"}
+        %select#select-choice-3{"data-native-menu" => "false", :name => "select-choice-3"}
           %option{:value => "AL"} Alabama
           %option{:value => "AK"} Alaska
           %option{:value => "AZ"} Arizona
@@ -113,7 +112,7 @@
       %p This example organizes the options with optgroup elements and has a disabled option.
       %div{"data-role" => "fieldcontain"}
         %label.select{:for => "select-choice-nc"} Preferred delivery:
-        %select#select-choice-nc{:name => "select-choice-8"}
+        %select#select-choice-nc{"data-native-menu" => "false", :name => "select-choice-8"}
           %optgroup{:label => "FedEx"}
             %option{:value => "firstOvernight"} First Overnight
             %option{:value => "expressSaver"} Express Saver

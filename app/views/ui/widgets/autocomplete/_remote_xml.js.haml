@@ -1,34 +1,37 @@
-:javascript
-	$(function() {
-		function log(message) {
-			$("<div/>").text(message).prependTo("#log");
-			$("#log").attr("scrollTop", 0);
-		}
-		
-		$.ajax({
-			url: "http://ws.geonames.org/search",
-			dataType: "xml",
-			data: {
-				featureClass: "P",
-				style: "full",
-				maxRows: 12,
-				name_startsWith: "London"
-			},
-			success: function(xmlResponse) {
-				var data = $("geoname", xmlResponse).map(function() {
-					return {
-						value: $("name", this).text() + ", " + ($.trim($("countryName", this).text()) || "(unknown country)"),
-						id: $("geonameId", this).text()
-					};
-				}).get();
-				$("#city").autocomplete({
-					source: data,
-					minLength: 0,
-					select: function(event, ui) {
-						log(ui.item ? ("Selected: " + ui.item.value + ", geonameId: " + ui.item.id) : "Nothing selected, input was " + this.value);
-					}
-				});
-			}
-		})		
-	});
-	
+- content_for :head_scripts do
+  :javascript
+      $(function() {
+          function log(message) {
+              $("<div/>").text(message).prependTo("#log");
+              $("#log").attr("scrollTop", 0);
+          }
+
+          $.ajax({
+              url: "http://ws.geonames.org/search",
+              dataType: "xml",
+              data: {
+                  featureClass: "P",
+                  style: "full",
+                  maxRows: 12,
+                  name_startsWith: "London"
+              },
+              success: function(xmlResponse) {
+                  var data = $("geoname", xmlResponse).map(function() {
+                      return {
+                          value: $("name", this).text() + ", " + ($.trim($("countryName", this).text()) || "(unknown country)"),
+                          id: $("geonameId", this).text()
+                      };
+                  }).get();
+                  $("#city").autocomplete({
+                      source: data,
+                      minLength: 0,
+                      select: function(event, ui) {
+                          log(ui.item ? ("Selected: " + ui.item.value + ", geonameId: " + ui.item.id) : "Nothing selected, input was " + this.value);
+                      }
+                  });
+              }
+          })
+      });
+
+- content_for :license do
+  = render :partial => "ui/license"

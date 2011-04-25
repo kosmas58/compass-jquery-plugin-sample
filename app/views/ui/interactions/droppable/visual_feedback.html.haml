@@ -1,7 +1,5 @@
 -@title = "#{t('txt.ui.name')} #{t('txt.ui.interactions.droppable.default')} - #{t('txt.ui.interactions.droppable.visual-feedback')}"
-
-- content_for :content_head do
-  = render(:partial => "visual_feedback.js.haml", :format => :js)
+= render :partial => "visual_feedback.js.haml", :format => :js
 
 .demo
   %h3

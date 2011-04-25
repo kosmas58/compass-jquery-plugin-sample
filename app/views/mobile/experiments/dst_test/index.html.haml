@@ -1,7 +1,6 @@
 -@title = "jQuery Mobile Framework - DST Test"
-
-- content_for :content_head do
-  = render(:partial => "index.js.haml", :format => :js)
+-@manifest = "/manifest"
+= render :partial => "index.js.haml", :format => :js
 
 #jqm{"data-role" => "page"}
   %div{"data-backbtn" => "false", "data-role" => "header", "data-theme" => "b"}

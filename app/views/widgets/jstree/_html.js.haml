@@ -1,35 +1,40 @@
-:javascript
-  $(function () {
-    $("#demo4").jstree({ 
-      "core" : { "initially_open" : [ "root2" ] },
-      "html_data" : {
-        "data" : "<li class='jstree-closed' id='root2'><a href='#'>Root node</a></li>",
-        "ajax" : { "url" : "data?format=html" }
-      },
-      "plugins" : [ "themes", "html_data" ]
-    });
-    
-    $("#demo3").jstree({ 
-      "html_data" : {
-        "ajax" : {
-          "url" : "data?format=html",
-          "data" : function (n) { 
-            return { id : n.attr ? n.attr("id") : 0 }; 
+- content_for :head_scripts do
+  = javascript_include_tag :jstree
+  :javascript
+    $(function () {
+      $("#demo4").jstree({
+        "core" : { "initially_open" : [ "root2" ] },
+        "html_data" : {
+          "data" : "<li class='jstree-closed' id='root2'><a href='#'>Root node</a></li>",
+          "ajax" : { "url" : "data?format=html" }
+        },
+        "plugins" : [ "themes", "html_data" ]
+      });
+
+      $("#demo3").jstree({
+        "html_data" : {
+          "ajax" : {
+            "url" : "data?format=html",
+            "data" : function (n) {
+              return { id : n.attr ? n.attr("id") : 0 };
+            }
           }
-        }
-      },
-      "plugins" : [ "themes", "html_data" ]
+        },
+        "plugins" : [ "themes", "html_data" ]
+      });
+
+      $("#demo2").jstree({
+        "core" : { "initially_open" : [ "root" ] },
+        "html_data" : {
+          "data" : "<li id='root'><a href='#'>Root node</a><ul><li><a href='#'>Child node</a></li></ul></li>"
+        },
+        "plugins" : [ "themes", "html_data" ]
+      });
+
+      $("#demo1").jstree({
+        "plugins" : [ "themes", "html_data" ]
+      });
     });
-  
-    $("#demo2").jstree({ 
-      "core" : { "initially_open" : [ "root" ] },
-      "html_data" : {
-        "data" : "<li id='root'><a href='#'>Root node</a><ul><li><a href='#'>Child node</a></li></ul></li>"
-      },
-      "plugins" : [ "themes", "html_data" ]
-    });
- 
-    $("#demo1").jstree({ 
-      "plugins" : [ "themes", "html_data" ]
-    });
-  });
+
+- content_for :license do
+  = render :partial => "widgets/jstree/license"

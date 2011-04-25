@@ -1,0 +1,64 @@
+-@title = "#{t('txt.mediahelpers.name')} - #{t('txt.mediahelpers.default')}"
+= render :partial => "default.js.haml", :format => :js
+
+.demo
+  %h3
+    =image_tag("icons/22x22/display.png", :border => 0)
+    =@title
+
+  %h4
+    Active Width Breakpoints:
+    %em.subh These change depending on window size
+  %ul
+    %li.min320 min-width-320px
+    %li.max320 max-width-320px
+    %li.min480 min-width-480px
+    %li.max480 max-width-480px
+    %li.min768 min-width-768px
+    %li.max768 max-width-768px
+    %li.min1024 min-width-1024px
+    %li.max1024 max-width-1024px
+    %li.min1200 min-width-1200px
+    %li.max1200 max-width-1200px
+    %li.min1400 min-width-1400px
+    %li.max1400 max-width-1400px
+  %h4
+    Active Orientation:
+    %em.subh These change depending on window orientation
+  %ul
+    %li.port portrait
+    %li.land landscape
+  #mediademo
+    %h4
+      Media Type &amp; Query Function
+      %em.subh (Runs an actual media query)
+    %input#mq{:type => "text", :value => "screen and (min-width: 480px)"}
+      %a#mhtest{:href => "#"} Test type/query
+      %p#mhresult
+  #greybox
+  / End demo
+.demo-description
+  %p
+    Some small (
+    %em> 2kb
+    ) jQuery utilities for cross-browser
+    = succeed "," do
+      %a{:href => "http://alistapart.com/articles/responsive-web-design/", :class => :greybox } responsive design
+    testing CSS media queries, cross-browser orientationchange event support, and more.
+  %p
+    All code is pulled from
+    %a{:href => "http://jquerymobile.com", :class => :greybox } jQuery Mobile
+    source. Check out the README on
+    %a{:href => "https://github.com/scottjehl/jQuery-Media-Helpers/", :class => :greybox } Github
+    or the
+    %a{:href => "https://github.com/scottjehl/jQuery-Media-Helpers/blob/master/jquery.mediahelpers.js", :class => :greybox } source code
+    for examples.
+  %p
+    Scripts compiled from jQuery Mobile by Scott Jehl,
+    %a{:href => "http://filamentgroup.com", :class => :greybox } Filament Group, Inc
+  %p
+    The jQuery Media Helper Utilies are released under the license
+    %a{ :href => "http://github.com/scottjehl/jQuery-Media-Helpers", :class => :greybox }
+      MIT or GPL Version 2.
+/ End demo description 
+    

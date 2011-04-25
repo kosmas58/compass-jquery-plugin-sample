@@ -1,19 +1,28 @@
-:javascript
-  function afterEditCell(id,name,val,iRow,iCol){
-    if(name=='invdate') {
-      $("#"+iRow+"_invdate","#invheaders_demo1103").datepicker({dateFormat:"yy-mm-dd"});
-    }
-  };
-    
-  function afterSaveCell(rowid,name,val,iRow,iCol) {
-    if(name == 'amount') {
-      var taxval = $("#invheaders_demo1103").jqGrid('getCell',rowid,iCol+1);
-      $("#invheaders_demo1103").jqGrid('setRowData',rowid,{total:parseFloat(val)+parseFloat(taxval)});
-    }
-    if(name == 'tax') {
-      var amtval = $("#invheaders_demo1103").jqGrid('getCell',rowid,iCol-1);
-      $("#invheaders_demo1103").jqGrid('setRowData',rowid,{total:parseFloat(val)+parseFloat(amtval)});
-    }
-  };
-  
-= raw @grid    
+- content_for :head_stylesheets do
+  = stylesheet_link_tag :jqGrid
+
+- content_for :head_scripts do
+  = raw jqgrid_javascripts(I18n.locale)
+  :javascript
+    function afterEditCell(id,name,val,iRow,iCol){
+      if(name=='invdate') {
+        $("#"+iRow+"_invdate","#invheaders_demo1103").datepicker({dateFormat:"yy-mm-dd"});
+      }
+    };
+
+    function afterSaveCell(rowid,name,val,iRow,iCol) {
+      if(name == 'amount') {
+        var taxval = $("#invheaders_demo1103").jqGrid('getCell',rowid,iCol+1);
+        $("#invheaders_demo1103").jqGrid('setRowData',rowid,{total:parseFloat(val)+parseFloat(taxval)});
+      }
+      if(name == 'tax') {
+        var amtval = $("#invheaders_demo1103").jqGrid('getCell',rowid,iCol-1);
+        $("#invheaders_demo1103").jqGrid('setRowData',rowid,{total:parseFloat(val)+parseFloat(amtval)});
+      }
+    };
+
+  = raw @grid
+
+- content_for :license do
+  = render :partial =>  "widgets/jqgrid/license"
+

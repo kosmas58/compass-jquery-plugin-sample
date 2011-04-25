@@ -1,20 +1,22 @@
-:javascript
-  $(function() {
-    $("#rerun").button().click(function() {
-      alert("Running the last action");
-    })
-    .next()
-    .button({
-      text: false,
-      icons: {
-        secondary: "ui-icon-triangle-1-s"
-      }
-    })
-    .click(function() {
-      alert("Could display a menu to select an action");
-    })
-    .parent()
-    .buttonset();
-  });
+- content_for :head_scripts do
+  :javascript
+    $(function() {
+      $("#rerun").button().click(function() {
+        alert("Running the last action");
+      })
+      .next()
+      .button({
+        text: false,
+        icons: {
+          secondary: "ui-icon-triangle-1-s"
+        }
+      })
+      .click(function() {
+        alert("Could display a menu to select an action");
+      })
+      .parent()
+      .buttonset();
+    });
 
-  
+- content_for :license do
+  = render :partial => "ui/license"

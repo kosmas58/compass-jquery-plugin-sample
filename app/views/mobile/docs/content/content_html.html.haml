@@ -1,7 +1,6 @@
--@title = "jQuery Mobile Docs - Content formatting"
-
-- content_for :content_head do
-  = render(:partial => "/mobile/index.js.haml", :format => :js)
+-@title = "jQuery Mobile Docs - HTML formatting"
+= render :partial => "/mobile/index.js.haml", :format => :js
+= render :partial => "content.css.haml"
 
 %div{"data-role" => "page"}
   %div{"data-role" => "header", "data-theme" => "b"}

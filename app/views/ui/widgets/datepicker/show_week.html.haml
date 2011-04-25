@@ -1,7 +1,5 @@
 -@title = "#{t('txt.ui.name')} #{t('txt.ui.widgets.datepicker.default')} - #{t('txt.ui.widgets.datepicker.show-week')}"
-
-- content_for :content_head do
-  = render(:partial => "show_week.js.haml", :format => :js)
+= render :partial => "show_week.js.haml", :format => :js
       
 .demo
   %h3

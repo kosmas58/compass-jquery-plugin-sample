@@ -1,23 +1,28 @@
-:javascript
-  $(function () {
-    $("#demo1").jstree({ 
-      "types" : {
-        "valid_children" : [ "root" ],
+- content_for :head_scripts do
+  = javascript_include_tag :jstree
+  :javascript
+    $(function () {
+      $("#demo1").jstree({
         "types" : {
-          "root" : {
-            "icon" : { 
-              "image" : "/images/icons/16x16/root.png"
+          "valid_children" : [ "root" ],
+          "types" : {
+            "root" : {
+              "icon" : {
+                "image" : "/images/icons/16x16/root.png"
+              },
+              "valid_children" : [ "default" ],
+              "max_depth" : 2,
+              "hover_node" : false,
+              "select_node" : function () {return false;}
             },
-            "valid_children" : [ "default" ],
-            "max_depth" : 2,
-            "hover_node" : false,
-            "select_node" : function () {return false;}
-          },
-          "default" : {
-            "valid_children" : [ "default" ]
+            "default" : {
+              "valid_children" : [ "default" ]
+            }
           }
-        }
-      },
-      "plugins" : ["themes","html_data","dnd","ui","types"]
+        },
+        "plugins" : ["themes","html_data","dnd","ui","types"]
+      });
     });
-  });
+
+- content_for :license do
+  = render :partial => "widgets/jstree/license"

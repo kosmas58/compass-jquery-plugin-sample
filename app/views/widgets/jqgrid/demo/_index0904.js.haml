@@ -1,56 +1,62 @@
-:css
-  #toolbar { padding: 0.3em; }
-  #toolbar .ui-button{ font-size: 0.8em;
+- content_for :head_stylesheets do
+  = stylesheet_link_tag :jqGrid
+  :css
+    #toolbar { padding: 0.3em; }
+    #toolbar .ui-button{ font-size: 0.8em;
 
-= raw @grid
+- content_for :head_scripts do
+  = raw jqgrid_javascripts(I18n.locale)
+  = raw @grid
+  :javascript
+    $(function() {
+      $("a", "#toolbar").button();
+    });
 
-:javascript
-  $(function() {
-    $("a", "#toolbar").button();
-  });
-  
-  $(document).ready(function() {  
-    $("#ps1").click( function() {
-      $("#invheaders_demo0904").jqGrid('setPostData',{q:1,param1:"p1"});
-      $("#invheaders_demo0904").trigger("reloadGrid");
+    $(function() {
+      $("#ps1").click( function() {
+        $("#invheaders_demo0904").jqGrid('setPostData',{q:1,param1:"p1"});
+        $("#invheaders_demo0904").trigger("reloadGrid");
+      });
+
+      $("#ps2").click( function() {
+        var pd =$("#invheaders_demo0904").jqGrid('getPostData');
+        var r ="";
+        $.each(pd,function(i){r += i+": "+pd[i]+",";})
+        $("#postdata").html(r).css("background-color","yellow");
+      });
+
+      $("#ps3").click( function() {
+        $("#invheaders_demo0904").jqGrid('appendPostData',{param2:"p2"});
+        $("#invheaders_demo0904").trigger("reloadGrid");
+        var pd =$("#invheaders_demo0904").jqGrid('getPostData');
+        var r ="";
+        $.each(pd,function(i){r += i+": "+pd[i]+",";})
+        $("#postdata").html(r).css("background-color","yellow");
+      });
+
+      $("#ps4").click( function() {
+        $("#invheaders_demo0904").jqGrid('setPostDataItem',"param2","I'w new value");
+        $("#invheaders_demo0904").trigger("reloadGrid");
+        var pd =$("#invheaders_demo0904").jqGrid('getPostData');
+        var r ="";
+        $.each(pd,function(i){r += i+": "+pd[i]+",";})
+        $("#postdata").html(r).css("background-color","yellow");
+      });
+
+      $("#ps5").click( function() {
+        alert( "rows : "+$("#invheaders_demo0904").jqGrid('getPostDataItem',"rows"));
+      });
+
+      $("#ps6").click( function() {
+        $("#invheaders_demo0904").jqGrid('removePostDataItem',"param1");
+        $("#invheaders_demo0904").trigger("reloadGrid");
+        var pd =$("#invheaders_demo0904").jqGrid('getPostData');
+        var r ="";
+        $.each(pd,function(i){r += i+": "+pd[i]+",";})
+        $("#postdata").html(r).css("background-color","yellow");
+      });
     });
-    
-    $("#ps2").click( function() {
-      var pd =$("#invheaders_demo0904").jqGrid('getPostData');
-      var r ="";
-      $.each(pd,function(i){r += i+": "+pd[i]+",";})
-      $("#postdata").html(r).css("background-color","yellow");
-    });
-    
-    $("#ps3").click( function() {
-      $("#invheaders_demo0904").jqGrid('appendPostData',{param2:"p2"});
-      $("#invheaders_demo0904").trigger("reloadGrid");
-      var pd =$("#invheaders_demo0904").jqGrid('getPostData');
-      var r ="";
-      $.each(pd,function(i){r += i+": "+pd[i]+",";})
-      $("#postdata").html(r).css("background-color","yellow");
-    });
-    
-    $("#ps4").click( function() {
-      $("#invheaders_demo0904").jqGrid('setPostDataItem',"param2","I'w new value");
-      $("#invheaders_demo0904").trigger("reloadGrid");
-      var pd =$("#invheaders_demo0904").jqGrid('getPostData');
-      var r ="";
-      $.each(pd,function(i){r += i+": "+pd[i]+",";})
-      $("#postdata").html(r).css("background-color","yellow");
-    });
-    
-    $("#ps5").click( function() {
-      alert( "rows : "+$("#invheaders_demo0904").jqGrid('getPostDataItem',"rows"));
-    });
-    
-    $("#ps6").click( function() {
-      $("#invheaders_demo0904").jqGrid('removePostDataItem',"param1");
-      $("#invheaders_demo0904").trigger("reloadGrid");
-      var pd =$("#invheaders_demo0904").jqGrid('getPostData');
-      var r ="";
-      $.each(pd,function(i){r += i+": "+pd[i]+",";})
-      $("#postdata").html(r).css("background-color","yellow");
-    });    
-  });
-  
+
+- content_for :license do
+  = render :partial =>  "widgets/jqgrid/license"
+

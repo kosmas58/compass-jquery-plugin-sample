@@ -1,20 +1,29 @@
-= raw @grid
+- content_for :head_stylesheets do
+  = stylesheet_link_tag :jqGrid
 
-:javascript  
-  $(document).ready(function() {  
-    $("#t_invheaders_demo1106").height(25).hide().jqGrid('filterGrid',"invheaders_demo1106",{gridModel:true,gridToolbar:true});
-    $("#sg_invdate").datepicker({dateFormat:"yy-mm-dd"});
-    
-    $("#invheaders_demo1106").jqGrid('navGrid','#invheaders_demo1106_pager',{edit:false,add:false,del:false,search:false,refresh:false});
-    $("#invheaders_demo1106").jqGrid('navButtonAdd',"#invheaders_demo1106_pager",{
-      caption: "Search",
-      title: "Toggle Search",
-      onClickButton:function(){ 
-        if($("#t_invheaders_demo1106").css("display")=="none") {
-          $("#t_invheaders_demo1106").css("display","");
-        } else {
-          $("#t_invheaders_demo1106").css("display","none");
+- content_for :head_scripts do
+  = raw jqgrid_javascripts(I18n.locale)
+  = raw @grid
+
+  :javascript
+    $(function() {
+      $("#t_invheaders_demo1106").height(25).hide().jqGrid('filterGrid',"invheaders_demo1106",{gridModel:true,gridToolbar:true});
+      $("#sg_invdate").datepicker({dateFormat:"yy-mm-dd"});
+
+      $("#invheaders_demo1106").jqGrid('navGrid','#invheaders_demo1106_pager',{edit:false,add:false,del:false,search:false,refresh:false});
+      $("#invheaders_demo1106").jqGrid('navButtonAdd',"#invheaders_demo1106_pager",{
+        caption: "Search",
+        title: "Toggle Search",
+        onClickButton:function(){
+          if($("#t_invheaders_demo1106").css("display")=="none") {
+            $("#t_invheaders_demo1106").css("display","");
+          } else {
+            $("#t_invheaders_demo1106").css("display","none");
+          }
         }
-      } 
+      });
     });
-  });  
+
+- content_for :license do
+  = render :partial =>  "widgets/jqgrid/license"
+

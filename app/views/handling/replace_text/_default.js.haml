@@ -1,47 +1,52 @@
-:css
-  .customize { padding: 15px; background-color: #fafaff; }
-  textarea{ width: 45em; height: 4em; }
-  .green { color: #0a0; border: 1px solid #0a0; padding: 1px; }
-  .red { color: #f00; border: 1px solid #f00; padding: 1px; }
+- content_for :head_stylesheets do
+  :css
+    .customize { padding: 15px; background-color: #fafaff; }
+    textarea{ width: 45em; height: 4em; }
+    .green { color: #0a0; border: 1px solid #0a0; padding: 1px; }
+    .red { color: #f00; border: 1px solid #f00; padding: 1px; }
+    .ui-button-text { font-size: 0.8em; }
 
-:javascript
-  $(document).ready(function() { 
-    
-    $('.link1').click(function(){
-      // Replace all 'text' words with 'TEXT'
-      
-      $('#test *').replaceText( /\btext\b/gi, 'TEXT' );
+- content_for :head_scripts do
+  = javascript_include_tag :replaceText
+  :javascript
+    $(function() {
+      $("button").button();
+
+      $('.link1').click(function(){
+        // Replace all 'text' words with 'TEXT'
+
+        $('#test *').replaceText( /\btext\b/gi, 'TEXT' );
+      });
+
+      $('.link2').click(function(){
+        // Wrap all 'this' words in quotes.
+
+        $('#test *').replaceText( /\b(this)\b/gi, '"$1"' );
+      });
+
+      $('.link3').click(function(){
+        // Wrap all 'text' words with <span class="red"/>
+
+        $('#test').find(':not(textarea)')
+          .replaceText( /\b(text)\b/gi, '<span class="red">$1<\/span>' );
+      });
+
+      $('.link4').click(function(){
+        // Wrap all 'a' words, not already wrapped, with <b>, but as text only
+
+        $('#test *').replaceText( /(?!<b>)\b(a)\b(?!<\/b>)/gi, '<b>$1<\/b>', true );
+      });
+
+      $('.link5').click(function(){
+        // Wrap all words starting with 'li' with <span class="green"/>, but only if
+        // they aren't already wrapped in a span with class of green
+
+        function colorize( str ) {
+          return '<span class="green">' + str + '<\/span>';
+        };
+
+        $('#test').find(':not(textarea):not(span.green)')
+          .replaceText( /\bli.*?\b/gi, colorize );
+      });
+
     });
-    
-    $('.link2').click(function(){
-      // Wrap all 'this' words in quotes.
-      
-      $('#test *').replaceText( /\b(this)\b/gi, '"$1"' );
-    });
-    
-    $('.link3').click(function(){
-      // Wrap all 'text' words with <span class="red"/>
-      
-      $('#test').find(':not(textarea)')
-        .replaceText( /\b(text)\b/gi, '<span class="red">$1<\/span>' );
-    });
-    
-    $('.link4').click(function(){
-      // Wrap all 'a' words, not already wrapped, with <b>, but as text only
-      
-      $('#test *').replaceText( /(?!<b>)\b(a)\b(?!<\/b>)/gi, '<b>$1<\/b>', true );
-    });
-    
-    $('.link5').click(function(){
-      // Wrap all words starting with 'li' with <span class="green"/>, but only if
-      // they aren't already wrapped in a span with class of green
-      
-      function colorize( str ) {
-        return '<span class="green">' + str + '<\/span>';
-      };
-      
-      $('#test').find(':not(textarea):not(span.green)')
-        .replaceText( /\bli.*?\b/gi, colorize );
-    });
-    
-  });

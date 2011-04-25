@@ -1,4 +1,8 @@
-:javascript
-  $(function() {
-    $("#datepicker").datepicker({minDate: -20, maxDate: '+1M +10D'});
-  });
+- content_for :head_scripts do
+  :javascript
+    $(function() {
+      $("#datepicker").datepicker({minDate: -20, maxDate: '+1M +10D'});
+    });
+
+- content_for :license do
+  = render :partial => "ui/license"

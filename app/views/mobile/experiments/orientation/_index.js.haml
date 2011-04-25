@@ -1,0 +1,59 @@
+- content_for :head_stylesheets do
+  %link{:href => "/images/demo/mobile/homeicon.png", :rel => "apple-touch-icon"}
+  :css
+    .portrait {
+      background-color: rgba(0, 25, 255, 0.5);
+      width: 100%;
+      height: 100%;
+    }
+    .landscape {
+      background-color: rgba(255, 25, 0, 0.5);
+      width: 100%;
+      height: 100%;
+    }
+    p{
+      font-size:24px;
+      color:white;
+  }
+
+= render :partial => "/mobile/mobile_init.js.haml", :format => :js
+
+- content_for :head_scripts_before_mobile do
+  :javascript
+    // Change the style dependengt on orientation
+    function changeOrientation(ori){
+      // Remove all classes separated by spaces
+      $("#orientation").removeClass('portrait landscape');
+      $("#orientation").addClass(ori);
+      $("#orientation").html("<p>"+ori.toUpperCase()+"</p>");
+    }
+
+    $(function() {
+      // Set Inital orientation
+      // get the initial orientation from window which
+      // returns 0 for portrait and 1 for landscape
+      if(window.orientation == 0){
+        var ori = "portrait";
+      } else {
+        var ori = "landscape";
+      }
+      changeOrientation(ori);
+    });
+
+    // Orientation Change
+    // When orientation changes event is triggered
+    // exposing an orientation property of either
+    // landscape or portrait
+    $(document).bind("orientationchange", function(event) {
+      //setTimeout("oPhoto.sizePict()",100);
+      //alert("chnaged");
+      //changeOrientation(event.orientation);
+    });
+    $(window).bind("orientationchange", function (event) {
+        // Check and display the orientation from the event
+        $("#orientation").html($("#orientation").html() + "Event: " + event.orientation + "<br />");
+
+        // Check and display the orientation from CSS classes
+        if ($(".portrait").length > 0) $("#orientation").html($("#orientation").html() + "CSS Check: portrait<br />");
+        if ($(".landscape").length > 0) $("#orientation").html($("#orientation").html() + "CSS Check: landscape<br />");
+    });

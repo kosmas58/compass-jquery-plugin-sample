@@ -1,0 +1,29 @@
+-@title = "#{t('txt.history.name')} - #{t('txt.history.example12')}"
+= render :partial => "safari.js.haml", :format => :js
+
+.demo
+  %h3
+    =image_tag("icons/22x22/safari.png", :border => 0)
+    =@title
+  %p This demo demonstrates an issue with Safari 5.0.4 (6533.20.27) handing of hashes and replace state. When a hash is set, and then replaced using replaceState the history list are then broken, when traversing back the hash does not change.
+  %p Note: The issue requires a clean history list, as such this should always be opened in a new tab/window where there are no prior history items.
+  %p
+    Reported by
+    %a{:href => "http://balupton.com", :class => :greybox } Benjamin Lupton
+    author of
+    %a{:href => "http://github.com/balupton/history.js", :class => :greybox } History.js
+  %button#bug bug
+  %button#workaround workaround
+  %button#reset reset
+  %textarea#log{:style => "width:100%;height:200px;margin-top:1em;"}
+/ End demo
+.demo-description
+  #greybox
+  %p
+    The plugin was written by
+    %a{:href => "http://github.com/balupton/History.js/", :class => :greybox } Benjamin Lupton
+    and released under the
+    = succeed "." do
+      %a{:href => "http://creativecommons.org/licenses/BSD/", :class => :greybox } New BSD License
+/ End demo-description
+

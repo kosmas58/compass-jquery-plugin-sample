@@ -1,7 +1,5 @@
 -@title = t('txt.ical.calendar.listing')
-
-- content_for :content_head do
-  = render(:partial => "index.js.haml", :format => :js)
+= render :partial => "index.js.haml", :format => :js
 
 .demo
   %h3
@@ -20,4 +18,4 @@
   %br
   %p.buttons
     = link_to t('txt.ical.calendar.new'), new_widgets_ical_calendar_path
-    = link_to t('txt.ical.calendar.iphone'), iphone_widgets_ical_calendars_path
+    = link_to t('txt.ical.calendar.iphone'), "/emulators?device=iphone.3;orientation=portrait;url=/jqtouch/ical"

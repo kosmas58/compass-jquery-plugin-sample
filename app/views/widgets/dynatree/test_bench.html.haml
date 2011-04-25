@@ -1,14 +1,12 @@
 -@title = "#{t('txt.dt.name')} - #{t('txt.dt.benchmark')}"
-
-- content_for :content_head do
-  = render(:partial => "test_bench.js.haml", :format => :js)
-  = render(:partial => "skin.js.haml", :format => :js)
+= render :partial => "test_bench.js.haml", :format => :js
+= render :partial => "skin.js.haml", :format => :js
 
 .demo
   %h3
     =image_tag("icons/22x22/tree.png", :border => 0)
     =@title
-  = render(:partial => "skin_form")
+  = render :partial => "skin_form"
   %p
     Expand a node to start a benchmark, then check the firebug console.
   #tree

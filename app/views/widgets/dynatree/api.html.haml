@@ -1,14 +1,12 @@
 -@title = "#{t('txt.dt.name')} - #{t('txt.dt.api')}"
-
-- content_for :content_head do
-  = render(:partial => "api.js.haml", :format => :js)
-  = render(:partial => "skin.js.haml", :format => :js)
+= render :partial => "api.js.haml", :format => :js
+= render :partial => "skin.js.haml", :format => :js
 
 .demo
   %h3
     =image_tag("icons/22x22/tree.png", :border => 0)
     =@title
-  = render(:partial => "skin_form")
+  = render :partial => "skin_form"
   .toolbar.ui-widget-header.ui-corner-all
     %button#btnExpandAll{ :href => "#" }
       Expand all

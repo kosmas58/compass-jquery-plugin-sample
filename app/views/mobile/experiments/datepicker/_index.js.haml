@@ -1,89 +1,94 @@
-%link{:href => "/images/demo/mobile/homeicon.png", :rel => "apple-touch-icon"}
+- content_for :head_stylesheets do
+  %link{:href => "/images/demo/mobile/jquery-mobile-icon.png", :rel => "apple-touch-icon"}
 
-:css
-  div.hasDatepicker{ display: block; padding: 0; overflow: visible;  margin: 8px 0; }
-  .ui-datepicker {  overflow: visible; margin: 0; max-width: 500px;  }
-  .ui-datepicker .ui-datepicker-header { position:relative; padding:.4em 0; border-bottom: 0; font-weight: bold; }
-  .ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next { padding: 1px 0 1px 2px; position:absolute; top: .5em; margin-top: 0; text-indent: -9999px; }
+  :css
+    div.hasDatepicker{ display: block; padding: 0; overflow: visible;  margin: 8px 0; }
+    .ui-datepicker {  overflow: visible; margin: 0; max-width: 500px;  }
+    .ui-datepicker .ui-datepicker-header { position:relative; padding:.4em 0; border-bottom: 0; font-weight: bold; }
+    .ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next { padding: 1px 0 1px 2px; position:absolute; top: .5em; margin-top: 0; text-indent: -9999px; }
+
+    .ui-datepicker .ui-datepicker-prev { left:6px; }
+    .ui-datepicker .ui-datepicker-next { right:6px; }
+    .ui-datepicker .ui-datepicker-title { margin: 0 2.3em; line-height: 1.8em; text-align: center; }
+    .ui-datepicker .ui-datepicker-title select { font-size:1em; margin:1px 0; }
+    .ui-datepicker select.ui-datepicker-month-year {width: 100%;}
+    .ui-datepicker select.ui-datepicker-month,
+    .ui-datepicker select.ui-datepicker-year { width: 49%;}
+    .ui-datepicker table {width: 100%; border-collapse: collapse; margin:0; }
+    .ui-datepicker td { border-width: 1px; padding: 0; text-align: center; }
+    .ui-datepicker td span, .ui-datepicker td a { display: block; padding: .2em 0; font-weight: bold; margin: 0; border-width: 0; text-align: center; text-decoration: none; }
+
+    .ui-datepicker-calendar th { padding-top: .3em; padding-bottom: .3em; }
+    .ui-datepicker-calendar th span, .ui-datepicker-calendar span.ui-state-default { opacity: .3; }
+    .ui-datepicker-calendar td a { padding-top: .5em; padding-bottom: .5em; }
+
+    .min-width-480px div.hasDatepicker  { width: 63%; display: inline-block; margin: 0; }
   
-  .ui-datepicker .ui-datepicker-prev { left:6px; }
-  .ui-datepicker .ui-datepicker-next { right:6px; }
-  .ui-datepicker .ui-datepicker-title { margin: 0 2.3em; line-height: 1.8em; text-align: center; }
-  .ui-datepicker .ui-datepicker-title select { font-size:1em; margin:1px 0; }
-  .ui-datepicker select.ui-datepicker-month-year {width: 100%;}
-  .ui-datepicker select.ui-datepicker-month, 
-  .ui-datepicker select.ui-datepicker-year { width: 49%;}
-  .ui-datepicker table {width: 100%; border-collapse: collapse; margin:0; }
-  .ui-datepicker td { border-width: 1px; padding: 0; text-align: center; }
-  .ui-datepicker td span, .ui-datepicker td a { display: block; padding: .2em 0; font-weight: bold; margin: 0; border-width: 0; text-align: center; text-decoration: none; }
-  
-  .ui-datepicker-calendar th { padding-top: .3em; padding-bottom: .3em; }
-  .ui-datepicker-calendar th span, .ui-datepicker-calendar span.ui-state-default { opacity: .3; }
-  .ui-datepicker-calendar td a { padding-top: .5em; padding-bottom: .5em; }
-  
-  .min-width-480px div.hasDatepicker  { width: 63%; display: inline-block; margin: 0; } 
-  
-:javascript
-  //reset type=date inputs to text
-  $( document ).bind( "mobileinit", function(){
-    $.mobile.page.prototype.options.degradeInputs.date = true;
-  });	
-  
-= javascript_include_tag 'jquery-ui.min'
+= render :partial => "/mobile/mobile_init.js.haml", :format => :js
 
-:javascript
-    /*
-    * jQuery Mobile Framework : temporary extension to port jQuery UI's datepicker for mobile
-    * Copyright (c) jQuery Project
-    * Dual licensed under the MIT or GPL Version 2 licenses.
-    * http://jquery.org/license
-    */
-    (function($, undefined ) {
+- content_for :head_scripts_before_mobile do
+  :javascript
+    //reset type=date inputs to text
+    $(document).bind( "mobileinit", function(){
+      $.mobile.page.prototype.options.degradeInputs.date = true;
+    });
 
-        //cache previous datepicker ui method
-        var prevDp = $.fn.datepicker;
+  = javascript_include_tag 'jquery-ui.min'
 
-        //rewrite datepicker
-        $.fn.datepicker = function( options ){
+  :javascript
+      /*
+      * jQuery Mobile Framework : temporary extension to port jQuery UI's datepicker for mobile
+      * Copyright (c) jQuery Project
+      * Dual licensed under the MIT or GPL Version 2 licenses.
+      * http://jquery.org/license
+      */
+      (function($, undefined ) {
 
-            var dp = this;
+          //cache previous datepicker ui method
+          var prevDp = $.fn.datepicker;
 
-            //call cached datepicker plugin
-            prevDp.call( this, options );
+          //rewrite datepicker
+          $.fn.datepicker = function( options ){
 
-            //extend with some dom manipulation to update the markup for jQM
-            //call immediately
-            function updateDatepicker(){
-                $( ".ui-datepicker-header", dp ).addClass("ui-body-c ui-corner-top").removeClass("ui-corner-all");
-                $( ".ui-datepicker-prev, .ui-datepicker-next", dp ).attr("href", "#");
-                $( ".ui-datepicker-prev", dp ).buttonMarkup({iconpos: "notext", icon: "arrow-l", shadow: true, corners: true});
-                $( ".ui-datepicker-next", dp ).buttonMarkup({iconpos: "notext", icon: "arrow-r", shadow: true, corners: true});
-                $( ".ui-datepicker-calendar th", dp ).addClass("ui-bar-c");
-                $( ".ui-datepicker-calendar td", dp ).addClass("ui-body-c");
-                $( ".ui-datepicker-calendar a", dp ).buttonMarkup({corners: false, shadow: false});
-                $( ".ui-datepicker-calendar a.ui-state-active", dp ).addClass("ui-btn-active"); // selected date
-                $( ".ui-datepicker-calendar a.ui-state-highlight", dp ).addClass("ui-btn-up-e"); // today"s date
-                $( ".ui-datepicker-calendar .ui-btn", dp ).each(function(){
-                    var el = $(this);
-                    // remove extra button markup - necessary for date value to be interpreted correctly
-                    el.html( el.find( ".ui-btn-text" ).text() );
-                });
-            };
+              var dp = this;
 
-            //update now
-            updateDatepicker();
+              //call cached datepicker plugin
+              prevDp.call( this, options );
 
-            // and on click
-            $( dp ).click( updateDatepicker );
+              //extend with some dom manipulation to update the markup for jQM
+              //call immediately
+              function updateDatepicker(){
+                  $( ".ui-datepicker-header", dp ).addClass("ui-body-c ui-corner-top").removeClass("ui-corner-all");
+                  $( ".ui-datepicker-prev, .ui-datepicker-next", dp ).attr("href", "#");
+                  $( ".ui-datepicker-prev", dp ).buttonMarkup({iconpos: "notext", icon: "arrow-l", shadow: true, corners: true});
+                  $( ".ui-datepicker-next", dp ).buttonMarkup({iconpos: "notext", icon: "arrow-r", shadow: true, corners: true});
+                  $( ".ui-datepicker-calendar th", dp ).addClass("ui-bar-c");
+                  $( ".ui-datepicker-calendar td", dp ).addClass("ui-body-c");
+                  $( ".ui-datepicker-calendar a", dp ).buttonMarkup({corners: false, shadow: false});
+                  $( ".ui-datepicker-calendar a.ui-state-active", dp ).addClass("ui-btn-active"); // selected date
+                  $( ".ui-datepicker-calendar a.ui-state-highlight", dp ).addClass("ui-btn-up-e"); // today"s date
+                  $( ".ui-datepicker-calendar .ui-btn", dp ).each(function(){
+                      var el = $(this);
+                      // remove extra button markup - necessary for date value to be interpreted correctly
+                      el.html( el.find( ".ui-btn-text" ).text() );
+                  });
+              };
 
-            //return jqm obj
-            return this;
-        };
+              //update now
+              updateDatepicker();
 
-        //bind to pagecreate to automatically enhance date inputs
-        $( ".ui-page" ).live( "pagecreate", function(){
-            $( "input[type='date'], input:jqmData(type='date')" ).each(function(){
-                $(this).after( $( "<div />" ).datepicker({ altField: "#" + $(this).attr( "id" ), showOtherMonths: true }) );
-            });
-        });
-    })( jQuery );
+              // and on click
+              $( dp ).click( updateDatepicker );
+
+              //return jqm obj
+              return this;
+          };
+
+          //bind to pagecreate to automatically enhance date inputs
+          $( ".ui-page" ).live( "pagecreate", function(){
+              $( "input[type='date'], input:jqmData(type='date')" ).each(function(){
+                  $(this).after( $( "<div />" ).datepicker({ altField: "#" + $(this).attr( "id" ), showOtherMonths: true }) );
+              });
+          });
+      })( jQuery );
+

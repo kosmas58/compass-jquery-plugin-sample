@@ -1,7 +1,5 @@
--@title = "jQuery Mobile Docs - Content formatting"
-
-- content_for :content_head do
-  = render(:partial => "/mobile/index.js.haml", :format => :js)
+-@title = "jQuery Mobile Docs - Content Grids"
+= render :partial => "/mobile/index.js.haml", :format => :js
 
 %div{"data-role" => "page"}
   %div{"data-role" => "header", "data-theme" => "b"}
@@ -54,7 +52,7 @@
         %strong I'm Block B
         and text inside will wrap.
     / /grid-a
-    %p As you see above, by default grid blocks have no styles for appearance; they simply present content side-by-side.
+    %p As you see above, by default grid blocks have no visual styling; they simply present content side-by-side.
     %p
       Grid classes can be applied to any container. In this next example, we add
       %code ui-grid-a
@@ -76,10 +74,17 @@
         %button{"data-theme" => "c", :type => "submit"} Cancel
       .ui-block-b
         %button{"data-theme" => "b", :type => "submit"} Submit
+
     %p
-      And, grid blocks can adopt presentation styles from the
+      Theme classes (not data-theme attributes) from the
       %a{:href => "/mobile/docs/api/themes"} theming system
-      \&mdash; by adding a height and color swatch reference to the grid blocks, we can achieve this style appearance:
+      can be added to an element, including grids. On the blocks below, we're adding two classes:
+      %code ui-bar
+      to add the default bar padding and
+      %code ui-bar-e
+      to apply the background gradient and font styling for the "e" toolbar theme swatch. For illustration purposes, an inline
+      %code style="height:120px"
+      attribute is also added to each grid to set each to a standard height. 
     .ui-grid-a
       .ui-block-a
         .ui-bar.ui-bar-e{:style => "height:120px"} Block A
@@ -101,7 +106,9 @@
             &lt;div class=&quot;ui-block-b&quot;&gt;Block B&lt;/div&gt;
             &lt;div class=&quot;ui-block-c&quot;&gt;Block C&lt;/div&gt;
           &lt;/div&gt;&lt;!-- /grid-a --&gt;
-    %p This will produce a 33/33/33% grid for our content.
+    %p
+      This will produce a 33/33/33% grid for our content.
+      Note: These blocks are also styled with theme classes so the grid layout is clearly visible.
     .ui-grid-b
       .ui-block-a
         .ui-bar.ui-bar-e{:style => "height:120px"} Block A
@@ -123,6 +130,7 @@
       A four-column, 25/25/25/25% grid is created by specifying
       %code class=ui-grid-c
       on the parent and adding a fourth block.
+      Note: These blocks are also styled with theme classes so the grid layout is clearly visible.
     .ui-grid-c
       .ui-block-a
         .ui-bar.ui-bar-e{:style => "height:120px"} A
@@ -138,6 +146,7 @@
       A five-column, 20/20/20/20/20% grid is created by specifying
       %code class=ui-grid-d
       on the parent and adding a fourth block.
+      Note: These blocks are also styled with theme classes so the grid layout is clearly visible.
     .ui-grid-d
       .ui-block-a
         .ui-bar.ui-bar-e{:style => "height:120px"} A

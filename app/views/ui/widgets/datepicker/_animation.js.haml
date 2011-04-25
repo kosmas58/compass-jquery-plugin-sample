@@ -1,11 +1,16 @@
-:css
-  select { width: 200px; } 
+- content_for :head_stylesheets do
+  :css
+    select { width: 200px; }
 
-:javascript
-  $(function() {
-    $("#datepicker").datepicker();
-   	$('select#anim').selectmenu({
-  		style: 'dropdown'
-  	});
-    $("#anim").change(function() { $('#datepicker').datepicker('option', {showAnim: $(this).val()}); });
-  });
+- content_for :head_scripts do
+  :javascript
+    $(function() {
+      $("#datepicker").datepicker();
+      $('select#anim').selectmenu({
+          style: 'dropdown'
+      });
+      $("#anim").change(function() { $('#datepicker').datepicker('option', {showAnim: $(this).val()}); });
+    });
+
+- content_for :license do
+  = render :partial => "ui/license"

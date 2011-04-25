@@ -1,5 +1,5 @@
 class Jqtouch::Demo2Controller < ApplicationController
-  layout 'jqt_jqt'
+  layout 'jqtouch'
 
   protect_from_forgery
 
@@ -63,7 +63,7 @@ class Jqtouch::Demo2Controller < ApplicationController
   def show_image
     if params[:fName].present?
       @fname = params[:fName]
-      render(:partial => "show_image")
+      render :partial => "show_image"
     else
       render :nothing => true, :status => 200
     end
@@ -72,7 +72,7 @@ class Jqtouch::Demo2Controller < ApplicationController
   def room
     if params[:id].present?
       @fname = "/images/demo/touch/demo2/house_selected.png"
-      render(:partial => "show_image")
+      render :partial => "show_image"
     else
       render :nothing => true, :status => 200
     end
@@ -81,7 +81,7 @@ class Jqtouch::Demo2Controller < ApplicationController
   def art
     if params[:id].present?
       @fname = "/images/demo/touch/demo2/palette_selected.png"
-      render(:partial => "show_image")
+      render :partial => "show_image"
     else
       render :nothing => true, :status => 200
     end
@@ -89,7 +89,7 @@ class Jqtouch::Demo2Controller < ApplicationController
 
   def gallery
     if params[:id].present?
-      render(:partial => "gallery")
+      render :partial => "gallery"
     else
       render :nothing => true, :status => 200
     end

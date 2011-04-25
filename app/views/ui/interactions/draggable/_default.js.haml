@@ -1,7 +1,12 @@
-:css
-  #draggable { width: 150px; height: 150px; padding: 0.5em; }
-    
-:javascript
-  $(function() {
-    $("#draggable").draggable();
-  });
+- content_for :head_stylesheets do
+  :css
+    #draggable { width: 150px; height: 150px; padding: 0.5em; }
+
+- content_for :head_scripts do
+  :javascript
+    $(function() {
+      $("#draggable").draggable();
+    });
+
+- content_for :license do
+  = render :partial => "ui/license"

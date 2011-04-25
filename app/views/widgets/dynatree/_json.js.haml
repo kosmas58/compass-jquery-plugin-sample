@@ -1,14 +1,20 @@
-:javascript
-  $(function(){
-    $("#tree").dynatree({
-      initAjax: { 
-        url: "data1?format=json"
-      },
-      onActivate: function(node) {
-        $("#echoActive").text(node.data.title);
-      },
-      onDeactivate: function(node) {
-        $("#echoActive").text("-");
-      }
+- content_for :head_scripts do
+  = javascript_include_tag :dynatree
+  = javascript_include_tag :contextMenu
+  :javascript
+    $(function() {
+      $("#tree").dynatree({
+        initAjax: {
+          url: "data1?format=json"
+        },
+        onActivate: function(node) {
+          $("#echoActive").text(node.data.title);
+        },
+        onDeactivate: function(node) {
+          $("#echoActive").text("-");
+        }
+      });
     });
-  });
+
+- content_for :license do
+  = render :partial => "widgets/dynatree/license"

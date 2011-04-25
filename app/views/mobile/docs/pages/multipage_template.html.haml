@@ -1,8 +1,5 @@
 -@title = "Page Title"
 
--#- content_for :content_head do
--#  = render(:partial => "/mobile/index.js.haml", :format => :js)
-
 / Start of first page
 #foo{"data-role" => "page"}
   %div{"data-role" => "header"}
@@ -33,6 +30,10 @@
     %p I'm the bar page.
     %p
       %a{"data-direction" => "reverse", :href => "#foo"} Back to foo
+    %p
+      Or view an
+      %a{:href => "/mobile/docs/pages/link_formats"} external page
+      from here!
   / /content
   %div{"data-role" => "footer"}
     %h4 Page Footer

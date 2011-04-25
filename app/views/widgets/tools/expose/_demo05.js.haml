@@ -1,23 +1,29 @@
-:css
-  div.exposed {
-    border:1px solid #ccc;
-    background:#fff url(/images/demo/tools/gradient/h150.png);
-    padding:30px 20px;
-    font-size:25px;
-    margin:20px auto;
-    text-align:center;
-    width:450px;
-    margin-top:15px;
-    -moz-border-radius:10px;	
-  }
-  
-:javascript
-  $(document).ready(function() {
-    $("#e1").click(function(){
-      $("#e1").expose({api:true, lazy:true, color: '#78c'}).load();
+- content_for :head_stylesheets do
+  :css
+    div.exposed {
+      border:1px solid #ccc;
+      background:#fff url(/images/demo/tools/gradient/h150.png);
+      padding:30px 20px;
+      font-size:25px;
+      margin:20px auto;
+      text-align:center;
+      width:450px;
+      margin-top:15px;
+      -moz-border-radius:10px;
+    }
+
+- content_for :head_scripts do
+  = javascript_include_tag :tools
+  :javascript
+    $(function() {
+      $("#e1").click(function(){
+        $("#e1").expose({api:true, lazy:true, color: '#78c'}).load();
+      });
+      $("#e2").click(function(){
+        $("#e2").expose({api:true, lazy:true, color: '#7a1'}).load();
+      });
     });
-    $("#e2").click(function(){
-      $("#e2").expose({api:true, lazy:true, color: '#7a1'}).load();
-    });
-  });
+
+- content_for :license do
+  = render :partial => "widgets/tools/license"
 

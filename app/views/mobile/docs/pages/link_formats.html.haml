@@ -1,7 +1,5 @@
 -@title = "jQuery Mobile Docs - Links"
-
-- content_for :content_head do
-  = render(:partial => "/mobile/index.js.haml", :format => :js)
+= render :partial => "/mobile/index.js.haml", :format => :js
 
 %div{"data-role" => "page"}
   %div{"data-role" => "header", "data-theme" => "b"}
@@ -49,10 +47,6 @@
       %li{"data-role" => "list-divider"} Phone links
       %li
         %a{:href => "tel:15555555555"} Phone: tel:15555555555
-      %li
-        %a{:href => "wtai://wp/mc;15555555555"} Phone: wtai://wp/mc;15555555555
-      %li
-        %a{:href => "dc:234*234*234"} Phone: dc:234*234*234
       %li{"data-role" => "list-divider"} Other
       %li
         %a{:href => "#"} A href="#" will return false

@@ -1,7 +1,5 @@
 -@title = "jQuery Mobile Docs - Methods"
-
-- content_for :content_head do
-  = render(:partial => "/mobile/index.js.haml", :format => :js)
+= render :partial => "/mobile/index.js.haml", :format => :js
 
 %div{"data-role" => "page"}
   %div{"data-role" => "header", "data-theme" => "b"}
@@ -34,7 +32,7 @@
               %li Array specifying two page references [from,to] for transitioning from a known page. From is otherwise assumed to be the current page in view (or $.mobile.activePage ).
               %li
                 Object for sending form data. (
-                %code {to: url, data: serialized form data, type: "get" or "post"}
+                %code {url: url, data: serialized form data, type: "get" or "post"}
           %dd
             %code transition
             (

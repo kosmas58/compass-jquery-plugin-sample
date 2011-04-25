@@ -213,7 +213,7 @@ class NavigationTree < ActiveRecord::Base
   def self.seed()
     root = find_by_title("ROOT")
     if root
-      File.open(File.join(::Rails.root.to_s, 'db/navigation.seeds.rb'), "w+") do |file|
+      File.open(File.join(RAILS_ROOT, 'db/navigation.seeds.rb'), "w+") do |file|
         file.write "\n#NavigationTree\n"
         file.write "puts \"Started creating navigation tree\"\n"
         file.write "puts \"Please be patient ...\"\n"

@@ -1,23 +1,28 @@
-:css
-  #sortable1 li, #sortable2 li { margin: 0 5px 5px 5px; padding: 5px; font-size: 1.2em; width: 120px; }
-    
-:javascript
-  $(function() {
-    $("#sortable1, #sortable2").sortable().disableSelection();
-    
-    var $tabs = $("#tabs").tabs();
-    
-    var $tab_items = $("ul:first li",$tabs).droppable({
-      accept: ".connectedSortable li",
-      hoverClass: "ui-state-hover",
-      drop: function(ev, ui) {
-        var $item = $(this);
-        var $list = $($item.find('a').attr('href')).find('.connectedSortable');
-    
-        ui.draggable.hide('slow', function() {
-          $tabs.tabs('select', $tab_items.index($item));
-          $(this).appendTo($list).show('slow');
-        });
-      }
+- content_for :head_stylesheets do
+  :css
+    #sortable1 li, #sortable2 li { margin: 0 5px 5px 5px; padding: 5px; font-size: 1.2em; width: 120px; }
+
+- content_for :head_scripts do
+  :javascript
+    $(function() {
+      $("#sortable1, #sortable2").sortable().disableSelection();
+
+      var $tabs = $("#tabs").tabs();
+
+      var $tab_items = $("ul:first li",$tabs).droppable({
+        accept: ".connectedSortable li",
+        hoverClass: "ui-state-hover",
+        drop: function(ev, ui) {
+          var $item = $(this);
+          var $list = $($item.find('a').attr('href')).find('.connectedSortable');
+
+          ui.draggable.hide('slow', function() {
+            $tabs.tabs('select', $tab_items.index($item));
+            $(this).appendTo($list).show('slow');
+          });
+        }
+      });
     });
-  });
+
+- content_for :license do
+  = render :partial => "ui/license"

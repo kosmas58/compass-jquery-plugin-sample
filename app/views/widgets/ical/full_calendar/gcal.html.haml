@@ -1,7 +1,7 @@
 -@title = t('txt.ical.fullcalendar.name') + " - " + t('txt.ical.fullcalendar.gcal')
 
-- content_for :content_head do
-  = render(:partial => "gcal.js.haml", :format => :js)
+- content_for :head_scripts do
+  = render :partial => "gcal.js.haml", :format => :js
 
 .demo
   %h3

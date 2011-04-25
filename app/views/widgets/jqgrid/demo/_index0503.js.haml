@@ -1,11 +1,19 @@
-:javascript
-  
-  function handle_events(id){
-    if(id && id!==lastsel_invheaders_demo0503){
-      $('#invheaders_demo0503').jqGrid('restoreRow',lastsel_invheaders_demo0503);
-      $('#invheaders_demo0503').jqGrid('editRow',id,true);
-      lastsel_invheaders_demo0503=id;
-    }
-  }; 
-  
-= raw @grid
+- content_for :head_stylesheets do
+  = stylesheet_link_tag :jqGrid
+
+- content_for :head_scripts do
+  = raw jqgrid_javascripts(I18n.locale)
+  = raw @grid
+  :javascript
+    function handle_events(id){
+      if(id && id!==lastsel_invheaders_demo0503){
+        $('#invheaders_demo0503').jqGrid('restoreRow',lastsel_invheaders_demo0503);
+        $('#invheaders_demo0503').jqGrid('editRow',id,true);
+        lastsel_invheaders_demo0503=id;
+      }
+    };
+
+  = raw @grid
+
+- content_for :license do
+  = render :partial =>  "widgets/jqgrid/license"

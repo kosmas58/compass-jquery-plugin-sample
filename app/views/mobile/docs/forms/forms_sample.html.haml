@@ -1,7 +1,5 @@
--@title = "jQuery Mobile Docs - Forms"
-
-- content_for :content_head do
-  = render(:partial => "/mobile/index.js.haml", :format => :js)
+-@title = "jQuery Mobile Docs - Sample Form Submit"
+= render :partial => "/mobile/index.js.haml", :format => :js
 
 %div{"data-role" => "page", "data-theme" => "c"}
   %div{"data-role" => "header", "data-theme" => "b"}
@@ -62,7 +60,7 @@
       %fieldset
         %div{"data-role" => "fieldcontain"}
           %label.select{:for => "shipping"} Choose shipping method:
-          %select#shipping{:name => "shipping"}
+          %select#shipping{"data-native-menu" => "false", :name => "shipping"}
             %option{:value => "Standard shipping"} Standard: 7 day
             %option{:value => "Rush shipping"} Rush: 3 days
             %option{:value => "Express shipping"} Express: next day

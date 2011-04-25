@@ -1,33 +1,38 @@
-:css
-  fieldset { border:0;  margin-bottom: 40px;}  
-  label,select,.ui-select-menu { float: left; margin-right: 10px; }
-  select { width: 5em; }
-  
-  /*select with custom icons*/
-  a.customicons2 { height: 1.65em;}
-  .customicons2 li a, body a.customicons2 span.ui-selectmenu-status { line-height: 0.9em; padding-left: 20px !important; }
-  .en .ui-selectmenu-item-icon, 
-  .de .ui-selectmenu-item-icon,
-  .es .ui-selectmenu-item-icon,
-  .fr .ui-selectmenu-item-icon,
-  .it .ui-selectmenu-item-icon { height: 11px; width: 16px; }
-  .en .ui-selectmenu-item-icon { background: url("/images/icons/flags/gb.png") 0 0 no-repeat; }
-  .de .ui-selectmenu-item-icon { background: url("/images/icons/flags/de.png") 0 0 no-repeat; }
-  .es .ui-selectmenu-item-icon { background: url("/images/icons/flags/es.png") 0 0 no-repeat; }  
-  .fr .ui-selectmenu-item-icon { background: url("/images/icons/flags/fr.png") 0 0 no-repeat; }  
-  .it .ui-selectmenu-item-icon { background: url("/images/icons/flags/it.png") 0 0 no-repeat; }  
-      
-:javascript
-  $(function() {
-    $('select#languagesA').selectmenu({
-      style: 'dropdown',
-      icons: [
-        {find: '.en'},
-        {find: '.de'},
-        {find: '.es'},
-        {find: '.fr'},
-        {find: '.it'}
-      ]
+- content_for :head_stylesheets do
+  :css
+    fieldset { border:0;  margin-bottom: 40px;}
+    label,select,.ui-select-menu { float: left; margin-right: 10px; }
+    select { width: 5em; }
+    .ui-selectmenu-status { padding-top: 0.3em; }
+
+    /*select with custom icons*/
+    a.customicons2 { height: 1.65em;}
+    .customicons2 li a, body a.customicons2 span.ui-selectmenu-status { line-height: 0.9em; padding-left: 20px !important; }
+    .en .ui-selectmenu-item-icon,
+    .de .ui-selectmenu-item-icon,
+    .es .ui-selectmenu-item-icon,
+    .fr .ui-selectmenu-item-icon,
+    .it .ui-selectmenu-item-icon { height: 11px; width: 16px; }
+    .en .ui-selectmenu-item-icon { background: url("/images/icons/flags/gb.png") 0 0 no-repeat; }
+    .de .ui-selectmenu-item-icon { background: url("/images/icons/flags/de.png") 0 0 no-repeat; }
+    .es .ui-selectmenu-item-icon { background: url("/images/icons/flags/es.png") 0 0 no-repeat; }
+    .fr .ui-selectmenu-item-icon { background: url("/images/icons/flags/fr.png") 0 0 no-repeat; }
+    .it .ui-selectmenu-item-icon { background: url("/images/icons/flags/it.png") 0 0 no-repeat; }
+
+- content_for :head_scripts do
+  :javascript
+    $(function() {
+      $('select#languagesA').selectmenu({
+        style: 'dropdown',
+        icons: [
+          {find: '.en'},
+          {find: '.de'},
+          {find: '.es'},
+          {find: '.fr'},
+          {find: '.it'}
+        ]
+      });
     });
-  });
-  
+
+- content_for :license do
+  = render :partial => "ui/license"

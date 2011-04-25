@@ -8,27 +8,24 @@
     %title
       = @browser_title || 'Default Browser Title'
 
-    = stylesheet_link_tag 'screen.blueprint.css', :media => 'screen, projection'
-    = stylesheet_link_tag 'print.css', :media => 'print'
+    = stylesheet_link_tag 'compiled/screen.blueprint.css', :media => 'screen, projection'
+    = stylesheet_link_tag 'compiled/print.css', :media => 'print'
     /[if lt IE 8]
-      = stylesheet_link_tag 'ie.css', :media => 'screen, projection'
+      = stylesheet_link_tag 'compiled/ie.css', :media => 'screen, projection'
       = javascript_include_tag 'jquery.pngFix'
-
-    = stylesheet_link_tag "jquery/ui/#{session[:theme]}", :media => 'screen, projection'
+    = stylesheet_link_tag "compiled/jquery/ui/#{session[:theme]}", :media => 'screen, projection'
     
     = javascript_include_tag :jquery_ui
     = javascript_include_tag :jrails
     = raw jquery_javascripts(I18n.locale)
     = javascript_include_tag :jstree, :themeSwitcher
     = javascript_include_tag 'i18n', 'locales'
-    = render(:partial => "shared/locale.js.haml", :format => :js)
+    = render :partial => "shared/locale.js.haml", :format => :js
     = csrf_meta_tag
     = javascript_include_tag 'common'
     = javascript_include_tag 'ajax'
     = javascript_include_tag 'application'
-    = javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery?
-
-    = render(:partial => "layouts/sidebar.js.haml", :format => :js)
+    = render :partial => "layouts/sidebar.js.haml", :format => :js
 
   %body{body_attributes}
     .container
@@ -36,7 +33,7 @@
       = render :partial => "layouts/navigation.blueprint"  
       #content
         .ui-widget-content.ui-corner-all{ :style => "background: none" }
-          %iframe#demoframe{ :name => "contentFrame", :src => "welcome/hello", :marginwidth => "0", :frameborder => "0", :height => 852, :width => "100%", :marginheight => "0" }
+          %iframe#demoframe{ :src => "welcome/hello", :marginwidth => "0", :frameborder => "0", :height => "90%", :width => "100%", :marginheight => "0" }
             %p
               Your browser does not support iframes
         = render :partial => "layouts/footer.blueprint"

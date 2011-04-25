@@ -1,13 +1,18 @@
-:css
-  #draggable { width: 100px; height: 100px; padding: 0.5em; float: left; margin: 10px 10px 10px 0; }
-  #droppable { width: 150px; height: 150px; padding: 0.5em; float: left; margin: 10px; }
-    
-:javascript
-  $(function() {
-    $("#draggable").draggable();
-    $("#droppable").droppable({
-      drop: function(event, ui) {
-        $(this).addClass('ui-state-highlight').find('p').html('Dropped!');
-      }
+- content_for :head_stylesheets do
+  :css
+    #draggable { width: 100px; height: 100px; padding: 0.5em; float: left; margin: 10px 10px 10px 0; }
+    #droppable { width: 150px; height: 150px; padding: 0.5em; float: left; margin: 10px; }
+
+- content_for :head_scripts do
+  :javascript
+    $(function() {
+      $("#draggable").draggable();
+      $("#droppable").droppable({
+        drop: function(event, ui) {
+          $(this).addClass('ui-state-highlight').find('p').html('Dropped!');
+        }
+      });
     });
-  });
+
+- content_for :license do
+  = render :partial => "ui/license"

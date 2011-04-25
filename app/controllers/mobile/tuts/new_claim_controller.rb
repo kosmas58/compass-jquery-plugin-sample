@@ -5,6 +5,6 @@ class Mobile::Tuts::NewClaimController < ApplicationController
 
   def request_processor
     sleep(4);
-    render(:text => 'FTREIK12345678')
+    render :text => 'FTREIK12345678'
   end
 end

@@ -1,19 +1,28 @@
-:javascript
-  $(function() {
-    $("input").button();
-  });  
-   
-  $(document).ready(function() { 
-    $("#show_me").click( function(e) {
-      var defaultConv = new AnyTime.Converter();
-      var date = defaultConv.parse("2010-01-06 15:30:00");
-      var jsonConv = new AnyTime.Converter({
-        format: '{"year":"%Y","month":"%m","day":"%d","hour":"%H","minute":"%i","second":"%s"}'
-      });
-      var xmlConv = new AnyTime.Converter({
-        utcFormatOffsetImposed:0,
-        format:"<"+"date>%Y-%m-%dT%H:%i:%s%:<"+"/date>"
-      });
-      alert( "JSON:\n" + jsonConv.format(date) + "\n\nXML:\n" + xmlConv.format(date) );
+- content_for :head_stylesheets do
+  = stylesheet_link_tag :ical, :media => 'screen, projection'
+  = stylesheet_link_tag :ical_print, :media => 'print'
+
+- content_for :head_scripts do
+  = javascript_include_tag :ical
+  :javascript
+    $(function() {
+      $("input").button();
     });
-  });
+
+    $(function() {
+      $("#show_me").click( function(e) {
+        var defaultConv = new AnyTime.Converter();
+        var date = defaultConv.parse("2010-01-06 15:30:00");
+        var jsonConv = new AnyTime.Converter({
+          format: '{"year":"%Y","month":"%m","day":"%d","hour":"%H","minute":"%i","second":"%s"}'
+        });
+        var xmlConv = new AnyTime.Converter({
+          utcFormatOffsetImposed:0,
+          format:"<"+"date>%Y-%m-%dT%H:%i:%s%:<"+"/date>"
+        });
+        alert( "JSON:\n" + jsonConv.format(date) + "\n\nXML:\n" + xmlConv.format(date) );
+      });
+    });
+
+- content_for :license do
+  = render :partial =>  "widgets/ical/license"

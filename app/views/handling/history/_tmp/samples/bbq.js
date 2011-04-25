@@ -5,7 +5,7 @@
  * Time: 12:38
  * To change this template use File | Settings | File Templates.
  */
-$(function(){
+$(function() {
 
   // The "tab widgets" to handle.
   var tabs = $('.tabs'),

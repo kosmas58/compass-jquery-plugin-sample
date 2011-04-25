@@ -1,7 +1,6 @@
 -@title = "jQuery Mobile Framework - Converter Demo Application"
-
-- content_for :content_head do
-  = render(:partial => "index.js.haml", :format => :js)
+-@manifest = "/manifest"
+= render :partial => "index.js.haml", :format => :js
 
 #start{"data-role" => "page", "data-theme" => "a"}
   %div{"data-role" => "header", "data-theme" => "e"}
@@ -31,13 +30,13 @@
     %h2 Select currencies to convert:
     %div{"data-role" => "fieldcontain"}
       %label{:for => "currency-options-from"} From
-      %select#currency-options-from{"data-theme" => "c", :name => "currency-options"}
+      %select#currency-options-from{"data-native-menu" => "false", "data-theme" => "c", :name => "currency-options"}
         %option{:value => "EUR"} EUR to Euro
         %option{:value => "USD"} USD to US Dollar
         %option{:value => "GBP"} GBP to Great Britain Pound
     %div{"data-role" => "fieldcontain"}
       %label{:for => "currency-options-to"} To
-      %select#currency-options-to{"data-theme" => "c", :name => "currency-options"}
+      %select#currency-options-to{"data-native-menu" => "false", "data-theme" => "c", :name => "currency-options"}
         %option{:value => "EUR"} EUR to Euro
         %option{:value => "USD"} USD to US Dollar
         %option{:value => "GBP"} GBP to Great Britain Pound

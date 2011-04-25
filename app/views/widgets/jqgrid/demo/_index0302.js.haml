@@ -1,11 +1,19 @@
-:javascript
-  function handleDemo0302(id, status) { 
-    if(id == null) { 
-      id = 0; 
-    } 
-    $("#invlines_demo0302").jqGrid('setGridParam', {url: "/widgets/jqgrid/demo/?model=invline&details_for="+id,page:1})
-    $("#invlines_demo0302").trigger('reloadGrid'); 
-  };
+- content_for :head_stylesheets do
+  = stylesheet_link_tag :jqGrid
 
-= raw @grid
-= raw @grid_details
+- content_for :head_scripts do
+  = raw jqgrid_javascripts(I18n.locale)
+  :javascript
+    function handleDemo0302(id, status) {
+      if(id == null) {
+        id = 0;
+      }
+      $("#invlines_demo0302").jqGrid('setGridParam', {url: "/widgets/jqgrid/demo/?model=invline&details_for="+id,page:1})
+      $("#invlines_demo0302").trigger('reloadGrid');
+    };
+
+  = raw @grid
+  = raw @grid_details
+
+- content_for :license do
+  = render :partial =>  "widgets/jqgrid/license"

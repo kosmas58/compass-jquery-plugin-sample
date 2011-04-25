@@ -1,4 +1,8 @@
-:javascript
-  $(function() {
-    $("#datepicker").datepicker({showOn: 'button', buttonImage: "/images/demo/calendar.png", buttonImageOnly: true});
-  });
+- content_for :head_scripts do
+  :javascript
+    $(function() {
+      $("#datepicker").datepicker({showOn: 'button', buttonImage: "/images/demo/calendar.png", buttonImageOnly: true});
+    });
+
+- content_for :license do
+  = render :partial => "ui/license"

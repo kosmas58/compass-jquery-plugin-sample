@@ -1,7 +1,5 @@
 -@title = "jQuery Mobile Docs - Pages"
-
-- content_for :content_head do
-  = render(:partial => "/mobile/index.js.haml", :format => :js)
+= render :partial => "/mobile/index.js.haml", :format => :js
 
 %div{"data-role" => "page"}
   %div{"data-role" => "header", "data-theme" => "b"}
@@ -20,9 +18,9 @@
           &lt;html&gt; 
             &lt;head&gt; 
             &lt;title&gt;Page Title&lt;/title&gt; 
-            &lt;link rel=&quot;stylesheet&quot; href=&quot;http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.css&quot; /&gt;
-            &lt;script type=&quot;text/javascript&quot; src=&quot;http://code.jquery.com/jquery-1.5.min.js&quot;&gt;&lt;/script&gt;
-            &lt;script type=&quot;text/javascript&quot; src=&quot;http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.js&quot;&gt;&lt;/script&gt;
+            &lt;link rel=&quot;stylesheet&quot; href=&quot;http://code.jquery.com/mobile/1.0a4/jquery.mobile-1.0a4.1.min.css&quot; /&gt;
+            &lt;script type=&quot;text/javascript&quot; src=&quot;http://code.jquery.com/jquery-1.5.2.min.js&quot;&gt;&lt;/script&gt;
+            &lt;script type=&quot;text/javascript&quot; src=&quot;http://code.jquery.com/mobile/1.0a4/jquery.mobile-1.0a4.1.min.js&quot;&gt;&lt;/script&gt;
           &lt;/head&gt; 
           &lt;body&gt; 
           
@@ -77,9 +75,9 @@
           &lt;html&gt; 
             &lt;head&gt; 
             &lt;title&gt;Page Title&lt;/title&gt; 
-            &lt;link rel=&quot;stylesheet&quot; href=&quot;http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.css&quot;/&gt;
-            &lt;script type=&quot;text/javascript&quot; src=&quot;http://code.jquery.com/jquery-1.4.4.min.js&quot;&gt;&lt;/script&gt;
-            &lt;script type=&quot;text/javascript&quot; src=&quot;http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.js&quot;&gt;&lt;/script&gt;
+            &lt;link rel=&quot;stylesheet&quot; href=&quot;http://code.jquery.com/mobile/1.0a4/jquery.mobile-1.0a4.1.min.css&quot;/&gt;
+            &lt;script type=&quot;text/javascript&quot; src=&quot;http://code.jquery.com/jquery-1.5.2.min.js&quot;&gt;&lt;/script&gt;
+            &lt;script type=&quot;text/javascript&quot; src=&quot;http://code.jquery.com/mobile/1.0a4/jquery.mobile-1.0a4.1.min.js&quot;&gt;&lt;/script&gt;
           &lt;/head&gt; 
           &lt;body&gt; 
           
@@ -125,11 +123,11 @@
       %code> href="#foo"
       ). When a link is clicked, the framework will look for an internal 'page' with the ID and transition it into view.
     %p
-      It's important to note if you  are linking from a mobile page that was loaded via Ajax to a page with multiple internal pages, you need to add a
+      It's important to note if you  are linking from a mobile page that was loaded via Ajax to a page that contains multiple internal pages, you need to add a
       %code rel="external"
       or
       %code data-ajax="false"
-      to the link. This tells the framework to do a full page reload to clear out the Ajax hash in the URL. This is critical because Ajax pages use the hash (#) to track the Ajax history, while multiple internal pages use the hash to indicate internal pages so there will be a conflicts.
+      to the link. This tells the framework to do a full page reload to clear out the Ajax hash in the URL. This is critical because Ajax pages use the hash (#) to track the Ajax history, while multiple internal pages use the hash to indicate internal pages so there will be conflicts in the hash between these two modes.
     %p For example, a link to a page containing multiple internal pages would look like this:
     %code &lt;a href=&quot;multipage.html&quot; rel=&quot;external&quot;&gt;Multi-page link&lt;/a&gt;
     %p
@@ -186,6 +184,21 @@
       instead of the native behavior of scrolling to the content with that
       = succeed "." do
         %code ID
+    %h2 Auto-updating page titles for Ajax navigation
+    %p
+      When you load the first page of a jQuery Mobile based site, then click a link or submit a form, the jQuery Mobile uses Ajax to pull in the content
+      of the requested page. Having both pages in the DOM is essential to enable the animated page transitions but one downside of this approach is that
+      the page title is always that of the first page, not the subsequent page you’re viewing. To remedy this, the framework automatically parses the
+      %code
+        title
+      of the page pulled via Ajax and changes the
+      %code
+        title
+      attribute of the parent document to match. On multi-page sites, add the
+      %code
+        data-title
+      attribute to each page container to manually define a title. Since we already support the browser’s history stack, back button and bookmarking of
+      these Ajax-based pages, this really helps when looking through your browsing history.
     %h2 Back linking
     %p
       If you use the attribute

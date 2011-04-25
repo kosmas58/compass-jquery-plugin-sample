@@ -1,7 +1,5 @@
 -@title = "#{t('txt.ui.name')} #{t('txt.ui.widgets.button.default')} - #{t('txt.ui.widgets.button.checkbox')}"
-
-- content_for :content_head do
-  = render(:partial => "checkbox.js.haml", :format => :js)
+= render :partial => "checkbox.js.haml", :format => :js
       
 .demo
   %h3

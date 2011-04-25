@@ -1,6 +1,10 @@
-:javascript
-  $(function() {
-    $("#progressbar").progressbar({
-      value: 37
+- content_for :head_scripts do
+  :javascript
+    $(function() {
+      $("#progressbar").progressbar({
+        value: 37
+      });
     });
-  });
+
+- content_for :license do
+  = render :partial => "ui/license"

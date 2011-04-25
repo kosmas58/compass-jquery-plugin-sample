@@ -1,7 +1,5 @@
 -@title = "#{t('txt.ui.name')} #{t('txt.ui.interactions.droppable.default')} - #{t('txt.ui.interactions.droppable.photo-manager')}"
-
-- content_for :content_head do
-  = render(:partial => "photo_manager.js.haml", :format => :js)
+= render :partial => "photo_manager.js.haml", :format => :js
 
 .demo
   %h3

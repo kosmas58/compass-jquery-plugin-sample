@@ -1,7 +1,14 @@
-:javascript
-  function handleExample03(id, status) {
-    alert('Selected row ID ' + id);
-  };
-  
-= raw @grid_players
-  
+- content_for :head_stylesheets do
+  = stylesheet_link_tag :jqGrid
+
+- content_for :head_scripts do
+  = raw jqgrid_javascripts(I18n.locale)
+  :javascript
+    function handleExample03(id, status) {
+      alert('Selected row ID ' + id);
+    };
+
+  = raw @grid_players
+
+- content_for :license do
+  = render :partial =>  "widgets/jqgrid/license"

@@ -1,16 +1,24 @@
-:javascript  
-  function afterInsertRow(rowid, aData){
-    switch (aData.closed) {
-      case "Yes":
-        $("#invheaders_demo1003").jqGrid('setCell',rowid,"total","",{color:'green'});
-        break;
-      case "No":
-        $("#invheaders_demo1003").jqGrid('setCell',rowid,"total","",{color:'red'});
-        break;
-      case "Client 3":
-        $("#invheaders_demo1003").jqGrid('setCell',rowid,"total","",{color:'blue'});
-        break;
-    }
-  };
-  
-= raw @grid
+- content_for :head_stylesheets do
+  = stylesheet_link_tag :jqGrid
+
+- content_for :head_scripts do
+  = raw jqgrid_javascripts(I18n.locale)
+  :javascript
+    function afterInsertRow(rowid, aData){
+      switch (aData.closed) {
+        case "Yes":
+          $("#invheaders_demo1003").jqGrid('setCell',rowid,"total","",{color:'green'});
+          break;
+        case "No":
+          $("#invheaders_demo1003").jqGrid('setCell',rowid,"total","",{color:'red'});
+          break;
+        case "Client 3":
+          $("#invheaders_demo1003").jqGrid('setCell',rowid,"total","",{color:'blue'});
+          break;
+      }
+    };
+
+  = raw @grid
+
+- content_for :license do
+  = render :partial =>  "widgets/jqgrid/license"

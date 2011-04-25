@@ -1,7 +1,5 @@
 -@title = "jQuery Mobile Docs - Lists"
-
-- content_for :content_head do
-  = render(:partial=> "/mobile/index.js.haml", :format => :js)
+= render :partial=> "/mobile/index.js.haml", :format => :js
 
 %div{"data-role"=> "page"}
   %div{"data-role" => "header", "data-theme" => "b"}
@@ -21,8 +19,6 @@
       %li
         %a{:href=> "/mobile/docs/lists/lists_ol"} Numbered list
       %li
-        %a{:href=> "/mobile/docs/lists/lists_readonly"} Read-only list
-      %li
         %a{:href=> "/mobile/docs/lists/lists_split"} Split button list
       %li
         %a{:href=> "/mobile/docs/lists/lists_divider"} List dividers
@@ -40,6 +36,14 @@
         %a{:href => "/mobile/docs/lists/lists_search_inset"} Inset search filter bar
       %li
         %a{:href=> "/mobile/docs/lists/lists_search_with_dividers"} Search filter bar with dividers
+      %li
+        %a{:href=> "/mobile/docs/lists/lists_readonly"} Read-only lists
+      %li
+        %a{:href=> "/mobile/docs/lists/lists_readonly_inset"} Read-only inset lists
+      %li
+        %a{:href=> "/mobile/docs/lists/lists_forms"} Lists with forms
+      %li
+        %a{:href=> "/mobile/docs/lists/lists_forms_inset"} Inset lists with forms
       %li
         %a{:href=> "/mobile/docs/lists/lists_inset"} Inset styled lists
       %li

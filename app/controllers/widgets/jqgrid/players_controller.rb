@@ -1,6 +1,4 @@
 class Widgets::Jqgrid::PlayersController < ApplicationController
-  layout 'jqgrid'
-
   protect_from_forgery
 
   def index

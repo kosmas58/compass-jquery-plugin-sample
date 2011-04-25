@@ -1,10 +1,9 @@
 -@title = t('txt.layout.navigation.configure')
-
-- content_for :content_head do
-  = render(:partial => "test.js.haml", :format => :js)
+= render :partial => "test.js.haml", :format => :js
 
 .demo
   %h3
+    =image_tag("icons/22x22/tree.png", :border => 0)
     =@title
   .span-16
     #testtree.ui-widget-content.ui-corner-all

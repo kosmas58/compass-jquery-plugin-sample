@@ -1,9 +1,16 @@
-= raw @grid
+- content_for :head_stylesheets do
+  = stylesheet_link_tag :jqGrid
 
-:javascript  
-  $(document).ready(function() {  
-    $("#t_invheaders_demo0901").append("<input type='button' value='Click Me' style='height:20px;font-size:-3'/>");
-    $("input","#t_invheaders_demo0901").click(function(){
-      alert("Hi! I'm added button at this toolbar");
+- content_for :head_scripts do
+  = raw jqgrid_javascripts(I18n.locale)
+  = raw @grid
+  :javascript
+    $(function() {
+      $("#t_invheaders_demo0901").append("<input type='button' value='Click Me' style='height:20px;font-size:-3'/>");
+      $("input","#t_invheaders_demo0901").click(function(){
+        alert("Hi! I'm added button at this toolbar");
+      });
     });
-  }); 
+
+- content_for :license do
+  = render :partial =>  "widgets/jqgrid/license"

@@ -1,0 +1,67 @@
+:javascript
+  var chart;
+  $(function() {
+      chart = new Highcharts.Chart({
+          chart: {
+              renderTo: 'container',
+              margin: [50, 0, 0, 0],
+              plotBackgroundColor: 'none',
+              plotBorderWidth: 0,
+              plotShadow: false
+          },
+          title: {
+              text: 'Browser market shares at a specific website'
+          },
+          subtitle: {
+              text: 'Inner circle: 2008, outer circle: 2010'
+          },
+          tooltip: {
+              formatter: function() {
+                  return ''+ this.series.name +''+
+                      this.point.name +': '+ this.y +' %';
+              }
+          },
+          series: [{
+              type: 'pie',
+              name: '2008',
+              size: '45%',
+              innerSize: '20%',
+              data: [
+                  { name: 'Firefox', y: 44.2, color: '#4572A7' },
+                  { name: 'IE', y: 46.6, color: '#AA4643' },
+                  { name: 'Chrome', y: 3.1, color: '#89A54E' },
+                  { name: 'Safari', y: 2.7, color: '#80699B' },
+                  { name: 'Opera', y: 2.3, color: '#3D96AE' },
+                  { name: 'Mozilla', y: 0.4, color: '#DB843D' }
+              ],
+              dataLabels: {
+                  enabled: false
+              }
+          }, {
+              type: 'pie',
+              name: '2010',
+              innerSize: '45%',
+              data: [
+                  { name: 'Firefox', y: 45.0, color: '#4572A7' },
+                  { name: 'IE', y: 26.8, color: '#AA4643' },
+                  { name: 'Chrome', y: 12.8, color: '#89A54E' },
+                  { name: 'Safari', y: 8.5, color: '#80699B' },
+                  { name: 'Opera', y: 6.2, color: '#3D96AE' },
+                  { name: 'Mozilla', y: 0.2, color: '#DB843D' }
+              ],
+              dataLabels: {
+                  enabled: true,
+                  color: '#000000',
+                  connectorColor: '#000000'
+              }
+          }]
+      });
+  });
+
+-@title = "#{t('txt.graphics.highcharts.name')} - #{t('txt.graphics.highcharts.pie.name')} - #{t('txt.graphics.highcharts.pie.donut')}"
+
+%h4
+  =image_tag("icons/22x22/graphics.png", :border => 0)
+  =@title
+
+#container{:style => "width: 800px; height: 400px; margin: 0 auto"}

@@ -1,10 +1,9 @@
 -@title = t('txt.layout.navigation.configure')
-
-- content_for :content_head do
-  = render(:partial => "index.js.haml", :format => :js)
+= render :partial => "index.js.haml", :format => :js
 
 .demo
   %h3
+    =image_tag("icons/22x22/tree.png", :border => 0)
     =@title
   
   .span-24
@@ -37,20 +36,21 @@
       #alog
   .span-24
     #toolbar_bottom.ui-widget-header.ui-corner-all
-      %a#test{ :href => test_navigation_index_path }
+      %a#test{ :href => test_navigation_path }
         Test
       %button#analyze
         Analyze
       %button#refresh
         Refresh
-      %a#seed{ :href => seed_navigation_index_path }
+      %a#seed{ :href => seed_navigation_path }
         Create seed file
   #navigation_update_dialog{ :style => "display: none;" }
 / End demo
 .demo-description
   %p
-    = link_to raw("<b>jsTree</b>"), "http://www.jstree.com/documentation"
+    = link_to raw("<b>jsTree</b>"), "http://www.jstree.com/documentation", :class=> :greybox
     and the
-    = link_to raw("<b>acts_as_nested_set</b>"), "http://github.com/rails/acts_as_nested_set"
+    = link_to raw("<b>acts_as_nested_set</b>"), "http://github.com/rails/acts_as_nested_set", :class=> :greybox
     plugin have been used to build the navigation tree.
+  #greybox
 / End demo-description

@@ -1,7 +1,5 @@
 -@title = "#{t('txt.ui.name')} #{t('txt.ui.widgets.autocomplete.default')} - #{t('txt.ui.widgets.autocomplete.multiple')}"
-
-- content_for :content_head do
-  = render(:partial => "multiple.js.haml", :format => :js)
+= render :partial => "multiple.js.haml", :format => :js
      
 .demo
   %h3

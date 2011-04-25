@@ -1,33 +1,40 @@
-:css
-  #toolbar { padding: 0.3em; }
-  #toolbar .ui-button{ font-size: 0.8em; }
+- content_for :head_stylesheets do
+  = stylesheet_link_tag :jqGrid
+  :css
+    #toolbar { padding: 0.3em; }
+    #toolbar .ui-button{ font-size: 0.8em; }
 
-:javascript
-  $(function() {
-    $("a", "#toolbar").button();
-  });
-  
-  $(document).ready(function() {
-    $("#a1").click( function(){
-      var id = $("#invheaders_demo0201").jqGrid('getGridParam','selrow');
-      if (id)  {
-        var ret = $("#invheaders_demo0201").jqGrid('getRowData',id);
-        alert("id="+ret.id+" invdate="+ret.invdate+"...");
-      } else { alert("Please select row");}
+- content_for :head_scripts do
+  = raw jqgrid_javascripts(I18n.locale)
+  :javascript
+    $(function() {
+      $("a", "#toolbar").button();
     });
-    $("#a2").click( function(){
-      var su=$("#invheaders_demo0201").jqGrid('delRowData',12);
-      if(su) alert("Succes. Write custom code to delete row from server"); else alert("Allready deleted or not in list");
+
+    $(function() {
+      $("#a1").click( function(){
+        var id = $("#invheaders_demo0201").jqGrid('getGridParam','selrow');
+        if (id)  {
+          var ret = $("#invheaders_demo0201").jqGrid('getRowData',id);
+          alert("id="+ret.id+" invdate="+ret.invdate+"...");
+        } else { alert("Please select row");}
+      });
+      $("#a2").click( function(){
+        var su=$("#invheaders_demo0201").jqGrid('delRowData',12);
+        if(su) alert("Succes. Write custom code to delete row from server"); else alert("Allready deleted or not in list");
+      });
+      $("#a3").click( function(){
+        var su=$("#invheaders_demo0201").jqGrid('setRowData',11,{amount:"333.00",tax:"33.00",total:"366.00",note:"<img src='/images/icons/16x16/working.png'/>"});
+        if(su) alert("Succes. Write custom code to update row in server"); else alert("Can not update");
+      });
+      $("#a4").click( function(){
+        var datarow = {id:"99",invdate:"2007-09-01",name:"test3",note:"note3",amount:"400.00",tax:"30.00",total:"430.00"};
+        var su=$("#invheaders_demo0201").jqGrid('addRowData',99,datarow);
+        if(su) alert("Succes. Write custom code to add data in server"); else alert("Can not update");
+      });
     });
-    $("#a3").click( function(){
-      var su=$("#invheaders_demo0201").jqGrid('setRowData',11,{amount:"333.00",tax:"33.00",total:"366.00",note:"<img src='/images/icons/16x16/working.png'/>"});
-      if(su) alert("Succes. Write custom code to update row in server"); else alert("Can not update");
-    });
-    $("#a4").click( function(){
-      var datarow = {id:"99",invdate:"2007-09-01",name:"test3",note:"note3",amount:"400.00",tax:"30.00",total:"430.00"};
-      var su=$("#invheaders_demo0201").jqGrid('addRowData',99,datarow);
-      if(su) alert("Succes. Write custom code to add data in server"); else alert("Can not update");
-    });
-  });
-    
-= raw @grid
+
+  = raw @grid
+
+- content_for :license do
+  = render :partial =>  "widgets/jqgrid/license"

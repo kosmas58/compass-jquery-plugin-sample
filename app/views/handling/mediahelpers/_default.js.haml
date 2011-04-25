@@ -1,0 +1,44 @@
+- content_for :head_stylesheets do
+  :css
+    /* hide LIs */
+    li { display: none; }
+    /* show LIs based on present breakpoints */
+    .min-width-320px .min320,
+    .max-width-320px .max320,
+    .min-width-480px .min480,
+    .max-width-480px .max480,
+    .min-width-768px .min768,
+    .max-width-768px .max768,
+    .min-width-1024px .min1024,
+    .max-width-1024px .max1024,
+    .min-width-1200px .min1200,
+    .max-width-1200px .max1200,
+    .min-width-1400px .min1400,
+    .max-width-1400px .max1400,
+
+    .portrait .port,
+    .landscape .land { display: block; }
+
+    /* demo formatting */
+    h4 { border-bottom: 1px solid #0078ae; padding: .5em 1em .2em; }
+    .subh { color: #0078ae; }
+    ul li { color: #0078ae; }
+    input { display: inline-block; width: 300px;  font-size: .8em; padding: .5em; color: #fff; background: #6eac2c; border: 1px solid #acdd4a; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; }
+    #mhtest {  display: inline-block; font-size: .8em; font-weight: bold;  }
+    #mhresult { display: inline-block; color: #0078ae; font-weight: bold; }
+
+- content_for :head_scripts do
+  = javascript_include_tag :mediahelpers
+  :javascript
+    //add a breakpoint
+    $.mh.addResolutionBreakpoints( [1200, 1400] );
+
+    //make a button that runs a sample media query
+    $(function() {
+      $('#mhtest')
+      .button()
+      .click(function(){
+        $('#mhresult').text( $.mh.media( $('#mq').val() ) );
+        return false;
+      });
+    });

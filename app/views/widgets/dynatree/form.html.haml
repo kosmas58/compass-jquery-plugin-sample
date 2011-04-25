@@ -1,14 +1,12 @@
 -@title = "#{t('txt.dt.name')} - #{t('txt.dt.form')}"
-
-- content_for :content_head do
-  = render(:partial => "form.js.haml", :format => :js)
-  = render(:partial => "skin.js.haml", :format => :js)
+= render :partial => "form.js.haml", :format => :js
+= render :partial => "skin.js.haml", :format => :js
 
 .demo
   %h3
     =image_tag("icons/22x22/tree.png", :border => 0)
     =@title
-  = render(:partial => "skin_form")
+  = render :partial => "skin_form"
   %form{:action => "http://127.0.0.1:8001/submit_data", :method => "POST"}
     Username:
     %input{:name => "userName", :type => "text"}/

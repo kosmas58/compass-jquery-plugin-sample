@@ -1,6 +1,4 @@
 class Widgets::Tools::OverlayController < ApplicationController
-  layout 'tools'
-
   protect_from_forgery
 
   def external

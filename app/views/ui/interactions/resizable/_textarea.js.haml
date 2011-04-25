@@ -1,9 +1,14 @@
-:css
-  .ui-resizable-se { bottom: 17px; }
- 
-:javascript
-  $(function() {
-    $("#resizable").resizable({
-      handeles: "se"
+- content_for :head_stylesheets do
+  :css
+    .ui-resizable-se { bottom: 17px; }
+
+- content_for :head_scripts do
+  :javascript
+    $(function() {
+      $("#resizable").resizable({
+        handeles: "se"
+      });
     });
-  });
+
+- content_for :license do
+  = render :partial => "ui/license"

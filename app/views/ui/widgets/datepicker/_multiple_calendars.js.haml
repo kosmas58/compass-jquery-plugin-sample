@@ -1,7 +1,11 @@
-:javascript
-  $(function() {
-    $('#datepicker').datepicker({
-      numberOfMonths: 3,
-      showButtonPanel: true
+- content_for :head_scripts do
+  :javascript
+    $(function() {
+      $('#datepicker').datepicker({
+        numberOfMonths: 3,
+        showButtonPanel: true
+      });
     });
-  });
+
+- content_for :license do
+  = render :partial => "ui/license"

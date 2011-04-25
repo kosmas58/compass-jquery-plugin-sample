@@ -1,14 +1,12 @@
 -@title = "#{t('txt.dt.name')} - #{t('txt.dt.iframe')}"
-
-- content_for :content_head do
-  = render(:partial => "iframe.js.haml", :format => :js)
-  = render(:partial => "skin.js.haml", :format => :js)
+= render :partial => "iframe.js.haml", :format => :js
+= render :partial => "skin.js.haml", :format => :js
 
 .demo
   %h3
     =image_tag("icons/22x22/tree.png", :border => 0)
     =@title
-  = render(:partial => "skin_form")
+  = render :partial => "skin_form"
   
   %table
     %colgroup
@@ -19,7 +17,7 @@
         / Add a <div> element where the tree should appear:
         #tree
       %td
-        %iframe{ :name => "contentFrame", :src => "iframe_1", :marginwidth => "0", :height => "500", :frameborder => "0", :width => "100%", :scrolling => "yes", :marginheight => "0" }
+        %iframe#iframe_1{ :src => "iframe_1", :marginwidth => "0", :height => "500", :frameborder => "0", :width => "100%", :scrolling => "yes", :marginheight => "0" }
           %p
             Your browser does not support iframes
 / End demo

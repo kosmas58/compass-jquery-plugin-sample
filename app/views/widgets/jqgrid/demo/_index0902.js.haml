@@ -1,7 +1,16 @@
-:javascript  
-  function after_load(){
-    var udata = $("#invheaders_demo0902").jqGrid('getUserData');
-    $("#t_invheaders_demo0902").css("text-align","right").html("Totals Amount:"+udata.amount+" Tax: "+udata.tax+" Total: "+udata.total+ "&nbsp;&nbsp;&nbsp;");
-  };
+- content_for :head_stylesheets do
+  = stylesheet_link_tag :jqGrid
 
-= raw @grid
+- content_for :head_scripts do
+  = raw jqgrid_javascripts(I18n.locale)
+  :javascript
+    function after_load(){
+      var udata = $("#invheaders_demo0902").jqGrid('getUserData');
+      $("#t_invheaders_demo0902").css("text-align","right").html("Totals Amount:"+udata.amount+" Tax: "+udata.tax+" Total: "+udata.total+ "&nbsp;&nbsp;&nbsp;");
+    };
+
+  = raw @grid
+
+- content_for :license do
+  = render :partial =>  "widgets/jqgrid/license"
+

@@ -1,6 +1,14 @@
-:javascript  
-  function loadError(xhr,st,err) {
-    $("#rsperror").html("Type: "+st+"; Response: "+ xhr.status + " "+xhr.statusText);
-  };
-  
-= raw @grid
+- content_for :head_stylesheets do
+  = stylesheet_link_tag :jqGrid
+
+- content_for :head_scripts do
+  = raw jqgrid_javascripts(I18n.locale)
+  :javascript
+    function loadError(xhr,st,err) {
+      $("#rsperror").html("Type: "+st+"; Response: "+ xhr.status + " "+xhr.statusText);
+    };
+
+  = raw @grid
+
+- content_for :license do
+  = render :partial =>  "widgets/jqgrid/license"

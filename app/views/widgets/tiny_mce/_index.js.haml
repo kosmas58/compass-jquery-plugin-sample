@@ -1,146 +1,152 @@
-:css
-  .tinymce td {
-      font-family: Verdana, Arial, Helvetica, sans-serif;
-      font-size: 10px;
-  }
+- content_for :head_stylesheets do
+  :css
+    .tinymce td {
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+        font-size: 10px;
+    }
 
-  .tinymce pre {
-      font-family: Verdana, Arial, Helvetica, sans-serif;
-      font-size: 10px;
-  }
+    .tinymce pre {
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+        font-size: 10px;
+    }
 
-  .tinymce .example1 {
-      font-weight: bold;
-      font-size: 14px
-  }
+    .tinymce .example1 {
+        font-weight: bold;
+        font-size: 14px
+    }
 
-  .tinymce .example2 {
-      font-weight: bold;
-      font-size: 12px;
-      color: #FF0000
-  }
+    .tinymce .example2 {
+        font-weight: bold;
+        font-size: 12px;
+        color: #FF0000
+    }
 
-  .tinymce .tablerow1 {
-      background-color: #BBBBBB;
-  }
+    .tinymce .tablerow1 {
+        background-color: #BBBBBB;
+    }
 
-  .tinymce thead {
-      background-color: #FFBBBB;
-  }
+    .tinymce thead {
+        background-color: #FFBBBB;
+    }
 
-  .tinymce tfoot {
-      background-color: #BBBBFF;
-  }
+    .tinymce tfoot {
+        background-color: #BBBBFF;
+    }
 
-  .tinymce th {
-      font-family: Verdana, Arial, Helvetica, sans-serif;
-      font-size: 13px;
-  }
+    .tinymce th {
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+        font-size: 13px;
+    }
 
-  /* Basic formats */
+    /* Basic formats */
 
-  .tinymce .bold {
-      font-weight: bold;
-  }
+    .tinymce .bold {
+        font-weight: bold;
+    }
 
-  .tinymce .italic {
-      font-style: italic;
-  }
+    .tinymce .italic {
+        font-style: italic;
+    }
 
-  .tinymce .underline {
-      text-decoration: underline;
-  }
+    .tinymce .underline {
+        text-decoration: underline;
+    }
 
-  /* Global align classes */
+    /* Global align classes */
 
-  .tinymce .left {
-      text-align: inherit;
-  }
+    .tinymce .left {
+        text-align: inherit;
+    }
 
-  .tinymce .center {
-      text-align: center;
-  }
+    .tinymce .center {
+        text-align: center;
+    }
 
-  .tinymce .right {
-      text-align: right;
-  }
+    .tinymce .right {
+        text-align: right;
+    }
 
-  .tinymce .full {
-      text-align: justify
-  }
+    .tinymce .full {
+        text-align: justify
+    }
 
-  /* Image and table specific aligns */
+    /* Image and table specific aligns */
 
-  .tinymce img.left, .tinymce table.left {
-      float: left;
-      text-align: inherit;
-  }
+    .tinymce img.left, .tinymce table.left {
+        float: left;
+        text-align: inherit;
+    }
 
-  .tinymce img.center, .tinymce table.center {
-      margin-left: auto;
-      margin-right: auto;
-      text-align: inherit;
-  }
+    .tinymce img.center, .tinymce table.center {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: inherit;
+    }
 
-  .tinymce img.center {
-      display: block;
-  }
+    .tinymce img.center {
+        display: block;
+    }
 
-  .tinymce img.right, .tinymce table.right {
-      float: right;
-      text-align: inherit;
-  }
+    .tinymce img.right, .tinymce table.right {
+        float: right;
+        text-align: inherit;
+    }
 
-  .toolbar { padding: 0.3em; }
-  .toolbar .ui-button{ font-size: 0.8em; }
+    .toolbar { padding: 0.3em; }
+    .toolbar .ui-button{ font-size: 0.8em; }
 
-:javascript
-  $(function() {
-    $("a, input", ".toolbar").button();
-  });
-
-  $(document).ready(function() {
-    $('textarea.tinymce').tinymce({
-        // Location of TinyMCE script
-        script_url : '/javascripts/tiny_mce/tiny_mce.js',
-
-        // General options
-        theme : "advanced",
-        plugins : "pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,advlist",
-
-        // Theme options
-        theme_advanced_buttons1 : "save,newdocument,|,bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,styleselect,formatselect,fontselect,fontsizeselect",
-        theme_advanced_buttons2 : "cut,copy,paste,pastetext,pasteword,|,search,replace,|,bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor,image,cleanup,help,code,|,insertdate,inserttime,preview,|,forecolor,backcolor",
-        theme_advanced_buttons3 : "tablecontrols,|,hr,removeformat,visualaid,|,sub,sup,|,charmap,emotions,iespell,media,advhr,|,print,|,ltr,rtl,|,fullscreen",
-        theme_advanced_buttons4 : "insertlayer,moveforward,movebackward,absolute,|,styleprops,|,cite,abbr,acronym,del,ins,attribs,|,visualchars,nonbreaking,template,pagebreak",
-        theme_advanced_toolbar_location : "top",
-        theme_advanced_toolbar_align : "left",
-        theme_advanced_statusbar_location : "bottom",
-        theme_advanced_resizing : true,
-
-        // Example content CSS (should be your site CSS)
-        //content_css : "css/content.css",
-
-        // Drop lists for link/image/media/template dialogs
-        template_external_list_url : "lists/template_list.js",
-        external_link_list_url : "lists/link_list.js",
-        external_image_list_url : "lists/image_list.js",
-        media_external_list_url : "lists/media_list.js",
-
-        // Replace values for the template plugin
-        template_replace_values : {
-            username : "Some User",
-            staffid : "991234"
-        }
+- content_for :head_scripts do
+  = javascript_include_tag :tiny_mce
+  :javascript
+    $(function() {
+      $("a, input", ".toolbar").button();
     });
 
-    $('#example').submit(function() {
-      $.post("/widgets/tiny_mce/dump", $('#example').serialize());
-      return false;
+    $(function() {
+      $('textarea.tinymce').tinymce({
+          // Location of TinyMCE script
+          script_url : '/javascripts/tiny_mce/tiny_mce.js',
+
+          // General options
+          theme : "advanced",
+          plugins : "pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,advlist",
+
+          // Theme options
+          theme_advanced_buttons1 : "save,newdocument,|,bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,styleselect,formatselect,fontselect,fontsizeselect",
+          theme_advanced_buttons2 : "cut,copy,paste,pastetext,pasteword,|,search,replace,|,bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor,image,cleanup,help,code,|,insertdate,inserttime,preview,|,forecolor,backcolor",
+          theme_advanced_buttons3 : "tablecontrols,|,hr,removeformat,visualaid,|,sub,sup,|,charmap,emotions,iespell,media,advhr,|,print,|,ltr,rtl,|,fullscreen",
+          theme_advanced_buttons4 : "insertlayer,moveforward,movebackward,absolute,|,styleprops,|,cite,abbr,acronym,del,ins,attribs,|,visualchars,nonbreaking,template,pagebreak",
+          theme_advanced_toolbar_location : "top",
+          theme_advanced_toolbar_align : "left",
+          theme_advanced_statusbar_location : "bottom",
+          theme_advanced_resizing : true,
+
+          // Example content CSS (should be your site CSS)
+          //content_css : "css/content.css",
+
+          // Drop lists for link/image/media/template dialogs
+          template_external_list_url : "lists/template_list.js",
+          external_link_list_url : "lists/link_list.js",
+          external_image_list_url : "lists/image_list.js",
+          media_external_list_url : "lists/media_list.js",
+
+          // Replace values for the template plugin
+          template_replace_values : {
+              username : "Some User",
+              staffid : "991234"
+          }
+      });
+
+      $('#example').submit(function() {
+        $.post("/widgets/tiny_mce/dump", $('#example').serialize());
+        return false;
+      });
     });
-  });
 
 
-  if (document.location.protocol == 'file:') {
-    alert("The examples might not work properly on the local file system due to security settings in your browser. Please use a real webserver.");
-  }
+    if (document.location.protocol == 'file:') {
+      alert("The examples might not work properly on the local file system due to security settings in your browser. Please use a real webserver.");
+    }
+
+- content_for :license do
+  = render :partial => "license"

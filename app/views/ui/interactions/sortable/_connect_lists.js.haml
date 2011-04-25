@@ -1,10 +1,15 @@
-:css
-  #sortable1, #sortable2 { list-style-type: none; margin: 0; padding: 0; float: left; margin-right: 10px; }
-  #sortable1 li, #sortable2 li { margin: 0 5px 5px 5px; padding: 5px; font-size: 1.2em; width: 120px; }
+- content_for :head_stylesheets do
+  :css
+    #sortable1, #sortable2 { list-style-type: none; margin: 0; padding: 0; float: left; margin-right: 10px; }
+    #sortable1 li, #sortable2 li { margin: 0 5px 5px 5px; padding: 5px; font-size: 1.2em; width: 120px; }
 
-:javascript
-  $(function() {
-    $("#sortable1, #sortable2").sortable({
-      connectWith: '.connectedSortable'
-    }).disableSelection();
-  });
+- content_for :head_scripts do
+  :javascript
+    $(function() {
+      $("#sortable1, #sortable2").sortable({
+        connectWith: '.connectedSortable'
+      }).disableSelection();
+    });
+
+- content_for :license do
+  = render :partial => "ui/license"

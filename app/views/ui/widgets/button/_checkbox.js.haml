@@ -1,9 +1,13 @@
-:css
-  #format { margin-top: 2em; }
+- content_for :head_stylesheets do
+  :css
+    #format { margin-top: 2em; }
 
-:javascript
-  $(function() {
-    $("#check").button();
-    $("#format").buttonset();
-  });
-      
+- content_for :head_scripts do
+  :javascript
+    $(function() {
+      $("#check").button();
+      $("#format").buttonset();
+    });
+
+- content_for :license do
+  = render :partial => "ui/license"

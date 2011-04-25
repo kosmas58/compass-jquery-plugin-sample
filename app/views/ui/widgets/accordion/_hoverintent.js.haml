@@ -1,51 +1,54 @@
-:javascript
-  var cfg = ($.hoverintent = {
-  	sensitivity: 7,
-  	interval: 100
-  });
-  	
-  $.event.special.hoverintent = {
-  	setup: function() {
-  		$(this).bind("mouseover", $.event.special.hoverintent.handler);
-  	},
-  	teardown: function() {
-  		$(this).unbind("mouseover", $.event.special.hoverintent.handler);
-  	},
-  	handler: function(event) {
-  		event.type = "hoverintent";
-  		var self = this,
-  			args = arguments,
-  			target = $(event.target),
-  			cX, cY, pX, pY;
-  			
-  		function track(event) {
-  			cX = event.pageX;
-  			cY = event.pageY;
-  		};
-  		pX = event.pageX;
-  		pY = event.pageY;
-  		function clear() {
-  			target.unbind("mousemove", track).unbind("mouseout", arguments.callee);
-  			clearTimeout(timeout);
-  		}
-  		function handler() {
-  			if ( ( Math.abs(pX-cX) + Math.abs(pY-cY) ) < cfg.sensitivity ) {
-  				clear();
-  				$.event.handle.apply(self, args);
-  			} else {
-  				pX = cX; pY = cY;
-  				timeout = setTimeout(handler, cfg.interval);
-  			}
-  		}
-  		var timeout = setTimeout(handler, cfg.interval);
-  		target.mousemove(track).mouseout(clear);
-    		return true;
-    	}
-    };
-      	
-    $(function() {
-    	$("#accordionDemo").accordion({
-    		event: "click hoverintent"
-    	});
+- content_for :head_scripts do
+  :javascript
+    var cfg = ($.hoverintent = {
+      sensitivity: 7,
+      interval: 100
     });
-    
+
+    $.event.special.hoverintent = {
+      setup: function() {
+          $(this).bind("mouseover", $.event.special.hoverintent.handler);
+      },
+      teardown: function() {
+          $(this).unbind("mouseover", $.event.special.hoverintent.handler);
+      },
+      handler: function(event) {
+          event.type = "hoverintent";
+          var self = this,
+              args = arguments,
+              target = $(event.target),
+              cX, cY, pX, pY;
+
+          function track(event) {
+              cX = event.pageX;
+              cY = event.pageY;
+          };
+          pX = event.pageX;
+          pY = event.pageY;
+          function clear() {
+              target.unbind("mousemove", track).unbind("mouseout", arguments.callee);
+              clearTimeout(timeout);
+          }
+          function handler() {
+              if ( ( Math.abs(pX-cX) + Math.abs(pY-cY) ) < cfg.sensitivity ) {
+                  clear();
+                  $.event.handle.apply(self, args);
+              } else {
+                  pX = cX; pY = cY;
+                  timeout = setTimeout(handler, cfg.interval);
+              }
+          }
+          var timeout = setTimeout(handler, cfg.interval);
+          target.mousemove(track).mouseout(clear);
+              return true;
+          }
+      };
+
+      $(function() {
+          $("#accordionDemo").accordion({
+              event: "click hoverintent"
+          });
+      });
+
+- content_for :license do
+  = render :partial => "ui/license"

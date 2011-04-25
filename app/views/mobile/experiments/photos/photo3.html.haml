@@ -1,7 +1,5 @@
 -@title = "jQuery Mobile Framework - Photo 1"
-
-- content_for :content_head do
-  = render(:partial => "index.js.haml", :format => :js)
+= render :partial => "index.js.haml", :format => :js
 
 .photoview{"data-fullscreen" => "true", "data-role" => "page"}
   #photoview{"data-role" => "header"}

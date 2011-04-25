@@ -1,7 +1,5 @@
 -@title = "#{t('txt.history.name')} - #{t('txt.history.example1')}"
-
-- content_for :content_head do
-  = render(:partial => "html4.js.haml", :format => :js)
+= render :partial => "html4.js.haml", :format => :js
 
 .demo
   %h3
@@ -9,21 +7,21 @@
     =@title
   %p
     History.js gracefully supports the
-    %a{:href => "https://developer.mozilla.org/en/DOM/Manipulating_the_browser_history"} HTML5 History/State APIs
+    %a{:href => "https://developer.mozilla.org/en/DOM/Manipulating_the_browser_history", :class => :greybox } HTML5 History/State APIs
     (pushState, replaceState, onPopState) in all browsers. Including continued support for data, titles, replaceState. Supports
     = succeed "," do
-      %a{:href => "http://jquery.com/"} jQuery
-    %a{:href => "http://mootools.net"} MooTools
+      %a{:href => "http://jquery.com/", :class => :greybox } jQuery
+    %a{:href => "http://mootools.net", :class => :greybox } MooTools
     and
     = succeed "." do
-      %a{:href => "http://prototypejs.org"} Prototype
+      %a{:href => "http://prototypejs.org", :class => :greybox } Prototype
     For HTML5 browsers this means that you can modify the URL directly, without needing to use hashes anymore. For HTML4 browsers it will revert back to using the old onhashchange functionality.
   / Textarea for Logging
   %textarea#log{:style => "width:100%;height:400px"}
   / Note
   %p
     Click through the buttons in order and you'll get the results demonstrated in the
-    %a{:href => "http://github.com/balupton/History.js/blob/master/README.md"} README.md
+    %a{:href => "http://github.com/balupton/History.js/blob/master/README.md", :class => :greybox } README.md
     %ol#buttons
     file.
 / End demo
@@ -31,7 +29,7 @@
   #greybox
   %p
     The plugin was written by
-    %a{:href => "http://github.com/balupton/History.js/", :class => :greybox  } Benjamin Lupton
+    %a{:href => "http://github.com/balupton/History.js/", :class => :greybox } Benjamin Lupton
     and released under the
     = succeed "." do
       %a{:href => "http://creativecommons.org/licenses/BSD/", :class => :greybox } New BSD License

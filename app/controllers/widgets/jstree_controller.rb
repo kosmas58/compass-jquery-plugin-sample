@@ -1,6 +1,4 @@
 class Widgets::JstreeController < ApplicationController
-  layout 'jstree'
-
   protect_from_forgery
 
   def data

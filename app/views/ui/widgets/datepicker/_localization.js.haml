@@ -1,9 +1,14 @@
-:javascript
-  $(function() {
-    $.datepicker.setDefaults($.extend({showMonthAfterYear: false}, $.datepicker.regional['']));
-    $("#datepicker").datepicker($.datepicker.regional['fr']);
-    $("#datepickerLocale").change(function() {
-      $('#datepicker').datepicker('option', $.extend({showMonthAfterYear: false},
-      $.datepicker.regional[$(this).val()]));
+- content_for :head_scripts do
+  = render :partial => "layouts/datepicker_i18n"
+  :javascript
+    $(function() {
+      $.datepicker.setDefaults($.extend({showMonthAfterYear: false}, $.datepicker.regional['']));
+      $("#datepicker").datepicker($.datepicker.regional['fr']);
+      $("#datepickerLocale").change(function() {
+        $('#datepicker').datepicker('option', $.extend({showMonthAfterYear: false},
+        $.datepicker.regional[$(this).val()]));
+      });
     });
-  });
+
+- content_for :license do
+  = render :partial => "ui/license"

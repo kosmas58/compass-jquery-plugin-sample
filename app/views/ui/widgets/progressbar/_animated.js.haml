@@ -1,10 +1,15 @@
-:css
-  .ui-progressbar { height: 22px; }
-  .ui-progressbar-value { background-image: url(/images/demo/pbar-ani.gif); }
+- content_for :head_stylesheets do
+  :css
+    .ui-progressbar { height: 22px; }
+    .ui-progressbar-value { background-image: url(/images/demo/pbar-ani.gif); }
 
-:javascript
-  $(function() {
-    $("#progressbar").progressbar({
-      value: 59
+- content_for :head_scripts do
+  :javascript
+    $(function() {
+      $("#progressbar").progressbar({
+        value: 59
+      });
     });
-  });
+
+- content_for :license do
+  = render :partial => "ui/license"

@@ -1,6 +1,4 @@
 class Widgets::Jqgrid::AnimalsController < ApplicationController
-  layout 'jqgrid'
-
   protect_from_forgery
 
   def index

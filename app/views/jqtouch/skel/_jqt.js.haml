@@ -1,15 +1,19 @@
-:javascript
-  var jQT = new $.jQTouch({
-    icon: '/images/jquery/touch/jqtouch.png',
-    addGlossToIcon: false,
-    startupScreen: '/images/jquery/touch/jqt_startup.png',
-    statusBar: 'black'
-  });
+- content_for :head_stylesheets do
+  = stylesheet_link_tag :jqt_jqt
 
-  $(function(){
-    jQT.resetHeight();
-      
-    \// Custom Javascript (onReady)
-  });
+- content_for :head_scripts do
+  :javascript
+    var jQT = new $.jQTouch({
+      icon: '/images/jquery/touch/jqtouch.png',
+      addGlossToIcon: false,
+      startupScreen: '/images/jquery/touch/jqt_startup.png',
+      statusBar: 'black'
+    });
 
-:css
+    $(function() {
+      jQT.resetHeight();
+
+      \// Custom Javascript (onReady)
+    });
+
+  :css

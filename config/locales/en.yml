@@ -213,7 +213,13 @@ en:
     plugins: 
       name: jQuery plugins
     trees: Trees
-    layout: 
+    layout:
+      resize:
+        real: Show it in real size
+        pixel: Show it in pixel size
+      rotate:
+        landscape: Show as landscape
+        portrait: Show as portrait
       back: Back
       colon: ":"
       edit: Edit
@@ -228,8 +234,12 @@ en:
       show: Show
       create: Create
       update: Update
+      ppi:
+        configure: Emulator configuration - Adjust display resolution
+        tooltip: Emulator configuration
       navigation: 
         configure: Configure navigation
+        tooltip: Click to configure navigation
         seed: Successfully created /db/navigation.seeds.rb.
         browse: Browse through the examples
       until: until
@@ -246,10 +256,26 @@ en:
       example4: Ajax Sample 2
       example5: BBQ
       example6: MVC Sample History
+      example7: WebKit popstate 1
+      example8: Webkit popstate 2
+      example9: Chrome History API
+      example10: HTML5 History API
+      example11: Navigator Output
+      example12: Safari History Bug
     emu: 
       name: jQuery on mobile devices
       ipad: iPad
-      black: Blackberry Torch
+      os:
+        ios: iOS
+        bos: BlackBerry OS
+        android: Android
+        webos: webOS
+      black: BlackBerry Torch
+      galaxys: Galaxy S
+      galaxys2: Galaxy S2
+      galaxy7: Galaxy Tab 7
+      galaxy9: Galaxy Tab 8.9
+      galaxy10: Galaxy Tab 10.1
       jqt: 
         name: <i>(needs a WebKit engine)</i>
         default: jQTouch Demo
@@ -257,12 +283,13 @@ en:
       port: Portrait
       land: Landscape
       jqm: 
-        name: jQuery mobile framework
-        experiments: Additional demos
-        default: jQuery mobile Demo
-        home: "&alpha;3@jquerymobile.com"
-      iphone: iPhone
-      palm: Palm Pre
+        name: jQuery Mobile framework
+        experiments: Additional Demos
+        default: jQuery Mobile Demo
+        home: "&alpha;4@jquerymobile.com"
+      iphone3: iPhone 3
+      iphone4: iPhone 4
+      palm: Pre 2
     jqgrid: 
       simple: 
         name: Simple Data Grids
@@ -427,9 +454,67 @@ en:
       ganttview:
         name: Gantt View
         default: Example
-    replacetext: 
+      highcharts:
+        name: Highcharts
+        line:
+          name: Line and scatter charts
+          basic: Basic Line
+          ajax: "Ajax loaded data, clickable points"
+          labels: With data labels
+          time_series: "Time series, zoomable"
+        spline:
+          inverted: Spline with inverted axes
+          symbols: Spline with symbols
+          plot_bands: Spline with plot bands
+        scatter: Scatter plot
+        area:
+          name: Area charts
+          basic: Basic area
+          negative: Area with negative values
+          stacked: Stacked area
+          stacked_percent: Percentage area
+          missing: Area with missing points
+          inverted: Inverted axes
+          spline: Area-spline
+        bar:
+          name: Column and bar charts
+          basic: Basic bar
+          stacked: Stacked bar
+          negative_stack: Bar with negative stack
+        column:
+          basic: Basic column
+          negative: Column with negative values
+          stacked: Stacked column
+          stacked_and_grouped: Stacked and grouped column
+          stacked_percent: Stacked percentage column
+          rotated_labels: Column with rotated labels
+          parsed: Data defined in a HTML table
+        pie:
+          name: Pie charts
+          basic: Pie chart
+          donut: Donut chart
+          legend: Pie with legend
+        dynamic:
+          name: Dynamic charts
+          update: Spline updating each second
+          click_to_add: Click to add a point
+          master_detail: Master-detail chart
+        combo:
+          name: Combinations
+          default: "Column, line and pie"
+          dual_axes: "Dual axes, line and column"
+          multi_axes: Multiple axes
+          regression: Scatter with regression line
+    mediahelpers:
+      name: jQuery Media Helper Utilities
+      default: Example
+    replacetext:
       name: replaceText
       default: Example
+    tokeninput:
+      name: Tokeninput
+      default: jQuery Tokenizing Autocomplete Input
+      demo: jQuery Tokeninput Demos
     tools: 
       name: jQuery TOOLS
       toolbox: 

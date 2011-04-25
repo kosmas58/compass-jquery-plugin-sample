@@ -1,20 +1,24 @@
-:css
-  .ui-autocomplete {
-  	max-height: 100px;
-  	overflow-y: auto;
-  }
-  /* IE 6 doesn't support max-height
-   * we use height instead, but this forces the menu to always be this tall
-   */
-  * html .ui-autocomplete {
-  	height: 100px;
-  }
+- content_for :head_stylesheets do
+  :css
+    .ui-autocomplete {
+      max-height: 100px;
+      overflow-y: auto;
+    }
+    /* IE 6 doesn't support max-height
+     * we use height instead, but this forces the menu to always be this tall
+     */
+    * html .ui-autocomplete {
+      height: 100px;
+    }
 
-:javascript
-  $(function() {
-  	var availableTags = ["ActionScript", "AppleScript", "Asp", "BASIC", "C", "C++", "Clojure", "COBOL", "ColdFusion", "Erlang", "Fortran", "Groovy", "Haskell", "Java", "JavaScript", "Lisp", "Perl", "PHP", "Python", "Ruby", "Scala", "Scheme"];
-  	$("#tags").autocomplete({
-  		source: availableTags
-  	});
-  });
-  
+- content_for :head_scripts do
+  :javascript
+    $(function() {
+      var availableTags = ["ActionScript", "AppleScript", "Asp", "BASIC", "C", "C++", "Clojure", "COBOL", "ColdFusion", "Erlang", "Fortran", "Groovy", "Haskell", "Java", "JavaScript", "Lisp", "Perl", "PHP", "Python", "Ruby", "Scala", "Scheme"];
+      $("#tags").autocomplete({
+          source: availableTags
+      });
+    });
+
+- content_for :license do
+  = render :partial => "ui/license"

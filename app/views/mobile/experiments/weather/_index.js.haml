@@ -1,831 +1,832 @@
-= render(:partial => "/mobile/docs/docs.js.haml", :format => :js)
+- content_for :head_stylesheets do
+  :css
+    @charset "utf-8";
 
-:css
-  @charset "utf-8";
-  
-  .ui-scrollview-clip {
-    overflow: hidden;
-    position: relative;
-  }
-  
-  .ui-scrollview-view {
-    position: relative;
-    overflow: hidden;
-    top: 0;
-    left: 0;
-  /*
-    min-width: 100%;
-    min-height: 100%;
-    padding: 0;
-    margin: 0;
-  */
-  }
-  
-  .ui-scrolllistview .ui-li-divider {
-    z-index: 10;
-  }
-  
-  .ui-scrollbar {
-    position: absolute;
-    overflow: hidden;
-  
-    opacity: 0;
-    -webkit-transition: opacity 500ms;
-    -moz-transition: opacity 500ms;
-    transition: opacity 500ms;
-  }
-  
-  .ui-scrollbar-visible {
-    opacity: 1;
-  }
-  
-  .ui-scrollbar-vertical {
-    top: 2px;
-    right: 2px;
-    bottom: 8px;
-    width: 5px;
-  }
-  
-  .ui-scrollbar-horizontal {
-    right: 8px;
-    bottom: 2px;
-    left: 2px;
-    height: 5px;
-  }
-  
-  .ui-scrollbar-track {
-    position: relative;
-    width: 100%;
-    height: 100%;
-  }
-  
-  .ui-scrollbar-thumb {
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.3);
-    -moz-border-radius: 2px;
-    -webkit-border-radius: 2px;
-    border-radius: 2px;
-  }
-  
-  .ui-scrollbar-vertical .ui-scrollbar-thumb {
-    width: 5px;
-    height: 100%;
-  }
-  
-  .ui-scrollbar-horizontal .ui-scrollbar-thumb {
-    width: 100%;
-    height: 5px;
-  }
-
-
-  .ui-content.ui-scrollview-clip {
-    padding: 0;
-  }
-  .ui-content.ui-scrollview-clip > div.ui-scrollview-view {
-    margin: 0;
-    padding: 15px;
-  }
-  .ui-content.ui-scrollview-clip > .ui-listview.ui-scrollview-view {
-    margin: 0;
-  }
-
-:javascript
-  // t: current time, b: begInnIng value, c: change In value, d: duration
-  $.easing['jswing'] = $.easing['swing'];
-  
-  $.extend( $.easing,
-  {
-    def: 'easeOutQuad',
-    swing: function (x, t, b, c, d) {
-      //alert(jQuery.easing.default);
-      return $.easing[$.easing.def](x, t, b, c, d);
-    },
-    easeInQuad: function (x, t, b, c, d) {
-      return c*(t/=d)*t + b;
-    },
-    easeOutQuad: function (x, t, b, c, d) {
-      return -c *(t/=d)*(t-2) + b;
-    },
-    easeInOutQuad: function (x, t, b, c, d) {
-      if ((t/=d/2) < 1) return c/2*t*t + b;
-      return -c/2 * ((--t)*(t-2) - 1) + b;
-    },
-    easeInCubic: function (x, t, b, c, d) {
-      return c*(t/=d)*t*t + b;
-    },
-    easeOutCubic: function (x, t, b, c, d) {
-      return c*((t=t/d-1)*t*t + 1) + b;
-    },
-    easeInOutCubic: function (x, t, b, c, d) {
-      if ((t/=d/2) < 1) return c/2*t*t*t + b;
-      return c/2*((t-=2)*t*t + 2) + b;
-    },
-    easeInQuart: function (x, t, b, c, d) {
-      return c*(t/=d)*t*t*t + b;
-    },
-    easeOutQuart: function (x, t, b, c, d) {
-      return -c * ((t=t/d-1)*t*t*t - 1) + b;
-    },
-    easeInOutQuart: function (x, t, b, c, d) {
-      if ((t/=d/2) < 1) return c/2*t*t*t*t + b;
-      return -c/2 * ((t-=2)*t*t*t - 2) + b;
-    },
-    easeInQuint: function (x, t, b, c, d) {
-      return c*(t/=d)*t*t*t*t + b;
-    },
-    easeOutQuint: function (x, t, b, c, d) {
-      return c*((t=t/d-1)*t*t*t*t + 1) + b;
-    },
-    easeInOutQuint: function (x, t, b, c, d) {
-      if ((t/=d/2) < 1) return c/2*t*t*t*t*t + b;
-      return c/2*((t-=2)*t*t*t*t + 2) + b;
-    },
-    easeInSine: function (x, t, b, c, d) {
-      return -c * Math.cos(t/d * (Math.PI/2)) + c + b;
-    },
-    easeOutSine: function (x, t, b, c, d) {
-      return c * Math.sin(t/d * (Math.PI/2)) + b;
-    },
-    easeInOutSine: function (x, t, b, c, d) {
-      return -c/2 * (Math.cos(Math.PI*t/d) - 1) + b;
-    },
-    easeInExpo: function (x, t, b, c, d) {
-      return (t==0) ? b : c * Math.pow(2, 10 * (t/d - 1)) + b;
-    },
-    easeOutExpo: function (x, t, b, c, d) {
-      return (t==d) ? b+c : c * (-Math.pow(2, -10 * t/d) + 1) + b;
-    },
-    easeInOutExpo: function (x, t, b, c, d) {
-      if (t==0) return b;
-      if (t==d) return b+c;
-      if ((t/=d/2) < 1) return c/2 * Math.pow(2, 10 * (t - 1)) + b;
-      return c/2 * (-Math.pow(2, -10 * --t) + 2) + b;
-    },
-    easeInCirc: function (x, t, b, c, d) {
-      return -c * (Math.sqrt(1 - (t/=d)*t) - 1) + b;
-    },
-    easeOutCirc: function (x, t, b, c, d) {
-      return c * Math.sqrt(1 - (t=t/d-1)*t) + b;
-    },
-    easeInOutCirc: function (x, t, b, c, d) {
-      if ((t/=d/2) < 1) return -c/2 * (Math.sqrt(1 - t*t) - 1) + b;
-      return c/2 * (Math.sqrt(1 - (t-=2)*t) + 1) + b;
-    },
-    easeInElastic: function (x, t, b, c, d) {
-      var s=1.70158;var p=0;var a=c;
-      if (t==0) return b;  if ((t/=d)==1) return b+c;  if (!p) p=d*.3;
-      if (a < Math.abs(c)) { a=c; var s=p/4; }
-      else var s = p/(2*Math.PI) * Math.asin (c/a);
-      return -(a*Math.pow(2,10*(t-=1)) * Math.sin( (t*d-s)*(2*Math.PI)/p )) + b;
-    },
-    easeOutElastic: function (x, t, b, c, d) {
-      var s=1.70158;var p=0;var a=c;
-      if (t==0) return b;  if ((t/=d)==1) return b+c;  if (!p) p=d*.3;
-      if (a < Math.abs(c)) { a=c; var s=p/4; }
-      else var s = p/(2*Math.PI) * Math.asin (c/a);
-      return a*Math.pow(2,-10*t) * Math.sin( (t*d-s)*(2*Math.PI)/p ) + c + b;
-    },
-    easeInOutElastic: function (x, t, b, c, d) {
-      var s=1.70158;var p=0;var a=c;
-      if (t==0) return b;  if ((t/=d/2)==2) return b+c;  if (!p) p=d*(.3*1.5);
-      if (a < Math.abs(c)) { a=c; var s=p/4; }
-      else var s = p/(2*Math.PI) * Math.asin (c/a);
-      if (t < 1) return -.5*(a*Math.pow(2,10*(t-=1)) * Math.sin( (t*d-s)*(2*Math.PI)/p )) + b;
-      return a*Math.pow(2,-10*(t-=1)) * Math.sin( (t*d-s)*(2*Math.PI)/p )*.5 + c + b;
-    },
-    easeInBack: function (x, t, b, c, d, s) {
-      if (s == undefined) s = 1.70158;
-      return c*(t/=d)*t*((s+1)*t - s) + b;
-    },
-    easeOutBack: function (x, t, b, c, d, s) {
-      if (s == undefined) s = 1.70158;
-      return c*((t=t/d-1)*t*((s+1)*t + s) + 1) + b;
-    },
-    easeInOutBack: function (x, t, b, c, d, s) {
-      if (s == undefined) s = 1.70158; 
-      if ((t/=d/2) < 1) return c/2*(t*t*(((s*=(1.525))+1)*t - s)) + b;
-      return c/2*((t-=2)*t*(((s*=(1.525))+1)*t + s) + 2) + b;
-    },
-    easeInBounce: function (x, t, b, c, d) {
-      return c - $.easing.easeOutBounce (x, d-t, 0, c, d) + b;
-    },
-    easeOutBounce: function (x, t, b, c, d) {
-      if ((t/=d) < (1/2.75)) {
-        return c*(7.5625*t*t) + b;
-      } else if (t < (2/2.75)) {
-        return c*(7.5625*(t-=(1.5/2.75))*t + .75) + b;
-      } else if (t < (2.5/2.75)) {
-        return c*(7.5625*(t-=(2.25/2.75))*t + .9375) + b;
-      } else {
-        return c*(7.5625*(t-=(2.625/2.75))*t + .984375) + b;
-      }
-    },
-    easeInOutBounce: function (x, t, b, c, d) {
-      if (t < d/2) return $.easing.easeInBounce (x, t*2, 0, c, d) * .5 + b;
-      return $.easing.easeOutBounce (x, t*2-d, 0, c, d) * .5 + c*.5 + b;
+    .ui-scrollview-clip {
+      overflow: hidden;
+      position: relative;
     }
-  });
-  
-  (function($,window,document,undefined){
-  
-  $.widget( "mobile.scrollview", $.mobile.widget, {
-    options: {
-      fps:         60,  // Frames per second in msecs.
-      direction:     null,  // "vertical", "horizontal", or null for both.
-    
-      scrollDuration:  2000,  // Duration of the scrolling animation in msecs.
-      overshootDuration: 250,   // Duration of the overshoot animation in msecs.
-      snapbackDuration:  500,   // Duration of the snapback animation in msecs.
-    
-      moveThreshold:   100,   // Time between mousemoves must not exceed this threshold.
-    
-      useCSSTransform:   true,  // Use CSS "transform" property instead of "top" and "left" for positioning.
-    
-      startEventName:  "scrollstart.scrollview",
-      updateEventName:   "scrollupdate.scrollview",
-      stopEventName:   "scrollstop.scrollview",
-    
-      eventType:     $.support.touch ? "touch" : "mouse",
-    
-      showScrollBars:  true
-    },
-  
-    _create: function()
-    { 
-      this._$clip = $(this.element).addClass("ui-scrollview-clip");
-      var $child = this._$clip.children();
-      if ($child.length > 1) {
-        $child = this._$clip.wrapInner("<div></div>").children();
-      }
-      this._$view = $child.addClass("ui-scrollview-view");
-    
-      this._sx = 0;
-      this._sy = 0;
-    
-      var direction = this.options.direction;
-      this._hTracker = (direction != "vertical")   ? new MomentumTracker(this.options) : null;
-      this._vTracker = (direction != "horizontal") ? new MomentumTracker(this.options) : null;
-    
-      this._timerInterval = 1000/this.options.fps;
-      this._timerID = 0;
-    
-      var self = this;
-      this._timerCB = function(){ self._handleMomentumScroll(); };
-    
-      this._addBehaviors();
-    },
-  
-    _startMScroll: function(speedX, speedY)
+
+    .ui-scrollview-view {
+      position: relative;
+      overflow: hidden;
+      top: 0;
+      left: 0;
+    /*
+      min-width: 100%;
+      min-height: 100%;
+      padding: 0;
+      margin: 0;
+    */
+    }
+
+    .ui-scrolllistview .ui-li-divider {
+      z-index: 10;
+    }
+
+    .ui-scrollbar {
+      position: absolute;
+      overflow: hidden;
+
+      opacity: 0;
+      -webkit-transition: opacity 500ms;
+      -moz-transition: opacity 500ms;
+      transition: opacity 500ms;
+    }
+
+    .ui-scrollbar-visible {
+      opacity: 1;
+    }
+
+    .ui-scrollbar-vertical {
+      top: 2px;
+      right: 2px;
+      bottom: 8px;
+      width: 5px;
+    }
+
+    .ui-scrollbar-horizontal {
+      right: 8px;
+      bottom: 2px;
+      left: 2px;
+      height: 5px;
+    }
+
+    .ui-scrollbar-track {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .ui-scrollbar-thumb {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.3);
+      -moz-border-radius: 2px;
+      -webkit-border-radius: 2px;
+      border-radius: 2px;
+    }
+
+    .ui-scrollbar-vertical .ui-scrollbar-thumb {
+      width: 5px;
+      height: 100%;
+    }
+
+    .ui-scrollbar-horizontal .ui-scrollbar-thumb {
+      width: 100%;
+      height: 5px;
+    }
+
+    .ui-content.ui-scrollview-clip {
+      padding: 0;
+    }
+    .ui-content.ui-scrollview-clip > div.ui-scrollview-view {
+      margin: 0;
+      padding: 15px;
+    }
+    .ui-content.ui-scrollview-clip > .ui-listview.ui-scrollview-view {
+      margin: 0;
+    }
+
+= render :partial => "/mobile/docs/docs.html.haml"
+
+- content_for :head_scripts_before_mobile do
+  :javascript
+    // t: current time, b: begInnIng value, c: change In value, d: duration
+    $.easing['jswing'] = $.easing['swing'];
+
+    $.extend( $.easing,
     {
-      this._stopMScroll();
-      this._showScrollBars();
-  
-      var keepGoing = false;
-      var duration = this.options.scrollDuration;
-  
-      this._$clip.trigger(this.options.startEventName);
-  
-      var ht = this._hTracker;
-      if (ht)
-      {
-        var c = this._$clip.width();
-        var v = this._$view.width();
-        ht.start(this._sx, speedX, duration, (v > c) ? -(v - c) : 0, 0);
-        keepGoing = !ht.done();
+      def: 'easeOutQuad',
+      swing: function (x, t, b, c, d) {
+        //alert(jQuery.easing.default);
+        return $.easing[$.easing.def](x, t, b, c, d);
+      },
+      easeInQuad: function (x, t, b, c, d) {
+        return c*(t/=d)*t + b;
+      },
+      easeOutQuad: function (x, t, b, c, d) {
+        return -c *(t/=d)*(t-2) + b;
+      },
+      easeInOutQuad: function (x, t, b, c, d) {
+        if ((t/=d/2) < 1) return c/2*t*t + b;
+        return -c/2 * ((--t)*(t-2) - 1) + b;
+      },
+      easeInCubic: function (x, t, b, c, d) {
+        return c*(t/=d)*t*t + b;
+      },
+      easeOutCubic: function (x, t, b, c, d) {
+        return c*((t=t/d-1)*t*t + 1) + b;
+      },
+      easeInOutCubic: function (x, t, b, c, d) {
+        if ((t/=d/2) < 1) return c/2*t*t*t + b;
+        return c/2*((t-=2)*t*t + 2) + b;
+      },
+      easeInQuart: function (x, t, b, c, d) {
+        return c*(t/=d)*t*t*t + b;
+      },
+      easeOutQuart: function (x, t, b, c, d) {
+        return -c * ((t=t/d-1)*t*t*t - 1) + b;
+      },
+      easeInOutQuart: function (x, t, b, c, d) {
+        if ((t/=d/2) < 1) return c/2*t*t*t*t + b;
+        return -c/2 * ((t-=2)*t*t*t - 2) + b;
+      },
+      easeInQuint: function (x, t, b, c, d) {
+        return c*(t/=d)*t*t*t*t + b;
+      },
+      easeOutQuint: function (x, t, b, c, d) {
+        return c*((t=t/d-1)*t*t*t*t + 1) + b;
+      },
+      easeInOutQuint: function (x, t, b, c, d) {
+        if ((t/=d/2) < 1) return c/2*t*t*t*t*t + b;
+        return c/2*((t-=2)*t*t*t*t + 2) + b;
+      },
+      easeInSine: function (x, t, b, c, d) {
+        return -c * Math.cos(t/d * (Math.PI/2)) + c + b;
+      },
+      easeOutSine: function (x, t, b, c, d) {
+        return c * Math.sin(t/d * (Math.PI/2)) + b;
+      },
+      easeInOutSine: function (x, t, b, c, d) {
+        return -c/2 * (Math.cos(Math.PI*t/d) - 1) + b;
+      },
+      easeInExpo: function (x, t, b, c, d) {
+        return (t==0) ? b : c * Math.pow(2, 10 * (t/d - 1)) + b;
+      },
+      easeOutExpo: function (x, t, b, c, d) {
+        return (t==d) ? b+c : c * (-Math.pow(2, -10 * t/d) + 1) + b;
+      },
+      easeInOutExpo: function (x, t, b, c, d) {
+        if (t==0) return b;
+        if (t==d) return b+c;
+        if ((t/=d/2) < 1) return c/2 * Math.pow(2, 10 * (t - 1)) + b;
+        return c/2 * (-Math.pow(2, -10 * --t) + 2) + b;
+      },
+      easeInCirc: function (x, t, b, c, d) {
+        return -c * (Math.sqrt(1 - (t/=d)*t) - 1) + b;
+      },
+      easeOutCirc: function (x, t, b, c, d) {
+        return c * Math.sqrt(1 - (t=t/d-1)*t) + b;
+      },
+      easeInOutCirc: function (x, t, b, c, d) {
+        if ((t/=d/2) < 1) return -c/2 * (Math.sqrt(1 - t*t) - 1) + b;
+        return c/2 * (Math.sqrt(1 - (t-=2)*t) + 1) + b;
+      },
+      easeInElastic: function (x, t, b, c, d) {
+        var s=1.70158;var p=0;var a=c;
+        if (t==0) return b;  if ((t/=d)==1) return b+c;  if (!p) p=d*.3;
+        if (a < Math.abs(c)) { a=c; var s=p/4; }
+        else var s = p/(2*Math.PI) * Math.asin (c/a);
+        return -(a*Math.pow(2,10*(t-=1)) * Math.sin( (t*d-s)*(2*Math.PI)/p )) + b;
+      },
+      easeOutElastic: function (x, t, b, c, d) {
+        var s=1.70158;var p=0;var a=c;
+        if (t==0) return b;  if ((t/=d)==1) return b+c;  if (!p) p=d*.3;
+        if (a < Math.abs(c)) { a=c; var s=p/4; }
+        else var s = p/(2*Math.PI) * Math.asin (c/a);
+        return a*Math.pow(2,-10*t) * Math.sin( (t*d-s)*(2*Math.PI)/p ) + c + b;
+      },
+      easeInOutElastic: function (x, t, b, c, d) {
+        var s=1.70158;var p=0;var a=c;
+        if (t==0) return b;  if ((t/=d/2)==2) return b+c;  if (!p) p=d*(.3*1.5);
+        if (a < Math.abs(c)) { a=c; var s=p/4; }
+        else var s = p/(2*Math.PI) * Math.asin (c/a);
+        if (t < 1) return -.5*(a*Math.pow(2,10*(t-=1)) * Math.sin( (t*d-s)*(2*Math.PI)/p )) + b;
+        return a*Math.pow(2,-10*(t-=1)) * Math.sin( (t*d-s)*(2*Math.PI)/p )*.5 + c + b;
+      },
+      easeInBack: function (x, t, b, c, d, s) {
+        if (s == undefined) s = 1.70158;
+        return c*(t/=d)*t*((s+1)*t - s) + b;
+      },
+      easeOutBack: function (x, t, b, c, d, s) {
+        if (s == undefined) s = 1.70158;
+        return c*((t=t/d-1)*t*((s+1)*t + s) + 1) + b;
+      },
+      easeInOutBack: function (x, t, b, c, d, s) {
+        if (s == undefined) s = 1.70158;
+        if ((t/=d/2) < 1) return c/2*(t*t*(((s*=(1.525))+1)*t - s)) + b;
+        return c/2*((t-=2)*t*(((s*=(1.525))+1)*t + s) + 2) + b;
+      },
+      easeInBounce: function (x, t, b, c, d) {
+        return c - $.easing.easeOutBounce (x, d-t, 0, c, d) + b;
+      },
+      easeOutBounce: function (x, t, b, c, d) {
+        if ((t/=d) < (1/2.75)) {
+          return c*(7.5625*t*t) + b;
+        } else if (t < (2/2.75)) {
+          return c*(7.5625*(t-=(1.5/2.75))*t + .75) + b;
+        } else if (t < (2.5/2.75)) {
+          return c*(7.5625*(t-=(2.25/2.75))*t + .9375) + b;
+        } else {
+          return c*(7.5625*(t-=(2.625/2.75))*t + .984375) + b;
+        }
+      },
+      easeInOutBounce: function (x, t, b, c, d) {
+        if (t < d/2) return $.easing.easeInBounce (x, t*2, 0, c, d) * .5 + b;
+        return $.easing.easeOutBounce (x, t*2-d, 0, c, d) * .5 + c*.5 + b;
       }
-  
-      var vt = this._vTracker;
-      if (vt)
+    });
+
+    (function($,window,document,undefined){
+
+    $.widget( "mobile.scrollview", $.mobile.widget, {
+      options: {
+        fps:         60,  // Frames per second in msecs.
+        direction:     null,  // "vertical", "horizontal", or null for both.
+
+        scrollDuration:  2000,  // Duration of the scrolling animation in msecs.
+        overshootDuration: 250,   // Duration of the overshoot animation in msecs.
+        snapbackDuration:  500,   // Duration of the snapback animation in msecs.
+
+        moveThreshold:   100,   // Time between mousemoves must not exceed this threshold.
+
+        useCSSTransform:   true,  // Use CSS "transform" property instead of "top" and "left" for positioning.
+
+        startEventName:  "scrollstart.scrollview",
+        updateEventName:   "scrollupdate.scrollview",
+        stopEventName:   "scrollstop.scrollview",
+
+        eventType:     $.support.touch ? "touch" : "mouse",
+
+        showScrollBars:  true
+      },
+
+      _create: function()
       {
-        var c = this._$clip.height();
-        var v = this._$view.height();
-        vt.start(this._sy, speedY, duration, (v > c) ? -(v - c) : 0, 0);
-        keepGoing = keepGoing || !vt.done();
-      }
-  
-      if (keepGoing)
-        this._timerID = setTimeout(this._timerCB, this._timerInterval);
-      else
+        this._$clip = $(this.element).addClass("ui-scrollview-clip");
+        var $child = this._$clip.children();
+        if ($child.length > 1) {
+          $child = this._$clip.wrapInner("<div></div>").children();
+        }
+        this._$view = $child.addClass("ui-scrollview-view");
+
+        this._sx = 0;
+        this._sy = 0;
+
+        var direction = this.options.direction;
+        this._hTracker = (direction != "vertical")   ? new MomentumTracker(this.options) : null;
+        this._vTracker = (direction != "horizontal") ? new MomentumTracker(this.options) : null;
+
+        this._timerInterval = 1000/this.options.fps;
+        this._timerID = 0;
+
+        var self = this;
+        this._timerCB = function(){ self._handleMomentumScroll(); };
+
+        this._addBehaviors();
+      },
+
+      _startMScroll: function(speedX, speedY)
+      {
         this._stopMScroll();
-    },
-  
-    _stopMScroll: function()
-    {
-      if (this._timerID)
-      {
-        this._$clip.trigger(this.options.stopEventName);
-        clearTimeout(this._timerID);
-      }
-      this._timerID = 0;
-  
-      if (this._vTracker)
-        this._vTracker.reset();
-  
-      if (this._hTracker)
-        this._hTracker.reset();
-  
-      this._hideScrollBars();
-    },
-  
-    _handleMomentumScroll: function()
-    {
-      var keepGoing = false;
-      var v = this._$view;
-  
-      var x = 0, y = 0;
-  
-      var vt = this._vTracker;
-      if (vt)
-      {
-        vt.update();
-        y = vt.getPosition();
-        keepGoing = !vt.done();
-      }
-  
-      var ht = this._hTracker;
-      if (ht)
-      {
-        ht.update();
-        x = ht.getPosition();
-        keepGoing = keepGoing || !ht.done();
-      }
-  
-      this._setScrollPosition(x, y);
-      this._$clip.trigger(this.options.updateEventName, { x: x, y: y });
-  
-      if (keepGoing)
-        this._timerID = setTimeout(this._timerCB, this._timerInterval);	
-      else
-        this._stopMScroll();
-    },
-  
-    _setElementTransform: function($ele, x, y)
-    {
-      var v = "translate3d(" + x + "," + y + ", 0px)";
-      $ele.css({
-        "-moz-transform": v,
-        "-webkit-transform": v,
-        "transform": v
-      });
-    },
-  
-    _setScrollPosition: function(x, y)
-    {
-      this._sx = x;
-      this._sy = y;
-  
-      var $v = this._$view;
-  
-      var uct = this.options.useCSSTransform;
-  
-      if (uct)
-        this._setElementTransform($v, x + "px", y + "px");
-      else
-        $v.css({left: x + "px", top: y + "px"});
-  
-      var $vsb = this._$vScrollBar;
-      var $hsb = this._$hScrollBar;
-  
-      if ($vsb || $hsb)
-      {
-        if ($vsb)
+        this._showScrollBars();
+
+        var keepGoing = false;
+        var duration = this.options.scrollDuration;
+
+        this._$clip.trigger(this.options.startEventName);
+
+        var ht = this._hTracker;
+        if (ht)
         {
-          var $sbt = $vsb.find(".ui-scrollbar-thumb");
-          if (uct)
-            this._setElementTransform($sbt, "0px", -y/$v.height() * $sbt.parent().height() + "px");
-          else
-            $sbt.css("top", -y/$v.height()*100 + "%");
+          var c = this._$clip.width();
+          var v = this._$view.width();
+          ht.start(this._sx, speedX, duration, (v > c) ? -(v - c) : 0, 0);
+          keepGoing = !ht.done();
         }
-    
-        if ($hsb)
+
+        var vt = this._vTracker;
+        if (vt)
         {
-          var $sbt = $hsb.find(".ui-scrollbar-thumb");
-          if (uct)
-            this._setElementTransform($sbt,  -x/$v.width() * $sbt.parent().width() + "px", "0px");
-          else
-            $sbt.css("left", -x/$v.width()*100 + "%");
+          var c = this._$clip.height();
+          var v = this._$view.height();
+          vt.start(this._sy, speedY, duration, (v > c) ? -(v - c) : 0, 0);
+          keepGoing = keepGoing || !vt.done();
         }
-      }
-    },
-  
-    _getScrollPosition: function(x, y)
-    {
-      return { x: this._sx, y: this._sy };
-    },
-  
-    _handleMouseDown: function(e, ex, ey)
-    {
-      this._stopMScroll();
-  
-      var c = this._$clip;
-      var v = this._$view;
-  
-      this._doSnapBackX = false;
-      this._doSnapBackY = false;
-      this._speedX = 0;
-      this._speedY = 0;
-  
-      if (this._hTracker)
+
+        if (keepGoing)
+          this._timerID = setTimeout(this._timerCB, this._timerInterval);
+        else
+          this._stopMScroll();
+      },
+
+      _stopMScroll: function()
       {
-        var cw = parseInt(c.css("width"), 10);
-        var vw = parseInt(v.css("width"), 10);
-        this._maxX = cw - vw;
-        if (this._maxX > 0) this._maxX = 0;
-        this._lastX = ex;
-        if (this._$hScrollBar)
-          this._$hScrollBar.find(".ui-scrollbar-thumb").css("width", (cw >= vw ? "100%" : Math.floor(cw/vw*100)+ "%"));
-      }
-  
-      if (this._vTracker)
-      {
-        var ch = parseInt(c.css("height"), 10);
-        var vh = parseInt(v.css("height"), 10);
-        this._maxY = ch - vh;
-        if (this._maxY > 0) this._maxY = 0;
-        this._lastY = ey;
-        if (this._$vScrollBar)
-          this._$vScrollBar.find(".ui-scrollbar-thumb").css("height", (ch >= vh ? "100%" : Math.floor(ch/vh*100)+ "%"));
-      }
-  
-      this._lastMove = 0;
-      this._enableTracking();
-  
-      // If we're using mouse events, we need to prevent the default
-      // behavior to suppress accidental selection of text, etc. We
-      // can't do this on touch devices because it will disable the
-      // generation of "click" events.
-      //
-      // XXX: We should test if this has an effect on links! - kin
-  
-      if (this.options.eventType == "mouse")
-        e.preventDefault();
-    },
-  
-    _handleMouseMove: function(e, ex, ey)
-    {
-      this._lastMove = getCurrentTime();
-  
-      var v = this._$view;
-  
-      var newX = 0;
-      var newY = 0;
-  
-      if (this._hTracker)
-      {
-        var dx = ex - this._lastX;		
-        var x = this._sx;
-        this._speedX = dx;
-        newX = x + dx;
-  
-        // Simulate resistance.
-  
-        this._doSnapBackX = false;
-        if (newX > 0 || newX < this._maxX)
+        if (this._timerID)
         {
-          newX = x + (dx/2);
-          this._doSnapBackX = true;
+          this._$clip.trigger(this.options.stopEventName);
+          clearTimeout(this._timerID);
         }
-  
-        this._lastX = ex;
-      }
-  
-      if (this._vTracker)
-      {
-        var dy = ey - this._lastY;		
-        var y = this._sy;
-        this._speedY = dy;
-        newY = y + dy;
-  
-        // Simulate resistance.
-  
-        this._doSnapBackY = false;
-        if (newY > 0 || newY < this._maxY)
-        {
-          newY = y + (dy/2);
-          this._doSnapBackY = true;
-        }
-  
-        this._lastY = ey;
-      }
-  
-      this._setScrollPosition(newX, newY);
-  
-      this._showScrollBars();
-  
-      // Call preventDefault() to prevent touch devices from
-      // scrolling the main window.
-  
-      e.preventDefault();
-    },
-  
-    _handleMouseUp: function(e)
-    {
-      var l = this._lastMove;
-      var t = getCurrentTime();
-      var doScroll = l && (t - l) <= this.options.moveThreshold;
-  
-      var sx = (this._hTracker && this._speedX && doScroll) ? this._speedX : (this._doSnapBackX ? 1 : 0);
-      var sy = (this._vTracker && this._speedY && doScroll) ? this._speedY : (this._doSnapBackY ? 1 : 0);
-    
-      if (sx || sy)
-      {
-        this._startMScroll(sx, sy);
-        e.preventDefault();
-      }
-      else
-        this._hideScrollBars();
-  
-      this._disableTracking();
-    },
-  
-    _enableTracking: function()
-    {
-      $(document).bind(this._mousemoveType, this._mousemoveCB);
-      $(document).bind(this._mouseupType, this._mouseupCB);
-    },
-  
-    _disableTracking: function()
-    {
-      $(document).unbind(this._mousemoveType, this._mousemoveCB);
-      $(document).unbind(this._mouseupType, this._mouseupCB);
-    },
-  
-    _showScrollBars: function()
-    {
-      var vclass = "ui-scrollbar-visible";
-      if (this._$vScrollBar) this._$vScrollBar.addClass(vclass);
-      if (this._$hScrollBar) this._$hScrollBar.addClass(vclass);
-    },
-  
-    _hideScrollBars: function()
-    {
-      var vclass = "ui-scrollbar-visible";
-      if (this._$vScrollBar) this._$vScrollBar.removeClass(vclass);
-      if (this._$hScrollBar) this._$hScrollBar.removeClass(vclass);
-    },
-  
-    _addBehaviors: function()
-    {
-      var self = this;
-      if (this.options.eventType == "mouse")
-      {
-        this._mousedownType = "mousedown";
-        this._mousedownCB = function(e){ return self._handleMouseDown(e, e.clientX, e.clientY); };
-  
-        this._mousemoveType = "mousemove";
-        this._mousemoveCB = function(e){ return self._handleMouseMove(e, e.clientX, e.clientY); };
-  
-        this._mouseupType = "mouseup";
-        this._mouseupCB = function(e){ return self._handleMouseUp(e); };
-      }
-      else // "touch"
-      {
-        this._mousedownType = "touchstart";
-        this._mousedownCB = function(e)
-        {
-          var t = e.originalEvent.targetTouches[0];
-          return self._handleMouseDown(e, t.pageX, t.pageY);
-        };
-  
-        this._mousemoveType = "touchmove";
-        this._mousemoveCB = function(e)
-        {
-          var t = e.originalEvent.targetTouches[0];
-          return self._handleMouseMove(e, t.pageX, t.pageY);
-        };
-  
-        this._mouseupType = "touchend";
-        this._mouseupCB = function(e){ return self._handleMouseUp(e); };
-      }
-  
-      this._$view.bind(this._mousedownType, this._mousedownCB);
-  
-      if (this.options.showScrollBars)
-      {
-        var $c = this._$clip;
-        var prefix = "<div class=\"ui-scrollbar ui-scrollbar-";
-        var suffix = "\"><div class=\"ui-scrollbar-track\"><div class=\"ui-scrollbar-thumb\"></div></div></div>";
+        this._timerID = 0;
+
         if (this._vTracker)
+          this._vTracker.reset();
+
+        if (this._hTracker)
+          this._hTracker.reset();
+
+        this._hideScrollBars();
+      },
+
+      _handleMomentumScroll: function()
+      {
+        var keepGoing = false;
+        var v = this._$view;
+
+        var x = 0, y = 0;
+
+        var vt = this._vTracker;
+        if (vt)
         {
-          $c.append(prefix + "vertical" + suffix);
-          this._$vScrollBar = $c.children(".ui-scrollbar-vertical");
+          vt.update();
+          y = vt.getPosition();
+          keepGoing = !vt.done();
         }
+
+        var ht = this._hTracker;
+        if (ht)
+        {
+          ht.update();
+          x = ht.getPosition();
+          keepGoing = keepGoing || !ht.done();
+        }
+
+        this._setScrollPosition(x, y);
+        this._$clip.trigger(this.options.updateEventName, { x: x, y: y });
+
+        if (keepGoing)
+          this._timerID = setTimeout(this._timerCB, this._timerInterval);
+        else
+          this._stopMScroll();
+      },
+
+      _setElementTransform: function($ele, x, y)
+      {
+        var v = "translate3d(" + x + "," + y + ", 0px)";
+        $ele.css({
+          "-moz-transform": v,
+          "-webkit-transform": v,
+          "transform": v
+        });
+      },
+
+      _setScrollPosition: function(x, y)
+      {
+        this._sx = x;
+        this._sy = y;
+
+        var $v = this._$view;
+
+        var uct = this.options.useCSSTransform;
+
+        if (uct)
+          this._setElementTransform($v, x + "px", y + "px");
+        else
+          $v.css({left: x + "px", top: y + "px"});
+
+        var $vsb = this._$vScrollBar;
+        var $hsb = this._$hScrollBar;
+
+        if ($vsb || $hsb)
+        {
+          if ($vsb)
+          {
+            var $sbt = $vsb.find(".ui-scrollbar-thumb");
+            if (uct)
+              this._setElementTransform($sbt, "0px", -y/$v.height() * $sbt.parent().height() + "px");
+            else
+              $sbt.css("top", -y/$v.height()*100 + "%");
+          }
+
+          if ($hsb)
+          {
+            var $sbt = $hsb.find(".ui-scrollbar-thumb");
+            if (uct)
+              this._setElementTransform($sbt,  -x/$v.width() * $sbt.parent().width() + "px", "0px");
+            else
+              $sbt.css("left", -x/$v.width()*100 + "%");
+          }
+        }
+      },
+
+      _getScrollPosition: function(x, y)
+      {
+        return { x: this._sx, y: this._sy };
+      },
+
+      _handleMouseDown: function(e, ex, ey)
+      {
+        this._stopMScroll();
+
+        var c = this._$clip;
+        var v = this._$view;
+
+        this._doSnapBackX = false;
+        this._doSnapBackY = false;
+        this._speedX = 0;
+        this._speedY = 0;
+
         if (this._hTracker)
         {
-          $c.append(prefix + "horizontal" + suffix);
-          this._$hScrollBar = $c.children(".ui-scrollbar-horizontal");
+          var cw = parseInt(c.css("width"), 10);
+          var vw = parseInt(v.css("width"), 10);
+          this._maxX = cw - vw;
+          if (this._maxX > 0) this._maxX = 0;
+          this._lastX = ex;
+          if (this._$hScrollBar)
+            this._$hScrollBar.find(".ui-scrollbar-thumb").css("width", (cw >= vw ? "100%" : Math.floor(cw/vw*100)+ "%"));
+        }
+
+        if (this._vTracker)
+        {
+          var ch = parseInt(c.css("height"), 10);
+          var vh = parseInt(v.css("height"), 10);
+          this._maxY = ch - vh;
+          if (this._maxY > 0) this._maxY = 0;
+          this._lastY = ey;
+          if (this._$vScrollBar)
+            this._$vScrollBar.find(".ui-scrollbar-thumb").css("height", (ch >= vh ? "100%" : Math.floor(ch/vh*100)+ "%"));
+        }
+
+        this._lastMove = 0;
+        this._enableTracking();
+
+        // If we're using mouse events, we need to prevent the default
+        // behavior to suppress accidental selection of text, etc. We
+        // can't do this on touch devices because it will disable the
+        // generation of "click" events.
+        //
+        // XXX: We should test if this has an effect on links! - kin
+
+        if (this.options.eventType == "mouse")
+          e.preventDefault();
+      },
+
+      _handleMouseMove: function(e, ex, ey)
+      {
+        this._lastMove = getCurrentTime();
+
+        var v = this._$view;
+
+        var newX = 0;
+        var newY = 0;
+
+        if (this._hTracker)
+        {
+          var dx = ex - this._lastX;
+          var x = this._sx;
+          this._speedX = dx;
+          newX = x + dx;
+
+          // Simulate resistance.
+
+          this._doSnapBackX = false;
+          if (newX > 0 || newX < this._maxX)
+          {
+            newX = x + (dx/2);
+            this._doSnapBackX = true;
+          }
+
+          this._lastX = ex;
+        }
+
+        if (this._vTracker)
+        {
+          var dy = ey - this._lastY;
+          var y = this._sy;
+          this._speedY = dy;
+          newY = y + dy;
+
+          // Simulate resistance.
+
+          this._doSnapBackY = false;
+          if (newY > 0 || newY < this._maxY)
+          {
+            newY = y + (dy/2);
+            this._doSnapBackY = true;
+          }
+
+          this._lastY = ey;
+        }
+
+        this._setScrollPosition(newX, newY);
+
+        this._showScrollBars();
+
+        // Call preventDefault() to prevent touch devices from
+        // scrolling the main window.
+
+        e.preventDefault();
+      },
+
+      _handleMouseUp: function(e)
+      {
+        var l = this._lastMove;
+        var t = getCurrentTime();
+        var doScroll = l && (t - l) <= this.options.moveThreshold;
+
+        var sx = (this._hTracker && this._speedX && doScroll) ? this._speedX : (this._doSnapBackX ? 1 : 0);
+        var sy = (this._vTracker && this._speedY && doScroll) ? this._speedY : (this._doSnapBackY ? 1 : 0);
+
+        if (sx || sy)
+        {
+          this._startMScroll(sx, sy);
+          e.preventDefault();
+        }
+        else
+          this._hideScrollBars();
+
+        this._disableTracking();
+      },
+
+      _enableTracking: function()
+      {
+        $(document).bind(this._mousemoveType, this._mousemoveCB);
+        $(document).bind(this._mouseupType, this._mouseupCB);
+      },
+
+      _disableTracking: function()
+      {
+        $(document).unbind(this._mousemoveType, this._mousemoveCB);
+        $(document).unbind(this._mouseupType, this._mouseupCB);
+      },
+
+      _showScrollBars: function()
+      {
+        var vclass = "ui-scrollbar-visible";
+        if (this._$vScrollBar) this._$vScrollBar.addClass(vclass);
+        if (this._$hScrollBar) this._$hScrollBar.addClass(vclass);
+      },
+
+      _hideScrollBars: function()
+      {
+        var vclass = "ui-scrollbar-visible";
+        if (this._$vScrollBar) this._$vScrollBar.removeClass(vclass);
+        if (this._$hScrollBar) this._$hScrollBar.removeClass(vclass);
+      },
+
+      _addBehaviors: function()
+      {
+        var self = this;
+        if (this.options.eventType == "mouse")
+        {
+          this._mousedownType = "mousedown";
+          this._mousedownCB = function(e){ return self._handleMouseDown(e, e.clientX, e.clientY); };
+
+          this._mousemoveType = "mousemove";
+          this._mousemoveCB = function(e){ return self._handleMouseMove(e, e.clientX, e.clientY); };
+
+          this._mouseupType = "mouseup";
+          this._mouseupCB = function(e){ return self._handleMouseUp(e); };
+        }
+        else // "touch"
+        {
+          this._mousedownType = "touchstart";
+          this._mousedownCB = function(e)
+          {
+            var t = e.originalEvent.targetTouches[0];
+            return self._handleMouseDown(e, t.pageX, t.pageY);
+          };
+
+          this._mousemoveType = "touchmove";
+          this._mousemoveCB = function(e)
+          {
+            var t = e.originalEvent.targetTouches[0];
+            return self._handleMouseMove(e, t.pageX, t.pageY);
+          };
+
+          this._mouseupType = "touchend";
+          this._mouseupCB = function(e){ return self._handleMouseUp(e); };
+        }
+
+        this._$view.bind(this._mousedownType, this._mousedownCB);
+
+        if (this.options.showScrollBars)
+        {
+          var $c = this._$clip;
+          var prefix = "<div class=\"ui-scrollbar ui-scrollbar-";
+          var suffix = "\"><div class=\"ui-scrollbar-track\"><div class=\"ui-scrollbar-thumb\"></div></div></div>";
+          if (this._vTracker)
+          {
+            $c.append(prefix + "vertical" + suffix);
+            this._$vScrollBar = $c.children(".ui-scrollbar-vertical");
+          }
+          if (this._hTracker)
+          {
+            $c.append(prefix + "horizontal" + suffix);
+            this._$hScrollBar = $c.children(".ui-scrollbar-horizontal");
+          }
         }
       }
+    });
+
+    function MomentumTracker(options)
+    {
+      this.options = $.extend({}, options);
+      this.easing = "easeOutQuad";
+      this.reset();
     }
-  });
-  
-  function MomentumTracker(options)
-  {
-    this.options = $.extend({}, options);
-    this.easing = "easeOutQuad";
-    this.reset();
-  }
-  
-  var tstates = {
-    scrolling: 0,
-    overshot:  1,
-    snapback:  2,
-    done:    3
-  };
-  
-  function getCurrentTime() { return (new Date()).getTime(); }
-  
-  $.extend(MomentumTracker.prototype, {
-    start: function(pos, speed, duration, minPos, maxPos)
-    {
-      this.state = (speed != 0) ? ((pos < minPos || pos > maxPos) ? tstates.snapback : tstates.scrolling) : tstates.done;
-      this.pos = pos;
-      this.speed = speed;
-      this.duration = (this.state == tstates.snapback) ? this.options.snapbackDuration : duration;
-      this.minPos = minPos;
-      this.maxPos = maxPos;
-  
-      this.fromPos = (this.state == tstates.snapback) ? this.pos : 0;
-      this.toPos = (this.state == tstates.snapback) ? ((this.pos < this.minPos) ? this.minPos : this.maxPos) : 0;
-  
-      this.startTime = getCurrentTime();
-    },
-  
-    reset: function()
-    {
-      this.state = tstates.done;
-      this.pos = 0;
-      this.speed = 0;
-      this.minPos = 0;
-      this.maxPos = 0;
-      this.duration = 0;
-    },
-  
-    update: function()
-    {
-      var state = this.state;
-      if (state == tstates.done)
-        return this.pos;
-  
-      var duration = this.duration;
-      var elapsed = getCurrentTime() - this.startTime;
-      elapsed = elapsed > duration ? duration : elapsed;
-  
-      if (state == tstates.scrolling || state == tstates.overshot)
+
+    var tstates = {
+      scrolling: 0,
+      overshot:  1,
+      snapback:  2,
+      done:    3
+    };
+
+    function getCurrentTime() { return (new Date()).getTime(); }
+
+    $.extend(MomentumTracker.prototype, {
+      start: function(pos, speed, duration, minPos, maxPos)
       {
-        var dx = this.speed * (1 - $.easing[this.easing](elapsed/duration, elapsed, 0, 1, duration));
-    
-        var x = this.pos + dx;
-    
-        var didOverShoot = (state == tstates.scrolling) && (x < this.minPos || x > this.maxPos);
-        if (didOverShoot)
-          x = (x < this.minPos) ? this.minPos : this.maxPos;
-      
-        this.pos = x;
-    
-        if (state == tstates.overshot)
+        this.state = (speed != 0) ? ((pos < minPos || pos > maxPos) ? tstates.snapback : tstates.scrolling) : tstates.done;
+        this.pos = pos;
+        this.speed = speed;
+        this.duration = (this.state == tstates.snapback) ? this.options.snapbackDuration : duration;
+        this.minPos = minPos;
+        this.maxPos = maxPos;
+
+        this.fromPos = (this.state == tstates.snapback) ? this.pos : 0;
+        this.toPos = (this.state == tstates.snapback) ? ((this.pos < this.minPos) ? this.minPos : this.maxPos) : 0;
+
+        this.startTime = getCurrentTime();
+      },
+
+      reset: function()
+      {
+        this.state = tstates.done;
+        this.pos = 0;
+        this.speed = 0;
+        this.minPos = 0;
+        this.maxPos = 0;
+        this.duration = 0;
+      },
+
+      update: function()
+      {
+        var state = this.state;
+        if (state == tstates.done)
+          return this.pos;
+
+        var duration = this.duration;
+        var elapsed = getCurrentTime() - this.startTime;
+        elapsed = elapsed > duration ? duration : elapsed;
+
+        if (state == tstates.scrolling || state == tstates.overshot)
+        {
+          var dx = this.speed * (1 - $.easing[this.easing](elapsed/duration, elapsed, 0, 1, duration));
+
+          var x = this.pos + dx;
+
+          var didOverShoot = (state == tstates.scrolling) && (x < this.minPos || x > this.maxPos);
+          if (didOverShoot)
+            x = (x < this.minPos) ? this.minPos : this.maxPos;
+
+          this.pos = x;
+
+          if (state == tstates.overshot)
+          {
+            if (elapsed >= duration)
+            {
+              this.state = tstates.snapback;
+              this.fromPos = this.pos;
+              this.toPos = (x < this.minPos) ? this.minPos : this.maxPos;
+              this.duration = this.options.snapbackDuration;
+              this.startTime = getCurrentTime();
+              elapsed = 0;
+            }
+          }
+          else if (state == tstates.scrolling)
+          {
+            if (didOverShoot)
+            {
+              this.state = tstates.overshot;
+              this.speed = dx / 2;
+              this.duration = this.options.overshootDuration;
+              this.startTime = getCurrentTime();
+            }
+            else if (elapsed >= duration)
+              this.state = tstates.done;
+          }
+        }
+        else if (state == tstates.snapback)
         {
           if (elapsed >= duration)
           {
-            this.state = tstates.snapback;
-            this.fromPos = this.pos;
-            this.toPos = (x < this.minPos) ? this.minPos : this.maxPos;
-            this.duration = this.options.snapbackDuration;
-            this.startTime = getCurrentTime();
-            elapsed = 0;
-          }
-        }
-        else if (state == tstates.scrolling)
-        {
-          if (didOverShoot)
-          {
-            this.state = tstates.overshot;
-            this.speed = dx / 2;
-            this.duration = this.options.overshootDuration;
-            this.startTime = getCurrentTime();
-          }
-          else if (elapsed >= duration)
+            this.pos = this.toPos;
             this.state = tstates.done;
+          }
+          else
+            this.pos = this.fromPos + ((this.toPos - this.fromPos) * $.easing[this.easing](elapsed/duration, elapsed, 0, 1, duration));
         }
-      }
-      else if (state == tstates.snapback)
-      {
-        if (elapsed >= duration)
-        {
-          this.pos = this.toPos;
-          this.state = tstates.done;		
-        }
-        else
-          this.pos = this.fromPos + ((this.toPos - this.fromPos) * $.easing[this.easing](elapsed/duration, elapsed, 0, 1, duration));
-      }
-  
-      return this.pos;
-    },
-  
-    done: function() { return this.state == tstates.done; },
-    getPosition: function(){ return this.pos; }
-  });
-  
-  $.widget( "mobile.scrolllistview", $.mobile.scrollview, {
-    options: {
-      direction: "vertical"
-    },
-  
-    _create: function() {
-      $.mobile.scrollview.prototype._create.call(this);
-    
-      // Cache the dividers so we don't have to search for them everytime the
-      // view is scrolled.
-      //
-      // XXX: Note that we need to update this cache if we ever support lists
-      //    that can dynamically update their content.
-    
-      this._$dividers = this._$view.find("[data-role=list-divider]");
-      this._lastDivider = null;
-    },
-  
-    _setScrollPosition: function(x, y)
-    {
-      // Let the view scroll like it normally does.
-    
-      $.mobile.scrollview.prototype._setScrollPosition.call(this, x, y);
-  
-      y = -y;
-  
-      // Find the dividers for the list.
-  
-      var $divs = this._$dividers;
-      var cnt = $divs.length;
-      var d = null;
-      var dy = 0;
-      var nd = null;
-  
-      for (var i = 0; i < cnt; i++)
-      {
-        nd = $divs.get(i);
-        var t = nd.offsetTop;
-        if (y >= t)
-        {
-          d = nd;
-          dy = t;
-        }
-        else if (d)
-          break;
-      }
-  
-      // If we found a divider to move position it at the top of the
-      // clip view.
-  
-      if (d)
-      {
-        var h = d.offsetHeight;
-        var mxy = (d != nd) ? nd.offsetTop : (this._$view.get(0).offsetHeight);
-        if (y + h >= mxy)
-          y = (mxy - h) - dy;
-        else
-          y = y - dy;
-  
-        // XXX: Need to convert this over to using $().css() and supporting the non-transform case.
-  
-        var ld = this._lastDivider;
-        if (ld && d != ld)
-        {
-          var zt = "translate3d(0px,0px,0px)";				
-          // $(ld).css("-webkit-transform", zt).css("-moz-transform", zt).css("transform", zt);
-          ld.style.webkitTransform = zt; ld.style.MozTransform = zt; ld.style.transform = zt;
-        }
-        var str = "translate3d(0px," + y + "px,0px)";
-        // $(d).css("-webkit-transform", str).css("-moz-transform", str).css("transform", str);
-        d.style.webkitTransform = str; d.style.MozTransform = str; d.style.transform = str;
-        this._lastDivider = d;
-  
-      }
-    }
-  });
-  
-  })(jQuery,window,document); // End Component
 
-  function ResizePageContentHeight(page)
-  {
-    var $page = $(page);
-    var $content = $page.children(".ui-content");
-    var hh = $page.children(".ui-header").outerHeight(); hh = hh ? hh : 0;
-    var fh = $page.children(".ui-footer").outerHeight(); fh = fh ? fh : 0;
-    var pt = parseFloat($content.css("padding-top"));
-    var pb = parseFloat($content.css("padding-bottom"));
-    var wh = window.innerHeight;
-    $content.height(wh - (hh + fh) - (pt + pb));
-  
-    $page.children(".ui-content:not(.ui-scrollview-clip):not(.ui-scrolllistview)").scrollview({ direction: "vertical" });
-    $page.children(".ui-content.ui-scrolllistview:not(.ui-scrollview-clip)").scrolllistview();
-  }
-  
-  $("[data-role=page]").live("pageshow", function(event) {
-    ResizePageContentHeight(event.target);
-  });
-  
-  $(document).live("orientationchange", function(event) {
-    ResizePageContentHeight($(".ui-page"));
-  });
+        return this.pos;
+      },
+
+      done: function() { return this.state == tstates.done; },
+      getPosition: function(){ return this.pos; }
+    });
+
+    $.widget( "mobile.scrolllistview", $.mobile.scrollview, {
+      options: {
+        direction: "vertical"
+      },
+
+      _create: function() {
+        $.mobile.scrollview.prototype._create.call(this);
+
+        // Cache the dividers so we don't have to search for them everytime the
+        // view is scrolled.
+        //
+        // XXX: Note that we need to update this cache if we ever support lists
+        //    that can dynamically update their content.
+
+        this._$dividers = this._$view.find("[data-role=list-divider]");
+        this._lastDivider = null;
+      },
+
+      _setScrollPosition: function(x, y)
+      {
+        // Let the view scroll like it normally does.
+
+        $.mobile.scrollview.prototype._setScrollPosition.call(this, x, y);
+
+        y = -y;
+
+        // Find the dividers for the list.
+
+        var $divs = this._$dividers;
+        var cnt = $divs.length;
+        var d = null;
+        var dy = 0;
+        var nd = null;
+
+        for (var i = 0; i < cnt; i++)
+        {
+          nd = $divs.get(i);
+          var t = nd.offsetTop;
+          if (y >= t)
+          {
+            d = nd;
+            dy = t;
+          }
+          else if (d)
+            break;
+        }
+
+        // If we found a divider to move position it at the top of the
+        // clip view.
+
+        if (d)
+        {
+          var h = d.offsetHeight;
+          var mxy = (d != nd) ? nd.offsetTop : (this._$view.get(0).offsetHeight);
+          if (y + h >= mxy)
+            y = (mxy - h) - dy;
+          else
+            y = y - dy;
+
+          // XXX: Need to convert this over to using $().css() and supporting the non-transform case.
+
+          var ld = this._lastDivider;
+          if (ld && d != ld)
+          {
+            var zt = "translate3d(0px,0px,0px)";
+            // $(ld).css("-webkit-transform", zt).css("-moz-transform", zt).css("transform", zt);
+            ld.style.webkitTransform = zt; ld.style.MozTransform = zt; ld.style.transform = zt;
+          }
+          var str = "translate3d(0px," + y + "px,0px)";
+          // $(d).css("-webkit-transform", str).css("-moz-transform", str).css("transform", str);
+          d.style.webkitTransform = str; d.style.MozTransform = str; d.style.transform = str;
+          this._lastDivider = d;
+
+        }
+      }
+    });
+
+    })(jQuery,window,document); // End Component
+
+    function ResizePageContentHeight(page)
+    {
+      var $page = $(page);
+      var $content = $page.children(".ui-content");
+      var hh = $page.children(".ui-header").outerHeight(); hh = hh ? hh : 0;
+      var fh = $page.children(".ui-footer").outerHeight(); fh = fh ? fh : 0;
+      var pt = parseFloat($content.css("padding-top"));
+      var pb = parseFloat($content.css("padding-bottom"));
+      var wh = window.innerHeight;
+      $content.height(wh - (hh + fh) - (pt + pb));
+
+      $page.children(".ui-content:not(.ui-scrollview-clip):not(.ui-scrolllistview)").scrollview({ direction: "vertical" });
+      $page.children(".ui-content.ui-scrolllistview:not(.ui-scrollview-clip)").scrolllistview();
+    }
+
+    $("[data-role=page]").live("pageshow", function(event) {
+      ResizePageContentHeight(event.target);
+    });
+
+    $(document).live("orientationchange", function(event) {
+      ResizePageContentHeight($(".ui-page"));
+    });

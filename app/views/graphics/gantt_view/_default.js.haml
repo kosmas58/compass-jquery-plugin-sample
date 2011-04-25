@@ -1,29 +1,31 @@
-:css
-  #ganttChart {
-    font-size: 0.8em;
-    padding: 10px;
-  }
+- content_for :head_stylesheets do
+  = stylesheet_link_tag :ganttView, :media => 'screen, projection'
+  :css
+    #ganttChart {
+      font-size: 0.8em;
+      padding: 10px;
+    }
 
-= render(:partial => "data.js.haml", :format => :js)
-
-:javascript
-  $(document).ready(function() { 
-    $("#ganttChart").ganttView({
-        data: ganttData,
-        slideWidth: 900,
-        behavior: {
-            onClick: function (data) {
-                var msg = "You clicked on an event: { start: " + data.start.toString("M/d/yyyy") + ", end: " + data.end.toString("M/d/yyyy") + " }";
-                $("#eventMessage").text(msg);
-            },
-            onResize: function (data) {
-                var msg = "You resized an event: { start: " + data.start.toString("M/d/yyyy") + ", end: " + data.end.toString("M/d/yyyy") + " }";
-                $("#eventMessage").text(msg);
-            },
-            onDrag: function (data) {
-                var msg = "You dragged an event: { start: " + data.start.toString("M/d/yyyy") + ", end: " + data.end.toString("M/d/yyyy") + " }";
-                $("#eventMessage").text(msg);
-            }
-        }
+- content_for :head_scripts do
+  = javascript_include_tag :ganttView
+  :javascript
+    $(function() {
+      $("#ganttChart").ganttView({
+          data: ganttData,
+          slideWidth: 900,
+          behavior: {
+              onClick: function (data) {
+                  var msg = "You clicked on an event: { start: " + data.start.toString("M/d/yyyy") + ", end: " + data.end.toString("M/d/yyyy") + " }";
+                  $("#eventMessage").text(msg);
+              },
+              onResize: function (data) {
+                  var msg = "You resized an event: { start: " + data.start.toString("M/d/yyyy") + ", end: " + data.end.toString("M/d/yyyy") + " }";
+                  $("#eventMessage").text(msg);
+              },
+              onDrag: function (data) {
+                  var msg = "You dragged an event: { start: " + data.start.toString("M/d/yyyy") + ", end: " + data.end.toString("M/d/yyyy") + " }";
+                  $("#eventMessage").text(msg);
+              }
+          }
+      });
     });
-  });

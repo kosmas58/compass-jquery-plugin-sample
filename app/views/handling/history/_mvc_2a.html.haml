@@ -1,3 +1,6 @@
+- content_for :head_scripts do
+  = javascript_include_tag :history
+
 :javascript
   $(function() {
     $("#tabs-2a").tabs(options);

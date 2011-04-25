@@ -1,8 +1,5 @@
 -@title = "#{t('txt.history.name')} - #{t('txt.history.example5')}"
-
-- content_for :content_head do
-  = stylesheet_link_tag "jquery/ui/cowboy", :media => 'screen, projection'
-  = render(:partial => "bbq.js.haml", :format => :js)
+= render :partial => "bbq.js.haml", :format => :js
 
 .demo
   %h3
@@ -91,10 +88,10 @@
   #greybox
   %p
     The example is taken from
-    %a{:href => "http://benalman.com/projects/jquery-bbq-plugin/", :class => :greybox  } "Cowboy" Ben Alman.
+    %a{:href => "http://benalman.com/projects/jquery-bbq-plugin/", :class => :greybox } "Cowboy" Ben Alman.
   %p
     The plugin was written by
-    %a{:href => "http://github.com/balupton/History.js/", :class => :greybox  } Benjamin Lupton
+    %a{:href => "http://github.com/balupton/History.js/", :class => :greybox } Benjamin Lupton
     and released under the
     = succeed "." do
       %a{:href => "http://creativecommons.org/licenses/BSD/", :class => :greybox } New BSD License

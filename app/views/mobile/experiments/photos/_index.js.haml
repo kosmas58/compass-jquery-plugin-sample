@@ -1,24 +1,27 @@
-%link{:href => "/images/demo/mobile/homeicon.png", :rel => "apple-touch-icon"}/
+- content_for :head_stylesheets do
+  %link{:href => "/images/demo/mobile/homeicon.png", :rel => "apple-touch-icon"}
+  :css
+    .photoview .ui-content { padding: 0; }
+    .photoview img { width: 100%; }
 
-:css
-  .photoview .ui-content { padding: 0; }
-  .photoview img { width: 100%; }
+= render :partial => "/mobile/mobile_init.js.haml", :format => :js
 
-:javascript
-  $('.photoview')
-  .live('pagebeforehide',function(){
-    $.fixedToolbars.hide(true);
-  })
-  .live('pageshow',function(){
-    $.fixedToolbars.show();
-  })
-  .live('swipeleft',function(){
-    $(this).find('a.next').click();
-  })
-  .live('swiperight',function(){
-    $(this).next().find('a.prev').click();
-  });
-  
-  $('.photoview img').live('mousedown touchstart',function(event){
-    event.preventDefault();
-  });
+- content_for :head_scripts_before_mobile do
+  :javascript
+    $('.photoview')
+    .live('pagebeforehide',function(){
+      $.fixedToolbars.hide(true);
+    })
+    .live('pageshow',function(){
+      $.fixedToolbars.show();
+    })
+    .live('swipeleft',function(){
+      $(this).find('a.next').click();
+    })
+    .live('swiperight',function(){
+      $(this).next().find('a.prev').click();
+    });
+
+    $('.photoview img').live('mousedown touchstart',function(event){
+      event.preventDefault();
+    });

@@ -1,7 +1,5 @@
 -@title = "#{t('txt.ui.name')} #{t('txt.ui.utilities.position.default')} - #{t('txt.ui.utilities.position.cycler')}"
-
-- content_for :content_head do
-  = render(:partial => "cycler.js.haml", :format => :js)
+= render :partial => "cycler.js.haml", :format => :js
 
 .demo
   %h3

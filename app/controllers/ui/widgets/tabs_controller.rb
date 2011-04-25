@@ -1,6 +1,4 @@
 class Ui::Widgets::TabsController < ApplicationController
-  layout 'ui'
-
   protect_from_forgery
 
   def content1

@@ -1,11 +1,15 @@
-:css
-  .box { margin-top:2em;  font-size: 62.5%; }
+- content_for :head_stylesheets do
+  :css
+    .box { margin-top:2em;  font-size: 62.5%; }
 
-:javascript
-  $(document).ready(
-    function(){      
-      $('#panel5').panel({
-        'cookie':{'expires':7}
-      });
-    }
-  );
+- content_for :head_scripts do
+  :javascript
+    $(function() {
+        $('#panel5').panel({
+          'cookie':{'expires':7}
+        });
+      }
+    );
+
+- content_for :license do
+  = render :partial => "ui/license"

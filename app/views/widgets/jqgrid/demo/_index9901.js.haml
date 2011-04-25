@@ -1,58 +1,64 @@
-= stylesheet_link_tag :contextMenu
-= javascript_include_tag :contextMenu
+- content_for :head_stylesheets do
+  = stylesheet_link_tag :jqGrid
+  = stylesheet_link_tag :contextMenu
+  :css
+    //.contextMenu LI.add A {}
+    //.ui-icon.ui-icon-plus
+    //.contextMenu LI.edit A {}
+    //.ui-icon.ui-icon-pencil
+    //.contextMenu LI.del A {}
+    //.ui-icon.ui-icon-trash
 
-:css
-  //.contextMenu LI.add A {}
-  //.ui-icon.ui-icon-plus
-  //.contextMenu LI.edit A {}
-  //.ui-icon.ui-icon-pencil
-  //.contextMenu LI.del A {}
-  //.ui-icon.ui-icon-trash
-
-:javascript
-  function addRow() {
-    var grid = $("#invheaders_demo9901");
-    grid.jqGrid("editGridRow", "new", grid.addDialogOptions);
-  };
-
-  function editRow() {
-    var grid = $("#invheaders_demo9901");
-    var rowKey = grid.jqGrid("getGridParam", "selrow");
-    if (rowKey) {
-      grid.jqGrid("editGridRow", rowKey, grid.editDialogOptions);
-    }
-    else {
-      alert("No rows are selected");
-    }
-  };
-
-  function delRow() {
-    var grid = $("#invheaders_demo9901");
-    var rowKey = grid.jqGrid("getGridParam", "selrow");
-    if (rowKey) {
-      grid.jqGrid("delGridRow", rowKey, grid.delDialogOptions);
-    }
-    else {
-        alert("No rows are selected");
-    }
-  };
-
-  function handleContextMenu(action, el, pos) {
-    switch (action) {
-      case "add":
-        addRow();
-        break;
-      case "edit":
-        editRow();
-        break;
-      case "del":
-        delRow();
-        break;
+- content_for :head_scripts do
+  = raw jqgrid_javascripts(I18n.locale)
+  = javascript_include_tag :contextMenu
+  :javascript
+    function addRow() {
+      var grid = $("#invheaders_demo9901");
+      grid.jqGrid("editGridRow", "new", grid.addDialogOptions);
     };
-  };
 
-  function afterInsertRow(rowid, rowdata, rowelem) {
-    $('#' + rowid).contextMenu({menu: "MenuJqGrid"}, handleContextMenu);
-  };
-  
-= raw @grid
+    function editRow() {
+      var grid = $("#invheaders_demo9901");
+      var rowKey = grid.jqGrid("getGridParam", "selrow");
+      if (rowKey) {
+        grid.jqGrid("editGridRow", rowKey, grid.editDialogOptions);
+      }
+      else {
+        alert("No rows are selected");
+      }
+    };
+
+    function delRow() {
+      var grid = $("#invheaders_demo9901");
+      var rowKey = grid.jqGrid("getGridParam", "selrow");
+      if (rowKey) {
+        grid.jqGrid("delGridRow", rowKey, grid.delDialogOptions);
+      }
+      else {
+          alert("No rows are selected");
+      }
+    };
+
+    function handleContextMenu(action, el, pos) {
+      switch (action) {
+        case "add":
+          addRow();
+          break;
+        case "edit":
+          editRow();
+          break;
+        case "del":
+          delRow();
+          break;
+      };
+    };
+
+    function afterInsertRow(rowid, rowdata, rowelem) {
+      $('#' + rowid).contextMenu({menu: "MenuJqGrid"}, handleContextMenu);
+    };
+
+  = raw @grid
+
+- content_for :license do
+  = render :partial =>  "widgets/jqgrid/license"

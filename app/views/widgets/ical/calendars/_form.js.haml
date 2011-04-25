@@ -1,13 +1,19 @@
-= stylesheet_link_tag :ical
-= stylesheet_link_tag :farbtastic
-= javascript_include_tag :ical
-= javascript_include_tag :farbtastic
+- content_for :head_stylesheets do
+  = stylesheet_link_tag :ical, :media => 'screen, projection'
+  = stylesheet_link_tag :ical_print, :media => 'print'
+  = stylesheet_link_tag :farbtastic
 
-:javascript
-  $(function() {
-    $("input:submit, .buttons").button();
-  });
+- content_for :head_scripts do
+  = javascript_include_tag :ical
+  = javascript_include_tag :farbtastic
+  :javascript
+    $(function() {
+      $("input:submit, .buttons").button();
+    });
 
-  $(document).ready(function() {
-    $('#picker').farbtastic('#color');
-  });
+    $(function() {
+      $('#picker').farbtastic('#color');
+    });
+
+- content_for :license do
+  = render :partial =>  "widgets/ical/license"

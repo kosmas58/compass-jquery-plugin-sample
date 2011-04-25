@@ -1,24 +1,29 @@
-:javascript
-  $.fx.speeds._default = 600;
-  $(function() {
-    $('#greyboxdemo').dialog({
-      autoOpen: false,
-      bgiframe: true,
-      modal: true,
-      width: 768,
-      height: 480,
-      show: 'blind',
-      hide: 'explode'
+- content_for :head_scripts do
+  :javascript
+    $.fx.speeds._default = 600;
+    $(function() {
+      $('#greyboxdemo').dialog({
+        autoOpen: false,
+        bgiframe: true,
+        modal: true,
+        width: 768,
+        height: 480,
+        show: 'blind',
+        hide: 'explode'
+      });
     });
-  });
-  
-  $(document).ready(function(){
-    $("a.greybox").click(function(){ 
-      $("#greyboxdemo" ).dialog( "option", "title", this.title || $(this).text() );
-      $("#frame").remove();
-      $("#greyboxdemo").append("<iframe id='frame' src='"+this.href+"' width='100%' height='100%'></iframe>");
-      $('#greyboxdemo').dialog('open');
-      return false;
+
+    $(function() {
+      $("a.greybox")
+      .click(function(){
+        $("#greyboxdemo" ).dialog( "option", "title", this.title || $(this).text() );
+        $("#frame").remove();
+        $("#greyboxdemo").append("<iframe id='frame' src='"+this.href+"' width='100%' height='100%'></iframe>");
+        $('#greyboxdemo').dialog('open');
+        return false;
+      });
     });
-  });
-  
+
+- content_for :license do
+  = render :partial => "ui/license"
+

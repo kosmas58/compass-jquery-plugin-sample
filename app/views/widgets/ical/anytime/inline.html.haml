@@ -1,7 +1,5 @@
 -@title =  "#{t('txt.ical.anytime.name')} - #{t('txt.ical.anytime.inline')}" 
-
-- content_for :content_head do
-  = render(:partial => "inline.js.haml", :format => :js)
+= render :partial => "inline.js.haml", :format => :js
 
 .demo
   %h3

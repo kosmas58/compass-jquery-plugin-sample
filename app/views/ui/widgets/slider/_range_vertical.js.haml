@@ -1,15 +1,21 @@
-:css
-  #demo-frame > div.demo { padding: 10px !important; };
+- content_for :head_stylesheets do
+  :css
+    #demo-frame > div.demo { padding: 10px !important; };
 
-:javascript
-  $(function() {
-    $("#slider-range").slider({
-      orientation: "vertical",
-      range: true,
-      values: [17, 67],
-      slide: function(event, ui) {
-        $("#amount").val('$' + ui.values[0] + ' - $' + ui.values[1]);
-      }
+- content_for :head_scripts do
+  :javascript
+    $(function() {
+      $("#slider-range").slider({
+        orientation: "vertical",
+        range: true,
+        values: [17, 67],
+        slide: function(event, ui) {
+          $("#amount").val('$' + ui.values[0] + ' - $' + ui.values[1]);
+        }
+      });
+      $("#amount").val('$' + $("#slider-range").slider("values", 0) + ' - $' + $("#slider-range").slider("values", 1));
     });
-    $("#amount").val('$' + $("#slider-range").slider("values", 0) + ' - $' + $("#slider-range").slider("values", 1));
-  });
+
+- content_for :license do
+  = render :partial => "ui/license"
+

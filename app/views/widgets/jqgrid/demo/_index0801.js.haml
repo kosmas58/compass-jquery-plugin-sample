@@ -1,19 +1,27 @@
-:css
-  #toolbar { padding: 0.3em; }
-  #toolbar .ui-button{ font-size: 0.8em; }
-  .demo-description td{ vertical-align: top; }
+- content_for :head_stylesheets do
+  = stylesheet_link_tag :jqGrid
+  :css
+    #toolbar { padding: 0.3em; }
+    #toolbar .ui-button{ font-size: 0.8em; }
+    .demo-description td{ vertical-align: top; }
 
-:javascript
-  $(function() {
-    $("a", "#toolbar").button();
-  });
-
-  $(document).ready(function() {
-    $("#bsdata").click( function(){
-      $("#invheaders_demo0801").jqGrid('searchGrid',
-        {sopt:['cn','bw','eq','ne','lt','gt','ew']}
-      );
+- content_for :head_scripts do
+  = raw jqgrid_javascripts(I18n.locale)
+  = raw @grid
+  :javascript
+    $(function() {
+      $("a", "#toolbar").button();
     });
-  });
-  
-= raw @grid
+
+    $(function() {
+      $("#bsdata").click( function(){
+        $("#invheaders_demo0801").jqGrid('searchGrid',
+          {sopt:['cn','bw','eq','ne','lt','gt','ew']}
+        );
+      });
+    });
+
+  = raw @grid
+
+- content_for :license do
+  = render :partial =>  "widgets/jqgrid/license"

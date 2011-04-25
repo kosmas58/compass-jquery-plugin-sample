@@ -1,28 +1,35 @@
-:css
-  ul#icons {
-    margin: 0;
-    padding: 0;
-  }
-  ul#icons li {
-    margin: 2px;
-    position: relative;
-    padding: 4px 0;
-    cursor: pointer;
-    float: left;
-    list-style: none;
-  }
+- content_for :head_stylesheets do
+  = stylesheet_link_tag :jqGrid
+  :css
+    ul#icons {
+      margin: 0;
+      padding: 0;
+    }
+    ul#icons li {
+      margin: 2px;
+      position: relative;
+      padding: 4px 0;
+      cursor: pointer;
+      float: left;
+      list-style: none;
+    }
 
-:javascript
-  function custom_edit(){
-    var ids = $("#invheaders_demo9906").jqGrid('getDataIDs');
-    for(var i=0;i<ids.length;i++){
-      var cl = ids[i];
-      actions = "<ul id='icons' class='ui-widget ui-helper-clearfix'>"
-              + "<li class='ui-state-default ui-corner-all' onclick=\"$('#invheaders_demo9906').jqGrid('editRow','"+cl+"');\" title='Edit row'><span class='ui-icon ui-icon-pencil'></span></li>"
-              + "<li class='ui-state-default ui-corner-all' onclick=\"$('#invheaders_demo9906').jqGrid('saveRow','"+cl+"');\"  title='Save row'><span class='ui-icon ui-icon-disk'></span></li>"
-              + "<li class='ui-state-default ui-corner-all' onclick=\"$('#invheaders_demo9906').jqGrid('restoreRow','"+cl+"');\" title='Restore row'><span class='ui-icon ui-icon-cancel'></span></li></ul>";
-      $("#invheaders_demo9906").jqGrid('setRowData',ids[i],{row_actions:actions});
-    }  
-  };
-  
-= raw @grid
+- content_for :head_scripts do
+  = raw jqgrid_javascripts(I18n.locale)
+  :javascript
+    function custom_edit(){
+      var ids = $("#invheaders_demo9906").jqGrid('getDataIDs');
+      for(var i=0;i<ids.length;i++){
+        var cl = ids[i];
+        actions = "<ul id='icons' class='ui-widget ui-helper-clearfix'>"
+                + "<li class='ui-state-default ui-corner-all' onclick=\"$('#invheaders_demo9906').jqGrid('editRow','"+cl+"');\" title='Edit row'><span class='ui-icon ui-icon-pencil'></span></li>"
+                + "<li class='ui-state-default ui-corner-all' onclick=\"$('#invheaders_demo9906').jqGrid('saveRow','"+cl+"');\"  title='Save row'><span class='ui-icon ui-icon-disk'></span></li>"
+                + "<li class='ui-state-default ui-corner-all' onclick=\"$('#invheaders_demo9906').jqGrid('restoreRow','"+cl+"');\" title='Restore row'><span class='ui-icon ui-icon-cancel'></span></li></ul>";
+        $("#invheaders_demo9906").jqGrid('setRowData',ids[i],{row_actions:actions});
+      }
+    };
+
+  = raw @grid
+
+- content_for :license do
+  = render :partial =>  "widgets/jqgrid/license"

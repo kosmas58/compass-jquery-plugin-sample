@@ -1,15 +1,19 @@
-:css
-  .box { margin-top:2em;  font-size: 62.5%; }
+- content_for :head_stylesheets do
+  :css
+    .box { margin-top:2em;  font-size: 62.5%; }
 
-:javascript
-  $(document).ready(
-    function(){
-      $('#panel3').panel({
-        'collapseType':'slide-left',
-        'stackable':false,
-        'collapseSpeed':1000,
-        unfold: function() { alert(' \'unfold\' callback executed '); },
-        fold: function() { alert(' \'fold\' callback executed '); }
-      });
-    }
-  );
+- content_for :head_scripts do
+  :javascript
+    $(function() {
+        $('#panel3').panel({
+          'collapseType':'slide-left',
+          'stackable':false,
+          'collapseSpeed':1000,
+          unfold: function() { alert(' \'unfold\' callback executed '); },
+          fold: function() { alert(' \'fold\' callback executed '); }
+        });
+      }
+    );
+
+- content_for :license do
+  = render :partial => "ui/license"

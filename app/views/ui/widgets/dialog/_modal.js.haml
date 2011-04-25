@@ -1,11 +1,16 @@
-:css
-  .ui-dialog { font-size: 62.5%; }
-        
-:javascript
-  $(function() {
-    $("#dialog").dialog({
-      bgiframe: true,
-      height: 140,
-      modal: true
+- content_for :head_stylesheets do
+  :css
+    .ui-dialog { font-size: 62.5%; }
+
+- content_for :head_scripts do
+  :javascript
+    $(function() {
+      $("#dialog").dialog({
+        bgiframe: true,
+        height: 140,
+        modal: true
+      });
     });
-  });
+
+- content_for :license do
+  = render :partial => "ui/license"

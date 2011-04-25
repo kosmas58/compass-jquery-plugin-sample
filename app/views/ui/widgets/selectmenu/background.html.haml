@@ -1,7 +1,5 @@
 -@title = "#{t('txt.ui.name')} #{t('txt.ui.widgets.selectmenu.name')} - #{t('txt.ui.widgets.selectmenu.background')}"
-
-- content_for :content_head do
-  = render(:partial => "background.js.haml", :format => :js)
+= render :partial => "background.js.haml", :format => :js
 
 .demo
   %h3

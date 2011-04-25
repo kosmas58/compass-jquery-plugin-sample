@@ -1,14 +1,19 @@
-:css
-  #resizable, #resizable2 { width: 150px; height: 150px; padding: 0.5em; }
-  #resizable h3, #resizable2 h3 { text-align: center; margin: 0; }
-      
-:javascript
-  $(function() {
-    $("#resizable").resizable({
-      delay: 1000
+- content_for :head_stylesheets do
+  :css
+    #resizable, #resizable2 { width: 150px; height: 150px; padding: 0.5em; }
+    #resizable h3, #resizable2 h3 { text-align: center; margin: 0; }
+
+- content_for :head_scripts do
+  :javascript
+    $(function() {
+      $("#resizable").resizable({
+        delay: 1000
+      });
+
+      $("#resizable2").resizable({
+        distance: 40
+      });
     });
-      
-    $("#resizable2").resizable({
-      distance: 40
-    });
-  });
+
+- content_for :license do
+  = render :partial => "ui/license"

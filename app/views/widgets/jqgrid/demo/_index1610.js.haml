@@ -1,15 +1,23 @@
-:javascript  
-  $(document).ready(function() {  
-    $("#chngroup").change(function(){
-      var vl = $(this).val();
-      if(vl) {
-        if(vl == "clear") {
-          jQuery("#invheaders_demo1610").jqGrid('groupingRemove',true);
-        } else {
-          jQuery("#invheaders_demo1610").jqGrid('groupingGroupBy',vl);
+- content_for :head_stylesheets do
+  = stylesheet_link_tag :jqGrid
+
+- content_for :head_scripts do
+  = raw jqgrid_javascripts(I18n.locale)
+  :javascript
+    $(function() {
+      $("#chngroup").change(function(){
+        var vl = $(this).val();
+        if(vl) {
+          if(vl == "clear") {
+            jQuery("#invheaders_demo1610").jqGrid('groupingRemove',true);
+          } else {
+            jQuery("#invheaders_demo1610").jqGrid('groupingGroupBy',vl);
+          }
         }
-      }
+      });
     });
-  });
-     
-= raw @grid
+
+  = raw @grid
+
+- content_for :license do
+  = render :partial =>  "widgets/jqgrid/license"

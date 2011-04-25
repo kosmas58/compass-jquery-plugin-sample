@@ -1,39 +1,45 @@
-:css
-  #toolbar{ padding: 0.3em; }
-  .ui-button{ font-size: 0.9em; } 
-  
-:javascript
-  $(function () {
-    $("button", ".demo").button();
-    
-    $("#set_theme1").click(function () { 
-      $("#demo1").jstree("set_theme","default");
-    });
-    
-    $("#set_theme2").click(function () { 
-      $("#demo1").jstree("set_theme","aqua");
-    });
-    
-    $("#set_theme3").click(function () { 
-      $("#demo1").jstree("set_theme","aero");
-    });
-    
-    $("#set_theme4").click(function () { 
-      $("#demo1").jstree("set_theme","crystal");
-    });
-    
-    $("#set_theme5").click(function () { 
-      $("#demo1").jstree("set_theme","classic");
+- content_for :head_stylesheets do
+  :css
+    #toolbar{ padding: 0.3em; }
+    .ui-button{ font-size: 0.9em; }
+
+- content_for :head_scripts do
+  = javascript_include_tag :jstree
+  :javascript
+    $(function () {
+      $("button", ".demo").button();
+
+      $("#set_theme1").click(function () {
+        $("#demo1").jstree("set_theme","default");
+      });
+
+      $("#set_theme2").click(function () {
+        $("#demo1").jstree("set_theme","aqua");
+      });
+
+      $("#set_theme3").click(function () {
+        $("#demo1").jstree("set_theme","aero");
+      });
+
+      $("#set_theme4").click(function () {
+        $("#demo1").jstree("set_theme","crystal");
+      });
+
+      $("#set_theme5").click(function () {
+        $("#demo1").jstree("set_theme","classic");
+      });
+
+      $("#demo1").jstree({
+        "ui" : {
+          "select_limit" : 2,
+          "select_multiple_modifier" : "alt",
+          "selected_parent_close" : "select_parent",
+          "initially_select" : [ "phtml_2" ]
+        },
+        "core" : { "initially_open" : [ "phtml_1" ] },
+        "plugins" : [ "themes", "html_data", "ui" ]
+      });
     });
 
-    $("#demo1").jstree({ 
-      "ui" : {
-        "select_limit" : 2,
-        "select_multiple_modifier" : "alt",
-        "selected_parent_close" : "select_parent",
-        "initially_select" : [ "phtml_2" ]
-      },
-      "core" : { "initially_open" : [ "phtml_1" ] },
-      "plugins" : [ "themes", "html_data", "ui" ]
-    });
-  });
+- content_for :license do
+  = render :partial => "widgets/jstree/license"

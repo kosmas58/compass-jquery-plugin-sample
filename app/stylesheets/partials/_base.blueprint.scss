@@ -15,7 +15,9 @@
 
 #site-actions {
   float: right;
-  @include horizontal-list; }
+  @include horizontal-list;
+  #language {
+    padding-top: 3px; } }
 
 @mixin header {
  }
@@ -36,20 +38,27 @@
     @include column(8, last);
     @include site-actions;
     padding: 1.7em 0em 0em 0em; }
-    .ui-button-icon-only{ height: 1.65em; width: 1.65em; }  }
+    :focus {
+      -moz-outline-style:none; } }
 
 @mixin navigation {
  }
 
 #navigation {
-  padding: 0.5em 0em 0em 0em;
-  font-size: 1.0em;
-  h3 {
-    margin-bottom: 0em; }
- 	.ui-widget-header, .ui-widget-border { 
- 	  padding: 0.3em 0.5em 0.3em 0.5em; } }
-
-
+  #headline {
+    vertical-align: middle;
+    padding: 0.5em 0em 0em 0em;
+    font-size: 1.0em;
+    h3 {
+      vertical-align: middle;
+      margin-bottom: 0em; }
+ 	  .ui-widget-header, .ui-widget-border {
+ 	    padding: 0em 0.5em 0.5em 0.5em; }
+      button {
+        top: 0.3em; }
+      .ui-button-icon-only {
+        height: 1.2em; width: 1.2em; } } }
+          
 @mixin footer {
  }
 
@@ -62,7 +71,11 @@
  }
 
 #content {
-  padding: 0.6em 0em 0em 0em; }
+  padding: 0.5em 0em 0em 0em; }
+
+#content2 {
+  .main {
+    padding: 0.5em 0.5em 0.5em 0.5em; } }
 
 @mixin two-column($header, $left, $center, $footer) {
   #{$header} {

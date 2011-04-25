@@ -1,24 +1,27 @@
-:javascript
-	$(function() {		
-		var cache = {};
-		$("#birds").autocomplete({
-			minLength: 2,
-			source: function(request, response) {
-			  if ( request.term in cache ) {
-					response( cache[ request.term ] );
-					return;
-				}
-				
-				$.ajax({
-					url: "auto_complete_for_bird_name",
-					dataType: "json",
-					data: request,
-					success: function(data) {
-						cache[request.term] = data;
-						response(data);
-			    }
-			  });
-			}
-		});
-	});
-	
+- content_for :head_scripts do
+  :javascript
+      $(function() {
+          var cache = {};
+          $("#birds").autocomplete({
+              minLength: 2,
+              source: function(request, response) {
+                if ( request.term in cache ) {
+                      response( cache[ request.term ] );
+                      return;
+                  }
+
+                  $.ajax({
+                      url: "auto_complete_for_bird_name",
+                      dataType: "json",
+                      data: request,
+                      success: function(data) {
+                          cache[request.term] = data;
+                          response(data);
+                  }
+                });
+              }
+          });
+      });
+
+- content_for :license do
+  = render :partial => "ui/license"

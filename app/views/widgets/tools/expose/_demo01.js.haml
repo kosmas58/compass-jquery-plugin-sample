@@ -1,12 +1,18 @@
-:css
-  #test { border:1px solid #ccc; background-color:#fff; padding:50px; font-size:30px; margin:20px auto; text-align:center; width:600px; }
+- content_for :head_stylesheets do
+  :css
+    #test { border:1px solid #ccc; background-color:#fff; padding:50px; font-size:30px; margin:20px auto; text-align:center; width:600px; }
 
-:javascript
-  $(function() {
-    // assign a click event to the exposed element, using normal jQuery coding
-    $("#test").click(function() {
-      // perform exposing for the clicked element
-      $(this).expose();
+- content_for :head_scripts do
+  = javascript_include_tag :tools
+  :javascript
+    $(function() {
+      // assign a click event to the exposed element, using normal jQuery coding
+      $("#test").click(function() {
+        // perform exposing for the clicked element
+        $(this).expose();
+      });
     });
-  });
+
+- content_for :license do
+  = render :partial => "widgets/tools/license"
 

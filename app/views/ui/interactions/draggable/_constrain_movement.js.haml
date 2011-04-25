@@ -1,15 +1,16 @@
-:css
-  .demo .draggable { width: 90px; height: 90px; padding: 0.5em; float: left; margin: 0 10px 10px 0; }
-  #draggable, #draggable2 { margin-bottom:20px; }
-  #draggable { cursor: n-resize; }
-  #draggable2 { cursor: e-resize; }
-  #containment-wrapper { width: 95%; height:150px; border:2px solid #ccc; padding: 10px;}
-    
-:javascript
-  $(function() {
-    $("#draggable").draggable({ axis: 'y' });
-    $("#draggable2").draggable({ axis: 'x' });      
-    $("#draggable3").draggable({ containment: '#containment-wrapper', scroll: false });
-    $("#draggable4").draggable({ containment: '.demo' });
-    $("#draggable5").draggable({ containment: 'parent' });      
-  });
+- content_for :head_stylesheets do
+  :css
+    .demo .draggable { width: 90px; height: 90px; padding: 0.5em; float: left; margin: 0 10px 10px 0; }
+    #draggable, #draggable2 { margin-bottom:20px; }
+    #draggable { cursor: n-resize; }
+    #draggable2 { cursor: e-resize; }
+    #containment-wrapper { width: 95%; height:150px; border:2px solid #ccc; padding: 10px;}
+
+  :javascript
+    $(function() {
+      $("#draggable").draggable({ axis: 'y' });
+      $("#draggable2").draggable({ axis: 'x' });
+      $("#draggable3").draggable({ containment: '#containment-wrapper', scroll: false });
+      $("#draggable4").draggable({ containment: '.demo' });
+      $("#draggable5").draggable({ containment: 'parent' });
+    });

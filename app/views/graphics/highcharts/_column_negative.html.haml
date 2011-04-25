@@ -1,0 +1,43 @@
+:javascript
+  var chart;
+  $(function() {
+      chart = new Highcharts.Chart({
+          chart: {
+              renderTo: 'container',
+              defaultSeriesType: 'column'
+          },
+          title: {
+              text: 'Column chart with negative values'
+          },
+          xAxis: {
+              categories: ['Apples', 'Oranges', 'Pears', 'Grapes', 'Bananas']
+          },
+          tooltip: {
+              formatter: function() {
+                  return ''+
+                       this.series.name +': '+ this.y +'';
+              }
+          },
+          credits: {
+              enabled: false
+          },
+          series: [{
+              name: 'John',
+              data: [5, 3, 4, 7, 2]
+          }, {
+              name: 'Jane',
+              data: [2, -2, -3, 2, 1]
+          }, {
+              name: 'Joe',
+              data: [3, 4, 4, -2, 5]
+          }]
+      });
+  });
+
+-@title = "#{t('txt.graphics.highcharts.name')} - #{t('txt.graphics.highcharts.bar.name')} - #{t('txt.graphics.highcharts.column.negative')}"
+
+%h4
+  =image_tag("icons/22x22/graphics.png", :border => 0)
+  =@title
+
+#container{:style => "width: 800px; height: 400px; margin: 0 auto"}

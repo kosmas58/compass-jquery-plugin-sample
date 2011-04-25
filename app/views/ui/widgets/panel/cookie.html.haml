@@ -1,7 +1,5 @@
 -@title = "#{t('txt.ui.name')} #{t('txt.ui.widgets.panel.name')} - #{t('txt.ui.widgets.panel.cookie')}"
-
-- content_for :content_head do
-  = render(:partial => "cookie.js.haml", :format => :js)
+= render :partial => "cookie.js.haml", :format => :js
 
 .demo
   %h3

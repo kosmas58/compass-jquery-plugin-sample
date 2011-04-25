@@ -1,7 +1,5 @@
 -@title = "#{t('txt.jst.name')} - #{t('txt.jst.dnd')}"
-
-- content_for :content_head do
-  = render(:partial => "dnd.js.haml", :format => :js)
+= render :partial => "dnd.js.haml", :format => :js
 
 .demo
   %h3

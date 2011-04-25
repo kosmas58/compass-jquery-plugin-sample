@@ -1,6 +1,5 @@
 class NavigationController < ApplicationController
-  layout 'navigation'
-  #protect_from_forgery
+  protect_from_forgery
 
   def edit
     @tree = NavigationTree.find(params[:id])
@@ -8,11 +7,11 @@ class NavigationController < ApplicationController
     respond_to do |format|
       format.html do
         flash[:notice] = ""
-        render(:partial => "form", :layout => false)
+        render :partial => "form", :layout => false
       end
       format.js do
         flash[:notice] = ""
-        render(:partial => "form", :layout => false)
+        render :partial => "form", :layout => false
       end
     end
   end
@@ -26,7 +25,7 @@ class NavigationController < ApplicationController
       format.html do
         if request.xhr?
           flash[:notice] = I18n.t('make_resourceful.update.success')
-          render(:partial => "form", :layout => false)
+          render :partial => "form", :layout => false
         else
           redirect_to :action => :index
         end
@@ -34,7 +33,7 @@ class NavigationController < ApplicationController
       format.js do
         if request.xhr?
           flash[:notice] = I18n.t('make_resourceful.update.success')
-          render(:partial => "form", :layout => false)
+          render :partial => "form", :layout => false
         else
           redirect_to :action => :index
         end

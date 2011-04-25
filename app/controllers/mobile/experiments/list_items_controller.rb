@@ -1,5 +1,5 @@
 class Mobile::Experiments::ListItemsController < ApplicationController
-  layout 'mobile_offline'
+  layout 'mobile'
 
   protect_from_forgery
 

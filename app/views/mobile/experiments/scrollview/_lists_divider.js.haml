@@ -1,0 +1,17 @@
+- content_for :head_stylesheets do
+  = render :partial => "/mobile/experiments/jquery.mobile.scrollview.css.haml"
+  = render :partial => "/mobile/docs/docs.html.haml"
+  :css
+    .ui-content.ui-scrollview-clip {
+      padding: 0;
+    }
+    .ui-content.ui-scrollview-clip > div.ui-scrollview-view {
+      margin: 0;
+      padding: 15px;
+    }
+    .ui-content.ui-scrollview-clip > .ui-listview.ui-scrollview-view {
+      margin: 0;
+    }
+
+= render :partial => "/mobile/experiments/jquery.mobile.scrollview.js.haml", :format => :js
+= render :partial => "scrollview.js.haml", :format => :js

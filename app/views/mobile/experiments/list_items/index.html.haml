@@ -1,7 +1,6 @@
 -@title = "jQuery Mobile Framework - Shopping List"
-
-- content_for :content_head do
-  = render(:partial => "index.js.haml", :format => :js)
+-@manifest = "/manifest"
+= render :partial => "index.js.haml", :format => :js
 
 #start{"data-role" => "page", "data-theme" => "a"}
   %div{"data-backbtn" => "false", "data-role" => "header"}
@@ -18,12 +17,13 @@
         - @current_objects.each do |item|
           %li
             -if item.checked
-              %img#box.ui-icon-checkbox-off.ui-icon-checkbox-on{ :src => "/images/demo/empty.png" }
+              %a#item.checked{ :value => item.id, :href => "#" }
+                %s
+                  = item.name
             -else
-              %img#box.ui-icon-checkbox-off{ :src => "/images/demo/empty.png" }
-            %a#item{ :value => item.id, :href => "#" }
-              = item.name
-            %a#item_delete{:value => item.id, :href => "#", "data-rel" => "dialog", "data-transition" => "pop"} 
+              %a#item{ :value => item.id, :href => "#" }
+                = item.name
+            %a#item_delete{:value => item.id, :href => "#", "data-rel" => "dialog", "data-transition" => "pop"}
               Remove
               = item.name
 #item_add{"data-role" => "page", "data-theme" => "a"}

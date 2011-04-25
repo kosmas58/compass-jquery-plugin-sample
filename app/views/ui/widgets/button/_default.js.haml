@@ -1,5 +1,8 @@
-:javascript
-  $(function() {
-    $("button, input:submit, a", ".demo").button();
-  });
-  
+- content_for :head_scripts do
+  :javascript
+    $(function() {
+      $("button, input:submit, a", ".demo").button();
+    });
+
+- content_for :license do
+  = render :partial => "ui/license"

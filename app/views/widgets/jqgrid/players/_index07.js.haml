@@ -1,13 +1,21 @@
-:javascript
-  function afterSubmit(r, data, action) {
-    if(r.responseText != "") { // If an error message is returned
-      $('#submit_errors').html("<h1>Error</h1>\n<p>"+r.responseText+"</p>");
-      $('#submit_errors').slideDown(); // Show div with error message      
-      window.setTimeout(function() { // Hide error div after 6 seconds
-        $('#submit_errors').slideUp();
-      }, 6000);
-      return false; // Don't remove this!
+- content_for :head_stylesheets do
+  = stylesheet_link_tag :jqGrid
+
+- content_for :head_scripts do
+  = raw jqgrid_javascripts(I18n.locale)
+  :javascript
+    function afterSubmit(r, data, action) {
+      if(r.responseText != "") { // If an error message is returned
+        $('#submit_errors').html("<h1>Error</h1>\n<p>"+r.responseText+"</p>");
+        $('#submit_errors').slideDown(); // Show div with error message
+        window.setTimeout(function() { // Hide error div after 6 seconds
+          $('#submit_errors').slideUp();
+        }, 6000);
+        return false; // Don't remove this!
+      }
+      return true; // Don't remove this!
     }
-    return true; // Don't remove this!
-  }
-= raw @grid_players
+  = raw @grid_players
+
+- content_for :license do
+  = render :partial =>  "widgets/jqgrid/license"
