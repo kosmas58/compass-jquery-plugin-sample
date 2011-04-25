@@ -4,101 +4,101 @@
     /* ==================================================================================================================== */
     /* ! The 1140px Grid V2 by Andy Taylor \ http://cssgrid.net \ http://www.twitter.com/andytlr \ http://www.andytlr.com   */
     /* ==================================================================================================================== */
-    .row {
-      width: 100%;
-      /*max-width: 1140px;
-       min-width: 755px;*/
-      margin: 0 auto;
-      overflow: hidden;
+    .row, .fixedrow {
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
     }
-    
+
     .onecol, .twocol, .threecol, .fourcol, .fivecol, .sixcol, .sevencol, .eightcol, .ninecol, .tencol, .elevencol {
-      margin-right: 3.8%;
-      float: left;
-      min-height: 1px;
+    margin-right: 3.8%;
+    float: left;
+    min-height: 1px;
     }
-    
+
     .row .onecol {
-      width: 4.85%;
+    width: 4.85%;
     }
-    
+
     .row .twocol {
-      width: 13.45%;
+    width: 13.45%;
     }
-    
+
     .row .threecol {
-      width: 22.05%;
+    width: 22.05%;
     }
-    
+
     .row .fourcol {
-      width: 30.75%;
+    width: 30.75%;
     }
-    
+
     .row .fivecol {
-      width: 39.45%;
+    width: 39.45%;
     }
-    
+
     .row .sixcol {
-      width: 48%;
+    width: 48%;
     }
-    
+
     .row .sevencol {
-      width: 56.75%;
+    width: 56.75%;
     }
-    
+
     .row .eightcol {
-      width: 65.4%;
+    width: 65.4%;
     }
-    
+
     .row .ninecol {
-      width: 74.05%;
+    width: 74.05%;
     }
-    
+
     .row .tencol {
-      width: 82.7%;
+    width: 82.7%;
     }
-    
+
     .row .elevencol {
-      width: 91.35%;
+    width: 91.35%;
     }
-    
+
     .row .twelvecol {
-      width: 100%;
-      float: left;
+    width: 100%;
+    float: left;
     }
-    
+
     .last {
-      margin-right: 0px;
+    margin-right: 0px;
     }
-    
+
     img, object, embed {
-      max-width: 100%;
+    max-width: 100%;
     }
-    
+
     img {
       height: auto;
     }
-    
+
+
     /* touchscreens */
-    
+
     .touch.min-width-768px body {
       font-size: 1em;
       line-height: normal;
-    }
-    
+      }
+
+
     /* Smaller screens */
     .min-width-768px body {
       font-size: 0.9em;
       line-height: normal;
-    }
-    
+      }
+
     /* Mobile */
-    
+
     .max-width-480px body {
       font-size: 1em;
       -webkit-text-size-adjust: none;
-    }
-    
+      }
+
     .max-width-480px .row, .max-width-480px body {
       width: 100%;
       min-width: 0;
@@ -106,8 +106,8 @@
       margin-right: 0px;
       padding-left: 0px;
       padding-right: 0px;
-    }
-    
+      }
+
     .max-width-480px .row .onecol, .max-width-480px .row .twocol, .max-width-480px .row .threecol, .max-width-480px .row .fourcol, .max-width-480px .row .fivecol, .max-width-480px .row .sixcol, .max-width-480px .row .sevencol, .max-width-480px .row .eightcol, .max-width-480px .row .ninecol, .max-width-480px .row .tencol, .max-width-480px .row .elevencol, .max-width-480px .row .twelvecol {
       width: auto;
       float: none;
@@ -115,4 +115,4 @@
       margin-right: 0px;
       padding-left: 20px;
       padding-right: 20px;
-    }
+      }
