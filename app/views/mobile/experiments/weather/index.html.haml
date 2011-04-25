@@ -1,5 +1,4 @@
 -@title = "jQuery Mobile Framework - Weather for"
-= render :partial => "index.js.haml", :format => :js
 
 %div{"data-role" => "page", "data-theme" => "a"}
   %form.ui-body.ui-body-a{:action => "", :method => "get"}
@@ -7,6 +6,7 @@
       Change city:
     %input#location{"data-theme" => "a", :name => "location", :placeholder => "city name...", :type => "search", :value => "#{@location}"}/
     %input{"data-role" => "nojs", :type => "submit", :value => "submit"}
+    %a{ "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile/experiments/main", :rel => "external"} Home
   / / header
   %div{"data-role" => "content"}
     %h1
@@ -26,7 +26,7 @@
             #{@information[:wind_condition]}
             %br
             #{@information[:humidity]}
-    %ul{"data-inset" => "true", "data-role" => "listview", "data-theme" => "a"}
+    %ul{"data-inset" => "true", "data-role" => "listview", "data-theme" => "a", "data-divider-theme" => "a"}
       %li{"data-role" => "list-divider"} This week's forecast
       - @forecast_list.each do |item|
         %li
