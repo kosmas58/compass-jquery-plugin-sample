@@ -4,7 +4,7 @@
 
 - content_for :head_scripts_before_mobile do
   :javascript
-    $(function() {
+    function use_media_helpers() {
       var widthBreakpoints = [320, 360, 480, 600, 640, 768, 800, 960, 1024, 1200, 1280];
       $("#widthList li").hide();
       $("#widthList .title").show();
@@ -16,6 +16,16 @@
 
       $("#orientList li").hide();
       $("#orientList .title").show();
-      $("#orientList .port").show().hasClass("portrait");
-      $("#orientList .land").show().hasClass("landscape");
+      if ($('html').hasClass("portrait")) $("#orientList .port").show();
+      if ($('html').hasClass("landscape")) $("#orientList .land").show();
+    }
+
+- content_for :head_scripts_after_mobile do
+  :javascript
+    $(document).bind("orientationchange", function(event) {
+      use_media_helpers();
+    });
+
+    $(function() {
+      use_media_helpers();
     });

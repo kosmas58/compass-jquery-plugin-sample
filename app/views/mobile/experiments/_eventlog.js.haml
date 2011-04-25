@@ -1,4 +1,5 @@
-
+- content_for :head_scripts_before_mobile do
+  :javascript
     //$(document).bind('mobileinit',function(event){
     //  console.log( event.type + 'event triggered');
     //});
@@ -14,13 +15,11 @@
     $(window.document).bind('mobileinit', function(event){
       if (window.console) {
         console.log(event.type + ' event triggered');
-      }  
+      }
     });
-    
+
     $pages.live('pagebeforecreate pagecreate pagebeforehide pagebeforeshow pageshow pagehide',function(event){
       if (window.console) {
         console.log( event.type + ' event triggered for ' + $(this).attr('id'));
       }
     });
-    
-
