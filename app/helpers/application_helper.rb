@@ -6,10 +6,10 @@ module ApplicationHelper
   end
 
   def body_class
-    @controller.controller_name.dasherize
+    controller.controller_name.dasherize
   end
 
   def body_id
-    "#{@controller.controller_name.dasherize}-#{@controller.action_name.dasherize}"
+    "#{controller.controller_name.dasherize}-#{@controller.action_name.dasherize}"
   end
 end
