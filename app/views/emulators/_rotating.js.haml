@@ -8,6 +8,7 @@
           rotateTo = "landscape";
         }
         parent.$("[id=demoframe]").attr("src", "/emulators?device=#{device};orientation="+rotateTo+";url=#{url}");
+        scroll();
         return false;
       });
     });
