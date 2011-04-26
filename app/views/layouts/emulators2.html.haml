@@ -26,7 +26,7 @@
     = javascript_include_tag 'ajax'
     = yield :head_scripts
 
-  %body{body_attributes, :onload => "set_mon(screen.width, screen.height);"}
+  %body{body_attributes}
     #content
       #flash_messages
         %span

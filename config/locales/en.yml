@@ -220,6 +220,9 @@ en:
       rotate:
         landscape: Show as landscape
         portrait: Show as portrait
+      scroll:
+        show: Show scrollbar
+        hide: Hide scrollbar
       back: Back
       colon: ":"
       edit: Edit

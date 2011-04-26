@@ -21,9 +21,18 @@ date:
     short: "%b %d"
     long: "%B %d, %Y"
 txt: 
-  mediahelpers: 
-    name: jQuery Media Helper Utilities
-    default: Example
+  layout: 
+    scroll: 
+      hide: Hide scrollbar
+      show: Show scrollbar
+  tools: 
+    form: 
+      stylable: 
+        name: Stylable
+        demo01: Minimal setup for Styleable
+        demo02: Scripting styleable Forms
+        demo03: Alternate form skin
+  hello: Hello world
 support: 
   array: 
     words_connector: ", "

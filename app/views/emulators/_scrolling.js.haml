@@ -1,0 +1,23 @@
+- content_for :head_scripts do
+  :javascript
+    function scroll() {
+      if($.cookie('scroll') == 'auto') {
+        $("#disp-area").attr("scrolling", 'auto');
+      } else {
+        $("#disp-area").attr("scrolling", 'no');
+      }
+    }
+
+    $(function() {
+      $("#scroll").click(function() {
+        if($.cookie('scroll') == 'auto') {
+          scrollValue = 'no';
+        } else {
+          scrollValue = 'auto';
+        }
+        $.cookie('scroll', scrollValue);
+        scroll();
+        set_icon_scroll();
+        return false;
+      });
+    });

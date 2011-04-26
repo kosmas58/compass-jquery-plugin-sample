@@ -29,12 +29,28 @@
        }
     }
 
+    function set_icon_scroll() {
+      if($.cookie('scroll') == 'yes') {
+        $("#scroll").attr("title", "#{t('txt.layout.scroll.hide')}");
+      } else {
+        $("#scroll").attr("title", "#{t('txt.layout.scroll.show')}");
+      }
+    }
+
     $(function() {
+      set_mon(screen.width, screen.height);
       $("#resize").button();
       set_icon_resize();
       $("#rotate").button();
       set_icon_rotate();
-
+      $('#scroll')
+      .button({
+        text: false,
+        icons: {
+          secondary: 'ui-icon-arrow-2-n-s'
+        }
+      });
+      set_icon_scroll();
       $('#configure_ppi')
       .button({
         text: false,

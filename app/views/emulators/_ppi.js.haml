@@ -1,6 +1,7 @@
 - content_for :head_scripts do
   :javascript
     var ppi = $.cookie('ppi');
+
     function round2 (i) {
       return Math.round(i * 100) / 100;
     }
@@ -8,7 +9,7 @@
     function do_ppi () {
       var x = $("#hor").val();
       var y = $("#vert").val();
-      if (y == 0 || x == 0) return;
+      if (y == 0 || x == 0) return; 
       var diag = $("#diag").val();
       //$("#diagmetric").firstChild.data = round2(diag * 2.54);
       var ratio = y/x;
@@ -44,4 +45,5 @@
         $("#actual_ppi").html(ppi + " PPI");
         window.location.reload();
       });
+      do_ppi();
     });

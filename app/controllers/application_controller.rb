@@ -12,6 +12,7 @@ class ApplicationController < ActionController::Base
   before_filter :set_theme
   before_filter :set_ppi
   before_filter :set_scaling
+  before_filter :set_scroll
 
   protected
 
@@ -40,6 +41,10 @@ class ApplicationController < ActionController::Base
 
   def set_scaling
     cookies[:scaling] = 'real_size' if !cookies[:scaling]
+  end
+
+  def set_scroll
+    cookies[:scrolling] = 'auto' if !cookies[:scrolling]
   end
 
 end
