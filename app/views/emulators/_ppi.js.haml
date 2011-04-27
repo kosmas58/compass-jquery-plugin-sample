@@ -39,6 +39,7 @@
 
 
     $(function () {
+      set_mon(screen.width, screen.height);
       $("#set_ppi").button()
       .click(function() {
         $.cookie('ppi', ppi);
