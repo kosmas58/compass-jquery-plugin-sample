@@ -38,7 +38,7 @@
           %li
             %a{"data-transition" => "slideup", :href => "#demo"} Demos
       / /navbar
-      %h2 Engineworks &copy CS8
+      %h2.ui-splitview-hidden Engineworks &copy CS8
     / /footer
   / /page
   / Start of 2nd page
@@ -125,7 +125,7 @@
           %li
             %a{"data-transition" => "slideup", :href => "#demo"} Demos
       / /navbar
-      %h2 Engineworks &copy CS8
+      %h2.ui-splitview-hidden Engineworks &copy CS8
     / /footer
   / /page
 / panel menu
@@ -144,7 +144,7 @@
         %b NOTE:
         keep in mind that I added some namespacing to event handlers in jQMobile core. use the version of jQuerymobile found in the experiments/splitview/ folder of my fork.
     / /content
-    %div{"data-id" => "ew-footer", "data-position" => "fixed", "data-role" => "footer"}
+    .ui-splitview-hidden{"data-id" => "ew-footer", "data-position" => "fixed", "data-role" => "footer"}
       %div{"data-role" => "navbar"}
         %ul
           %li
@@ -175,7 +175,7 @@
           %b Website:
           %a{:href => "http://www.cs8.my"} www.cs8.my
     / /content
-    %div{"data-id" => "ew-footer", "data-position" => "fixed", "data-role" => "footer"}
+    .ui-splitview-hidden{"data-id" => "ew-footer", "data-position" => "fixed", "data-role" => "footer"}
       %div{"data-role" => "navbar"}
         %ul
           %li
@@ -208,7 +208,7 @@
         The 'crumbs' setting changes the panel's back button into a button that points to the previous page, and disables jQMobile from tracking the panel's history
       %p 3. It allows us to hide and show the panel depending on screen orientation, and unobtrusively disable it when the site is viewed on mobile browsers
     / /content
-    %div{"data-id" => "ew-footer", "data-position" => "fixed", "data-role" => "footer"}
+    .ui-splitview-hidden{"data-id" => "ew-footer", "data-position" => "fixed", "data-role" => "footer"}
       %div{"data-role" => "navbar"}
         %ul
           %li
@@ -228,7 +228,7 @@
       %p Very simply put, SplitView dynamically lays out the pages based on your tablet's (iPad, etc) orientation, as well as your desktop's screen size. Try it out, resize your browser, or turn your iPad to see it in portrait and landscape modes!
       %p NOTE: you may have to refresh the view if you scale the browser window down to a mobile size - less than 480px - Splitview determines upon page load if it should lay the pages out in splitview mode or mobile mode (the default jQmobile implementation)
     / /content
-    %div{"data-id" => "ew-footer", "data-position" => "fixed", "data-role" => "footer"}
+    .ui-splitview-hidden{"data-id" => "ew-footer", "data-position" => "fixed", "data-role" => "footer"}
       %div{"data-role" => "navbar"}
         %ul
           %li
@@ -248,7 +248,7 @@
       %p
         Splitview detects if your device is touch enabled or not. it will then implement the proper scrolling mechanism for your device. This is possible thanks to the jQuery Mobile team's experimental momentum scroll implementation, which the team promptly pointed us to. Thanks!
     / /content
-    %div{"data-id" => "ew-footer", "data-position" => "fixed", "data-role" => "footer"}
+    .ui-splitview-hidden{"data-id" => "ew-footer", "data-position" => "fixed", "data-role" => "footer"}
       %div{"data-role" => "navbar"}
         %ul
           %li
@@ -288,7 +288,7 @@
         %a{:href => "http://www.cagintranet.com/archive/create-an-ipad-like-dropdown-popover/"} http://www.cagintranet.com/archive/create-an-ipad-like-dropdown-popover/
         Thanks!
     / /content
-    %div{"data-id" => "ew-footer", "data-position" => "fixed", "data-role" => "footer"}
+    .ui-splitview-hidden{"data-id" => "ew-footer", "data-position" => "fixed", "data-role" => "footer"}
       %div{"data-role" => "navbar"}
         %ul
           %li
@@ -315,7 +315,7 @@
             %b NOTE:
             keep in mind that I added some namespacing to event handlers in jQMobile core. use the version of jQuerymobile found in the experiments/splitview/ folder of my fork.
     / /content
-    %div{"data-id" => "ew-footer", "data-position" => "fixed", "data-role" => "footer"}
+    .ui-splitview-hidden{"data-id" => "ew-footer", "data-position" => "fixed", "data-role" => "footer"}
       %div{"data-role" => "navbar"}
         %ul
           %li
@@ -328,7 +328,7 @@
   / /page
   / Start of 3rd page
   #bar{"data-role" => "page"}
-    %div{"data-role" => "header"}
+    %div{"data-backbtn" => "false", "data-role" => "header"}
       %h1 Bar
     / /header
     %div{"data-role" => "content"}
@@ -336,7 +336,7 @@
       %p
         %a{:href => "#badz"} Back to badz
     / /content
-    %div{"data-id" => "ew-footer", "data-position" => "fixed", "data-role" => "footer"}
+    .ui-splitview-hidden{"data-id" => "ew-footer", "data-position" => "fixed", "data-role" => "footer"}
       %div{"data-role" => "navbar"}
         %ul
           %li
@@ -353,25 +353,28 @@
       %h1 badz
     / /header
     %div{"data-role" => "content"}
-      %p I'm first in the source order so I'm shown as the page.
-      %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque consectetur, ligula quis convallis gravida, tortor odio mattis purus, a fringilla mauris velit eu nisi. Vivamus laoreet tincidunt diam, sit amet tristique purus lobortis ac. Etiam commodo placerat elit. In aliquam dapibus felis, molestie molestie purus scelerisque sit amet. Donec vitae varius arcu. Aliquam dapibus dolor magna, nec posuere felis. Nullam in suscipit massa. Duis nec nulla nec urna sollicitudin fringilla. Proin at rutrum mi. Maecenas vitae urna ante, ac gravida tortor.
-      %p Vestibulum porta pretium nunc, at adipiscing tortor fringilla sit amet. Sed venenatis varius turpis, vel fringilla purus egestas in. Curabitur interdum mauris nec velit vehicula sed aliquam nulla convallis. Nulla id magna libero, sagittis fringilla metus. Suspendisse dapibus tincidunt tristique. Fusce interdum tincidunt tincidunt. Phasellus tempus fringilla augue eget tincidunt. Donec facilisis mauris ut metus eleifend eget scelerisque nulla sagittis. Ut vel elit non risus dapibus luctus. Pellentesque vel nibh tortor.
+      .row
+        <div class='sixcol'
+        %p I'm first in the source order so I'm shown as the page.
+        %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque consectetur, ligula quis convallis gravida, tortor odio mattis purus, a fringilla mauris velit eu nisi. Vivamus laoreet tincidunt diam, sit amet tristique purus lobortis ac. Etiam commodo placerat elit. In aliquam dapibus felis, molestie molestie purus scelerisque sit amet. Donec vitae varius arcu. Aliquam dapibus dolor magna, nec posuere felis. Nullam in suscipit massa. Duis nec nulla nec urna sollicitudin fringilla. Proin at rutrum mi. Maecenas vitae urna ante, ac gravida tortor.
+        %p Vestibulum porta pretium nunc, at adipiscing tortor fringilla sit amet. Sed venenatis varius turpis, vel fringilla purus egestas in. Curabitur interdum mauris nec velit vehicula sed aliquam nulla convallis. Nulla id magna libero, sagittis fringilla metus. Suspendisse dapibus tincidunt tristique. Fusce interdum tincidunt tincidunt. Phasellus tempus fringilla augue eget tincidunt. Donec facilisis mauris ut metus eleifend eget scelerisque nulla sagittis. Ut vel elit non risus dapibus luctus. Pellentesque vel nibh tortor.
+      <div class='sixcol last'
       %p Fusce a nisi at dolor rutrum tristique. Donec faucibus metus vitae lorem scelerisque malesuada scelerisque enim imperdiet. Aliquam in erat orci. Ut ultrices, erat eu luctus accumsan, lorem nibh cursus purus, in laoreet nisi tellus interdum sem. Nulla fringilla molestie lectus nec hendrerit. In in mollis tortor. Nunc lectus tortor, porttitor vitae viverra non, dignissim ac ligula. In tincidunt libero id turpis gravida iaculis rhoncus dolor aliquam. Vestibulum congue massa nec nibh sagittis tempor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Quisque quis urna arcu. Quisque feugiat ante id turpis ultrices vel imperdiet ipsum volutpat. Donec enim magna, pretium eu scelerisque ut, pretium placerat risus.
       Sed sed lacinia ante. Aenean non quam in ipsum pharetra condimentum.
       %p Donec turpis lacus, pharetra ac viverra sit amet, lobortis eu nisl. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur porttitor dignissim orci ut feugiat. Praesent quis auctor purus. Suspendisse non elit accumsan mi pellentesque laoreet. Nullam et sapien sed nibh dictum tempor sit amet ut velit. Vestibulum varius ultricies lorem sed ultricies. Vestibulum auctor velit vitae ante eleifend eget bibendum metus rutrum. Nulla facilisis luctus mi laoreet rutrum. Nunc accumsan urna at elit pellentesque ut venenatis lectus adipiscing. Ut et arcu urna. Aliquam eros leo, ultricies vel porta nec, tempor sit amet leo. Quisque imperdiet facilisis orci ut malesuada. Nunc eget elit mauris. Mauris sed felis lectus.
       %p Duis purus sem, condimentum eget posuere sed, vulputate non lorem. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras risus urna, commodo quis interdum sit amet, elementum vitae lacus. Ut tempor hendrerit ante et facilisis. Vivamus elementum purus justo, ut auctor arcu. Cras varius rhoncus venenatis. Nulla dignissim velit a erat euismod pretium. In sed leo orci, et consectetur justo. Vestibulum ipsum urna, cursus in placerat in, malesuada eu odio. Nunc eget ullamcorper tortor. In commodo, turpis sed egestas egestas, dolor sem mattis nulla, eu semper lectus metus at eros. Sed cursus nisl id risus fermentum quis aliquam odio pretium. Quisque justo eros, blandit gravida tristique eget, rhoncus in magna. Integer volutpat faucibus dolor, sit amet tempor metus ornare consequat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nunc et lacus enim, sit amet consequat turpis.
       %p
         %a{:href => "#foo"} Back to foo
-    / /content
-    %div{"data-id" => "ew-footer", "data-position" => "fixed", "data-role" => "footer"}
-      %div{"data-role" => "navbar"}
-        %ul
-          %li
-            %a.ui-btn-active{"data-transition" => "slideup", :href => "#main"} Main
-          %li
-            %a{"data-transition" => "slideup", :href => "#demo"} Demos
-      / /navbar
-      %h2 Engineworks &copy CS8
-    / /footer
-  / /page
+/ /content
+.ui-splitview-hidden{"data-id" => "ew-footer", "data-position" => "fixed", "data-role" => "footer"}
+  %div{"data-role" => "navbar"}
+    %ul
+      %li
+        %a.ui-btn-active{"data-transition" => "slideup", :href => "#main"} Main
+      %li
+        %a{"data-transition" => "slideup", :href => "#demo"} Demos
+  / /navbar
+  %h2 Engineworks &copy CS8
+/ /footer
+/ /page
 / panel main
