@@ -24,96 +24,146 @@
     //Main event bindings: click, form submits, hashchange and orientationchange/resize
     //----------------------------------------------------------------------------------
           //DONE: link click event binding for changePage
-          $("a").die('click');
-          //this will mostly be a copy of the original handler with some modifications
-          $("a").live('click', function(event){
-            var $this=$(this),
-                href = $this.attr( "href" ) || "#",
-                hadProtocol = $.mobile.path.hasProtocol( href ),
-                url = $.mobile.path.clean( href ),
-                isRelExternal = $this.is( "[rel='external']" ),
-                isEmbeddedPage = $.mobile.path.isEmbeddedPage( url ),
-                isExternal = $.mobile.path.isExternal( url ) || (isRelExternal && !isEmbeddedPage),
-                hasTarget = $this.is( "[target]" ),
-                hasAjaxDisabled = $this.is( "[data-ajax='false']" ),
+          //click routing - direct to HTTP or Ajax, accordingly
+          function findClosestLink(ele)
+          {
+            while (ele){
+              if (ele.nodeName.toLowerCase() == "a"){
+                break;
+              }
+              ele = ele.parentNode;
+            }
+            return ele;
+          }
 
-                $targetPanel=$this.attr('data-panel'),
-                $targetContainer=$('div[data-id='+$targetPanel+']'),
-                $targetPanelActivePage=$targetContainer.children('div.'+$.mobile.activePageClass),
-                $currPanel=$this.parents('div[data-role="panel"]'),
-                //not sure we need this. if you want the container of the element that triggered this event, $currPanel
-                $currContainer=$.mobile.pageContainer,
-                $currPanelActivePage=$currPanel.children('div.'+$.mobile.activePageClass),
-                from = null;
+          $(document).unbind("click");
+          $(document).bind( "click", function(event, isRefresh) {
+            var link = findClosestLink(event.target);
+            if (!link){
+              return;
+            }
 
-            if( $this.is( "[data-rel='back']" ) ){
+            var $link = $(link),
+
+              //get href, if defined, otherwise fall to null #
+              href = $link.attr( "href" ) || "#",
+
+              //cache a check for whether the link had a protocol
+              //if this is true and the link was same domain, we won't want
+              //to prefix the url with a base (esp helpful in IE, where every
+              //url is absolute
+              hadProtocol = $.mobile.path.hasProtocol( href ),
+
+              //get href, remove same-domain protocol and host
+              url = $.mobile.path.clean( href ),
+
+              //rel set to external
+              isRelExternal = $link.is( "[rel='external']" ),
+
+              //rel set to external
+              isEmbeddedPage = $.mobile.path.isEmbeddedPage( url ),
+
+              // Some embedded browsers, like the web view in Phone Gap, allow cross-domain XHR
+              // requests if the document doing the request was loaded via the file:// protocol.
+              // This is usually to allow the application to "phone home" and fetch app specific
+              // data. We normally let the browser handle external/cross-domain urls, but if the
+              // allowCrossDomainPages option is true, we will allow cross-domain http/https
+              // requests to go through our page loading logic.
+              isCrossDomainPageLoad = ($.mobile.allowCrossDomainPages && location.protocol === "file:" && url.search(/^https?:/) != -1),
+
+              //check for protocol or rel and its not an embedded page
+              //TODO overlap in logic from isExternal, rel=external check should be
+              //     moved into more comprehensive isExternalLink
+              isExternal = ($.mobile.path.isExternal(url) && !isCrossDomainPageLoad) || (isRelExternal && !isEmbeddedPage),
+
+              //if target attr is specified we mimic _blank... for now
+              hasTarget = $link.is( "[target]" ),
+
+              //if data-ajax attr is set to false, use the default behavior of a link
+              hasAjaxDisabled = $link.is(":jqmData(ajax='false')"),
+
+              $targetPanel=$link.jqmData('panel'),
+              $targetContainer=$('div:jqmData(id="'+$targetPanel+'")'),
+              $targetPanelActivePage=$targetContainer.children('div.'+$.mobile.activePageClass),
+              $currPanel=$link.parents('div:jqmData(role="panel")'),
+              //not sure we need this. if you want the container of the element that triggered this event, $currPanel
+              $currContainer=$.mobile.pageContainer,
+              $currPanelActivePage=$currPanel.children('div.'+$.mobile.activePageClass),
+              from = null;
+
+            //if there's a data-rel=back attr, go back in history
+            if( $link.is( ":jqmData(rel='back')" ) ){
               window.history.back();
               return false;
             }
 
-            if( url.replace($.mobile.path.get(), "") == "#"  ){
+            //prevent # urls from bubbling
+            //path.get() is replaced to combat abs url prefixing in IE
+            var replaceRegex = new RegExp($.mobile.path.get()+"(?=#)");
+            if( url.replace(replaceRegex, "") == "#" ){
+              //for links created purely for interaction - ignore
               event.preventDefault();
               return;
             }
 
-            //TODO: temporary fix to remove activeBtnClass
-            $(".ui-btn."+$.mobile.activeBtnClass).removeClass($.mobile.activeBtnClass);
-            $activeClickedLink = $this.closest( ".ui-btn" ).addClass( $.mobile.activeBtnClass );
+            $activeClickedLink = $link.closest( ".ui-btn" );
 
             if( isExternal || hasAjaxDisabled || hasTarget || !$.mobile.ajaxEnabled ||
               // TODO: deprecated - remove at 1.0
               !$.mobile.ajaxLinksEnabled ){
               //remove active link class if external (then it won't be there if you come back)
-              //BUG: removeActiveLinkClass not defined. crap :)
               window.setTimeout(function() {removeActiveLinkClass(true);}, 200);
 
-              if( hasTarget ){
-                window.open( url );
-              }
-              else if( hasAjaxDisabled ){
-                return;
-              }
-              else{
-                location.href = url;
-              }
+              //use default click handling
+              return;
             }
-            else {
-              var transition=$this.data('transition') || undefined,
-                  direction = $this.data("direction"),
-                  hash=$currPanel.data('hash'),
-                  reverse = (direction && direction === "reverse") ||
-                            // deprecated - remove by 1.0
-                            $this.data( "back" );
 
-              $.mobile.nextPageRole = $this.attr( "data-rel" );
+            //use ajax
+            var transition = $link.jqmData( "transition" ),
+              direction = $link.jqmData("direction"),
+              reverse = (direction && direction === "reverse") ||
+                        // deprecated - remove by 1.0
+                        $link.jqmData( "back" ),
+              hash = $currPanel.jqmData('hash');
 
-              if( $.mobile.path.isRelative( url ) && !hadProtocol ){
-                url = $.mobile.path.makeAbsolute( url );
+
+            //this may need to be more specific as we use data-rel more
+            nextPageRole = $link.attr( "data-" + $.mobile.ns + "rel" );
+
+            //if it's a relative href, prefix href with base url
+            if( $.mobile.path.isRelative( url ) && !hadProtocol ){
+              url = $.mobile.path.makeAbsolute( url );
+            }
+
+            url = $.mobile.path.stripHash( url );
+
+            //if link refers to an already active panel, stop default action and return
+            if ($targetPanelActivePage.attr('data-url') == url || $currPanelActivePage.attr('data-url') == url) {
+              if (isRefresh) { //then changePage below because it's a pageRefresh request
+                $.mobile.changePage([url,url], transition, reverse, false, undefined, $targetContainer );
               }
-
-              url = $.mobile.path.stripHash( url );
-
-              //if link refers to an already active panel, stop default action and return
-              if ($targetPanelActivePage.attr('data-url') == url || $currPanelActivePage.attr('data-url') == url) {
+              else { //else preventDefault and return
                 event.preventDefault();
                 return;
               }
-              //if link refers to a page on another panel, changePage on that panel
-              else if ($targetPanel && $targetPanel!=$this.parents('div[data-role="panel"]')) {
-                var from=$targetPanelActivePage;
-                $.mobile.pageContainer=$targetContainer;
-                $.mobile.changePage([from,url], transition, reverse, true, undefined, $targetContainer);
-              }
-              //if link refers to a page inside the same panel, changePage on that panel
-              else {
-                var from=$currPanelActivePage;
-                $.mobile.pageContainer=$currPanel;
-                var hashChange= (hash == 'false' || hash == 'crumbs')? false : true;
-                $.mobile.changePage([from,url], transition, reverse, hashChange, undefined, $currPanel);
-                //active page must always point to the active page in main - for history purposes.
-                $.mobile.activePage=$('div[data-id="main"] > div.'+$.mobile.activePageClass);
-              }
             }
+            //if link refers to a page on another panel, changePage on that panel
+            else if ($targetPanel && $targetPanel!=$link.parents('div[data-role="panel"]')) {
+              var from=$targetPanelActivePage;
+              // $.mobile.pageContainer=$targetContainer;
+              $.mobile.changePage([from,url], transition, reverse, true, undefined, $targetContainer);
+            }
+            //if link refers to a page inside the same panel, changePage on that panel
+            else {
+              var from=$currPanelActivePage;
+              // $.mobile.pageContainer=$currPanel;
+              var hashChange= (hash == 'false' || hash == 'crumbs')? false : true;
+              $.mobile.changePage([from,url], transition, reverse, hashChange, undefined, $currPanel);
+              //active page must always point to the active page in main - for history purposes.
+              $.mobile.activePage=$('div[data-id="main"] > div.'+$.mobile.activePageClass);
+            }
+
+            // $.mobile.changePage( url, transition, reverse );
             event.preventDefault();
           });
 
@@ -141,7 +191,7 @@
 
             //temporarily put this here- eventually shud just set it immediately instead of an interim var.
             $.mobile.activePage=$currPanelActivePage;
-            $.mobile.pageContainer=$currPanel;
+            // $.mobile.pageContainer=$currPanel;
             $.mobile.changePage({
                 url: url,
                 type: type || "get",
@@ -149,7 +199,8 @@
               },
               undefined,
               undefined,
-              true
+              true,
+              $currPanel
             );
             event.preventDefault();
           });
@@ -196,15 +247,15 @@
               if (!$('div.ui-page-active').length) {
                 $.mobile.changePage($menuPanelFirstPage, transition, true, false, true);
               }
-              $.mobile.pageContainer=$mainPanel;
+              // $.mobile.pageContainer=$mainPanel;
               $.mobile.activePage=$mainPanelActivePage.length? $mainPanelActivePage : undefined;
-              $.mobile.changePage(to, transition, undefined, false, true );
+              $.mobile.changePage(to, transition, undefined, false, true, $mainPanel );
             }
             //there's no hash, go to the first page in the main panel.
             else {
-              $.mobile.pageContainer=$mainPanel;
+              // $.mobile.pageContainer=$mainPanel;
               $.mobile.activePage=$mainPanelActivePage? $mainPanelActivePage : undefined;
-              $.mobile.changePage($mainPanelFirstPage, transition, undefined, false, true );
+              $.mobile.changePage($mainPanelFirstPage, transition, undefined, false, true, $mainPanel );
             }
           });
 
@@ -229,7 +280,7 @@
             }
 
             function replaceBackBtn(header) {
-              if($.mobile.urlstack.length > 1 && !header.children('a:jqmData(rel="back")').length){
+              if($.mobile.urlstack.length > 1 && !header.children('a:jqmData(rel="back")').length && header.jqmData('backbtn')!=false){
                 header.prepend("<a href='#' class='ui-btn-left' data-"+ $.mobile.ns +"rel='back' data-"+ $.mobile.ns +"icon='arrow-l'>Back</a>" );
                 header.children('a:jqmData(rel="back")').buttonMarkup();
               }
@@ -350,7 +401,7 @@
                 pageDefaultSelector = $this.jqmData('context'),
                 defaultSelector= pageDefaultSelector ? pageDefaultSelector : panelDefaultSelector;
             if(defaultSelector && $this.find(defaultSelector).length){
-              $this.find(defaultSelector).trigger('click');
+              $this.find(defaultSelector).trigger('click', true);
             }
           });
 
@@ -365,7 +416,7 @@
             }
           });
 
-          $('body').live('vclick', function(event) {
+          $('body').live('click', function(event) {
             if (!$(event.target).closest('.panel-popover').length && !$(event.target).closest('.popover-btn').length) {
                 $(".panel-popover").stop(true, true).hide();
                 $('.popover-btn').removeClass($.mobile.activeBtnClass);
@@ -374,4 +425,3 @@
         }
       });
     })(jQuery,window);
-

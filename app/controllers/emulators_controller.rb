@@ -9,7 +9,11 @@ class EmulatorsController < ApplicationController
     @action = params[:url]
 
     case @device
-      when "blackberry.torch"
+      when "bb.playbook"
+        scale = scale(169.55)
+        @width  = @orientation == "landscape" ? 1024 :  600
+        @height = @orientation == "landscape" ?  600 : 1024
+      when "bb.torch"
         scale(188.68)
         @width  = @orientation == "landscape" ? 480 : 360
         @height = @orientation == "landscape" ? 360 : 480

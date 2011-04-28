@@ -273,7 +273,9 @@ en:
         bos: BlackBerry OS
         android: Android
         webos: webOS
-      black: BlackBerry Torch
+      bb:
+        torch: BlackBerry Torch
+        play: Blackberry Playbook
       galaxys: Galaxy S
       galaxys2: Galaxy S2
       galaxy7: Galaxy Tab 7

@@ -432,7 +432,9 @@ de:
         name: "<i>(Ben\xC3\xB6tigt einen WebKit-Engine)</i>"
         default: jQTouch Demonstration
         home: "&beta;@jqtouch.com"
-      black: BlackBerry Torch
+      bb:
+        torch: BlackBerry Torch
+        play: Blackberry Playbook
       port: Hochformat
       galaxys: Galaxy S
       os: 
