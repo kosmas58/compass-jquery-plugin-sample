@@ -39,10 +39,20 @@
       %li.title{"data-role" => "list-divider"}
         Orientation
         %em
-          These change depending on window orientation
+          This changes depending on window orientation
       %li.port Portrait
       %li.land Landscape
-
-
+    #mediademo.ui-body.ui-body-b
+      %h3
+        Media Type &amp; Query Function
+        %em.subh (Runs an actual media query)
+      %input#mq{"data-theme" => "a", :type => "text", :value => "screen and (min-width: 480px)"}
+        %a#mhtest{"data-inline" => "true", "data-role" => "button", :href => "#"} Test type/query
+        %strong
+          %p#mhresult
+    %p
+      Taken from
+      = succeed "." do
+        %a{:href => "https://github.com/scottjehl/jQuery-Media-Helpers/blob/master/sample.html"} Scott Jehl
   / /content
 / /page
