@@ -1,0 +1,12 @@
+- content_for :head_stylesheets do
+  %link{:href => "/images/demo/mobile/homeicon.png", :rel => "apple-touch-icon"}
+  = stylesheet_link_tag "compiled/jquery/mobile/960", :media => 'screen, projection'
+  :css
+    h1 span.on {
+      color		: #DB5F54;
+      /*font-size	: 0.9em;*/
+      display		: inline-block;
+      font-weight	: bolder;
+      -webkit-transform	: rotate(-20deg);
+      -moz-transform		: rotate(-20deg);
+    }
