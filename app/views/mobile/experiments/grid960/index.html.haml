@@ -1,0 +1,85 @@
+-@title = " 960 Grid on jQuery Mobile - merges 960.gs flexibility with jquery.mobile ease"
+= render :partial => "index.css.haml"
+
+%div{"data-backbtn" => "false", "data-role" => "page"}
+  %div{"data-role" => "header"}
+    %h1.pageTitle
+      960 Grid
+      %span.on on
+      jQuery Mobile
+    %a.ui-btn-left{"data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile/experiments/main", :rel => "external"} Home
+  %div{"data-role" => "content"}
+    %p
+      jquery-mobile-960 is a port of 960 grid to jQuery Mobile. It merges the flexibility of 960.gs and the ease of jQuery Mobile.
+      It aims to bring more flexibility to jQuery Mobile layout and thus make it easier to use it on tablets.
+    .ui-body.ui-body-d
+      %h2 How to use it ?
+      To use 960 grids in jQuery Mobile, simply add one line:
+      %pre
+        :preserve
+          &lt;link href="http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.css" /&gt;
+          &lt;link href="http://jeromeetienne.github.com/jquery-mobile-960/css/jquery-mobile-960.min.css" /&gt;
+          &lt;script src="http://code.jquery.com/jquery-1.5.2min.js"&gt;&lt;/script&gt;
+          &lt;script src="http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.js">&lt;/script&gt;
+      And now you can use normal 960 grid syntax inside jQuery mobile pages
+      %pre
+        :preserve
+          &lt;fieldset class="container_12"&gt;
+            &lt;div class="grid_2"&gt;&lt;button type="submit"&gt;Button 1&lt;/button&gt;&lt;/div&gt;
+            &lt;div class="grid_8"&gt;&lt;button type="submit"&gt;Button 2&lt;/button&gt;&lt;/div&gt;
+            &lt;div class="grid_2"&gt;&lt;button type="submit"&gt;Button 3&lt;/button&gt;&lt;/div&gt;
+          &lt;/fieldset&gt;
+      And without more effort, jQuery Mobile gives you this result.
+      %fieldset.container_12
+        .grid_2
+          %button{:type => "submit"} Button 1
+        .grid_8
+          %button{:type => "submit"} Button 2
+        .grid_2
+          %button{:type => "submit"} Button 3
+      For a complete documentation of 960 syntax, go see its homepage.
+      %a{"data-role" => "button", :href => "http://960.gs"} 960 homepage
+    %fieldset.container_16
+      .grid_6 .prefix_1 .suffix_1
+        .ui-body.ui-body-b
+          %h2 Demo
+          %p
+            The usual demo pages.
+            %br
+            %code Seeing is more convincing than believing
+          %div{"data-role" => "controlgroup"}
+            %a{"data-role" => "button", :href => "/mobile/experiments/grid960/demo_fluid"} Demo for fluid 960
+            %a{"data-role" => "button", :href => "/mobile/experiments/grid960/demo_fixed"} Demo for fixed 960
+      .grid_6 .prefix_1 .suffix_1
+        .ui-body.ui-body-b
+          %h2 Experiments
+          %p
+            Some experimental pages.
+          %div{"data-role" => "controlgroup"}
+            %a{"data-role" => "button", :href => "/mobile/experiments/grid960/test_official_grid"} Test Grid
+            %a{"data-role" => "button", :href => "/mobile/experiments/grid960/experiment_fluid"} Experiment with fluid
+            %a{"data-role" => "button", :href => "/mobile/experiments/grid960/experiment_fixed"} Experiment with fixed
+    .ui-body.ui-body-c
+      %h2 Motivation
+      %p
+        I loved jQuery Mobile ability to make an application by just describing its structure in HTML5.
+        It makes applications real fast to develop.
+      %p
+        But jQuery Mobile layout is currently rather raw.
+        They only split the width in even parts, providing little controls to the designer.
+        It uses an custom API with names ending with a, b, c or d, ui-block-a for example.
+        Not the classic grid-4 or span-3, so it feel awkward.
+      %p
+        All in all, i felt jquery mobile layout was uselessly difficult to use, especially
+        on large screens such as tablets. 960 grids are flexible and well known.
+        So i used ported 960 grids to see if it helps.
+      %a{"data-role" => "button", :href => "/mobile/docs/content/content_grids", :rel => "external"} jQuery Mobile Grid Docs
+    .ui-body.ui-body-c
+      %h2 About
+      %p
+        The code is available on github under MIT license. The author is Jerome Etienne.
+      %div{"data-role" => "controlgroup"}
+        %a{"data-role" => "button", :href => "https://github.com/jeromeetienne/jquery-mobile-960"} jQuery Mobile 960 on github
+        %a{"data-role" => "button", :href => "http://jetienne.com"} Jerome Etienne Homepage
+  / /content
+/ /page

@@ -1,0 +1,78 @@
+-@title = " 960 Grid on jQuery Mobile - merge 960.gs flexibility with jquery.mobile ease"
+= render :partial => "index.css.haml", :format => :js
+
+%div{"data-role" => "page"}
+  %div{"data-role" => "header"}
+    %h1.pageTitle
+      960 Grid
+      %span.on on
+      jQuery Mobile
+    %a.ui-btn-left{"data-icon" => "arrow-l", :href => "/mobile/experiments/grid960", :rel => "external"} Back
+  / /header
+  %div{"data-role" => "content"}
+    %h1.pagetitle grid-960-12 3time grid_4
+    %hr/
+    .container_12
+      .grid_12.alpha.omega
+        %a{"data-role" => "button", :href => "javascript:void()"} button A
+      .grid_2.alpha
+        %a{"data-role" => "button", :href => "javascript:void()"} button A
+      .grid_7
+        %a{"data-role" => "button", :href => "javascript:void()"} button C
+      .grid_3.omega
+        %ul{"data-dividertheme" => "b", "data-inset" => "true", "data-role" => "listview", "data-theme" => "c"}
+          %li{"data-role" => "list-divider"} Overview
+          %li
+            %a{:href => "docs/about/intro.html"} Intro to jQuery Mobile
+          %li
+            %a{:href => "docs/about/features.html"} Features
+          %li{"data-role" => "list-divider"} Overview
+          %li
+            %a{:href => "docs/about/accessibility.html"} Accessibility
+          %li
+            %a{:href => "docs/about/platforms.html"} Supported platforms
+    %h1 grid-960-12 3time grid_4
+    .container_12
+      .grid_1.alpha
+        %a{"data-role" => "button", :href => "javascript:void()"} button A
+      .grid_3
+        %a{"data-role" => "button", :href => "javascript:void()"} button B
+      .grid_8.omega
+        %a{"data-role" => "button", :href => "javascript:void()"} button C
+    %h1 grid-960-12 4time grid_3
+    .container_12
+      .grid_3.alpha Block A
+      .grid_3 Block B
+      .grid_3 Block C
+      .grid_3.omega Block D
+      .grid_3.alpha Block A
+      .grid_6 Block B
+      .grid_3.omega Block D
+      .grid_6.alpha Block A
+      .grid_3 Block B
+      .grid_3.omega Block D
+      .grid_11.alpha Block A
+      .grid_1.omega Block D
+    %h1 grid-960-12 3time grid_4
+    .container_12
+      .grid_4.alpha Block A
+      .grid_4 Block B
+      .grid_4.omega Block C
+    %h1 grid-a
+    .ui-grid-a
+      .ui-block-a
+        %strong I'm Block A
+        and text inside will wrap
+      .ui-block-b
+        %strong I'm Block B
+        and text inside will wrap
+    %h1 grid-b
+    .ui-grid-b
+      .ui-block-a Block A
+      .ui-block-b Block B
+      .ui-block-c Block C
+  / /content
+  %div{"data-role" => "footer"}
+    %h4 Page Footer
+  / /footer
+/ /page

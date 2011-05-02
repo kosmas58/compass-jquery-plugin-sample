@@ -1,0 +1,218 @@
+-@title = " 960 Grid on jQuery Mobile - merge 960.gs flexibility with jquery.mobile ease"
+= render :partial => "index.css.haml"
+
+%div{"data-role" => "page"}
+  %div{"data-role" => "header"}
+    %h1.pageTitle
+      960 Grid
+      %span.on on
+      jQuery Mobile
+    %a.ui-btn-left{"data-icon" => "arrow-l", :href => "/mobile/experiments/grid960", :rel => "external"} Back
+  / /header
+  %div{"data-role" => "content"}
+    Demo page of the jquery-mobile-960 grid
+    %h1 12 columns
+    .container_12
+      .grid_12
+        %a{"data-role" => "button"} 12
+      .grid_1
+        %a{"data-role" => "button"} 1
+      .grid_11
+        %a{"data-role" => "button"} 11
+      .grid_2
+        %a{"data-role" => "button"} 2
+      .grid_10
+        %a{"data-role" => "button"} 10
+      .grid_3
+        %a{"data-role" => "button"} 3
+      .grid_9
+        %a{"data-role" => "button"} 9
+      .grid_4
+        %a{"data-role" => "button"} 4
+      .grid_8
+        %a{"data-role" => "button"} 8
+      .grid_5
+        %a{"data-role" => "button"} 5
+      .grid_7
+        %a{"data-role" => "button"} 7
+      .grid_6
+        %a{"data-role" => "button"} 6
+      .grid_6
+        %a{"data-role" => "button"} 6
+      .grid_7
+        %a{"data-role" => "button"} 7
+      .grid_5
+        %a{"data-role" => "button"} 5
+      .grid_8
+        %a{"data-role" => "button"} 8
+      .grid_4
+        %a{"data-role" => "button"} 4
+      .grid_9
+        %a{"data-role" => "button"} 9
+      .grid_3
+        %a{"data-role" => "button"} 3
+      .grid_10
+        %a{"data-role" => "button"} 10
+      .grid_2
+        %a{"data-role" => "button"} 2
+      .grid_11
+        %a{"data-role" => "button"} 11
+      .grid_1
+        %a{"data-role" => "button"} 1
+      .grid_1.suffix_11
+        %a{"data-role" => "button"} 1
+      .grid_1.prefix_1.suffix_10
+        %a{"data-role" => "button"} 1
+      .grid_1.prefix_2.suffix_9
+        %a{"data-role" => "button"} 1
+      .grid_1.prefix_3.suffix_8
+        %a{"data-role" => "button"} 1
+      .grid_1.prefix_4.suffix_7
+        %a{"data-role" => "button"} 1
+      .grid_1.prefix_5.suffix_6
+        %a{"data-role" => "button"} 1
+      .grid_1.prefix_6.suffix_5
+        %a{"data-role" => "button"} 1
+      .grid_1.prefix_7.suffix_4
+        %a{"data-role" => "button"} 1
+      .grid_1.prefix_8.suffix_3
+        %a{"data-role" => "button"} 1
+      .grid_1.prefix_9.suffix_2
+        %a{"data-role" => "button"} 1
+      .grid_1.prefix_10.suffix_1
+        %a{"data-role" => "button"} 1
+      .grid_1.prefix_11
+        %a{"data-role" => "button"} 1
+      .grid_3
+        %a{"data-role" => "button"} 3
+      .grid_3
+        %a{"data-role" => "button"} 3
+      .grid_1
+        %a{"data-role" => "button"} 1
+      .grid_5
+        %a{"data-role" => "button"} 5
+      .grid_1
+        %a{"data-role" => "button"} 1
+      .grid_5
+        %a{"data-role" => "button"} 5
+      .grid_3
+        %a{"data-role" => "button"} 3
+      .grid_3
+        %a{"data-role" => "button"} 3
+    %h1 16 columns
+    .container_16
+      .grid_16
+        %a{"data-role" => "button"} 16
+      .grid_1
+        %a{"data-role" => "button"} 1
+      .grid_15
+        %a{"data-role" => "button"} 15
+      .grid_2
+        %a{"data-role" => "button"} 2
+      .grid_14
+        %a{"data-role" => "button"} 14
+      .grid_3
+        %a{"data-role" => "button"} 3
+      .grid_13
+        %a{"data-role" => "button"} 13
+      .grid_4
+        %a{"data-role" => "button"} 4
+      .grid_12
+        %a{"data-role" => "button"} 12
+      .grid_5
+        %a{"data-role" => "button"} 5
+      .grid_11
+        %a{"data-role" => "button"} 11
+      .grid_6
+        %a{"data-role" => "button"} 6
+      .grid_10
+        %a{"data-role" => "button"} 10
+      .grid_7
+        %a{"data-role" => "button"} 7
+      .grid_9
+        %a{"data-role" => "button"} 9
+      .grid_8
+        %a{"data-role" => "button"} 8
+      .grid_8
+        %a{"data-role" => "button"} 8
+      .grid_9
+        %a{"data-role" => "button"} 9
+      .grid_7
+        %a{"data-role" => "button"} 7
+      .grid_10
+        %a{"data-role" => "button"} 10
+      .grid_6
+        %a{"data-role" => "button"} 6
+      .grid_11
+        %a{"data-role" => "button"} 11
+      .grid_5
+        %a{"data-role" => "button"} 5
+      .grid_12
+        %a{"data-role" => "button"} 12
+      .grid_4
+        %a{"data-role" => "button"} 4
+      .grid_13
+        %a{"data-role" => "button"} 13
+      .grid_3
+        %a{"data-role" => "button"} 3
+      .grid_14
+        %a{"data-role" => "button"} 14
+      .grid_2
+        %a{"data-role" => "button"} 2
+      .grid_15
+        %a{"data-role" => "button"} 15
+      .grid_1
+        %a{"data-role" => "button"} 1
+      .grid_1.suffix_15
+        %a{"data-role" => "button"} 1
+      .grid_1.prefix_1.suffix_14
+        %a{"data-role" => "button"} 1
+      .grid_1.prefix_2.suffix_13
+        %a{"data-role" => "button"} 1
+      .grid_1.prefix_3.suffix_12
+        %a{"data-role" => "button"} 1
+      .grid_1.prefix_4.suffix_11
+        %a{"data-role" => "button"} 1
+      .grid_1.prefix_5.suffix_10
+        %a{"data-role" => "button"} 1
+      .grid_1.prefix_6.suffix_9
+        %a{"data-role" => "button"} 1
+      .grid_1.prefix_7.suffix_8
+        %a{"data-role" => "button"} 1
+      .grid_1.prefix_8.suffix_7
+        %a{"data-role" => "button"} 1
+      .grid_1.prefix_9.suffix_6
+        %a{"data-role" => "button"} 1
+      .grid_1.prefix_10.suffix_5
+        %a{"data-role" => "button"} 1
+      .grid_1.prefix_11.suffix_4
+        %a{"data-role" => "button"} 1
+      .grid_1.prefix_12.suffix_3
+        %a{"data-role" => "button"} 1
+      .grid_1.prefix_13.suffix_2
+        %a{"data-role" => "button"} 1
+      .grid_1.prefix_14.suffix_1
+        %a{"data-role" => "button"} 1
+      .grid_1.prefix_15
+        %a{"data-role" => "button"} 1
+      .grid_4
+        %a{"data-role" => "button"} 4
+      .grid_4
+        %a{"data-role" => "button"} 4
+      .grid_1
+        %a{"data-role" => "button"} 1
+      .grid_7
+        %a{"data-role" => "button"} 7
+      .grid_1
+        %a{"data-role" => "button"} 1
+      .grid_7
+        %a{"data-role" => "button"} 7
+      .grid_4
+        %a{"data-role" => "button"} 4
+      .grid_4
+        %a{"data-role" => "button"} 4
+  / /content
+  %div{"data-role" => "footer"}
+    %h4 Page Footer
+  / /footer
+/ /page

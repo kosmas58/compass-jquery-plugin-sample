@@ -1,0 +1,45 @@
+= render :partial => "index.css.haml"
+- content_for :head_stylesheets do
+  :css
+    body {
+      background-color: #666;
+    }
+    div[data-role=page] {
+      left		: 50%;
+      margin-left	: -480px;
+      width		: 990px;
+    }
+
+    .container_12 {
+      width		: 990px;
+    }
+
+    .container_12 .grid_1	{ width: 80px;	}
+    .container_12 .grid_2	{ width: 160px; }
+    .container_12 .grid_3	{ width: 240px;	}
+    .container_12 .grid_4	{ width: 320px;	}
+    .container_12 .grid_5	{ width: 400px;	}
+    .container_12 .grid_6	{ width: 480px;	}
+    .container_12 .grid_7	{ width: 560px;	}
+    .container_12 .grid_8	{ width: 640px;	}
+    .container_12 .grid_9	{ width: 720px;	}
+    .container_12 .grid_10	{ width: 800px;	}
+    .container_12 .grid_11	{ width: 880px;	}
+    .container_12 .grid_12	{ width: 960px;	}
+    .container_12 .alpha {
+      clear: left;
+    }
+
+    .grid_1,
+    .grid_2,
+    .grid_3,
+    .grid_4,
+    .grid_5,
+    .grid_6,
+    .grid_7,
+    .grid_8,
+    .grid_9,
+    .grid_10,
+    .grid_11,
+    .grid_12
+    { margin: 0; padding: 0; border: 0; float: left; }
