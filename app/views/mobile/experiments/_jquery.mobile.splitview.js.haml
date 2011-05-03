@@ -20,9 +20,9 @@
             $(window).trigger('orientationchange');
           });
 
-          //----------------------------------------------------------------------------------
-          //Main event bindings: click, form submits, hashchange and orientationchange/resize
-          //----------------------------------------------------------------------------------
+    //----------------------------------------------------------------------------------
+    //Main event bindings: click, form submits, hashchange and orientationchange/resize
+    //----------------------------------------------------------------------------------
           //DONE: link click event binding for changePage
           //click routing - direct to HTTP or Ajax, accordingly
           function findClosestLink(ele)
@@ -169,7 +169,7 @@
 
           //DONE: bind form submit with this plugin
           $("form").die('submit');
-          $("form").live('submit', function(){
+          $("form").live('submit', function(event){
             if( !$.mobile.ajaxEnabled ||
               //TODO: deprecated - remove at 1.0
               !$.mobile.ajaxFormsEnabled ||
@@ -200,6 +200,7 @@
               undefined,
               undefined,
               true,
+              false,
               $currPanel
             );
             event.preventDefault();
@@ -425,4 +426,3 @@
         }
       });
     })(jQuery,window);
-

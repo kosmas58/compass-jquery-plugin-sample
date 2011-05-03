@@ -436,7 +436,6 @@ de:
         torch: BlackBerry Torch
         play: Blackberry Playbook
       port: Hochformat
-      galaxys: Galaxy S
       os: 
         ios: iOS
         webos: webOS
@@ -451,10 +450,13 @@ de:
         home: "&alpha;4@jquerymobile.com"
       iphone4: iPhone 4
       galaxy7: Galaxy Tab 7
+      galaxys: Galaxy S
       galaxys2: Galaxy S2
       galaxy10: Galaxy Tab 10.1
       palm: Pre 2
       galaxy9: Galaxy Tab 8.9
+      htc:
+        sensation: HTC Sensation
     mediahelpers: 
       name: jQuery Media Helper Utilities
       default: Beispiel

@@ -281,6 +281,8 @@ en:
       galaxy7: Galaxy Tab 7
       galaxy9: Galaxy Tab 8.9
       galaxy10: Galaxy Tab 10.1
+      htc:
+        sensation: HTC Sensation
       jqt: 
         name: <i>(needs a WebKit engine)</i>
         default: jQTouch Demo

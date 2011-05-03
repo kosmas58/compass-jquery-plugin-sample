@@ -37,6 +37,10 @@ class EmulatorsController < ApplicationController
         scale = scale(149.45)
         @width  = @orientation == "landscape" ? 1280 :  800
         @height = @orientation == "landscape" ?  708 : 1188
+      when "htc.sensation"
+        scale = scale(269.62)
+        @width  = @orientation == "landscape" ? 960 : 540
+        @height = @orientation == "landscape" ? 500 : 920
       when "ipad"
         scale = scale(116.07)
         @width  = @orientation == "landscape" ? 1024 :  768
