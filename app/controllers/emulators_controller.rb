@@ -14,7 +14,7 @@ class EmulatorsController < ApplicationController
         @width  = @orientation == "landscape" ? 1024 :  600
         @height = @orientation == "landscape" ?  600 : 1024
       when "bb.torch"
-        scale(188.68)
+        scale = scale(188.68)
         @width  = @orientation == "landscape" ? 480 : 360
         @height = @orientation == "landscape" ? 360 : 480
       when "galaxy.s"
@@ -42,7 +42,7 @@ class EmulatorsController < ApplicationController
         @width  = @orientation == "landscape" ? 960 : 540
         @height = @orientation == "landscape" ? 500 : 920
       when "ipad"
-        scale = scale(116.07)
+        scale = scale(131.96)
         @width  = @orientation == "landscape" ? 1024 :  768
         @height = @orientation == "landscape" ?  748 : 1004
       when "iphone.3"

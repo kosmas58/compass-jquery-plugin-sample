@@ -1,7 +1,4 @@
 $(function() {
-  // From http://dev.jqueryui.com/ticket/3613
-  // Cookie persistence missing
-  // start
 
   $("#locale")
   .selectmenu({
@@ -34,11 +31,11 @@ $(function() {
     }
   });
     
-  $("#navpanel").panel({
-    'collapsed':true
-    //'collapseType':'slide-left',
-    //'stackable':false
-  });
+  //$("#navpanel").panel({
+  //  'collapsed': true,
+  //  'collapseType':'slide-left',
+  //  'stackable':false
+  //});
     
   $("#configure_navigation").button({
     icons: {
