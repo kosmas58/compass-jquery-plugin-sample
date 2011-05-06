@@ -11,7 +11,7 @@
     /[if lt IE 8]
       = stylesheet_link_tag 'compiled/ie.css', :media => 'screen, projection'
       = javascript_include_tag 'jquery.pngFix'
-    = stylesheet_link_tag "compiled/jquery/ui/#{@ribbon_theme}.css", :media => 'screen, projection'
+    = stylesheet_link_tag "compiled/jquery/#{@ribbon_theme}.css", :media => 'screen, projection'
     = yield :head_stylesheets
 
     = javascript_include_tag :jquery_ui

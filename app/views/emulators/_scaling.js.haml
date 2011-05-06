@@ -14,8 +14,8 @@
     }
 
     $(function() {
-      var width  = $("#disp-area").attr("width");
-      var height = $("#disp-area").attr("height");
+      var width  = $("#disp-area").prop("width");
+      var height = $("#disp-area").prop("height");
       resize(width, height);
 
       $("#resize").click(function() {

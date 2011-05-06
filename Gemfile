@@ -11,7 +11,7 @@ gem "open3", :platforms => :ruby
 gem "win32-open3", :platforms => :mswin
 
 gem "manifesto", ">= 0.6.0"
-gem "compass-jquery-plugin", "= 0.3.2.9.pre.2", :require => 'jquery'
+gem "compass-jquery-plugin", "= 0.3.3.0.pre.1", :require => 'jquery'
 # gem "sass"
 
 # bundler requires these gems in all environments
@@ -28,7 +28,7 @@ end
 
 group :test do
   # bundler requires these gems while running tests
-  gem "rspec", "~> 1.3.1"
-  gem "rspec-rails", "~> 1.3.3"
+  gem "rspec", "~> 1.3.2"
+  gem "rspec-rails", "~> 1.3.4"
   gem "faker"
 end

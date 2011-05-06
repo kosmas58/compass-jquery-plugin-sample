@@ -63,7 +63,7 @@
             outlierLineColor: $('#outlierlinecol').val(),
             outlierFillColor: $('#outlierfillcol').val(),
             medianColor: $('#mediancol').val(),
-            showOutliers: $('#showoutliers').attr('checked'),
+            showOutliers: $('#showoutliers').prop('checked'),
             outlierIQR: parseFloat($('#outlieriqr').val()),
             target: parseFloat($('#boxtarget').val())
           });
