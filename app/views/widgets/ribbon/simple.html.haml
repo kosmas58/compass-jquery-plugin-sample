@@ -1,8 +1,8 @@
--@title = "#{t('txt.ribbon.name')} - #{t('txt.ribbon.theming.name')} - #{t('txt.ribbon.theming.windows7')}"
--@ribbon_theme = 'ribbon.simple'
+-@title = "#{t('txt.ribbon.name')} - #{t('txt.ribbon.theming.name')} - #{t('txt.ribbon.theming.simple')}"
+-@ribbon_theme = 'simple'
 = render :partial => "simple.js.haml", :format => :js
 
-#header 
+#header
   .mainContainer
     %ul.ribbon
       %li
@@ -260,7 +260,7 @@
                         Points
                       %li
                         Picas
-#content 
+#content
   .textbox
     %div
       %h1
@@ -297,4 +297,3 @@
       %br
       %a{ :href => "http://twitter.com/vimpyboy" }
         vimpyboy@twitter
-        

@@ -8,3 +8,6 @@
 
 - content_for :license do
   = render :partial => "widgets/ribbon/license"
+
+      $('ul.ribbon-theme li').click(function() { $().Ribbon({ theme: $(this).attr('class').substring(7), backStage: true }); });
+      $('ul.ribbon-header li').click(function() { $().Ribbon({ theme: $(this).attr('class').substring(7), backStage: true }); });
