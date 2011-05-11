@@ -11,7 +11,6 @@ gem "open3", :platforms => :ruby
 gem "win32-open3", :platforms => :mswin
 
 gem "manifesto", ">= 0.6.0"
-gem "awesome_nested_set", "~> 1.4.4"
 gem "compass-jquery-plugin", "= 0.3.3.0.pre.1", :require => 'jquery'
 # gem "sass"
 
