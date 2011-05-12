@@ -22,7 +22,8 @@
     .ui-datepicker-calendar th span, .ui-datepicker-calendar span.ui-state-default { opacity: .3; }
     .ui-datepicker-calendar td a { padding-top: .5em; padding-bottom: .5em; }
 
-    .min-width-480px div.hasDatepicker  { width: 63%; display: inline-block; margin: 0; }
+    @media all and (min-width: 450px){ div.hasDatepicker  { width: 63%; display: inline-block; margin: 0; }
+}
   
 = render :partial => "/mobile/mobile_init.js.haml", :format => :js
 
