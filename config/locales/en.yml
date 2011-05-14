@@ -182,6 +182,9 @@ en:
     tinymce:
       name: TinyMCE
       default: Full featured example using jQuery plugin
+    markitup:
+      name: markItUp!
+      default: Demo
     handling:
       name: Handling
     haml:

@@ -1,0 +1,8 @@
+-@title =  "#{t('txt.markitup.name')} - #{t('txt.markitup.default')}"
+= render :partial => "index.js.haml", :format => :js
+
+.demo
+  %h3
+    =image_tag("icons/22x22/markitup.png", :border => 0)
+    =raw @title
+

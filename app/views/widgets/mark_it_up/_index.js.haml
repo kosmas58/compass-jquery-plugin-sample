@@ -1,0 +1,9 @@
+- content_for :head_stylesheets do
+  = stylesheet_link_tag :ical, :media => 'screen, projection'
+  = stylesheet_link_tag :ical_print, :media => 'print'
+
+- content_for :head_scripts do
+  = javascript_include_tag :ical
+
+- content_for :license do
+  = render :partial =>  "widgets/mark_it_up/license"

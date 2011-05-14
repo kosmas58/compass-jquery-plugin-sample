@@ -1,0 +1,46 @@
+!!! Strict
+%html{:xmlns => "http://www.w3.org/1999/xhtml"}
+  %head
+    %meta{:content => "text/html; charset=iso-8859-1", "http-equiv" => "Content-Type"}/
+    %title markItUp! Universal markup editor
+    %link{:href => "images/style.css", :rel => "stylesheet", :type => "text/css"}/
+    / jQuery
+    %script{:src => "http://code.jquery.com/jquery-1.4.3.min.js", :type => "text/javascript"}
+    / markItUp!
+    %script{:src => "markitup/jquery.markitup.js", :type => "text/javascript"}
+    / markItUp! toolbar settings
+    %script{:src => "markitup/sets/default/set.js", :type => "text/javascript"}
+    / markItUp! skin
+    %link{:href => "markitup/skins/markitup/style.css", :rel => "stylesheet", :type => "text/css"}/
+    / markItUp! toolbar skin
+    %link{:href => "markitup/sets/default/style.css", :rel => "stylesheet", :type => "text/css"}/
+  %body
+    :javascript
+          %h1
+      %a{:href => "http://markitup.jaysalvat.com/"} markItUp!
+    %p
+      %em
+        %a{:href => "http://www.jaysalvat.com"} By Jay Salvat
+    %p
+      Downloads, examples and documentation at
+      = succeed "." do
+        %a{:href => "http://markitup.jaysalvat.com"} http://markitup.jaysalvat.com
+    %p
+      Click
+      %a.add{:href => "#"} this link to insert content
+      from anywhere in the page or
+      %a.toggle{:href => "#"}
+        this one to
+        %span remove markItUp!
+    %p
+      %textarea#markItUp{:cols => "80", :rows => "20"}
+        :preserve
+          
+          &lt;h1&gt;Welcome on markItUp!&lt;/h1&gt;
+          
+          &lt;p&gt;&lt;strong&gt;markItUp!&lt;/strong&gt; is a JavaScript plugin built on the jQuery library. It allows you to turn any textarea into a markup editor. Html, Textile, Wiki Syntax, Markdown, BBcode or even your own markup system can be easily implemented.&lt;/p&gt;
+    %p
+      Support the projet :
+      %a{:href => "http://markitup.jaysalvat.com/"} Donate
+      |
+      %a{:href => "http://markitup.jaysalvat.com/"} Contact
