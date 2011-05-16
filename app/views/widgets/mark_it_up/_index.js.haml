@@ -37,16 +37,26 @@
     $(function()	{
       // Add markItUp! to your textarea in one line
       // $('textarea').markItUp( { Settings }, { OptionalExtraSettings } );
-      $('#markItUp').markItUp(mySettings);
+
+      //      previewInWindow:    '', // 'width=800, height=600, resizable=yes, scrollbars=yes'
+      //      previewAutoRefresh:    true,
+      //      previewPosition:    'after',
+      //      previewTemplatePath:  '~/templates/preview.html',
+      //      previewParserPath:    '',
+      //      previewParserVar:    'data',
+
+      $('#markItUp').markItUp(mySettings, {
+                                previewTemplatePath: '/widgets/mark_it_up/preview'
+                              });
 
       // You can add content from anywhere in your page
       // $.markItUp( { Settings } );
       $('.add').click(function() {
-        $.markItUp( { 	openWith:'<opening tag>',
-                closeWith:'<\/closing tag>',
-                placeHolder:"New content"
-              }
-            );
+        $.markItUp({
+          openWith:'<opening tag>',
+          closeWith:'<\/closing tag>',
+          placeHolder:"New content"
+        });
         return false;
       });
 
@@ -62,7 +72,7 @@
         }
         return false;
       });
-    });  
+    });
 
 - content_for :license do
   = render :partial =>  "widgets/mark_it_up/license"
