@@ -1,0 +1,26 @@
+= render :partial => "examples.js.haml", :format => :js
+= render :partial => "#{@example}.js.haml", :format => :js
+
+.demo
+  %p
+    %em
+      %a{:href => "http://www.jaysalvat.com"} By Jay Salvat
+
+  #markitup_skins
+    %ul
+      %li
+        %a{ :href => "markitup?example=#{@example}" }
+          Default
+      %li
+        %a{ :href => "simple?example=#{@example}" }
+          Simple
+      %li
+        %a{ :href => "aqua?example=#{@example}" }
+          Aqua
+      %li
+        %a{ :href => "live?example=#{@example}" }
+          Live
+      %li
+        %a{ :href => "jtag?example=#{@example}" }
+          jTagEditor
+/ End demo

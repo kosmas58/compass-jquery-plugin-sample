@@ -1,0 +1,43 @@
+- content_for :head_stylesheets do
+  :css
+    body {
+      background:#EEE url("/images/demo/markitup/body.png") repeat-x;
+      font: 13px "Trebuchet MS", Arial, Verdana;
+      padding:20px;
+    }
+    a {
+      text-decoration:none;
+      color:#3C769D;
+    }
+    h1 a,
+    p em a {
+      display:block;
+      overflow:hidden;
+      text-indent:-9999px;
+    }
+    h1 a {
+      width:700px;
+      height:200px;
+      background:transparent url("/images/demo/markitup/markitup.png") no-repeat center center;
+    }
+    p em a {
+      background:transparent url("/images/demo/markitup/jaysalvat.png") no-repeat 10% 50%;
+      width:120px; height:28px;
+      left:30px;
+      position:absolute;
+      top:0px;
+    }
+
+- content_for :head_scripts do
+  :javascript
+    $(function() {
+      $("#markitup_skins").tabs({
+        cookie: {
+          // store cookie for a day, without, it would be a session cookie
+          expires: 1
+        },
+        select: function(event, ui) {
+          location.reload(true);
+        }
+      });
+    });
