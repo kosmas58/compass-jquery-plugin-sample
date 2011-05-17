@@ -5,7 +5,7 @@
   = javascript_include_tag :markitup
   = javascript_include_tag :markitup_default
   :javascript
-    $(function()	{
+    $(function() {
       // Add markItUp! to your textarea in one line
       // $('textarea').markItUp( { Settings }, { OptionalExtraSettings } );
 
@@ -16,13 +16,13 @@
       //      previewParserPath:    '',
       //      previewParserVar:    'data',
 
-      $('#markItUp').markItUp(mySettings, {
+      $("#markItUp").markItUp(mySettings, {
                                 previewTemplatePath: '/widgets/mark_it_up/preview'
                               });
 
       // You can add content from anywhere in your page
       // $.markItUp( { Settings } );
-      $('.add').click(function() {
+      $(".add").click(function() {
         $.markItUp({
           openWith:'<opening tag>',
           closeWith:'<\/closing tag>',
@@ -33,7 +33,7 @@
 
       // And you can add/remove markItUp! whenever you want
       // $(textarea).markItUpRemove();
-      $('.toggle').click(function() {
+      $(".toggle").click(function() {
         if ($("#markItUp.markItUpEditor").length === 1) {
           $("#markItUp").markItUpRemove();
           $("span", this).text("get markItUp! back");
