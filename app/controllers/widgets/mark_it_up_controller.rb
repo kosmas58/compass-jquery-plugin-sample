@@ -5,29 +5,10 @@ class Widgets::MarkItUpController < ApplicationController
     @example = params[:example] || "basic"
   end
 
-  def markitup
-    example = params[:example] || "basic"
-    render :partial => "markitup", :locals => {:example => example}
-  end
-
-  def simple
-    example = params[:example] || "basic"
-    render :partial => "simple", :locals => {:example => example}
-  end
-
-  def aqua
-    example = params[:example] || "basic"
-    render :partial => "aqua", :locals => {:example => example}
-  end
-
-  def live
-    example = params[:example] || "basic"
-    render :partial => "live", :locals => {:example => example}
-  end
-
-  def jtag
-    example = params[:example] || "basic"
-    render :partial => "jtag", :locals => {:example => example}
+  def show
+    @example = params[:example] || "basic"
+    @skin = params[:skin] || "markitup"
+    render :partial => "show"
   end
 
   def preview
