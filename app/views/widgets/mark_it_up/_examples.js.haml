@@ -1,4 +1,8 @@
 - content_for :head_stylesheets do
+  = stylesheet_link_tag :markitup_skin_markitup, :media => 'screen, projection'
+  = stylesheet_link_tag :markitup_set_default, :media => 'screen, projection'
+
+- content_for :head_stylesheets do
   :css
     body {
       background:#EEE url("/images/demo/markitup/body.png") repeat-x;
@@ -29,6 +33,10 @@
     }
 
 - content_for :head_scripts do
+  = javascript_include_tag :markitup
+  = javascript_include_tag :markitup_set_default
+
+- content_for :head_scripts do
   :javascript
     $(function() {
       $("#markitup_skins").tabs({
@@ -37,7 +45,36 @@
           expires: 1
         },
         select: function(event, ui) {
+          $("#markItUp").markItUp(mySettings, {
+                                  previewTemplatePath: '/widgets/mark_it_up/preview'
+                                });
+
+          // You can add content from anywhere in your page
+          // $.markItUp( { Settings } );
+          $(".add").click(function() {
+            $.markItUp({
+              openWith:'<opening tag>',
+              closeWith:'<\/closing tag>',
+              placeHolder:"New content"
+            });
+            return false;
+          });
+
+          // And you can add/remove markItUp! whenever you want
+          // $(textarea).markItUpRemove();
+          $(".toggle").click(function() {
+            if ($("#markItUp.markItUpEditor").length === 1) {
+              $("#markItUp").markItUpRemove();
+              $("span", this).text("get markItUp! back");
+            } else {
+              $('#markItUp').markItUp(mySettings);
+              $("span", this).text("remove markItUp!");
+            }
+            return false;
+          });
+
           location.reload(true);
         }
       });
     });
+    

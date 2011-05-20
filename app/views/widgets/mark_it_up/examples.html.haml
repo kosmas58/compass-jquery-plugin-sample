@@ -1,5 +1,4 @@
 = render :partial => "examples.js.haml", :format => :js
-= render :partial => "#{@example}.js.haml", :format => :js
 
 .demo
   %p
@@ -24,3 +23,6 @@
         %a{ :href => "show?example=#{@example}&skin=jtag" }
           jTagEditor skin
 / End demo
+
+- content_for :license do
+  = render :partial =>  "widgets/mark_it_up/license"
