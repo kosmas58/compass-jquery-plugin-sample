@@ -1,0 +1,45 @@
+-@title =  "#{t('txt.markitup.name')} - #{t('txt.markitup.html')}"
+= render :partial => "html.js.haml", :format => :js
+
+.demo
+  %h3
+    =image_tag("icons/22x22/markitup.png", :border => 0)
+    =raw @title
+  %p
+    %em
+      %a{:href => "http://www.jaysalvat.com"} By Jay Salvat
+  %p
+    Basic example of Html configuration.
+  %p
+    .html
+      %textarea#markItUp{:cols => "80", :rows => "20"}
+        :preserve
+          &lt;h2&gt;markItUp! Universal markup editor&lt;/h2&gt;
+
+          &lt;p&gt;&lt;img src="/images/demo/markitup/picture.png" alt="markItUp! logo" /&gt;&lt;/p&gt;
+
+          &lt;p&gt;&lt;strong&gt;markItUp!&lt;/strong&gt; is a javascript over jQuery plug-in which allow you to turn any textarea in a markup editor.&lt;/p&gt;
+
+          &lt;p&gt;&lt;strong&gt;markItUp!&lt;/strong&gt; is a lightweight fully customizable engine made to easily fit all developers needs in their CMS, blogs, forums or websites.&lt;/p&gt;
+
+          &lt;p&gt;&lt;em&gt;Html, Textile, Wiki Syntax, Markdown, BBcode&lt;/em&gt; or even your own Markup system can be easily implemented.&lt;/p&gt;
+
+          &lt;ul&gt;
+          &lt;li&gt;integrate it easily&lt;/li&gt;
+          &lt;li&gt;customize buttons and macros to fit all your need&lt;/li&gt;
+          &lt;li&gt;customize keyboard shortcuts&lt;/li&gt;
+          &lt;li&gt;customize toolbar and css look and feel
+          &lt;ul&gt;
+              &lt;li&gt;skins&lt;/li&gt;
+              &lt;li&gt;icons&lt;/li&gt;
+              &lt;li&gt;dropdown menus&lt;/li&gt;
+              &lt;li&gt;separators&lt;/li&gt;
+          &lt;/ul&gt;
+          &lt;/li&gt;
+          &lt;li&gt;use the engine from anywhere in the page&lt;/li&gt;
+          &lt;li&gt;implement any markup language even your own&lt;/li&gt;
+          &lt;li&gt;implement your own javascript macros even the most advanced&lt;/li&gt;
+          &lt;li&gt;allows multi-line edition&lt;/li&gt;
+          &lt;li&gt;preview ajax result dynamically in any markup parser&lt;/li&gt;
+          &lt;li&gt;offers userfriendly experience and effectiveness&lt;/li&gt;
+          &lt;/ul&gt;

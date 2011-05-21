@@ -185,6 +185,9 @@ en:
     markitup:
       name: markItUp!
       default: Demo
+      html: HTML set
+      markdown: Markdown set
+      textile: Textile set
     handling:
       name: Handling
     haml:

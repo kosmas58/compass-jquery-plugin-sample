@@ -21,10 +21,6 @@ date:
     short: "%b %d"
     long: "%B %d, %Y"
 txt: 
-  layout: 
-    scroll: 
-      hide: Hide scrollbar
-      show: Show scrollbar
   tools: 
     form: 
       stylable: 
@@ -33,6 +29,12 @@ txt:
         demo02: Scripting styleable Forms
         demo03: Alternate form skin
   hello: Hello world
+  markitup: 
+    name: markItUp!
+    html: HTML set
+    textile: Textile set
+    default: Demo
+    markdown: Markdown set
 support: 
   array: 
     words_connector: ", "

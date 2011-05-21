@@ -1,8 +1,4 @@
 - content_for :head_stylesheets do
-  = stylesheet_link_tag :markitup_skin_markitup, :media => 'screen, projection'
-  = stylesheet_link_tag :markitup_set_default, :media => 'screen, projection'
-
-- content_for :head_stylesheets do
   :css
     body {
       background:#EEE url("/images/demo/markitup/body.png") repeat-x;
@@ -31,23 +27,26 @@
       position:absolute;
       top:0px;
     }
+  = stylesheet_link_tag :markitup_skin_aqua, :media => 'screen, projection'
+  = stylesheet_link_tag :markitup_set_textile, :media => 'screen, projection'
 
 - content_for :head_scripts do
   = javascript_include_tag :markitup
-  = javascript_include_tag :markitup_set_default
-
-- content_for :head_scripts do
+  = javascript_include_tag :markitup_set_textile
   :javascript
-    $(function() {
-      $("#markitup_skins").tabs({
-        cookie: {
-          // store cookie for a day, without, it would be a session cookie
-          expires: 1
-        }
-      });
+    $(function()	{
+      // Add markItUp! to your textarea in one line
+      // $('textarea').markItUp( { Settings }, { OptionalExtraSettings } );
 
-       $('#markItUp').markItUp(mySettings, {
-                                previewTemplatePath: '/widgets/mark_it_up/preview'
+      //      previewInWindow:    '', // 'width=800, height=600, resizable=yes, scrollbars=yes'
+      //      previewAutoRefresh:    true,
+      //      previewPosition:    'after',
+      //      previewTemplatePath:  '~/templates/preview.html',
+      //      previewParserPath:    '',
+      //      previewParserVar:    'data',
+
+      $('#markItUp').markItUp(mySettings, {
+                                previewTemplatePath: '/widgets/mark_it_up/preview_blue'
                               });
 
       // You can add content from anywhere in your page
@@ -73,6 +72,7 @@
         }
         return false;
       });
-
     });
-    
+
+- content_for :license do
+  = render :partial =>  "widgets/mark_it_up/license"

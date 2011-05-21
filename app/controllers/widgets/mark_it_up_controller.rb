@@ -1,18 +1,11 @@
 class Widgets::MarkItUpController < ApplicationController
   protect_from_forgery
 
-  def examples
-    @example = params[:example] || "basic"
-  end
-
-  def show
-    @example = params[:example] || "basic"
-    @skin = params[:skin] || "markitup"
-    render :partial => "show"
-  end
-
   def preview
-    render :partial =>  "shared/mark_it_up_preview", :layout => false
+    render :partial =>  "shared/mark_it_up.preview", :layout => false
   end
-  
+
+  def preview_blue
+    render :partial =>  "shared/mark_it_up.preview.blue", :layout => false
+  end
 end
