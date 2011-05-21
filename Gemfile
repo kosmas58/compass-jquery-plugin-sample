@@ -1,6 +1,7 @@
 source :gemcutter
 gem "rails", "~> 2.3.11"
 gem "erubis"
+gem "rdoc"
 gem "hpricot"
 gem "i18n"
 gem "i18n-js"
