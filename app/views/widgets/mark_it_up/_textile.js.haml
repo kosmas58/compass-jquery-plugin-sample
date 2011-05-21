@@ -27,7 +27,7 @@
       position:absolute;
       top:0px;
     }
-  = stylesheet_link_tag :markitup_skin_aqua, :media => 'screen, projection'
+  = stylesheet_link_tag :markitup_skin_markitup, :media => 'screen, projection'
   = stylesheet_link_tag :markitup_set_textile, :media => 'screen, projection'
 
 - content_for :head_scripts do
@@ -46,7 +46,8 @@
       //      previewParserVar:    'data',
 
       $('#markItUp').markItUp(mySettings, {
-                                previewTemplatePath: '/widgets/mark_it_up/preview_blue'
+                                previewTemplatePath: '/widgets/mark_it_up/preview_blue',
+                                previewParserPath:   '/widgets/mark_it_up/parse_textile'
                               });
 
       // You can add content from anywhere in your page

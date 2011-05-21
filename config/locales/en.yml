@@ -184,7 +184,7 @@ en:
       default: Full featured example using jQuery plugin
     markitup:
       name: markItUp!
-      default: Demo
+      default: Basic demo
       html: HTML set
       markdown: Markdown set
       textile: Textile set

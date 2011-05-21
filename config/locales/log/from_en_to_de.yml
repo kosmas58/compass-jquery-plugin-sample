@@ -30,11 +30,7 @@ txt:
         demo03: Alternate form skin
   hello: Hello world
   markitup: 
-    name: markItUp!
-    html: HTML set
-    textile: Textile set
-    default: Demo
-    markdown: Markdown set
+    default: Basic demo
 support: 
   array: 
     words_connector: ", "

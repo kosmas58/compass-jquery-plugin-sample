@@ -15,6 +15,10 @@ gem "manifesto", ">= 0.6.0"
 gem "compass-jquery-plugin", "= 0.3.3.0.pre.2", :require => 'jquery'
 # gem "sass"
 
+# for markItUp!
+gem "RedCloth", :require => "redcloth"
+gem "bluecloth"
+
 # bundler requires these gems in all environments
 gem "nokogiri"
 gem "geokit"
