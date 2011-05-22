@@ -21,6 +21,8 @@ date:
     short: "%b %d"
     long: "%B %d, %Y"
 txt: 
+  editor: 
+    name: Editor widgets
   tools: 
     form: 
       stylable: 
@@ -29,8 +31,6 @@ txt:
         demo02: Scripting styleable Forms
         demo03: Alternate form skin
   hello: Hello world
-  markitup: 
-    wiki: Wiki set
 support: 
   array: 
     words_connector: ", "

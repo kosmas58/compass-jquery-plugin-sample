@@ -179,6 +179,8 @@ en:
   txt:
     widgets:
       name: Widgets
+    editor:
+      name: Editor widgets
     tinymce:
       name: TinyMCE
       default: Full featured example using jQuery plugin

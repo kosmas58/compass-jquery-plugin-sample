@@ -3,3 +3,13 @@
     .welcome .ui-widget-header, .welcome .ui-widget-content { padding: 0.3em 0.5em 0.4em 0.5em; }
     //.welcome .ui-widget-content p { padding: 0em 0.8em 0em 0.8em; }
     .welcome .ui-widget-header { margin-bottom: 0.3em; }
+
+- content_for :head_scripts do
+  :javascript
+    $(function() {
+      $("#widgetsAccordion").accordion({
+        autoHeight: false,
+        event: "mouseover"
+      });
+    });
+
