@@ -1,0 +1,36 @@
+- content_for :head_stylesheets do
+  = stylesheet_link_tag :markitup_skin_markitup, :media => 'screen, projection', :id => :markitup
+  = stylesheet_link_tag :markitup_skin_simple, :media => 'screen, projection', :id => :simple, :disabled => true
+  = stylesheet_link_tag :markitup_skin_aqua, :media => 'screen, projection', :id => :aqua, :disabled => true
+  = stylesheet_link_tag :markitup_skin_live, :media => 'screen, projection', :id => :live, :disabled => true
+  = stylesheet_link_tag :markitup_skin_jtag, :media => 'screen, projection', :id => :jtag, :disabled => true
+  :css
+    #switcher {
+      height:30px;
+      padding-top:15px;
+    }
+    #switcher li {
+      list-style:none;
+      float:left;
+      margin-right:20px;
+    }
+    #switcher .currentTheme {
+      font-weight:bold;
+      color:#990066;
+      padding-left:20px;
+      background:transparent url("/images/demo/markitup/accept.png") no-repeat top left;
+    }
+
+- content_for :head_scripts do
+  :javascript
+     var oldTheme = 'markitup';
+     $(function()	{
+      	$('#switcher li').click(function() {
+      			$('#switcher li').removeClass('currentTheme');
+      			newTheme = $(this).attr('class');
+      			$(this).addClass('currentTheme');
+      	   	document.getElementById(oldTheme).disabled=true;
+      			document.getElementById(newTheme).disabled=false;
+      	    oldTheme = newTheme;		
+      	});
+      });

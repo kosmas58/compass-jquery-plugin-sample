@@ -1,5 +1,6 @@
 -@title =  "#{t('txt.markitup.name')} - #{t('txt.markitup.default')}"
 = render :partial => "basic.js.haml", :format => :js
+= render :partial => "theme.js.haml", :format => :js
 
 .demo
   %h3
@@ -14,6 +15,17 @@
     Downloads, examples and documentation at
     = succeed "." do
       %a{:href => "http://markitup.jaysalvat.com"} http://markitup.jaysalvat.com
+  %ul#switcher
+    %li.markitup.currentTheme
+      %a{:href => "#"} Default theme
+    %li.simple
+      %a{:href => "#"} Simple theme
+    %li.aqua
+      %a{:href => "#"} Aqua theme
+    %li.live
+      %a{:href => "#"} Live theme
+    %li.jtag
+      %a{:href => "#"} jTag editor theme
   %p
     Click
     %a.add{:href => "#"} this link to insert content
@@ -22,9 +34,9 @@
       this one to
       %span remove markItUp!
   %p
-    %textarea#markItUp{:cols => "80", :rows => "20"}
-      :preserve
-        &lt;h1&gt;Welcome on markItUp!&lt;/h1&gt;
+    .markitup
+      %textarea#markItUp{:cols => "80", :rows => "20"}
+        :preserve
+          &lt;h1&gt;Welcome on markItUp!&lt;/h1&gt;
 
-        &lt;p&gt;&lt;strong&gt;markItUp!&lt;/strong&gt; is a JavaScript plugin built on the jQuery library. It allows you to turn any textarea into a markup editor. Html, Textile, Wiki Syntax, Markdown, BBcode or even your own markup system can be easily implemented.&lt;/p&gt;
-
+          &lt;p&gt;&lt;strong&gt;markItUp!&lt;/strong&gt; is a JavaScript plugin built on the jQuery library. It allows you to turn any textarea into a markup editor. Html, Textile, Wiki Syntax, Markdown, BBcode or even your own markup system can be easily implemented.&lt;/p&gt;
