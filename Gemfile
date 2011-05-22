@@ -18,6 +18,7 @@ gem "compass-jquery-plugin", "= 0.3.3.0.pre.2", :require => 'jquery'
 # for markItUp!
 gem "RedCloth", :require => "redcloth"
 gem "bluecloth"
+gem "wikicloth"
 
 # bundler requires these gems in all environments
 gem "nokogiri"

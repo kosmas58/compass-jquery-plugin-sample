@@ -30,7 +30,7 @@ txt:
         demo03: Alternate form skin
   hello: Hello world
   markitup: 
-    default: Basic demo
+    wiki: Wiki set
 support: 
   array: 
     words_connector: ", "

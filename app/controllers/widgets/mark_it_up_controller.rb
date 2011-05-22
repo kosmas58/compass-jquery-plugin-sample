@@ -16,4 +16,8 @@ class Widgets::MarkItUpController < ApplicationController
   def parse_textile
     render :partial =>  "shared/mark_it_up.parsed.preview.blue", :layout => false, :locals => { :parsed_content => RedCloth.new(params[:data]).to_html }
   end
+
+  def parse_wiki
+    render :partial =>  "shared/mark_it_up.parsed.preview.blue", :layout => false, :locals => { :parsed_content => WikiCloth::Parser.new({ :data => params[:data] }).to_html(:noedit => true) }
+  end
 end

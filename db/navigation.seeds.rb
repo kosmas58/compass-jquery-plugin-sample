@@ -607,6 +607,7 @@ node_666 = NavigationTree.create_node(:id => parent_id, :seed => true, :position
 node_764 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.markitup.html', :type => 'default', :icon => '/images/icons/16x16/markitup.png', :url => '/widgets/mark_it_up/html')
 node_765 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.markitup.markdown', :type => 'default', :icon => '/images/icons/16x16/markitup.png', :url => '/widgets/mark_it_up/markdown')
 node_766 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.markitup.textile', :type => 'default', :icon => '/images/icons/16x16/markitup.png', :url => '/widgets/mark_it_up/textile')
+node_767 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 4, :title => 'txt.markitup.wiki', :type => 'default', :icon => '/images/icons/16x16/markitup.png', :url => '/widgets/mark_it_up/wiki')
 parent_id = node_241
 node_667 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 5, :title => 'txt.tinymce.name', :type => 'folder', :icon => '/images/icons/16x16/editor.png')
 parent_id = node_667

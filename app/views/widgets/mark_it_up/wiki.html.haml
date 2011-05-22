@@ -1,0 +1,44 @@
+-@title =  "#{t('txt.markitup.name')} - #{t('txt.markitup.wiki')}"
+= render :partial => "wiki.js.haml", :format => :js
+
+.demo
+  %h3
+    =image_tag("icons/22x22/markitup.png", :border => 0)
+    =raw @title
+  %p
+    %em
+      %a{:href => "http://www.jaysalvat.com"} By Jay Salvat
+  %p
+    Basic example of Wiki configuration.
+  %p
+    Using
+    %a{:href => "http://github.com/nricciar/wikicloth", :class => :greybox} WikiCloth
+    as Wikimedia parser.
+  %p
+    .wiki
+      %textarea#markItUp{:cols => "80", :rows => "20"}
+        :preserve
+          == markItUp! Universal markup editor ==
+
+          [[Image:/images/demo/markitup/picture.png|markItUp! Logo]]
+
+          '''markItUp!''' is a javascript over [http://www.jquery.com jQuery] plug-in which allow you to turn any textarea in a markup editor.
+
+          '''markItUp!''' is a lightweight fully customizable engine made to easily fit all developers needs in their CMS, blogs, forums or websites.
+
+          ''Html, Textile, Wiki Syntax, Markdown, BBcode'' or even your own Markup system can be easily implemented.
+
+          * integrate it easily
+          * customize buttons and macros to fit all your need
+          * customize keyboard shortcuts
+          * customize toolbar and css look and feel
+          ** skins
+          ** icons
+          ** dropdown menus
+          ** separators
+          * use the engine from anywhere in the page
+          * implement any markup language even your own
+          * implement your own javascript macros even the most advanced
+          * allow multi-line edition
+          * preview ajax result dynamically in any markup parser
+          * offers userfriendly experience and effectiveness

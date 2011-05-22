@@ -188,6 +188,7 @@ en:
       html: HTML set
       markdown: Markdown set
       textile: Textile set
+      wiki: Wiki set
     handling:
       name: Handling
     haml:
