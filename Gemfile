@@ -12,7 +12,7 @@ gem "open3", :platforms => :ruby
 gem "win32-open3", :platforms => :mswin
 
 gem "manifesto", ">= 0.6.0"
-gem "compass-jquery-plugin", "= 0.3.3.0.pre.2", :require => 'jquery'
+gem "compass-jquery-plugin", "= 0.3.3.0", :require => 'jquery'
 # gem "sass"
 
 # for markItUp!
