@@ -21,8 +21,8 @@ date:
     short: "%b %d"
     long: "%B %d, %Y"
 txt: 
-  editor: 
-    name: Editor widgets
+  emu: 
+    galaxyace: Galaxy Ace
   tools: 
     form: 
       stylable: 

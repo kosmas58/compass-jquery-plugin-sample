@@ -17,6 +17,10 @@ class EmulatorsController < ApplicationController
         scale = scale(188.68)
         @width  = @orientation == "landscape" ? 480 : 360
         @height = @orientation == "landscape" ? 360 : 480
+      when "galaxy.ace"
+        scale = scale(164.83)
+        @width  = @orientation == "landscape" ? 480 : 320
+        @height = @orientation == "landscape" ? 300 : 460
       when "galaxy.s"
         scale = scale(233.24)
         @width  = @orientation == "landscape" ? 800 : 480
