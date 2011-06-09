@@ -1,5 +1,5 @@
 source :gemcutter
-gem "rails", "~> 2.3.11"
+gem "rails", "~> 2.3.12"
 gem "erubis"
 gem "rdoc"
 gem "hpricot"
