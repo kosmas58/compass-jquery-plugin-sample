@@ -1,10 +1,10 @@
 -@title = "jQuery Mobile Docs - Methods"
 = render :partial => "/mobile/index.js.haml", :format => :js
 
-%div{"data-role" => "page"}
-  %div{"data-role" => "header", "data-theme" => "b"}
+%div{"data-role" => "page", "data-theme" => "b"}
+  %div{"data-role" => "header"}
     %h1 Methods
-    %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile"} Home
+    %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "../../"} Home
   / /header
   %div{"data-role" => "content"}
     %p jQuery Mobile exposes several methods and properties on the $.mobile object for use in your applications.
@@ -14,54 +14,148 @@
         (
         %em> method
         )
-      %dd Programmatically change from one page to another. This method is used internally for transitions that occur as a result of clicking a link or submitting a form, when those features are enabled.
+      %dd Programmatically change from one page to another. This method is used internally for the page loading and transitioning that occurs as a result of clicking a link or submitting a form, when those features are enabled.
       %dd
         %dl
           %dt Arguments
           %dd
             %code to
+            (
+            %em> string or object
+            , required)
             %ul
+              %li String: Absolute or relative URL. (&quot;about/us.html&quot;)
               %li
-                String, url to transition to (
-                %code> "about/us.html"
-                )
-              %li
-                jQuery object (
+                Object: jQuery collection object. (
                 %code> $("#about")
                 )
-              %li Array specifying two page references [from,to] for transitioning from a known page. From is otherwise assumed to be the current page in view (or $.mobile.activePage ).
+          %dd
+            %code options
+            (
+            %em> object
+            , optional)
+            %ul
               %li
-                Object for sending form data. (
-                %code {url: url, data: serialized form data, type: "get" or "post"}
-          %dd
-            %code transition
-            (
-            %em> string
-            , examples: "pop", "slide"," "none")
-          %dd
-            %code back
-            (
-            %em> boolean
-            , default: false). True will cause a reverse-direction transition.
-          %dd
-            %code changeHash
-            (
-            %em> boolean
-            , default: true). Update the hash to the to page's URL when page change is complete.
+                Properties:
+                %ul
+                  %li
+                    %code transition
+                    (
+                    %em> string
+                    ,	default:	$.mobile.defaultPageTransition)	The transition to use when showing the page.
+                  %li
+                    %code reverse
+                    (
+                    %em> boolean
+                    ,	default:	false) Decides what direction the transition will run when showing the page.
+                  %li
+                    %code changeHash
+                    (
+                    %em> boolean
+                    ,	default:	true) Decides if the hash in the location bar should be updated.
+                  %li
+                    %code role
+                    (
+                    %em> string
+                    ,	default:	&quot;page&quot;) The data-role value to be used when displaying the page.
+                  %li
+                    %code pageContainer
+                    (jQuery collection,	default:	$.mobile.pageContainer) Specifies the element that should contain the page.
+                  %li
+                    %code type
+                    (
+                    %em> string
+                    , default: &quot;get&quot;) Specifies the method ("get" or "post") to use when making a page request.
+                    %ul
+                      %li Used only when the 'to' argument of changePage() is a URL.
+                  %li
+                    %code data
+                    (
+                    %em object
+                    or	string,	default: undefined) The data to send with an Ajax page request.
+                    %ul
+                      %li Used only when the 'to' argument of changePage() is a URL.
+                  %li
+                    %code reloadPage
+                    (
+                    %em> boolean
+                    , default: false) Forces a reload of a page, even if it is already in the DOM of the page container.
+                    %ul
+                      %li Used only when the 'to' argument of changePage() is a URL.
       %dd
         Examples:
         %pre
-          :preserve
-            //transition to the "about us" page with a slideup transition
-            $.mobile.changePage("about/us.html", "slideup");
-            //transition to the "search results" page, using data from a form with an ID of "search""
-            $.mobile.changePage({
-              url: "searchresults.php",
-              type: "get",
-              data: $("form#search").serialize()
+          %code
+            %strong //transition to the "about us" page with a slideup transition
+            $.mobile.changePage( "about/us.html", { transition: "slideup"} );
+            %strong //transition to the "search results" page, using data from a form with an ID of "search""
+            $.mobile.changePage( "searchresults.php", {
+            type: "post",
+            data: $("form#search").serialize()
             });
-            //transition to the "confirm" page with a "pop" transition without tracking it in history
-            $.mobile.changePage("../alerts/confirm.html", "pop", false, false);
+            %strong //transition to the "confirm" page with a "pop" transition without tracking it in history
+            $.mobile.changePage( "../alerts/confirm.html", {
+            transition: "pop",
+            reverse: false,
+            changeHash: false
+            });
+      %dt
+        %code $.mobile.loadPage
+        (
+        %em> method
+        )
+      %dd Load an external page, enhance its content, and insert it into the DOM. This method is called internally by the changePage() function when its first argument is a URL. This function does not affect the current active page so it can be used to load pages in the background. The function returns a deferred promise object that gets resolved after the page has been enhanced and inserted into the document.
+      %dd
+        %dl
+          %dt Arguments
+          %dd
+            %code url
+            (
+            %em> string or object
+            , required) A relative or absolute URL.
+          %dd
+            %code options
+            (
+            %em> object
+            , optional)
+            %ul
+              %li
+                Properties:
+                %ul
+                  %li
+                    %code role
+                    (
+                    %em> string
+                    ,	default:	&quot;page&quot;) The data-role value to be used when displaying the page.
+                  %li
+                    %code pageContainer
+                    (jQuery collection,	default:	$.mobile.pageContainer) Specifies the element that should contain the page after it is loaded.
+                  %li
+                    %code type
+                    (
+                    %em> string
+                    , default: &quot;get&quot;) Specifies the method ("get" or "post") to use when making a page request.
+                  %li
+                    %code data
+                    (
+                    %em object
+                    or	string,	default: undefined) The data to send with an Ajax page request.
+                  %li
+                    %code reloadPage
+                    (
+                    %em> boolean
+                    , default: false) Forces a reload of a page, even if it is already in the DOM of the page container.
+      %dd
+        Examples:
+        %pre
+          %code
+            %strong //load the "about us" page into the DOM
+            $.mobile.loadPage( "about/us.html" );
+            %strong //load a "search results" page, using data from a form with an ID of "search""
+            $.mobile.loadPage( "searchresults.php", {
+            type: "post",
+            data: $("form#search").serialize()
+            });
       %dt
         %code jqmData(), jqmRemoveData(), and jqmHasData()
         (
@@ -100,29 +194,30 @@
             which internally maps to
             %code $("div[data-"+ $.mobile.ns +"role='page']")
             without forcing you to concatenate a namespace into your selectors manually.
-
       %dt
-        %code $.mobile.pageLoading
+        %code $.mobile.showPageLoadingMsg
         (
-        %em> method
+        %em>
         )
-      %dd Show or hide the page loading message, which is configurable via $.mobile.loadingMessage.
+      %dd Show the page loading message, which is configurable via $.mobile.loadingMessage.
       %dd
-        %dl
-          %dt Arguments:
-          %dd
-            %code Done
-            (
-            %em> boolean
-            , defaults to false, meaning loading has started). True will hide the loading message.
-      %dd
-        Examples:
+        Example:
         %pre
-          :preserve
-            //cue the page loader
-            $.mobile.pageLoading();
-            //hide the page loader
-            $.mobile.pageLoading( true );
+          %code
+            %strong //cue the page loader
+            $.mobile.showPageLoadingMsg();
+      %dt
+        %code $.mobile.hidePageLoadingMsg
+        (
+        %em>
+        )
+      %dd Hide the page loading message, which is configurable via $.mobile.loadingMessage.
+      %dd
+        Example:
+        %pre
+          %code
+            %strong //cue the page loader
+            $.mobile.hidePageLoadingMsg();
       %dt
         %code $.mobile.path
         (
@@ -152,8 +247,8 @@
       %dd
         Examples:
         %pre
-          :preserve
-            //scroll to Y 100px
+          %code
+            %strong //scroll to Y 100px
             $.mobile.silentScroll(100);
       %dt
         %code $.mobile.addResolutionBreakpoints
@@ -174,10 +269,10 @@
       %dd
         Examples:
         %pre
-          :preserve
-            //add a 400px breakpoint
+          %code
+            %strong //add a 400px breakpoint
             $.mobile.addResolutionBreakpoints(400);
-            //add 2 more breakpoints
+            %strong //add 2 more breakpoints
             $.mobile.addResolutionBreakpoints([600,800]);
       %dt
         %code $.mobile.activePage
