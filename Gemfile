@@ -5,7 +5,7 @@ gem "rdoc"
 gem "hpricot"
 gem "i18n"
 gem "i18n-js"
-gem "json"
+gem "json", "1.5.1"
 gem "ri_cal"
 gem "sqlite3"
 gem "open3", :platforms => :ruby
