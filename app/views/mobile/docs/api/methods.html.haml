@@ -4,7 +4,7 @@
 %div{"data-role" => "page", "data-theme" => "b"}
   %div{"data-role" => "header"}
     %h1 Methods
-    %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "../../"} Home
+    %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile"} Home
   / /header
   %div{"data-role" => "content"}
     %p jQuery Mobile exposes several methods and properties on the $.mobile object for use in your applications.
@@ -219,11 +219,243 @@
             %strong //cue the page loader
             $.mobile.hidePageLoadingMsg();
       %dt
-        %code $.mobile.path
+        %code $.mobile.path.parseUrl
         (
-        %em> methods, properties
+        %em> method
         )
-      %dd Utilities for getting, setting, and manipulating url paths. TODO: document as public API is finalized.
+      %dd Utility method for parsing a URL and its relative variants into an object that makes accessing the components of the URL easy. When parsing relative variants, the resulting object will contain empty string values for missing components (like protocol, host, etc). Also, when parsing URLs that have no authority, such as tel: urls, the pathname property of the object will contain the data after the protocol/scheme colon.
+      %dd
+        %dl
+          %dt Arguments
+          %dd
+            %code url
+            (
+            %em> string
+            , required) A relative or absolute URL.
+          %dt Return Value
+          %dd
+            %p This function returns an object that contains the various components of the URL as strings. The properties on the object mimic the browser's location object:
+            %dl
+              %dt hash
+              %dd The fragment conponent of the URL, including the leading '#' character.
+              %dt host
+              %dd The host and port number of the URL.
+              %dt hostname
+              %dd The name of the host within the URL.
+              %dt href
+              %dd The original URL that was parsed.
+              %dt pathname
+              %dd The path of the file or directory referenced by the URL.
+              %dt port
+              %dd The port specified within the URL. Most URLs rely on the default port for the protocol used, so this may be an empty string most of the time.
+              %dt protocol
+              %dd The protocol for the URL including the trailing ':' character.
+              %dt search
+              %dd The query component of the URL including the leading '?' character.
+            %p But it also contains additional properties that provide access to additional components as well as some common forms of the URL developers access:
+            %dl
+              %dt authority
+              %dd The username, password, and host components of the URL
+              %dt directory
+              %dd The directory component of the pathname, minus any filename.
+              %dt domain
+              %dd The protocol and authority components of the URL.
+              %dt filename
+              %dd The filename within the pathname component, minus the directory.
+              %dt hrefNoHash
+              %dd The original URL minus the fragment (hash) components.
+              %dt hrefNoSearch
+              %dd The original URL minus the query (search) and fragment (hash) components.
+              %dt password
+              %dd The password contained within the authority component.
+              %dt username
+              %dd The username contained within the authority component.
+      %dd
+        Examples:
+        %pre
+          %code
+            %strong
+              \// Parsing the Url below results an object that is returned with the
+              \// following properties:
+              \//
+              \//  obj.href:         http://jblas:password@mycompany.com:8080/mail/inbox?msg=1234&amp;type=unread#msg-content
+              \//  obj.hrefNoHash:   http://jblas:password@mycompany.com:8080/mail/inbox?msg=1234&amp;type=unread
+              \//  obj.hrefNoSearch: http://jblas:password@mycompany.com:8080/mail/inbox
+              \//  obj.domain:       http://jblas:password@mycompany.com:8080
+              \//  obj.protocol:     http:
+              \//  obj.authority:    jblas:password@mycompany.com:8080
+              \//  obj.username:     jblas
+              \//  obj.password:     password
+              \//  obj.host:         mycompany.com:8080
+              \//  obj.hostname:     mycompany.com
+              \//  obj.port:         8080
+              \//  obj.pathname:     /mail/inbox
+              \//  obj.directory:    /mail/
+              \//  obj.filename:     inbox
+              \//  obj.search:       ?msg=1234&amp;type=unread
+              \//  obj.hash:         #msg-content
+            var obj = $.mobile.path.parseUrl("http://jblas:password@mycompany.com:8080/mail/inbox?msg=1234");
+      %dt
+        %code $.mobile.path.makePathAbsolute
+        (
+        %em> method
+        )
+      %dd Utility method for converting a relative file or directory path into an absolute path.
+      %dd
+        %dl
+          %dt Arguments
+          %dd
+            %code relPath
+            (
+            %em> string
+            , required) A relative file or directory path.
+          %dd
+            %code absPath
+            (
+            %em> string
+            , required) An absolute file or relative path to resolve against.
+          %dt Return Value
+          %dd This function returns a string that is an absolute version of the relative path passed in.
+      %dd
+        Examples:
+        %pre
+          %code
+            %strong // Returns: /a/b/c/file.html
+            var absPath = $.mobile.path.makePathAbsolute("file.html", "/a/b/c/bar.html");
+            %strong // Returns: /a/foo/file.html
+            var absPath = $.mobile.path.makePathAbsolute("../../foo/file.html", "/a/b/c/bar.html");
+      %dt
+        %code $.mobile.path.makeUrlAbsolute
+        (
+        %em> method
+        )
+      %dd Utility method for converting a relative URL to an absolute URL.
+      %dd
+        %dl
+          %dt Arguments
+          %dd
+            %code relUrl
+            (
+            %em> string
+            , required) A relative URL.
+          %dd
+            %code absUrl
+            (
+            %em> string
+            , required) An absolute URL to resolve against.
+          %dt Return Value
+          %dd This function returns a string that is an absolute version of the relative URL passed in.
+      %dd
+        Examples:
+        %pre
+          %code
+            %strong // Returns: http://foo.com/a/b/c/file.html
+            var absUrl = $.mobile.path.makeUrlAbsolute("file.html", "http://foo.com/a/b/c/test.html");
+            %strong // Returns: http://foo.com/a/foo/file.html
+            var absUrl = $.mobile.path.makeUrlAbsolute("../../foo/file.html", "http://foo.com/a/b/c/test.html");
+            %strong // Returns: http://foo.com/bar/file.html
+            var absUrl = $.mobile.path.makeUrlAbsolute("//foo.com/bar/file.html", "http://foo.com/a/b/c/test.html");
+            %strong // Returns: http://foo.com/a/b/c/test.html?a=1&amp;b=2
+            var absUrl = $.mobile.path.makeUrlAbsolute("?a=1&amp;b=2", "http://foo.com/a/b/c/test.html");
+            %strong // Returns: http://foo.com/a/b/c/test.html#bar
+            var absUrl = $.mobile.path.makeUrlAbsolute("#bar", "http://foo.com/a/b/c/test.html");
+      %dt
+        %code $.mobile.path.isSameDomain
+        (
+        %em> method
+        )
+      %dd Utility method for comparing the domain of 2 URLs.
+      %dd
+        %dl
+          %dt Arguments
+          %dd
+            %code url1
+            (
+            %em> string
+            , required) A relative URL.
+          %dd
+            %code url2
+            (
+            %em> string
+            , required) An absolute URL to resolve against.
+          %dt Return Value
+          %dd This function returns a boolean true if the domains match, false if they don't.
+      %dd
+        Examples:
+        %pre
+          %code
+            %strong // Returns: true
+            var same = $.mobile.path.isSameDomain("http://foo.com/a/file.html", "http://foo.com/a/b/c/test.html");
+            %strong // Returns: false
+            var same = $.mobile.path.isSameDomain("file://foo.com/a/file.html", "http://foo.com/a/b/c/test.html");
+            %strong // Returns: false
+            var same = $.mobile.path.isSameDomain("https://foo.com/a/file.html", "http://foo.com/a/b/c/test.html");
+            %strong // Returns: false
+            var same = $.mobile.path.isSameDomain("http://foo.com/a/file.html", "http://bar.com/a/b/c/test.html");
+      %dt
+        %code $.mobile.path.isRelativeUrl
+        (
+        %em> method
+        )
+      %dd Utility method for determining if a URL is a relative variant.
+      %dd
+        %dl
+          %dt Arguments
+          %dd
+            %code url
+            (
+            %em> string
+            , required) A relative or absolute URL.
+          %dt Return Value
+          %dd This function returns a boolean true if the URL is relative, false if it is absolute.
+      %dd
+        Examples:
+        %pre
+          %code
+            %strong // Returns: false
+            var isRel = $.mobile.path.isRelativeUrl("http://foo.com/a/file.html");
+            %strong // Returns: true
+            var isRel = $.mobile.path.isRelativeUrl("//foo.com/a/file.html");
+            %strong // Returns: true
+            var isRel = $.mobile.path.isRelativeUrl("/a/file.html");
+            %strong // Returns: true
+            var isRel = $.mobile.path.isRelativeUrl("file.html");
+            %strong // Returns: true
+            var isRel = $.mobile.path.isRelativeUrl("?a=1&amp;b=2");
+            %strong // Returns: true
+            var isRel = $.mobile.path.isRelativeUrl("#foo");
+      %dt
+        %code $.mobile.path.isAbsoluteUrl
+        (
+        %em> method
+        )
+      %dd Utility method for determining if a URL is absolute.
+      %dd
+        %dl
+          %dt Arguments
+          %dd
+            %code url
+            (
+            %em> string
+            , required) A relative or absolute URL.
+          %dt Return Value
+          %dd This function returns a boolean true if the URL is absolute, false if it is absolute.
+      %dd
+        Examples:
+        %pre
+          %code
+            %strong // Returns: true
+            var isAbs = $.mobile.path.isAbsoluteUrl("http://foo.com/a/file.html");
+            %strong // Returns: false
+            var isAbs = $.mobile.path.isAbsoluteUrl("//foo.com/a/file.html");
+            %strong // Returns: false
+            var isAbs = $.mobile.path.isAbsoluteUrl("/a/file.html");
+            %strong // Returns: false
+            var isAbs = $.mobile.path.isAbsoluteUrl("file.html");
+            %strong // Returns: false
+            var isAbs = $.mobile.path.isAbsoluteUrl("?a=1&amp;b=2");
+            %strong // Returns: false
+            var isAbs = $.mobile.path.isAbsoluteUrl("#foo");
       %dt
         %code $.mobile.base
         (
@@ -282,3 +514,4 @@
       %dd Reference to the page currently in view.
   / /content
 / /page
+
