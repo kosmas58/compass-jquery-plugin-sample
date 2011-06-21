@@ -1,10 +1,10 @@
 -@title = "jQuery Mobile Docs - Content formatting"
 = render :partial => "/mobile/index.js.haml", :format => :js
 
-%div{"data-role" => "page"}
-  %div{"data-role" => "header", "data-theme" => "b"}
+.type-index{"data-role" => "page"}
+  %div{"data-role" => "header", "data-theme" => "f"}
     %h1 Content formatting
-    %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile"} Home
+    %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile/"} Home
   / /header
   %div{"data-role" => "content"}
     %p The content of pages in jQuery Mobile is completely open-ended, but the jQuery Mobile framework provides a number of helpful tools and widgets &mdash; such as collapsible panels and multiple-column grid layouts &mdash; to make it easy to format your content for mobile devices.
@@ -17,6 +17,6 @@
         %a{:href => "/mobile/docs/content/content_collapsible"} Collapsible content blocks
       %li
         %a{:href => "/mobile/docs/content/content_themes"} Theming content
-      / <li><a href="api_content.html">API documentation</a></li>
+      / <li><a href="api-content.html">API documentation</a></li>
   / /ui-body wrapper
 / /page

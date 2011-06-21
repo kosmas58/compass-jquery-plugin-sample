@@ -1,19 +1,18 @@
 -@title = "jQuery UI Mobile Framework - About"
 = render :partial => "/mobile/index.js.haml", :format => :js
 
-%div{"data-role" => "page"}
-  %div{"data-role" => "header", "data-theme" => "b"}
+.type-index{"data-role" => "page"}
+  %div{"data-role" => "header", "data-theme" => "f"}
     %h1 About jQuery Mobile
-    %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile"} Home
-  / /header
+    %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile/"} Home
   %div{"data-role" => "content"}
-    %ul{"data-dividertheme" => "b", "data-inset" => "true", "data-role" => "listview", "data-theme" => "c"}
+    %ul{"data-dividertheme" => "f", "data-inset" => "true", "data-role" => "listview", "data-theme" => "c"}
       %li{"data-role" => "list-divider"} Overview
       %li
-        %a{:href => "/mobile/docs/about/intro"} Intro to jQuery Mobile
+        %a{:href => "/mobile/docs/intro"} Intro to jQuery Mobile
       %li
-        %a{:href => "/mobile/docs/about/features"} Features
+        %a{:href => "/mobile/docs/features"} Features
       %li
-        %a{:href => "/mobile/docs/about/accessibility"} Accessibility
+        %a{:href => "/mobile/docs/accessibility"} Accessibility
       %li
-        %a{:href => "/mobile/docs/about/platforms"} Supported platforms
+        %a{:href => "/mobile/docs/platforms"} Supported platforms

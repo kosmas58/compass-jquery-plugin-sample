@@ -1,6 +1,31 @@
 - content_for :head_scripts_before_mobile do
   :javascript
+    //collapse page navs after use
+    $(function() {
+      $('body').delegate('.content-secondary .ui-collapsible-content', 'vclick', function() {
+        $(this).trigger("collapse")
+      });
+    });
+
+    function setDefaultTransition() {
+      var winwidth = $(window).width(),
+              trans = "slide";
+
+      if (winwidth >= 1000) {
+        trans = "none";
+      }
+      else if (winwidth >= 650) {
+        trans = "fade";
+      }
+
+      $.mobile.defaultPageTransition = trans;
+    }
+
+    //set default documentation
     $(document).bind("mobileinit", function(event) {
       $.mobile.addResolutionBreakpoints([360, 600, 640, 800, 960, 1280]);
-      //$.mobile.loadingMessage("Its working");
+      setDefaultTransition();
+    });
+    $(function() {
+      $(window).bind("throttledresize", setDefaultTransition);
     });

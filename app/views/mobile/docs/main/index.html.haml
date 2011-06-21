@@ -2,11 +2,10 @@
 
 = render :partial => "/mobile/index.js.haml", :format => :js
 
-%div{"data-role" => "page", "data-theme" => "b"}
-  %div{"data-role" => "header"}
+.type-index{"data-role" => "page"}
+  %div{"data-role" => "header", "data-theme" => "f"}
     %h1 jQuery Mobile Docs
     %a.ui-btn-right{"data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile"} Home
-  / / header
   %div{"data-role" => "content"}
     %ul{"data-dividertheme" => "b", "data-inset" => "true", "data-role" => "listview", "data-theme" => "c"}
       %li{"data-role" => "list-divider"} Components
