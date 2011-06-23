@@ -1,16 +1,16 @@
--@title = "jQuery Mobile Docs - Lists with Form Controls"
+-@title = "jQuery Mobile Docs - Lists"
 = render :partial => "/mobile/index.js.haml", :format => :js
 
 .type-interior{"data-role" => "page"}
   %div{"data-role" => "header", "data-theme" => "f"}
-    %h1 Inset list samples
+    %h1 Linked list samples
     %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile"} Home
   / /header
   %div{"data-role" => "content"}
     .content-primary
       %form
         %h2 Simple list
-        %ul{"data-inset" => "true", "data-role" => "listview"}
+        %ul{"data-role" => "listview"}
           %li
             %a{:href => "/mobile/docs/lists"} Acura
           %li
@@ -22,7 +22,7 @@
           %li
             %a{:href => "/mobile/docs/lists"} Ferrari
         %h2 Count bubbles
-        %ul{"data-inset" => "true", "data-role" => "listview"}
+        %ul{"data-role" => "listview"}
           %li
             %a{:href => "/mobile/docs/lists"}
               Inbox
@@ -44,7 +44,7 @@
               Trash
               %span.ui-li-count 62
         %h2 Numbered list
-        %ol{"data-inset" => "true", "data-role" => "listview"}
+        %ol{"data-role" => "listview"}
           %li
             %a{:href => "/mobile/docs/lists"} The Godfather
           %li
@@ -56,7 +56,7 @@
           %li
             %a{:href => "/mobile/docs/lists"} Schindler's List
         %h2 Divided, formatted content
-        %ul{"data-inset" => "true", "data-role" => "listview"}
+        %ul{"data-role" => "listview"}
           %li
             %a{:href => "/mobile/docs/lists"}
               %h3 Stephen Weber
@@ -76,7 +76,7 @@
                 %strong> 9:18
                 AM
         %h2 Icon list
-        %ul{"data-inset" => "true", "data-role" => "listview"}
+        %ul{"data-role" => "listview"}
           %li
             %a{:href => "/mobile/docs/lists"}
               %img.ui-li-icon{:alt => "France", :src => "/images/demo/mobile/flags/gf.png"}
@@ -108,7 +108,7 @@
                 United States
                 %span.ui-li-count 62
         %h2 Thumbnail, split button list
-        %ul{"data-inset" => "true", "data-role" => "listview"}
+        %ul{"data-role" => "listview"}
           %li
             %a{:href => "/mobile/docs/lists"}
               %img{:src => "/images/demo/mobile/album/album-bb.jpg"}/
@@ -131,7 +131,7 @@
             %a{"data-rel" => "dialog", "data-transition" => "slideup", :href => "/mobile/docs/lists/lists_split_puchase"}
               Purchase album
         %h2 Divided, filterable list
-        %ul{"data-filter" => "true", "data-inset" => "true", "data-role" => "listview"}
+        %ul{"data-filter" => "true", "data-role" => "listview"}
           %li{"data-role" => "list-divider"} A
           %li
             %a{:href => "/mobile/docs/lists"} Adam Kinkaid
@@ -153,7 +153,7 @@
         %h3 More in this section
         %ul{"data-dividertheme" => "d", "data-role" => "listview", "data-theme" => "c"}
           %li{"data-role" => "list-divider"} List views
-          %li
+          %li{"data-theme" => "a"}
             %a{:href => "/mobile/docs/lists/docs_lists"} List markup conventions
           %li
             %a{:href => "/mobile/docs/lists/lists_ul"} Basic linked list
@@ -187,7 +187,7 @@
             %a{:href => "/mobile/docs/lists/lists_forms"} Lists with forms
           %li
             %a{:href => "/mobile/docs/lists/lists_forms_inset"} Inset lists with forms
-          %li{"data-theme" => "a"}
+          %li
             %a{:href => "/mobile/docs/lists/lists_inset"} Inset styled lists
           %li
             %a{:href => "/mobile/docs/lists/lists_performance"} List performance test

@@ -1,43 +1,64 @@
 -@title = "jQuery Mobile Docs - Transitions"
 = render :partial => "/mobile/index.js.haml", :format => :js
 
-%div{"data-role" => "page"}
-  %div{"data-role" => "header", "data-theme" => "b"}
+.type-interior{"data-role" => "page"}
+  %div{"data-role" => "header", "data-theme" => "f"}
     %h1 Transitions
     %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile"} Home
   / /header
   %div{"data-role" => "content"}
-    %h2 Page transitions
-    %p The jQuery Mobile framework includes a set of six CSS-based transition effects that can be applied to any object or page change event, which apply the chosen transition when navigating to a new page and the reverse transition for the Back button. By default, the framework applies the right to left slide transition.
-    %p
-      To set a custom transition effect, add the
-      %code data-transition
-      attribute to the link. Possible values include:
-    %code
-      %code
-        &lt;a href=&quot;index.html&quot; data-transition=&quot;pop&quot;&gt;I'll pop&lt;/a&gt;
-    %p
-      %a{"data-rel" => "dialog", "data-role" => "button", "data-transition" => "slide", :href => "/mobile/docs/pages/transition_success"} slide
-      %a{"data-rel" => "dialog", "data-role" => "button", "data-transition" => "slideup", :href => "/mobile/docs/pages/transition_success"} slideup
-      %a{"data-rel" => "dialog", "data-role" => "button", "data-transition" => "slidedown", :href => "/mobile/docs/pages/transition_success"} slidedown
-      %a{"data-rel" => "dialog", "data-role" => "button", "data-transition" => "pop", :href => "/mobile/docs/pages/transition_success"} pop
-      %a{"data-rel" => "dialog", "data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/pages/transition_success"} fade
-      %a{"data-rel" => "dialog", "data-role" => "button", "data-transition" => "flip", :href => "/mobile/docs/pages/transition_success"} flip *
-    %p NOTE: The flip transition isn't rendered correctly on most versions of Android because it lacks 3D CSS transform capabilities. Unfortunately, instead of ignoring the flip, Android makes the page "cartwheel" away by rotating instead of flipping. We recommend using this transition sparingly until support improves.
-    %p
-      In addition, you can also force a "backwards" transition by specifying
-      %code data-direction="reverse"
-      on your link. Note: (this was formerly
-      = succeed "," do
-        %code data-back="true"
-      which will remain supported until 1.0)
-    .ui-body.ui-body-e
+    .content-primary
+      %h2 Page transitions
+      %p The jQuery Mobile framework includes a set of six CSS-based transition effects that can be applied to any object or page change event, which apply the chosen transition when navigating to a new page and the reverse transition for the Back button. By default, the framework applies the right to left slide transition.
       %p
-        %strong
-          Transitions from
-          %a{:href => "http://www.jqtouch.com/"} jQtouch
-        (
-        %em> with small modifications
-        ): Built by David Kaneda and maintained by Jonathan Stark.
+        To set a custom transition effect, add the
+        %code data-transition
+        attribute to the link. Possible values include:
+      %code
+        %code
+          \&lt;a href=&quot;index.html&quot; data-transition=&quot;pop&quot;&gt;I'll pop&lt;/a&gt;
+      %p
+        %a{"data-rel" => "dialog", "data-role" => "button", "data-transition" => "slide", :href => "/mobile/docs/pages/transition_success"} slide
+        %a{"data-rel" => "dialog", "data-role" => "button", "data-transition" => "slideup", :href => "/mobile/docs/pages/transition_success"} slideup
+        %a{"data-rel" => "dialog", "data-role" => "button", "data-transition" => "slidedown", :href => "/mobile/docs/pages/transition_success"} slidedown
+        %a{"data-rel" => "dialog", "data-role" => "button", "data-transition" => "pop", :href => "/mobile/docs/pages/transition_success"} pop
+        %a{"data-rel" => "dialog", "data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/pages/transition_success"} fade
+        %a{"data-rel" => "dialog", "data-role" => "button", "data-transition" => "flip", :href => "/mobile/docs/pages/transition_success"} flip *
+      %p NOTE: The flip transition isn't rendered correctly on most versions of Android because it lacks 3D CSS transform capabilities. Unfortunately, instead of ignoring the flip, Android makes the page "cartwheel" away by rotating instead of flipping. We recommend using this transition sparingly until support improves.
+      %p
+        In addition, you can also force a "backwards" transition by specifying
+        %code data-direction="reverse"
+        on your link. Note: (this was formerly
+        = succeed "," do
+          %code data-back="true"
+        which will remain supported until 1.0)
+      .ui-body.ui-body-e
+        %p
+          %strong
+            Transitions from
+            %a{:href => "http://www.jqtouch.com/"} jQtouch
+          (
+          %em> with small modifications
+          ): Built by David Kaneda and maintained by Jonathan Stark.
+    / /content-primary
+    .content-secondary
+      %div{"data-collapsed" => "true", "data-role" => "collapsible", "data-theme" => "b"}
+        %h3 More in this section
+        %ul{"data-dividertheme" => "d", "data-role" => "listview", "data-theme" => "c"}
+          %li{"data-role" => "list-divider"} Pages &amp; Dialogs
+          %li
+            %a{:href => "/mobile/docs/pages/docs_pages"} Anatomy of a page
+          %li{"data-theme" => "a"}
+            %a{:href => "/mobile/docs/pages/docs_transitions"} Page transitions
+          %li
+            %a{:href => "/mobile/docs/pages/docs_dialogs"} Dialogs
+          %li
+            %a{:href => "/mobile/docs/pages/docs_navmodel"} Navigation: Ajax, hashes &amp; history
+          %li
+            %a{:href => "/mobile/docs/pages/link_formats"} Link format examples
+          %li
+            %a{:href => "/mobile/docs/pages/pages_themes"} Theming pages
   / /content
+  .footer-docs{"data-role" => "footer", "data-theme" => "c"}
+    %p &copy; 2011 The jQuery Project
 / /page

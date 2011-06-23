@@ -1,46 +1,82 @@
 -@title = "jQuery Mobile Docs - Search"
 = render :partial => "/mobile/index.js.haml", :format => :js
 
-%div{"data-role" => "page"}
-  %div{"data-role" => "header", "data-theme" => "b"}
+.type-interior{"data-role" => "page"}
+  %div{"data-role" => "header", "data-theme" => "f"}
     %h1 Search inputs
     %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile"} Home
   / /header
   %div{"data-role" => "content"}
-    %form{:action => "#", :method => "get"}
-      %h2 Search inputs
-      %p
-        Search inputs are a new HTML type that is styled with pill-shaped corners and adds a "x" icon to clear the field once you start typing. Start with an
-        %code input
-        with a
-        %code type="search"
-        attribute in your markup.
-      %p
-        Set the
-        %code for
-        attribute of the
-        %code label
-        to match the ID of the
-        %code input
-        so they are semantically associated and wrap them in a
-        %code div
-        with the
-        %code data-role="fieldcontain"
-        attribute to group them.
-      %pre
-        %code
-          :preserve
-            &lt;div data-role=&quot;fieldcontain&quot;&gt;
-              &lt;label for=&quot;search&quot;&gt;Search Input:&lt;/label&gt;
-              &lt;input type=&quot;search&quot; name=&quot;password&quot; id=&quot;search&quot; value=&quot;&quot; /&gt;
-            &lt;/div&gt;
-      %p The search input is displayed like this:
-      %div{"data-role" => "fieldcontain"}
-        %label{:for => "search"} Search Input:
-        %input#search{:name => "password", :type => "search", :value => ""}/
-      %p Themed variation:
-      %div{"data-role" => "fieldcontain"}
-        %label{:for => "searchA"} Search Input:
-        %input#searchA{"data-theme" => "a", :name => "searchA", :type => "search", :value => ""}/
+    .content-primary
+      %form{:action => "#", :method => "get"}
+        %h2 Search inputs
+        %p
+          Search inputs are a new HTML type that is styled with pill-shaped corners and adds a "x" icon to clear the field once you start typing. Start with an
+          %code input
+          with a
+          %code type="search"
+          attribute in your markup.
+        %p
+          Set the
+          %code for
+          attribute of the
+          %code label
+          to match the ID of the
+          %code input
+          so they are semantically associated and wrap them in a
+          %code div
+          with the
+          %code data-role="fieldcontain"
+          attribute to group them.
+        %pre
+          %code
+            :preserve
+
+              &lt;div data-role=&quot;fieldcontain&quot;&gt;
+                  &lt;label for=&quot;search&quot;&gt;Search Input:&lt;/label&gt;
+                  &lt;input type=&quot;search&quot; name=&quot;password&quot; id=&quot;search&quot; value=&quot;&quot; /&gt;
+              &lt;/div&gt;
+        %p The search input is displayed like this:
+        %div{"data-role" => "fieldcontain"}
+          %label{:for => "search"} Search Input:
+          %input#search{:name => "password", :type => "search", :value => ""}/
+        %p Themed variation:
+        %div{"data-role" => "fieldcontain"}
+          %label{:for => "searchA"} Search Input:
+          %input#searchA{"data-theme" => "a", :name => "searchA", :type => "search", :value => ""}/
+    / /content-primary
+    .content-secondary
+      %div{"data-collapsed" => "true", "data-role" => "collapsible", "data-theme" => "b"}
+        %h3 More in this section
+        %ul{"data-dividertheme" => "d", "data-role" => "listview", "data-theme" => "c"}
+          %li{"data-role" => "list-divider"} Form elements
+          %li
+            %a{:href => "/mobile/docs/forms/docs_forms"} Form basics
+          %li
+            %a{:href => "/mobile/docs/forms/forms_all"} Form element gallery
+          %li
+            %a{:href => "/mobile/docs/forms/forms_text"} Text inputs
+          %li{"data-theme" => "a"}
+            %a{:href => "/mobile/docs/forms/forms_search"} Search inputs
+          %li
+            %a{:href => "/mobile/docs/forms/forms_slider"} Slider
+          %li
+            %a{:href => "/mobile/docs/forms/forms_switch"} Flip toggle switch
+          %li
+            %a{:href => "/mobile/docs/forms/forms_radiobuttons"} Radio buttons
+          %li
+            %a{:href => "/mobile/docs/forms/forms_checkboxes"} Checkboxes
+          %li
+            %a{:href => "/mobile/docs/forms/forms_selects"} Select menus
+          %li
+            %a{:href => "/mobile/docs/forms/forms_themes"} Theming forms
+          %li
+            %a{:href => "/mobile/docs/forms/forms_all_native"} Native form elements
+          %li
+            %a{:href => "/mobile/docs/forms/forms_sample"} Submitting forms
+          %li
+            %a{:href => "/mobile/docs/forms/plugin_eventsmethods"} Plugin methods
   / /content
+  .footer-docs{"data-role" => "footer", "data-theme" => "c"}
+    %p &copy; 2011 The jQuery Project
 / /page

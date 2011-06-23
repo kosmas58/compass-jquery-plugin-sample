@@ -1,164 +1,198 @@
 -@title = "jQuery Mobile Docs - Form Plugin Methods"
-
 = render :partial => "/mobile/index.js.haml", :format => :js
 
-%div{"data-role" => "page"}
-  %div{"data-role" => "header", "data-theme" => "b"}
+.type-interior{"data-role" => "page"}
+  %div{"data-role" => "header", "data-theme" => "f"}
     %h1 Form Plugin Methods
     %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile"} Home
   / /header
   %div{"data-role" => "content"}
-    %p After jQuery Mobile auto-enhances form controls into custom controls, you can manipulate many of their properties via plugin methods. The currently available methods are listed below. Check Github for updates - we're working on complete coverage.
-    %h2 Selectmenu
-    %dl
-      %dt Methods
-      %dd
-        %code open
-        open a closed select menu
-      %dd
-        %pre
-          %code
-            :preserve
-              $('select').selectmenu('open');
-      %dd
-        %code close
-        close an open select menu
-      %dd
-        %pre
-          %code
-            :preserve
-              $('select').selectmenu('close');
-      %dd
-        %code> refresh
-        \: Update the custom menu to reflect the native select element's value. If the number of options in the select are different than the number of items in the custom menu, it'll rebuild the custom menu. Also, if you pass a true argument you can force the rebuild to happen.
-      %dd
-        %pre
-          %code
-            :preserve
-              //refresh value
-              $('select').selectmenu('refresh');
-              
-              //refresh and force rebuild
-              $('select').selectmenu('refresh', true);
-      %dd
-        %code> enable
-        \: enable a disabled select.
-      %dd
-        %pre
-          %code
-            :preserve
-              $('select').selectmenu('enable');
-      %dd
-        %code> disable
-        \: disable a select.
-      %dd
-        %pre
-          %code
-            :preserve
-              $('select').selectmenu('disable');
-    %h2 Textinput
-    %dl
-      %dt Methods
-      %dd
-        %code> enable
-        \: enable a disabled textinput/textarea.
-      %dd
-        %pre
-          %code
-            :preserve
-              $('input').textinput('enable');
-                        %dd
-        %code> disable
-        \: disable a textinput/textarea.
-      %dd
-        %pre
-          %code
-            :preserve
-              $('textarea').textinput('disable');
-    %h2 checkboxradio
-    %dl
-      %dt Methods
-      %dd
-        %code> enable
-        \: enable a disabled checkboxradio.
-      %dd
-        %pre
-          %code
-            :preserve
-              $('input').checkboxradio('enable');
-      %dd
-        %code> disable
-        \: disable a checkboxradio.
-      %dd
-        %pre
-          %code
-            :preserve
-              $('input').checkboxradio('disable');
-      %dd
-        %code> refresh
-        \: refresh a checkboxradio's value.
-      %dd
-        %pre
-          %code
-            :preserve
-              $('input').checkboxradio('refresh');
-    %h2 slider
-    %dl
-      %dt Methods
-      %dd
-        %code> enable
-        \: enable a disabled slider.
-      %dd
-        %pre
-          %code
-            :preserve
-              $('input').slider('enable');
-      %dd
-        %code> disable
-        \: disable a slider.
-      %dd
-        %pre
-          %code
-            :preserve
-              $('input').slider('disable');
-                        %dd
-        %code> refresh
-        \: refresh a slider's value.
-      %dd
-        %pre
-          %code
-            :preserve
-              $('input').slider('refresh');
-    %h2 Form buttons
-    %dl
-      %dt Methods
-      %dd
-        %code> enable
-        \: enable a disabled button.
-      %dd
-        %pre
-          %code
-            :preserve
-              $('input').button('enable');
-      %dd
-        %code> disable
-        \: disable a slider.
-      %dd
-        %pre
-          %code
-            :preserve
-              $('input').button('disable');
-    %h2 Degraded Form Input Types
-    %p jQuery Mobile degrades several HTML5 input types back to type=text, or type=number after adding enhanced controls. For example, inputs with a type of range are enhanced with a custom slider control, and their type is set to number to offer a usable form input alongside that slider. Inputs with a type of search are degraded back to type=text after we add our own themable search input styling.
-    %p The page plugin contains a list of input types that are set to either true which means they'll degrade to type=text, false which means they'll be left alone, or a string such as "number", which means they'll be converted to that type (such as the case of type=range).
-    %p
-      You can configure which types are changed via the page plugin's
-      %code degradeInputs
-      option, which can be manipulated externally via
-      = succeed "," do
-        %code $.mobile.page.prototype.options.degradeInputs
-      which has properties: color, date, datetime, "datetime-local", email, month, number, range, search, tel, time, url, and week. Be sure to configure this inside an event handler bound to the
-      %code mobileinit
-      event, so that it applies to the first page as well as subsequent pages that are loaded.
+    .content-primary
+      %p After jQuery Mobile auto-enhances form controls into custom controls, you can manipulate many of their properties via plugin methods. The currently available methods are listed below. Check Github for updates - we're working on complete coverage.
+      %h2 Selectmenu
+      %dl
+        %dt Methods
+        %dd
+          %code open
+          open a closed select menu
+        %dd
+          %pre
+            %code
+              :preserve
+                $('select').selectmenu('open');
+        %dd
+          %code close
+          close an open select menu
+        %dd
+          %pre
+            %code
+              :preserve
+                $('select').selectmenu('close');
+        %dd
+          %code> refresh
+          \: Update the custom menu to reflect the native select element's value. If the number of options in the select are different than the number of items in the custom menu, it'll rebuild the custom menu. Also, if you pass a true argument you can force the rebuild to happen.
+        %dd
+          %pre
+            %code
+              :preserve
+                //refresh value
+                $('select').selectmenu('refresh');
+
+                //refresh and force rebuild
+                $('select').selectmenu('refresh', true);
+        %dd
+          %code> enable
+          \: enable a disabled select.
+        %dd
+          %pre
+            %code
+              :preserve
+                $('select').selectmenu('enable');
+        %dd
+          %code> disable
+          \: disable a select.
+        %dd
+          %pre
+            %code
+              :preserve
+                $('select').selectmenu('disable');
+      %h2 Textinput
+      %dl
+        %dt Methods
+        %dd
+          %code> enable
+          \: enable a disabled textinput/textarea.
+        %dd
+          %pre
+            %code
+              :preserve
+                $('input').textinput('enable');
+        %dd
+          %code> disable
+          \: disable a textinput/textarea.
+        %dd
+          %pre
+            %code
+              :preserve
+                $('textarea').textinput('disable');
+      %h2 checkboxradio
+      %dl
+        %dt Methods
+        %dd
+          %code> enable
+          \: enable a disabled checkboxradio.
+        %dd
+          %pre
+            %code
+              :preserve
+                $('input').checkboxradio('enable');
+                                  %dd
+          %code> disable
+          \: disable a checkboxradio.
+        %dd
+          %pre
+            %code
+              :preserve
+                $('input').checkboxradio('disable');
+                                  %dd
+          %code> refresh
+          \: refresh a checkboxradio's value.
+        %dd
+          %pre
+            %code
+              :preserve
+                $('input').checkboxradio('refresh');
+      %h2 slider
+      %dl
+        %dt Methods
+        %dd
+          %code> enable
+          \: enable a disabled slider.
+        %dd
+          %pre
+            %code
+              :preserve
+                $('input').slider('enable');
+        %dd
+          %code> disable
+          \: disable a slider.
+        %dd
+          %pre
+            %code
+              :preserve
+                $('input').slider('disable');
+        %dd
+          %code> refresh
+          \: refresh a slider's value.
+        %dd
+          %pre
+            %code
+              :preserve
+                $('input').slider('refresh');
+      %h2 Form buttons
+      %dl
+        %dt Methods
+        %dd
+          %code> enable
+          \: enable a disabled button.
+        %dd
+          %pre
+            %code
+              :preserve
+                $('input').button('enable');
+        %dd
+          %code> disable
+          \: disable a slider.
+        %dd
+          %pre
+            %code
+              :preserve
+                $('input').button('disable');
+      %h2 Degraded Form Input Types
+      %p jQuery Mobile degrades several HTML5 input types back to type=text, or type=number after adding enhanced controls. For example, inputs with a type of range are enhanced with a custom slider control, and their type is set to number to offer a usable form input alongside that slider. Inputs with a type of search are degraded back to type=text after we add our own themable search input styling.
+      %p The page plugin contains a list of input types that are set to either true which means they'll degrade to type=text, false which means they'll be left alone, or a string such as "number", which means they'll be converted to that type (such as the case of type=range).
+      %p
+        You can configure which types are changed via the page plugin's
+        %code degradeInputs
+        option, which can be manipulated externally via
+        = succeed "," do
+          %code $.mobile.page.prototype.options.degradeInputs
+        which has properties: color, date, datetime, "datetime-local", email, month, number, range, search, tel, time, url, and week. Be sure to configure this inside an event handler bound to the
+        %code mobileinit
+        event, so that it applies to the first page as well as subsequent pages that are loaded.
+    / /content-primary
+    .content-secondary
+      %div{"data-collapsed" => "true", "data-role" => "collapsible", "data-theme" => "b"}
+        %h3 More in this section
+        %ul{"data-dividertheme" => "d", "data-role" => "listview", "data-theme" => "c"}
+          %li{"data-role" => "list-divider"} Form elements
+          %li
+            %a{:href => "/mobile/docs/forms/docs_forms"} Form basics
+          %li
+            %a{:href => "/mobile/docs/forms/forms_all"} Form element gallery
+          %li
+            %a{:href => "/mobile/docs/forms/forms_text"} Text inputs
+          %li
+            %a{:href => "/mobile/docs/forms/forms_search"} Search inputs
+          %li
+            %a{:href => "/mobile/docs/forms/forms_slider"} Slider
+          %li
+            %a{:href => "/mobile/docs/forms/forms_switch"} Flip toggle switch
+          %li
+            %a{:href => "/mobile/docs/forms/forms_radiobuttons"} Radio buttons
+          %li
+            %a{:href => "/mobile/docs/forms/forms_checkboxes"} Checkboxes
+          %li
+            %a{:href => "/mobile/docs/forms/forms_selects"} Select menus
+          %li
+            %a{:href => "/mobile/docs/forms/forms_themes"} Theming forms
+          %li
+            %a{:href => "/mobile/docs/forms/forms_all_native"} Native form elements
+          %li
+            %a{:href => "/mobile/docs/forms/forms_sample"} Submitting forms
+          %li{"data-theme" => "a"}
+            %a{:href => "/mobile/docs/forms/plugin_eventsmethods"} Plugin methods
   / /content
+  .footer-docs{"data-role" => "footer", "data-theme" => "c"}
+    %p &copy; 2011 The jQuery Project
 / /page

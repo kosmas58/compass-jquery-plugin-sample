@@ -1,56 +1,105 @@
 -@title = "jQuery Mobile Docs - Basic Lists"
 = render :partial => "/mobile/index.js.haml", :format => :js
 
-%div{"data-role" => "page"}
-  %div{"data-role" => "header", "data-theme" => "b"}
+.type-interior{"data-role" => "page"}
+  %div{"data-role" => "header", "data-theme" => "f"}
     %h1 Basic list
     %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile"} Home
   / /header
   %div{"data-role" => "content"}
-    %ul{"data-role" => "listview"}
-      %li
-        %a{:href => "/mobile/docs/lists"} Acura
-      %li
-        %a{:href => "/mobile/docs/lists"} Audi
-      %li
-        %a{:href => "/mobile/docs/lists"} BMW
-      %li
-        %a{:href => "/mobile/docs/lists"} Cadillac
-      %li
-        %a{:href => "/mobile/docs/lists"} Chrysler
-      %li
-        %a{:href => "/mobile/docs/lists"} Dodge
-      %li
-        %a{:href => "/mobile/docs/lists"} Ferrari
-      %li
-        %a{:href => "/mobile/docs/lists"} Ford
-      %li
-        %a{:href => "/mobile/docs/lists"} GMC
-      %li
-        %a{:href => "/mobile/docs/lists"} Honda
-      %li
-        %a{:href => "/mobile/docs/lists"} Hyundai
-      %li
-        %a{:href => "/mobile/docs/lists"} Infiniti
-      %li
-        %a{:href => "/mobile/docs/lists"} Jeep
-      %li
-        %a{:href => "/mobile/docs/lists"} Kia
-      %li
-        %a{:href => "/mobile/docs/lists"} Lexus
-      %li
-        %a{:href => "/mobile/docs/lists"} Mini
-      %li
-        %a{:href => "/mobile/docs/lists"} Nissan
-      %li
-        %a{:href => "/mobile/docs/lists"} Porsche
-      %li
-        %a{:href => "/mobile/docs/lists"} Subaru
-      %li
-        %a{:href => "/mobile/docs/lists"} Toyota
-      %li
-        %a{:href => "/mobile/docs/lists"} Volkswagon
-      %li
-        %a{:href => "/mobile/docs/lists"} Volvo
+    .content-primary
+      %ul{"data-role" => "listview"}
+        %li
+          %a{:href => "/mobile/docs/lists"} Acura
+        %li
+          %a{:href => "/mobile/docs/lists"} Audi
+        %li
+          %a{:href => "/mobile/docs/lists"} BMW
+        %li
+          %a{:href => "/mobile/docs/lists"} Cadillac
+        %li
+          %a{:href => "/mobile/docs/lists"} Chrysler
+        %li
+          %a{:href => "/mobile/docs/lists"} Dodge
+        %li
+          %a{:href => "/mobile/docs/lists"} Ferrari
+        %li
+          %a{:href => "/mobile/docs/lists"} Ford
+        %li
+          %a{:href => "/mobile/docs/lists"} GMC
+        %li
+          %a{:href => "/mobile/docs/lists"} Honda
+        %li
+          %a{:href => "/mobile/docs/lists"} Hyundai
+        %li
+          %a{:href => "/mobile/docs/lists"} Infiniti
+        %li
+          %a{:href => "/mobile/docs/lists"} Jeep
+        %li
+          %a{:href => "/mobile/docs/lists"} Kia
+        %li
+          %a{:href => "/mobile/docs/lists"} Lexus
+        %li
+          %a{:href => "/mobile/docs/lists"} Mini
+        %li
+          %a{:href => "/mobile/docs/lists"} Nissan
+        %li
+          %a{:href => "/mobile/docs/lists"} Porsche
+        %li
+          %a{:href => "/mobile/docs/lists"} Subaru
+        %li
+          %a{:href => "/mobile/docs/lists"} Toyota
+        %li
+          %a{:href => "/mobile/docs/lists"} Volkswagon
+        %li
+          %a{:href => "/mobile/docs/lists"} Volvo
+    / /content-primary
+    .content-secondary
+      %div{"data-collapsed" => "true", "data-role" => "collapsible", "data-theme" => "b"}
+        %h3 More in this section
+        %ul{"data-dividertheme" => "d", "data-role" => "listview", "data-theme" => "c"}
+          %li{"data-role" => "list-divider"} List views
+          %li
+            %a{:href => "/mobile/docs/lists/docs_lists"} List markup conventions
+          %li{"data-theme" => "a"}
+            %a{:href => "/mobile/docs/lists/lists_ul"} Basic linked list
+          %li
+            %a{:href => "/mobile/docs/lists/lists_nested"} Nested list
+          %li
+            %a{:href => "/mobile/docs/lists/lists_ol"} Numbered list
+          %li
+            %a{:href => "/mobile/docs/lists/lists_split"} Split button list
+          %li
+            %a{:href => "/mobile/docs/lists/lists_divider"} List dividers
+          %li
+            %a{:href => "/mobile/docs/lists/lists_count"} Count bubble
+          %li
+            %a{:href => "/mobile/docs/lists/lists_thumbnails"} Thumbnails
+          %li
+            %a{:href => "/mobile/docs/lists/lists_icons"} Icons
+          %li
+            %a{:href => "/mobile/docs/lists/lists_formatting"} Content formatting
+          %li
+            %a{:href => "/mobile/docs/lists/lists_search"} Search filter bar
+          %li
+            %a{:href => "/mobile/docs/lists/lists_search_inset"} Inset search filter bar
+          %li
+            %a{:href => "/mobile/docs/lists/lists_search_with_dividers"} Search filter bar with dividers
+          %li
+            %a{:href => "/mobile/docs/lists/lists_readonly"} Read-only lists
+          %li
+            %a{:href => "/mobile/docs/lists/lists_readonly_inset"} Read-only inset lists
+          %li
+            %a{:href => "/mobile/docs/lists/lists_forms"} Lists with forms
+          %li
+            %a{:href => "/mobile/docs/lists/lists_forms_inset"} Inset lists with forms
+          %li
+            %a{:href => "/mobile/docs/lists/lists_inset"} Inset styled lists
+          %li
+            %a{:href => "/mobile/docs/lists/lists_performance"} List performance test
+          %li
+            %a{:href => "/mobile/docs/lists/lists_themes"} Theming lists
   / /content
+  .footer-docs{"data-role" => "footer", "data-theme" => "c"}
+    %p &copy; 2011 The jQuery Project
 / /page
