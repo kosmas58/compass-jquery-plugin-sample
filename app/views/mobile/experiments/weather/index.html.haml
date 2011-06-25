@@ -1,42 +1,76 @@
 -@title = "jQuery Mobile Framework - Weather for"
+= render :partial => "/mobile/docs/docs.html.haml"
 
-%div{"data-role" => "page", "data-theme" => "a"}
-  %form.ui-body.ui-body-a{:action => "", :method => "get"}
-    %label{:for => "location"}
-      Change city:
-    %input#location{"data-theme" => "a", :name => "location", :placeholder => "city name...", :type => "search", :value => "#{@location}"}/
-    %input{"data-role" => "nojs", :type => "submit", :value => "submit"}
-    %a{ "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile/experiments/main", :rel => "external"} Home
+.type-interior{"data-role" => "page", "data-theme" => "a"}
+  %div{"data-role" => "header", "data-theme" => "f"}
+    %h1 Weather forecast
+    %a.ui-btn-left{"data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile/experiments/main", :rel => "external"} Home
   / / header
   %div{"data-role" => "content"}
-    %h1
-      Currently in
-      %br
-      #{@information[:city]}:
-    .current.ui-body.ui-bar-a.ui-corner-all
-      - # 'condition','temp_c','icon','humidity','wind_condition']
-      .ui-grid-a{}
-        .ui-block-a{:style => "width:25%;"}
-          %img{:alt => "weather", :src => "http://www.google.com#{@information[:icon]}"}
-        .ui-block-b{:style => "width:75%;"}
-          %p.condition
-            #{@information[:temp_c]} &#8451;,
-            #{@information[:condition]}
-            %br
-            #{@information[:wind_condition]}
-            %br
-            #{@information[:humidity]}
-    %ul{"data-inset" => "true", "data-role" => "listview", "data-theme" => "a", "data-divider-theme" => "a"}
-      %li{"data-role" => "list-divider"} This week's forecast
-      - @forecast_list.each do |item|
-        %li
-          %img{:src => "http://www.google.com#{item[:icon]}"}
-          %h3
-            %a
-              #{item[:day_of_week]}
-          %p
-            #{item[:low]} &#8451;,
-            #{item[:high]} &#8451;,
-            #{item[:condition]}
+    .content-primary
+      %form.ui-body.ui-body-a{:action => "", :method => "get"}
+        %label{:for => "location"}
+          Change city:
+        %input#location{"data-theme" => "a", :name => "location", :placeholder => "city name...", :type => "search", :value => "#{@location}"}/
+        %input{"data-role" => "nojs", :type => "submit", :value => "submit"}
+      %h1
+        Currently in
+        %br
+        #{@information[:city]}:
+      .current.ui-body.ui-bar-a.ui-corner-all
+        - # 'condition','temp_c','icon','humidity','wind_condition']
+        .ui-grid-a{}
+          .ui-block-a{:style => "width:25%;"}
+            %img{:alt => "weather", :src => "http://www.google.com#{@information[:icon]}"}
+          .ui-block-b{:style => "width:75%;"}
+            %p.condition
+              #{@information[:temp_c]} &#8451;,
+              #{@information[:condition]}
+              %br
+              #{@information[:wind_condition]}
+              %br
+              #{@information[:humidity]}
+      %ul{"data-inset" => "true", "data-role" => "listview", "data-theme" => "a", "data-divider-theme" => "a"}
+        %li{"data-role" => "list-divider"} This week's forecast
+        - @forecast_list.each do |item|
+          %li
+            %img{:src => "http://www.google.com#{item[:icon]}"}
+            %h3
+              %a
+                #{item[:day_of_week]}
+            %p
+              #{item[:low]} &#8451;,
+              #{item[:high]} &#8451;,
+              #{item[:condition]}
+    .content-secondary
+      .ui-body-a
+        %div{"data-collapsed" => "true", "data-role" => "collapsible", "data-theme" => "b"}
+          %h3 More experiments in this section
+          %ul{"data-dividertheme" => "d", "data-role" => "listview", "data-theme" => "c"}
+            %li{"data-role" => "list-divider"} Experiments
+            %li
+              %a{:href => "/mobile/experiments/datepicker", :rel => "external"}
+                %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/jqmobile.png"}
+                  Datepicker
+            %li
+              %a{:href => "/mobile/experiments/google_maps", :rel => "external"}
+                %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/jqmobile.png"}
+                  Google Maps
+            %li
+              %a{:href => "/mobile/experiments/navbar_glyphish", :rel => "external"}
+                %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/jqmobile.png"}
+                  Navbar with Glyphish icons
+            %li
+              %a{:href => "/mobile/experiments/photos"}
+                %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/jqmobile.png"}
+                  Photos
+            %li
+              %a{:href => "/mobile/experiments/scrollview", :rel => "external"}
+                %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/jqmobile.png"}
+                  Scroll View
+            %li{"data-theme" => "a"}
+              %a{:href => "/mobile/experiments/weather"}
+                %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/jqmobile.png"}
+                  Weather forecast
   / / content
 / / page

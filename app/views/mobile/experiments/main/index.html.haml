@@ -1,12 +1,16 @@
 = render :partial => "/mobile/index.js.haml", :format => :js
 
-#jqm-home{"data-role" => "page", "data-theme" => "b"}
-  #jqm-homeheader
-    %h1#jqm-logo
-      %img{:alt => "jQuery Mobile Framework", :height => "61", :src => "/images/demo/mobile/jquery-logo.png", :width => "235"}/
-    %p A Touch-Optimized Web Framework for Smartphones &amp; Tablets
-    %p#jqm-version Alpha Release
+#jqm-home{"data-role" => "page"}
   %div{"data-role" => "content"}
+    #jqm-homeheader
+      %h1#jqm-logo
+        %img{:alt => "jQuery Mobile Framework", :src => "/images/demo/mobile/jquery-logo.png"}/
+      %p A Touch-Optimized Web Framework for Smartphones &amp; Tablets
+      %p#jqm-version Beta Release
+    %p.intro
+      %strong Welcome.
+      Browse the jQuery Mobile components and learn how to make rich, accessible, touch-friendly websites and apps.
+
     %ul{"data-dividertheme" => "b", "data-inset" => "true", "data-role" => "listview", "data-theme" => "c"}
       %li{"data-role" => "list-divider"} Experiments
       %li
@@ -30,7 +34,7 @@
           %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/jqmobile.png"}
             Scroll View
       %li
-        %a{:href => "/mobile/experiments/weather"}
+        %a{:href => "/mobile/experiments/weather", :rel => "external"}
           %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/jqmobile.png"}
             Weather forecast
     %ul{"data-dividertheme" => "b", "data-inset" => "true", "data-role" => "listview", "data-theme" => "c"}
@@ -75,3 +79,4 @@
         %a{:href => "/mobile/tuts/new_claim", :rel => "external"}
           %img.ui-li-icon{:alt => "HTML5", :src =>  "/images/demo/mobile/tuts/mobileLogo.png"}
             New Claim
+  / /content
