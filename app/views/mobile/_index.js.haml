@@ -1,4 +1,5 @@
-= render :partial => "/mobile/docs/docs.html.haml"
+- content_for :head_stylesheets do
+  = render :partial => "/mobile/docs/docs.html.haml"
 
 - content_for :head_scripts_before_mobile do
   :javascript
