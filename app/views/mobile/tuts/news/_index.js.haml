@@ -1,7 +1,7 @@
 - content_for :head_stylesheets do
   %link{:href => "/images/demo/mobile/tuts/tutsTouchIcon.png", :rel => "apple-touch-icon"}/
 
-= render :partial => "/mobile/mobile_init.js.haml", :format => :js
+= render :partial => "/mobile/docs/docs.html.haml"
 
 - content_for :head_scripts_before_mobile do
   = javascript_include_tag :doTimeout, :dst

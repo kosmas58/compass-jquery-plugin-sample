@@ -3,13 +3,32 @@
 
 = render :partial => "index.js.haml", :format => :js
 
-#containerPage{"data-role" => "page", "data-theme" => "b"}
+.type-interior#containerPage{"data-role" => "page", "data-theme" => "b"}
   / Categories
   #hdrCategories{"data-backbtn" => "false", "data-role" => "header"}
     %h1 Categories
     %a#buttonAddCategory.ui-btn-left{"data-icon" => "plus", "data-inline" => "true", "data-role" => "button", :href => ""} Add
   #contentCategories{"data-role" => "content"}
-    %ul#currentNews{"data-role" => "listview", "data-split-icon" => "delete", "data-split-theme" => "d"}
+    .content-primary
+      %ul#currentNews{"data-role" => "listview", "data-split-icon" => "delete", "data-split-theme" => "d"}
+    .content-secondary
+      .ui-body-b
+        %div{"data-collapsed" => "true", "data-role" => "collapsible", "data-theme" => "b"}
+          %h3 More tuts+ experiments in this section
+          %ul{"data-dividertheme" => "d", "data-role" => "listview", "data-theme" => "c"}
+            %li{"data-role" => "list-divider"} Tuts+ experiments
+            %li
+              %a{:href => "/mobile/tuts/tuts", :rel => "external"}
+                %img.ui-li-icon{:alt => "Tuts+", :src => "/images/icons/16x16/tuts.png"}
+                  Tuts+ reader
+            %li{"data-theme" => "a"}
+              %a{:href => "/mobile/tuts/news", :rel => "external"}
+                %img.ui-li-icon{:alt => "Tuts+", :src => "/images/icons/16x16/working.png"}
+                  News reader
+            %li
+              %a{:href => "/mobile/tuts/new_claim", :rel => "external"}
+                %img.ui-li-icon{:alt => "HTML5", :src =>  "/images/icons/16x16/mobileTuts.png"}
+                  New Claim
   #ftrCategories{"data-role" => "footer"}
   / Category Selection
   #hdrSelect{"data-backbtn" => "false", "data-role" => "header"}

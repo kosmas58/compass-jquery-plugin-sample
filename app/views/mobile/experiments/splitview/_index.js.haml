@@ -1,6 +1,5 @@
 - content_for :head_stylesheets do
   = render :partial => "/mobile/experiments/jquery.mobile.splitview.css.haml"
-  = render :partial => "/mobile/experiments/jquery.mobile.scrollview.css.haml"
   = render :partial => "/mobile/experiments/jquery.mobile.grids.collapsible.css.haml"
 
 - content_for :head_scripts_before_mobile do
@@ -8,4 +7,3 @@
 
 - content_for :head_scripts_after_mobile do
   = render :partial => "/mobile/experiments/eventlog.js.haml", :format => :js
-  = render :partial => "/mobile/experiments/jquery.mobile.scrollview.js.haml", :format => :js

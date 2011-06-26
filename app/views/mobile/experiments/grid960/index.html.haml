@@ -81,5 +81,18 @@
       %div{"data-role" => "controlgroup"}
         %a{"data-role" => "button", :href => "https://github.com/jeromeetienne/jquery-mobile-960"} jQuery Mobile 960 on github
         %a{"data-role" => "button", :href => "http://jetienne.com"} Jerome Etienne Homepage
+    .ui-body.ui-body-c
+      %div{"data-collapsed" => "true", "data-role" => "collapsible", "data-theme" => "b"}
+        %h3 More Tablet Experiments in this section
+        %ul{"data-dividertheme" => "d", "data-role" => "listview", "data-theme" => "c"}
+          %li{"data-role" => "list-divider"} Tablet Experiments
+          %li{"data-theme" => "a"}
+            %a{:href => "/mobile/experiments/grid960", :rel => "external"}
+              %img.ui-li-icon{:alt => "Tablet", :src => "/images/icons/16x16/960.png"}
+                960 Grid on jQuery Mobile
+          %li
+            %a{:href => "/mobile/experiments/splitview", :rel => "external"}
+              %img.ui-li-icon{:alt => "Tablet", :src => "/images/icons/16x16/working.png"}
+                Split View
   / /content
 / /page
