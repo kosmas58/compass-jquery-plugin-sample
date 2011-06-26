@@ -2,30 +2,53 @@
 -@manifest = "/manifest"
 = render :partial => "index.js.haml", :format => :js
 
-#start{"data-role" => "page", "data-theme" => "a"}
+#start.type-interior{"data-role" => "page", "data-theme" => "a"}
   %div{"data-backbtn" => "false", "data-role" => "header"}
     %a.ui-btn-right{"data-icon" => "plus", "data-rel" => "dialog", "data-transition" => "pop", :href => "#item_add"} Add item
     %h1 Offline Shopping List
     %a.ui-btn-left{"data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile/experiments/main", :rel => "external"} Home
   %div{"data-role" => "content", "data-theme" => "a"}
-    %ol#items{"data-inset"=> "true", "data-role" => "listview", "data-splittheme" =>"a", "data-split-icon" => "delete", "data-theme" => "a"}
-      - if @current_objects.empty?
-        %li
-          %em
-            Loading items...
-      - else
-        - @current_objects.each do |item|
+    .content-primary
+      %ol#items{"data-inset"=> "true", "data-role" => "listview", "data-splittheme" =>"a", "data-split-icon" => "delete", "data-theme" => "a"}
+        - if @current_objects.empty?
           %li
-            -if item.checked
-              %a#item.checked{ :value => item.id, :href => "#" }
-                %s
+            %em
+              Loading items...
+        - else
+          - @current_objects.each do |item|
+            %li
+              -if item.checked
+                %a#item.checked{ :value => item.id, :href => "#" }
+                  %s
+                    = item.name
+              -else
+                %a#item{ :value => item.id, :href => "#" }
                   = item.name
-            -else
-              %a#item{ :value => item.id, :href => "#" }
+              %a#item_delete{:value => item.id, :href => "#", "data-rel" => "dialog", "data-transition" => "pop"}
+                Remove
                 = item.name
-            %a#item_delete{:value => item.id, :href => "#", "data-rel" => "dialog", "data-transition" => "pop"}
-              Remove
-              = item.name
+    .content-secondary
+      .ui-body-a
+        %div{"data-collapsed" => "true", "data-role" => "collapsible", "data-theme" => "a"}
+          %h3 More experiments in this section
+          %ul{"data-dividertheme" => "d", "data-role" => "listview", "data-theme" => "c"}
+            %li{"data-role" => "list-divider"} HTML5 and CSS3
+            %li
+              %a{:href => "/mobile/experiments/converter", :rel => "external"}
+                %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/html5.png"}
+                  HTML5 - Offline Converter Application
+            %li{"data-theme" => "a"}
+              %a{:href => "/mobile/experiments/list_items", :rel => "external"}
+                %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/working.png"}
+                  HTML5 - Offline Shopping List (based on Railscast 248)
+            %li
+              %a{:href => "/mobile/experiments/dst_test", :rel => "external"}
+                %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/html5.png"}
+                  HTML5 - jQuery DST Plugin
+            %li
+              %a{:href => "/mobile/experiments/media_queries", :rel => "external"}
+                %img.ui-li-icon{:alt => "Tablet", :src => "/images/icons/16x16/css3.png"}
+                  CSS3 - Using Media Queries
 #item_add{"data-role" => "page", "data-theme" => "a"}
   %div{"data-backbtn" => "false", "data-role" => "header", "data-theme" => "a"}
     %h1 Add item to list
@@ -37,3 +60,5 @@
         %label{:for => "name"} Name:
         %input#item_name{:name => "name", :type => "text", :value => ""}
         %button#item_create{"data-theme" => "b"} Add item
+  / / content
+/ / page

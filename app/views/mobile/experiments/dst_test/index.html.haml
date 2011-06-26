@@ -2,72 +2,119 @@
 -@manifest = "/manifest"
 = render :partial => "index.js.haml", :format => :js
 
-#jqm{"data-role" => "page"}
-  %div{"data-backbtn" => "false", "data-role" => "header", "data-theme" => "b"}
-    %a.ui-btn-right{"data-icon" => "arrow-r", :href => "#native"} Native
+#jqm.type-interior{"data-role" => "page"}
+  %div{"data-role" => "header", "data-theme" => "b"}
+    %a.ui-btn-right{"data-icon" => "arrow-r", "data-iconpos" => "right", "data-direction" => "slide", :href => "#native"} Native
     %h1 jQuery DST Test Page
     %a.ui-btn-left{"data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile/experiments/main", :rel => "external"} Home
-  / / header
+  / /header
   %div{"data-role" => "content"}
-    %h2
-      %img{:src => "/images/icons/24x24/working.png"}
-      Using jQuery mobile form elements
-    %form.dst{:name => "jq_dst_testform"}
-      %div{"data-role" => "fieldcontain"}
-        %label{:for => "name"} Text Input:
-        %input#name{:name => "name", :type => "text", :value => ""}
-      %div{"data-role" => "fieldcontain"}
-        %fieldset{"data-role" => "controlgroup", "data-type" => "horizontal"}
-          %legend Radio Input:
-          %input#radio-choice-1{:name => "radio_input", :type => "radio", :value => "choice-1"}
-          %label{:for => "radio-choice-1"} Option 1
-          %input#radio-choice-2{:name => "radio_input", :type => "radio", :value => "choice-2"}
-          %label{:for => "radio-choice-2"} Option 2
-          %input#radio-choice-3{:name => "radio_input", :type => "radio", :value => "choice-3"}
-          %label{:for => "radio-choice-3"} Option 3
-      %div{"data-role" => "fieldcontain"}
-        %fieldset{"data-role" => "controlgroup"}
-          %legend Checkbox Input:
-          %input#checkbox{:name => "checkbox_input", :type => "checkbox"}
-          %label{:for => "checkbox"} Ckeck it
-      %div{"data-role" => "fieldcontain"}
-        %label{:for => "textarea"} Textarea Input:
-        %textarea#textarea{:cols => "40", :name => "textarea", :rows => "8"}
-      %p
-        %input#store{:type => "button", :value => "Store"}
-        %input#recall{:type => "button", :value => "Recall"}
-        %input#reset{:type => "reset", :value => "Reset Form"}
+    .content-primary
+      %h2
+        %img{:src => "/images/icons/24x24/working.png"}
+        Using jQuery mobile form elements
+      %form.dst{:name => "jq_dst_testform"}
+        %div{"data-role" => "fieldcontain"}
+          %label{:for => "name"} Text Input:
+          %input#name{:name => "name", :type => "text", :value => ""}
+        %div{"data-role" => "fieldcontain"}
+          %fieldset{"data-role" => "controlgroup", "data-type" => "horizontal"}
+            %legend Radio Input:
+            %input#radio-choice-1{:name => "radio_input", :type => "radio", :value => "choice-1"}
+            %label{:for => "radio-choice-1"} Option 1
+            %input#radio-choice-2{:name => "radio_input", :type => "radio", :value => "choice-2"}
+            %label{:for => "radio-choice-2"} Option 2
+            %input#radio-choice-3{:name => "radio_input", :type => "radio", :value => "choice-3"}
+            %label{:for => "radio-choice-3"} Option 3
+        %div{"data-role" => "fieldcontain"}
+          %fieldset{"data-role" => "controlgroup"}
+            %legend Checkbox Input:
+            %input#checkbox{:name => "checkbox_input", :type => "checkbox"}
+            %label{:for => "checkbox"} Ckeck it
+        %div{"data-role" => "fieldcontain"}
+          %label{:for => "textarea"} Textarea Input:
+          %textarea#textarea{:cols => "40", :name => "textarea", :rows => "8"}
+        %p
+          %input#store{:type => "button", :value => "Store"}
+          %input#recall{:type => "button", :value => "Recall"}
+          %input#reset{:type => "reset", :value => "Reset Form"}
+    .content-secondary
+      .ui-body-b
+        %div{"data-collapsed" => "true", "data-role" => "collapsible", "data-theme" => "b"}
+          %h3 More experiments in this section
+          %ul{"data-dividertheme" => "d", "data-role" => "listview", "data-theme" => "c"}
+            %li{"data-role" => "list-divider"} HTML5 and CSS3
+            %li
+              %a{:href => "/mobile/experiments/converter", :rel => "external"}
+                %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/html5.png"}
+                  HTML5 - Offline Converter Application
+            %li
+              %a{:href => "/mobile/experiments/list_items", :rel => "external"}
+                %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/working.png"}
+                  HTML5 - Offline Shopping List (based on Railscast 248)
+            %li{"data-theme" => "a"}
+              %a{:href => "/mobile/experiments/dst_test", :rel => "external"}
+                %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/html5.png"}
+                  HTML5 - jQuery DST Plugin
+            %li
+              %a{:href => "/mobile/experiments/media_queries", :rel => "external"}
+                %img.ui-li-icon{:alt => "Tablet", :src => "/images/icons/16x16/css3.png"}
+                  CSS3 - Using Media Queries
   / / content
 / / page
-#native{"data-role" => "page"}
+#native.type-interior{"data-role" => "page"}
   %div{"data-role" => "header", "data-theme" => "b"}
     %h1 jQuery DST Test Page
-  / / header
+    %a.ui-btn-left{"data-icon" => "arrow-l", "data-direction" => "reverse", :href => "#jqm"} Original
+  / /header
   %div{"data-role" => "content"}
-    %h2 Using native form elements for checkbox &amp; radio buttons
-    %form.dst{:name => "jq_dst_testform"}
-      %div{"data-role" => "fieldcontain"}
-        %label{:for => "name"} Text Input:
-        %input#name{:name => "name", :type => "text", :value => ""}
-      %div{"data-role" => "fieldcontain"}
-        %fieldset{"data-role" => "controlgroup"}
-          %legend Radio Input:
-          %input#radio_input-1{"data-role" => "none", :name => "radio_input", :type => "radio", :value => "choice-1"}
-          %label{:for => "radio_input-1"} 1
-          %input#radio_input-2{"data-role" => "none", :name => "radio_input", :type => "radio", :value => "choice-2"}
-          %label{:for => "radio_input-2"} 2
-          %input#radio_input-3{"data-role" => "none", :name => "radio_input", :type => "radio", :value => "choice-3"}
-          %label{:for => "radio_input-3"} 3
-      %div{"data-role" => "fieldcontain"}
-        %fieldset{"data-role" => "controlgroup"}
-          %legend Checkbox Input:
-          %input#checkbox1.custom{"data-role" => "none", :name => "checkbox_input", :type => "checkbox"}
-      %div{"data-role" => "fieldcontain"}
-        %label{:for => "textarea"} Textarea Input:
-        %textarea#textarea{:cols => "40", :name => "textarea", :rows => "8"}
-      %p
-        %input#store{:type => "button", :value => "Store"}
-        %input#recall{:type => "button", :value => "Recall"}
-        %input#reset{:type => "reset", :value => "Reset Form"}
+    .content-primary
+      %h2 Using native form elements for checkbox &amp; radio buttons
+      %form.dst{:name => "jq_dst_testform"}
+        %div{"data-role" => "fieldcontain"}
+          %label{:for => "name"} Text Input:
+          %input#name{:name => "name", :type => "text", :value => ""}
+        %div{"data-role" => "fieldcontain"}
+          %fieldset{"data-role" => "controlgroup"}
+            %legend Radio Input:
+            %input#radio_input-1{"data-role" => "none", :name => "radio_input", :type => "radio", :value => "choice-1"}
+            %label{:for => "radio_input-1"} 1
+            %input#radio_input-2{"data-role" => "none", :name => "radio_input", :type => "radio", :value => "choice-2"}
+            %label{:for => "radio_input-2"} 2
+            %input#radio_input-3{"data-role" => "none", :name => "radio_input", :type => "radio", :value => "choice-3"}
+            %label{:for => "radio_input-3"} 3
+        %div{"data-role" => "fieldcontain"}
+          %fieldset{"data-role" => "controlgroup"}
+            %legend Checkbox Input:
+            %input#checkbox1.custom{"data-role" => "none", :name => "checkbox_input", :type => "checkbox"}
+        %div{"data-role" => "fieldcontain"}
+          %label{:for => "textarea"} Textarea Input:
+          %textarea#textarea{:cols => "40", :name => "textarea", :rows => "8"}
+        %p
+          %input#store{:type => "button", :value => "Store"}
+          %input#recall{:type => "button", :value => "Recall"}
+          %input#reset{:type => "reset", :value => "Reset Form"}
+    .content-secondary
+      .ui-body-b
+        %div{"data-collapsed" => "true", "data-role" => "collapsible", "data-theme" => "b"}
+          %h3 More experiments in this section
+          %ul{"data-dividertheme" => "d", "data-role" => "listview", "data-theme" => "c"}
+            %li{"data-role" => "list-divider"} HTML5 and CSS3
+            %li
+              %a{:href => "/mobile/experiments/converter", :rel => "external"}
+                %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/html5.png"}
+                  HTML5 - Offline Converter Application
+            %li
+              %a{:href => "/mobile/experiments/list_items", :rel => "external"}
+                %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/working.png"}
+                  HTML5 - Offline Shopping List (based on Railscast 248)
+            %li{"data-theme" => "a"}
+              %a{:href => "/mobile/experiments/dst_test", :rel => "external"}
+                %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/html5.png"}
+                  HTML5 - jQuery DST Plugin
+            %li
+              %a{:href => "/mobile/experiments/media_queries", :rel => "external"}
+                %img.ui-li-icon{:alt => "Tablet", :src => "/images/icons/16x16/css3.png"}
+                  CSS3 - Using Media Queries
   / / content
 / / page
