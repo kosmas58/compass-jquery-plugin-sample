@@ -22,17 +22,16 @@
     .ui-datepicker-calendar th span, .ui-datepicker-calendar span.ui-state-default { opacity: .3; }
     .ui-datepicker-calendar td a { padding-top: .5em; padding-bottom: .5em; }
 
-    @media all and (min-width: 450px){ div.hasDatepicker  { width: 63%; display: inline-block; margin: 0; }
-}
+    @media all and (min-width: 450px){ div.hasDatepicker  { width: 63%; display: inline-block; margin: 0; }}
 
 = render :partial => "/mobile/docs/docs.html.haml"
 
 - content_for :head_scripts_before_mobile do
   :javascript
     //reset type=date inputs to text
-    $(document).bind( "mobileinit", function(){
-      $.mobile.page.prototype.options.degradeInputs.date = true;
-    });
+    //$(document).bind( "mobileinit", function(){
+    //  $.mobile.page.prototype.options.degradeInputs.date = true;
+    //});
 
   = javascript_include_tag 'jquery-ui.min'
 
@@ -92,4 +91,4 @@
               });
           });
       })( jQuery );
-
+  
