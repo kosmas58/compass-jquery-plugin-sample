@@ -1,0 +1,76 @@
+-@title = "jQuery Mobile Docs - Collapsible Content"
+= render :partial => "/mobile/index.js.haml", :format => :js
+
+.type-interior{"data-role" => "page"}
+  %div{"data-role" => "header", "data-theme" => "f"}
+    %h1 Collapsible sets (Accordions)
+    %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile"} Home
+  / /header
+  %div{"data-role" => "content"}
+    .content-primary
+      %h2 Collapsible set markup
+      %p
+        Collapsible sets start with the exact same markup as
+        = succeed "." do
+          %a{:href => "/mobile/docs/content/content_collapsible"} individual collapsibles
+        By adding a parent wrapper with a
+        %code data-role="collapsible-set"
+        attribute around a number of collapsibles, the framework will style these to looks like a visually grouped widget and make it behave like an accordion so only one section can be open at a time.
+      %p
+        By default, all the sections will be collapsed. To set a section to be open when the page loads, add the
+        %code data-role="data-collapsed="false"
+        attribute to the heading of the section you want expanded.
+      %pre
+        %code
+          :preserve
+            &lt;div data-role="collapsible-set"&gt;
+
+              &lt;div data-role=&quot;collapsible&quot; data-collapsed=&quot;false&quot;&gt;
+              &lt;h3&gt;Section A&lt;/h3&gt;
+              &lt;p&gt;I&#x27;m the collapsible set content for section B.&lt;/p&gt;
+              &lt;/div&gt;
+
+              &lt;div data-role=&quot;collapsible&quot;&gt;
+              &lt;h3&gt;Section B&lt;/h3&gt;
+              &lt;p&gt;I&#x27;m the collapsible set content for section B.&lt;/p&gt;
+              &lt;/div&gt;
+
+            &lt;div&gt;
+      %p Here is an example of a collapsible set with 5 sections.
+      %div{"data-role" => "collapsible-set"}
+        %div{"data-collapsed" => "false", "data-role" => "collapsible"}
+          %h3 Section A
+          %p I'm the collapsible content in a set so this feels like an accordion. I'm hidden by default because I have the "collapsed" state; you need to expand the header to see me.
+        %div{"data-role" => "collapsible"}
+          %h3 Section B
+          %p I'm the collapsible content in a set so this feels like an accordion. I'm hidden by default because I have the "collapsed" state; you need to expand the header to see me.
+        %div{"data-role" => "collapsible"}
+          %h3 Section C
+          %p I'm the collapsible content in a set so this feels like an accordion. I'm hidden by default because I have the "collapsed" state; you need to expand the header to see me.
+        %div{"data-role" => "collapsible"}
+          %h3 Section D
+          %p I'm the collapsible content in a set so this feels like an accordion. I'm hidden by default because I have the "collapsed" state; you need to expand the header to see me.
+        %div{"data-role" => "collapsible"}
+          %h3 Section E
+          %p I'm the collapsible content in a set so this feels like an accordion. I'm hidden by default because I have the "collapsed" state; you need to expand the header to see me.
+    / /content-primary
+    .content-secondary
+      .ui-body-b
+        %div{"data-collapsed" => "true", "data-role" => "collapsible", "data-theme" => "b"}
+          %h3 More in this section
+          %ul{"data-dividertheme" => "d", "data-role" => "listview", "data-theme" => "c"}
+            %li{"data-role" => "list-divider"} Content Formatting
+            %li
+              %a{:href => "/mobile/docs/content/content_html"} Basic HTML styles
+            %li
+              %a{:href => "/mobile/docs/content/content_grids"} Layout grids (columns)
+            %li
+              %a{:href => "/mobile/docs/content/content_collapsible"} Collapsible content blocks
+            %li{"data-theme" => "a"}
+              %a{:href => "/mobile/docs/content/content_collapsible_set"} Collapsible sets (accordions)
+            %li
+              %a{:href => "/mobile/docs/content/content_themes"} Theming content
+  / /content
+  .footer-docs{"data-role" => "footer", "data-theme" => "c"}
+    %p &copy; 2011 The jQuery Project
+/ /page

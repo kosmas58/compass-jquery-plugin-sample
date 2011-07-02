@@ -8,45 +8,76 @@
   / /header
   %div{"data-role" => "content"}
     .content-primary
-      %div{"data-role" => "content"}
-        %ul#widthList{"data-inset" => "true", "data-role" => "listview"}
-          %li.title{"data-role" => "list-divider"}
-            Active Widths:
-            %em
-              These change depending on window size
-          %li.min320 min-width-320px
-          %li.max320 max-width-320px
-          %li.min360 min-width-360px
-          %li.max360 max-width-360px
-          %li.min480 min-width-480px
-          %li.max480 max-width-480px
-          %li.min600 min-width-600px
-          %li.max600 max-width-600px
-          %li.min640 min-width-640px
-          %li.max640 max-width-640px
-          %li.min768 min-width-768px
-          %li.max768 max-width-768px
-          %li.min800 min-width-800px
-          %li.max800 max-width-800px
-          %li.min960 min-width-960px
-          %li.max960 max-width-960px
-          %li.min1024 min-width-1024px
-          %li.max1024 max-width-1024px
-          %li.min1200 min-width-1200px
-          %li.max1200 max-width-1200px
-          %li.min1280 min-width-1280px
-          %li.max1280 max-width-1280px
-        %ul#orientList{"data-inset" => "true", "data-role" => "listview"}
-          %li.title{"data-role" => "list-divider"}
-            Orientation
-            %em
-              This changes depending on window orientation
-          %li.port Portrait
-          %li.land Landscape
-        %p
-          The original example from
-          %a{:href => "https://github.com/scottjehl/jQuery-Media-Helpers/blob/master/sample.html"} Scott Jehl
-          ported to CSS3 media queries.
+      #screenInfo{"data-collapsed" => "true", "data-role" => "collapsible", "data-theme" => "b"}
+        %h1 Screen Info
+        .ui-body-b
+          Total Screen
+          %br
+          Width:
+          = succeed "," do
+            %b
+              %span#width &nbsp;
+          Height:
+          %b
+            %span#height
+          %br
+          %br
+          Available Screen
+          %br
+          Width:
+          = succeed "," do
+            %b
+              %span#aWidth &nbsp;
+          Height:
+          %b
+            %span#aHeight
+          %br
+          %br
+          Color Depth:
+          = succeed "," do
+            %b
+              %span#colorDepth &nbsp;
+          Pixel Depth:
+          %b
+            %span#pixelDepth
+      %ul#widthList{"data-inset" => "true", "data-role" => "listview"}
+        %li.title{"data-role" => "list-divider"}
+          Active Widths:
+          %em
+            These change depending on window size
+        %li.min320 min-width-320px
+        %li.max320 max-width-320px
+        %li.min360 min-width-360px
+        %li.max360 max-width-360px
+        %li.min480 min-width-480px
+        %li.max480 max-width-480px
+        %li.min600 min-width-600px
+        %li.max600 max-width-600px
+        %li.min640 min-width-640px
+        %li.max640 max-width-640px
+        %li.min768 min-width-768px
+        %li.max768 max-width-768px
+        %li.min800 min-width-800px
+        %li.max800 max-width-800px
+        %li.min960 min-width-960px
+        %li.max960 max-width-960px
+        %li.min1024 min-width-1024px
+        %li.max1024 max-width-1024px
+        %li.min1200 min-width-1200px
+        %li.max1200 max-width-1200px
+        %li.min1280 min-width-1280px
+        %li.max1280 max-width-1280px
+      %ul#orientList{"data-inset" => "true", "data-role" => "listview"}
+        %li.title{"data-role" => "list-divider"}
+          Orientation
+          %em
+            This changes depending on window orientation
+        %li.port Portrait
+        %li.land Landscape
+      %p
+        The original example from
+        %a{:href => "https://github.com/scottjehl/jQuery-Media-Helpers/blob/master/sample.html"} Scott Jehl
+        ported to CSS3 media queries.
     .content-secondary
       .ui-body-b
         %div{"data-collapsed" => "true", "data-role" => "collapsible", "data-theme" => "b"}

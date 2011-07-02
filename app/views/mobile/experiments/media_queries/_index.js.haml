@@ -27,3 +27,14 @@
     @media (orientation:portrait) { #orientList li.land { display: none; } }
 
 = render :partial => "/mobile/docs/docs.html.haml"
+
+- content_for :head_scripts_after_mobile do
+  :javascript
+    $('#screenInfo').live('expand', function() {
+      $("#width").text(screen.width);
+      $("#height").text(screen.height);
+      $("#aWidth").text(screen.width);
+      $("#aHeight").text(screen.availHeight);
+      $("#colorDepth").text(screen.colorDepth);
+      $("#pixelDepth").text(screen.pixelDepth);
+    });

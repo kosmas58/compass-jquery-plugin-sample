@@ -99,17 +99,9 @@
           %h3 I'm a nested collapsible header
           %p I'm the collapsible content. By default I'm open and displayed on the page, but you can click the header to hide me.
       %h2 Collapsible sets
-      %p By giving a parent element a data-role of collapsible-set, you can cause other collapsibles within that parent to close whenever a new one is opened, acting like an accordion widget:
-      %div{"data-role" => "collapsible-set"}
-        %div{"data-role" => "collapsible"}
-          %h3 I'm a header in a set of collapsibles
-          %p I'm the collapsible content. I'm hidden by default because I have the "collapsed" state; you need to expand the header to see me.
-        %div{"data-collapsed" => "true", "data-role" => "collapsible", "data-theme" => "a"}
-          %h3 I'm a header in a set of collapsibles
-          %p I'm the collapsible content. I'm hidden by default because I have the "collapsed" state; you need to expand the header to see me.
-        %div{"data-collapsed" => "true", "data-role" => "collapsible"}
-          %h3 I'm a header in a set of collapsibles
-          %p I'm the collapsible content. I'm hidden by default because I have the "collapsed" state; you need to expand the header to see me.
+      %p
+        It's possible to combine multiple collapsibles into a grouped sets that acts like an accordion widget.
+        %a{:href => "/mobile/docs/content/content_collapsible_set"} Learn more
     / /content-primary
     .content-secondary
       .ui-body-b
@@ -123,6 +115,8 @@
               %a{:href => "/mobile/docs/content/content_grids"} Layout grids (columns)
             %li{"data-theme" => "a"}
               %a{:href => "/mobile/docs/content/content_collapsible"} Collapsible content blocks
+            %li
+              %a{:href => "/mobile/docs/content/content_collapsible_set"} Collapsible sets (accordions)
             %li
               %a{:href => "/mobile/docs/content/content_themes"} Theming content
   / /content
