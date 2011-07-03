@@ -9,11 +9,9 @@
   %div{"data-role" => "content"}
     .content-primary
       #screenInfo{"data-collapsed" => "true", "data-role" => "collapsible", "data-theme" => "b"}
-        %h1 Screen Info
+        %h1 Actual Screen Info
         .ui-body-b
-          Total Screen
-          %br
-          Width:
+          Absolute Size - Width:
           = succeed "," do
             %b
               %span#width &nbsp;
@@ -22,9 +20,7 @@
             %span#height
           %br
           %br
-          Available Screen
-          %br
-          Width:
+          Available Size - Width:
           = succeed "," do
             %b
               %span#aWidth &nbsp;

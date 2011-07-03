@@ -1,13 +1,14 @@
 -@title = " 960 Grid on jQuery Mobile - merges 960.gs flexibility with jquery.mobile ease"
 = render :partial => "fluid.css.haml"
 
-%div{"data-backbtn" => "false", "data-role" => "page"}
+%div{"data-role" => "page"}
   %div{"data-role" => "header"}
     %h1.pageTitle
       960 Grid
       %span.on on
       jQuery Mobile
     %a.ui-btn-left{"data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile/experiments/main", :rel => "external"} Home
+  / /header
   %div{"data-role" => "content"}
     %p
       jquery-mobile-960 is a port of 960 grid to jQuery Mobile. It merges the flexibility of 960.gs and the ease of jQuery Mobile.
@@ -17,10 +18,10 @@
       To use 960 grids in jQuery Mobile, simply add one line:
       %pre
         :preserve
-          &lt;link href="http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.css" /&gt;
+          &lt;link href="http://code.jquery.com/mobile/1.0b1/jquery.mobile-1.0b1.min.css" /&gt;
           &lt;link href="http://jeromeetienne.github.com/jquery-mobile-960/css/jquery-mobile-960.min.css" /&gt;
-          &lt;script src="http://code.jquery.com/jquery-1.5.2min.js"&gt;&lt;/script&gt;
-          &lt;script src="http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.js">&lt;/script&gt;
+          &lt;script src="http://code.jquery.com/jquery-1.6.2min.js"&gt;&lt;/script&gt;
+          &lt;script src="http://code.jquery.com/mobile/1.0b1/jquery.mobile-1.0b1.min.js">&lt;/script&gt;
       And now you can use normal 960 grid syntax inside jQuery mobile pages
       %pre
         :preserve
