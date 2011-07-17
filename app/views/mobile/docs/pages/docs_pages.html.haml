@@ -229,6 +229,24 @@
         Learn more about the technical details of the navigation model and
         %a{:href => "/mobile/docs/pages/docs_navmodel"} Ajax, hashes and history
         in jQuery mobile.
+      %h2 Automatically Pre-fetching Pages
+          %p
+            Any HTML anchor element may specify that its page be prefetched by jQuery Mobile through the use of a data-prefetch attribute. After pagecreate, jQuery Mobile will
+            automatically find all links in a page that have an attribute of
+            %code data-prefetch
+            and automatically load that page so it's available as soon as the user
+            navigates to it.
+          %p
+            Pre-fetching links will naturally cause additional HTTP requests that may never be used, so it's important to use this feature only in situations where it's highly
+            likely that a page will be visited.
+          %pre
+            %code
+              :preserve
+
+                 &lt;a href="foo/bar/baz" data-prefetch&gt;link text&lt;/a&gt;
+          %p
+            Pages can also be pre-fetched programmatically by calling
+            %code $.mobile.loadpage( url )
     / /content-primary
     .content-secondary
       .ui-body-b
@@ -238,6 +256,10 @@
             %li{"data-role" => "list-divider"} Pages &amp; Dialogs
             %li{"data-theme" => "a"}
               %a{:href => "/mobile/docs/pages/docs_pages"} Anatomy of a page
+            %li
+              %a{"data-ajax" => "false", :href => "/mobile/docs/pages/page_template"} Single page template
+            %li
+              %a{"data-ajax" => "false", :href => "/mobile/docs/pages/multipage_template"} Multi-page template
             %li
               %a{:href => "/mobile/docs/pages/docs_transitions"} Page transitions
             %li
