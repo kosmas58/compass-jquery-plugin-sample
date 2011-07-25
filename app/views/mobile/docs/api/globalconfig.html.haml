@@ -75,6 +75,17 @@
               %code
                 .ui-mobile [data-mynamespace-role=page], .ui-mobile [data-mynamespace-role=dialog], .ui-page { ...
         %dt
+          autoInitializePage (
+          %em> boolean
+          , default: true):
+        %dd
+          When the DOM is ready, the framework should automatically call
+          = succeed "." do
+            %code $.mobile.initializePage
+          If false, page will not initialize, and will be visually hidden until until
+          %code $.mobile.initializePage
+          is manually called.
+        %dt
           subPageUrlKey (
           %em> string
           , default: "ui-page"):
