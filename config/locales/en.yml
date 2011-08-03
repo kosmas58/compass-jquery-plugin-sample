@@ -443,6 +443,21 @@ en:
         30after_load: After Load Callback
         31post_data: Post Data
         30delete_row: Delete row
+        40new: New functionality 4.0
+        40search: Searching 4.0
+        40hierachy: Hierachy 4.0
+        40addnode: Add tree node
+        40cmtmpl: Column model templates
+        40colspan: Data colspan
+        40frmactions: Formatter actions
+        40grpsearch: Complex search
+        40grpsearch1: Show query in search
+        40grpsearch2: Validation in search
+        40grpsearch3: Search templates
+        40keyboard: Keyboard navigation
+        40subgrid1: Custom icons
+        40subgrid2: Expand all rows on load
+        40subgrid3: Load subgrid data only once
       subgrids: 
         name: Subgrids
         default: with default functionality

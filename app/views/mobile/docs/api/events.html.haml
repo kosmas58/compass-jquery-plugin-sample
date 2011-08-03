@@ -14,6 +14,12 @@
         or
         = succeed "." do
           %code bind()
+      .ui-body.ui-body-e
+        %h4{:style => "margin:.5em 0"} Important: Use pageCreate(), not $(document).ready()
+        The first thing you learn in jQuery is to call code inside the $(document).ready() function so everything will execute as soon as the DOM is loaded. However, in jQuery Mobile, Ajax is used to load the contents of each page into the DOM as you navigate, and the DOM ready handler only executes for the first page. To execute code whenever a new page is loaded and created, you can bind to the
+        %code
+          %strong pagecreate
+        event. This event is explained in detail at the bottom of this page.
       %h2 Touch events
       %dl
         %dt
@@ -24,7 +30,21 @@
         %dd Triggers after a held complete touch event (close to one second).
         %dt
           %code swipe
-        %dd Triggers when a horizontal drag of 30px or more (and less than 20px vertically) occurs within 1 second duration.
+        %dd
+          %p Triggers when a horizontal drag of 30px or more (and less than 20px vertically) occurs within 1 second duration but these can be configured:
+          %ul
+            %li
+              %code scrollSupressionThreshold
+              (default: 10px) – More than this horizontal displacement, and we will suppress scrolling
+            %li
+              %code durationThreshold
+              (default: 1000ms) – More time than this, and it isn’t a swipe
+            %li
+              %code horizontalDistanceThreshold
+              (default: 30px) – Swipe horizontal displacement must be more than this.
+            %li
+              %code verticalDistanceThreshold
+              (default: 75px) – Swipe vertical displacement must be less than this.
         %dt
           %code swipeleft
         %dd Triggers when a swipe event occurred moving in the left direction.
@@ -72,7 +92,6 @@
       %pre
         %code
           :preserve
-
             $('div').live('pageshow',function(event, ui){
               alert('This page was just hidden: '+ ui.prevPage);
             });
@@ -84,7 +103,7 @@
         Also, for these handlers to be invoked during the initial page load, you must bind them before jQuery Mobile executes.  This can be done in the
         %code mobileinit
         handler, as described on the
-        %a{:href => "/mobile/docs/api/globalconfig"} global config
+        %a{:href => "globalconfig.html"} global config
         page.
         %h2 Page initialization events
         %p
@@ -99,60 +118,77 @@
         %dl
           %dt
             %code pagebeforecreate
-          %dd Triggered on the page being initialized, before initialization occurs.
+          %dd
+            %p Triggered on the page being initialized, before initialization occurs.
+            %pre
+              %code
+                :preserve
+                  $('#aboutPage').live('pagebeforecreate',function(event){
+                    alert('This page was just inserted into the dom!');
+                  });
+            %p
+              Note that by binding to
+              %code pagebeforecreate
+              and returning
+              = succeed "," do
+                %code false
+              you can prevent the page plugin from making its manipulations.
+            %pre
+              %code
+                :preserve
+                  $('#aboutPage').live('pagebeforecreate',function(event){
+                    //run your own enhancement scripting here...
+                    return false;
+                  });
           %dt
             %code pagecreate
-          %dd Triggered on the page being initialized, after initialization occurs.
-        %pre
-          %code
-            :preserve
-
-              $('#aboutPage').live('pagebeforecreate',function(event){
-                alert('This page was just inserted into the dom!');
-              });
-
-              $('#aboutPage').live('pagecreate',function(event){
-                alert('This page was just enhanced by jQuery Mobile!');
-              });
-        %p
-          Note that by binding to
-          %code pagebeforecreate
-          and returning
-          = succeed "," do
-            %code false
-          you can prevent the page plugin from making its manipulations.
-        %pre
-          %code
-            :preserve
-
-              $('#aboutPage').live('pagebeforecreate',function(event){
-                //run your own enhancement scripting here...
-                return false;
-              });
-
-        .ui-body.ui-body-e
-          %p
-            %strong
-              Note on Page IDs in Alpha 2 release (
-              %em> no longer an issue
-              ):
-            In jQuery Mobile Alpha 2 and older, page elements utilized the
-            %code ID
-            attribute for storing the location from which they came. When you place an
-            %code ID
-            attribute on a page that is brought into jQuery Mobile's single-page environment through Ajax, jQuery Mobile wraps that page with a new "page"
-            %code div
-            element, preserving any CSS references to your
-            = succeed "." do
-              %code ID
-            However, this means that your
-            %code ID
-            attribute is no longer on the "page" element, so you must keep this in mind when binding to page events (
-            %code> pagebeforecreate
-            ,
-            = succeed "," do
-              %code pagecreate
-            etc). To avoid issues, try using a class if possible.
+          %dd
+            %p Triggered on the page being initialized, after initialization occurs. We recommend binding to this event instead of DOM ready() because this will work regardless of whether the page is loaded directly or if the content is pulled into another page as part of the Ajax navigation system.
+            %pre
+              %code
+                :preserve
+                  $('#aboutPage').live('pagecreate',function(event){
+                    alert('This page was just enhanced by jQuery Mobile!');
+                  });
+        %h2 Virtual mouse events
+        %p We provide a set of "virtual" click events that normalize mouse and touch events. This allows the developer to register listeners for the basic mouse events, such as mousedown, mousemove, mouseup, and click, and the plugin will take care of registering the correct listeners behind the scenes to invoke the listener at the fastest possible time for that device. This still retains the order of event firing in the traditional mouse environment, should multiple handlers be registered on the same element for different events.
+        %dl
+          %dt
+            %code vmouseover
+          %dd
+            Normalized event for handling touch or mouse
+            %code mouseover
+            events
+          %dt
+            %code vmousedown
+          %dd
+            Normalized event for handling touch or mouse
+            %code mousedown
+            events
+          %dt
+            %code vmousemove
+          %dd
+            Normalized event for handling touch or mouse
+            %code mousemove
+            events
+          %dt
+            %code vmouseup
+          %dd
+            Normalized event for handling touch or mouse
+            %code mouseup
+            events
+          %dt
+            %code vclick
+          %dd
+            Normalized event for handling touch or mouse
+            %code click
+            events
+          %dt
+            %code vmousecancel
+          %dd
+            Normalized event for handling touch or mouse
+            %code mousecancel
+            events
         %h2 Animation Events
         %p
           jQuery Mobile exposes the

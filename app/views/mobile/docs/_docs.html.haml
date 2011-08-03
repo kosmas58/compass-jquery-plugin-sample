@@ -17,7 +17,7 @@
     .ui-mobile #jqm-version { text-indent: -99999px; background: url(/images/demo/mobile/version.png) top right no-repeat; width: 119px; height: 122px; overflow: hidden; position: absolute; z-index: 50; top: 0; right: 0; }
     .ui-mobile .jqm-themeswitcher { margin: 10px 25px 10px 10px;  }
 
-    h2 { margin-top:1.5em; }
+    h2 { margin:1.2em 0 .4em 0; }
     p code { font-size:1.2em; font-weight:bold; }
 
     dt { font-weight: bold; margin: 2em 0 .5em; }
@@ -78,6 +78,51 @@
       margin: 0;
     }
 
+    /* new API additions */
+
+    dt {
+      margin: 35px 0 15px 0;
+      background-color:#ddd;
+      font-weight:normal;
+    }
+    dt code {
+      display:inline-block;
+      font-weight:bold;
+      color:#56A00E;
+      padding:3px 7px;
+      margin-right:10px;
+      background-color:#fff;
+    }
+    dd {
+      margin-bottom:10px;
+    }
+    dd .default { font-weight:bold; }
+    dd pre {
+      margin:0 0 0 0;
+    }
+    dd code { font-weight: normal; }
+    dd pre code {
+      margin:0;
+      border:none;
+      font-weight:normal;
+      font-size:100%;
+      background-color:transparent;
+    }
+    dd h4 { margin:15px 0 0 0; }
+
+    .localnav {
+      margin:0 0 20px 0;
+      overflow:hidden;
+    }
+    .localnav li {
+      float:left;
+    }
+    .localnav .ui-btn-inner {
+      padding: .6em 10px;
+      font-size:80%;
+    }
+
+
     /* F bar theme - just for the docs overview headers */
     .ui-bar-f {
       border: 1px solid 		#56A00E;
@@ -125,7 +170,7 @@
       .type-home .ui-content,
       .type-interior .ui-content {
         padding: 0;
-        background: url(/images/demo/mobile//px-ccc.gif) 50% 0 repeat-y;
+        background: url(/images/demo/mobile/px-ccc.gif) 50% 0 repeat-y;
       }
       .type-interior .ui-content {
         background-position: 45%;
