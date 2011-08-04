@@ -1,0 +1,177 @@
+-@title = "jQuery Mobile Docs - Text inputs"
+= render :partial => "/mobile/index.js.haml", :format => :js
+
+.type-interior{"data-role" => "page"}
+  %div{"data-role" => "header", "data-theme" => "f"}
+    %h1 Text inputs
+    %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile"} Home
+  / /header
+  %div{"data-role" => "content"}
+    .content-primary
+      %form{:action => "#", :method => "get"}
+        %h2 Text inputs
+        %ul.localnav{"data-role" => "controlgroup", "data-type" => "horizontal"}
+          %li
+            %a.ui-btn-active{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/texts/selects"} Basics
+          %li
+            %a{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/forms/texts/options"} Options
+          %li
+            %a{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/forms/texts/methods"} Methods
+          %li
+            %a{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/forms/texts/events"} Events
+
+        %p Text inputs and textareas are coded with standard HTML elements, then enhanced by jQuery Mobile to make them more attractive and useable on a mobile.
+        %h2 Text inputs
+        %p
+          To collect standard alphanmeric text, use an
+          %code input
+          with a
+          %code type="text"
+          attribute. It's important to  set the
+          %code for
+          attribute of the
+          %code label
+          to match the ID of the
+          %code input
+          so they are semantically associated and wrap them in a
+          %code div
+          with the
+          %code data-role="fieldcontain"
+          attribute to group them.
+        %pre
+          %code
+            :preserve
+              &lt;div data-role=&quot;fieldcontain&quot;&gt;
+                  &lt;label for=&quot;name&quot;&gt;Text Input:&lt;/label&gt;
+                  &lt;input type=&quot;text&quot; name=&quot;name&quot; id=&quot;name&quot; value=&quot;&quot;  /&gt;
+              &lt;/div&gt;
+        %p The text input is displayed like this:
+        %div{"data-role" => "fieldcontain"}
+          %label{:for => "name"} Text Input:
+          %input#name{:name => "name", :type => "text", :value => ""}/
+        %h2 Password inputs
+        %p
+          For password fields, use an
+          %code input
+          with a
+          %code type="password"
+          attribute. Set the
+          %code for
+          attribute of the
+          %code label
+          to match the ID of the
+          %code input
+          so they are semantically associated and wrap them in a
+          %code div
+          with the
+          %code data-role="fieldcontain"
+          attribute to group them.
+        %pre
+          %code
+            :preserve
+
+              &lt;div data-role=&quot;fieldcontain&quot;&gt;
+                  &lt;label for=&quot;password&quot;&gt;Password Input:&lt;/label&gt;
+                  &lt;input type=&quot;password&quot; name=&quot;password&quot; id=&quot;password&quot; value=&quot;&quot; /&gt;
+              &lt;/div&gt;
+        %p The password input is displayed like this:
+        %div{"data-role" => "fieldcontain"}
+          %label{:for => "password"} Password Input:
+          %input#password{:name => "password", :type => "password", :value => ""}/
+        %h2 More standard HTML5 input types
+        %p
+          In jQuery Mobile, you can use new HTML5 input types such as
+          = succeed "," do
+            %code email
+          = succeed "," do
+            %code tel
+          = succeed "," do
+            %code number
+          and more. We actively degrade certain types to
+          %code type=text
+          (currently,
+          %code range
+          and
+          = succeed ")" do
+            %code search
+          in certain cases when we provide a replacement for that type's native control. You can configure which types are degraded to text through the
+          %code page
+          plugin's options.
+        %div{"data-role" => "fieldcontain"}
+          %label{:for => "number"} Number:
+          %input#number{:name => "number", :type => "number", :value => ""}/
+        %div{"data-role" => "fieldcontain"}
+          %label{:for => "email"} Email:
+          %input#email{:name => "email", :type => "email", :value => ""}/
+        %div{"data-role" => "fieldcontain"}
+          %label{:for => "url"} Url:
+          %input#url{:name => "url", :type => "url", :value => ""}/
+        %div{"data-role" => "fieldcontain"}
+          %label{:for => "tel"} Tel:
+          %input#tel{:name => "tel", :type => "tel", :value => ""}/
+        %h2 Textareas
+        %p
+          For multi-line text inputs, use a
+          %code textarea
+          element. The framework will auto-grow the height of the textarea to avoid the need for an internal scrollbar which is very hard to use on a mobile device.
+        %p
+          Set the
+          %code for
+          attribute of the
+          %code label
+          to match the ID of the
+          %code input
+          so they are semantically associated and wrap them in a
+          %code div
+          with the
+          %code data-role="fieldcontain"
+          attribute to group them.
+        %pre
+          %code
+            :preserve
+
+              &lt;div data-role=&quot;fieldcontain&quot;&gt;
+                &lt;label for=&quot;textarea&quot;&gt;Textarea:&lt;/label&gt;
+                &lt;textarea cols=&quot;40&quot; rows=&quot;8&quot; name=&quot;textarea&quot; id=&quot;textarea&quot;&gt;&lt;/textarea&gt;
+              &lt;/div&gt;
+        %p The textarea is displayed like this and will grow as you type:
+        %div{"data-role" => "fieldcontain"}
+          %label{:for => "textarea"} Textarea:
+          %textarea#textarea{:cols => "40", :name => "textarea", :rows => "8"}
+    / /content-primary
+    .content-secondary
+      .ui-body-b
+        %div{"data-collapsed" => "true", "data-role" => "collapsible", "data-theme" => "b"}
+          %h3 More in this section
+          %ul{"data-dividertheme" => "d", "data-role" => "listview", "data-theme" => "c"}
+            %li{"data-role" => "list-divider"} Form elements
+            %li
+              %a{:href => "/mobile/docs/forms/docs_forms"} Form basics
+            %li
+              %a{:href => "/mobile/docs/forms/forms_all"} Form element gallery
+            %li{"data-theme" => "a"}
+              %a{:href => "/mobile/docs/forms/texts"} Text inputs
+            %li
+              %a{:href => "/mobile/docs/forms/forms_search"} Search inputs
+            %li
+              %a{:href => "/mobile/docs/forms/forms_slider"} Slider
+            %li
+              %a{:href => "/mobile/docs/forms/forms_switch"} Flip toggle switch
+            %li
+              %a{:href => "/mobile/docs/forms/radiobuttons"} Radio buttons
+            %li
+              %a{:href => "/mobile/docs/forms/checkboxes"} Checkboxes
+            %li
+              %a{:href => "/mobile/docs/forms/selects"} Select menus
+            %li
+              %a{:href => "/mobile/docs/forms/forms_themes"} Theming forms
+            %li
+              %a{:href => "/mobile/docs/forms/forms_all_native"} Native form elements
+            %li
+              %a{:href => "/mobile/docs/forms/forms_sample"} Submitting forms
+            %li
+              %a{:href => "/mobile/docs/forms/plugin_eventsmethods"} Plugin methods
+  / /content
+  .footer-docs{"data-role" => "footer", "data-theme" => "c"}
+    %p &copy; 2011 The jQuery Project
+/ /page

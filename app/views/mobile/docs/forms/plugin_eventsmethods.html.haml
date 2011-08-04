@@ -55,6 +55,7 @@
           %pre
             %code
               :preserve
+
                 $('select').selectmenu('disable');
       %h2 Textinput
       %dl
@@ -66,6 +67,7 @@
           %pre
             %code
               :preserve
+
                 $('input').textinput('enable');
         %dd
           %code> disable
@@ -74,6 +76,7 @@
           %pre
             %code
               :preserve
+
                 $('textarea').textinput('disable');
       %h2 checkboxradio
       %dl
@@ -85,22 +88,25 @@
           %pre
             %code
               :preserve
+
                 $('input').checkboxradio('enable');
-                                  %dd
+        %dd
           %code> disable
           \: disable a checkboxradio.
         %dd
           %pre
             %code
               :preserve
+
                 $('input').checkboxradio('disable');
-                                  %dd
+        %dd
           %code> refresh
           \: refresh a checkboxradio's value.
         %dd
           %pre
             %code
               :preserve
+
                 $('input').checkboxradio('refresh');
       %h2 slider
       %dl
@@ -112,6 +118,7 @@
           %pre
             %code
               :preserve
+
                 $('input').slider('enable');
         %dd
           %code> disable
@@ -120,6 +127,7 @@
           %pre
             %code
               :preserve
+
                 $('input').slider('disable');
         %dd
           %code> refresh
@@ -128,6 +136,7 @@
           %pre
             %code
               :preserve
+
                 $('input').slider('refresh');
       %h2 Form buttons
       %dl
@@ -139,6 +148,7 @@
           %pre
             %code
               :preserve
+
                 $('input').button('enable');
         %dd
           %code> disable
@@ -147,6 +157,7 @@
           %pre
             %code
               :preserve
+
                 $('input').button('disable');
       %h2 Degraded Form Input Types
       %p jQuery Mobile degrades several HTML5 input types back to type=text, or type=number after adding enhanced controls. For example, inputs with a type of range are enhanced with a custom slider control, and their type is set to number to offer a usable form input alongside that slider. Inputs with a type of search are degraded back to type=text after we add our own themable search input styling.
@@ -172,7 +183,7 @@
             %li
               %a{:href => "/mobile/docs/forms/forms_all"} Form element gallery
             %li
-              %a{:href => "/mobile/docs/forms/forms_text"} Text inputs
+              %a{:href => "/mobile/docs/forms/forms/texts"} Text inputs
             %li
               %a{:href => "/mobile/docs/forms/forms_search"} Search inputs
             %li
@@ -180,11 +191,11 @@
             %li
               %a{:href => "/mobile/docs/forms/forms_switch"} Flip toggle switch
             %li
-              %a{:href => "/mobile/docs/forms/forms_radiobuttons"} Radio buttons
+              %a{:href => "/mobile/docs/forms/forms/radiobuttons"} Radio buttons
             %li
-              %a{:href => "/mobile/docs/forms/forms_checkboxes"} Checkboxes
+              %a{:href => "/mobile/docs/forms/forms/checkboxes"} Checkboxes
             %li
-              %a{:href => "/mobile/docs/forms/forms_selects"} Select menus
+              %a{:href => "/mobile/docs/forms/forms/selects"} Select menus
             %li
               %a{:href => "/mobile/docs/forms/forms_themes"} Theming forms
             %li

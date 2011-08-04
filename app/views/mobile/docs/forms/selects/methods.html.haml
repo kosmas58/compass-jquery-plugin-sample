@@ -1,0 +1,105 @@
+-@title = "jQuery Mobile Docs - Select menus"
+= render :partial => "/mobile/index.js.haml", :format => :js
+
+.type-interior{"data-role" => "page"}
+  %div{"data-role" => "header", "data-theme" => "f"}
+    %h1 Select Menus
+    %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile"} Home
+  / /header
+  %div{"data-role" => "content"}
+    .content-primary
+      %form{:action => "#", :method => "get"}
+        %h2 Select menus
+        %ul.localnav{"data-role" => "controlgroup", "data-type" => "horizontal"}
+          %li
+            %a{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/forms/selects"} Basics
+          %li
+            %a{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/forms/selects/options"} Options
+          %li
+            %a.ui-btn-active{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/forms/selects/methods"} Methods
+          %li
+            %a{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/forms/selects/events"} Events
+        %p The select menu plugin has the following methods:
+        %dl
+          %dt
+            %code close
+            close an open select menu
+          %dd
+            %pre
+              %code
+                :preserve
+                  $('select').selectmenu('close');
+          %dt
+            %code enable
+            enable a disabled select
+          %dd
+            %pre
+              %code
+                :preserve
+                  $('select').selectmenu('enable');
+          %dt
+            %code disable
+            disable a select.
+          %dd
+            %pre
+              %code
+                :preserve
+                  $('select').selectmenu('disable');
+          %dt
+            %code open
+            open a closed select menu
+          %dd
+            %pre
+              %code
+                :preserve
+                  $('select').selectmenu('open');
+          %dt
+            %code refresh
+            update the custom select
+          %dd
+            This is used to update the custom select to reflect the native select element's value.If the number of options in the select are different than the number of items in the custom menu, it'll rebuild the custom menu. Also, if you pass a true argument you can force the rebuild to happen.
+            %pre
+              %code
+                :preserve
+                  //refresh value
+                  $('select').selectmenu('refresh');
+
+                  //refresh and force rebuild
+                  $('select').selectmenu('refresh', true);
+    / /content-primary
+    .content-secondary
+      .ui-body-b
+        %div{"data-collapsed" => "true", "data-role" => "collapsible", "data-theme" => "b"}
+          %h3 More in this section
+          %ul{"data-dividertheme" => "d", "data-role" => "listview", "data-theme" => "c"}
+            %li{"data-role" => "list-divider"} Form elements
+            %li
+              %a{:href => "/mobile/docs/forms/docs_forms"} Form basics
+            %li
+              %a{:href => "/mobile/docs/forms/forms_all"} Form element gallery
+            %li
+              %a{:href => "/mobile/docs/forms/texts"} Text inputs
+            %li
+              %a{:href => "/mobile/docs/forms/forms_search"} Search inputs
+            %li
+              %a{:href => "/mobile/docs/forms/forms_slider"} Slider
+            %li
+              %a{:href => "/mobile/docs/forms/forms_switch"} Flip toggle switch
+            %li
+              %a{:href => "/mobile/docs/forms/radiobuttons"} Radio buttons
+            %li
+              %a{:href => "/mobile/docs/forms/checkboxes"} Checkboxes
+            %li{"data-theme" => "a"}
+              %a{:href => "/mobile/docs/forms/selects"} Select menus
+            %li
+              %a{:href => "/mobile/docs/forms/forms_themes"} Theming forms
+            %li
+              %a{:href => "/mobile/docs/forms/forms_all_native"} Native form elements
+            %li
+              %a{:href => "/mobile/docs/forms/forms_sample"} Submitting forms
+            %li
+              %a{:href => "/mobile/docs/forms/plugin_eventsmethods"} Plugin methods
+  / /content
+  .footer-docs{"data-role" => "footer", "data-theme" => "c"}
+    %p &copy; 2011 The jQuery Project
+/ /page

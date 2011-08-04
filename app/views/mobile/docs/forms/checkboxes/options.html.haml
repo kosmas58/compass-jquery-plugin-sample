@@ -1,0 +1,73 @@
+-@title = "jQuery Mobile Docs - Checkboxes"
+= render :partial => "/mobile/index.js.haml", :format => :js
+
+.type-interior{"data-role" => "page"}
+  %div{"data-role" => "header", "data-theme" => "f"}
+    %h1 Checkboxes
+    %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile"} Home
+  / /header
+  %div{"data-role" => "content"}
+    .content-primary
+      %form{:action => "#", :method => "get"}
+        %h2 Checkboxes
+        %ul.localnav{"data-role" => "controlgroup", "data-type" => "horizontal"}
+          %li
+            %a{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/forms/checkboxes"} Basics
+          %li
+            %a.ui-btn-active{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/forms/checkboxes/options"} Options
+          %li
+            %a{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/forms/checkboxes/methods"} Methods
+          %li
+            %a{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/forms/checkboxes/events"} Events
+        %p The checkbox has the following options:
+        %dl
+          %dt
+            %code theme
+            %em string
+          %dd
+            %p.default default: null, inherited from parent
+            %p
+              Sets the theme swatch color scheme for the checkbox. This is a single letter from a-z that maps to the swatches included in your theme. By default, a checkbox will inherit the same swatch color as it's parent container if not explicitly set. This option is also exposed as a data attribute:
+              %code data-theme=&quot;a&quot;
+            %pre
+              %code
+                $("input[type='checkbox'").checkboxradio(
+                %strong> { theme: "a" }
+                );
+    / /content-primary
+    .content-secondary
+      .ui-body-b
+        %div{"data-collapsed" => "true", "data-role" => "collapsible", "data-theme" => "b"}
+          %h3 More in this section
+          %ul{"data-dividertheme" => "d", "data-role" => "listview", "data-theme" => "c"}
+            %li{"data-role" => "list-divider"} Form elements
+            %li
+              %a{:href => "/mobile/docs/forms/docs_forms"} Form basics
+            %li
+              %a{:href => "/mobile/docs/forms/forms_all"} Form element gallery
+            %li
+              %a{:href => "/mobile/docs/forms/texts"} Text inputs
+            %li
+              %a{:href => "/mobile/docs/forms/forms_search"} Search inputs
+            %li
+              %a{:href => "/mobile/docs/forms/forms_slider"} Slider
+            %li
+              %a{:href => "/mobile/docs/forms/forms_switch"} Flip toggle switch
+            %li
+              %a{:href => "/mobile/docs/forms/radiobuttons"} Radio buttons
+            %li{"data-theme" => "a"}
+              %a{:href => "/mobile/docs/forms/checkboxes"} Checkboxes
+            %li
+              %a{:href => "/mobile/docs/forms/selects"} Select menus
+            %li
+              %a{:href => "/mobile/docs/forms/forms_themes"} Theming forms
+            %li
+              %a{:href => "/mobile/docs/forms/forms_all_native"} Native form elements
+            %li
+              %a{:href => "/mobile/docs/forms/forms_sample"} Submitting forms
+            %li
+              %a{:href => "/mobile/docs/forms/plugin_eventsmethods"} Plugin methods
+  / /content
+  .footer-docs{"data-role" => "footer", "data-theme" => "c"}
+    %p &copy; 2011 The jQuery Project
+/ /page
