@@ -1,4 +1,4 @@
--@title = "jQuery Mobile Docs - Pages"
+-@title = "jQuery Mobile Docs - Dialogs"
 = render :partial => "/mobile/index.js.haml", :format => :js
 
 .type-interior{"data-role" => "page"}
@@ -57,30 +57,36 @@
       %a{"data-inline" => "true", "data-rel" => "dialog", "data-role" => "button", "data-transition" => "pop", :href => "/mobile/docs/pages/dialog_alt"} An alternate color scheme
       %p And dialogs can be can used more like a control sheet to offer multiple buttons by removing the header:
       %a{"data-inline" => "true", "data-rel" => "dialog", "data-role" => "button", "data-transition" => "slidedown", :href => "/mobile/docs/pages/dialog_buttons"} Share photos...
+
     / /content-primary
     .content-secondary
-      .ui-body-b
-        %div{"data-collapsed" => "true", "data-role" => "collapsible", "data-theme" => "b"}
-          %h3 More in this section
-          %ul{"data-dividertheme" => "d", "data-role" => "listview", "data-theme" => "c"}
-            %li{"data-role" => "list-divider"} Pages &amp; Dialogs
-            %li
-              %a{:href => "/mobile/docs/pages/docs_pages"} Anatomy of a page
-            %li
-              %a{"data-ajax" => "false", :href => "/mobile/docs/pages/page_template"} Single page template
-            %li
-              %a{"data-ajax" => "false", :href => "/mobile/docs/pages/multipage_template"} Multi-page template
-            %li
-              %a{:href => "/mobile/docs/pages/docs_transitions"} Page transitions
-            %li{"data-theme" => "a"}
-              %a{:href => "/mobile/docs/pages/docs_dialogs"} Dialogs
-            %li
-              %a{:href => "/mobile/docs/pages/docs_navmodel"} Navigation: Ajax, hashes &amp; history
-            %li
-              %a{:href => "/mobile/docs/pages/link_formats"} Link format examples
-            %li
-              %a{:href => "/mobile/docs/pages/pages_themes"} Theming pages
+      %div{"data-collapsed" => "true", "data-role" => "collapsible", "data-theme" => "b"}
+        %h3 More in this section
+        %ul{"data-dividertheme" => "d", "data-role" => "listview", "data-theme" => "c"}
+          %li{"data-role" => "list-divider"} Pages &amp; Dialogs
+          %li
+            %a{:href => "/mobile/docs/pages/page_anatomy"} Anatomy of a page
+          %li
+            %a{"data-ajax" => "false", :href => "/mobile/docs/pages/page_template"} Single page template
+          %li
+            %a{"data-ajax" => "false", :href => "/mobile/docs/pages/multipage_template"} Multi-page template
+          %li
+            %a{:href => "/mobile/docs/pages/page_titles"} Page titles
+          %li
+            %a{:href => "/mobile/docs/pages/page_links"} Linking pages
+          %li
+            %a{:href => "/mobile/docs/pages/page_transitions"} Page transitions
+          %li{"data-theme" => "a"}
+            %a{:href => "/mobile/docs/pages/page_dialogs"} Dialogs
+          %li
+            %a{:href => "/mobile/docs/pages/page_cache"} Preload & cache pages
+          %li
+            %a{:href => "/mobile/docs/pages/page_navmodel"} Ajax, hashes &amp; history
+          %li
+            %a{:href => "/mobile/docs/pages/page_scripting"} Scripting pages
+          %li
+            %a{:href => "/mobile/docs/pages/pages_themes"} Theming pages
   / /content
   .footer-docs{"data-role" => "footer", "data-theme" => "c"}
     %p &copy; 2011 The jQuery Project
-/ /page
+  / /page
