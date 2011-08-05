@@ -41,11 +41,9 @@
         %code input
         element with a
         %code type="checkbox"
-        will be enhanced with the "checkboxradio" plugin. Once initialized, you can address these enhanced components programmatically through their jQuery UI widget API methods (
-        %em
-          see documentation on available methods here:
-          = succeed ")." do
-            %a{:href => "/mobile/docs/forms/plugin_eventsmethods"} Form Plugin Methods
+        will be enhanced with the "checkboxradio" plugin. Once initialized, you can address these enhanced components programmatically through their jQuery UI widget API methods (see documentation on available methods here:
+        = succeed ")." do
+          %a{:href => "/mobile/docs/forms/plugin_eventsmethods"} Form Plugin Methods
       %h2 Preventing auto-initialization of form elements
       %p
         If you'd prefer that a particular form control be left untouched by jQuery Mobile, simply give that element the attribute
@@ -117,7 +115,6 @@
       %code
         %pre
           :preserve
-
             var myselect = $("select#foo");
             myselect[0].selectedIndex = 3;
             myselect.selectmenu("refresh");
@@ -128,7 +125,6 @@
       %code
         %pre
           :preserve
-
             var myswitch = $("select#bar");
             myswitch[0].selectedIndex = 1;
             myswitch .slider("refresh");
@@ -145,7 +141,7 @@
             %li
               %a{:href => "/mobile/docs/forms/forms_all"} Form element gallery
             %li
-              %a{:href => "/mobile/docs/forms/forms_text"} Text inputs
+              %a{:href => "/mobile/docs/forms/texts"} Text inputs
             %li
               %a{:href => "/mobile/docs/forms/forms_search"} Search inputs
             %li
@@ -153,11 +149,11 @@
             %li
               %a{:href => "/mobile/docs/forms/forms_switch"} Flip toggle switch
             %li
-              %a{:href => "/mobile/docs/forms/forms_radiobuttons"} Radio buttons
+              %a{:href => "/mobile/docs/forms/radiobuttons"} Radio buttons
             %li
-              %a{:href => "/mobile/docs/forms/forms_checkboxes"} Checkboxes
+              %a{:href => "/mobile/docs/forms/checkboxes"} Checkboxes
             %li
-              %a{:href => "/mobile/docs/forms/forms_selects"} Select menus
+              %a{:href => "/mobile/docs/forms/selects"} Select menus
             %li
               %a{:href => "/mobile/docs/forms/forms_themes"} Theming forms
             %li
