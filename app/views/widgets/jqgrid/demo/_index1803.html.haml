@@ -1,0 +1,19 @@
+-@title = "#{t('txt.jqgrid.name')} #{t('txt.jqgrid.demo.name')} - #{t('txt.jqgrid.demo.40search')} - #{t('txt.jqgrid.demo.40grpsearch3')}"
+.demo
+  %h3
+    =image_tag("icons/22x22/grid.png", :border => 0)
+    =@title
+  %center
+    %table#demo1803.scroll{ :cellspacing => "0", :cellpadding => "0" }
+    #demo1803_pager.scroll{ :style => "text-align:center;" }
+
+/ End demo
+.demo-description
+  %p
+    Just like edition it is possible to check the data entered from the user.
+    This is done with the new property searchrules.
+  %p
+    Try to enter non numeric value in
+    %b id
+    field.
+/ End demo-description

@@ -267,7 +267,7 @@ de:
         selection: mit Auswahllink und Suche deaktiviert
         multiple: mit Mehrfachauswahl + Zeilennummern
       demo: 
-        40grpsearch: Komplexe Suche
+        40grpsearch1: Komplexe Suche
         30xml_map: XML-Mapping
         40subgrid1: Benutzerdefinierte Symbole
         20get: Get-Methoden
@@ -280,18 +280,18 @@ de:
         38array1: Einfache Gruppierung mit Matrixdaten
         20as_subgrid: Gitter als Untergitter
         35sortable: Sortierbare Spalten anzeigen
-        40grpsearch1: Zeige Abfrage in der Suche
+        40grpsearch2: Zeige Abfrage in der Suche
         35summary: "Zusammenfassung in der Fu\xC3\x9Fzeile"
         30optimize: Datenoptimierung
         38array2: Spalten verbergen
         34v: Neu in Version 3.4
         36validation: Benutzerdefinierte Validierung
-        40grpsearch2: Validatieren in der Suche
+        40grpsearch3: Validatieren in der Suche
         36cinput: Benutzerdefiniertes Eingabeelement erstellen
         32client: Clientseitige Validierung
         20data: Gitterdaten
         34format: Formatierer
-        40grpsearch3: Suchvorlagen
+        40grpsearch4: Suchvorlagen
         38array3: Kopfzeile konfigurieren
         37multiple: Mehrfachsuche
         20once: Einmaliges Laden

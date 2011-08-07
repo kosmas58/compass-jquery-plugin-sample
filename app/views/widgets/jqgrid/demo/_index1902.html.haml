@@ -1,0 +1,17 @@
+-@title = "#{t('txt.jqgrid.name')} #{t('txt.jqgrid.demo.name')} - #{t('txt.jqgrid.demo.40hierachy')} - #{t('txt.jqgrid.demo.40subgrid2')}"
+.demo
+  %h3
+    =image_tag("icons/22x22/grid.png", :border => 0)
+    =@title
+  %center
+    %table#demo1902.scroll{ :cellspacing => "0", :cellpadding => "0" }
+    #demo1902_pager.scroll{ :style => "text-align:center;" }
+
+/ End demo
+.demo-description
+  %p
+    It is possible to expand all the rows automatically when the rows are loaded.
+  %p
+    This is done just with one option - see the code.
+%br/
+/ End demo-description
