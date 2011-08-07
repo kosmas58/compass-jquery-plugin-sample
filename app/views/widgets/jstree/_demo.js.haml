@@ -8,7 +8,8 @@
     .ui-button{ font-size: 0.9em; }
 
 - content_for :head_scripts do
-  = javascript_include_tag :jstree
+  = javascript_include_tag :hotkeys
+  = javascript_include_tag 'jquery.jstree'
   :javascript
     $(function () {
       // Settings up the tree - using $(selector).jstree(options);
