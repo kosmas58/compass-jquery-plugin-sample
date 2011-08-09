@@ -1,44 +1,56 @@
--@title = "jQuery Mobile Docs - Radio buttons"
+-@title = "jQuery Mobile Docs - Sliders"
 = render :partial => "/mobile/index.js.haml", :format => :js
+
 
 .type-interior{"data-role" => "page"}
   %div{"data-role" => "header", "data-theme" => "f"}
-    %h1 Radio buttons
+    %h1 Sliders
     %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile"} Home
   / /header
   %div{"data-role" => "content"}
     .content-primary
       %form{:action => "#", :method => "get"}
-        %h2 Radio buttons
+        %h2 Sliders
         %ul.localnav{"data-role" => "controlgroup", "data-type" => "horizontal"}
           %li
-            %a{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/forms/radiobuttons"} Basics
+            %a{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/forms/sliders"} Basics
           %li
-            %a{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/forms/radiobuttons/options"} Options
+            %a.ui-btn-active{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/forms/sliders/options"} Options
           %li
-            %a{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/forms/radiobuttons/methods"} Methods
+            %a{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/forms/sliders/methods"} Methods
           %li
-            %a.ui-btn-active{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/forms/radiobuttons/events"} Events
-        %p Since the native  radio button is used as a proxy for the custom radio button, you can watch for events on the original, native radio button instead of needing to go through the radio button plugin. Bind to the change event by type: change, blur, focus, keypress, click, etc.
-        %pre
-          %code
-            :preserve
-              $("input[type='radio']").bind( "change", function(event, ui) {
-                ...
-              });
-        %p The radio button plugin has the following custom events:
+            %a{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/forms/sliders/events"} Events
+        %p The slider plugin has the following options:
         %dl
           %dt
-            %code create
-            triggered when a radio button is created
+            %code initSelector
+            %em CSS selector string
           %dd
-            %p This event is used to find out when a custom radio button was created. It is not used to create a custom radio button. The radio button create event can be used like this:
+            %p.default default: "input[type='range'], :jqmData(type='range'), :jqmData(role='slider')"
+            %p
+              This is used to define the selectors (element types, data roles, etc.) that should be used as the trigger to automatic initialization of the widget plugin. To affect all selects, this option can be set by binding to the
+              = succeed ":" do
+                %a{:href => "/mobile/docs/api/globalconfig"} mobileinit event
             %pre
               %code
                 :preserve
-                  $("input[type='radio']").checkboxradio({
-                     create: function(event, ui) { ... }
+                  $( document ).bind( "mobileinit", function(){
+                    $.mobile.slider.prototype.options.initSelector = ".myslider";
                   });
+          %dt
+            %code theme
+            %em string
+          %dd
+            %p.default default: null, inherited from parent
+            %p
+              Sets the theme swatch color scheme for the select element. This is a single letter from a-z that maps to the swatches included in your theme. By default, a select will inherit the same swatch color as it's parent container if not explicitly set. This option is also exposed as a data attribute:
+              %code data-theme=&quot;a&quot;
+            %pre
+              %code
+                :preserve
+                  $('input').slider(
+                    { theme: "a" }
+                  );
     / /content-primary
     .content-secondary
       .ui-body-b
@@ -54,11 +66,11 @@
               %a{:href => "/mobile/docs/forms/texts"} Text inputs
             %li
               %a{:href => "/mobile/docs/forms/forms_search"} Search inputs
-            %li
+            %li{"data-theme" => "a"}
               %a{:href => "/mobile/docs/forms/sliders"} Sliders
             %li
               %a{:href => "/mobile/docs/forms/forms_switch"} Flip toggle switch
-            %li{"data-theme" => "a"}
+            %li
               %a{:href => "/mobile/docs/forms/radiobuttons"} Radio buttons
             %li
               %a{:href => "/mobile/docs/forms/checkboxes"} Checkboxes

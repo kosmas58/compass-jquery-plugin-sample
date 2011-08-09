@@ -1,15 +1,24 @@
--@title = "jQuery Mobile Docs - Slider"
+-@title = "jQuery Mobile Docs - Sliders"
 = render :partial => "/mobile/index.js.haml", :format => :js
 
 .type-interior{"data-role" => "page"}
   %div{"data-role" => "header", "data-theme" => "f"}
-    %h1 Slider
+    %h1 Checkboxes
     %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile"} Home
   / /header
   %div{"data-role" => "content"}
     .content-primary
       %form{:action => "#", :method => "get"}
         %h2 Sliders
+        %ul.localnav{"data-role" => "controlgroup", "data-type" => "horizontal"}
+          %li
+            %a.ui-btn-active{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/forms/sliders"} Basics
+          %li
+            %a{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/forms/sliders/options"} Options
+          %li
+            %a{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/forms/sliders/methods"} Methods
+          %li
+            %a{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/forms/sliders/events"} Events
         %p
           To add a slider widget to your page, start with an
           %code input
@@ -79,7 +88,7 @@
             %li
               %a{:href => "/mobile/docs/forms/forms_search"} Search inputs
             %li{"data-theme" => "a"}
-              %a{:href => "/mobile/docs/forms/forms_slider"} Slider
+              %a{:href => "/mobile/docs/forms/sliders"} Sliders
             %li
               %a{:href => "/mobile/docs/forms/forms_switch"} Flip toggle switch
             %li
