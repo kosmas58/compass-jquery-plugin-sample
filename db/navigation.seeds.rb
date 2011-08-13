@@ -527,11 +527,11 @@ node_615 = NavigationTree.create_node(:id => parent_id, :seed => true, :position
 node_616 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.jqgrid.demo.40grpsearch3', :type => 'default', :icon => '/images/icons/16x16/grid.png', :url => '/widgets/jqgrid/demo?demo=1803')
 node_617 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.jqgrid.demo.40grpsearch4', :type => 'default', :icon => '/images/icons/16x16/grid.png', :url => '/widgets/jqgrid/demo?demo=1804')
 parent_id = node_271
-node_608 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 18, :title => 'txt.jqgrid.demo.40hierachy', :type => 'folder', :icon => '/images/icons/16x16/grid.png')
+node_608 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 18, :title => 'txt.jqgrid.demo.40hierachy', :type => 'folder', :icon => '/images/icons/16x16/working.png')
 parent_id = node_608
-node_618 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.jqgrid.demo.40subgrid1', :type => 'default', :icon => '/images/icons/16x16/grid.png', :url => '/widgets/jqgrid/demo?demo=1901')
-node_619 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.jqgrid.demo.40subgrid2', :type => 'default', :icon => '/images/icons/16x16/grid.png', :url => '/widgets/jqgrid/demo?demo=1902')
-node_620 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.jqgrid.demo.40subgrid3', :type => 'default', :icon => '/images/icons/16x16/grid.png', :url => '/widgets/jqgrid/demo?demo=1903')
+node_618 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.jqgrid.demo.40subgrid1', :type => 'default', :icon => '/images/icons/16x16/grid.png', :url => '/widgets/jqgrid/demo?demo=1901;model=invheader')
+node_619 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.jqgrid.demo.40subgrid2', :type => 'default', :icon => '/images/icons/16x16/working.png', :url => '/widgets/jqgrid/demo?demo=1902;model=invheader')
+node_620 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.jqgrid.demo.40subgrid3', :type => 'default', :icon => '/images/icons/16x16/grid.png', :url => '/widgets/jqgrid/demo?demo=1903;model=invheader')
 parent_id = node_271
 parent_id = node_270
 node_386 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.jqgrid.mine.name', :type => 'folder', :icon => '/images/icons/16x16/grid.png')
