@@ -4,16 +4,6 @@
 - content_for :head_scripts do
   = raw jqgrid_javascripts(I18n.locale)
   = raw @grid
-  :javascript
-    $(function() {
-      $("#invheaders_demo1801").jqGrid('navGrid','#invheaders_demo1801_pager',
-                                       {edit:false,add:false,del:false},
-                                       {},
-                                       {},
-                                       {},
-                                       {multipleSearch:true, multipleGroup:true, resize: true, closeOnEscape: true}
-                                      );
-    });
 
 - content_for :license do
   = render :partial =>  "widgets/jqgrid/license"

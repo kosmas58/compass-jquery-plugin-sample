@@ -184,7 +184,7 @@ class Item < ActiveRecord::Base
           :sort_by => :id,
           :sort_order => :asc,
           :jqgrid_options => {:viewsortcols => [true, :horizontal, false]},
-          :search_advanced => true,
+          :search_multiple => true,
           :search_button => true,
           :refresh_button => true,
           :pager => true
@@ -217,7 +217,7 @@ class Item < ActiveRecord::Base
           :sort_order => :asc,
           :jqgrid_options => {:viewsortcols => [true, :horizontal, false],
                               :scroll => 1},
-          :search_advanced => true,
+          :search_multiple => true,
           :search_button => true,
           :refresh_button => true,
           :pager => true

@@ -60,7 +60,7 @@ class Invheader < ActiveRecord::Base
           :sort_by => :id,
           :sort_order => :desc,
           :jqgrid_options => {:viewsortcols => [true, :horizontal, false]},
-          :search_advanced => true,
+          :search_multiple => true,
           :refresh_button => true,
           :pager => true
 
@@ -109,7 +109,7 @@ class Invheader < ActiveRecord::Base
           :sort_by => :id,
           :sort_order => :desc,
           :jqgrid_options => {:viewsortcols => [true, :horizontal, false]},
-          :search_advanced => true,
+          :search_multiple => true,
           :refresh_button => true,
           :pager => true
 
@@ -216,7 +216,7 @@ class Invheader < ActiveRecord::Base
           :sort_order => :desc,
           :jqgrid_options => {:viewsortcols => [true, :horizontal, false]},
           :select_rows => true,
-          :search_advanced => true,
+          :search_multiple => true,
           :refresh_button => true,
           :pager => true
 
@@ -271,7 +271,7 @@ class Invheader < ActiveRecord::Base
           :sort_order => :desc,
           :jqgrid_options => {:viewsortcols => [true, :horizontal, false]},
           :select_rows => true,
-          :search_advanced => true,
+          :search_multiple => true,
           :refresh_button => true,
           :pager => true
 
@@ -326,7 +326,7 @@ class Invheader < ActiveRecord::Base
           :sort_order => :desc,
           :jqgrid_options => {:viewsortcols => [true, :horizontal, false]},
           :select_rows => true,
-          :search_advanced => true,
+          :search_multiple => true,
           :refresh_button => true,
           :pager => true
 
@@ -382,7 +382,7 @@ class Invheader < ActiveRecord::Base
           :jqgrid_options => {:viewsortcols => [true, :horizontal, false]},
           :select_rows => true,
           :multi_select => true,
-          :search_advanced => true,
+          :search_multiple => true,
           :refresh_button => true,
           :pager => true
 
@@ -437,7 +437,7 @@ class Invheader < ActiveRecord::Base
           :sort_order => :desc,
           :jqgrid_options => {:viewsortcols => [true, :horizontal, false]},
           :select_rows => "javascript: handleDemo0302",
-          :search_advanced => true,
+          :search_multiple => true,
           :refresh_button => true,
           :pager => true,
           :collapsible => true
@@ -492,7 +492,7 @@ class Invheader < ActiveRecord::Base
           :sort_by => :id,
           :sort_order => :desc,
           :jqgrid_options => {:viewsortcols => [true, :horizontal, false]},
-          :search_advanced => true,
+          :search_multiple => true,
           :refresh_button => true,
           :pager => true,
           :grid_view => false,
@@ -563,7 +563,7 @@ class Invheader < ActiveRecord::Base
           :sort_by => :id,
           :sort_order => :desc,
           :jqgrid_options => {:viewsortcols => [true, :horizontal, false]},
-          :search_advanced => true,
+          :search_multiple => true,
           :refresh_button => true,
           :pager => true,
           :grid_view => false,
@@ -635,7 +635,7 @@ class Invheader < ActiveRecord::Base
           :sort_by => :id,
           :sort_order => :desc,
           :jqgrid_options => {:viewsortcols => [true, :horizontal, false]},
-          :search_advanced => true,
+          :search_multiple => true,
           :refresh_button => true,
           :pager => true
 
@@ -692,7 +692,7 @@ class Invheader < ActiveRecord::Base
                               :multikey => "ctrlKey"},
           :select_rows => true,
           :multi_select => true,
-          :search_advanced => true,
+          :search_multiple => true,
           :refresh_button => true,
           :pager => true
 
@@ -746,7 +746,7 @@ class Invheader < ActiveRecord::Base
           :sort_by => :id,
           :sort_order => :desc,
           :jqgrid_options => {:viewsortcols => [true, :horizontal, false]},
-          :search_advanced => true,
+          :search_multiple => true,
           :refresh_button => true,
           :pager => true,
           :grid_view => false,
@@ -818,7 +818,7 @@ class Invheader < ActiveRecord::Base
           :sort_order => :desc,
           :jqgrid_options => {:viewsortcols => [true, :horizontal, false],
                               :loadComplete => "javascript: after_load"},
-          :search_advanced => true,
+          :search_multiple => true,
           :refresh_button => true,
           :pager => true
 
@@ -880,7 +880,7 @@ class Invheader < ActiveRecord::Base
           :sort_by => :id,
           :sort_order => :desc,
           :jqgrid_options => {:viewsortcols => [true, :horizontal, false]},
-          :search_advanced => true,
+          :search_multiple => true,
           :refresh_button => true,
           :pager => true
 
@@ -934,7 +934,7 @@ class Invheader < ActiveRecord::Base
           :sort_by => :id,
           :sort_order => :desc,
           :jqgrid_options => {:viewsortcols => [true, :horizontal, false]},
-          :search_advanced => true,
+          :search_multiple => true,
           :refresh_button => true,
           :pager => true
 
@@ -1243,7 +1243,7 @@ class Invheader < ActiveRecord::Base
           :jqgrid_options => {:viewsortcols => [true, :horizontal, false]},
           :data_format => {:repeatitems => false, :id => "0"},
           :select_rows => true,
-          :search_advanced => true,
+          :search_multiple => true,
           :refresh_button => true,
           :pager => true
 
@@ -1299,7 +1299,7 @@ class Invheader < ActiveRecord::Base
           :jqgrid_options => {:viewsortcols => [true, :horizontal, false]},
           #:data_format    => { :repeatitems => true, :cell => "", :id => "0" },
           :select_rows => true,
-          :search_advanced => true,
+          :search_multiple => true,
           :refresh_button => true,
           :pager => true
 
@@ -1581,7 +1581,7 @@ class Invheader < ActiveRecord::Base
           :edit_button => true,
           :add_button => true,
           :delete_button => true,
-          :search_advanced => true,
+          :search_multiple => true,
           :refresh_button => true,
           :pager => true
 
@@ -1635,7 +1635,7 @@ class Invheader < ActiveRecord::Base
                               :toolbar => [true, "top"]},
           :rows_per_page => 10,
           :paging_choices => [10, 20, 30],
-          :search_advanced => true,
+          :search_multiple => true,
           :refresh_button => true,
           :pager => true
 
@@ -1687,7 +1687,7 @@ class Invheader < ActiveRecord::Base
           :sort_order => :desc,
           :rows_per_page => 10,
           :paging_choices => [10, 20, 30],
-          :search_advanced => true,
+          :search_multiple => true,
           :refresh_button => true,
           :pager => true,
           :jqgrid_options => {:viewsortcols => [true, :horizontal, false],
@@ -1746,7 +1746,7 @@ class Invheader < ActiveRecord::Base
           :jqgrid_options => {:viewsortcols => [true, :horizontal, false]},
           :multi_select => true,
           :select_rows => true,
-          :search_advanced => true,
+          :search_multiple => true,
           :refresh_button => true,
           :pager => true
 
@@ -1802,7 +1802,7 @@ class Invheader < ActiveRecord::Base
           :jqgrid_options => {:viewsortcols => [true, :horizontal, false]},
           :multi_select => true,
           :select_rows => true,
-          :search_advanced => true,
+          :search_multiple => true,
           :refresh_button => true,
           :pager => true
 
@@ -1911,7 +1911,7 @@ class Invheader < ActiveRecord::Base
           :jqgrid_options => {:viewsortcols => [true, :horizontal, false]},
           :multi_select => true,
           :select_rows => true,
-          :search_advanced => true,
+          :search_multiple => true,
           :refresh_button => true,
           :pager => true
 
@@ -1967,7 +1967,7 @@ class Invheader < ActiveRecord::Base
           :jqgrid_options => {:viewsortcols => [true, :horizontal, false],
                               :hiddengrid => true},
           :select_rows => true,
-          :search_advanced => true,
+          :search_multiple => true,
           :refresh_button => true,
           :pager => true,
           :collapsible => true
@@ -2024,7 +2024,7 @@ class Invheader < ActiveRecord::Base
           :grid_view => false,
           :multi_select => true,
           :select_rows => true,
-          :search_advanced => true,
+          :search_multiple => true,
           :refresh_button => true,
           :pager => true,
           :jqgrid_options => {:viewsortcols => [true, :horizontal, false],
@@ -2079,7 +2079,7 @@ class Invheader < ActiveRecord::Base
           :paging_choices => [10, 20, 30],
           :sort_by => :id,
           :sort_order => :desc,
-          :search_advanced => true,
+          :search_multiple => true,
           :refresh_button => true,
           :pager => true,
           :jqgrid_options => {:viewsortcols => [true, :horizontal, false],
@@ -2135,7 +2135,7 @@ class Invheader < ActiveRecord::Base
           :sort_by => :id,
           :sort_order => :desc,
           :jqgrid_options => {:viewsortcols => [true, :horizontal, false]},
-          :search_advanced => true,
+          :search_multiple => true,
           :refresh_button => true,
           :pager => true
 
@@ -2191,7 +2191,7 @@ class Invheader < ActiveRecord::Base
           :sort_order => :desc,
           :jqgrid_options => {:viewsortcols => [true, :horizontal, false]},
           :editable => true,
-          :search_advanced => true,
+          :search_multiple => true,
           :refresh_button => true,
           :select_rows => true,
           :pager => true
@@ -2283,7 +2283,7 @@ class Invheader < ActiveRecord::Base
           :edit_button => true,
           :add_button => true,
           :delete_button => true,
-          :search_advanced => true,
+          :search_multiple => true,
           :refresh_button => true,
           :pager => true
 
@@ -2336,7 +2336,7 @@ class Invheader < ActiveRecord::Base
           :paging_choices => [10, 20, 30],
           :sort_by => :id,
           :sort_order => :desc,
-          :search_advanced => true,
+          :search_multiple => true,
           :refresh_button => true,
           :pager => true,
           :collapsible => true,
@@ -2614,7 +2614,7 @@ class Invheader < ActiveRecord::Base
           :sort_order => :desc,
           :jqgrid_options => {:datatype => "javascript: dataFunction",
                               :viewsortcols => [true, :horizontal, false]},
-          :search_advanced => true,
+          :search_multiple => true,
           :refresh_button => true,
           :pager => true
 
@@ -2900,7 +2900,7 @@ class Invheader < ActiveRecord::Base
           :select_rows => true,
           :edit_button => true,
           :delete_button => true,
-          :search_advanced => true,
+          :search_multiple => true,
           :refresh_button => true,
           :pager => true
 
@@ -3010,7 +3010,7 @@ class Invheader < ActiveRecord::Base
           :sort_by => :id,
           :sort_order => :desc,
           :jqgrid_options => {:viewsortcols => [true, :horizontal, false]},
-          :search_advanced => true,
+          :search_multiple => true,
           :refresh_button => true,
           :pager => true
 
@@ -3116,7 +3116,7 @@ class Invheader < ActiveRecord::Base
           :sort_by => :id,
           :sort_order => :desc,
           :jqgrid_options => {:viewsortcols => [true, :horizontal, false]},
-          :search_advanced => true,
+          :search_multiple => true,
           :pager => true
 
   gridify :demo1305,
@@ -3169,7 +3169,7 @@ class Invheader < ActiveRecord::Base
           :sort_by => :id,
           :sort_order => :desc,
           :jqgrid_options => {:viewsortcols => [true, :horizontal, false]},
-          :search_advanced => true,
+          :search_multiple => true,
           :refresh_button => true,
           :pager => true
 
@@ -3223,7 +3223,7 @@ class Invheader < ActiveRecord::Base
           :sort_by => :id,
           :sort_order => :desc,
           :jqgrid_options => {:viewsortcols => [true, :horizontal, false]},
-          :search_advanced => true,
+          :search_multiple => true,
           :refresh_button => true,
           :pager => true
 
@@ -3276,7 +3276,7 @@ class Invheader < ActiveRecord::Base
           :paging_choices => [10, 20, 30],
           :sort_by => :id,
           :sort_order => :desc,
-          :search_advanced => true,
+          :search_multiple => true,
           :refresh_button => true,
           :pager => true,
           :jqgrid_options => {:viewsortcols => [true, :horizontal, false],
@@ -3334,7 +3334,7 @@ class Invheader < ActiveRecord::Base
           :sort_by => :id,
           :sort_order => :desc,
           :jqgrid_options => {:viewsortcols => [true, :horizontal, false]},
-          :search_advanced => true,
+          :search_multiple => true,
           :refresh_button => true,
           :pager => true
 
@@ -3388,7 +3388,7 @@ class Invheader < ActiveRecord::Base
           :sort_by => :id,
           :sort_order => :desc,
           :jqgrid_options => {:viewsortcols => [true, :horizontal, false]},
-          :search_advanced => true,
+          :search_multiple => true,
           :refresh_button => true,
           :pager => true
 
@@ -3443,7 +3443,7 @@ class Invheader < ActiveRecord::Base
           :jqgrid_options => {:viewsortcols => [true, :horizontal, false],
                               :direction => "rtl",
                               :recordpos => :left},
-          :search_advanced => true,
+          :search_multiple => true,
           :refresh_button => true,
           :pager => true
 
@@ -3497,7 +3497,7 @@ class Invheader < ActiveRecord::Base
           :sort_order => :desc,
           :jqgrid_options => {:viewsortcols => [true, :horizontal, false]},
           :arranger => :sortable,
-          :search_advanced => true,
+          :search_multiple => true,
           :refresh_button => true,
           :pager => true
 
@@ -3551,7 +3551,7 @@ class Invheader < ActiveRecord::Base
           :sort_order => :desc,
           :jqgrid_options => {:viewsortcols => [true, :horizontal, false]},
           :arranger => :chooser,
-          :search_advanced => true,
+          :search_multiple => true,
           :refresh_button => true,
           :pager => true
 
@@ -3606,7 +3606,7 @@ class Invheader < ActiveRecord::Base
           :sort_by => :id,
           :sort_order => :desc,
           :jqgrid_options => {:viewsortcols => [true, :horizontal, false]},
-          :search_advanced => true,
+          :search_multiple => true,
           :refresh_button => true,
           :pager => true,
           :editable => true,
@@ -3665,7 +3665,7 @@ class Invheader < ActiveRecord::Base
           :sort_by => :id,
           :sort_order => :desc,
           :jqgrid_options => {:viewsortcols => [true, :horizontal, false]},
-          :search_advanced => true,
+          :search_multiple => true,
           :refresh_button => true,
           :pager => true,
           :editable => true,
@@ -3725,7 +3725,7 @@ class Invheader < ActiveRecord::Base
           :sort_order => :desc,
           :jqgrid_options => {:viewsortcols => [true, :horizontal, false],
                               :serializeGridData => "javascript: setPostData"},
-          :search_advanced => true,
+          :search_multiple => true,
           :refresh_button => true,
           :pager => true
 
@@ -3780,7 +3780,7 @@ class Invheader < ActiveRecord::Base
           :sort_order => :desc,
           :jqgrid_options => {:viewsortcols => [true, :horizontal, false]},
           :sortable_rows => true,
-          :search_advanced => true,
+          :search_multiple => true,
           :refresh_button => true,
           :pager => true
 
@@ -3835,7 +3835,7 @@ class Invheader < ActiveRecord::Base
           :sort_by => :id,
           :sort_order => :desc,
           :jqgrid_options => {:viewsortcols => [true, :horizontal, false]},
-          :search_advanced => true,
+          :search_multiple => true,
           :refresh_button => true,
           :pager => true
 
@@ -3896,7 +3896,7 @@ class Invheader < ActiveRecord::Base
           :edit_button => true,
           :add_button => true,
           :delete_button => true,
-          :search_advanced => true,
+          :search_multiple => true,
           :refresh_button => true,
           :pager => true
 
@@ -4534,7 +4534,10 @@ class Invheader < ActiveRecord::Base
           :sort_by => :id,
           :sort_order => :desc,
           :jqgrid_options => {:viewsortcols => [true, :horizontal, false]},
-          :search_advanced => true,
+          :search_multiple => true,
+          :search_group => true,
+          :search_resize => true,
+          :search_close_esc => true,
           :pager => true
 
   gridify :demo1901,
@@ -4587,7 +4590,7 @@ class Invheader < ActiveRecord::Base
           :sort_by => :id,
           :sort_order => :desc,
           :jqgrid_options => {:viewsortcols => [true, :horizontal, false]},
-          :search_advanced => true,
+          :search_multiple => true,
           :refresh_button => true,
           :pager => true,
           :grid_view => false,
@@ -4660,7 +4663,7 @@ class Invheader < ActiveRecord::Base
           :paging_choices => [10, 20, 30],
           :sort_by => :id,
           :sort_order => :desc,
-          :search_advanced => true,
+          :search_multiple => true,
           :refresh_button => true,
           :pager => true,
           :grid_view => false,
@@ -4735,7 +4738,7 @@ class Invheader < ActiveRecord::Base
           :sort_by => :id,
           :sort_order => :desc,
           :jqgrid_options => {:viewsortcols => [true, :horizontal, false]},
-          :search_advanced => true,
+          :search_multiple => true,
           :refresh_button => true,
           :pager => true,
           :grid_view => false,
@@ -4811,7 +4814,7 @@ class Invheader < ActiveRecord::Base
           :sort_order => :desc,
           :editable => true,
           :select_rows => true,
-          :search_advanced => true,
+          :search_multiple => true,
           :edit_button => true,
           :add_button => true,
           :delete_button => true,
