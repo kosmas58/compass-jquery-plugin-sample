@@ -1,5 +1,5 @@
 source :gemcutter
-gem "rails", "~> 2.3.12"
+gem "rails", "~> 2.3.14"
 gem "erubis"
 gem "rdoc"
 gem "hpricot"
@@ -16,7 +16,7 @@ gem "compass-jquery-plugin", "= 0.3.3.1.pre.4", :require => 'jquery'
 # gem "sass"
 
 # for markItUp!
-gem "RedCloth", :require => "redcloth"
+gem "RedCloth", "4.2.7", :require => "redcloth"
 gem "bluecloth"
 gem "wikicloth"
 
