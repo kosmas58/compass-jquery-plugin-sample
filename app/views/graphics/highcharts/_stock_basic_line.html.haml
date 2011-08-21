@@ -1,0 +1,43 @@
+:javascript
+  jQuery(function() {
+    // Create the chart
+    chart = new Highcharts.StockChart({
+        chart: {
+            renderTo: 'container'
+        },
+
+        rangeSelector: {
+            selected: 1
+        },
+
+        title: {
+            text: 'USD to EUR exchange rate'
+        },
+
+        xAxis: {
+            maxZoom: 14 * 24 * 3600000 // fourteen days
+        },
+        yAxis: {
+            title: {
+                text: 'Exchange rate'
+            }
+        },
+
+        series: [{
+            name: 'USD to EUR',
+            data: usdeur
+        }]
+    });
+  });
+
+
+-@title = "#{t('txt.graphics.highstock.name')} - #{t('txt.graphics.highstock.general.name')} - #{t('txt.graphics.highstock.general.basic')}"
+
+%h4
+  =image_tag("icons/22x22/highcharts.png", :border => 0)
+  =@title
+
+- content_for :head_scripts do
+  %script{:src => "http://www.highcharts.com/samples/data/usdeur.js", :type => "text/javascript"}
+
+#container{:style => "width: 800px; height: 500px; margin: 0 auto"}

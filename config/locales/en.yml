@@ -538,6 +538,18 @@ en:
           dual_axes: "Dual axes, line and column"
           multi_axes: Multiple axes
           regression: Scatter with regression line
+      highstock:
+        name: Highstock
+        general:
+          name: General
+          basic: Single line series
+          candlestick: Two panes, candlestick and volume
+        types:
+          name: Chart types
+        features:
+          name: Various features
+        flags:
+          name: Flags
     mediahelpers:
       name: jQuery Media Helper Utilities
       default: Example
