@@ -41,10 +41,6 @@ class EmulatorsController < ApplicationController
         scale = scale(149.45)
         @width  = @orientation == "landscape" ? 1280 :  800
         @height = @orientation == "landscape" ?  708 : 1188
-      when "hp.touchpad"
-        scale = scale(131.97)
-        @width  = @orientation == "landscape" ? 1024 :  768
-        @height = @orientation == "landscape" ?  748 : 1004
       when "htc.sensation"
         scale = scale(269.62)
         @width  = @orientation == "landscape" ? 960 : 540
@@ -61,10 +57,6 @@ class EmulatorsController < ApplicationController
         scale = scale(329.65)
         @width  = @orientation == "landscape" ? 960 : 640
         @height = @orientation == "landscape" ? 601 : 921
-      when "palm.pre.2"
-        scale = scale(186.09)
-        @width  = @orientation == "landscape" ? 480 : 320
-        @height = @orientation == "landscape" ? 300 : 460
     end
   end
 
