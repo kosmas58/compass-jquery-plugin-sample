@@ -45,6 +45,10 @@ class EmulatorsController < ApplicationController
         scale = scale(269.62)
         @width  = @orientation == "landscape" ? 960 : 540
         @height = @orientation == "landscape" ? 500 : 920
+      when "ideos.x3"
+        scale = scale(180.28)
+        @width  = @orientation == "landscape" ? 480 : 320
+        @height = @orientation == "landscape" ? 320 : 480
       when "ipad"
         scale = scale(131.96)
         @width  = @orientation == "landscape" ? 1024 :  768
