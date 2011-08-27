@@ -18,12 +18,12 @@
         %code
           \&lt;a href=&quot;index.html&quot; data-transition=&quot;pop&quot;&gt;I'll pop&lt;/a&gt;
       %p
-        %a{"data-rel" => "dialog", "data-role" => "button", "data-transition" => "slide", :href => "/mobile/docs/pages/transition_success"} slide
-        %a{"data-rel" => "dialog", "data-role" => "button", "data-transition" => "slideup", :href => "/mobile/docs/pages/transition_success"} slideup
-        %a{"data-rel" => "dialog", "data-role" => "button", "data-transition" => "slidedown", :href => "/mobile/docs/pages/transition_success"} slidedown
-        %a{"data-rel" => "dialog", "data-role" => "button", "data-transition" => "pop", :href => "/mobile/docs/pages/transition_success"} pop
-        %a{"data-rel" => "dialog", "data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/pages/transition_success"} fade
-        %a{"data-rel" => "dialog", "data-role" => "button", "data-transition" => "flip", :href => "/mobile/docs/pages/transition_success"} flip *
+        %a{"data-rel" => "dialog", "data-role" => "button", "data-transition" => "slide", :href => "#dialog"} slide
+        %a{"data-rel" => "dialog", "data-role" => "button", "data-transition" => "slideup", :href => "#dialog"} slideup
+        %a{"data-rel" => "dialog", "data-role" => "button", "data-transition" => "slidedown", :href => "#dialog"} slidedown
+        %a{"data-rel" => "dialog", "data-role" => "button", "data-transition" => "pop", :href => "#dialog"} pop
+        %a{"data-rel" => "dialog", "data-role" => "button", "data-transition" => "fade", :href => "#dialog"} fade
+        %a{"data-rel" => "dialog", "data-role" => "button", "data-transition" => "flip", :href => "#dialog"} flip *
       %p NOTE: The flip transition isn't rendered correctly on most versions of Android because it lacks 3D CSS transform capabilities. Unfortunately, instead of ignoring the flip, Android makes the page "cartwheel" away by rotating instead of flipping. We recommend using this transition sparingly until support improves.
       %p
         In addition, you can also force a "backwards" transition by specifying
@@ -58,7 +58,7 @@
           %li
             %a{:href => "/mobile/docs/pages/page_links"} Linking pages
           %li{"data-theme" => "a"}
-            %a{:href => "/mobile/docs/pages/page_transitions"} Page transitions
+            %a{"data-ajax" => "false", :href => "/mobile/docs/pages/page_transitions"} Page transitions
           %li
             %a{:href => "/mobile/docs/pages/page_dialogs"} Dialogs
           %li
@@ -73,3 +73,17 @@
   .footer-docs{"data-role" => "footer", "data-theme" => "c"}
     %p &copy; 2011 The jQuery Project
   / /page
+#dialog{"data-role" => "page"}
+  / dialog
+  %div{"data-role" => "header", "data-theme" => "e"}
+    %h1 Ta-da!
+  / /header
+  %div{"data-role" => "content", "data-theme" => "e"}
+    %p
+      That was an animated page transition effect that we added with a
+      %code data-transition
+      attribute on the link.
+    %p Since it uses CSS transforms, this should be hardware accelerated on many mobile devices.
+    %p What do you think?
+    %a{"data-rel" => "back", "data-role" => "button", "data-theme" => "b", :href => "docs-transitions.html"} I like it
+
