@@ -1,0 +1,71 @@
+%html{:xmlns => "http://www.w3.org/1999/xhtml"}
+  %head
+    %meta{:content => "width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;", :name => "viewport"}/
+    %meta{:content => "yes", :name => "apple-mobile-web-app-capable"}/
+    %title OpenLayers Google Layer Example
+    %link{:href => "http://openlayers.org/dev/examples/../theme/default/style.css", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "http://openlayers.org/dev/examples/../theme/default/google.css", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "http://openlayers.org/dev/examples/style.css", :rel => "stylesheet", :type => "text/css"}/
+    / this gmaps key generated for http://openlayers.org/dev/
+    %link{:href => "../../themes/base/jquery.ui.all.css", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "../../themes/base/jquery.ui.selectmenu.css", :rel => "stylesheet", :type => "text/css"}/
+    %script{:src => "../../jquery-1.5.1.js", :type => "text/javascript"}
+    %script{:src => "../../ui/jquery.ui.core.js", :type => "text/javascript"}
+    %script{:src => "../../ui/jquery.ui.widget.js", :type => "text/javascript"}
+    %script{:src => "../../ui/jquery.ui.position.js", :type => "text/javascript"}
+    %script{:src => "../../ui/jquery.ui.selectmenu.js", :type => "text/javascript"}
+    %script{:src => "http://maps.google.com/maps?file=api"}
+    %script{:src => "http://openlayers.org/dev/examples/../OpenLayers.js"}
+    :javascript
+      var map;
+
+      function init() {
+          map = new OpenLayers.Map('map');
+          map.addControl(new OpenLayers.Control.LayerSwitcher());
+          
+          var gphy = new OpenLayers.Layer.Google(
+              "Google Physical",
+              {type: G_PHYSICAL_MAP}
+          );
+          var gmap = new OpenLayers.Layer.Google(
+              "Google Streets", // the default
+              {numZoomLevels: 20}
+          );
+          var ghyb = new OpenLayers.Layer.Google(
+              "Google Hybrid",
+              {type: G_HYBRID_MAP, numZoomLevels: 20}
+          );
+          var gsat = new OpenLayers.Layer.Google(
+              "Google Satellite",
+              {type: G_SATELLITE_MAP, numZoomLevels: 22}
+          );
+
+
+          map.addLayers([gphy, gmap, ghyb, gsat]);
+
+          map.setCenter(new OpenLayers.LonLat(10.2, 48.9), 5);
+          
+          $("#Selector").selectmenu({style: 'popup',width: 300,menuWidth:300,maxHeight:240});
+      }
+      %body{:onload => "init()"}
+    %h1#title Google Layer Example
+    #tags
+      Google
+    %p#shortdesc
+      Demonstrate use of the various types of Google layers.
+    %select#Selector.selectClass
+      %option{:value => "-1"} Select one
+      %option{:value => "236"} a
+      %option{:value => "257"} b
+      %option{:value => "237"} c
+      %option{:value => "251"} d
+      %option{:value => "263"} e
+      %option{:value => "248"} f
+      %option{:value => "262"} g
+      %option{:value => "260"} h
+      %option{:value => "234"} i
+      %option{:value => "229"} j
+      %option{:value => "230"} k
+      %option{:value => "240"} m
+      %option{:value => "79"} n
+    #map.smallmap

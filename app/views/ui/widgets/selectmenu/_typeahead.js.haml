@@ -1,0 +1,16 @@
+- content_for :head_stylesheets do
+  :css
+    fieldset { border:0;  margin-bottom: 40px;}
+    label,select,.ui-select-menu { float: left; margin-right: 10px; }
+    select { width: 200px; }
+    .wrap span.ui-selectmenu-item-header,
+    .wrap ul.ui-selectmenu-menu li a { text-decoration: underline !important; }
+
+- content_for :head_scripts do
+  :javascript
+    $(function() {
+    	$('select').selectmenu();
+    });
+
+- content_for :license do
+  = render :partial => "ui/license"

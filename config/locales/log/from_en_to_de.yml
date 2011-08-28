@@ -34,8 +34,6 @@ txt:
         name: General
         candlestick: Two panes, candlestick and volume
         basic: Single line series
-  emu: 
-    ideosx3: Ideos X3
   tools: 
     form: 
       stylable: 
@@ -44,6 +42,10 @@ txt:
         demo02: Scripting styleable Forms
         demo03: Alternate form skin
   hello: Hello world
+  ui: 
+    widgets: 
+      selectmenu: 
+        typeahead: Typeahead
 support: 
   array: 
     words_connector: ", "

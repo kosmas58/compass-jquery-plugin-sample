@@ -16,8 +16,8 @@
 
     /* select with big avatar icons */
     a.avatar-big { height: 5em; }
-    .avatar-big .ui-selectmenu-item-icon { height: 5em; width: 5em; }
-    .ui-selectmenu-menu li.avatar-big a, a.avatar-big span.ui-selectmenu-status { padding-left: 5em !important; height: 6em; }
+    .avatar-big .ui-selectmenu-item-icon { height: 50px; width: 50px; }
+    .ui-selectmenu-menu li.avatar-big a, a.avatar-big span.ui-selectmenu-status { padding-left: 5em !important; height: 50px; }
 
 - content_for :head_scripts do
   :javascript
@@ -45,8 +45,8 @@
         ],
         bgImage: function() {
           return 'url(' + $(this).attr("title") + ')';
-            }
-          });
+        }
+      });
 
       $('select#peopleB').selectmenu({
         icons: [
@@ -58,14 +58,14 @@
           });
 
       $('select#peopleC').selectmenu({
-        //icons: [
-        //  {find: '.avatar-big'}
-        //],
-        //bgImage: function() {
-        //  return 'url(' + $(this).attr("title") + ')';
-        //},
-        menuWidth: 400,
-        format: addressFormatting
+        icons: [
+          {find: '.avatar-big'}
+        ],
+        bgImage: function() {
+          return 'url(' + $(this).attr("title") + ')';
+        },
+        menuWidth: 400//,
+        //format: addressFormatting
       });
     });
 

@@ -8,8 +8,6 @@
 - content_for :head_scripts do
   :javascript
     $(function() {
-      $("#radio").buttonset();
-
       var speedA_depends = $('select#speedA_depends').selectmenu();
       var speedA = $('select#speedA').selectmenu({
         select: function(event, options) {
@@ -28,8 +26,33 @@
       $("#off").click(function(){
         speedB.selectmenu("disable");
       });
+      $("#radio").buttonset();
 
       var speedC = $('select#speedC').selectmenu();
+      $("#optionSwitch").toggle(
+        function(){
+          speedC.selectmenu("disable", 2);
+        },
+        function(){
+          speedC.selectmenu("enable", 2);
+        }
+      );
+      $("#optionSwitch").button();
 
       var speedD = $('select#speedD').selectmenu();
+      $("#optgroupSwitch").toggle(
+        function(){
+          speedD.selectmenu("disable", 1, "optgroup");
+        },
+        function(){
+          speedD.selectmenu("enable", 1, "optgroup");
+        }
+      );
+      $("#optgroupSwitch").button();
+
+      var speedE = $('select#speedE').selectmenu();
+
+      var speedF = $('select#speedF').selectmenu();
+
+      var speedG = $('select#speedG').selectmenu();
     });

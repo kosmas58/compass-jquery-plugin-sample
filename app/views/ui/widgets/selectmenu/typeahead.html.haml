@@ -1,0 +1,76 @@
+-@title = "#{t('txt.ui.name')} #{t('txt.ui.widgets.selectmenu.name')} - #{t('txt.ui.widgets.selectmenu.typeahead')}"
+= render :partial => "typeahead.js.haml", :format => :js
+
+.demo
+  %h3
+    =image_tag("icons/22x22/filament.png", :border => 0)
+    = raw @title
+  %form{:action => "#"}
+    %fieldset
+      %label{:for => "state"} Select a State:
+      %br
+      %br
+      %select#state
+        %option
+        %option{:value => "AL"} Alabama
+        %option{:value => "AK"} Alaska
+        %option{:value => "AS"} American Samoa
+        %option{:value => "AZ"} Arizona
+        %option{:value => "AR"} Arkansas
+        %option{:value => "CA"} California
+        %option{:value => "CO"} Colorado
+        %option{:value => "CT"} Connecticut
+        %option{:value => "DE"} Delaware
+        %option{:value => "DC"} District of Columbia
+        %option{:value => "FM"} Federated States of Micronesia
+        %option{:value => "FL"} Florida
+        %option{:value => "GA"} Georgia
+        %option{:value => "GU"} Guam
+        %option{:value => "HI"} Hawaii
+        %option{:value => "ID"} Idaho
+        %option{:value => "IL"} Illinois
+        %option{:value => "IN"} Indiana
+        %option{:value => "IA"} Iowa
+        %option{:value => "KS"} Kansas
+        %option{:value => "KY"} Kentucky
+        %option{:value => "LA"} Louisiana
+        %option{:value => "ME"} Maine
+        %option{:value => "MH"} Marshall Islands
+        %option{:value => "MD"} Maryland
+        %option{:value => "MA"} Massachusetts
+        %option{:value => "MI"} Michigan
+        %option{:value => "MN"} Minnesota
+        %option{:value => "MS"} Mississippi
+        %option{:value => "MO"} Missouri
+        %option{:value => "MT"} Montana
+        %option{:value => "NE"} Nebraska
+        %option{:value => "NV"} Nevada
+        %option{:value => "NH"} New Hampshire
+        %option{:value => "NJ"} New Jersey
+        %option{:value => "NM"} New Mexico
+        %option{:value => "NY"} New York
+        %option{:value => "NC"} North Carolina
+        %option{:value => "ND"} North Dakota
+        %option{:value => "MP"} Northern Mariana Islands
+        %option{:value => "OH"} Ohio
+        %option{:value => "OK"} Oklahoma
+        %option{:value => "OR"} Oregon
+        %option{:value => "PW"} Palau
+        %option{:value => "PA"} Pennsylvania
+        %option{:value => "PR"} Puerto Rico
+        %option{:value => "RI"} Rhode Island
+        %option{:value => "SC"} South Carolina
+        %option{:value => "SD"} South Dakota
+        %option{:value => "TN"} Tennessee
+        %option{:value => "TX"} Texas
+        %option{:value => "UT"} Utah
+        %option{:value => "VT"} Vermont
+        %option{:value => "VI"} Virgin Islands
+        %option{:value => "VA"} Virginia
+        %option{:value => "WA"} Washington
+        %option{:value => "WV"} West Virginia
+        %option{:value => "WI"} Wisconsin
+        %option{:value => "WY"} Wyoming
+/ End demo
+.demo-description
+/ End demo-description

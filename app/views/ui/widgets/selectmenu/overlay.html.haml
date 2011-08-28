@@ -1,0 +1,30 @@
+-@title = "#{t('txt.ui.name')} #{t('txt.ui.widgets.selectmenu.name')} - #{t('txt.ui.widgets.selectmenu.overlay')}"
+= render :partial => "overlay.js.haml", :format => :js
+
+.demo
+  %h3
+    =image_tag("icons/22x22/filament.png", :border => 0)
+    = raw @title
+  #tags
+    Google
+  %p#shortdesc
+    Demonstrate use of the various types of Google layers.
+  %select#Selector.selectClass
+    %option{:value => "-1"} Select one
+    %option{:value => "236"} a
+    %option{:value => "257"} b
+    %option{:value => "237"} c
+    %option{:value => "251"} d
+    %option{:value => "263"} e
+    %option{:value => "248"} f
+    %option{:value => "262"} g
+    %option{:value => "260"} h
+    %option{:value => "234"} i
+    %option{:value => "229"} j
+    %option{:value => "230"} k
+    %option{:value => "240"} m
+    %option{:value => "79"} n
+  #map.smallmap
+/ End demo
+.demo-description
+/ End demo-description
