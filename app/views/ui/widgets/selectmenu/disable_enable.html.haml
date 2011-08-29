@@ -46,7 +46,7 @@
           %option{:value => "Medium"} Medium
           %option{:value => "Fast"} Fast
           %option{:value => "Faster"} Faster
-        %a#optionSwitch{:href => "#nogo"}  Disable option 'Medium' on / off
+        %input#optionSwitch.ui-state-default.ui-widget-content{:type => "button", :value => "Disable option 'Medium' on / off"}
       %h4 optgroup
       %fieldset
         %label{:for => "speedD"} Disable optgroup by HTML:
@@ -59,7 +59,7 @@
           %optgroup{:label => "Label with space"}
             %option{:value => "somefile"} Some unknown file
             %option{:value => "someotherfile"} Some other file
-        %a#optgroupSwitch{:href => "#nogo"} Disable option 'Label with space' on / off
+        %input#optgroupSwitch.ui-state-default.ui-widget-content{:type => "button", :value => "Disable option 'Label with space' on / off"}
     .span-12.last
       %h3 HTML
       %fieldset
