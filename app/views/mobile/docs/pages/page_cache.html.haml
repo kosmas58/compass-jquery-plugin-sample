@@ -1,61 +1,68 @@
--@title = "jQuery Mobile Docs - Preload & cache pages"
+-@title = "jQuery Mobile Docs - Prefetching &amp; caching pages"
 = render :partial => "/mobile/index.js.haml", :format => :js
 
 .type-interior{"data-role" => "page"}
   %div{"data-role" => "header", "data-theme" => "f"}
-    %h1 Preload & cache pages
+    %h1 Prefetching &amp; caching pages
     %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile"} Home
   / /header
   %div{"data-role" => "content"}
     .content-primary
-      %h2 Pre-fetching pages
+      %h2 Prefetching pages
+      %p Usually, it's a good idea to store your app's pages in several single-page templates instead of one large multi-page template. This minimizes the size of the page's DOM.
       %p
-        If you're using a single page template, but would prefer to lazy load in a few key pages in the background to avoid seeing the Ajax loader, we recommend using the pre-fetch feature instead of moving to a multi-page template. To pre-fetch a page, simply add the
+        When using single-page templates, you can prefetch pages into the DOM so that they're available instantly when the user visits them. To prefetch a page, add the
         %code data-prefetch
-        attribute to any link and jQuery Mobile will lazy load this page in the background after the primary page has loaded. Here's an example:
+        attribute to a link that points to the page. jQuery Mobile then loads the target page in the background after the primary page has loaded and the pagecreate event has triggered. For example:
       %pre
         %code
           :preserve
-             &lt;a href="foo/bar/baz" data-prefetch&gt;link text&lt;/a&gt;
+            &lt;a href="prefetchThisPage.html" data-prefetch&gt; ... &lt;/a&gt;
       %p
-        Technically here's how it works: after pagecreate, jQuery Mobile will automatically find all links in a page that have an attribute of
+        You can prefetch as many linked pages as you like. Just add
         %code data-prefetch
-        and automatically load the pages so they're available as soon as the user clicks on the link. The Ajax loader won't appear unless the framework hasn't loaded the page by the time the link was clicked.
-      %p Pre-fetching links will naturally cause additional HTTP requests and increased bandwidth that may never be used, so it's important to use this feature only in situations where it's highly likely that a page will be visited.
+        to all the links you want to prefetch.
+      %p
+        Alternatively, you can prefetch a page programmatically using
+        = succeed ":" do
+          %code $.mobile.loadPage()
       %pre
-        %code &lt;a href="foo/bar/baz" data-prefetch&gt;link text&lt;/a&gt;
-      %p
-        Pages can also be pre-fetched programmatically by calling
-        %code $.mobile.loadpage( url )
+        %code
+          :preserve
+            $.mobile.loadPage(pageUrl);
+      %p Another advantage of prefetching a page is that the user doesn't see the Ajax loading message when visiting the prefetched page. The Ajax loading message only appears if the framework hasn't finished prefetching the page by the time the link is followed.
+      %p Prefetching pages naturally creates additional HTTP requests and uses bandwidth, so it's wise to use this feature only in situations where it's highly likely that the prefetched page will be visited. A common scenario is a photo gallery, where you can prefetch the "previous" and "next" photo pages so that the user can move quickly between photos.
       %h2 DOM size management
-      %p Since animated page transitions require that the page you're on and the one you're transitioning to are both in the DOM, we add pages to the DOM as you navigate around. Before Beta 2, those pages would continue to stay in the DOM until a full page refresh occured so there was always a concern that we could hit a memory ceiling on some devices and cause the browser to slow down or even crash.
-      %p The jQuery Mobile framework has a simple mechanism to keep the DOM tidy: whenever a page is loaded in via Ajax, it is flagged for removal from the DOM once you navigate away to another page (technically, on pagehide). If you return to a deleted page, the browser may be able to retrieve the file from it's cache, or it will re-request it fro the sever if needed. In the case of nested lists, we remove all the pages that make up the nested list once you navigate to a page that's not part of the list. Pages that are included in a multi-page setup won't be affected by this feature at all - only pages brought in by Ajax are managed this way by jQuery Mobile.
+      %p For animated page transitions to work, the pages you're transitioning from and to both need to be in the DOM. However, keeping old pages in the DOM quickly fills the browser's memory, and can cause some mobile browsers to slow down or even crash.
+      %p jQuery Mobile therefore has a simple mechanism to keep the DOM tidy. Whenever it loads a page via Ajax, jQuery Mobile flags the page to be removed from the DOM when you navigate away from it later (technically, on the pagehide event). If you revisit a removed page, the browser may be able to retrieve the page's HTML file from its cache. If not, it refetches the file from the server. (In the case of nested list views, jQuery Mobile removes all the pages that make up the nested list once you navigate to a page that's not part of the list.)
+      %p Pages inside a multi-page template aren't affected by this feature at all - jQuery Mobile only removes pages loaded via Ajax.
+      %h2 Caching pages in the DOM
+      %p If you prefer, you can tell jQuery Mobile to keep previously-visited pages in the DOM instead of removing them. This lets you cache pages so that they're available instantly if the user returns to them.
       %p
-        A page option called
+        To keep all previously-visited pages in the DOM, set the
         %code domCache
-        controls whether to leave pages in the DOM as a way to cache them (the way things used to work) or keep the DOM clean and remove hidden pages (the new way). By default,
-        %code domCache
-        is set to
-        %code false
-        to keep the DOM size actively managed. If you set this to
+        option on the page plugin to
         = succeed "," do
           %code true
-        you need to take care to manage the DOM yourself and test thoroughly on a range of devices.
+        like this:
+      %pre
+        %code
+          :preserve
+            $.mobile.page.prototype.options.domCache = true;
       %p
-        Set the domCache option globally like this:
-        %pre
-          %code $.mobile.page.prototype.options.domCache = true;
-        %p
-          To set the domCache option on an individual pages, you can add the
-          %code data-dom-cache="true"
-          attribute to the page container to tell teh framework to not remove the page when it's hidden:
-        %pre
-          %code
-            :preserve
-              &lt;a href="foo/bar/baz" data-dom-cache="true"&gt;link text&lt;/a&gt;
-        %p Alternatively, pages can be cached in the DOM programmatically like this:
-        %pre
-          %code elem.page({ domCache: true });
+        Alternatively, to cache just a particular page, you can add the
+        %code data-dom-cache="true"
+        attribute to the page's container:
+      %pre
+        %code
+          :preserve
+            &lt;div data-role="page" id="cacheMe" data-dom-cache="true"&gt;
+      %p You can also cache a page programmatically like this:
+      %pre
+        %code
+          %var> pageContainerElement
+          \.page({ domCache: true });
+      %p The drawback of DOM caching is that the DOM can get very large, resulting in slowdowns and memory issues on some devices. If you enable DOM caching, take care to manage the DOM yourself and test thoroughly on a range of devices.
     / /content-primary
     .content-secondary
       %div{"data-collapsed" => "true", "data-role" => "collapsible", "data-theme" => "b"}
@@ -77,7 +84,7 @@
           %li
             %a{:href => "/mobile/docs/pages/page_dialogs"} Dialogs
           %li{"data-theme" => "a"}
-            %a{:href => "/mobile/docs/pages/page_cache"} Preload & cache pages
+            %a{:href => "/mobile/docs/pages/page_cache"} Prefetching &amp; caching pages
           %li
             %a{:href => "/mobile/docs/pages/page_navmodel"} Ajax, hashes &amp; history
           %li
