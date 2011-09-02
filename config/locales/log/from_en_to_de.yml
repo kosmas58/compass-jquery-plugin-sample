@@ -34,6 +34,8 @@ txt:
         name: General
         candlestick: Two panes, candlestick and volume
         basic: Single line series
+  emu: 
+    galaxy77: Galaxy Tab 7.7
   tools: 
     form: 
       stylable: 
@@ -45,7 +47,8 @@ txt:
   ui: 
     widgets: 
       selectmenu: 
-        typeahead: Typeahead
+        refresh: Refresh
+        overlay: OpenLayers Google Layer Example
 support: 
   array: 
     words_connector: ", "

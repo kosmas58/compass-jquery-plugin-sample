@@ -33,6 +33,10 @@ class EmulatorsController < ApplicationController
         scale = scale(169.55)
         @width  = @orientation == "landscape" ? 1024 : 600
         @height = @orientation == "landscape" ?  575 : 999
+      when "galaxy.tab.7.7"
+        scale = scale(196.03)
+        @width  = @orientation == "landscape" ? 1280 :  800
+        @height = @orientation == "landscape" ?  752 : 1232
       when "galaxy.tab.8.9"
         scale = scale(169.6)
         @width  = @orientation == "landscape" ? 1280 :  800
