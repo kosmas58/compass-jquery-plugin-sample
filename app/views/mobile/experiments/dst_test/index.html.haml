@@ -2,7 +2,7 @@
 -@manifest = "/manifest"
 = render :partial => "index.js.haml", :format => :js
 
-#jqm.type-interior{"data-role" => "page"}
+#home.type-interior{"data-role" => "page"}
   %div{"data-role" => "header", "data-theme" => "b"}
     %a.ui-btn-right{"data-icon" => "arrow-r", "data-iconpos" => "right", "data-direction" => "slide", :href => "#native"} Native
     %h1 jQuery DST Test Page
@@ -38,33 +38,20 @@
           %input#store{:type => "button", :value => "Store"}
           %input#recall{:type => "button", :value => "Recall"}
           %input#reset{:type => "reset", :value => "Reset Form"}
-      .ui-body-b
-        %div{"data-collapsed" => "true", "data-role" => "collapsible", "data-theme" => "b"}
-          %h3 More HTML5 and CSS3 Experiments in this section
-          %ul{"data-dividertheme" => "d", "data-role" => "listview", "data-theme" => "c"}
-            %li{"data-role" => "list-divider"} HTML5 and CSS3 Experiments
-            %li
-              %a{:href => "/mobile/experiments/converter", :rel => "external"}
-                %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/html5.png"}
-                  HTML5 - Offline Converter Application
-            %li
-              %a{:href => "/mobile/experiments/list_items", :rel => "external"}
-                %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/working.png"}
-                  HTML5 - Offline Shopping List (based on Railscast 248)
-            %li{"data-theme" => "a"}
-              %a{:href => "/mobile/experiments/dst_test", :rel => "external"}
-                %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/html5.png"}
-                  HTML5 - jQuery DST Plugin
-            %li
-              %a{:href => "/mobile/experiments/media_queries", :rel => "external"}
-                %img.ui-li-icon{:alt => "Tablet", :src => "/images/icons/16x16/css3.png"}
-                  CSS3 - Using Media Queries
     .content-secondary
       .ui-body-b
         %div{"data-collapsed" => "true", "data-role" => "collapsible", "data-theme" => "b"}
           %h3 More HTML5 and CSS3 Experiments in this section
           %ul{"data-dividertheme" => "d", "data-role" => "listview", "data-theme" => "c"}
             %li{"data-role" => "list-divider"} HTML5 and CSS3 Experiments
+            %li
+              %a{:href => "/mobile/experiments/canvas", :rel => "external"}
+                %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/html5.png"}
+                  HTML5 - Canvas
+            %li
+              %a{:href => "/mobile/experiments/canvas2", :rel => "external"}
+                %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/html5.png"}
+                  HTML5 - Canvas 2
             %li
               %a{:href => "/mobile/experiments/converter", :rel => "external"}
                 %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/html5.png"}
@@ -121,6 +108,14 @@
           %h3 More HTML5 and CSS3 Experiments in this section
           %ul{"data-dividertheme" => "d", "data-role" => "listview", "data-theme" => "c"}
             %li{"data-role" => "list-divider"} HTML5 and CSS3 Experiments
+            %li
+              %a{:href => "/mobile/experiments/canvas", :rel => "external"}
+                %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/html5.png"}
+                  HTML5 - Canvas
+            %li
+              %a{:href => "/mobile/experiments/canvas2", :rel => "external"}
+                %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/html5.png"}
+                  HTML5 - Canvas 2
             %li
               %a{:href => "/mobile/experiments/converter", :rel => "external"}
                 %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/html5.png"}
