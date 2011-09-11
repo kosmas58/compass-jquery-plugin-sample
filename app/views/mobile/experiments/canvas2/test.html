@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <title>iOS/Android Canvas</title>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.css" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.5.2.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.js"></script>
+         <script>
+            $(function() {
+                var canvasContext;
+                resizeCanvas();
+                $(window).resize(function() { resizeCanvas() });
+
+                function resizeCanvas()
+                {
+                    var w = window.innerWidth / 1.2;
+                    var h = window.innerHeight / 1.2;
+                    var canvasString = '<canvas id="mainCanvas" width="' + w + '" height="' + h + '">Canvas is not supported</canvas>';
+
+                    $('#contentholder').empty();
+                    $(canvasString).appendTo('#contentholder');
+                    canvasContext = $('#mainCanvas').get(0).getContext('2d');
+
+                    $('#mainCanvas').bind('tap', function(event){
+                        touchX = event.pageX;
+                        touchY = event.pageY;
+                        canvasContext.fillStyle="#0f0";
+                        canvasContext.fillRect(touchX - 75, touchY - 50, 50, 50);
+
+                        canvasContext.font = "20pt Arial";
+                        canvasContext.fillText("X: " + touchX + " Y: " + touchY, touchX, touchY);
+                    });
+                }
+            });
+            </script>
+    <style>
+      #mainCanvas
+      {
+        background-color: #000;
+        border: solid 3px #0F0;
+      }
+      body
+      {
+        background: #000;
+      }
+      #contentholder
+      {
+        width: 99%;
+        height: 99%;
+        margin: 0 auto;
+        text-align: center;
+      }
+     </style>
+    </head>
+
+    <body>
+    <div  data-role="page">
+        <div data-role="header">Header</div>
+        <div data-role="content"><div id="contentholder"></div></div>
+        <div data-role="footer">Footer</div>
+    </div>
+    </body>
+</html>

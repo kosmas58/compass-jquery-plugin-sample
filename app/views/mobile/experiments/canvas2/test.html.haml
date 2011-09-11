@@ -1,0 +1,57 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %title iOS/Android Canvas
+    %link{:href => "http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.css", :rel => "stylesheet"}/
+    %script{:src => "http://code.jquery.com/jquery-1.5.2.min.js", :type => "text/javascript"}
+    %script{:src => "http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.js", :type => "text/javascript"}
+    :javascript
+      $(function() {
+          var canvasContext;
+          resizeCanvas();
+          $(window).resize(function() { resizeCanvas() });
+
+          function resizeCanvas()
+          {
+              var w = window.innerWidth / 1.2;
+              var h = window.innerHeight / 1.2;
+              var canvasString = 'Canvas is not supported';
+
+              $('#contentholder').empty();
+              $(canvasString).appendTo('#contentholder');
+              canvasContext = $('#mainCanvas').get(0).getContext('2d');
+
+              $('#mainCanvas').bind('tap', function(event){
+                  touchX = event.pageX;
+                  touchY = event.pageY;
+                  canvasContext.fillStyle="#0f0";
+                  canvasContext.fillRect(touchX - 75, touchY - 50, 50, 50);
+
+                  canvasContext.font = "20pt Arial";
+                  canvasContext.fillText("X: " + touchX + " Y: " + touchY, touchX, touchY);
+              });
+          }
+      });
+          :css
+      #mainCanvas
+      {
+        background-color: #000;
+        border: solid 3px #0F0;
+      }
+      body
+      {
+        background: #000;
+      }
+      #contentholder
+      {
+        width: 99%;
+        height: 99%;
+        margin: 0 auto;
+        text-align: center;
+      }
+       %body
+    %div{"data-role" => "page"}
+      %div{"data-role" => "header"} Header
+      %div{"data-role" => "content"}
+        #contentholder
+      %div{"data-role" => "footer"} Footer
