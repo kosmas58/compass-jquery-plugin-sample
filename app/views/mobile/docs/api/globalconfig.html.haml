@@ -110,7 +110,7 @@
           %code activeBtnClass
           = succeed "," do
             %em string
-          default: "ui-page-active"
+          default: "ui-btn-active"
         %dd The class used for "active" button state, from CSS framework.
         %dt
           %code ajaxEnabled
@@ -130,6 +130,15 @@
             %em string
           default: 'slide'
         %dd Set the default transition for page changes that use Ajax. Set to 'none' for no transitions by default.
+        %dt
+          %code touchOverflowEnabled
+          = succeed "," do
+            %em boolean
+          default: false
+        %dd
+          Enable pages to have self-contained native scrolling and fixed toolbars in devices that support the
+          %code overflow-scrolling: touch;
+          property.
         %dt
           %code defaultDialogTransition
           = succeed "," do

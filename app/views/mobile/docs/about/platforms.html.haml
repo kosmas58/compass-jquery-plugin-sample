@@ -4,12 +4,12 @@
 .type-interior{"data-role" => "page"}
   %div{"data-role" => "header", "data-theme" => "f"}
     %h1 Supported platforms
-    %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile"} Home
+    %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "../../"} Home
   / /header
   %div{"data-role" => "content"}
     .content-primary
-      %h2 Supported platforms in Beta 2
-      %p At this stage, jQuery Mobile works on the vast majority of all modern desktop, smartphone, tablet, and e-reader platforms. In addition, feature phones and older browsers are also supported because of our progressive enhancement approach. We're very proud of our commitment to universal accessibility through our broad support for all popular platforms.
+      %h2#platforms Platform support in Beta 3
+      %p As of Beta 3, we've pretty much covered our target platforms for 1.0. At this stage, jQuery Mobile works on the vast majority of all modern desktop, smartphone, tablet, and e-reader platforms. In addition, feature phones and older browsers are also supported because of our progressive enhancement approach. We're very proud of our commitment to universal accessibility through our broad support for all popular platforms.
       %p
         Our
         %a{:href => "http://jquerymobile.com/gbs/"} graded support matrix
@@ -24,13 +24,9 @@
           \: Tested on the original iPad (3.2 / 4.3), iPad 2 (4.3), original iPhone (3.1), iPhone 3 (3.2), 3GS (4.3), and 4 (4.3 / 5.0 beta)
         %li
           %strong> Android 2.1-2.3
-          \: Tested on the HTC Incredible (2.2), original Droid (2.2), Nook Color (2.2), HTC Aria (2.1), Google Nexus S (2.3)
-          = succeed "." do
-            %span{:style => "background: yellow; padding: 2px 5px; font-size: 10px;"} NEW
-          Functional on 1.5 &amp; 1.6 but performance may be sluggish, tested on Google G1 (1.5)
+          \: Tested on the HTC Incredible (2.2), original Droid (2.2), Nook Color (2.2), HTC Aria (2.1), Google Nexus S (2.3). Functional on 1.5 &amp; 1.6 but performance may be sluggish, tested on Google G1 (1.5)
         %li
-          %strong Android Honeycomb
-          %span{:style => "background: yellow; padding: 2px 5px; font-size: 10px;"} NEW
+          %strong> Android Honeycomb
           \- Tested on the Samsung Galaxy Tab 10.1
         %li
           %strong> Windows Phone 7
@@ -39,14 +35,17 @@
           %strong> Blackberry 6.0
           \: Tested on the Torch 9800 and Style 9670
         %li
+          %strong Blackberry 7
+          %span{:style => "background: yellow; padding: 2px 5px; font-size: 10px;"} NEW
+          \- Tested on Nokia N8 (Symbian^3), C7 (Symbian^3), also works on N97 (Symbian^1)
+        %li
           %strong> Blackberry Playbook
           \: Tested on PlayBook version 1.0.1 / 1.0.5
         %li
           %strong> Palm WebOS (1.4-2.0)
           \: Tested on the Palm Pixi (1.4), Pre (1.4), Pre 2 (2.0)
         %li
-          %strong Palm WebOS 3.0
-          %span{:style => "background: yellow; padding: 2px 5px; font-size: 10px;"} NEW
+          %strong> Palm WebOS 3.0
           \- Tested on HP TouchPad
         %li
           %strong> Firebox Mobile (Beta)
@@ -86,8 +85,7 @@
           %strong Windows Phone 6.5
           \- Tested on the HTC
         %li
-          %strong Nokia Symbian^3
-          %span{:style => "background: yellow; padding: 2px 5px; font-size: 10px;"} NEW
+          %strong> Nokia Symbian^3
           \- Tested on Nokia N8 (Symbian^3), C7 (Symbian^3), also works on N97 (Symbian^1)
       %h3{:style => "display: block; font-size: 15px !important; font-weight: normal; background: #f0f0f0; border-left: 7px solid #FFCC33; padding: 5px 0 5px 8px;"}
         %strong

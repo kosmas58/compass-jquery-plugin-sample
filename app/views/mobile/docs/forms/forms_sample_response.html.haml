@@ -11,8 +11,10 @@
       %form{:action => "/mobile/docs/forms", :method => "get"}
         %h2
           You chose:
-        %p
-          = @shipping
+        .ui-body.ui-body-d.ui-corner-all
+          %p
+            = @shipping
+        %a{"data-icon" => "arrow-l", "data-role" => "button", "data-theme" => "b", :href => "/mobile/docs/forms/forms_sample"} Change shipping method
     / /content-primary
     .content-secondary
       .ui-body-b
