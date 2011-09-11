@@ -6,53 +6,93 @@
     =image_tag("icons/22x22/filament.png", :border => 0)
     = raw @title
   %form{:action => "#"}
-    %fieldset
-      %label{:for => "speedA"} Disabled by select callback (does not change original select):
-      %br
-      %br
-      %select#speedA{:name => "speedA"}
-        %option{:value => "on"} On
-        %option{:value => "off"} Off
-      %br/
-      %select#speedA_depends{:name => "speedA_depends"}
-        %option{:value => "Slow"} Slow
-        %option{:value => "Medium"} Medium
-        %option{:value => "Fast"} Fast
-    %fieldset
-      %label{:for => "speedB"} Disble by links:
-      %br
-      %br
-      %select#speedB{:name => "speedB"}
-        %option{:selected => "selected", :value => "Slower"} Slower
-        %option{:value => "Slow"} Slow
-        %option{:value => "Medium"} Medium
-        %option{:value => "Fast"} Fast
-        %option{:value => "Faster"} Faster
-      #radio
-        %a#on{:href => "#nogo"} on
-        %a#off{:href => "#nogo"} off
-      %br
-    %fieldset
-      %label{:for => "speedC"} Disabled by HTML (initial):
-      %br
-      %br
-      %select#speedC{:disabled => "disabled", :name => "speedC"}
-        %option{:selected => "selected", :value => "Slower"} Slower
-        %option{:value => "Slow"} Slow
-        %option{:value => "Medium"} Medium
-        %option{:value => "Fast"} Fast
-        %option{:value => "Faster"} Faster
-    %fieldset
-      %label{:for => "speedD"} Disabled option by HTML (initial, does not work):
-      %br
-      %br
-      %select#speedD{:name => "speedD"}
-        %option{:selected => "selected", :value => "Slower"} Slower
-        %option{:value => "Slow"} Slow
-        %option{:disabled => "disabled", :value => "Medium"} Medium (disabled)
-        %option{:value => "Fast"} Fast
-        %option{:value => "Faster"} Faster
-
+    .span-12
+      %h3 API
+      %h4 selectmenu
+      %fieldset
+        %label{:for => "speedA"} Disabled by select callback (does not change original select):
+        %br
+        %br
+        %select#speedA{:name => "speedA"}
+          %option{:value => "on"} On
+          %option{:value => "off"} Off
+        %br/
+        %select#speedA_depends{:name => "speedA_depends"}
+          %option{:value => "Slow"} Slow
+          %option{:value => "Medium"} Medium
+          %option{:value => "Fast"} Fast
+      %fieldset
+        %label{:for => "speedB"} Disable whole select:
+        %br
+        %br
+        %select#speedB{:name => "speedB"}
+          %option{:selected => "selected", :value => "Slower"} Slower
+          %option{:value => "Slow"} Slow
+          %option{:value => "Medium"} Medium
+          %option{:value => "Fast"} Fast
+          %option{:value => "Faster"} Faster
+        #radio
+          %a#on{:href => "#nogo"} on
+          %a#off{:href => "#nogo"} off
+        %br
+      %h4 option
+      %fieldset
+        %label{:for => "speedC"} Disable option by HTML:
+        %br
+        %br
+        %select#speedC{:name => "speedC"}
+          %option{:selected => "selected", :value => "Slower"} Slower
+          %option{:value => "Slow"} Slow
+          %option{:value => "Medium"} Medium
+          %option{:value => "Fast"} Fast
+          %option{:value => "Faster"} Faster
+        %input#optionSwitch.ui-state-default.ui-widget-content{:type => "button", :value => "Disable option 'Medium' on / off"}
+      %h4 optgroup
+      %fieldset
+        %label{:for => "speedD"} Disable optgroup by HTML:
+        %br
+        %br
+        %select#speedD{:name => "speedD"}
+          %optgroup{:label => "scripts"}
+            %option{:value => "jquery"} jQuery.js
+            %option{:value => "jqueryui"} ui.jQuery.js
+          %optgroup{:label => "Label with space"}
+            %option{:value => "somefile"} Some unknown file
+            %option{:value => "someotherfile"} Some other file
+        %input#optgroupSwitch.ui-state-default.ui-widget-content{:type => "button", :value => "Disable option 'Label with space' on / off"}
+    .span-12.last
+      %h3 HTML
+      %fieldset
+        %label{:for => "speedE"} Disabled by HTML (initial):
+        %br
+        %br
+        %select#speedE{:disabled => "disabled", :name => "speedE"}
+          %option{:selected => "selected", :value => "Slower"} Slower
+          %option{:value => "Slow"} Slow
+          %option{:value => "Medium"} Medium
+          %option{:value => "Fast"} Fast
+          %option{:value => "Faster"} Faster
+      %fieldset
+        %label{:for => "speedF"} Disabled option by HTML:
+        %br
+        %br
+        %select#speedF{:name => "speedF"}
+          %option{:selected => "selected", :value => "Slower"} Slower
+          %option{:value => "Slow"} Slow
+          %option{:disabled => "disabled", :value => "Medium"} Medium (disabled)
+          %option{:value => "Fast"} Fast
+          %option{:value => "Faster"} Faster
+      %fieldset
+        %label{:for => "speedG"} Disabled optgroup by HTML:
+        %br
+        %br
+        %select#speedG{:name => "speedG"}
+          %optgroup{:label => "scripts"}
+            %option{:value => "jquery"} jQuery.js
+            %option{:value => "jqueryui"} ui.jQuery.js
+          %optgroup{:disabled => "disabled", :label => "Label with space"}
+            %option{:value => "somefile"} Some unknown file
+            %option{:value => "someotherfile"} Some other file
 / End demo
 .demo-description
 / End demo-description

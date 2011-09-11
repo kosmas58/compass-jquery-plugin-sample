@@ -1,0 +1,47 @@
+-@title = "jQuery Mobile Framework - Canvas"
+-@manifest = "/manifest"
+= render :partial => "index.js.haml", :format => :js
+
+.type-interior{"data-role" => "page"}
+  %div{"data-role" => "header", "data-theme" => "b"}
+    %h1 HTML5 Canvas - Example 1
+    %a.ui-btn-left{"data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile/experiments/main", :rel => "external"} Home
+  / /header
+  %div{"data-role" => "content"}
+    .content-primary
+      %canvas#canvas Canvas is not supported
+      %input#canvasDraw{:type => "button", :value => "Canvas Draw"}
+    .content-secondary
+      .ui-body-b
+        %div{"data-collapsed" => "true", "data-role" => "collapsible", "data-theme" => "b"}
+          %h3 More HTML5 and CSS3 Experiments in this section
+          %ul{"data-dividertheme" => "d", "data-role" => "listview", "data-theme" => "c"}
+            %li{"data-role" => "list-divider"} HTML5 and CSS3 Experiments
+            %li{"data-theme" => "a"}
+              %a{:href => "/mobile/experiments/canvas", :rel => "external"}
+                %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/html5.png"}
+                  HTML5 - Canvas
+            %li
+              %a{:href => "/mobile/experiments/canvas2", :rel => "external"}
+                %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/html5.png"}
+                  HTML5 - Canvas 2
+            %li
+              %a{:href => "/mobile/experiments/converter", :rel => "external"}
+                %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/html5.png"}
+                  HTML5 - Offline Converter Application
+            %li
+              %a{:href => "/mobile/experiments/list_items", :rel => "external"}
+                %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/working.png"}
+                  HTML5 - Offline Shopping List (based on Railscast 248)
+            %li
+              %a{:href => "/mobile/experiments/dst_test", :rel => "external"}
+                %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/html5.png"}
+                  HTML5 - jQuery DST Plugin
+            %li
+              %a{:href => "/mobile/experiments/media_queries", :rel => "external"}
+                %img.ui-li-icon{:alt => "Tablet", :src => "/images/icons/16x16/css3.png"}
+                  CSS3 - Using Media Queries
+  / / content
+  %div{"data-role" => "footer"}
+    %h1 Test HTML5 Canvas examples
+/ / page

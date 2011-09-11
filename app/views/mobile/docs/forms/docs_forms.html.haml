@@ -1,137 +1,168 @@
 -@title = "jQuery Mobile Docs - Forms"
 = render :partial => "/mobile/index.js.haml", :format => :js
 
-%div{"data-role" => "page"}
-  %div{"data-role" => "header", "data-theme" => "b"}
+.type-interior{"data-role" => "page"}
+  %div{"data-role" => "header", "data-theme" => "f"}
     %h1 Forms
     %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile"} Home
   / /header
   %div{"data-role" => "content"}
-    %p jQuery Mobile provides a complete set of finger-friendly form elements that are based on native HTML form elements.
-    %h2 Form structure
-    %p
-      All forms should be wrapped in a
-      %code form
-      tag that has an
-      %code action
-      and
-      %code method
-      that will handle the form data processing on the server.
-    %pre
+    .content-primary
+      %p jQuery Mobile provides a complete set of finger-friendly form elements that are based on native HTML form elements.
+      %h2 Form structure
+      %p
+        All forms should be wrapped in a
+        %code form
+        tag that has an
+        %code action
+        and
+        %code method
+        that will handle the form data processing on the server.
       %code
-        :preserve
-          &lt;form action=&quot;form.php&quot; method=&quot;post&quot;&gt;
-            ...
-          &lt;/form&gt;
-    %h2 Markup Conventions
-    %p
-      When constructing forms to be used in jQuery Mobile, most of the standard guidelines used to create forms that submit via normal HTTP post or get still apply. However, one thing to keep in mind is that the
-      %code id
-      attributes of form controls need to be not only unique on a given page, but also unique across the pages in a site. This is because jQuery Mobile's single-page navigation model allows many different "pages" to be present in the DOM at the same time, so you must be careful to use unique
-      %code id
-      attributes so there will be only one of each in the DOM (and of course, be sure to pair them properly with
-      %code label
-      elements via the
-      %code for
-      attribute).
-    %h2 Auto-initialization of form elements
-    %p
-      By default, jQuery Mobile will automatically enhance certain native form controls into rich touch-friendly components. This is handled internally by finding form elements by tag name and running a plugin method on them, so for instance, a
-      %code select
-      element will be found and initialized with the "selectmenu" plugin, while an
-      %code input
-      element with a
-      %code type="checkbox"
-      will be enhanced with the "checkboxradio" plugin. Once initialized, you can address these enhanced components programmatically through their jQuery UI widget API methods (see documentation on available methods here:
-      = succeed ")." do
-        %a{:href => "/mobile/docs/forms/plugin_eventsmethods"} Form Plugin Methods
-    %h2 Preventing auto-initialization of form elements
-    %p
-      If you'd prefer that a particular form control be left untouched by jQuery Mobile, simply give that element the attribute
-      = succeed "." do
-        %code data-role="none"
-      For example:
-    %pre
-      %code
-        :preserve
-          &lt;label for=&quot;foo&quot;&gt;
-          &lt;select name=&quot;foo&quot; id=&quot;foo&quot; data-role=&quot;none&quot;&gt;
-            &lt;option value="a" &gt;A&lt;/option&gt;
-            &lt;option value="b" &gt;B&lt;/option&gt;
-            &lt;option value="c" &gt;C&lt;/option&gt;
-          &lt;/select&gt;
-    %p
-      Or, if you'd like to prevent auto-initialization without adding attributes to your markup, you can customize the selector that is used for preventing auto-initialization by setting the page plugin's
-      %code keepNative
-      option (which defaults to
-      = succeed "." do
-        %code [data-role="none"]
-      Be sure to configure this option inside an event handler bound to the
-      %code mobileinit
-      event, so that it applies to the first page as well as subsequent pages that are loaded.
-    %pre
-      %code
-        :preserve
-          $(document).bind('mobileinit',function(){
-            $.mobile.page.prototype.options.keepNative = "select, input.foo, textarea.bar";
-          });
-    %p
-      One special case is that of selects. The above sample will prevent any and all augmentation from taking place on select elements in the page if
-      %code select
-      is included. If you wish to retain the native performance, look/feel of the menu itself and benefit from the visual augmentation of the select button by jQuery Mobile you can set $.mobile.nativeSelectMenu to true in a
-      %code mobileinit
-      callback as a global setting or use
-      %code data-native="true"
-      on a case by case basis.
-    %h2 Dynamic form layout
-    %p In jQuery Mobile, all form elements are designed to be a flexible width so they will comfortably fit the width of any mobile device. One optimization built into the framework is that we present labels and form elements differently based on screen width.
-    %p If a page is fairly narrow (~480px), the labels are styled as block-level elements so they will stack on top of the form element to save horizontal space.
-    %p On wider screens, the labels and form elements are styled to be on the same line in a 2-column layout to take advantage of the screen real estate.
-    %h2 Field containers
-    %p
-      To improve the styling to labels and form elements on wider screens, we recommend wrapping a
-      %code div
-      or
-      = succeed "with" do
-        %code fieldset
-      the
-      %code data-role="fieldcontain"
-      attribute around each label/form element. The framework will add a thin vertical bottom border on this container to act as a field separator and visually align the label and form elements for quick scanning.
-    %pre
-      %code
-        :preserve
-          &lt;div data-role=&quot;fieldcontain&quot;&gt;
-            ...label/input code goes here...
-          &lt;/div&gt;
-    %h2
-      Refreshing form elements
-    %p
-      Every form control -- where applicable -- has a refresh method. Here are some examples:
-    %p
-      Checkboxes:
-    %code
-      $("input[type='checkbox']").attr("checked",true).checkboxradio("refresh");
-    %p
-      Radios:
-    %code
-      $("input[type='radio']").attr("checked",true).checkboxradio("refresh");
-    %p Selects:
-    %code
+        \&lt;form action=&quot;form.php&quot; method=&quot;post&quot;&gt;
+        \...
+        \&lt;/form&gt;
+      %h2 Markup Conventions
+      %p
+        When constructing forms to be used in jQuery Mobile, most of the standard guidelines used to create forms that submit via normal HTTP post or get still apply. However, one thing to keep in mind is that the
+        %code id
+        attributes of form controls need to be not only unique on a given page, but also unique across the pages in a site. This is because jQuery Mobile's single-page navigation model allows many different "pages" to be present in the DOM at the same time, so you must be careful to use unique
+        %code id
+        attributes so there will be only one of each in the DOM (and of course, be sure to pair them properly with
+        %code label
+        elements via the
+        %code for
+        attribute).
+      %h2 Auto-initialization of form elements
+      %p
+        By default, jQuery Mobile will automatically enhance certain native form controls into rich touch-friendly components. This is handled internally by finding form elements by tag name and running a plugin method on them, so for instance, a
+        %code select
+        element will be found and initialized with the "selectmenu" plugin, while an
+        %code input
+        element with a
+        %code type="checkbox"
+        will be enhanced with the "checkboxradio" plugin. Once initialized, you can address these enhanced components programmatically through their jQuery UI widget API methods (see documentation on available methods here:
+        = succeed ")." do
+          %a{:href => "/mobile/docs/forms/plugin_eventsmethods"} Form Plugin Methods
+      %h2 Preventing auto-initialization of form elements
+      %p
+        If you'd prefer that a particular form control be left untouched by jQuery Mobile, simply give that element the attribute
+        = succeed "." do
+          %code data-role="none"
+        For example:
       %pre
-        :preserve
-          var myselect = $("select#foo");
-          myselect[0].selectedIndex = 3;
-          myselect.selectmenu("refresh");
-    %p Sliders:
-    %code
-      $("input[type=range]").val(60).slider("refresh");
-    %p Flip switches (they use slider):
-    %code
+        %code
+          :preserve
+            &lt;label for=&quot;foo&quot;&gt;
+            &lt;select name=&quot;foo&quot; id=&quot;foo&quot; data-role=&quot;none&quot;&gt;
+              &lt;option value="a" &gt;A&lt;/option&gt;
+              &lt;option value="b" &gt;B&lt;/option&gt;
+              &lt;option value="c" &gt;C&lt;/option&gt;
+            &lt;/select&gt;
+      %p
+        Or, if you'd like to prevent auto-initialization without adding attributes to your markup, you can customize the selector that is used for preventing auto-initialization by setting the page plugin's
+        %code keepNative
+        option (which defaults to
+        = succeed "." do
+          %code [data-role="none"]
+        Be sure to configure this option inside an event handler bound to the
+        %code mobileinit
+        event, so that it applies to the first page as well as subsequent pages that are loaded.
       %pre
-        :preserve
-          var myswitch = $("select#bar");
-          myswitch[0].selectedIndex = 1;
-          myswitch .slider("refresh");
-    %p We're considering adding a refresh method to forms to let the framework refresh all the individual elemnts withing but that is a future enhancement.
+        %code
+          :preserve
+            $(document).bind('mobileinit',function(){
+              $.mobile.page.prototype.options.keepNative = "select, input.foo, textarea.bar";
+            });
+      %p
+        One special case is that of selects. The above sample will prevent any and all augmentation from taking place on select elements in the page if
+        %code select
+        is included. If you wish to retain the native performance, look/feel of the menu itself and benefit from the visual augmentation of the select button by jQuery Mobile you can set $.mobile.nativeSelectMenu to true in a
+        %code mobileinit
+        callback as a global setting or use
+        %code data-native="true"
+        on a case by case basis.
+      %h2 Dynamic form layout
+      %p In jQuery Mobile, all form elements are designed to be a flexible width so they will comfortably fit the width of any mobile device. One optimization built into the framework is that we present labels and form elements differently based on screen width.
+      %p If a page is fairly narrow (~480px), the labels are styled as block-level elements so they will stack on top of the form element to save horizontal space.
+      %p On wider screens, the labels and form elements are styled to be on the same line in a 2-column layout to take advantage of the screen real estate.
+      %h2 Field containers
+      %p
+        To improve the styling to labels and form elements on wider screens, we recommend wrapping a
+        %code div
+        or
+        = succeed "with" do
+          %code fieldset
+        the
+        %code data-role="fieldcontain"
+        attribute around each label/form element. The framework will add a thin vertical bottom border on this container to act as a field separator and visually align the label and form elements for quick scanning.
+      %pre
+        %code
+          :preserve
+
+            &lt;div data-role=&quot;fieldcontain&quot;&gt;
+              ...label/input code goes here...
+            &lt;/div&gt;
+      %h2 Refreshing form elements
+      %p Every form control -- where applicable -- has a refresh method. Here are some examples:
+      %p Checkboxes:
+      %code
+        $("input[type='checkbox']").attr("checked",true).checkboxradio("refresh");
+      %p Radios:
+      %code
+        $("input[type='radio']").attr("checked",true).checkboxradio("refresh");
+      %p Selects:
+      %code
+        %pre
+          :preserve
+            var myselect = $("select#foo");
+            myselect[0].selectedIndex = 3;
+            myselect.selectmenu("refresh");
+      %p Sliders:
+      %code
+        $("input[type=range]").val(60).slider("refresh");
+      %p Flip switches (they use slider):
+      %code
+        %pre
+          :preserve
+            var myswitch = $("select#bar");
+            myswitch[0].selectedIndex = 1;
+            myswitch .slider("refresh");
+      %p We're considering adding a refresh method to forms to let the framework refresh all the individual elemnts withing but that is a future enhancement.
+    / /content-primary
+    .content-secondary
+      .ui-body-b
+        %div{"data-collapsed" => "true", "data-role" => "collapsible", "data-theme" => "b"}
+          %h3 More in this section
+          %ul{"data-dividertheme" => "d", "data-role" => "listview", "data-theme" => "c"}
+            %li{"data-role" => "list-divider"} Form elements
+            %li{"data-theme" => "a"}
+              %a{:href => "/mobile/docs/forms/docs_forms"} Form basics
+            %li
+              %a{:href => "/mobile/docs/forms/forms_all"} Form element gallery
+            %li
+              %a{:href => "/mobile/docs/forms/texts"} Text inputs
+            %li
+              %a{:href => "/mobile/docs/forms/forms_search"} Search inputs
+            %li
+              %a{:href => "/mobile/docs/forms/sliders"} Sliders
+            %li
+              %a{:href => "/mobile/docs/forms/forms_switch"} Flip toggle switch
+            %li
+              %a{:href => "/mobile/docs/forms/radiobuttons"} Radio buttons
+            %li
+              %a{:href => "/mobile/docs/forms/checkboxes"} Checkboxes
+            %li
+              %a{:href => "/mobile/docs/forms/selects"} Select menus
+            %li
+              %a{:href => "/mobile/docs/forms/forms_themes"} Theming forms
+            %li
+              %a{:href => "/mobile/docs/forms/forms_all_native"} Native form elements
+            %li
+              %a{:href => "/mobile/docs/forms/forms_sample"} Submitting forms
+            %li
+              %a{:href => "/mobile/docs/forms/plugin_eventsmethods"} Plugin methods
   / /content
+  .footer-docs{"data-role" => "footer", "data-theme" => "c"}
+    %p &copy; 2011 The jQuery Project
 / /page

@@ -1,22 +1,22 @@
 source :gemcutter
-gem "rails", "~> 2.3.11"
+gem "rails", "~> 2.3.14"
 gem "erubis"
 gem "rdoc"
 gem "hpricot"
 gem "i18n"
 gem "i18n-js"
-gem "json"
+gem "json", "1.5.1"
 gem "ri_cal"
 gem "sqlite3"
 gem "open3", :platforms => :ruby
 gem "win32-open3", :platforms => :mswin
 
 gem "manifesto", ">= 0.6.0"
-gem "compass-jquery-plugin", "= 0.3.3.0", :require => 'jquery'
+gem "compass-jquery-plugin", "= 0.3.3.1", :require => 'jquery'
 # gem "sass"
 
 # for markItUp!
-gem "RedCloth", :require => "redcloth"
+gem "RedCloth", "4.2.7", :require => "redcloth"
 gem "bluecloth"
 gem "wikicloth"
 

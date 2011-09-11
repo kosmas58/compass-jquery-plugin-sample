@@ -2,10 +2,10 @@
 
 = render :partial => "/mobile/index.js.haml", :format => :js
 
-%div{"data-role" => "page"}
-  %div{"data-role" => "header", "data-theme" => "b"}
+.type-index{"data-role" => "page"}
+  %div{"data-role" => "header", "data-theme" => "f"}
     %h1 Toolbars
-    %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile"} Home
+    %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "../../"} Home
   / /header
   %div{"data-role" => "content"}
     %p Toolbars are used for headers, footers and utility bars throughout a mobile sites and applications, so jQuery Mobile provides a standard set of bars and navigation tools to cover most standard scenarios.

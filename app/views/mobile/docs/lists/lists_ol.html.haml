@@ -1,53 +1,102 @@
 -@title = "jQuery Mobile Docs - Ordered Lists"
-
 = render :partial => "/mobile/index.js.haml", :format => :js
 
-%div{"data-role" => "page"}
-  %div{"data-role" => "header", "data-theme" => "b"}
+.type-interior{"data-role" => "page"}
+  %div{"data-role" => "header", "data-theme" => "f"}
     %h1 Numbered list
     %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile"} Home
   / /header
   %div{"data-role" => "content"}
-    %ol{"data-role" => "listview"}
-      %li
-        %a{:href => "/mobile/docs/lists"} The Godfather
-      %li
-        %a{:href => "/mobile/docs/lists"} Inception
-      %li
-        %a{:href => "/mobile/docs/lists"} The Good, the Bad and the Ugly
-      %li
-        %a{:href => "/mobile/docs/lists"} Pulp Fiction
-      %li
-        %a{:href => "/mobile/docs/lists"} Schindler's List
-      %li
-        %a{:href => "/mobile/docs/lists"} 12 Angry Men
-      %li
-        %a{:href => "/mobile/docs/lists"} One Flew Over the Cuckoo's Nest
-      %li
-        %a{:href => "/mobile/docs/lists"} Star Wars: Episode V - The Empire Strikes Back
-      %li
-        %a{:href => "/mobile/docs/lists"} The Dark Knight
-      %li
-        %a{:href => "/mobile/docs/lists"} The Lord of the Rings: The Return of the King
-      %li
-        %a{:href => "/mobile/docs/lists"} Seven Samurai
-      %li
-        %a{:href => "/mobile/docs/lists"} Star Wars: Episode IV - A New Hope
-      %li
-        %a{:href => "/mobile/docs/lists"} Casablanca
-      %li
-        %a{:href => "/mobile/docs/lists"} Goodfellas
-      %li
-        %a{:href => "/mobile/docs/lists"} Toy Story 3
-      %li
-        %a{:href => "/mobile/docs/lists"} Fight Club
-      %li
-        %a{:href => "/mobile/docs/lists"} City of God
-      %li
-        %a{:href => "/mobile/docs/lists"} The Lord of the Rings: The Fellowship of the Ring
-      %li
-        %a{:href => "/mobile/docs/lists"} The Big Lebowski
-      %li
-        %a{:href => "/mobile/docs/lists"} Psycho
+    .content-primary
+      %ol{"data-role" => "listview"}
+        %li
+          %a{:href => "/mobile/docs/lists"} The Godfather
+        %li
+          %a{:href => "/mobile/docs/lists"} Inception
+        %li
+          %a{:href => "/mobile/docs/lists"} The Good, the Bad and the Ugly
+        %li
+          %a{:href => "/mobile/docs/lists"} Pulp Fiction
+        %li
+          %a{:href => "/mobile/docs/lists"} Schindler's List
+        %li
+          %a{:href => "/mobile/docs/lists"} 12 Angry Men
+        %li
+          %a{:href => "/mobile/docs/lists"} One Flew Over the Cuckoo's Nest
+        %li
+          %a{:href => "/mobile/docs/lists"} Star Wars: Episode V - The Empire Strikes Back
+        %li
+          %a{:href => "/mobile/docs/lists"} The Dark Knight
+        %li
+          %a{:href => "/mobile/docs/lists"} The Lord of the Rings: The Return of the King
+        %li
+          %a{:href => "/mobile/docs/lists"} Seven Samurai
+        %li
+          %a{:href => "/mobile/docs/lists"} Star Wars: Episode IV - A New Hope
+        %li
+          %a{:href => "/mobile/docs/lists"} Casablanca
+        %li
+          %a{:href => "/mobile/docs/lists"} Goodfellas
+        %li
+          %a{:href => "/mobile/docs/lists"} Toy Story 3
+        %li
+          %a{:href => "/mobile/docs/lists"} Fight Club
+        %li
+          %a{:href => "/mobile/docs/lists"} City of God
+        %li
+          %a{:href => "/mobile/docs/lists"} The Lord of the Rings: The Fellowship of the Ring
+        %li
+          %a{:href => "/mobile/docs/lists"} The Big Lebowski
+        %li
+          %a{:href => "/mobile/docs/lists"} Psycho
+    / /content-primary
+    .content-secondary
+      .ui-body-b
+        %div{"data-collapsed" => "true", "data-role" => "collapsible", "data-theme" => "b"}
+          %h3 More in this section
+          %ul{"data-dividertheme" => "d", "data-role" => "listview", "data-theme" => "c"}
+            %li{"data-role" => "list-divider"} List views
+            %li
+              %a{:href => "/mobile/docs/lists/docs_lists"} List markup conventions
+            %li
+              %a{:href => "/mobile/docs/lists/lists_ul"} Basic linked list
+            %li
+              %a{:href => "/mobile/docs/lists/lists_nested"} Nested list
+            %li{"data-theme" => "a"}
+              %a{:href => "/mobile/docs/lists/lists_ol"} Numbered list
+            %li
+              %a{:href => "/mobile/docs/lists/lists_split"} Split button list
+            %li
+              %a{:href => "/mobile/docs/lists/lists_divider"} List dividers
+            %li
+              %a{:href => "/mobile/docs/lists/lists_count"} Count bubble
+            %li
+              %a{:href => "/mobile/docs/lists/lists_thumbnails"} Thumbnails
+            %li
+              %a{:href => "/mobile/docs/lists/lists_icons"} Icons
+            %li
+              %a{:href => "/mobile/docs/lists/lists_formatting"} Content formatting
+            %li
+              %a{:href => "/mobile/docs/lists/lists_search"} Search filter bar
+            %li
+              %a{:href => "/mobile/docs/lists/lists_search_inset"} Inset search filter bar
+            %li
+              %a{:href => "/mobile/docs/lists/lists_search_with_dividers"} Search filter bar with dividers
+            %li
+              %a{:href => "/mobile/docs/lists/lists_readonly"} Read-only lists
+            %li
+              %a{:href => "/mobile/docs/lists/lists_readonly_inset"} Read-only inset lists
+            %li
+              %a{:href => "/mobile/docs/lists/lists_forms"} Lists with forms
+            %li
+              %a{:href => "/mobile/docs/lists/lists_forms_inset"} Inset lists with forms
+            %li
+              %a{:href => "/mobile/docs/lists/lists_inset"} Inset styled lists
+            %li
+              %a{:href => "/mobile/docs/lists/lists_performance"} List performance test
+            %li
+              %a{:href => "/mobile/docs/lists/lists_themes"} Theming lists
   / /content
+  .footer-docs{"data-role" => "footer", "data-theme" => "c"}
+    %p &copy; 2011 The jQuery Project
 / /page

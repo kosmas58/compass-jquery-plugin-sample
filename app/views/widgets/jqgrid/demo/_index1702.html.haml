@@ -1,0 +1,21 @@
+-@title = "#{t('txt.jqgrid.name')} #{t('txt.jqgrid.demo.name')} - #{t('txt.jqgrid.demo.40new')} - #{t('txt.jqgrid.demo.40keyboard')}"
+.demo
+  %h3
+    =image_tag("icons/22x22/grid.png", :border => 0)
+    =@title
+  %center
+    %table#invheaders_demo1702.scroll{ :cellspacing => "0", :cellpadding => "0" }
+    #invheaders_demo1702_pager.scroll{ :style => "text-align:center;" }
+/ End demo
+.demo-description
+  %p
+    With the help of the new method
+    %code
+      bindKeys
+    we can navigate through the grid and define different actions for certain keys.
+  %p
+    In this example:
+    %br
+    Select a row and try to use Up and Down keys to navigate through the
+    grid rows. When the Enter key is pressed an alert will appear.
+/ End demo-description

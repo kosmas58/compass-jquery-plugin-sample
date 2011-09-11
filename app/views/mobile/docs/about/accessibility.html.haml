@@ -1,22 +1,40 @@
 -@title = "jQuery Mobile Docs - Accesibility"
 = render :partial => "/mobile/index.js.haml", :format => :js
 
-%div{"data-role" => "page"}
-  %div{"data-role" => "header", "data-theme" => "b"}
+.type-interior{"data-role" => "page"}
+  %div{"data-role" => "header", "data-theme" => "f"}
     %h1 Accessibility
     %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile"} Home
   / /header
   %div{"data-role" => "content"}
-    %h2 Accessibility
-    %p
-      jQuery Mobile is built upon standard, semantic HTML, allowing pages to be accessible to the broadest range of devices possible. For A-Grade browsers, many of the components in jQuery Mobile leverage techniques such as focus management, keyboard navigation, and HTML attributes specified in the W3C's
-      %a{:href => "http://www.w3.org/TR/wai-aria/"} WAI-ARIA
-      specification.
-    %p
-      By utilizing these techniques, we do our best to ensure an accessible experience to users with disabilities such as blindness, who may use screen readers (like
-      = succeed "," do
-        %em VoiceOver
-      on Apple's iPhone device) or other assistive technology to access the web.
-    %p While our accessibility implementation is currently a work in progress, we aim to provide a fully accessible suite of components for version 1.0.
+    .content-primary
+      %h2 Accessibility
+      %p
+        jQuery Mobile is built upon standard, semantic HTML, allowing pages to be accessible to the broadest range of devices possible. For A-Grade browsers, many of the components in jQuery Mobile leverage techniques such as focus management, keyboard navigation, and HTML attributes specified in the W3C's
+        %a{:href => "http://www.w3.org/TR/wai-aria/"} WAI-ARIA
+        specification.
+      %p
+        By utilizing these techniques, we do our best to ensure an accessible experience to users with disabilities such as blindness, who may use screen readers (like
+        = succeed "," do
+          %em VoiceOver
+        on Apple's iPhone device) or other assistive technology to access the web.
+      %p While our accessibility implementation is currently a work in progress, we aim to provide a fully accessible suite of components for version 1.0.
+    .content-secondary
+      .ui-body-b
+        %div{"data-collapsed" => "true", "data-role" => "collapsible", "data-theme" => "b"}
+          %h3 More in this section
+          %ul{"data-dividertheme" => "d", "data-role" => "listview", "data-theme" => "c"}
+            %li{"data-role" => "list-divider"} Overview
+            %li
+              %a{:href => "/mobile/docs/about/intro"} Intro to jQuery Mobile
+            %li
+              %a{:href => "/mobile/docs/about/features"} Features
+            %li{"data-theme" => "a"}
+              %a{:href => "/mobile/docs/about/accessibility"} Accessibility
+            %li
+              %a{:href => "/mobile/docs/about/platforms"} Supported platforms
   / /content
+  .footer-docs{"data-role" => "footer", "data-theme" => "c"}
+    %p &copy; 2011 The jQuery Project
+/ /content
 / /page

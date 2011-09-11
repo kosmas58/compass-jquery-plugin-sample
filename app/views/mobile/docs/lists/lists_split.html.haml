@@ -1,89 +1,139 @@
 -@title = "jQuery Mobile Docs - Split Button Lists"
 = render :partial => "/mobile/index.js.haml", :format => :js
 
-#album-list{"data-role" => "page"}
-  %div{"data-role" => "header", "data-theme" => "b"}
+#album-list.type-interior{"data-role" => "page"}
+  %div{"data-role" => "header", "data-theme" => "f"}
     %h1 List formatting
-    %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "../../"} Home
+    %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile"} Home
   / /header
   %div{"data-role" => "content"}
-    %ul{"data-role" => "listview", "data-split-icon" => "gear", "data-split-theme" => "d"}
-      %li
-        %a{:href => "/mobile/docs/lists"}
-          %img{:src => "/images/demo/mobile/album/album-bb.jpg"}
-          %h3 Broken Bells
-          %p Broken Bells
-        %a{"data-rel" => "dialog", "data-transition" => "slideup", :href => "/mobile/docs/lists/lists_split_purchase"}
-          Purchase album
-      %li
-        %a{:href => "/mobile/docs/lists"}
-          %img{:src => "/images/demo/mobile/album/album-hc.jpg"}
-          %h3 Warning
-          %p Hot Chip
-        %a{"data-rel" => "dialog", "data-transition" => "slideup", :href => "/mobile/docs/lists/lists_split_purchase"}
-          Purchase album
-      %li
-        %a{:href => "/mobile/docs/lists"}
-          %img{:src => "/images/demo/mobile/album/album-p.jpg"}
-          %h3 Wolfgang Amadeus Phoenix
-          %p Phoenix
-        %a{"data-rel" => "dialog", "data-transition" => "slideup", :href => "/mobile/docs/lists/lists_split_purchase"}
-          Purchase album
-      %li
-        %a{:href => "/mobile/docs/lists"}
-          %img{:src => "/images/demo/mobile/album/album-ok.jpg"}
-          %h3 Of The Blue Colour Of The Sky
-          %p Ok Go
-        %a{"data-rel" => "dialog", "data-transition" => "slideup", :href => "/mobile/docs/lists/lists_split_purchase"}
-          Purchase album
-      %li
-        %a{:href => "/mobile/docs/lists"}
-          %img{:src => "/images/demo/mobile/album/album-ws.jpg"}
-          %h3 Elephant
-          %p The White Stripes
-        %a{"data-rel" => "dialog", "data-transition" => "slideup", :href => "/mobile/docs/lists/lists_split_purchase"}
-          Purchase album
-      %li
-        %a{:href => "/mobile/docs/lists"}
-          %img{:src => "/images/demo/mobile/album/album-rh.jpg"}
-          %h3 Kid A
-          %p Radiohead
-        %a{"data-rel" => "dialog", "data-transition" => "slideup", :href => "/mobile/docs/lists/lists_split_purchase"}
-          Purchase album
-      %li
-        %a{:href => "/mobile/docs/lists"}
-          %img{:src => "/images/demo/mobile/album/album-xx.jpg"}
-          %h3 XX
-          %p XX
-        %a{"data-rel" => "dialog", "data-transition" => "slideup", :href => "/mobile/docs/lists/lists_split_purchase"}
-          Purchase album
-      %li
-        %a{:href => "/mobile/docs/lists"}
-          %img{:src => "/images/demo/mobile/album/album-mg.jpg"}
-          %h3 Congratulations
-          %p MGMT
-        %a{"data-rel" => "dialog", "data-transition" => "slideup", :href => "/mobile/docs/lists/lists_split_purchase"}
-          Purchase album
-      %li
-        %a{:href => "/mobile/docs/lists"}
-          %img{:src => "/images/demo/mobile/album/album-ag.jpg"}
-          %h3 Ashes Grammar
-          %p A Sunny Day in Glasgow
-        %a{"data-rel" => "dialog", "data-transition" => "slideup", :href => "/mobile/docs/lists/lists_split_purchase"}
-          Purchase album
-      %li
-        %a{:href => "/mobile/docs/lists"}
-          %img{:src => "/images/demo/mobile/album/album-k.jpg"}
-          %h3 Hot Fuss
-          %p Killers
-        %a{"data-rel" => "dialog", "data-transition" => "slideup", :href => "/mobile/docs/lists/lists_split_purchase"}
-          Purchase album
-      %li
-        %a{:href => "/mobile/docs/lists"}
-          %img{:src => "/images/demo/mobile/album/album-af.jpg"}
-          %h3 The Suburbs
-          %p Arcade Fire
-        %a{"data-rel" => "dialog", "data-transition" => "slideup", :href => "/mobile/docs/lists/lists_split_purchase"}
-          Purchase album
+    .content-primary
+      %ul{"data-role" => "listview", "data-split-icon" => "gear", "data-split-theme" => "d"}
+        %li
+          %a{:href => "/mobile/docs/lists"}
+            %img{:src => "/images/demo/mobile/album/album-bb.jpg"}/
+            %h3 Broken Bells
+            %p Broken Bells
+          %a{"data-rel" => "dialog", "data-transition" => "slideup", :href => "/mobile/docs/lists/lists_split_puchase"}
+            Purchase album
+        %li
+          %a{:href => "/mobile/docs/lists"}
+            %img{:src => "/images/demo/mobile/album/album-hc.jpg"}/
+            %h3 Warning
+            %p Hot Chip
+          %a{"data-rel" => "dialog", "data-transition" => "slideup", :href => "/mobile/docs/lists/lists_split_puchase"}
+            Purchase album
+        %li
+          %a{:href => "/mobile/docs/lists"}
+            %img{:src => "/images/demo/mobile/album/album-p.jpg"}/
+            %h3 Wolfgang Amadeus Phoenix
+            %p Phoenix
+          %a{"data-rel" => "dialog", "data-transition" => "slideup", :href => "/mobile/docs/lists/lists_split_puchase"}
+            Purchase album
+        %li
+          %a{:href => "/mobile/docs/lists"}
+            %img{:src => "/images/demo/mobile/album/album-ok.jpg"}/
+            %h3 Of The Blue Colour Of The Sky
+            %p Ok Go
+          %a{"data-rel" => "dialog", "data-transition" => "slideup", :href => "/mobile/docs/lists/lists_split_puchase"}
+            Purchase album
+        %li
+          %a{:href => "/mobile/docs/lists"}
+            %img{:src => "/images/demo/mobile/album/album-ws.jpg"}/
+            %h3 Elephant
+            %p The White Stripes
+          %a{"data-rel" => "dialog", "data-transition" => "slideup", :href => "/mobile/docs/lists/lists_split_puchase"}
+            Purchase album
+        %li
+          %a{:href => "/mobile/docs/lists"}
+            %img{:src => "/images/demo/mobile/album/album-rh.jpg"}/
+            %h3 Kid A
+            %p Radiohead
+          %a{"data-rel" => "dialog", "data-transition" => "slideup", :href => "/mobile/docs/lists/lists_split_puchase"}
+            Purchase album
+        %li
+          %a{:href => "/mobile/docs/lists"}
+            %img{:src => "/images/demo/mobile/album/album-xx.jpg"}/
+            %h3 XX
+            %p XX
+          %a{"data-rel" => "dialog", "data-transition" => "slideup", :href => "/mobile/docs/lists/lists_split_puchase"}
+            Purchase album
+        %li
+          %a{:href => "/mobile/docs/lists"}
+            %img{:src => "/images/demo/mobile/album/album-mg.jpg"}/
+            %h3 Congratulations
+            %p MGMT
+          %a{"data-rel" => "dialog", "data-transition" => "slideup", :href => "/mobile/docs/lists/lists_split_puchase"}
+            Purchase album
+        %li
+          %a{:href => "/mobile/docs/lists"}
+            %img{:src => "/images/demo/mobile/album/album-ag.jpg"}/
+            %h3 Ashes Grammar
+            %p A Sunny Day in Glasgow
+          %a{"data-rel" => "dialog", "data-transition" => "slideup", :href => "/mobile/docs/lists/lists_split_puchase"}
+            Purchase album
+        %li
+          %a{:href => "/mobile/docs/lists"}
+            %img{:src => "/images/demo/mobile/album/album-k.jpg"}/
+            %h3 Hot Fuss
+            %p Killers
+          %a{"data-rel" => "dialog", "data-transition" => "slideup", :href => "/mobile/docs/lists/lists_split_puchase"}
+            Purchase album
+        %li
+          %a{:href => "/mobile/docs/lists"}
+            %img{:src => "/images/demo/mobile/album/album-af.jpg"}/
+            %h3 The Suburbs
+            %p Arcade Fire
+          %a{"data-rel" => "dialog", "data-transition" => "slideup", :href => "/mobile/docs/lists/lists_split_puchase"}
+            Purchase album
+    / /content-primary
+    .content-secondary
+      .ui-body-b
+        %div{"data-collapsed" => "true", "data-role" => "collapsible", "data-theme" => "b"}
+          %h3 More in this section
+          %ul{"data-dividertheme" => "d", "data-role" => "listview", "data-theme" => "c"}
+            %li{"data-role" => "list-divider"} List views
+            %li
+              %a{:href => "/mobile/docs/lists/docs_lists"} List markup conventions
+            %li
+              %a{:href => "/mobile/docs/lists/lists_ul"} Basic linked list
+            %li
+              %a{:href => "/mobile/docs/lists/lists_nested"} Nested list
+            %li
+              %a{:href => "/mobile/docs/lists/lists_ol"} Numbered list
+            %li{"data-theme" => "a"}
+              %a{:href => "/mobile/docs/lists/lists_split"} Split button list
+            %li
+              %a{:href => "/mobile/docs/lists/lists_divider"} List dividers
+            %li
+              %a{:href => "/mobile/docs/lists/lists_count"} Count bubble
+            %li
+              %a{:href => "/mobile/docs/lists/lists_thumbnails"} Thumbnails
+            %li
+              %a{:href => "/mobile/docs/lists/lists_icons"} Icons
+            %li
+              %a{:href => "/mobile/docs/lists/lists_formatting"} Content formatting
+            %li
+              %a{:href => "/mobile/docs/lists/lists_search"} Search filter bar
+            %li
+              %a{:href => "/mobile/docs/lists/lists_search_inset"} Inset search filter bar
+            %li
+              %a{:href => "/mobile/docs/lists/lists_search_with_dividers"} Search filter bar with dividers
+            %li
+              %a{:href => "/mobile/docs/lists/lists_readonly"} Read-only lists
+            %li
+              %a{:href => "/mobile/docs/lists/lists_readonly_inset"} Read-only inset lists
+            %li
+              %a{:href => "/mobile/docs/lists/lists_forms"} Lists with forms
+            %li
+              %a{:href => "/mobile/docs/lists/lists_forms_inset"} Inset lists with forms
+            %li
+              %a{:href => "/mobile/docs/lists/lists_inset"} Inset styled lists
+            %li
+              %a{:href => "/mobile/docs/lists/lists_performance"} List performance test
+            %li
+              %a{:href => "/mobile/docs/lists/lists_themes"} Theming lists
   / /content
+  .footer-docs{"data-role" => "footer", "data-theme" => "c"}
+    %p &copy; 2011 The jQuery Project
 / /page

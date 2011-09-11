@@ -1,56 +1,70 @@
 -@title = "Page Title"
 
-/ Start of first page
+/ Start of first page: #one
 #foo{"data-role" => "page"}
   %div{"data-role" => "header"}
-    %h1 Foo
+    %h1 Multi-page
   / /header
-  %div{"data-role" => "content"}
-    %h2 Foo
-    %p I'm first in the source order so I'm shown as the page.
+  #one{"data-role" => "content"}
+    %h2 One
+    %p I have an id of "one" on my page container. I'm first in the source order so I'm shown when the page loads.
     %p
-      View internal page called
-      %a{:href => "#bar"} bar
+      This is a multi-page boilerplate template that you can copy to build you first jQuery Mobile page. This template contains multiple "page" containers inside, unlike a
+      %a{:href => "/mobile/docs/pages/page_template"} single page template
+      that has just one page within it.
+    %p Just view the source and copy the code to get started. All the CSS and JS is linked to the jQuery CDN versions so this is super easy to set up. Remember to include a meta viewport tag in the head to set the zoom level.
     %p
-      View internal page called
-      %a{"data-rel" => "dialog", "data-transition" => "pop", :href => "#baz"} baz
-      as a dialog.
+      You link to internal pages by referring to the ID of the page you want to show. For example, to
+      %a{:href => "#two"} link
+      to the page with an ID of "two", my link would have a
+      %code href="#two"
+      in the code.
+    %h3 Show internal pages:
+    %p
+      %a{"data-role" => "button", :href => "#two"} Show page "two"
+    %p
+      %a{"data-rel" => "dialog", "data-role" => "button", "data-transition" => "pop", :href => "#popup"} Show page "popup" (as a dialog)
   / /content
-  %div{"data-role" => "footer"}
+  %div{"data-role" => "footer", "data-theme" => "d"}
     %h4 Page Footer
   / /footer
-/ /page
-/ Start of second page
-#bar{"data-role" => "page"}
+/ /page one
+/ Start of second page: #two
+#two{"data-role" => "page", "data-theme" => "a"}
   %div{"data-role" => "header"}
-    %h1 Bar
+    %h1 Two
   / /header
-  %div{"data-role" => "content"}
-    %h2 Bar
-    %p I'm the bar page.
+  %div{"data-role" => "content", "data-theme" => "a"}
+    %h2 Two
+    %p I have an id of "two" on my page container. I'm the second page container in this multi-page template.
     %p
-      %a{"data-direction" => "reverse", :href => "#foo"} Back to foo
+      Notice that the theme is different for this page because we've added a few
+      %code data-theme
+      swatch assigments here to show off how flexible it is. You can add any content or widget to these pages, but we're keeping these simple.
     %p
-      Or view an
-      %a{:href => "/mobile/docs/pages/link_formats"} external page
-      from here!
+      %a{"data-direction" => "reverse", "data-role" => "button", "data-theme" => "b", :href => "#one"} Back to page "one"
   / /content
   %div{"data-role" => "footer"}
     %h4 Page Footer
   / /footer
-/ /page
-/ Start of second page
-#baz{"data-role" => "page"}
-  %div{"data-role" => "header"}
-    %h1 Baz
+/ /page two
+/ Start of third page: #popup
+#popup{"data-role" => "page"}
+  %div{"data-role" => "header", "data-theme" => "e"}
+    %h1 Dialog
   / /header
-  %div{"data-role" => "content"}
-    %h2 Baz
-    %p I'm the baz page, viewed as a dialog.
+  %div{"data-role" => "content", "data-theme" => "d"}
+    %h2 Popup
     %p
-      %a{"data-rel" => "back", :href => "#foo"} Back to foo
+      I have an id of "popup" on my page container and only look like a dialog because the link to me had a
+      %code data-rel="dialog"
+      attribute which gives me this inset look and a
+      %code data-transition="pop"
+      attribute to change the transition to pop. Without this, I'd be styled as a normal page.
+    %p
+      %a{"data-icon" => "back", "data-inline" => "true", "data-rel" => "back", "data-role" => "button", :href => "#one"} Back to page "one"
   / /content
   %div{"data-role" => "footer"}
     %h4 Page Footer
   / /footer
-/ /page
+/ /page popup

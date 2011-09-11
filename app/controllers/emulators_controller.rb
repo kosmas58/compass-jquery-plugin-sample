@@ -33,6 +33,10 @@ class EmulatorsController < ApplicationController
         scale = scale(169.55)
         @width  = @orientation == "landscape" ? 1024 : 600
         @height = @orientation == "landscape" ?  575 : 999
+      when "galaxy.tab.7.7"
+        scale = scale(196.03)
+        @width  = @orientation == "landscape" ? 1280 :  800
+        @height = @orientation == "landscape" ?  752 : 1230
       when "galaxy.tab.8.9"
         scale = scale(169.6)
         @width  = @orientation == "landscape" ? 1280 :  800
@@ -45,6 +49,10 @@ class EmulatorsController < ApplicationController
         scale = scale(269.62)
         @width  = @orientation == "landscape" ? 960 : 540
         @height = @orientation == "landscape" ? 500 : 920
+      when "ideos.x3"
+        scale = scale(180.28)
+        @width  = @orientation == "landscape" ? 480 : 320
+        @height = @orientation == "landscape" ? 320 : 480
       when "ipad"
         scale = scale(131.96)
         @width  = @orientation == "landscape" ? 1024 :  768
@@ -57,10 +65,6 @@ class EmulatorsController < ApplicationController
         scale = scale(329.65)
         @width  = @orientation == "landscape" ? 960 : 640
         @height = @orientation == "landscape" ? 601 : 921
-      when "palm.pre.2"
-        scale = scale(186.09)
-        @width  = @orientation == "landscape" ? 480 : 320
-        @height = @orientation == "landscape" ? 300 : 460
     end
   end
 

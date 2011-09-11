@@ -3,99 +3,118 @@
 = render :partial => "index.js.haml", :format => :js
 
 / Page starts here
-#home{"data-role" => "page", "data-theme" => "b"}
+.type-interior#home{"data-role" => "page", "data-theme" => "b"}
   %div{"data-backbtn" => "false", "data-role" => "header", :name => "hdrMain"}
     %h1 New Claim
     %a.ui-btn-left{"data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile/experiments/main", :rel => "external"} Home
   / / header
   %div{"data-role" => "content", :name => "contentMain"}
-    %form#claim
-      #shipDiv{"data-role" => "fieldcontain"}
-        %label{:for => "shipNo"} Shipping number*
-        %input#shipNo{:name => "shipNo_r", :type => "text"}
-      #fnameDiv{"data-role" => "fieldcontain"}
-        %label#fnameLabel{:for => "fname", :name => "fnameLabel"} First name*
-        %input#fname{:name => "fname_r", :type => "text"}
-      #lnameDiv{"data-role" => "fieldcontain"}
-        %label{:for => "lname"} Last name*
-        %input#lname{:name => "lname_r", :type => "text"}
-      #emailDiv{"data-role" => "fieldcontain"}
-        %label{:for => "email"} Email*
-        %input#email{:name => "email_r", :type => "text"}
-      #phoneDiv{"data-role" => "fieldcontain"}
-        %label{:for => "phone"} Phone
-        %input#phone{:name => "phone", :type => "text"}
-      #streetDiv{"data-role" => "fieldcontain"}
-        %label{:for => "street"} Street address*
-        %input#street{:name => "street_r", :type => "text"}
-      #cityDiv{"data-role" => "fieldcontain"}
-        %label{:for => "city"} City*
-        %input#city{:name => "city_r", :type => "text"}
-      #stateDiv{"data-role" => "fieldcontain"}
-        %label#stateLabel{:for => "state"} State*
-        %select#state{"data-native-menu" => "false", :name => "state_r", :tabindex => "2"}
-          %option{:value => "ZZ"} Please select a state
-          %option{:value => "AL"} Alabama
-          %option{:value => "AK"} Alaska
-          %option{:value => "AZ"} Arizona
-          %option{:value => "AR"} Arkansas
-          %option{:value => "CA"} California
-          %option{:value => "CO"} Colorado
-          %option{:value => "CT"} Connecticut
-          %option{:value => "DE"} Delaware
-          %option{:value => "FL"} Florida
-          %option{:value => "GA"} Georgia
-          %option{:value => "HI"} Hawaii
-          %option{:value => "ID"} Idaho
-          %option{:value => "IL"} Illinois
-          %option{:value => "IN"} Indiana
-          %option{:value => "IA"} Iowa
-          %option{:value => "KS"} Kansas
-          %option{:value => "KY"} Kentucky
-          %option{:value => "LA"} Louisiana
-          %option{:value => "ME"} Maine
-          %option{:value => "MD"} Maryland
-          %option{:value => "MA"} Massachusetts
-          %option{:value => "MI"} Michigan
-          %option{:value => "MN"} Minnesota
-          %option{:value => "MS"} Mississippi
-          %option{:value => "MO"} Missouri
-          %option{:value => "MT"} Montana
-          %option{:value => "NE"} Nebraska
-          %option{:value => "NV"} Nevada
-          %option{:value => "NH"} New Hampshire
-          %option{:value => "NJ"} New Jersey
-          %option{:value => "NM"} New Mexico
-          %option{:value => "NY"} New York
-          %option{:value => "NC"} North Carolina
-          %option{:value => "ND"} North Dakota
-          %option{:value => "OH"} Ohio
-          %option{:value => "OK"} Oklahoma
-          %option{:value => "OR"} Oregon
-          %option{:value => "PA"} Pennsylvania
-          %option{:value => "RI"} Rhode Island
-          %option{:value => "SC"} South Carolina
-          %option{:value => "SD"} South Dakota
-          %option{:value => "TN"} Tennessee
-          %option{:value => "TX"} Texas
-          %option{:value => "UT"} Utah
-          %option{:value => "VT"} Vermont
-          %option{:value => "VA"} Virginia
-          %option{:value => "WA"} Washington
-          %option{:value => "WV"} West Virginia
-          %option{:value => "WI"} Wisconsin
-          %option{:value => "WY"} Wyoming
-      #zipDiv{"data-role" => "fieldcontain"}
-        %label{:for => "zip"} Postal code*
-        %input#zip{:name => "zip_r", :type => "text"}
-      #whatDiv{"data-role" => "fieldcontain"}
-        %label#whatLabel{:for => "what"} Please explain what happened*:
-        %textarea#what{:cols => "40", :name => "what_r", :rows => "8"}
-      %fieldset.ui-grid-a
-        .ui-block-a
-          %button{"data-theme" => "b", :type => "submit"} Submit Claim
-        .ui-block-b
-          %button#clearForm{"data-theme" => "c", :type => "reset"} Reset form
+    .content-primary
+      %form#claim
+        #shipDiv{"data-role" => "fieldcontain"}
+          %label{:for => "shipNo"} Shipping number*
+          %input#shipNo{:name => "shipNo_r", :type => "text"}
+        #fnameDiv{"data-role" => "fieldcontain"}
+          %label#fnameLabel{:for => "fname", :name => "fnameLabel"} First name*
+          %input#fname{:name => "fname_r", :type => "text"}
+        #lnameDiv{"data-role" => "fieldcontain"}
+          %label{:for => "lname"} Last name*
+          %input#lname{:name => "lname_r", :type => "text"}
+        #emailDiv{"data-role" => "fieldcontain"}
+          %label{:for => "email"} Email*
+          %input#email{:name => "email_r", :type => "text"}
+        #phoneDiv{"data-role" => "fieldcontain"}
+          %label{:for => "phone"} Phone
+          %input#phone{:name => "phone", :type => "text"}
+        #streetDiv{"data-role" => "fieldcontain"}
+          %label{:for => "street"} Street address*
+          %input#street{:name => "street_r", :type => "text"}
+        #cityDiv{"data-role" => "fieldcontain"}
+          %label{:for => "city"} City*
+          %input#city{:name => "city_r", :type => "text"}
+        #stateDiv{"data-role" => "fieldcontain"}
+          %label#stateLabel{:for => "state"} State*
+          %select#state{"data-native-menu" => "false", :name => "state_r", :tabindex => "2"}
+            %option{:value => "ZZ"} Please select a state
+            %option{:value => "AL"} Alabama
+            %option{:value => "AK"} Alaska
+            %option{:value => "AZ"} Arizona
+            %option{:value => "AR"} Arkansas
+            %option{:value => "CA"} California
+            %option{:value => "CO"} Colorado
+            %option{:value => "CT"} Connecticut
+            %option{:value => "DE"} Delaware
+            %option{:value => "FL"} Florida
+            %option{:value => "GA"} Georgia
+            %option{:value => "HI"} Hawaii
+            %option{:value => "ID"} Idaho
+            %option{:value => "IL"} Illinois
+            %option{:value => "IN"} Indiana
+            %option{:value => "IA"} Iowa
+            %option{:value => "KS"} Kansas
+            %option{:value => "KY"} Kentucky
+            %option{:value => "LA"} Louisiana
+            %option{:value => "ME"} Maine
+            %option{:value => "MD"} Maryland
+            %option{:value => "MA"} Massachusetts
+            %option{:value => "MI"} Michigan
+            %option{:value => "MN"} Minnesota
+            %option{:value => "MS"} Mississippi
+            %option{:value => "MO"} Missouri
+            %option{:value => "MT"} Montana
+            %option{:value => "NE"} Nebraska
+            %option{:value => "NV"} Nevada
+            %option{:value => "NH"} New Hampshire
+            %option{:value => "NJ"} New Jersey
+            %option{:value => "NM"} New Mexico
+            %option{:value => "NY"} New York
+            %option{:value => "NC"} North Carolina
+            %option{:value => "ND"} North Dakota
+            %option{:value => "OH"} Ohio
+            %option{:value => "OK"} Oklahoma
+            %option{:value => "OR"} Oregon
+            %option{:value => "PA"} Pennsylvania
+            %option{:value => "RI"} Rhode Island
+            %option{:value => "SC"} South Carolina
+            %option{:value => "SD"} South Dakota
+            %option{:value => "TN"} Tennessee
+            %option{:value => "TX"} Texas
+            %option{:value => "UT"} Utah
+            %option{:value => "VT"} Vermont
+            %option{:value => "VA"} Virginia
+            %option{:value => "WA"} Washington
+            %option{:value => "WV"} West Virginia
+            %option{:value => "WI"} Wisconsin
+            %option{:value => "WY"} Wyoming
+        #zipDiv{"data-role" => "fieldcontain"}
+          %label{:for => "zip"} Postal code*
+          %input#zip{:name => "zip_r", :type => "text"}
+        #whatDiv{"data-role" => "fieldcontain"}
+          %label#whatLabel{:for => "what"} Please explain what happened*:
+          %textarea#what{:cols => "40", :name => "what_r", :rows => "8"}
+        %fieldset.ui-grid-a
+          .ui-block-a
+            %button{"data-theme" => "b", :type => "submit"} Submit Claim
+          .ui-block-b
+            %button#clearForm{"data-theme" => "c", :type => "reset"} Reset form
+    .content-secondary
+      .ui-body-b
+        %div{"data-collapsed" => "true", "data-role" => "collapsible", "data-theme" => "b"}
+          %h3 More tuts+ experiments in this section
+          %ul{"data-dividertheme" => "d", "data-role" => "listview", "data-theme" => "c"}
+            %li{"data-role" => "list-divider"} Tuts+ experiments
+            %li
+              %a{:href => "/mobile/tuts/tuts", :rel => "external"}
+                %img.ui-li-icon{:alt => "Tuts+", :src => "/images/icons/16x16/tuts.png"}
+                  Tuts+ reader
+            %li
+              %a{:href => "/mobile/tuts/news", :rel => "external"}
+                %img.ui-li-icon{:alt => "Tuts+", :src => "/images/icons/16x16/working.png"}
+                  News reader
+            %li{"data-theme" => "a"}
+              %a{:href => "/mobile/tuts/new_claim", :rel => "external"}
+                %img.ui-li-icon{:alt => "HTML5", :src =>  "/images/icons/16x16/mobileTuts.png"}
+                  New Claim
   / contentMain
 //page
 

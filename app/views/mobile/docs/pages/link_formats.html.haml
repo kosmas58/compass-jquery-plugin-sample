@@ -1,54 +1,80 @@
 -@title = "jQuery Mobile Docs - Links"
 = render :partial => "/mobile/index.js.haml", :format => :js
 
-%div{"data-role" => "page"}
-  %div{"data-role" => "header", "data-theme" => "b"}
+.type-interior{"data-role" => "page"}
+  %div{"data-role" => "header", "data-theme" => "f"}
     %h1 Link formats
     %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile"} Home
   / /header
   %div{"data-role" => "content"}
-    %p All standard HTML link types are supported in jQuery Mobile. To make the experience as polished as possible, any links to pages within the same domain will be automatically turned into Ajax requests and displayed with an animated page transition by the framework.
-    %p
-      Links that point to other domains or that have
-      = succeed "," do
-        %code rel="external"
-      %code data-ajax="false"
-      or
-      %code target
-      attributes will not be loaded with Ajax and will cause a full page refresh. If multiple "pages" are contained within a single HTML document, they can be linked by referencing the ID of the page as an anchor (#foo).
-    %p
-      All other types of links like
-      %code mailto:
-      and
-      %code tel:
-      aren't impacted by the framework and will work as expected. Learn more about the
-      %a{:href => "/mobile/docs/pages/docs_navmodel"} linking and navigation model
-      in jQuery Mobile
-    %ul{"data-inset" => "true", "data-role" => "listview"}
-      %li{"data-role" => "list-divider"} Links that will be Ajax-loaded with page transitions
-      %li
-        %a{:href => "/mobile/docs/pages"} Link in the same domain
-      %li
-        %a{"data-rel" => "dialog", :href => "/mobile/docs/pages/dialog"} Dialog link: data-rel="dialog" (not tracked in history)
-      %li{"data-role" => "list-divider"} Links that will refresh the page
-      %li
-        %a{:href => "http://www.jquery.com"} External domain
-      %li
-        %a{:href => "/mobile/docs/pages", :rel => "external"} Link with rel="external"
-      %li
-        %a{"data-ajax" => "false", :href => "/mobile/docs/pages"} link with [data-ajax="false"]
-      %li
-        %a{:href => "/mobile/docs/pages", :target => "foo"} Link with target="foo"
-      %li{"data-role" => "list-divider"} Email links
-      %li
-        %a{:href => "mailto:jdoe@foo.com"} Basic email: mailto:jdoe@foo.com
-      %li
-        %a{:href => "mailto:jdoe@foo.com?cc=bill@bar.com&bcc=mark@abc.com&subject=Happy%20Birthday&body=Best%20wishes!"} Mailto with a cc:, bcc:, subject and body pre-filled
-      %li{"data-role" => "list-divider"} Phone links
-      %li
-        %a{:href => "tel:15555555555"} Phone: tel:15555555555
-      %li{"data-role" => "list-divider"} Other
-      %li
-        %a{:href => "#"} A href="#" will return false
+    .content-primary
+      %p All standard HTML link types are supported in jQuery Mobile. To make the experience as polished as possible, any links to pages within the same domain will be automatically turned into Ajax requests and displayed with an animated page transition by the framework.
+      %p
+        Links that point to other domains or that have
+        = succeed "," do
+          %code rel="external"
+        %code data-ajax="false"
+        or
+        %code target
+        attributes will not be loaded with Ajax and will cause a full page refresh. If multiple "pages" are contained within a single HTML document, they can be linked by referencing the ID of the page as an anchor (#foo).
+      %p
+        All other types of links like
+        %code mailto:
+        and
+        %code tel:
+        aren't impacted by the framework and will work as expected. Learn more about the
+        %a{:href => "/mobile/docs/pages/docs_navmodel"} linking and navigation model
+        in jQuery Mobile
+      %ul{"data-inset" => "true", "data-role" => "listview"}
+        %li{"data-role" => "list-divider"} Links that will be Ajax-loaded with page transitions
+        %li
+          %a{:href => "/mobile"} Link in the same domain
+        %li
+          %a{"data-rel" => "dialog", :href => "../pages//mobile/docs/pages/dialog"} Dialog link: data-rel="dialog" (not tracked in history)
+        %li{"data-role" => "list-divider"} Links that will refresh the page
+        %li
+          %a{:href => "http://www.jquery.com"} External domain
+        %li
+          %a{:href => "/mobile", :rel => "external"} Link with rel="external"
+        %li
+          %a{"data-ajax" => "false", :href => "/mobile/docs/pages"} link with [data-ajax="false"]
+        %li
+          %a{:href => "/mobile", :target => "foo"} Link with target="foo"
+        %li{"data-role" => "list-divider"} Email links
+        %li
+          %a{:href => "mailto:jdoe@foo.com"} Basic email: mailto:jdoe@foo.com
+        %li
+          %a{:href => "mailto:jdoe@foo.com?cc=bill@bar.com&bcc=mark@abc.com&subject=Happy%20Birthday&body=Best%20wishes!"} Mailto with a cc:, bcc:, subject and body pre-filled
+        %li{"data-role" => "list-divider"} Phone links
+        %li
+          %a{:href => "tel:15555555555"} Phone: tel:15555555555
+        %li{"data-role" => "list-divider"} Other
+        %li
+          %a{:href => "#"} A href="#" will return false
+    / /content-primary
+    .content-secondary
+      .ui-body-b
+        %div{"data-collapsed" => "true", "data-role" => "collapsible", "data-theme" => "b"}
+          %h3 More in this section
+          %ul{"data-dividertheme" => "d", "data-role" => "listview", "data-theme" => "c"}
+            %li{"data-role" => "list-divider"} Pages &amp; Dialogs
+            %li
+              %a{:href => "/mobile/docs/pages/docs_pages"} Anatomy of a page
+            %li
+              %a{"data-ajax" => "false", :href => "/mobile/docs/pages/page_template"} Single page template
+            %li
+              %a{"data-ajax" => "false", :href => "/mobile/docs/pages/multipage_template"} Multi-page template
+            %li
+              %a{:href => "/mobile/docs/pages/docs_transitions"} Page transitions
+            %li
+              %a{:href => "/mobile/docs/pages/docs_dialogs"} Dialogs
+            %li
+              %a{:href => "/mobile/docs/pages/docs_navmodel"} Navigation: Ajax, hashes &amp; history
+            %li{"data-theme" => "a"}
+              %a{:href => "/mobile/docs/pages/link_formats"} Link format examples
+            %li
+              %a{:href => "/mobile/docs/pages/pages_themes"} Theming pages
   / /content
+  .footer-docs{"data-role" => "footer", "data-theme" => "c"}
+    %p &copy; 2011 The jQuery Project
 / /page

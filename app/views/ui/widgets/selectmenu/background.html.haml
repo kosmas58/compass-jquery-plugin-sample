@@ -7,54 +7,58 @@
     = raw @title
   
   %form{:action => "#"}
-    %h4 Default: "popup" Style with framework icons
-    %fieldset
-      %label{:for => "files"} Select a File:
-      %br
-      %br
-      %select#files{:name => "files"}
-        %option.script{:value => "jquery"} jQuery.js
-        %option.image{:value => "jquerylogo"} jQuery Logo
-        %option.script{:value => "jqueryui"} ui.jQuery.js
-        %option.image{:selected => "selected", :value => "jqueryuilogo"} jQuery UI Logo
-        %option{:value => "somefile"} Some unknown file
-    %h4 Default: "popup" Style with custom icon images
-    %fieldset
-      %label{:for => "filesB"} Select a File:
-      %br
-      %br
-      %select#filesB.customicons{:name => "filesB"}
-        %option.podcast{:value => "mypodcast"} John Resig Podcast
-        %option.video{:value => "myvideo"} Scott Gonzales Video
-        %option.rss{:value => "myrss"} jQuery RSS XML
-    %h4 "dropdown" Style with custom avatar 16x16 images
-    %fieldset
-      %label{:for => "peopleA"} Select a Person:
-      %br
-      %br
-      %select#peopleA{:name => "peopleA"}
-        %option.avatar{:title => "http://www.gravatar.com/avatar/b3e04a46e85ad3e165d66f5d927eb609?d=monsterid&r=g&s=16", :value => "1"} John Resig
-        %option.avatar{:title => "http://www.gravatar.com/avatar/e42b1e5c7cfd2be0933e696e292a4d5f?d=monsterid&r=g&s=16", :value => "2"} Tauren Mills
-        %option.avatar{:title => "http://www.gravatar.com/avatar/bdeaec11dd663f26fa58ced0eb7facc8?d=monsterid&r=g&s=16", :value => "3"} Jane Doe
-    %h4 "dropdown" Style with custom avatar 16x16 images as CSS background
-    %fieldset
-      %label{:for => "peopleB"} Select a Person:
-      %br
-      %br
-      %select#peopleB{:name => "peopleB"}
-        %option.css-avatar{:style => "background-image: url(http://www.gravatar.com/avatar/b3e04a46e85ad3e165d66f5d927eb609?d=monsterid&r=g&s=16);", :value => "1"} John Resig
-        %option.css-avatar{:style => "background-image: url(http://www.gravatar.com/avatar/e42b1e5c7cfd2be0933e696e292a4d5f?d=monsterid&r=g&s=16);", :value => "2"} Tauren Mills
-        %option.css-avatar{:style => "background-image: url(http://www.gravatar.com/avatar/bdeaec11dd663f26fa58ced0eb7facc8?d=monsterid&r=g&s=16);", :value => "3"} Jane Doe
-    %h4 "dropdown" Style with custom avatar 50x50 images
-    %fieldset
-      %label{:for => "peopleC"} Select an Address:
-      %br
-      %br
-      %select#peopleC{:name => "peopleC"}
-        %option.avatar-big{:title => "http://www.gravatar.com/avatar/bdeaec11dd663f26fa58ced0eb7facc8?d=monsterid&r=g&s=50"} John Doe - 78 West Main St Apt 3A | Bloomsburg, PA 12345 (footer text)
-        %option.avatar-big{:selected => "selected", :title => "http://www.gravatar.com/avatar/bdeaec11dd663f26fa58ced0eb7facc8?d=monsterid&r=g&s=50"} Jane Doe - 78 West Main St Apt 3A | Bloomsburg, PA 12345 (footer text)
-        %option.avatar-big{:title => "http://www.gravatar.com/avatar/bdeaec11dd663f26fa58ced0eb7facc8?d=monsterid&r=g&s=50"} Joseph Doe - 78 West Main St Apt 3A | Bloomsburg, PA 12345 (footer text)
-        %option.avatar-big{:title => "http://www.gravatar.com/avatar/bdeaec11dd663f26fa58ced0eb7facc8?d=monsterid&r=g&s=50"} Mad Doe Kiiid - 78 West Main St Apt 3A | Bloomsburg, PA 12345 (footer text)
+    .span-12
+      %h3 Default: "popup" Style
+      %h4 Default: "popup" Style with framework icons
+      %fieldset
+        %label{:for => "files"} Select a File:
+        %br
+        %br
+        %select#files{:name => "files"}
+          %option.script{:value => "jquery"} jQuery.js
+          %option.image{:value => "jquerylogo"} jQuery Logo
+          %option.script{:value => "jqueryui"} ui.jQuery.js
+          %option.image{:selected => "selected", :value => "jqueryuilogo"} jQuery UI Logo
+          %option{:value => "somefile"} Some unknown file
+      %h4 Default: "popup" Style with custom icon images
+      %fieldset
+        %label{:for => "filesB"} Select a File:
+        %br
+        %br
+        %select#filesB.customicons{:name => "filesB"}
+          %option.podcast{:value => "mypodcast"} John Resig Podcast
+          %option.video{:value => "myvideo"} Scott Gonzales Video
+          %option.rss{:value => "myrss"} jQuery RSS XML
+    .span-12.last
+      %h3 Default: "dropdown" Style
+      %h4 "dropdown" Style with custom avatar 16x16 images
+      %fieldset
+        %label{:for => "peopleA"} Select a Person:
+        %br
+        %br
+        %select#peopleA{:name => "peopleA"}
+          %option.avatar{:title => "http://www.gravatar.com/avatar/b3e04a46e85ad3e165d66f5d927eb609?d=monsterid&r=g&s=16", :value => "1"} John Resig
+          %option.avatar{:title => "http://www.gravatar.com/avatar/e42b1e5c7cfd2be0933e696e292a4d5f?d=monsterid&r=g&s=16", :value => "2"} Tauren Mills
+          %option.avatar{:title => "http://www.gravatar.com/avatar/bdeaec11dd663f26fa58ced0eb7facc8?d=monsterid&r=g&s=16", :value => "3"} Jane Doe
+      %h4 "dropdown" Style with custom avatar 16x16 images as CSS background
+      %fieldset
+        %label{:for => "peopleB"} Select a Person:
+        %br
+        %br
+        %select#peopleB{:name => "peopleB"}
+          %option.css-avatar{:style => "background-image: url(http://www.gravatar.com/avatar/b3e04a46e85ad3e165d66f5d927eb609?d=monsterid&r=g&s=16);", :value => "1"} John Resig
+          %option.css-avatar{:style => "background-image: url(http://www.gravatar.com/avatar/e42b1e5c7cfd2be0933e696e292a4d5f?d=monsterid&r=g&s=16);", :value => "2"} Tauren Mills
+          %option.css-avatar{:style => "background-image: url(http://www.gravatar.com/avatar/bdeaec11dd663f26fa58ced0eb7facc8?d=monsterid&r=g&s=16);", :value => "3"} Jane Doe
+      %h4 "dropdown" Style with custom avatar 50x50 images
+      %fieldset
+        %label{:for => "peopleC"} Select an Address:
+        %br
+        %br
+        %select#peopleC{:name => "peopleC"}
+          %option.avatar-big{:title => "http://www.gravatar.com/avatar/bdeaec11dd663f26fa58ced0eb7facc8?d=monsterid&r=g&s=50"} John Doe - 78 West Main St Apt 3A | Bloomsburg, PA 12345 (footer text)
+          %option.avatar-big{:selected => "selected", :title => "http://www.gravatar.com/avatar/bdeaec11dd663f26fa58ced0eb7facc8?d=monsterid&r=g&s=50"} Jane Doe - 78 West Main St Apt 3A | Bloomsburg, PA 12345 (footer text)
+          %option.avatar-big{:title => "http://www.gravatar.com/avatar/bdeaec11dd663f26fa58ced0eb7facc8?d=monsterid&r=g&s=50"} Joseph Doe - 78 West Main St Apt 3A | Bloomsburg, PA 12345 (footer text)
+          %option.avatar-big{:title => "http://www.gravatar.com/avatar/bdeaec11dd663f26fa58ced0eb7facc8?d=monsterid&r=g&s=50"} Mad Doe Kiiid - 78 West Main St Apt 3A | Bloomsburg, PA 12345 (footer text)
 / End demo
 .demo-description
 / End demo-description

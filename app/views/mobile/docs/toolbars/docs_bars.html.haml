@@ -1,54 +1,80 @@
 -@title = "jQuery Mobile Docs - Toolbar Basics"
 = render :partial => "/mobile/index.js.haml", :format => :js
 
-%div{"data-role" => "page"}
-  %div{"data-role" => "header", "data-theme" => "b"}
+.type-interior{"data-role" => "page"}
+  %div{"data-role" => "header", "data-theme" => "f"}
     %h1 Toolbar basics
     %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile"} Home
   / /header
   %div{"data-role" => "content"}
-    %h2 Toolbar types
-    %p In jQuery Mobile, there are two standard types of toolbars: Headers and Footers.
-    %ul
-      %li
-        The
-        %a{:href => "/mobile/docs/toolbars/docs_headers"}
-          %strong Header bar
-        serves as the page title, is usually the first element inside each
-        = succeed "," do
-          %a{:href => "/mobile/docs/pages/docs_pages"} mobile page
-        and typically contains a page title and up to two buttons.
-      %li
-        The
-        %a{:href => "/mobile/docs/toolbars/docs_footers"}
-          %strong Footer bar
-        is usually the last element inside each mobile page, and tends to be more freeform than the header in terms of content and functionality, but typically contains a combination of text and buttons.
-    %p
-      It's very common to have a horizontal navigation or tab bar inside the header an/or footer; jQuery Mobile includes a
-      %a{:href => "/mobile/docs/toolbars/docs_navbar"}
-        %strong nav bar widget
-      that turns an unordered list of links into a horizontal button bar, which works well in these instances.
-    %h2 Toolbar positioning options
-    %p
-      Header and footers can be positioned on the page in a few different ways. By default, the toolbars use the
-      %strong "inline" positioning
-      mode. In this mode, the headers and footer sit in the natural document flow (the default HTML behavior), which ensures that they are visible on all devices, regardless of JavaScript and CSS positioning support.
-    %p
-      A
-      %a{:href => "/mobile/docs/toolbars/bars_fixed"}
-        %strong "fixed" positioning mode
-      provides the convenience of static toolbars without the drawbacks of implementing faux-scrolling in JavaScript. The toolbars start in their natural positions on the page, like the "inline" mode, but when a bar scrolls out of the viewport, the framework animates the bar back into view by dynamically re-positioning the bar to the top or bottom of the viewport.
-    %p At any time, tapping the screen will toggle the visibility of the fixed toolbars: tapping the page when the toolbars aren't visible brings them into view, tapping again hides them until you tap again. This gives users the option to hide the toolbars until needed to maximize screen real estate.
-    %p
-      To set this behavior on a header or footer, add the
-      %code data-position="fixed"
-      attribute to the toolbar container.
-    %p
-      A
-      %a{:href => "/mobile/docs/toolbars/bars_fullscreen"}
-        %strong "fullscreen" position mode
-      works just like the fixed mode except that the toolbars aren't shown at the top and bottom of the page and only appear when the page is clicked. This is useful for immersive apps like photo or video viewers where you want the content to full when whole screen and toolbars can be summoned to appear by tapping the screen. Keep in mind that the toolbars in this mode will sit
-      %strong over
-      page content so this is best used for specific situations.
+    .content-primary
+      %h2 Toolbar types
+      %p In jQuery Mobile, there are two standard types of toolbars: Headers and Footers.
+      %ul
+        %li
+          The
+          %a{:href => "/mobile/docs/toolbars/docs_headers"}
+            %strong Header bar
+          serves as the page title, is usually the first element inside each
+          = succeed "," do
+            %a{:href => "/mobile/docs/pages/page_anatomy"} mobile page
+          and typically contains a page title and up to two buttons.
+        %li
+          The
+          %a{:href => "/mobile/docs/toolbars/docs_footers"}
+            %strong Footer bar
+          is usually the last element inside each mobile page, and tends to be more freeform than the header in terms of content and functionality, but typically contains a combination of text and buttons.
+      %p
+        It's very common to have a horizontal navigation or tab bar inside the header an/or footer; jQuery Mobile includes a
+        %a{:href => "/mobile/docs/toolbars/docs_navbar"}
+          %strong nav bar widget
+        that turns an unordered list of links into a horizontal button bar, which works well in these instances.
+      %h2 Toolbar positioning options
+      %p
+        Header and footers can be positioned on the page in a few different ways. By default, the toolbars use the
+        %strong "inline" positioning
+        mode. In this mode, the headers and footer sit in the natural document flow (the default HTML behavior), which ensures that they are visible on all devices, regardless of JavaScript and CSS positioning support.
+      %p
+        A
+        %a{:href => "/mobile/docs/toolbars/bars_fixed"}
+          %strong "fixed" positioning mode
+        provides the convenience of static toolbars without the drawbacks of implementing faux-scrolling in JavaScript. The toolbars start in their natural positions on the page, like the "inline" mode, but when a bar scrolls out of the viewport, the framework animates the bar back into view by dynamically re-positioning the bar to the top or bottom of the viewport.
+      %p At any time, tapping the screen will toggle the visibility of the fixed toolbars: tapping the page when the toolbars aren't visible brings them into view, tapping again hides them until you tap again. This gives users the option to hide the toolbars until needed to maximize screen real estate.
+      %p
+        To set this behavior on a header or footer, add the
+        %code data-position="fixed"
+        attribute to the toolbar container.
+      %p
+        A
+        %a{:href => "/mobile/docs/toolbars/bars_fullscreen"}
+          %strong "fullscreen" position mode
+        works just like the fixed mode except that the toolbars aren't shown at the top and bottom of the page and only appear when the page is clicked. This is useful for immersive apps like photo or video viewers where you want the content to full when whole screen and toolbars can be summoned to appear by tapping the screen. Keep in mind that the toolbars in this mode will sit
+        %strong over
+        page content so this is best used for specific situations.
+    / /content-primary
+    .content-secondary
+      .ui-body-b
+        %div{"data-collapsed" => "true", "data-role" => "collapsible", "data-theme" => "b"}
+          %h3 More in this section
+          %ul{"data-dividertheme" => "d", "data-role" => "listview", "data-theme" => "c"}
+            %li{"data-role" => "list-divider"} Toolbars
+            %li{"data-theme" => "a"}
+              %a{:href => "/mobile/docs/toolbars/docs_bars"} Toolbar basics
+            %li
+              %a{:href => "/mobile/docs/toolbars/docs_headers"} Header bars
+            %li
+              %a{:href => "/mobile/docs/toolbars/docs_footers"} Footer bars
+            %li
+              %a{:href => "/mobile/docs/toolbars/docs_navbar"} Navbars
+            %li
+              %a{:href => "/mobile/docs/toolbars/bars_fixed"} Fixed positioning
+            %li
+              %a{:href => "/mobile/docs/toolbars/bars_fullscreen"} Fullscreen positioning
+            %li
+              %a{:href => "/mobile/docs/toolbars/footer_persist_a"} Persistent footer nav bar
+            %li
+              %a{:href => "/mobile/docs/toolbars/bars_themes"} Theming toolbars
   / /content
+  .footer-docs{"data-role" => "footer", "data-theme" => "c"}
+    %p &copy; 2011 The jQuery Project
 / /page

@@ -21,8 +21,21 @@ date:
     short: "%b %d"
     long: "%B %d, %Y"
 txt: 
+  graphics: 
+    highstock: 
+      name: Highstock
+      flags: 
+        name: Flags
+      features: 
+        name: Various features
+      types: 
+        name: Chart types
+      general: 
+        name: General
+        candlestick: Two panes, candlestick and volume
+        basic: Single line series
   emu: 
-    galaxyace: Galaxy Ace
+    galaxy77: Galaxy Tab 7.7
   tools: 
     form: 
       stylable: 
@@ -31,6 +44,11 @@ txt:
         demo02: Scripting styleable Forms
         demo03: Alternate form skin
   hello: Hello world
+  ui: 
+    widgets: 
+      selectmenu: 
+        refresh: Refresh
+        overlay: OpenLayers Google Layer Example
 support: 
   array: 
     words_connector: ", "

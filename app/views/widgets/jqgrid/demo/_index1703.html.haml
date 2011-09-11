@@ -1,0 +1,16 @@
+-@title = "#{t('txt.jqgrid.name')} #{t('txt.jqgrid.demo.name')} - #{t('txt.jqgrid.demo.40new')} - #{t('txt.jqgrid.demo.40cmtmpl')}"
+.demo
+  %h3
+    =image_tag("icons/22x22/grid.png", :border => 0)
+    =@title
+  %center
+    %table#demo1703.scroll{ :cellspacing => "0", :cellpadding => "0" }
+    #demo1703_pager.scroll{ :style => "text-align:center;" }
+/ End demo
+.demo-description
+  %p
+    It is possible to define default options for all columns when they are created.
+    In this example we demonstrate how all fields can made to be not sortable.
+  %p
+    By default all fields are sortable.
+/ End demo-description

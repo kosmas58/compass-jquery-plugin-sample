@@ -1,111 +1,161 @@
 -@title = "jQuery Mobile Docs - Readonly Inset Lists"
 = render :partial => "/mobile/index.js.haml", :format => :js
-  
-%div{"data-role" => "page"}
-  %div{"data-role" => "header", "data-theme" => "b"}
+
+.type-interior{"data-role" => "page"}
+  %div{"data-role" => "header", "data-theme" => "f"}
     %h1 Readonly Inset Lists
-    %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "../../"} Home
+    %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile"} Home
   / /header
   %div{"data-role" => "content"}
-    %h2 Simple list
-    %ul{"data-inset" => "true", "data-role" => "listview"}
-      %li Acura
-      %li Audi
-      %li BMW
-      %li Cadillac
-      %li Ferrari
-    %h2 Count bubbles
-    %ul{"data-inset" => "true", "data-role" => "listview"}
-      %li
-        Inbox
-        %span.ui-li-count 12
-      %li
-        Outbox
-        %span.ui-li-count 0
-      %li
-        Drafts
-        %span.ui-li-count 4
-      %li
-        Sent
-        %span.ui-li-count 328
-      %li
-        Trash
-        %span.ui-li-count 62
-    %h2 Numbered list
-    %ol{"data-inset" => "true", "data-role" => "listview"}
-      %li The Godfather
-      %li Inception
-      %li The Good, the Bad and the Ugly
-      %li Pulp Fiction
-      %li Schindler's List
-    %h2 Divided, formatted content
-    %ul{"data-inset" => "true", "data-role" => "listview"}
-      %li
-        %h3 Stephen Weber
-        %p
-          %strong You've been invited to a meeting at Filament Group in Boston, MA
-        %p Hey Stephen, if you're available at 10am tomorrow, we've got a meeting with the jQuery team.
-        %p.ui-li-aside
-          %strong> 6:24
-          PM
-      %li
-        %h3 jQuery Team
-        %p
-          %strong Boston Conference Planning
-        %p In preparation for the upcoming conference in Boston, we need to start gathering a list of sponsors and speakers.
-        %p.ui-li-aside
-          %strong> 9:18
-          AM
-    %h2 Icon list
-    %ul{"data-inset" => "true", "data-role" => "listview"}
-      %li
-        %img.ui-li-icon{:alt => "France", :src => "/images/demo/mobile/flags/gf.png"}
-          France
-          %span.ui-li-count 4
-      %li
-        %img.ui-li-icon{:alt => "Germany", :src => "/images/demo/mobile/flags/de.png"}
-          Germany
-          %span.ui-li-count 4
-      %li
-        %img.ui-li-icon{:alt => "Great Britain", :src => "/images/demo/mobile/flags/gb.png"}
-          Great Britain
-          %span.ui-li-count 0
-      %li
-        %img.ui-li-icon{:alt => "Finland", :src => "/images/demo/mobile/flags/fi.png"}
-          Finland
+    .content-primary
+      %h2 Simple list
+      %ul{"data-inset" => "true", "data-role" => "listview"}
+        %li Acura
+        %li Audi
+        %li BMW
+        %li Cadillac
+        %li Ferrari
+      %h2 Count bubbles
+      %ul{"data-inset" => "true", "data-role" => "listview"}
+        %li
+          Inbox
           %span.ui-li-count 12
-      %li
-        %img.ui-li-icon{:alt => "Norway", :src => "/images/demo/mobile/flags/sj.png"}
-          Norway
+        %li
+          Outbox
+          %span.ui-li-count 0
+        %li
+          Drafts
+          %span.ui-li-count 4
+        %li
+          Sent
           %span.ui-li-count 328
-      %li
-        %img.ui-li-icon{:alt => "United States", :src => "/images/demo/mobile/flags/us.png"}
-          United States
+        %li
+          Trash
           %span.ui-li-count 62
-    %h2 Thumbnail list
-    %ul{"data-inset" => "true", "data-role" => "listview"}
-      %li
-        %img{:src => "/images/demo/mobile/album/album-bb.jpg"}/
-        %h3 Broken Bells
-        %p Broken Bells
-      %li
-        %img{:src => "/images/demo/mobile/album/album-hc.jpg"}/
-        %h3 Warning
-        %p Hot Chip
-      %li
-        %img{:src => "/images/demo/mobile/album/album-p.jpg"}/
-        %h3 Wolfgang Amadeus Phoenix
-        %p Phoenix
-    %h2 Divided, filterable list
-    %ul{"data-filter" => "true", "data-inset" => "true", "data-role" => "listview"}
-      %li{"data-role" => "list-divider"} A
-      %li Adam Kinkaid
-      %li Alex Wickerham
-      %li Avery Johnson
-      %li{"data-role" => "list-divider"} B
-      %li Bob Cabot
-      %li{"data-role" => "list-divider"} C
-      %li Caleb Booth
-      %li Christopher Adams
+      %h2 Numbered list
+      %ol{"data-inset" => "true", "data-role" => "listview"}
+        %li The Godfather
+        %li Inception
+        %li The Good, the Bad and the Ugly
+        %li Pulp Fiction
+        %li Schindler's List
+      %h2 Divided, formatted content
+      %ul{"data-inset" => "true", "data-role" => "listview"}
+        %li
+          %h3 Stephen Weber
+          %p
+            %strong You've been invited to a meeting at Filament Group in Boston, MA
+          %p Hey Stephen, if you're available at 10am tomorrow, we've got a meeting with the jQuery team.
+          %p.ui-li-aside
+            %strong> 6:24
+            PM
+        %li
+          %h3 jQuery Team
+          %p
+            %strong Boston Conference Planning
+          %p In preparation for the upcoming conference in Boston, we need to start gathering a list of sponsors and speakers.
+          %p.ui-li-aside
+            %strong> 9:18
+            AM
+      %h2 Icon list
+      %ul{"data-inset" => "true", "data-role" => "listview"}
+        %li
+          %img.ui-li-icon{:alt => "France", :src => "/images/demo/mobile/flags/gf.png"}
+            France
+            %span.ui-li-count 4
+        %li
+          %img.ui-li-icon{:alt => "Germany", :src => "/images/demo/mobile/flags/de.png"}
+            Germany
+            %span.ui-li-count 4
+        %li
+          %img.ui-li-icon{:alt => "Great Britain", :src => "/images/demo/mobile/flags/gb.png"}
+            Great Britain
+            %span.ui-li-count 0
+        %li
+          %img.ui-li-icon{:alt => "Finland", :src => "/images/demo/mobile/flags/fi.png"}
+            Finland
+            %span.ui-li-count 12
+        %li
+          %img.ui-li-icon{:alt => "Norway", :src => "/images/demo/mobile/flags/sj.png"}
+            Norway
+            %span.ui-li-count 328
+        %li
+          %img.ui-li-icon{:alt => "United States", :src => "/images/demo/mobile/flags/us.png"}
+            United States
+            %span.ui-li-count 62
+      %h2 Thumbnail list
+      %ul{"data-inset" => "true", "data-role" => "listview"}
+        %li
+          %img{:src => "/images/demo/mobile/album/album-bb.jpg"}/
+          %h3 Broken Bells
+          %p Broken Bells
+        %li
+          %img{:src => "/images/demo/mobile/album/album-hc.jpg"}/
+          %h3 Warning
+          %p Hot Chip
+        %li
+          %img{:src => "/images/demo/mobile/album/album-p.jpg"}/
+          %h3 Wolfgang Amadeus Phoenix
+          %p Phoenix
+      %h2 Divided, filterable list
+      %ul{"data-filter" => "true", "data-inset" => "true", "data-role" => "listview"}
+        %li{"data-role" => "list-divider"} A
+        %li Adam Kinkaid
+        %li Alex Wickerham
+        %li Avery Johnson
+        %li{"data-role" => "list-divider"} B
+        %li Bob Cabot
+        %li{"data-role" => "list-divider"} C
+        %li Caleb Booth
+        %li Christopher Adams
+    / /content-primary
+    .content-secondary
+      .ui-body-b
+        %div{"data-collapsed" => "true", "data-role" => "collapsible", "data-theme" => "b"}
+          %h3 More in this section
+          %ul{"data-dividertheme" => "d", "data-role" => "listview", "data-theme" => "c"}
+            %li{"data-role" => "list-divider"} List views
+            %li
+              %a{:href => "/mobile/docs/lists/docs_lists"} List markup conventions
+            %li
+              %a{:href => "/mobile/docs/lists/lists_ul"} Basic linked list
+            %li
+              %a{:href => "/mobile/docs/lists/lists_nested"} Nested list
+            %li
+              %a{:href => "/mobile/docs/lists/lists_ol"} Numbered list
+            %li
+              %a{:href => "/mobile/docs/lists/lists_split"} Split button list
+            %li
+              %a{:href => "/mobile/docs/lists/lists_divider"} List dividers
+            %li
+              %a{:href => "/mobile/docs/lists/lists_count"} Count bubble
+            %li
+              %a{:href => "/mobile/docs/lists/lists_thumbnails"} Thumbnails
+            %li
+              %a{:href => "/mobile/docs/lists/lists_icons"} Icons
+            %li
+              %a{:href => "/mobile/docs/lists/lists_formatting"} Content formatting
+            %li
+              %a{:href => "/mobile/docs/lists/lists_search"} Search filter bar
+            %li
+              %a{:href => "/mobile/docs/lists/lists_search_inset"} Inset search filter bar
+            %li
+              %a{:href => "/mobile/docs/lists/lists_search_with_dividers"} Search filter bar with dividers
+            %li
+              %a{:href => "/mobile/docs/lists/lists_readonly"} Read-only lists
+            %li{"data-theme" => "a"}
+              %a{:href => "/mobile/docs/lists/lists_readonly_inset"} Read-only inset lists
+            %li
+              %a{:href => "/mobile/docs/lists/lists_forms"} Lists with forms
+            %li
+              %a{:href => "/mobile/docs/lists/lists_forms_inset"} Inset lists with forms
+            %li
+              %a{:href => "/mobile/docs/lists/lists_inset"} Inset styled lists
+            %li
+              %a{:href => "/mobile/docs/lists/lists_performance"} List performance test
+            %li
+              %a{:href => "/mobile/docs/lists/lists_themes"} Theming lists
   / /content
+  .footer-docs{"data-role" => "footer", "data-theme" => "c"}
+    %p &copy; 2011 The jQuery Project
 / /page

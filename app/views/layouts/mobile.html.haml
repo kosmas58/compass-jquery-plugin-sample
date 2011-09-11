@@ -6,7 +6,7 @@
     %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}
     %title
       = @title || 'jQuery Mobile Framework'
-    = stylesheet_link_tag :mobile_default, :media => 'screen, projection'
+    = stylesheet_link_tag :mobile_default, :media => 'only all'
     = yield :head_stylesheets
 
     = yield :head_scripts_before_jquery

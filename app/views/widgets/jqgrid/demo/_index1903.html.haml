@@ -1,0 +1,16 @@
+-@title = "#{t('txt.jqgrid.name')} #{t('txt.jqgrid.demo.name')} - #{t('txt.jqgrid.demo.40hierachy')} - #{t('txt.jqgrid.demo.40subgrid3')}"
+.demo
+  %h3
+    =image_tag("icons/22x22/grid.png", :border => 0)
+    =@title
+  %center
+    %table#invheaders_demo1903.scroll{ :cellspacing => "0", :cellpadding => "0" }
+    #invheaders_demo1903_pager.scroll{ :style => "text-align:center;" }
+/ End demo
+.demo-description
+  %p
+    It is possible to load the subgrid data only once and then just to hide/show it,
+    without to make additional ajax call to the server.
+  %p
+    This is done just with one option - see the code.
+/ End demo-description

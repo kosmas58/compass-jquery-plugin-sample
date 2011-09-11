@@ -1,97 +1,130 @@
 -@title = "jQuery Mobile Framework - navbar Example"
 = render :partial => "index.js.haml", :format => :js
-  
-%div{"data-role" => "page"}
-  %div{"data-role" => "header"}
+
+.type-interior{"data-role" => "page"}
+  %div{"data-role" => "header", "data-theme" => "f"}
     %h1 Navbar Example
-    %a.ui-btn-left{"data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile/experiments/main", :rel => "external"} Home
-  / / header
+    %a.ui-btn-left{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile/experiments/main", :rel => "external"} Home
+  / /header
   %div{"data-role" => "content", "data-theme" => "b"}
-    %h1 Demo description
-    %p This page includes a navbar plugin, which will fix to the footer as a tabbed navigation, and persist as pages switch out behind it.
-    %p
-      %strong Pellentesque habitant morbi tristique
-      senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.
-      %em Aenean ultricies mi vitae est.
-      Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed,
-      = succeed "," do
-        %code commodo vitae
-      ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui.
-      %a{:href => "#"} Donec non enim
-      in turpis pulvinar facilisis. Ut felis.
-    %ol
-      %li Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-      %li Aliquam tincidunt mauris eu risus.
-    %h2 Header Level 2
-    %ol
-      %li Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-      %li Aliquam tincidunt mauris eu risus.
-    %blockquote
-      %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna. Cras in mi at felis aliquet congue. Ut a est eget ligula molestie gravida. Curabitur massa. Donec eleifend, libero at sagittis mollis, tellus est malesuada tellus, at luctus turpis elit sit amet quam. Vivamus pretium ornare est.
-    %h3 Header Level 3
-    %ul
-      %li Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-      %li Aliquam tincidunt mauris eu risus.
-    %pre
-      %code
-        :preserve
-          #header h1 a {
-            display: block;
-            width: 300px;
-            height: 80px;
-          }
-          %h1 HTML Ipsum Presents
-    %p
-      %strong Pellentesque habitant morbi tristique
-      senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.
-      %em Aenean ultricies mi vitae est.
-      Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed,
-      = succeed "," do
-        %code commodo vitae
-      ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui.
-      %a{:href => "#"} Donec non enim
-      in turpis pulvinar facilisis. Ut felis.
-    %h2 Header Level 2
-    %ol
-      %li Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-      %li Aliquam tincidunt mauris eu risus.
-    %blockquote
-      %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna. Cras in mi at felis aliquet congue. Ut a est eget ligula molestie gravida. Curabitur massa. Donec eleifend, libero at sagittis mollis, tellus est malesuada tellus, at luctus turpis elit sit amet quam. Vivamus pretium ornare est.
-    %h3 Header Level 3
-    %ul
-      %li Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-      %li Aliquam tincidunt mauris eu risus.
-    %pre
-      %code
-        :preserve
-          #header h1 a { 
-            display: block; 
-            width: 300px; 
-            height: 80px; 
-          }
-          %h1 HTML Ipsum Presents
-    %p
-      %strong Pellentesque habitant morbi tristique
-      senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.
-      %em Aenean ultricies mi vitae est.
-      Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed,
-      = succeed "," do
-        %code commodo vitae
-      ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui.
-      %a{:href => "#"} Donec non enim
-      in turpis pulvinar facilisis. Ut felis.
-  .nav-glyphish-example{"data-role" => "footer"}
-    .nav-glyphish-example{"data-role" => "navbar"}
+    .content-primary
+      %h1 Demo description
+      %p This page includes a navbar plugin, which will fix to the footer as a tabbed navigation, and persist as pages switch out behind it.
+      %p
+        %strong Pellentesque habitant morbi tristique
+        senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.
+        %em Aenean ultricies mi vitae est.
+        Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed,
+        = succeed "," do
+          %code commodo vitae
+        ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui.
+        %a{:href => "#"} Donec non enim
+        in turpis pulvinar facilisis. Ut felis.
+      %ol
+        %li Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+        %li Aliquam tincidunt mauris eu risus.
+      %h2 Header Level 2
+      %ol
+        %li Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+        %li Aliquam tincidunt mauris eu risus.
+      %blockquote
+        %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna. Cras in mi at felis aliquet congue. Ut a est eget ligula molestie gravida. Curabitur massa. Donec eleifend, libero at sagittis mollis, tellus est malesuada tellus, at luctus turpis elit sit amet quam. Vivamus pretium ornare est.
+      %h3 Header Level 3
       %ul
-        %li
-          %a#chat{"data-icon" => "custom", :href => "../../_containers-states.html"} Chat
-        %li
-          %a#email{"data-icon" => "custom", :href => "../../_fixed.html"} Email
-        %li
-          %a#clock{"data-icon" => "custom", :href => "../../_form-controls.html"} Clock
-        %li
-          %a#login{"data-icon" => "custom", "data-rel" => "dialog", "data-transition" => "pop", :href => "../../_dialog.html"} Login
-        %li
-          %a#coffee{"data-icon" => "custom", :href => "../../_listview.html"} Coffee
-        %li
-          %a#beer{"data-icon" => "custom", :href => "../../_events.html"} Beer
+        %li Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+        %li Aliquam tincidunt mauris eu risus.
+      %pre
+        %code
+          :preserve
+            #header h1 a {
+              display: block;
+              width: 300px;
+              height: 80px;
+            }
+            %h1 HTML Ipsum Presents
+      %p
+        %strong Pellentesque habitant morbi tristique
+        senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.
+        %em Aenean ultricies mi vitae est.
+        Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed,
+        = succeed "," do
+          %code commodo vitae
+        ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui.
+        %a{:href => "#"} Donec non enim
+        in turpis pulvinar facilisis. Ut felis.
+      %h2 Header Level 2
+      %ol
+        %li Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+        %li Aliquam tincidunt mauris eu risus.
+      %blockquote
+        %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna. Cras in mi at felis aliquet congue. Ut a est eget ligula molestie gravida. Curabitur massa. Donec eleifend, libero at sagittis mollis, tellus est malesuada tellus, at luctus turpis elit sit amet quam. Vivamus pretium ornare est.
+      %h3 Header Level 3
+      %ul
+        %li Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+        %li Aliquam tincidunt mauris eu risus.
+      %pre
+        %code
+          :preserve
+            #header h1 a {
+              display: block;
+              width: 300px;
+              height: 80px;
+            }
+            %h1 HTML Ipsum Presents
+      %p
+        %strong Pellentesque habitant morbi tristique
+        senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.
+        %em Aenean ultricies mi vitae est.
+        Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed,
+        = succeed "," do
+          %code commodo vitae
+        ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui.
+        %a{:href => "#"} Donec non enim
+        in turpis pulvinar facilisis. Ut felis.
+      .nav-glyphish-example{"data-role" => "footer"}
+        .nav-glyphish-example{"data-role" => "navbar"}
+          %ul
+            %li
+              %a#chat{"data-icon" => "custom", :href => "../../_containers-states.html"} Chat
+            %li
+              %a#email{"data-icon" => "custom", :href => "../../_fixed.html"} Email
+            %li
+              %a#clock{"data-icon" => "custom", :href => "../../_form-controls.html"} Clock
+            %li
+              %a#login{"data-icon" => "custom", "data-rel" => "dialog", "data-transition" => "pop", :href => "../../_dialog.html"} Login
+            %li
+              %a#coffee{"data-icon" => "custom", :href => "../../_listview.html"} Coffee
+            %li
+              %a#beer{"data-icon" => "custom", :href => "../../_events.html"} Beer
+    .content-secondary
+      .ui-body-b
+        %div{"data-collapsed" => "true", "data-role" => "collapsible", "data-theme" => "b"}
+          %h3 More experiments in this section
+          %ul{"data-dividertheme" => "d", "data-role" => "listview", "data-theme" => "c"}
+            %li{"data-role" => "list-divider"} Experiments
+            %li
+              %a{:href => "/mobile/experiments/datepicker", :rel => "external"}
+                %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/jqmobile.png"}
+                  Datepicker
+            %li
+              %a{:href => "/mobile/experiments/google_maps", :rel => "external"}
+                %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/jqmobile.png"}
+                  Google Maps
+            %li{"data-theme" => "a"}
+              %a{:href => "/mobile/experiments/navbar_glyphish", :rel => "external"}
+                %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/jqmobile.png"}
+                  Navbar with Glyphish icons
+            %li
+              %a{:href => "/mobile/experiments/photos"}
+                %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/jqmobile.png"}
+                  Photos
+            %li
+              %a{:href => "/mobile/experiments/scrollview", :rel => "external"}
+                %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/jqmobile.png"}
+                  Scroll View
+            %li
+              %a{:href => "/mobile/experiments/weather"}
+                %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/jqmobile.png"}
+                  Weather forecast
+  / /content
+

@@ -1,0 +1,19 @@
+-@title = "#{t('txt.jqgrid.name')} #{t('txt.jqgrid.demo.name')} - #{t('txt.jqgrid.demo.40search')} - #{t('txt.jqgrid.demo.40grpsearch1')}"
+.demo
+  %h3
+    =image_tag("icons/22x22/grid.png", :border => 0)
+    =@title
+  %center
+    %table#invheaders_demo1801.scroll{ :cellspacing => "0", :cellpadding => "0" }
+    #invheaders_demo1801_pager.scroll{ :style => "text-align:center;" }
+/ End demo
+.demo-description
+  %p
+    Again with Multiple search we can use another useful option grouping search.
+    If this option is enabled the user can make a more complex searches in the database.
+  %p
+    The query can look like this:
+    %br
+    %code
+      WHERE (id > 10 OR id < 13) AND name LIKE 'C%'
+/ End demo-description

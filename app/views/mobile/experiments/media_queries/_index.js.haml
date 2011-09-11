@@ -1,0 +1,40 @@
+- content_for :head_stylesheets do
+  %link{:href => "/images/demo/mobile/jquery-mobile-icon.png", :rel => "apple-touch-icon"}
+  :css
+    @media (min-width:320px) { #widthList li.max320 { display: none; } }
+    @media (max-width:320px) { #widthList li.min320 { display: none; } }
+    @media (min-width:360px) { #widthList li.max360 { display: none; } }
+    @media (max-width:360px) { #widthList li.min360 { display: none; } }
+    @media (min-width:480px) { #widthList li.max480 { display: none; } }
+    @media (max-width:480px) { #widthList li.min480 { display: none; } }
+    @media (min-width:600px) { #widthList li.max600 { display: none; } }
+    @media (max-width:600px) { #widthList li.min600 { display: none; } }
+    @media (min-width:640px) { #widthList li.max640 { display: none; } }
+    @media (max-width:640px) { #widthList li.min640 { display: none; } }
+    @media (min-width:768px) { #widthList li.max768 { display: none; } }
+    @media (max-width:768px) { #widthList li.min768 { display: none; } }
+    @media (min-width:800px) { #widthList li.max800 { display: none; } }
+    @media (max-width:800px) { #widthList li.min800 { display: none; } }
+    @media (min-width:960px) { #widthList li.max960 { display: none; } }
+    @media (max-width:960px) { #widthList li.min960 { display: none; } }
+    @media (min-width:1024px) { #widthList li.max1024 { display: none; } }
+    @media (max-width:1024px) { #widthList li.min1024 { display: none; } }
+    @media (min-width:1200px) { #widthList li.max1200 { display: none; } }
+    @media (max-width:1200px) { #widthList li.min1200 { display: none; } }
+    @media (min-width:1280px) { #widthList li.max1280 { display: none; } }
+    @media (max-width:1280px) { #widthList li.min1280 { display: none; } }
+    @media (orientation:landscape) { #orientList li.port { display: none; } }
+    @media (orientation:portrait) { #orientList li.land { display: none; } }
+
+= render :partial => "/mobile/docs/docs.html.haml"
+
+- content_for :head_scripts_after_mobile do
+  :javascript
+    $('#screenInfo').live('expand', function() {
+      $("#width").text(screen.width);
+      $("#height").text(screen.height);
+      $("#aWidth").text(screen.width);
+      $("#aHeight").text(screen.availHeight);
+      $("#colorDepth").text(screen.colorDepth);
+      $("#pixelDepth").text(screen.pixelDepth);
+    });

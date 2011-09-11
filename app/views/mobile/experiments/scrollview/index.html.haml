@@ -1,28 +1,59 @@
 -@title = "jQuery Mobile: Scrollview Demos and Tests"
-= render :partial => "/mobile/index.js.haml", :format => :js
+= render :partial => "/mobile/docs/docs.html.haml"
 
-#jqm{"data-role" => "page"}
-  %div{"data-backbtn" => "false", "data-role" => "header", "data-theme" => "b"}
+.type-interior{"data-role" => "page"}
+  %div{"data-role" => "header", "data-theme" => "f"}
     %h1 jQuery Scroll View Plugin
     %a.ui-btn-left{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile/experiments/main", :rel => "external"} Home
-  / / header
+  / /header
   %div{"data-role" => "content"}
-    %p
-      A few examples tweaked to make use of the scrollview component.
-    %ul{"data-dividertheme" => "b", "data-inset" => "true", "data-role" => "listview", "data-theme" => "c"}
-      %li{"data-role" => "list-divider"} List Views
-      %li
-        %a{:href => "/mobile/experiments/scrollview/lists_divider", :rel => "external"} Sticky list dividers
-    %ul{"data-dividertheme" => "b", "data-inset" => "true", "data-role" => "listview", "data-theme" => "c"}
-      %li{"data-role" => "list-divider"} Tests
-      %li
-        %a{:href => "/mobile/experiments/scrollview/direction", :rel => "external"} Scroll Direction
-      %li
-        %a{:href => "/mobile/experiments/scrollview/nested", :rel => "external"} Nested Scroll Views
-      %li
-        %a{:href => "/mobile/experiments/scrollview/sv_test_01", :rel => "external"} Form Elements Event Test
-      %li
-        %a{:href => "/mobile/experiments/scrollview/sv_test_02", :rel => "external"} Form Elements in Scrollview Event Test
+    .content-primary
+      %p
+        A few examples tweaked to make use of the scrollview component.
+      %ul{"data-dividertheme" => "b", "data-inset" => "true", "data-role" => "listview", "data-theme" => "c"}
+        %li{"data-role" => "list-divider"} List Views
+        %li
+          %a{:href => "/mobile/experiments/scrollview/lists_divider", :rel => "external"} Sticky list dividers
+      %ul{"data-dividertheme" => "b", "data-inset" => "true", "data-role" => "listview", "data-theme" => "c"}
+        %li{"data-role" => "list-divider"} Tests
+        %li
+          %a{:href => "/mobile/experiments/scrollview/direction", :rel => "external"} Scroll Direction
+        %li
+          %a{:href => "/mobile/experiments/scrollview/nested", :rel => "external"} Nested Scroll Views
+        %li
+          %a{:href => "/mobile/experiments/scrollview/sv_test_01", :rel => "external"} Form Elements Event Test
+        %li
+          %a{:href => "/mobile/experiments/scrollview/sv_test_02", :rel => "external"} Form Elements in Scrollview Event Test
+    .content-secondary
+      .ui-body-b
+        %div{"data-collapsed" => "true", "data-role" => "collapsible", "data-theme" => "b"}
+          %h3 More experiments in this section
+          %ul{"data-dividertheme" => "d", "data-role" => "listview", "data-theme" => "c"}
+            %li{"data-role" => "list-divider"} Experiments
+            %li
+              %a{:href => "/mobile/experiments/datepicker", :rel => "external"}
+                %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/jqmobile.png"}
+                  Datepicker
+            %li
+              %a{:href => "/mobile/experiments/google_maps", :rel => "external"}
+                %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/jqmobile.png"}
+                  Google Maps
+            %li
+              %a{:href => "/mobile/experiments/navbar_glyphish", :rel => "external"}
+                %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/jqmobile.png"}
+                  Navbar with Glyphish icons
+            %li
+              %a{:href => "/mobile/experiments/photos"}
+                %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/jqmobile.png"}
+                  Photos
+            %li{"data-theme" => "a"}
+              %a{:href => "/mobile/experiments/scrollview", :rel => "external"}
+                %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/jqmobile.png"}
+                  Scroll View
+            %li
+              %a{:href => "/mobile/experiments/weather"}
+                %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/jqmobile.png"}
+                  Weather forecast
   / / content
 / / page
 

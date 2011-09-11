@@ -1,0 +1,229 @@
+-@title = "jQuery Mobile Docs - Anatomy of a Page"
+= render :partial => "/mobile/index.js.haml", :format => :js
+
+.type-interior{"data-role" => "page"}
+  %div{"data-role" => "header", "data-theme" => "f"}
+    %h1 Anatomy of a Page
+    %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile"} Home
+  / /header
+  %div{"data-role" => "content"}
+    .content-primary
+      %p The jQuery Mobile "page" structure is optimized to support either single pages, or local internal linked "pages" within a page.
+      %p The goal of this model is to allow developers to create websites using best practices &mdash; where ordinary links will "just work" without any special configuration &mdash; while creating a rich, native-like experience that can't be achieved with standard HTTP requests.
+      %h2 Mobile page structure
+      %p A jQuery Mobile site must start with an HTML5 'doctype' to take full advantage of all of the framework's features. (Older devices with browsers that don't understand HTML5 will safely ignore the 'doctype' and various custom attributes.) In the 'head', references to jQuery, jQuery Mobile and the mobile theme CSS are all required to start things off. We recommend linking to the files hosted on the jQuery CDN for best performance:
+      %pre
+        %code
+          :preserve
+            &lt;!DOCTYPE html&gt;
+            &lt;html&gt;
+              &lt;head&gt;
+              &lt;title&gt;Page Title&lt;/title&gt;
+
+              &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+
+              &lt;link rel=&quot;stylesheet&quot; href=&quot;http://code.jquery.com/mobile/1.0b2/jquery.mobile-1.0b3.min.css&quot; /&gt;
+              &lt;script type=&quot;text/javascript&quot; src=&quot;http://code.jquery.com/jquery-1.6.3.min.js&quot;&gt;&lt;/script&gt;
+              &lt;script type=&quot;text/javascript&quot; src=&quot;http://code.jquery.com/mobile/1.0b3/jquery.mobile-1.0b2.min.js&quot;&gt;&lt;/script&gt;
+            &lt;/head&gt;
+
+            &lt;body&gt;
+            ...content goes here...
+            &lt;/body&gt;
+            &lt;/html&gt;
+      %h2 Viewport meta tag
+      %p
+        Note above that there is a meta
+        %code viewport
+        tag in the
+        %code head
+        to specify how the browser should display the page zoom level and dimensions. If this isn't set, many mobile browsers will use a "virtual" page width around 900 pixels to make it work well with exisitng desktop sites but the screens may look zoomed out and too wide. By setting the viewport attributes to
+        = succeed "," do
+          %code content=&quot;width=device-width, initial-scale=1
+        the width will be set to the pixel width of the device screen.
+      %pre
+        %code &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+      %p These settings do not disable the user's ability to zoom the pages which is nice from an accessibility perspective. There is a minor issue in iOS that doesn't properly set the width when changing orientations with these viewport settings, but this will hopefully be fixed a a future release. You can set other viewport values to disable zooming if required since this is part of your page content, not the library.
+      %h2 Inside the body: Pages
+      %p
+        Inside the
+        %code &lt;body&gt;
+        tag, each view or "page" on the mobile device is identified with an element (usually a
+        = succeed ")" do
+          %code div
+        with the
+        %code data-role="page"
+        attribute:
+      .highlight
+        %pre
+          :preserve
+            &lt;div data-role=&quot;page&quot;&gt;
+              ...
+            &lt;/div&gt;
+      %p
+        Within the "page" container, any valid HTML markup can be used, but for typical pages in jQuery Mobile, the immediate children of a "page" are divs with data-roles of
+        = succeed "," do
+          %code "header"
+        = succeed "," do
+          %code "content"
+        and
+        = succeed "." do
+          %code "footer"
+      .highlight
+        %pre
+          :preserve
+            &lt;div data-role=&quot;page&quot;&gt;
+              &lt;div data-role=&quot;header&quot;&gt;
+                ...
+              &lt;/div&gt;
+
+              &lt;div data-role=&quot;content&quot;&gt;
+                ...
+              &lt;/div&gt;
+
+              &lt;div data-role=&quot;footer&quot;&gt;
+                ...
+              &lt;/div&gt;
+            &lt;/div&gt;
+      %h2 Putting it together: Basic single page template
+      %p Putting it all together, this is the standard boilerplate page template you should start with on a project. :
+      %pre
+        %code
+          :preserve
+            &lt;!DOCTYPE html&gt;
+            &lt;html&gt;
+              &lt;head&gt;
+              &lt;title&gt;Page Title&lt;/title&gt;
+
+              &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+
+              &lt;link rel=&quot;stylesheet&quot; href=&quot;http://code.jquery.com/mobile/1.0b3/jquery.mobile-1.0b2.min.css&quot; /&gt;
+              &lt;script type=&quot;text/javascript&quot; src=&quot;http://code.jquery.com/jquery-1.6.3.min.js&quot;&gt;&lt;/script&gt;
+              &lt;script type=&quot;text/javascript&quot; src=&quot;http://code.jquery.com/mobile/1.0b3/jquery.mobile-1.0b2.min.js&quot;&gt;&lt;/script&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+
+            &lt;div data-role=&quot;page&quot;&gt;
+
+              &lt;div data-role=&quot;header&quot;&gt;
+                &lt;h1&gt;Page Title&lt;/h1&gt;
+              &lt;/div&gt;&lt;!-- /header --&gt;
+
+              &lt;div data-role=&quot;content&quot;&gt;
+                &lt;p&gt;Page content goes here.&lt;/p&gt;
+              &lt;/div&gt;&lt;!-- /content --&gt;
+
+              &lt;div data-role=&quot;footer&quot;&gt;
+                &lt;h4&gt;Page Footer&lt;/h4&gt;
+              &lt;/div&gt;&lt;!-- /footer --&gt;
+            &lt;/div&gt;&lt;!-- /page --&gt;
+
+            &lt;/body&gt;
+            &lt;/html&gt;
+      %a{"data-inline" => "true", "data-role" => "button", "data-theme" => "b", :href => "/mobile/docs/pages/page_template"} View boilerplate template
+      %h2 Multi-page template structure
+      %p
+        A single HTML document can contain multiple 'pages' that are loaded together by stacking multiple divs with a
+        %code data-role
+        of
+        = succeed "." do
+          %code "page"
+        Each 'page' block needs a unique ID (
+        %code> id="foo"
+        ) that will be used to link internally between 'pages' (
+        %code> href="#foo"
+        ). When a link is clicked, the framework will look for an internal 'page' with the ID and transition it into view.
+      %p
+        Here is an example of a 2 "page" site built with two jQuery Mobile divs navigated by linking to an ID placed on each page wrapper. Note that the IDs on the page wrappers are only needed to support the internal page linking, and are optional if each page is a separate HTML document. Here is what two pages look inside the
+        %code body
+        element.
+      %pre
+        %code
+          :preserve
+
+            &lt;body&gt;
+
+            &lt;!-- Start of first page --&gt;
+            &lt;div data-role=&quot;page&quot; id=&quot;foo&quot;&gt;
+
+              &lt;div data-role=&quot;header&quot;&gt;
+                &lt;h1&gt;Foo&lt;/h1&gt;
+              &lt;/div&gt;&lt;!-- /header --&gt;
+
+              &lt;div data-role=&quot;content&quot;&gt;
+                &lt;p&gt;I&#x27;m first in the source order so I&#x27;m shown as the page.&lt;/p&gt;
+                &lt;p&gt;View internal page called &lt;a href=&quot;#bar&quot;&gt;bar&lt;/a&gt;&lt;/p&gt;
+              &lt;/div&gt;&lt;!-- /content --&gt;
+
+              &lt;div data-role=&quot;footer&quot;&gt;
+                &lt;h4&gt;Page Footer&lt;/h4&gt;
+              &lt;/div&gt;&lt;!-- /footer --&gt;
+            &lt;/div&gt;&lt;!-- /page --&gt;
+
+
+            &lt;!-- Start of second page --&gt;
+            &lt;div data-role=&quot;page&quot; id=&quot;bar&quot;&gt;
+
+              &lt;div data-role=&quot;header&quot;&gt;
+                &lt;h1&gt;Bar&lt;/h1&gt;
+              &lt;/div&gt;&lt;!-- /header --&gt;
+
+              &lt;div data-role=&quot;content&quot;&gt;
+                &lt;p&gt;I&#x27;m first in the source order so I&#x27;m shown as the page.&lt;/p&gt;
+                &lt;p&gt;&lt;a href=&quot;#foo&quot;&gt;Back to foo&lt;/a&gt;&lt;/p&gt;
+              &lt;/div&gt;&lt;!-- /content --&gt;
+
+              &lt;div data-role=&quot;footer&quot;&gt;
+                &lt;h4&gt;Page Footer&lt;/h4&gt;
+              &lt;/div&gt;&lt;!-- /footer --&gt;
+            &lt;/div&gt;&lt;!-- /page --&gt;
+            &lt;/body&gt;
+      %a{"data-inline" => "true", "data-role" => "button", "data-theme" => "b", :href => "/mobile/docs/pages/multipage_template", :rel => "external"} View multi-page template
+      %p
+        PLEASE NOTE: Since we are using the hash to track navigation history for all the Ajax 'pages', it's not currently possible to deep link to an anchor (
+        %code> index.html#foo
+        ) on a page in jQuery Mobile, because the framework will look for a 'page' with an
+        %code ID
+        of
+        %code #foo
+        instead of the native behavior of scrolling to the content with that
+        = succeed "." do
+          %code ID
+      %h2 Conventions, not requirements
+      %p Although the page structure outlined above is a recommended approach for a standard web app built with jQuery Mobile, the framework is very flexible with document structure. The page, header, content, and footer data-role elements are optional and are mostly helpful for providing some basic formatting and structure. The page wrapper used to be required for auto-initialization to work but this too is now optional for single page documents so there isn't any required markup at all. For a web page with a custom layout, all of these structural elements can be omitted but the Ajax navigation and all widgets will work just like they do in the boilerplate structure. Behind the scenes, the framework will inject the page wrapper if it's not included in the markup because it’s needed for managing pages, but the starting markup can now be extremely simple.
+      %p Note that in a multi-page setup, you are required to have page wrappers in your markup in order to group the content into multiple pages.
+
+    / /content-primary
+    .content-secondary
+      %div{"data-collapsed" => "true", "data-role" => "collapsible", "data-theme" => "b"}
+        %h3 More in this section
+        %ul{"data-dividertheme" => "d", "data-role" => "listview", "data-theme" => "c"}
+          %li{"data-role" => "list-divider"} Pages &amp; Dialogs
+          %li{"data-theme" => "a"}
+            %a{:href => "/mobile/docs/pages/page_anatomy"} Anatomy of a page
+          %li
+            %a{"data-ajax" => "false", :href => "/mobile/docs/pages/page_template"} Single page template
+          %li
+            %a{"data-ajax" => "false", :href => "/mobile/docs/pages/multipage_template"} Multi-page template
+          %li
+            %a{:href => "/mobile/docs/pages/page_titles"} Page titles
+          %li
+            %a{:href => "/mobile/docs/pages/page_links"} Linking pages
+          %li
+            %a{"data-ajax" => "false", :href => "/mobile/docs/pages/page_transitions"} Page transitions
+          %li
+            %a{:href => "/mobile/docs/pages/page_dialogs"} Dialogs
+          %li
+            %a{:href => "/mobile/docs/pages/page_cache"} Prefetching &amp; caching pages
+          %li
+            %a{:href => "/mobile/docs/pages/page_navmodel"} Ajax, hashes &amp; history
+          %li
+            %a{:href => "/mobile/docs/pages/page_dynamic"} Dynamically Injecting Pages
+          %li
+            %a{:href => "/mobile/docs/pages/page_scripting"} Scripting pages
+          %li
+            %a{:href => "/mobile/docs/pages/pages_themes"} Theming pages
+  / /content
+  .footer-docs{"data-role" => "footer", "data-theme" => "c"}
+    %p &copy; 2011 The jQuery Project
+  / /page

@@ -2,11 +2,11 @@
   %link{:href => "/images/demo/mobile/list-maker-icon.png", :rel => "apple-touch-icon"}
 
   :css
-    .ui-li-has-thumb .ui-btn-inner { min-height: 1em; padding-left: 0.5em; }
-    .ui-li-thumb { position: relative; }
+    #items .ui-li-has-thumb .ui-btn-inner { min-height: 1em; padding-left: 0.5em; }
+    #items .ui-li-thumb { position: relative; }
     #box { background-repeat: no-repeat; background-clip: none; width: 23px; border: 0px; }
 
-= render :partial => "/mobile/mobile_init.js.haml", :format => :js
+= render :partial => "/mobile/docs/docs.html.haml"
 
 - content_for :head_scripts_before_mobile do
   = javascript_include_tag :tmpl, :dst

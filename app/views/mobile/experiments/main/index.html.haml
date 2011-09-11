@@ -1,65 +1,90 @@
 = render :partial => "/mobile/index.js.haml", :format => :js
 
-#jqm-home{"data-role" => "page", "data-theme" => "b"}
-  #jqm-homeheader
-    %h1#jqm-logo
-      %img{:alt => "jQuery Mobile Framework", :height => "61", :src => "/images/demo/mobile/jquery-logo.png", :width => "235"}/
-    %p A Touch-Optimized Web Framework for Smartphones &amp; Tablets
-    %p#jqm-version Alpha Release
+.type-home{"data-role" => "page"}
   %div{"data-role" => "content"}
-    %ul{"data-dividertheme" => "b", "data-inset" => "true", "data-role" => "listview", "data-theme" => "c"}
+    #jqm-homeheader
+      %h1#jqm-logo
+        %img{:alt => "jQuery Mobile Framework", :src => "/images/demo/mobile/jquery-logo.png"}/
+      %p A Touch-Optimized Web Framework for Smartphones &amp; Tablets
+      %p#jqm-version Beta Release
+    %p.intro
+      %strong Welcome.
+      Browse the jQuery Mobile components and learn how to make rich, accessible, touch-friendly websites and apps.
+
+    %ul{"data-dividertheme" => "f", "data-inset" => "true", "data-role" => "listview", "data-theme" => "c"}
       %li{"data-role" => "list-divider"} Experiments
       %li
-        %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/jqmobile.png"}
-        %a{:href => "/mobile/experiments/datepicker", :rel => "external"} Datepicker
+        %a{:href => "/mobile/experiments/datepicker", :rel => "external"}
+          %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/jqmobile.png"}
+            Datepicker
       %li
-        %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/jqmobile.png"}
-        %a{:href => "/mobile/experiments/google_maps", :rel => "external"} Google Maps
+        %a{:href => "/mobile/experiments/google_maps", :rel => "external"}
+          %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/jqmobile.png"}
+            Google Maps
       %li
-        %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/jqmobile.png"}
-        %a{:href => "/mobile/experiments/navbar_glyphish", :rel => "external"} Navbar with Glyphish icons
+        %a{:href => "/mobile/experiments/navbar_glyphish", :rel => "external"}
+          %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/jqmobile.png"}
+            Navbar with Glyphish icons
       %li
-        %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/jqmobile.png"}
-        %a{:href => "/mobile/experiments/photos"} Photos
+        %a{:href => "/mobile/experiments/photos"}
+          %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/jqmobile.png"}
+            Photos
       %li
-        %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/jqmobile.png"}
-        %a{:href => "/mobile/experiments/scrollview", :rel => "external"} Scroll View
+        %a{:href => "/mobile/experiments/scrollview", :rel => "external"}
+          %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/jqmobile.png"}
+            Scroll View
       %li
-        %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/jqmobile.png"}
-        %a{:href => "/mobile/experiments/weather"} Weather forecast
+        %a{:href => "/mobile/experiments/weather", :rel => "external"}
+          %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/jqmobile.png"}
+            Weather forecast
     %ul{"data-dividertheme" => "b", "data-inset" => "true", "data-role" => "listview", "data-theme" => "c"}
-      %li{"data-role" => "list-divider"} HTML5 Offline and Locale Storage
+      %li{"data-role" => "list-divider"} HTML5 and CSS3 Experiments
       %li
-        %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/html5.png"}
-        %a{:href => "/mobile/experiments/converter", :rel => "external"} Offline Converter Application
+        %a{:href => "/mobile/experiments/canvas", :rel => "external"}
+          %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/html5.png"}
+            HTML5 - Canvas
       %li
-        %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/working.png"}
-        %a{:href => "/mobile/experiments/list_items", :rel => "external"} Offline Shopping List (based on Railscast 248)
+        %a{:href => "/mobile/experiments/canvas2", :rel => "external"}
+          %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/html5.png"}
+            HTML5 - Canvas 2
       %li
-        %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/html5.png"}
-        %a{:href => "/mobile/experiments/dst_test", :rel => "external"} jQuery DST Plugin  
-    %ul{"data-dividertheme" => "b", "data-inset" => "true", "data-role" => "listview", "data-theme" => "c"}
-      %li{"data-role" => "list-divider"} jQuery Mobile on Tablets
+        %a{:href => "/mobile/experiments/converter", :rel => "external"}
+          %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/html5.png"}
+            HTML5 - Offline Converter Application
       %li
-        %img.ui-li-icon{:alt => "Tablet", :src => "/images/icons/16x16/jqmobile.png"}
-        %a{:href => "/mobile/experiments/mediahelpers", :rel => "external"} Using media helpers
+        %a{:href => "/mobile/experiments/list_items", :rel => "external"}
+          %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/working.png"}
+            HTML5 - Offline Shopping List (based on Railscast 248)
       %li
-        %img.ui-li-icon{:alt => "Tablet", :src => "/images/icons/16x16/jqmobile.png"}
-        %a{:href => "/mobile/experiments/grid960", :rel => "external"} 960 Grid on jQuery Mobile
+        %a{:href => "/mobile/experiments/dst_test", :rel => "external"}
+          %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/html5.png"}
+            HTML5 - jQuery DST Plugin
       %li
-        %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/jqmobile.png"}
-        %a{:href => "/mobile/experiments/dual_column", :rel => "external"} Dual column layout (for Tabs in landscape view)
+        %a{:href => "/mobile/experiments/media_queries", :rel => "external"}
+          %img.ui-li-icon{:alt => "Tablet", :src => "/images/icons/16x16/css3.png"}
+            CSS3 - Using Media Queries
+    %ul{"data-dividertheme" => "a", "data-inset" => "true", "data-role" => "listview", "data-theme" => "c"}
+      %li{"data-role" => "list-divider"} Tablet Experiments
       %li
-        %img.ui-li-icon{:alt => "Tablet", :src => "/images/icons/16x16/working.png"}
-        %a{:href => "/mobile/experiments/splitview/#aboutsv", :rel => "external"} Split View
-    %ul{"data-dividertheme" => "b", "data-inset" => "true", "data-role" => "listview", "data-theme" => "c"}
-      %li{"data-role" => "list-divider"} Tuts+
+        %a{:href => "/mobile/experiments/grid960", :rel => "external"}
+          %img.ui-li-icon{:alt => "Tablet", :src => "/images/icons/16x16/960.png"}
+            960 Grid on jQuery Mobile
       %li
-        %img.ui-li-icon{:alt => "Tuts+", :src => "/images/demo/mobile/tuts/tutsLogo2.jpg"}
-        %a{:href => "/mobile/tuts/tuts", :rel => "external"} Tuts+ reader
+        %a{:href => "/mobile/experiments/splitview", :rel => "external"}
+          %img.ui-li-icon{:alt => "Tablet", :src => "/images/icons/16x16/working.png"}
+            Split View
+    %ul{"data-dividertheme" => "e", "data-inset" => "true", "data-role" => "listview", "data-theme" => "c"}
+      %li{"data-role" => "list-divider"} Tuts+ Experiments
       %li
-        %img.ui-li-icon{:alt => "Tuts+", :src => "/images/icons/16x16/working.png"}
-        %a{:href => "/mobile/tuts/news", :rel => "external"} News reader
+        %a{:href => "/mobile/tuts/tuts", :rel => "external"}
+          %img.ui-li-icon{:alt => "Tuts+", :src => "/images/icons/16x16/tuts.png"}
+            Tuts+ reader
       %li
-        %img.ui-li-icon{:alt => "HTML5", :src =>  "/images/demo/mobile/tuts/mobileLogo.png"}
-        %a{:href => "/mobile/tuts/new_claim", :rel => "external"} New Claim
+        %a{:href => "/mobile/tuts/news", :rel => "external"}
+          %img.ui-li-icon{:alt => "Tuts+", :src => "/images/icons/16x16/working.png"}
+            News reader
+      %li
+        %a{:href => "/mobile/tuts/new_claim", :rel => "external"}
+          %img.ui-li-icon{:alt => "HTML5", :src =>  "/images/icons/16x16/mobileTuts.png"}
+            New Claim
+  / /content

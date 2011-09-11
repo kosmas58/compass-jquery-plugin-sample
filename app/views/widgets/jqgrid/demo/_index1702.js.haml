@@ -1,0 +1,11 @@
+- content_for :head_stylesheets do
+  = stylesheet_link_tag :jqGrid
+
+- content_for :head_scripts do
+  = raw jqgrid_javascripts(I18n.locale)
+  = raw @grid
+  :javascript
+     $("#t_invheaders_demo1702").jqGrid('bindKeys', {"onEnter":function( rowid ) { alert("You enter a row with id:"+rowid)} } );
+     
+- content_for :license do
+  = render :partial =>  "widgets/jqgrid/license"

@@ -1,0 +1,35 @@
+- content_for :head_stylesheets do
+  %link{:href => "/images/demo/mobile/jquery-mobile-icon.png", :rel => "apple-touch-icon"}
+= render :partial => "/mobile/docs/docs.html.haml"
+
+- content_for :head_scripts_before_mobile do
+  :javascript
+    $(function() {
+      var sizedWindowWidth = $(window).width() / 4;
+
+      $("#canvas").width(sizedWindowWidth);
+      $("#canvas").height(sizedWindowWidth);
+
+      $("#canvasDraw").click(function(){
+        var canvas = $("#canvas").get(0);
+
+        if(canvas)
+        {
+          var canvasContext = canvas.getContext('2d');
+
+          if(canvasContext)
+          {
+            canvasContext.canvas.width  = sizedWindowWidth;
+            canvasContext.canvas.height = sizedWindowWidth;
+
+            canvasContext.font = "bold 14px serif";
+            canvasContext.fillText("Canvas is supported", 10, 20);
+            canvasContext.fillStyle = "#ff0000";
+            canvasContext.font = "italic 14px sans-serif";
+            canvasContext.fillText("Hello Canvas", 30, 40);
+            canvasContext.fillStyle = "#00ff00";
+            canvasContext.fillRect(40, 50, 70, 20);
+          }
+        }
+      });
+    });

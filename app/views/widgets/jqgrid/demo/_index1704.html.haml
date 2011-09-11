@@ -1,0 +1,15 @@
+-@title = "#{t('txt.jqgrid.name')} #{t('txt.jqgrid.demo.name')} - #{t('txt.jqgrid.demo.40new')} - #{t('txt.jqgrid.demo.40addnode')}"
+.demo
+  %h3
+    =image_tag("icons/22x22/grid.png", :border => 0)
+    =@title
+  %center
+    %table#demo1704.scroll{ :cellspacing => "0", :cellpadding => "0" }
+    #demo1704_pager.scroll{ :style => "text-align:center;" }
+/ End demo
+.demo-description
+  %p
+    Now Tree Grid is fully compatible with form editing. You can add edit and delete nodes.
+  %p
+    Every node is added as a child node if a row is selected. If a row is not selected a root node is added.
+/ End demo-description

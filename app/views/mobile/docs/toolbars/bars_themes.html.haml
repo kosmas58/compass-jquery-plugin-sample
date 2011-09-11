@@ -1,92 +1,117 @@
 -@title = "jQuery Mobile Docs - Theming Toolbars"
 = render :partial => "/mobile/index.js.haml", :format => :js
 
-%div{"data-role" => "page"}
-  %div{"data-role" => "header", "data-theme" => "b"}
+.type-interior{"data-role" => "page"}
+  %div{"data-role" => "header", "data-theme" => "f"}
     %h1 Bar theming
     %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile"} Home
-  / / header
   %div{"data-role" => "content"}
-    %p Both the header and footer bars will be styled by default with the theme's "a" color swatch (black in the default theme) because these bars are typically secondary in the visual hierarchy of a page.
-    %h2 Theming headers and footers
-    %p
-      To set the header or footer bars to a different color in your theme, add the
-      %code data-theme
-      attribute and specify the letter of the theme swatch (a, b, c, etc.). For example, this will set the bar to swatch "b" (blue in the default theme):
-    %pre
-      %code
-        :preserve
-          &lt;div data-role=&quot;header&quot; data-theme=&quot;b&quot;&gt;
-            &lt;h1&gt;Page Title&lt;/h1&gt;
-          &lt;/div&gt;
-    %h2 Theming buttons in toolbars
-    %p
-      Any link added inside the header block will be automatically styled as a button that matches the color of the bar's theme swatch. To make a button stand out as a secondary call to action, the
-      %code data-theme
-      attribute can be used to specify a contrasting button color from a different theme swatch. For example, if we set the header to theme "c" (light gray), both buttons would be styled as the "c" button by default. If we wanted the Save button to visually pop, we can override the color by setting the
-      %code data-theme
-      attribute to "b" (blue in our default theme) on the Save button's anchor.
-    %pre
-      %code
-        :preserve
-          &lt;a href=&quot;add-user.php&quot; data-theme=&quot;b&quot;&gt;Save&lt;/a&gt;
-    %h2 Theme variations
-    %p This is a demo of the variation that can be achieved by tweaking the theme swatches and buttons inside the headers and footers.
-  .ui-body{"data-role" => "content"}
-    %h3 Headers
-  %div{"data-position" => "inline", "data-role" => "header"}
-    %h1 Bar theme "a"
-    %a{"data-icon" => "plus", "data-theme" => "c", :href => "/mobile/docs/toolbars"} New
-  %div{"data-position" => "inline", "data-role" => "header"}
-    %a{"data-icon" => "delete", :href => "/mobile/docs/toolbars", :iconpos => "notext"} Cancel
-    %h1 Bar theme "a"
-    %a{"data-icon" => "arrow-r", "data-iconpos" => "right", "data-theme" => "b", :href => "/mobile/docs/toolbars"} Save
-  %div{"data-position" => "inline", "data-role" => "header", "data-theme" => "b"}
-    %h1 Bar theme "b"
-    %a{"data-icon" => "plus", "data-theme" => "a", :href => "/mobile/docs/toolbars"} New
-  %div{"data-position" => "inline", "data-role" => "header", "data-theme" => "b"}
-    %a{"data-icon" => "delete", :href => "/mobile/docs/toolbars", :iconpos => "notext"} Cancel
-    %h1 Bar theme "b"
-    %a{"data-icon" => "arrow-r", "data-iconpos" => "right", "data-theme" => "d", :href => "/mobile/docs/toolbars"} Save
-  %div{"data-position" => "inline", "data-role" => "header", "data-theme" => "c"}
-    %h1 Bar theme "c"
-    %a{"data-icon" => "plus", "data-theme" => "a", :href => "/mobile/docs/toolbars"} New
-  %div{"data-position" => "inline", "data-role" => "header", "data-theme" => "c"}
-    %a{"data-icon" => "delete", :href => "/mobile/docs/toolbars", :iconpos => "notext"} Cancel
-    %h1 Bar theme "c"
-    %a{"data-icon" => "arrow-r", "data-iconpos" => "right", "data-theme" => "b", :href => "/mobile/docs/toolbars"} Save
-  %div{"data-position" => "inline", "data-role" => "header", "data-theme" => "d"}
-    %h1 Bar theme "d"
-    %a{"data-icon" => "plus", "data-theme" => "a", :href => "/mobile/docs/toolbars"} New
-  %div{"data-position" => "inline", "data-role" => "header", "data-theme" => "d"}
-    %a{"data-icon" => "delete", :href => "/mobile/docs/toolbars", :iconpos => "notext"} Cancel
-    %h1 Bar theme "d"
-    %a{"data-icon" => "arrow-r", "data-iconpos" => "right", "data-theme" => "b", :href => "/mobile/docs/toolbars"} Save
-    %a{"data-icon" => "arrow-r", "data-iconpos" => "right", "data-theme" => "b", :href => "/mobile/docs/toolbars"} Save
-  .ui-body{"data-role" => "content"}
-    %h3 Footers
-    %p These are examples of a footer with link buttons inside.
-  %div{"data-role" => "footer", "data-theme" => "a"}
-    %a{"data-icon" => "arrow-l", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/toolbars"} left
-    %a{"data-icon" => "arrow-r", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/toolbars"} right
-    %a{"data-icon" => "arrow-u", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/toolbars"} up
-    %a{"data-icon" => "arrow-d", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/toolbars"} down
-  %div{"data-role" => "footer", "data-theme" => "b"}
-    %a{"data-icon" => "arrow-l", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/toolbars"} left
-    %a{"data-icon" => "arrow-r", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/toolbars"} right
-    %a{"data-icon" => "arrow-u", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/toolbars"} up
-    %a{"data-icon" => "arrow-d", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/toolbars"} down
-  %div{"data-role" => "footer", "data-theme" => "c"}
-    %a{"data-icon" => "arrow-l", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/toolbars"} left
-    %a{"data-icon" => "arrow-r", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/toolbars"} right
-    %a{"data-icon" => "arrow-u", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/toolbars"} up
-  %div{"data-role" => "footer", "data-theme" => "d"}
-    %a{"data-icon" => "arrow-l", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/toolbars"} left
-    %a{"data-icon" => "arrow-r", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/toolbars"} right
-    %a{"data-icon" => "arrow-u", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/toolbars"} up
-    %a{"data-icon" => "arrow-d", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/toolbars"} down
-  %div{"data-role" => "footer", "data-theme" => "e"}
-    %a{"data-icon" => "arrow-l", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/toolbars"} left
-    %a{"data-icon" => "arrow-r", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/toolbars"} right
-    %a{"data-icon" => "arrow-u", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/toolbars"} up
-    %a{"data-icon" => "arrow-d", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/toolbars"} down
+    .content-primary
+      %p Both the header and footer bars will be styled by default with the theme's "a" color swatch (black in the default theme) because these bars are typically primary in the visual hierarchy of a page.
+      %h2 Theming headers and footers
+      %p
+        To set the header or footer bars to a different color in your theme, add the
+        %code data-theme
+        attribute and specify the letter of the theme swatch (a, b, c, etc.). For example, this will set the bar to swatch "b" (blue in the default theme):
+      .highlight
+        %pre
+          :preserve
+            &lt;divdata-role="header" data-theme="b"&gt;
+              &lt;h1&gt;Page Title&lt;/h1&gt;
+            &lt;/div&gt;
+      %h2 Theming buttons in toolbars
+      %p
+        Any link added inside the header block will be automatically styled as a button that matches the color of the bar's theme swatch. To make a button stand out as a primary call to action, the
+        %code data-theme
+        attribute can be used to specify a contrasting button color from a different theme swatch. For example, if we set the header to theme "c" (light gray), both buttons would be styled as the "c" button by default. If we wanted the Save button to visually pop, we can override the color by setting the
+        %code data-theme
+        attribute to "b" (blue in our default theme) on the Save button's anchor.
+      .highlight
+        %pre
+          :preserve
+            &lt;a href="add-user.php" data-theme="b"&gt;Save&lt;/a&gt;
+      %h2 Theme variations
+      %p This is a demo of the variation that can be achieved by tweaking the theme swatches and buttons inside the headers and footers.
+      %h3 Headers
+      %div{"data-position" => "inline", "data-role" => "header"}
+        %h1 Bar theme "a"
+        %a{"data-icon" => "plus", "data-theme" => "c", :href => "/mobile/docs/toolbars"} New
+      %div{"data-position" => "inline", "data-role" => "header"}
+        %a{"data-icon" => "delete", :href => "/mobile/docs/toolbars", :iconpos => "notext"} Cancel
+        %h1 Bar theme "a"
+        %a{"data-icon" => "arrow-r", "data-iconpos" => "right", "data-theme" => "b", :href => "/mobile/docs/toolbars"} Save
+      %div{"data-position" => "inline", "data-role" => "header", "data-theme" => "b"}
+        %h1 Bar theme "b"
+        %a{"data-icon" => "plus", "data-theme" => "a", :href => "/mobile/docs/toolbars"} New
+      %div{"data-position" => "inline", "data-role" => "header", "data-theme" => "b"}
+        %a{"data-icon" => "delete", :href => "/mobile/docs/toolbars", :iconpos => "notext"} Cancel
+        %h1 Bar theme "b"
+        %a{"data-icon" => "arrow-r", "data-iconpos" => "right", "data-theme" => "d", :href => "/mobile/docs/toolbars"} Save
+      %div{"data-position" => "inline", "data-role" => "header", "data-theme" => "c"}
+        %h1 Bar theme "c"
+        %a{"data-icon" => "plus", "data-theme" => "a", :href => "/mobile/docs/toolbars"} New
+      %div{"data-position" => "inline", "data-role" => "header", "data-theme" => "c"}
+        %a{"data-icon" => "delete", :href => "/mobile/docs/toolbars", :iconpos => "notext"} Cancel
+        %h1 Bar theme "c"
+        %a{"data-icon" => "arrow-r", "data-iconpos" => "right", "data-theme" => "b", :href => "/mobile/docs/toolbars"} Save
+      %div{"data-position" => "inline", "data-role" => "header", "data-theme" => "d"}
+        %h1 Bar theme "d"
+        %a{"data-icon" => "plus", "data-theme" => "a", :href => "/mobile/docs/toolbars"} New
+      %div{"data-position" => "inline", "data-role" => "header", "data-theme" => "d"}
+        %a{"data-icon" => "delete", :href => "/mobile/docs/toolbars", :iconpos => "notext"} Cancel
+        %h1 Bar theme "d"
+        %a{"data-icon" => "arrow-r", "data-iconpos" => "right", "data-theme" => "b", :href => "/mobile/docs/toolbars"} Save
+      %h3 Footers
+      %p These are examples of a footer with link buttons inside.
+      %div{"data-role" => "footer", "data-theme" => "a"}
+        %a{"data-icon" => "arrow-l", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/toolbars"} left
+        %a{"data-icon" => "arrow-r", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/toolbars"} right
+        %a{"data-icon" => "arrow-u", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/toolbars"} up
+        %a{"data-icon" => "arrow-d", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/toolbars"} down
+      %div{"data-role" => "footer", "data-theme" => "b"}
+        %a{"data-icon" => "arrow-l", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/toolbars"} left
+        %a{"data-icon" => "arrow-r", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/toolbars"} right
+        %a{"data-icon" => "arrow-u", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/toolbars"} up
+        %a{"data-icon" => "arrow-d", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/toolbars"} down
+      %div{"data-role" => "footer", "data-theme" => "c"}
+        %a{"data-icon" => "arrow-l", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/toolbars"} left
+        %a{"data-icon" => "arrow-r", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/toolbars"} right
+        %a{"data-icon" => "arrow-u", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/toolbars"} up
+        %a{"data-icon" => "arrow-d", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/toolbars"} down
+      %div{"data-role" => "footer", "data-theme" => "d"}
+        %a{"data-icon" => "arrow-l", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/toolbars"} left
+        %a{"data-icon" => "arrow-r", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/toolbars"} right
+        %a{"data-icon" => "arrow-u", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/toolbars"} up
+        %a{"data-icon" => "arrow-d", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/toolbars"} down
+      %div{"data-role" => "footer", "data-theme" => "e"}
+        %a{"data-icon" => "arrow-l", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/toolbars"} left
+        %a{"data-icon" => "arrow-r", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/toolbars"} right
+        %a{"data-icon" => "arrow-u", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/toolbars"} up
+        %a{"data-icon" => "arrow-d", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/toolbars"} down
+    / /content-primary
+    .content-secondary
+      .ui-body-b
+        %div{"data-collapsed" => "true", "data-role" => "collapsible", "data-theme" => "b"}
+          %h3 More in this section
+          %ul{"data-dividertheme" => "d", "data-role" => "listview", "data-theme" => "c"}
+            %li{"data-role" => "list-divider"} Toolbars
+            %li
+              %a{:href => "/mobile/docs/toolbars/docs_bars"} Toolbar basics
+            %li
+              %a{:href => "/mobile/docs/toolbars/docs_headers"} Header bars
+            %li
+              %a{:href => "/mobile/docs/toolbars/docs_footers"} Footer bars
+            %li
+              %a{:href => "/mobile/docs/toolbars/docs_navbar"} Navbars
+            %li
+              %a{:href => "/mobile/docs/toolbars/bars_fixed"} Fixed positioning
+            %li
+              %a{:href => "/mobile/docs/toolbars/bars_fullscreen"} Fullscreen positioning
+            %li
+              %a{:href => "/mobile/docs/toolbars/footer_persist_a"} Persistent footer nav bar
+            %li{"data-theme" => "a"}
+              %a{:href => "/mobile/docs/toolbars/bars_themes"} Theming toolbars
+  / /content
+  .footer-docs{"data-role" => "footer", "data-theme" => "c"}
+    %p &copy; 2011 The jQuery Project
+/ /page

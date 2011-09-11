@@ -1,17 +1,54 @@
 -@title = "jQuery Mobile Docs - Forms"
+= render :partial => "/mobile/index.js.haml", :format => :js
 
-%div{"data-role" => "page", "data-theme" => "c"}
+.type-interior{"data-role" => "page"}
   %div{"data-role" => "header", "data-theme" => "e"}
-    %h1
-      Sample form response
+    %h1 Sample form response
     %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile"} Home
   / /header
   %div{"data-role" => "content", "data-theme" => "c"}
-    %form{:action => "index", :method => "GET"}
-      %h2
-        You chose:
-      %p
-        = @shipping
-    / /form
+    .content-primary
+      %form{:action => "/mobile/docs/forms", :method => "get"}
+        %h2
+          You chose:
+        .ui-body.ui-body-d.ui-corner-all
+          %p
+            = @shipping
+        %a{"data-icon" => "arrow-l", "data-role" => "button", "data-theme" => "b", :href => "/mobile/docs/forms/forms_sample"} Change shipping method
+    / /content-primary
+    .content-secondary
+      .ui-body-b
+        %div{"data-collapsed" => "true", "data-role" => "collapsible", "data-theme" => "b"}
+          %h3 More in this section
+          %ul{"data-dividertheme" => "d", "data-role" => "listview", "data-theme" => "c"}
+            %li{"data-role" => "list-divider"} Form elements
+            %li
+              %a{:href => "/mobile/docs/forms/docs_forms"} Form basics
+            %li
+              %a{:href => "/mobile/docs/forms/forms_all"} Form element gallery
+            %li
+              %a{:href => "/mobile/docs/forms/forms_text"} Text inputs
+            %li
+              %a{:href => "/mobile/docs/forms/forms_search"} Search inputs
+            %li
+              %a{:href => "/mobile/docs/forms/sliders"} Sliders
+            %li
+              %a{:href => "/mobile/docs/forms/forms_switch"} Flip toggle switch
+            %li
+              %a{:href => "/mobile/docs/forms/forms_radiobuttons"} Radio buttons
+            %li
+              %a{:href => "/mobile/docs/forms/forms_checkboxes"} Checkboxes
+            %li
+              %a{:href => "/mobile/docs/forms/forms_selects"} Select menus
+            %li
+              %a{:href => "/mobile/docs/forms/forms_themes"} Theming forms
+            %li
+              %a{:href => "/mobile/docs/forms/forms_all_native"} Native form elements
+            %li{"data-theme" => "a"}
+              %a{:href => "/mobile/docs/forms/forms_sample"} Submitting forms
+            %li
+              %a{:href => "/mobile/docs/forms/plugin_eventsmethods"} Plugin methods
   / /content
+  .footer-docs{"data-role" => "footer", "data-theme" => "c"}
+    %p &copy; 2011 The jQuery Project
 / /page

@@ -1,13 +1,12 @@
 -@title = "jQuery UI Mobile Framework - API"
 = render :partial => "/mobile/index.js.haml", :format => :js
 
-%div{"data-role" => "page"}
-  %div{"data-role" => "header", "data-theme" => "b"}
+.type-index{"data-role" => "page"}
+  %div{"data-role" => "header", "data-theme" => "f"}
     %h1 API
     %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile"} Home
-  / /header
   %div{"data-role" => "content"}
-    %ul{"data-dividertheme" => "b", "data-inset" => "true", "data-role" => "listview", "data-theme" => "c"}
+    %ul{"data-dividertheme" => "f", "data-inset" => "true", "data-role" => "listview", "data-theme" => "c"}
       %li{"data-role" => "list-divider"} API
       %li
         %a{:href => "/mobile/docs/api/globalconfig"} Configuring defaults

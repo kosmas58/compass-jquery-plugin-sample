@@ -1,37 +1,56 @@
 -@title = "jQuery Mobile Docs - Inline Buttons"
 = render :partial => "/mobile/index.js.haml", :format => :js
 
-%div{"data-role" => "page"}
-  %div{"data-role" => "header", "data-theme" => "b"}
-    %h1 Ínline buttons
+.type-interior{"data-role" => "page"}
+  %div{"data-role" => "header", "data-theme" => "f"}
+    %h1 Inline buttons
     %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile"} Home
   / /header
   %div{"data-role" => "content"}
-    %p By default, all buttons in the body content are styled as block-level element so they fill the width of the screen:
-    %a{"data-role" => "button", :href => "/mobile/docs/buttons"} Button
-    %p
-      However, if you want a more compact button that is only as wide as the text and icons inside, add the
-      %code data-inline="true"
-      attribute to the button:
-    %a{"data-inline" => "true", "data-role" => "button", :href => "/mobile/docs/buttons"} Button
-    %p
-      If you have multiple buttons that should sit side-by-side on the same line, wrap the buttons in a container that has a
-      %code data-inline="true"
-      attribute. This will style the buttons to be the width of their content and float the buttons so they sit on the same line.
-    %pre
-      %code
-        :preserve
-          
-          &lt;div data-inline=&quot;true&quot;&gt;
-            &lt;a href=&quot;index.html&quot; data-role=&quot;button&quot;&gt;Cancel&lt;/a&gt;
-            &lt;a href=&quot;index.html&quot; data-role=&quot;button&quot; data-theme=&quot;b&quot;&gt;Save&lt;/a&gt;
-          &lt;/div&gt;
-    %p This creates an inline button set:
-    %a{"data-inline" => "true", "data-role" => "button", :href => "/mobile/docs/buttons"} Cancel
-    %a{"data-inline" => "true", "data-role" => "button", "data-theme" => "b", :href => "/mobile/docs/buttons"} Save
-    %p
-      If you want buttons to sit side-by-side but stretch to fill the width of the screen, you can use the
-      %a{:href => "/mobile/docs/content/content_grids"} content column grids
-      to put normal full-width buttons into 2- or 3-columns.
+    .content-primary
+      %p By default, all buttons in the body content are styled as block-level element so they fill the width of the screen:
+      %a{"data-role" => "button", :href => "/mobile/docs/buttons"} Button
+      %p
+        However, if you want a more compact button that is only as wide as the text and icons inside, add the
+        %code data-inline="true"
+        attribute to the button:
+      %a{"data-inline" => "true", "data-role" => "button", :href => "/mobile/docs/buttons"} Button
+      %p
+        If you have multiple buttons that should sit side-by-side on the same line, add the
+        %code data-inline="true"
+        attribute to each button. This will style the buttons to be the width of their content and float the buttons so they sit on the same line.
+      %pre
+        %code
+          :preserve
+
+            &lt;a href=&quot;index.html&quot; data-role=&quot;button&quot; data-inline=&quot;true&quot;&gt;Cancel&lt;/a&gt;
+            &lt;a href=&quot;index.html&quot; data-role=&quot;button&quot; data-inline=&quot;true&quot; data-theme=&quot;b&quot;&gt;Save&lt;/a&gt;
+      %p
+        The result is this:
+      %a{"data-inline" => "true", "data-role" => "button", :href => "/mobile/docs/buttons"} Cancel
+      %a{"data-inline" => "true", "data-role" => "button", "data-theme" => "b", :href => "/mobile/docs/buttons"} Save
+      %p
+        If you want buttons to sit side-by-side but stretch to fill the width of the screen, you can use the
+        %a{:href => "/mobile/docs/content/content_grids"} content column grids
+        to put normal full-width buttons into 2- or 3-columns.
+    / /content-primary
+    .content-secondary
+      .ui-body-b
+        %div{"data-collapsed" => "true", "data-role" => "collapsible", "data-theme" => "b"}
+          %h3 More in this section
+          %ul{"data-dividertheme" => "d", "data-role" => "listview", "data-theme" => "c"}
+            %li{"data-role" => "list-divider"} Buttons
+            %li
+              %a{:href => "/mobile/docs/buttons/buttons_types"} Button markup options
+            %li
+              %a{:href => "/mobile/docs/buttons/buttons_icons"} Button icons
+            %li{"data-theme" => "a"}
+              %a{:href => "/mobile/docs/buttons/buttons_inline"} Inline buttons
+            %li
+              %a{:href => "/mobile/docs/buttons/buttons_grouped"} Grouped buttons
+            %li
+              %a{:href => "/mobile/docs/buttons/buttons_themes"} Theming buttons
   / /content
+  .footer-docs{"data-role" => "footer", "data-theme" => "c"}
+    %p &copy; 2011 The jQuery Project
 / /page

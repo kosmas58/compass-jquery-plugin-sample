@@ -289,8 +289,10 @@ en:
       galaxys: Galaxy S
       galaxys2: Galaxy S2
       galaxy7: Galaxy Tab 7
+      galaxy77: Galaxy Tab 7.7
       galaxy9: Galaxy Tab 8.9
       galaxy10: Galaxy Tab 10.1
+      ideosx3: Ideos X3
       htc:
         sensation: HTC Sensation
       jqt: 
@@ -303,10 +305,11 @@ en:
         name: jQuery Mobile framework
         experiments: Additional Demos
         default: jQuery Mobile Demo
-        home: "&alpha;4@jquerymobile.com"
+        home: "&beta;2@jquerymobile.com"
       iphone3: iPhone 3
       iphone4: iPhone 4
       palm: Pre 2
+      touchpad: Touchpad
     jqgrid: 
       simple: 
         name: Simple Data Grids
@@ -442,6 +445,21 @@ en:
         30after_load: After Load Callback
         31post_data: Post Data
         30delete_row: Delete row
+        40new: New functionality 4.0
+        40search: Searching 4.0
+        40hierachy: Hierachy 4.0
+        40addnode: Add tree node
+        40cmtmpl: Column model templates
+        40colspan: Data colspan
+        40frmactions: Formatter actions
+        40grpsearch1: Complex search
+        40grpsearch2: Show query in search
+        40grpsearch3: Validation in search
+        40grpsearch4: Search templates
+        40keyboard: Keyboard navigation
+        40subgrid1: Custom icons
+        40subgrid2: Expand all rows on load
+        40subgrid3: Load subgrid data only once
       subgrids: 
         name: Subgrids
         default: with default functionality
@@ -522,6 +540,18 @@ en:
           dual_axes: "Dual axes, line and column"
           multi_axes: Multiple axes
           regression: Scatter with regression line
+      highstock:
+        name: Highstock
+        general:
+          name: General
+          basic: Single line series
+          candlestick: Two panes, candlestick and volume
+        types:
+          name: Chart types
+        features:
+          name: Various features
+        flags:
+          name: Flags
     mediahelpers:
       name: jQuery Media Helper Utilities
       default: Example
@@ -716,6 +746,8 @@ en:
         position: 
           default: Position
           cycler: Cycling images
+        widget:
+          default: Widget
         default: Utilities
       default: Default functionality
       interactions: 
@@ -816,6 +848,9 @@ en:
           methods: How to use a method
           dependency: Simple dependency example
           positioning: Positioning
+          overlay: OpenLayers Google Layer Example
+          refresh: Refresh
+          typeahead: Typeahead
         datepicker: 
           alt-field: Populate alternate field
           buttonbar: Display button bar

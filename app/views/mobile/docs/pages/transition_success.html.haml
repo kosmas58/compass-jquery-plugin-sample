@@ -1,11 +1,11 @@
 -@title = "jQuery Mobile Docs - Pages"
 = render :partial => "/mobile/index.js.haml", :format => :js
 
-%div{"data-role" => "page", "data-theme" => "e"}
+%div{"data-role" => "page"}
   %div{"data-role" => "header", "data-theme" => "e"}
     %h1 Ta-da!
   / /header
-  %div{"data-role" => "content"}
+  %div{"data-role" => "content", "data-theme" => "e"}
     %p
       That was an animated page transition effect that we added with a
       %code data-transition

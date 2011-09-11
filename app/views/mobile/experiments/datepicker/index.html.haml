@@ -1,50 +1,82 @@
 -@title = "jQuery Mobile Framework - Datepicker"
 = render :partial => "index.js.haml", :format => :js
 
-%div{"data-role" => "page"}
-  %div{"data-role" => "header"}
+.type-interior{"data-role" => "page"}
+  %div{"data-role" => "header", "data-theme" => "f"}
     %h1 jQuery UI's Datepicker Styled for mobile
-    %a.ui-btn-left{"data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile/experiments/main", :rel => "external"} Home
-  / / header
+    %a.ui-btn-left{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile/experiments/main", :rel => "external"} Home
+  / /header
   %div{"data-role" => "content"}
-    %p The included files extend the jQuery UI datepicker to make it suitable for touch devices. This plugin is not included in jQuery Mobile by default, so you'll need to include the files yourself if you'd like to use them. Scroll down for usage instructions.
-    %form{:action => "#", :method => "get"}
-      %div{"data-role" => "fieldcontain"}
-        %label{:for => "date"} Date Input:
-        %input#date{:name => "date", :type => "date", :value => ""}
-    %h2 Usage Instructions
-    %p
-      The datepicker auto-generates from a regular
-      %code input
-      element with a
-      %code type="date"
-      attribute.
-    %pre
-      %code
-        :preserve
-          &lt;label for=&quot;date&quot;&gt;Date Input:&lt;/label&gt;
-          &lt;input type=&quot;date&quot; name=&quot;date&quot; id=&quot;date&quot; value=&quot;&quot;  /&gt;		
-    %p
-      We'd recommend wrapping the label and input in a fieldcontain div for presentation purposes, and these elements should be placed within a
-      %code form
-      element for C-Grade browser accessibility.
-    %p
-      %strong Note:
-      This plugin is not included in jQuery Mobile by default, so you'll need to include the following files in order to use it:
-    %pre
-      %code
-        :preserve
-          &lt;link rel=&quot;stylesheet&quot; href=&quot;jquery.ui.datepicker.mobile.css&quot; /&gt; 
-          &lt;script src=&quot;jQuery.ui.datepicker.js&quot;&gt;&lt;/script&gt;
-          &lt;script src=&quot;jquery.ui.datepicker.mobile.js&quot;&gt;&lt;/script&gt;
-    %p You'll also want to configure the page plugin to convert "date" input elements to "text" inputs after they're enhanced with our datepicker, so that no native datepicker will conflict with the custom one we're adding. To do this, bind to the "mobileinit" event and set input types of "date" back to text using the page plugin's options:
-    %pre
-      %code
-        :preserve
-          &lt;script&gt;
-            //reset type=date inputs to text
-            $( document ).bind( &quot;mobileinit&quot;, function(){
-              $.mobile.page.prototype.options.degradeInputs.date = true;
-            });	
-          &lt;/script&gt;	
-    %p Be sure to place this event binding in a script that loads after jQuery, but before jQuery Mobile. Check this page's source for an example.
+    .content-primary
+      %p The included files extend the jQuery UI datepicker to make it suitable for touch devices. This plugin is not included in jQuery Mobile by default, so you'll need to include the files yourself if you'd like to use them. Scroll down for usage instructions.
+      %form{:action => "#", :method => "get"}
+        %div{"data-role" => "fieldcontain"}
+          %label{:for => "date"} Date Input:
+          %input#date{:name => "date", :type => "date", :value => ""}
+      %h2 Usage Instructions
+      %p
+        The datepicker auto-generates from a regular
+        %code input
+        element with a
+        %code type="date"
+        attribute.
+      %pre
+        %code
+          :preserve
+            &lt;label for=&quot;date&quot;&gt;Date Input:&lt;/label&gt;
+            &lt;input type=&quot;date&quot; name=&quot;date&quot; id=&quot;date&quot; value=&quot;&quot;  /&gt;
+      %p
+        We'd recommend wrapping the label and input in a fieldcontain div for presentation purposes, and these elements should be placed within a
+        %code form
+        element for C-Grade browser accessibility.
+      %p
+        %strong Note:
+        This plugin is not included in jQuery Mobile by default, so you'll need to include the following files in order to use it:
+      %pre
+        %code
+          :preserve
+            &lt;link rel=&quot;stylesheet&quot; href=&quot;jquery.ui.datepicker.mobile.css&quot; /&gt;
+            &lt;script src=&quot;jQuery.ui.datepicker.js&quot;&gt;&lt;/script&gt;
+            &lt;script src=&quot;jquery.ui.datepicker.mobile.js&quot;&gt;&lt;/script&gt;
+      %p You'll also want to configure the page plugin to convert "date" input elements to "text" inputs after they're enhanced with our datepicker, so that no native datepicker will conflict with the custom one we're adding. To do this, bind to the "mobileinit" event and set input types of "date" back to text using the page plugin's options:
+      %pre
+        %code
+          :preserve
+            &lt;script&gt;
+              //reset type=date inputs to text
+              $( document ).bind( &quot;mobileinit&quot;, function(){
+                $.mobile.page.prototype.options.degradeInputs.date = true;
+              });
+            &lt;/script&gt;
+      %p Be sure to place this event binding in a script that loads after jQuery, but before jQuery Mobile. Check this page's source for an example.
+    .content-secondary
+      .ui-body-b
+        %div{"data-collapsed" => "true", "data-role" => "collapsible", "data-theme" => "b"}
+          %h3 More experiments in this section
+          %ul{"data-dividertheme" => "d", "data-role" => "listview", "data-theme" => "c"}
+            %li{"data-role" => "list-divider"} Experiments
+            %li{"data-theme" => "a"}
+              %a{:href => "/mobile/experiments/datepicker", :rel => "external"}
+                %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/jqmobile.png"}
+                  Datepicker
+            %li
+              %a{:href => "/mobile/experiments/google_maps", :rel => "external"}
+                %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/jqmobile.png"}
+                  Google Maps
+            %li
+              %a{:href => "/mobile/experiments/navbar_glyphish", :rel => "external"}
+                %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/jqmobile.png"}
+                  Navbar with Glyphish icons
+            %li
+              %a{:href => "/mobile/experiments/photos"}
+                %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/jqmobile.png"}
+                  Photos
+            %li
+              %a{:href => "/mobile/experiments/scrollview", :rel => "external"}
+                %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/jqmobile.png"}
+                  Scroll View
+            %li
+              %a{:href => "/mobile/experiments/weather"}
+                %img.ui-li-icon{:alt => "HTML5", :src => "/images/icons/16x16/jqmobile.png"}
+                  Weather forecast
+  / /content

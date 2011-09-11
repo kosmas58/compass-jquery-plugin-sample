@@ -1,8 +1,8 @@
 -@title = "jQuery Mobile Docs - Pages"
 = render :partial => "/mobile/index.js.haml", :format => :js
 
-%div{"data-role" => "page"}
-  %div{"data-role" => "header", "data-theme" => "b"}
+.type-index{"data-role" => "page"}
+  %div{"data-role" => "header", "data-theme" => "f"}
     %h1 Pages
     %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile"} Home
   / /header
@@ -10,17 +10,28 @@
     %p jQuery Mobile includes automatic AJAX page loading of external pages with back button history support, a set of animated page transitions and simple tools for displaying pages as dialogs.
     %ul{"data-inset" => "true", "data-role" => "listview"}
       %li
-        %a{:href => "/mobile/docs/pages/docs_pages"} Anatomy of a page
+        %a{:href => "/mobile/docs/pages/page_anatomy"} Anatomy of a page
       %li
-        %a{:href => "/mobile/docs/pages/docs_transitions"} Page transitions
+        %a{"data-ajax" => "false", :href => "/mobile/docs/pages/page_template"} Single page template
       %li
-        %a{:href => "/mobile/docs/pages/docs_dialogs"} Dialogs
+        %a{"data-ajax" => "false", :href => "/mobile/docs/pages/multipage_template"} Multi-page template
       %li
-        %a{:href => "/mobile/docs/pages/docs_navmodel"} Navigation: Ajax, hashes &amp; history
+        %a{:href => "/mobile/docs/pages/page_titles"} Page titles
       %li
-        %a{:href => "/mobile/docs/pages/link_formats"} Link format examples
+        %a{:href => "/mobile/docs/pages/page_links"} Linking pages
+      %li
+        %a{"data-ajax" => "false", :href => "/mobile/docs/pages/page_transitions"} Page transitions
+      %li
+        %a{:href => "/mobile/docs/pages/page_dialogs"} Dialogs
+      %li
+        %a{:href => "/mobile/docs/pages/page_cache"} Prefetching &amp; caching pages
+      %li
+        %a{:href => "/mobile/docs/pages/page_navmodel"} Ajax, hashes &amp; history
+      %li
+        %a{:href => "/mobile/docs/pages/page_dynamic"} Dynamically Injecting Pages
+      %li
+        %a{:href => "/mobile/docs/pages/page_scripting"} Scripting pages
       %li
         %a{:href => "/mobile/docs/pages/pages_themes"} Theming pages
-      / <li><a href="/mobile/docs/pages/api_pages">API documentation</a></li>
   / /ui-body wrapper
 / /page

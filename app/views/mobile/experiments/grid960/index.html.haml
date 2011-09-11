@@ -1,13 +1,14 @@
 -@title = " 960 Grid on jQuery Mobile - merges 960.gs flexibility with jquery.mobile ease"
 = render :partial => "fluid.css.haml"
 
-%div{"data-backbtn" => "false", "data-role" => "page"}
+%div{"data-role" => "page"}
   %div{"data-role" => "header"}
     %h1.pageTitle
       960 Grid
       %span.on on
       jQuery Mobile
     %a.ui-btn-left{"data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile/experiments/main", :rel => "external"} Home
+  / /header
   %div{"data-role" => "content"}
     %p
       jquery-mobile-960 is a port of 960 grid to jQuery Mobile. It merges the flexibility of 960.gs and the ease of jQuery Mobile.
@@ -17,10 +18,10 @@
       To use 960 grids in jQuery Mobile, simply add one line:
       %pre
         :preserve
-          &lt;link href="http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.css" /&gt;
+          &lt;link href="http://code.jquery.com/mobile/1.0b1/jquery.mobile-1.0b1.min.css" /&gt;
           &lt;link href="http://jeromeetienne.github.com/jquery-mobile-960/css/jquery-mobile-960.min.css" /&gt;
-          &lt;script src="http://code.jquery.com/jquery-1.5.2min.js"&gt;&lt;/script&gt;
-          &lt;script src="http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.js">&lt;/script&gt;
+          &lt;script src="http://code.jquery.com/jquery-1.6.2min.js"&gt;&lt;/script&gt;
+          &lt;script src="http://code.jquery.com/mobile/1.0b1/jquery.mobile-1.0b1.min.js">&lt;/script&gt;
       And now you can use normal 960 grid syntax inside jQuery mobile pages
       %pre
         :preserve
@@ -81,5 +82,18 @@
       %div{"data-role" => "controlgroup"}
         %a{"data-role" => "button", :href => "https://github.com/jeromeetienne/jquery-mobile-960"} jQuery Mobile 960 on github
         %a{"data-role" => "button", :href => "http://jetienne.com"} Jerome Etienne Homepage
+    .ui-body.ui-body-c
+      %div{"data-collapsed" => "true", "data-role" => "collapsible", "data-theme" => "b"}
+        %h3 More Tablet Experiments in this section
+        %ul{"data-dividertheme" => "d", "data-role" => "listview", "data-theme" => "c"}
+          %li{"data-role" => "list-divider"} Tablet Experiments
+          %li{"data-theme" => "a"}
+            %a{:href => "/mobile/experiments/grid960", :rel => "external"}
+              %img.ui-li-icon{:alt => "Tablet", :src => "/images/icons/16x16/960.png"}
+                960 Grid on jQuery Mobile
+          %li
+            %a{:href => "/mobile/experiments/splitview", :rel => "external"}
+              %img.ui-li-icon{:alt => "Tablet", :src => "/images/icons/16x16/working.png"}
+                Split View
   / /content
 / /page

@@ -1,45 +1,62 @@
 -@title = "jQuery Mobile Docs - Features"
 = render :partial => "/mobile/index.js.haml", :format => :js
 
-%div{"data-role" => "page"}
-  %div{"data-role" => "header", "data-theme" => "b"}
+.type-interior{"data-role" => "page"}
+  %div{"data-role" => "header", "data-theme" => "f"}
     %h1 Features
     %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile"} Home
   / /header
   %div{"data-role" => "content"}
-    %h2 Key features:
-    %ul
-      %li
-        %strong Built on jQuery core
-        for familiar and consistent jQuery syntax and minimal learning curve
-      %li
-        %strong Compatible with all major mobile  platforms
-        \- iOS, Android, Blackberry, Palm WebOS, Nokia/Symbian, Windows Mobile, bada, MeeGo with baseline support for all devices that understand HTML
-      %li
-        %strong Lightweight size
-        (12k compressed for all mobile functionality) and minimal image dependencies for speed.
-      %li
-        %strong HTML5 Markup-driven configuration
-        of pages and behavior for fast development and minimal required scripting.
-      %li
-        %strong Progressive enhancement
-        approach brings core content and functionality to all mobile, tablet and deskstop platforms and a rich, installed application-like experience on newer mobile platforms.
-      %li
-        %strong Automatic initialization
-        by using HTML5
-        %code data-role
-        attributes in the HTML markup to act as the trigger to automatically initialize all jQuery Mobile widgets found on a page.
-      %li
-        %strong Accessibility
-        features such as WAI-ARIA are also included to ensure that the pages work for screen readers (e.g. VoiceOver in iOS) and other assistive technologies.
-      %li
-        %strong New events
-        streamline the process of supporting touch, mouse, and cursor focus-based user input methods with a simple API.
-      %li
-        %strong New plugins
-        enhance native controls with touch-optimized, themable controls.
-      %li
-        %strong Powerful theming framework
-        and ThemeRoller application make highly-branded experiences easy to build.
+    .content-primary
+      %h2 Key features:
+      %ul
+        %li
+          %strong Built on jQuery core
+          for familiar and consistent jQuery syntax and minimal learning curve
+        %li
+          %strong Compatible with all major mobile & desktop platforms
+          \- iOS, Android, Blackberry, Palm WebOS, Nokia/Symbian, Windows Mobile, Opera Mobile/Mini, Firefox Mobile and all modern desktop browsers.
+        %li
+          %strong Lightweight size
+          (~20k compressed for all mobile functionality) and minimal image dependencies for speed.
+        %li
+          %strong HTML5 Markup-driven configuration
+          of pages and behavior for fast development and minimal required scripting.
+        %li
+          %strong Progressive enhancement
+          approach brings core content and functionality to all mobile, tablet and desktop platforms and a rich, installed application-like experience on newer mobile platforms.
+        %li
+          %strong Automatic initialization
+          by using HTML5
+          %code data-role
+          attributes in the HTML markup to act as the trigger to automatically initialize all jQuery Mobile widgets found on a page.
+        %li
+          %strong Accessibility
+          features such as WAI-ARIA are also included to ensure that the pages work for screen readers (e.g. VoiceOver in iOS) and other assistive technologies.
+        %li
+          %strong Touch and mouse event support
+          streamline the process of supporting touch, mouse, and cursor focus-based user input methods with a simple API.
+        %li
+          %strong UI widgets
+          enhance native controls with touch-optimized, themable controls.
+        %li
+          %strong Powerful theming framework
+          and ThemeRoller application make highly-branded experiences easy to build.
+    .content-secondary
+      .ui-body-b
+        %div{"data-collapsed" => "true", "data-role" => "collapsible", "data-theme" => "b"}
+          %h3 More in this section
+          %ul{"data-dividertheme" => "d", "data-role" => "listview", "data-theme" => "c"}
+            %li{"data-role" => "list-divider"} Overview
+            %li
+              %a{:href => "/mobile/docs/about/intro"} Intro to jQuery Mobile
+            %li{"data-theme" => "a"}
+              %a{:href => "/mobile/docs/about/features"} Features
+            %li
+              %a{:href => "/mobile/docs/about/accessibility"} Accessibility
+            %li
+              %a{:href => "/mobile/docs/about/platforms"} Supported platforms
   / /content
+  .footer-docs{"data-role" => "footer", "data-theme" => "c"}
+    %p &copy; 2011 The jQuery Project
 / /page

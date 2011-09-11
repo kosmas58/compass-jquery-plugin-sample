@@ -1,26 +1,44 @@
 -@title = "jQuery Mobile Docs - Intro"
 = render :partial => "/mobile/index.js.haml", :format => :js
 
-%div{"data-role" => "page"}
-  %div{"data-role" => "header", "data-theme" => "b"}
+.type-interior{"data-role" => "page"}
+  %div{"data-role" => "header", "data-theme" => "f"}
     %h1 Introduction
     %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile"} Home
   / /header
   %div{"data-role" => "content"}
-    %h2 jQuery Mobile Overview
-    %p jQuery’s mobile strategy can be summarized simply: Delivering top-of-the-line JavaScript in a unified User Interface that works across the most-used smartphone web browsers and tablet form factors.
-    %p
-      The critical difference with our approach is the
-      %a{:href => "/mobile/docs/about/platforms"} wide variety of mobile platforms we’re targeting
-      with jQuery Mobile. We’ve been working hard at bringing jQuery support to all mobile browsers that are sufficiently-capable and have at least a nominal amount of market share. In this way, we’re treating mobile web browsers exactly how we treat desktop web browsers.
-    %p
-      To make this broad support possible, all pages in jQuery Mobile are built on a foundation of
-      %strong clean, semantic HTML
-      to ensure compatibility with pretty much any web-enabled device. In devices that interpret CSS and JavaScript, jQuery Mobile applies
-      %strong progressive enhancement techniques
-      to unobtrusively transform the semantic page into a rich, interactive experience that leverages the power of jQuery and CSS.
-      %strong Accessibility features
-      such as WAI-ARIA are tightly integrated throughout the framework to provide support for screen readers and other assistive technologies.
-    %img{:alt => "Smartphone and tablet designs", :src => "/images/demo/mobile/ipad-palm.png", :style => "max-width:100%; margin-top:20px;"}
+    .content-primary
+      %h2 jQuery Mobile Overview
+      %p jQuery’s mobile strategy can be summarized simply: A unified user interface system that works seamlessly across all popular mobile device platforms, built on the rock-solid jQuery and jQuery UI foundation. Focused on a lightweight codebase built on progressive enhancement with a flexible, easily themeable design.
+      %p
+        The critical difference with our approach is the
+        %a{:href => "/mobile/docs/about/platforms"} wide variety of mobile platforms we’re targeting
+        with jQuery Mobile. We’ve been working hard at bringing jQuery support to all mobile browsers that are sufficiently-capable and have at least a nominal amount of market share. In this way, we’re treating mobile web browsers exactly how we treat desktop web browsers.
+      %p
+        To make this broad support possible, all pages in jQuery Mobile are built on a foundation of
+        %strong clean, semantic HTML
+        to ensure compatibility with pretty much any web-enabled device. In devices that interpret CSS and JavaScript, jQuery Mobile applies
+        %strong progressive enhancement techniques
+        to unobtrusively transform the semantic page into a rich, interactive experience that leverages the power of jQuery and CSS.
+        %strong Accessibility features
+        such as WAI-ARIA are tightly integrated throughout the framework to provide support for screen readers and other assistive technologies.
+      %img{:alt => "Smartphone and tablet designs", :src => "/images/demo/mobile/ipad-palm.png", :style => "max-width:100%; margin-top:20px;"}
+    / /content-primary
+    .content-secondary
+      .ui-body-b
+        %div{"data-collapsed" => "true", "data-role" => "collapsible", "data-theme" => "b"}
+          %h3 More in this section
+          %ul{"data-dividertheme" => "d", "data-role" => "listview", "data-theme" => "c"}
+            %li{"data-role" => "list-divider"} Overview
+            %li{"data-theme" => "a"}
+              %a{:href => "/mobile/docs/about/intro"} Intro to jQuery Mobile
+            %li
+              %a{:href => "/mobile/docs/about/features"} Features
+            %li
+              %a{:href => "/mobile/docs/about/accessibility"} Accessibility
+            %li
+              %a{:href => "/mobile/docs/about/platforms"} Supported platforms
   / /content
+  .footer-docs{"data-role" => "footer", "data-theme" => "c"}
+    %p &copy; 2011 The jQuery Project
 / /page
