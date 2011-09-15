@@ -8,7 +8,7 @@ gem "i18n-js"
 gem "json", "1.5.1"
 gem "ri_cal"
 gem "sqlite3"
-gem "open3", :platforms => :ruby
+gem "popen4", :platforms => :ruby
 gem "win32-open3", :platforms => :mswin
 
 gem "manifesto", ">= 0.6.0"
