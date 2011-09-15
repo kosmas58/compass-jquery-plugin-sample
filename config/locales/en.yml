@@ -305,7 +305,7 @@ en:
         name: jQuery Mobile framework
         experiments: Additional Demos
         default: jQuery Mobile Demo
-        home: "&beta;2@jquerymobile.com"
+        home: "&beta;3@jquerymobile.com"
       iphone3: iPhone 3
       iphone4: iPhone 4
       palm: Pre 2
