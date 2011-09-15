@@ -32,7 +32,7 @@
       %p
         To illustrate this technique, take a look at this
         = succeed "." do
-          %a{:href => "/mobile/docs/pages/dynamic/sample_reuse_page", :rel => "external"} working sample
+          %a{:href => "/mobile/docs/pages/dynamic", :rel => "external"} working sample
         In this sample, the main page starts off with a list of categories that the user can navigate into. The actual items in each category are stored in a JavaScript object in memory, for illustrative purposes, but the data can really come from anywhere.
       %pre
         %code
@@ -244,38 +244,39 @@
       %p Now an interesting problem here is that jQuery Mobile typically updates the browser's location hash with the URL associated with the page it is showing. Because we are re-using the same page for each category, this wouldn't be ideal, because the URL for that page has no specific category info associated with it. To get around this problem, showCategory() simply sets the dataUrl property on the options object it passes into changePage() to tell it to display our original URL instead.
       %p
         That's the sample in a nutshell. It should be noted that this particular sample and its usage is not a very good example of an app that degrades gracefully when JavaScript is turned off. That means it probably won't work very well on C-Grade browsers. We will be posting other examples that demonstrate how to degrade gracefully in the future. Check this
-        %a{:href => "/mobile/docs/pages/dynamic"} page
+        %a{:href => "http://jquerymobile.com/test/docs/pages/dynamic-samples/"} page
         for updates.
     / /content-primary
     .content-secondary
-      %div{"data-collapsed" => "true", "data-role" => "collapsible", "data-theme" => "b"}
-        %h3 More in this section
-        %ul{"data-dividertheme" => "d", "data-role" => "listview", "data-theme" => "c"}
-          %li{"data-role" => "list-divider"} Pages &amp; Dialogs
-          %li
-            %a{:href => "/mobile/docs/pages/page_anatomy"} Anatomy of a page
-          %li
-            %a{"data-ajax" => "false", :href => "/mobile/docs/pages/page_template"} Single page template
-          %li
-            %a{"data-ajax" => "false", :href => "/mobile/docs/pages/multipage_template"} Multi-page template
-          %li
-            %a{:href => "/mobile/docs/pages/page_titles"} Page titles
-          %li
-            %a{:href => "/mobile/docs/pages/page_links"} Linking pages
-          %li
-            %a{"data-ajax" => "false", :href => "/mobile/docs/pages/page_transitions"} Page transitions
-          %li
-            %a{:href => "/mobile/docs/pages/page_dialogs"} Dialogs
-          %li
-            %a{:href => "/mobile/docs/pages/page_cache"} Prefetching &amp; caching pages
-          %li
-            %a{:href => "/mobile/docs/pages/page_navmodel"} Ajax, hashes &amp; history
-          %li{"data-theme" => "a"}
-            %a{:href => "/mobile/docs/pages/page_dynamic"} Dynamically Injecting Pages
-          %li
-            %a{:href => "/mobile/docs/pages/page_scripting"} Scripting pages
-          %li
-            %a{:href => "/mobile/docs/pages/pages_themes"} Theming pages
+      .ui-body-b
+        %div{"data-collapsed" => "true", "data-role" => "collapsible", "data-theme" => "b"}
+          %h3 More in this section
+          %ul{"data-dividertheme" => "d", "data-role" => "listview", "data-theme" => "c"}
+            %li{"data-role" => "list-divider"} Pages &amp; Dialogs
+            %li
+              %a{:href => "/mobile/docs/pages/page_anatomy"} Anatomy of a page
+            %li
+              %a{"data-ajax" => "false", :href => "/mobile/docs/pages/page_template"} Single page template
+            %li
+              %a{"data-ajax" => "false", :href => "/mobile/docs/pages/multipage_template"} Multi-page template
+            %li
+              %a{:href => "/mobile/docs/pages/page_titles"} Page titles
+            %li
+              %a{:href => "/mobile/docs/pages/page_links"} Linking pages
+            %li
+              %a{"data-ajax" => "false", :href => "/mobile/docs/pages/page_transitions"} Page transitions
+            %li
+              %a{:href => "/mobile/docs/pages/page_dialogs"} Dialogs
+            %li
+              %a{:href => "/mobile/docs/pages/page_cache"} Prefetching &amp; caching pages
+            %li
+              %a{:href => "/mobile/docs/pages/page_navmodel"} Ajax, hashes &amp; history
+            %li{"data-theme" => "a"}
+              %a{:href => "/mobile/docs/pages/page_dynamic"} Dynamically Injecting Pages
+            %li
+              %a{:href => "/mobile/docs/pages/page_scripting"} Scripting pages
+            %li
+              %a{:href => "/mobile/docs/pages/pages_themes"} Theming pages
   / /content
   .footer-docs{"data-role" => "footer", "data-theme" => "c"}
     %p &copy; 2011 The jQuery Project
