@@ -89,19 +89,20 @@
           Examples:
           %pre
             %code
-              %strong //transition to the "about us" page with a slideup transition
-              $.mobile.changePage( "about/us.html", { transition: "slideup"} );
-              %strong //transition to the "search results" page, using data from a form with an ID of "search""
-              $.mobile.changePage( "searchresults.php", {
-              type: "post",
-              data: $("form#search").serialize()
-              });
-              %strong //transition to the "confirm" page with a "pop" transition without tracking it in history
-              $.mobile.changePage( "../alerts/confirm.html", {
-              transition: "pop",
-              reverse: false,
-              changeHash: false
-              });
+              :preserve
+                //transition to the "about us" page with a slideup transition
+                $.mobile.changePage( "about/us.html", { transition: "slideup"} );
+                //transition to the "search results" page, using data from a form with an ID of "search""
+                $.mobile.changePage( "searchresults.php", {
+                  type: "post",
+                  data: $("form#search").serialize()
+                });
+                //transition to the "confirm" page with a "pop" transition without tracking it in history
+                $.mobile.changePage( "../alerts/confirm.html", {
+                  transition: "pop",
+                  reverse: false,
+                  changeHash: false
+                });
         %dt
           %code $.mobile.loadPage
           (
@@ -159,15 +160,16 @@
           Examples:
           %pre
             %code
-              %strong //load the "about us" page into the DOM
-              $.mobile.loadPage( "about/us.html" );
-              %strong //load a "search results" page, using data from a form with an ID of "search""
-              $.mobile.loadPage( "searchresults.php", {
-              type: "post",
-              data: $("form#search").serialize()
-              });
+              :preserve
+                //load the "about us" page into the DOM
+                $.mobile.loadPage( "about/us.html" );
+                //load a "search results" page, using data from a form with an ID of "search""
+                $.mobile.loadPage( "searchresults.php", {
+                  type: "post",
+                  data: $("form#search").serialize()
+                });
         %dt
-          %code jqmData(), jqmRemoveData(), and jqmHasData()
+          %code jqmData(), jqmRemoveData()
           (
           %em> method
           )
@@ -192,6 +194,12 @@
               and
               %a{:href => "http://api.jquery.com/jQuery.removeData/"} removeData
               methods
+            = succeed "Calling" do
+              %strong Note:
+            jqmData() with no argument will return
+            = succeed "." do
+              %code undefined
+            This behavior is subject to change in future versions.
             %dt
               %code ·
               Also:
@@ -218,8 +226,9 @@
           Example:
           %pre
             %code
-              %strong //cue the page loader
-              $.mobile.showPageLoadingMsg();
+              :preserve
+                //cue the page loader
+                $.mobile.showPageLoadingMsg();
         %dt
           %code $.mobile.hidePageLoadingMsg
           (
@@ -230,8 +239,9 @@
           Example:
           %pre
             %code
-              %strong //cue the page loader
-              $.mobile.hidePageLoadingMsg();
+              :preserve
+                //cue the page loader
+                $.mobile.hidePageLoadingMsg();
         %dt
           %code $.mobile.path.parseUrl
           (
@@ -309,27 +319,27 @@
           Examples:
           %pre
             %code
-              %strong
-                \// Parsing the Url below results an object that is returned with the
-                \// following properties:
-                \//
-                \//  obj.href:         http://jblas:password@mycompany.com:8080/mail/inbox?msg=1234&amp;type=unread#msg-content
-                \//  obj.hrefNoHash:   http://jblas:password@mycompany.com:8080/mail/inbox?msg=1234&amp;type=unread
-                \//  obj.hrefNoSearch: http://jblas:password@mycompany.com:8080/mail/inbox
-                \//  obj.domain:       http://jblas:password@mycompany.com:8080
-                \//  obj.protocol:     http:
-                \//  obj.authority:    jblas:password@mycompany.com:8080
-                \//  obj.username:     jblas
-                \//  obj.password:     password
-                \//  obj.host:         mycompany.com:8080
-                \//  obj.hostname:     mycompany.com
-                \//  obj.port:         8080
-                \//  obj.pathname:     /mail/inbox
-                \//  obj.directory:    /mail/
-                \//  obj.filename:     inbox
-                \//  obj.search:       ?msg=1234&amp;type=unread
-                \//  obj.hash:         #msg-content
-              var obj = $.mobile.path.parseUrl("http://jblas:password@mycompany.com:8080/mail/inbox?msg=1234");
+              :preserve
+                // Parsing the Url below results an object that is returned with the
+                // following properties:
+                //
+                //  obj.href:         http://jblas:password@mycompany.com:8080/mail/inbox?msg=1234&amp;type=unread#msg-content
+                //  obj.hrefNoHash:   http://jblas:password@mycompany.com:8080/mail/inbox?msg=1234&amp;type=unread
+                //  obj.hrefNoSearch: http://jblas:password@mycompany.com:8080/mail/inbox
+                //  obj.domain:       http://jblas:password@mycompany.com:8080
+                //  obj.protocol:     http:
+                //  obj.authority:    jblas:password@mycompany.com:8080
+                //  obj.username:     jblas
+                //  obj.password:     password
+                //  obj.host:         mycompany.com:8080
+                //  obj.hostname:     mycompany.com
+                //  obj.port:         8080
+                //  obj.pathname:     /mail/inbox
+                //  obj.directory:    /mail/
+                //  obj.filename:     inbox
+                //  obj.search:       ?msg=1234&amp;type=unread
+                //  obj.hash:         #msg-content
+                var obj = $.mobile.path.parseUrl("http://jblas:password@mycompany.com:8080/mail/inbox?msg=1234");
         %dt
           %code $.mobile.path.makePathAbsolute
           (
@@ -359,10 +369,11 @@
           Examples:
           %pre
             %code
-              %strong // Returns: /a/b/c/file.html
-              var absPath = $.mobile.path.makePathAbsolute("file.html", "/a/b/c/bar.html");
-              %strong // Returns: /a/foo/file.html
-              var absPath = $.mobile.path.makePathAbsolute("../../foo/file.html", "/a/b/c/bar.html");
+              :preserve
+                // Returns: /a/b/c/file.html
+                var absPath = $.mobile.path.makePathAbsolute("file.html", "/a/b/c/bar.html");
+                // Returns: /a/foo/file.html
+                var absPath = $.mobile.path.makePathAbsolute("../../foo/file.html", "/a/b/c/bar.html");
         %dt
           %code $.mobile.path.makeUrlAbsolute
           (
@@ -388,16 +399,17 @@
           Examples:
           %pre
             %code
-              %strong // Returns: http://foo.com/a/b/c/file.html
-              var absUrl = $.mobile.path.makeUrlAbsolute("file.html", "http://foo.com/a/b/c/test.html");
-              %strong // Returns: http://foo.com/a/foo/file.html
-              var absUrl = $.mobile.path.makeUrlAbsolute("../../foo/file.html", "http://foo.com/a/b/c/test.html");
-              %strong // Returns: http://foo.com/bar/file.html
-              var absUrl = $.mobile.path.makeUrlAbsolute("//foo.com/bar/file.html", "http://foo.com/a/b/c/test.html");
-              %strong // Returns: http://foo.com/a/b/c/test.html?a=1&amp;b=2
-              var absUrl = $.mobile.path.makeUrlAbsolute("?a=1&amp;b=2", "http://foo.com/a/b/c/test.html");
-              %strong // Returns: http://foo.com/a/b/c/test.html#bar
-              var absUrl = $.mobile.path.makeUrlAbsolute("#bar", "http://foo.com/a/b/c/test.html");
+              :preserve
+                // Returns: http://foo.com/a/b/c/file.html
+                var absUrl = $.mobile.path.makeUrlAbsolute("file.html", "http://foo.com/a/b/c/test.html");
+                // Returns: http://foo.com/a/foo/file.html
+                var absUrl = $.mobile.path.makeUrlAbsolute("../../foo/file.html", "http://foo.com/a/b/c/test.html");
+                // Returns: http://foo.com/bar/file.html
+                var absUrl = $.mobile.path.makeUrlAbsolute("//foo.com/bar/file.html", "http://foo.com/a/b/c/test.html");
+                // Returns: http://foo.com/a/b/c/test.html?a=1&amp;b=2
+                var absUrl = $.mobile.path.makeUrlAbsolute("?a=1&amp;b=2", "http://foo.com/a/b/c/test.html");
+                // Returns: http://foo.com/a/b/c/test.html#bar
+                var absUrl = $.mobile.path.makeUrlAbsolute("#bar", "http://foo.com/a/b/c/test.html");
         %dt
           %code $.mobile.path.isSameDomain
           (
@@ -425,14 +437,15 @@
           Examples:
           %pre
             %code
-              %strong // Returns: true
-              var same = $.mobile.path.isSameDomain("http://foo.com/a/file.html", "http://foo.com/a/b/c/test.html");
-              %strong // Returns: false
-              var same = $.mobile.path.isSameDomain("file://foo.com/a/file.html", "http://foo.com/a/b/c/test.html");
-              %strong // Returns: false
-              var same = $.mobile.path.isSameDomain("https://foo.com/a/file.html", "http://foo.com/a/b/c/test.html");
-              %strong // Returns: false
-              var same = $.mobile.path.isSameDomain("http://foo.com/a/file.html", "http://bar.com/a/b/c/test.html");
+              :preserve
+                // Returns: true
+                var same = $.mobile.path.isSameDomain("http://foo.com/a/file.html", "http://foo.com/a/b/c/test.html");
+                // Returns: false
+                var same = $.mobile.path.isSameDomain("file://foo.com/a/file.html", "http://foo.com/a/b/c/test.html");
+                // Returns: false
+                var same = $.mobile.path.isSameDomain("https://foo.com/a/file.html", "http://foo.com/a/b/c/test.html");
+                // Returns: false
+                var same = $.mobile.path.isSameDomain("http://foo.com/a/file.html", "http://bar.com/a/b/c/test.html");
         %dt
           %code $.mobile.path.isRelativeUrl
           (
@@ -457,18 +470,19 @@
           Examples:
           %pre
             %code
-              %strong // Returns: false
-              var isRel = $.mobile.path.isRelativeUrl("http://foo.com/a/file.html");
-              %strong // Returns: true
-              var isRel = $.mobile.path.isRelativeUrl("//foo.com/a/file.html");
-              %strong // Returns: true
-              var isRel = $.mobile.path.isRelativeUrl("/a/file.html");
-              %strong // Returns: true
-              var isRel = $.mobile.path.isRelativeUrl("file.html");
-              %strong // Returns: true
-              var isRel = $.mobile.path.isRelativeUrl("?a=1&amp;b=2");
-              %strong // Returns: true
-              var isRel = $.mobile.path.isRelativeUrl("#foo");
+              :preserve
+                // Returns: false
+                var isRel = $.mobile.path.isRelativeUrl("http://foo.com/a/file.html");
+                // Returns: true
+                var isRel = $.mobile.path.isRelativeUrl("//foo.com/a/file.html");
+                // Returns: true
+                var isRel = $.mobile.path.isRelativeUrl("/a/file.html");
+                // Returns: true
+                var isRel = $.mobile.path.isRelativeUrl("file.html");
+                // Returns: true
+                var isRel = $.mobile.path.isRelativeUrl("?a=1&amp;b=2");
+                // Returns: true
+                var isRel = $.mobile.path.isRelativeUrl("#foo");
         %dt
           %code $.mobile.path.isAbsoluteUrl
           (
@@ -493,18 +507,19 @@
           Examples:
           %pre
             %code
-              %strong // Returns: true
-              var isAbs = $.mobile.path.isAbsoluteUrl("http://foo.com/a/file.html");
-              %strong // Returns: false
-              var isAbs = $.mobile.path.isAbsoluteUrl("//foo.com/a/file.html");
-              %strong // Returns: false
-              var isAbs = $.mobile.path.isAbsoluteUrl("/a/file.html");
-              %strong // Returns: false
-              var isAbs = $.mobile.path.isAbsoluteUrl("file.html");
-              %strong // Returns: false
-              var isAbs = $.mobile.path.isAbsoluteUrl("?a=1&amp;b=2");
-              %strong // Returns: false
-              var isAbs = $.mobile.path.isAbsoluteUrl("#foo");
+              :preserve
+                // Returns: true
+                var isAbs = $.mobile.path.isAbsoluteUrl("http://foo.com/a/file.html");
+                // Returns: false
+                var isAbs = $.mobile.path.isAbsoluteUrl("//foo.com/a/file.html");
+                // Returns: false
+                var isAbs = $.mobile.path.isAbsoluteUrl("/a/file.html");
+                // Returns: false
+                var isAbs = $.mobile.path.isAbsoluteUrl("file.html");
+                // Returns: false
+                var isAbs = $.mobile.path.isAbsoluteUrl("?a=1&amp;b=2");
+                // Returns: false
+                var isAbs = $.mobile.path.isAbsoluteUrl("#foo");
         %dt
           %code $.mobile.base
           (
@@ -531,8 +546,9 @@
           Examples:
           %pre
             %code
-              %strong //scroll to Y 100px
-              $.mobile.silentScroll(100);
+              :preserve
+                //scroll to Y 100px
+                $.mobile.silentScroll(100);
         %dt
           %code $.mobile.addResolutionBreakpoints
           (
@@ -550,15 +566,16 @@
               %em> number or array
               ). Pass any number or array of numbers to add to the resolution classes. Read more about this feature here:
               = succeed "." do
-                %a{:href => "mediahelpers.html"} Orientation &amp; resolution targeting
+                %a{:href => "/mobile/docs/api/mediahelpers"} Orientation &amp; resolution targeting
         %dd
           Examples:
           %pre
             %code
-              %strong //add a 400px breakpoint
-              $.mobile.addResolutionBreakpoints(400);
-              %strong //add 2 more breakpoints
-              $.mobile.addResolutionBreakpoints([600,800]);
+              :preserve
+                //add a 400px breakpoint
+                $.mobile.addResolutionBreakpoints(400);
+                //add 2 more breakpoints
+                $.mobile.addResolutionBreakpoints([600,800]);
         %dt
           %code $.mobile.activePage
           (

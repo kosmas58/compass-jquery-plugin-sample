@@ -15,11 +15,37 @@
         = succeed "." do
           %code bind()
       .ui-body.ui-body-e
-        %h4{:style => "margin:.5em 0"} Important: Use pageCreate(), not $(document).ready()
+        %h4{:style => "margin:.5em 0"} Important: Use pageInit(), not $(document).ready()
         The first thing you learn in jQuery is to call code inside the $(document).ready() function so everything will execute as soon as the DOM is loaded. However, in jQuery Mobile, Ajax is used to load the contents of each page into the DOM as you navigate, and the DOM ready handler only executes for the first page. To execute code whenever a new page is loaded and created, you can bind to the
         %code
-          %strong pagecreate
+          %strong pageinit
         event. This event is explained in detail at the bottom of this page.
+      %p
+        .ui-body.ui-body-e
+          %h4{:style => "margin:.5em 0"} Important: pageCreate() vs pageInit()
+          Prior to Beta 2 the recommendation to users wishing to manipulate jQuery Mobile enhanced page and child widget markup was to bind to the
+          %code
+            %strong pagecreate
+          event. In Beta 2 an internal change was made to decouple each of the widgets by binding to the
+          %code
+            %strong pagecreate
+          event in place of direct calls to the widget methods. As a result, users binding to the
+          %code
+            %strong pagecreate
+          in
+          %code
+            %strong mobileinit
+          would find their binding executing before the markup had been enhanced by each of the plugins. In keeping with the lifecycle of the jQuery UI Widget Factory, the initialization method is invoked
+          %strong after
+          the create method, so the
+          %code
+            %strong pageinit
+          event provides the correct timing for post enhancement manipulation of the DOM and/or Javascript objects.
+
+          In short, if you were previously using
+          %code
+            %strong pagecreate
+          to manipulate the enhanced markup before the page was shown its very likely you'll want to migrate to 'pageinit'.
       %h2 Touch events
       %dl
         %dt
@@ -92,18 +118,18 @@
       %pre
         %code
           :preserve
-            $('div').live('pageshow',function(event, ui){
-              alert('This page was just hidden: '+ ui.prevPage);
+            $( 'div' ).live( 'pageshow',function(event, ui){
+              alert( 'This page was just hidden: '+ ui.prevPage);
             });
 
-            $('div').live('pagehide',function(event, ui){
-              alert('This page was just shown: '+ ui.nextPage);
+            $( 'div' ).live( 'pagehide',function(event, ui){
+              alert( 'This page was just shown: '+ ui.nextPage);
             });
       %p
         Also, for these handlers to be invoked during the initial page load, you must bind them before jQuery Mobile executes.  This can be done in the
         %code mobileinit
         handler, as described on the
-        %a{:href => "globalconfig.html"} global config
+        %a{:href => "/mobile/docs/api/globalconfig"} global config
         page.
         %h2 Page initialization events
         %p
@@ -119,36 +145,43 @@
           %dt
             %code pagebeforecreate
           %dd
-            %p Triggered on the page being initialized, before initialization occurs.
+            %p Triggered on the page being initialized, before most plugin auto-initialization occurs.
             %pre
               %code
                 :preserve
-                  $('#aboutPage').live('pagebeforecreate',function(event){
-                    alert('This page was just inserted into the dom!');
+                  $( '#aboutPage' ).live( 'pagebeforecreate',function(event){
+                    alert( 'This page was just inserted into the dom!' );
                   });
             %p
               Note that by binding to
-              %code pagebeforecreate
-              and returning
               = succeed "," do
-                %code false
-              you can prevent the page plugin from making its manipulations.
+                %code pagebeforecreate
+              you can manipulate markup before jQuery Mobile's default widgets are auto-initialized. For example, say you want to add data-attributes via JavaScript instead of in the HTML source, this is the event you'd use.
             %pre
               %code
                 :preserve
-                  $('#aboutPage').live('pagebeforecreate',function(event){
-                    //run your own enhancement scripting here...
-                    return false;
+                  $( '#aboutPage' ).live( 'pagebeforecreate',function(event){
+                    // manipulate this page before its widgets are auto-initialized
                   });
           %dt
             %code pagecreate
+          %dd
+            %p Triggered when the page has been created in the DOM (via ajax or other) but before all widgets have had an opportunity to enhance the contained markup. This event is most useful for user's wishing to create their own custom widgets for child markup enhancement as the jquery mobile widgets do.
+            %pre
+              %code
+                :preserve
+                  $( '#aboutPage' ).live( 'pagecreate',function(event){
+                    ( ":jqmData(role='sweet-plugin')" ).sweetPlugin();
+                  });
+          %dt
+            %code pageinit
           %dd
             %p Triggered on the page being initialized, after initialization occurs. We recommend binding to this event instead of DOM ready() because this will work regardless of whether the page is loaded directly or if the content is pulled into another page as part of the Ajax navigation system.
             %pre
               %code
                 :preserve
-                  $('#aboutPage').live('pagecreate',function(event){
-                    alert('This page was just enhanced by jQuery Mobile!');
+                  $( '#aboutPage' ).live( 'pageinit',function(event){
+                    alert( 'This page was just enhanced by jQuery Mobile!' );
                   });
         %h2 Virtual mouse events
         %p We provide a set of "virtual" click events that normalize mouse and touch events. This allows the developer to register listeners for the basic mouse events, such as mousedown, mousemove, mouseup, and click, and the plugin will take care of registering the correct listeners behind the scenes to invoke the listener at the fastest possible time for that device. This still retains the order of event firing in the traditional mouse environment, should multiple handlers be registered on the same element for different events.
