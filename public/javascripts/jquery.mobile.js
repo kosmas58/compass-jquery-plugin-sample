@@ -545,12 +545,6 @@
       }
     }
 
-    // make sure that if the mouse and click virtual events are generated
-    // without a .which one is defined
-    if (t.search(/mouse(down|up)|click/) > -1 && !event.which) {
-      event.which = 1;
-    }
-
     if (t.search(/^touch/) !== -1) {
       ne = getNativeEvent(oe);
       t = ne.touches;
@@ -1909,21 +1903,20 @@
             //     [2]: http://jblas:password@mycompany.com:8080/mail/inbox
             //     [3]: http://jblas:password@mycompany.com:8080
             //     [4]: http:
-            //     [5]: //
-            //     [6]: jblas:password@mycompany.com:8080
-            //     [7]: jblas:password
-            //     [8]: jblas
-            //     [9]: password
-            //    [10]: mycompany.com:8080
-            //    [11]: mycompany.com
-            //    [12]: 8080
-            //    [13]: /mail/inbox
-            //    [14]: /mail/
-            //    [15]: inbox
-            //    [16]: ?msg=1234&type=unread
-            //    [17]: #msg-content
+            //     [5]: jblas:password@mycompany.com:8080
+            //     [6]: jblas:password
+            //     [7]: jblas
+            //     [8]: password
+            //     [9]: mycompany.com:8080
+            //    [10]: mycompany.com
+            //    [11]: 8080
+            //    [12]: /mail/inbox
+            //    [13]: /mail/
+            //    [14]: inbox
+            //    [15]: ?msg=1234&type=unread
+            //    [16]: #msg-content
             //
-            urlParseRE: /^(((([^:\/#\?]+:)?(?:(\/\/)((?:(([^:@\/#\?]+)(?:\:([^:@\/#\?]+))?)@)?(([^:\/#\?\]\[]+|\[[^\/\]@#?]+\])(?:\:([0-9]+))?))?)?)?((\/?(?:[^\/\?#]+\/+)*)([^\?#]*)))?(\?[^#]+)?)(#.*)?/,
+            urlParseRE: /^(((([^:\/#\?]+:)?(?:\/\/((?:(([^:@\/#\?]+)(?:\:([^:@\/#\?]+))?)@)?(([^:\/#\?\]\[]+|\[[^\/\]@#?]+\])(?:\:([0-9]+))?))?)?)?((\/?(?:[^\/\?#]+\/+)*)([^\?#]*)))?(\?[^#]+)?)(#.*)?/,
 
             //Parse a URL into a structure that allows easy access to
             //all of the URL components by name.
@@ -1934,31 +1927,34 @@
                 return url;
               }
 
-              var matches = path.urlParseRE.exec(url || "") || [];
-
-              // Create an object that allows the caller to access the sub-matches
-              // by name. Note that IE returns an empty string instead of undefined,
-              // like all other browsers do, so we normalize everything so its consistent
-              // no matter what browser we're running on.
-              return {
-                href:         matches[  0 ] || "",
-                hrefNoHash:   matches[  1 ] || "",
-                hrefNoSearch: matches[  2 ] || "",
-                domain:       matches[  3 ] || "",
-                protocol:     matches[  4 ] || "",
-                doubleSlash:  matches[  5 ] || "",
-                authority:    matches[  6 ] || "",
-                username:     matches[  8 ] || "",
-                password:     matches[  9 ] || "",
-                host:         matches[ 10 ] || "",
-                hostname:     matches[ 11 ] || "",
-                port:         matches[ 12 ] || "",
-                pathname:     matches[ 13 ] || "",
-                directory:    matches[ 14 ] || "",
-                filename:     matches[ 15 ] || "",
-                search:       matches[ 16 ] || "",
-                hash:         matches[ 17 ] || ""
-              };
+              var u = url || "",
+                      matches = path.urlParseRE.exec(url),
+                      results;
+              if (matches) {
+                // Create an object that allows the caller to access the sub-matches
+                // by name. Note that IE returns an empty string instead of undefined,
+                // like all other browsers do, so we normalize everything so its consistent
+                // no matter what browser we're running on.
+                results = {
+                  href:         matches[0] || "",
+                  hrefNoHash:   matches[1] || "",
+                  hrefNoSearch: matches[2] || "",
+                  domain:       matches[3] || "",
+                  protocol:     matches[4] || "",
+                  authority:    matches[5] || "",
+                  username:     matches[7] || "",
+                  password:     matches[8] || "",
+                  host:         matches[9] || "",
+                  hostname:     matches[10] || "",
+                  port:         matches[11] || "",
+                  pathname:     matches[12] || "",
+                  directory:    matches[13] || "",
+                  filename:     matches[14] || "",
+                  search:       matches[15] || "",
+                  hash:         matches[16] || ""
+                };
+              }
+              return results || {};
             },
 
             //Turn relPath into an asbolute path. absPath is
@@ -2018,14 +2014,13 @@
               var relObj = path.parseUrl(relUrl),
                       absObj = path.parseUrl(absUrl),
                       protocol = relObj.protocol || absObj.protocol,
-                      doubleSlash = relObj.protocol ? relObj.doubleSlash : ( relObj.doubleSlash || absObj.doubleSlash );
-              authority = relObj.authority || absObj.authority,
+                      authority = relObj.authority || absObj.authority,
                       hasPath = relObj.pathname !== "",
                       pathname = path.makePathAbsolute(relObj.pathname || absObj.filename, absObj.pathname),
                       search = relObj.search || ( !hasPath && absObj.search ) || "",
                       hash = relObj.hash;
 
-              return protocol + doubleSlash + authority + pathname + search + hash;
+              return protocol + "//" + authority + pathname + search + hash;
             },
 
             //Add search (aka query) params to the specified url.
@@ -2667,12 +2662,8 @@
           }
 
           //append to page and enhance
-          // TODO taging a page with external to make sure that embedded pages aren't removed
-          //      by the various page handling code is bad. Having page handling code in many
-          //      places is bad. Solutions post 1.0
           page
                   .attr("data-" + $.mobile.ns + "url", path.convertUrlToDataUrl(fileUrl))
-                  .attr("data-" + $.mobile.ns + "external-page", true)
                   .appendTo(settings.pageContainer);
 
           // wait for page creation to leverage options defined on widget
@@ -3063,12 +3054,6 @@
 
     //add active state on vclick
     $(document).bind("vclick", function(event) {
-      // if this isn't a left click we don't care. Its important to note
-      // that when the virtual event is generated it will create
-      if (event.which > 1) {
-        return;
-      }
-
       var link = findClosestLink(event.target);
       if (link) {
         if (path.parseUrl(link.getAttribute("href") || "#").hash !== "#") {
@@ -3083,10 +3068,7 @@
     // click routing - direct to HTTP or Ajax, accordingly
     $(document).bind("click", function(event) {
       var link = findClosestLink(event.target);
-
-      // If there is no link associated with the click or its not a left
-      // click we want to ignore the click
-      if (!link || event.which > 1) {
+      if (!link) {
         return;
       }
 
@@ -3256,12 +3238,7 @@
 
       //if to is defined, load it
       if (to) {
-        // At this point, 'to' can be one of 3 things, a cached page element from
-        // a history stack entry, an id, or site-relative/absolute URL. If 'to' is
-        // an id, we need to resolve it against the documentBase, not the location.href,
-        // since the hashchange could've been the result of a forward/backward navigation
-        // that crosses from an external page/dialog to an internal page/dialog.
-        to = ( typeof to === "string" && !path.isPath(to) ) ? ( path.makeUrlAbsolute('#' + to, documentBase) ) : to;
+        to = ( typeof to === "string" && !path.isPath(to) ) ? ( '#' + to ) : to;
         $.mobile.changePage(to, changePageOptions);
       } else {
         //there's no hash, go to the first page in the dom
@@ -3333,47 +3310,28 @@
       return url;
     },
 
-    // TODO sort out a single barrier to hashchange functionality
-    nextHashChangePrevented: function(value) {
-      $.mobile.urlHistory.ignoreNextHashChange = value;
-      self.onHashChangeDisabled = value;
-    },
-
     // on hash change we want to clean up the url
     // NOTE this takes place *after* the vanilla navigation hash change
     // handling has taken place and set the state of the DOM
     onHashChange: function(e) {
-      // disable this hash change
-      if (self.onHashChangeDisabled) {
-        return;
-      }
+      var href, state;
 
-      var href, state,
-              hash = location.hash,
-              isPath = $.mobile.path.isPath(hash);
-      hash = isPath ? hash.replace("#", "") : hash;
+      self.hashchangeFired = true;
 
-      // propulate the hash when its not available
-      state = self.state();
+      // only replaceState when the hash doesn't represent an embeded page
+      if ($.mobile.path.isPath(location.hash)) {
 
-      // make the hash abolute with the current href
-      href = $.mobile.path.makeUrlAbsolute(hash, location.href);
+        // propulate the hash when its not available
+        state = self.state();
 
-      if (isPath) {
+        // make the hash abolute with the current href
+        href = $.mobile.path.makeUrlAbsolute(state.hash.replace("#", ""), location.href);
+
         href = self.resetUIKeys(href);
-      }
 
-      // replace the current url with the new href and store the state
-      // Note that in some cases we might be replacing an url with the
-      // same url. We do this anyways because we need to make sure that
-      // all of our history entries have a state object associated with
-      // them. This allows us to work around the case where window.history.back()
-      // is called to transition from an external page to an embedded page.
-      // In that particular case, a hashchange event is *NOT* generated by the browser.
-      // Ensuring each history entry has a state object means that onPopState()
-      // will always trigger our hashchange callback even when a hashchange event
-      // is not fired.
-      history.replaceState(state, document.title, href);
+        // replace the current url with the new href and store the state
+        history.replaceState(state, document.title, href);
+      }
     },
 
     // on popstate (ie back or forward) we need to replace the hash that was there previously
@@ -3385,13 +3343,13 @@
       // or forward popstate
       if (poppedState) {
         // disable any hashchange triggered by the browser
-        self.nextHashChangePrevented(true);
+        $.mobile.urlHistory.ignoreNextHashChange = true;
 
         // defer our manual hashchange until after the browser fired
         // version has come and gone
         setTimeout(function() {
           // make sure that the manual hash handling takes place
-          self.nextHashChangePrevented(false);
+          $.mobile.urlHistory.ignoreNextHashChange = false;
 
           // change the page based on the hash
           $.mobile._handleHashChange(poppedState.hash);
@@ -3712,10 +3670,9 @@
 
       var $el = this.element,
               o = this.options,
-              expandedCls = "ui-btn-up-" + (o.theme || "c"),
-              collapsible = $el.addClass("ui-collapsible"),
+              collapsibleContain = $el.addClass("ui-collapsible-contain"),
               collapsibleHeading = $el.find(o.heading).eq(0),
-              collapsibleContent = collapsible.wrapInner("<div class='ui-collapsible-content'></div>").find(".ui-collapsible-content"),
+              collapsibleContent = collapsibleContain.wrapInner("<div class='ui-collapsible-content'></div>").find(".ui-collapsible-content"),
               collapsibleParent = $el.closest(":jqmData(role='collapsible-set')").addClass("ui-collapsible-set");
 
       // Replace collapsibleHeading if it's a legend
@@ -3733,7 +3690,7 @@
               .wrapInner("<a href='#' class='ui-collapsible-heading-toggle'></a>")
               .find("a:eq(0)")
               .buttonMarkup({
-                shadow: false,
+                shadow: !collapsibleParent.length,
                 corners: false,
                 iconPos: "left",
                 icon: "plus",
@@ -3751,10 +3708,12 @@
 
       if (!collapsibleParent.length) {
         collapsibleHeading
-                .find("a:eq(0), .ui-btn-inner")
-                .addClass("ui-corner-top ui-corner-bottom");
+                .find("a:eq(0)")
+                .addClass("ui-corner-all")
+                .find(".ui-btn-inner")
+                .addClass("ui-corner-all");
       } else {
-        if (collapsible.jqmData("collapsible-last")) {
+        if (collapsibleContain.jqmData("collapsible-last")) {
           collapsibleHeading
                   .find("a:eq(0), .ui-btn-inner")
                   .addClass("ui-corner-bottom");
@@ -3762,35 +3721,52 @@
       }
 
       //events
-      collapsible
-              .bind("expand collapse", function(event) {
-        if (!event.isDefaultPrevented()) {
+      collapsibleContain
+              .bind("collapse", function(event) {
+        if (! event.isDefaultPrevented() &&
+                $(event.target).closest(".ui-collapsible-contain").is(collapsibleContain)) {
 
           event.preventDefault();
 
-          var isCollapse = ( event.type === "collapse" );
-
           collapsibleHeading
-                  .toggleClass("ui-collapsible-heading-collapsed", isCollapse)
+                  .addClass("ui-collapsible-heading-collapsed")
                   .find(".ui-collapsible-heading-status")
                   .text(o.expandCueText)
                   .end()
                   .find(".ui-icon")
-                  .toggleClass("ui-icon-minus", !isCollapse)
-                  .toggleClass("ui-icon-plus", isCollapse);
+                  .removeClass("ui-icon-minus")
+                  .addClass("ui-icon-plus");
 
-          collapsible.toggleClass("ui-collapsible-collapsed", isCollapse);
-          collapsibleContent.toggleClass("ui-collapsible-content-collapsed", isCollapse).attr("aria-hidden", isCollapse);
-          collapsibleContent.toggleClass(expandedCls, !isCollapse);
+          collapsibleContent.addClass("ui-collapsible-content-collapsed").attr("aria-hidden", true);
 
-          if (!collapsibleParent.length || collapsible.jqmData("collapsible-last")) {
+          if (collapsibleContain.jqmData("collapsible-last")) {
             collapsibleHeading
                     .find("a:eq(0), .ui-btn-inner")
-                    .toggleClass("ui-corner-bottom", isCollapse);
-            collapsibleContent.toggleClass("ui-corner-bottom", !isCollapse);
+                    .addClass("ui-corner-bottom");
           }
         }
       })
+              .bind("expand", function(event) {
+                if (!event.isDefaultPrevented()) {
+
+                  event.preventDefault();
+
+                  collapsibleHeading
+                          .removeClass("ui-collapsible-heading-collapsed")
+                          .find(".ui-collapsible-heading-status").text(o.collapseCueText);
+
+                  collapsibleHeading.find(".ui-icon").removeClass("ui-icon-plus").addClass("ui-icon-minus");
+
+                  collapsibleContent.removeClass("ui-collapsible-content-collapsed").attr("aria-hidden", false);
+
+                  if (collapsibleContain.jqmData("collapsible-last")) {
+
+                    collapsibleHeading
+                            .find("a:eq(0), .ui-btn-inner")
+                            .removeClass("ui-corner-bottom");
+                  }
+                }
+              })
               .trigger(o.collapsed ? "collapse" : "expand");
 
       // Close others in a set
@@ -3801,8 +3777,8 @@
                 .bind("expand", function(event) {
 
                   $(event.target)
-                          .closest(".ui-collapsible")
-                          .siblings(".ui-collapsible")
+                          .closest(".ui-collapsible-contain")
+                          .siblings(".ui-collapsible-contain")
                           .trigger("collapse");
 
                 });
@@ -3815,12 +3791,7 @@
                 .find(".ui-btn-inner")
                 .addClass("ui-corner-top");
 
-        set.last()
-                .jqmData("collapsible-last", true)
-                .find("a:eq(0)")
-                .addClass("ui-corner-bottom")
-                .find(".ui-btn-inner")
-                .addClass("ui-corner-bottom");
+        set.last().jqmData("collapsible-last", true);
       }
 
       collapsibleHeading
@@ -3829,7 +3800,7 @@
         var type = collapsibleHeading.is(".ui-collapsible-heading-collapsed") ?
                 "expand" : "collapse";
 
-        collapsible.trigger(type);
+        collapsibleContain.trigger(type);
 
         event.preventDefault();
       });
@@ -4244,12 +4215,8 @@
 
               }).listview();
 
-      // on pagehide, remove any nested pages along with the parent page, as long as they aren't active
-      // and aren't embedded
-      if (hasSubPages &&
-              parentPage.is("jqmData(external-page='true')") &&
-              parentPage.data("page").options.domCache === false) {
-
+      //on pagehide, remove any nested pages along with the parent page, as long as they aren't active
+      if (hasSubPages && parentPage.data("page").options.domCache === false) {
         var newRemove = function(e, ui) {
           var nextPage = ui.nextPage, npURL;
 
@@ -5205,10 +5172,6 @@
     },
 
     _theme: function() {
-      if (this.options.theme) {
-        return this.options.theme;
-      }
-
       var themedParent, theme;
       // if no theme is defined, try to find closest theme container
       // TODO move to core as something like findCurrentTheme
@@ -5375,11 +5338,6 @@
       this.setButtonText();
       this.setButtonCount();
     },
-
-    // open and close preserved in native selects
-    // to simplify users code when looping over selects
-    open: $.noop,
-    close: $.noop,
 
     disable: function() {
       this._setDisabled(true);
@@ -5900,11 +5858,7 @@
   $.fn.buttonMarkup = function(options) {
     return this.each(function() {
       var el = $(this),
-              o = $.extend({}, $.fn.buttonMarkup.defaults, {
-                icon: el.jqmData("icon"),
-                iconpos: el.jqmData("iconpos"),
-                theme: el.jqmData("theme")
-              }, options),
+              o = $.extend({}, $.fn.buttonMarkup.defaults, el.jqmData(), options),
 
         // Classes Defined
               innerClass = "ui-btn-inner",
