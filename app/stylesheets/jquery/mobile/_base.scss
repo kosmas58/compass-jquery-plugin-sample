@@ -69,9 +69,22 @@
   .ui-page {
     min-height: 300px; } }
 
+/* on ios4, setting focus on the page element causes flashing during transitions when there is an outline, so we turn off outlines */
+
+.ui-page {
+  outline: none;
+  &.ui-mobile-touch-overflow {
+    overflow: auto;
+    height: 100%;
+    -webkit-overflow-scrolling: touch;
+    -moz-overflow-scrolling: touch;
+    -o-overflow-scrolling: touch;
+    -ms-overflow-scrolling: touch;
+    overflow-scrolling: touch; } }
+
 /* native overflow scrolling */
 
-.ui-page.ui-mobile-touch-overflow, .ui-mobile-touch-overflow.ui-native-fixed .ui-content {
+.ui-mobile-touch-overflow.ui-native-fixed .ui-content {
   overflow: auto;
   height: 100%;
   -webkit-overflow-scrolling: touch;
@@ -827,7 +840,7 @@ Built by David Kaneda and maintained by Jonathan Stark.
 * Dual licensed under the MIT (MIT-LICENSE.txt) or GPL (GPL-LICENSE.txt) licenses.
 */
 
-.ui-collapsible-contain {
+.ui-collapsible {
   margin: .5em 0; }
 
 .ui-collapsible-heading {
@@ -863,14 +876,21 @@ Built by David Kaneda and maintained by Jonathan Stark.
 
 .ui-collapsible-content {
   display: block;
-  padding: 10px 0 10px 8px; }
+  margin: 0 -8px;
+  padding: 10px 16px;
+  border-top: none;
+  /* Overrides ui-btn-up-* */
+  background-image: none;
+  /* Overrides ui-btn-up-* */
+  font-weight: normal;
+  /* Overrides ui-btn-up-* */ }
 
 .ui-collapsible-content-collapsed {
   display: none; }
 
 .ui-collapsible-set {
   margin: .5em 0;
-  .ui-collapsible-contain {
+  .ui-collapsible {
     margin: -1px 0 0; } }
 
 /*
@@ -934,7 +954,6 @@ Built by David Kaneda and maintained by Jonathan Stark.
   .ui-controlgroup-controls {
     width: 60%;
     display: inline-block; } }
-
 
 /*
 * jQuery Mobile Framework
@@ -1018,7 +1037,6 @@ Built by David Kaneda and maintained by Jonathan Stark.
     border-width: 0;
     padding: 0;
     margin: 1em 0; } }
-
 
 /*
 * jQuery Mobile Framework
@@ -1121,13 +1139,13 @@ label.ui-select {
 
 @media all and (min-width: 450px) {
   label.ui-select {
+    vertical-align: top;
     display: inline-block;
     width: 20%;
     margin: 0 2% 0 0; }
   .ui-select {
     width: 60%;
     display: inline-block; } }
-
 
 /* when no placeholder is defined in a multiple select, the header height doesn't even extend past the close button.  this shim's content in there */
 
@@ -1201,7 +1219,6 @@ textarea.ui-input-text {
     input.ui-input-text {
       width: 98%;
       /*echos rule from above*/ } } }
-
 
 /*
 * jQuery Mobile Framework
@@ -1360,7 +1377,6 @@ ol.ui-listview .ui-li-jsnumbering:before {
   .ui-li-aside {
     width: 45%; } }
 
-
 .ui-li-divider {
   cursor: default; }
 
@@ -1406,6 +1422,9 @@ ol.ui-listview .ui-li-jsnumbering:before {
     right: 50%;
     margin-right: -9px; } }
 
+.ui-listview * .ui-btn-inner > .ui-btn > .ui-btn-inner {
+  border-top: 0px; }
+
 .ui-listview-filter {
   border-width: 0;
   overflow: hidden;
@@ -1426,7 +1445,6 @@ ol.ui-listview .ui-li-jsnumbering:before {
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
   .ui-li .ui-btn-text {
     overflow: visible; } }
-
 
 /*
 * jQuery Mobile Framework
@@ -1468,12 +1486,12 @@ a.ui-slider-handle {
 
 @media all and (min-width: 480px) {
   label.ui-slider {
+    vertical-align: top;
     display: inline-block;
     width: 20%;
     margin: 0 2% 0 0; }
   div.ui-slider {
     width: 45%; } }
-
 
 div {
   &.ui-slider-switch {
