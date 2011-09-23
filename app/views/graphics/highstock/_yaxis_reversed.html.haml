@@ -30,11 +30,11 @@
           }
       });
 
-
       // Create the chart
       window.chart = new Highcharts.StockChart({
           chart: {
-              renderTo: 'container'
+              renderTo: 'container',
+              type: 'area'
           },
 
           rangeSelector: {
@@ -51,20 +51,21 @@
           yAxis: {
               title: {
                   text: 'Exchange rate'
-              }
+              },
+              reversed: true
           },
 
           series: [{
               name: 'USD to EUR',
               data: data,
-              type: 'areaspline',
               threshold: null
           }]
       });
     });
   });
 
--@title = "#{t('txt.graphics.highstock.name')} - #{t('txt.graphics.highstock.general.name')} - #{t('txt.graphics.highstock.types.areaspline')}"
+
+-@title = "#{t('txt.graphics.highstock.name')} - #{t('txt.graphics.highstock.general.name')} - #{t('txt.graphics.highstock.features.yaxis-reversed')}"
 
 %h4
   =image_tag("icons/22x22/highcharts.png", :border => 0)

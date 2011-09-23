@@ -30,7 +30,6 @@
           }
       });
 
-
       // Create the chart
       window.chart = new Highcharts.StockChart({
           chart: {
@@ -51,20 +50,36 @@
           yAxis: {
               title: {
                   text: 'Exchange rate'
-              }
+              },
+              plotLines: [{
+                value: 0.6738,
+                color: 'green',
+                dashStyle: 'shortdash',
+                width: 2,
+                label: {
+                  text: 'Last quarter minimum'
+                }
+              }, {
+                value: 0.7419,
+                color: 'red',
+                dashStyle: 'shortdash',
+                width: 2,
+                label: {
+                  text: 'Last quarter maximum'
+                }
+              }]
           },
 
           series: [{
               name: 'USD to EUR',
-              data: data,
-              type: 'areaspline',
-              threshold: null
+              data: data
           }]
       });
     });
   });
 
--@title = "#{t('txt.graphics.highstock.name')} - #{t('txt.graphics.highstock.general.name')} - #{t('txt.graphics.highstock.types.areaspline')}"
+
+-@title = "#{t('txt.graphics.highstock.name')} - #{t('txt.graphics.highstock.general.name')} - #{t('txt.graphics.highstock.features.yaxis-plotlines')}"
 
 %h4
   =image_tag("icons/22x22/highcharts.png", :border => 0)

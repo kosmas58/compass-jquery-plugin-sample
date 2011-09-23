@@ -19,30 +19,16 @@
 
                   x = Date.UTC(date[2], date[1] - 1, date[0]);
 
-                  data.push([
-              x, // time
-              parseFloat(point[3]), // open
-              parseFloat(point[6]), // high
-              parseFloat(point[5]), // low
-              parseFloat(point[4]) // close
-            ]);
-
-                  navigatorData.push([x, parseFloat(point[4])]); // close
+                  data.push([x, parseFloat(point[2])]); // volume
               }
           }
       });
 
-
       // create the chart
       chart = new Highcharts.StockChart({
           chart: {
-              renderTo: 'container'
-          },
-
-          navigator: {
-              series: {
-                  data: navigatorData
-              }
+              renderTo: 'container',
+              alignTicks: false
           },
 
           rangeSelector: {
@@ -50,7 +36,7 @@
           },
 
           title: {
-              text: 'USD to EUR exchange rate'
+              text: 'USD to EUR exchange volume'
           },
 
           xAxis: {
@@ -61,15 +47,10 @@
                   text: null
               }
           },
-          yAxis: [{
-              title: {
-                  text: 'Exchange rate'
-              }
-          }],
 
           series: [{
-              type: 'candlestick',
-              name: 'USD to EUR',
+              type: 'column',
+              name: 'Volume',
               data: data,
               dataGrouping: {
                 units: [[
@@ -85,7 +66,7 @@
     });
   });
 
--@title = "#{t('txt.graphics.highstock.name')} - #{t('txt.graphics.highstock.general.name')} - #{t('txt.graphics.highstock.types.candlestick')}"
+-@title = "#{t('txt.graphics.highstock.name')} - #{t('txt.graphics.highstock.general.name')} - #{t('txt.graphics.highstock.types.column')}"
 
 %h4
   =image_tag("icons/22x22/highcharts.png", :border => 0)
