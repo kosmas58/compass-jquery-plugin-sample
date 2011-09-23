@@ -1,0 +1,24 @@
+= render :partial => "examples.js.haml", :format => :js
+
+.demo
+  #highcharts_themes
+    %ul
+      %li
+        %a{ :href => "default?example=#{@example}" }
+          Default
+      %li
+        %a{ :href => "grid?example=#{@example}" }
+          Grid
+      %li
+        %a{ :href => "skies?example=#{@example}" }
+          Skies
+      %li
+        %a{ :href => "gray?example=#{@example}" }
+          Gray
+      %li
+        %a{ :href => "blue?example=#{@example}" }
+          Dark blue
+      %li
+        %a{ :href => "green?example=#{@example}" }
+          Dark green
+/ End demo
