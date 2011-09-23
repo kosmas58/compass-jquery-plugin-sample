@@ -545,13 +545,34 @@ en:
         general:
           name: General
           basic: Single line series
-          candlestick: Two panes, candlestick and volume
+          candlestick-volume: Two panes, candlestick and volume
+          multiple-series: Multiple series and axes
+          data-grouping: 52,000 points with data grouping
+          intraday: Intraday data
+          flags-general: Flags marking events
         types:
           name: Chart types
+          line-markers: Line with markers and shadow
+          spline: Spline
+          step-line: Step line
+          area: Area
+          areaspline: Areaspline
+          candlestick: Candlestick
+          ohlc: OHLC
+          column: Column
+          markers-only: Point markers only
         features:
           name: Various features
+          yaxis-plotlines: Plot lines on Y axis
+          yaxis-plotbands: Plot bands on Y axis
+          yaxis-reversed: Reversed Y axis
+          styled-scrollbar: Styled scrollbar
+          scrollbar-disabled: Disabled scrollbar
+          navigator-disabled: Disabled navigator
         flags:
           name: Flags
+          placement: Flags placement
+          shapes: Flags shapes and colors
     mediahelpers:
       name: jQuery Media Helper Utilities
       default: Example

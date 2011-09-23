@@ -34,4 +34,8 @@ class Graphics::HighstockController < ApplicationController
     example = params[:example] || "basic_line"
     render :partial => "green", :locals => {:example => example}
   end
+
+  def data
+    render :file => File.join(RAILS_ROOT, "app/views/graphics/highstock/#{params[:file]}")
+  end
 end
