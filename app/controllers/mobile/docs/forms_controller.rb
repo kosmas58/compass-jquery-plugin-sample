@@ -6,4 +6,8 @@ class Mobile::Docs::FormsController < ApplicationController
   def forms_sample_response
     @shipping = params[:shipping]
   end
+
+  def forms_sample_selfsubmit
+    @gender = params[:gender]
+  end
 end

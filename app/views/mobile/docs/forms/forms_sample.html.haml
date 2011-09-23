@@ -80,7 +80,20 @@
               %option{:value => "Rush shipping"} Rush: 3 days
               %option{:value => "Express shipping"} Express: next day
               %option{:value => "Overnight shipping"} Overnight
-          %button{"data-theme" => "b", :name => "submit", :type => "submit", :value => "submit-value"} Submit
+      %button{"data-theme" => "b", :name => "submit", :type => "submit", :value => "submit-value"} Submit
+      %h2 Self-submitting Forms
+      %p
+        Just like in ordinary HTML, can also submit forms to the same URL you're currently viewing by setting the form's
+        %code action
+        attribute to that URL.
+        %A{:href => "/mobile/docs/forms/forms_sample_selfsubmit"}
+          This page demonstrates.
+      %p
+        When a
+        %code post
+        request is submitted to a page that's already in the DOM (which would commonly happen when submitting a form to the same URL currently in view), the response URL will be identical to that existing page, as
+        %code post
+        requests do not append query string parameters to the URL. In this situation, jQuery Mobile will replace the page that submitted the form with the page returned in the response body.
     / /content-primary
     .content-secondary
       .ui-body-b
