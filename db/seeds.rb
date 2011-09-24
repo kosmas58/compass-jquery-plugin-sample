@@ -1102,7 +1102,7 @@ parent_id = node_224
 node_225 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 0, :title => 'txt.graphics.highstock.general.basic', :type => 'default', :icon => '/images/icons/16x16/highcharts.png', :url => '/graphics/highstock/examples?example=basic')
 node_618 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 1, :title => 'txt.graphics.highstock.general.candlestick-volume', :type => 'default', :icon => '/images/icons/16x16/highcharts.png', :url => '/graphics/highstock/examples?example=candlestick_volume')
 node_619 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 2, :title => 'txt.graphics.highstock.general.multiple-series', :type => 'default', :icon => '/images/icons/16x16/highcharts.png', :url => '/graphics/highstock/examples?example=multiple_series')
-node_620 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.graphics.highstock.general.data-grouping', :type => 'default', :icon => '/images/icons/16x16/working.png', :url => '/graphics/highstock/examples?example=data_grouping')
+node_620 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 3, :title => 'txt.graphics.highstock.general.data-grouping', :type => 'default', :icon => '/images/icons/16x16/highcharts.png', :url => '/graphics/highstock/examples?example=data_grouping')
 node_621 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 4, :title => 'txt.graphics.highstock.general.intraday', :type => 'default', :icon => '/images/icons/16x16/highcharts.png', :url => '/graphics/highstock/examples?example=intraday')
 node_622 = NavigationTree.create_node(:id => parent_id, :seed => true, :position => 5, :title => 'txt.graphics.highstock.general.flags-general', :type => 'default', :icon => '/images/icons/16x16/highcharts.png', :url => '/graphics/highstock/examples?example=flags_general')
 parent_id = node_223
@@ -1669,5 +1669,4 @@ node_617 = NavigationTree.create_node(:id => parent_id, :seed => true, :position
 parent_id = node_599
 parent_id = node_530
 parent_id = node_1
-puts "Finished creating navigation tree"
-
+puts "Finished creating navigation tree
