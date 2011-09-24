@@ -23,27 +23,8 @@ date:
 txt: 
   graphics: 
     highstock: 
-      flags: 
-        name: Flags
-        placement: Flags placement
-        shapes: Flags shapes and colors
-      features: 
-        yaxis-plotlines: Plot lines on Y axis
-        yaxis-reversed: Reversed Y axis
-        scrollbar-disabled: Disabled scrollbar
-        styled-scrollbar: Styled scrollbar
-        yaxis-plotbands: Plot bands on Y axis
-        navigator-disabled: Disabled navigator
-      types: 
-        line-markers: Line with markers and shadow
-        markers-only: Point markers only
       general: 
-        name: General
         multiple-series: Multiple series and axes
-        flags-general: Flags marking events
-        candlestick-volume: Two panes, candlestick and volume
-        basic: Single line series
-        intraday: Intraday data
         data-grouping: 52,000 points with data grouping
   tools: 
     form: 

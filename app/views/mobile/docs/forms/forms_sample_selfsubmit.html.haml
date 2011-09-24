@@ -10,7 +10,7 @@
     .content-primary
       %form{:action => "/mobile/docs/forms/forms_sample_selfsubmit", :method => "get"}
         %fieldset{"data-role" => "controlgroup", "data-type" => "horizontal"}
-          %legend Testing
+          %legend Gender
           - if @gender == "m"
             %input#gender-1{:type => "radio", :name => "gender", :value => "m", :checked => "checked"}
           - else
