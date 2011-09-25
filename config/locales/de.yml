@@ -345,42 +345,43 @@ de:
       name: Multifunktionsleiste
       default: jQuery Ribbon Windows 7 Demo
       office: jQuery Ribbon Office Demo
-    emu: 
-      bb: 
-        play: Blackberry Playbook
+    emu:
+      os:
+        ios: iOS
+        bos: BlackBerry OS
+        android: Android
+      apple:
+        ipad: iPad
+        iphone3: iPhone 3
+        iphone4: iPhone 4
+      bb:
         torch: BlackBerry Torch
-      name: "jQuery auf mobilen Ger\xC3\xA4ten"
-      ideosx3: Ideos X3
-      touchpad: Touchpad
-      ipad: iPad
-      htc: 
-        sensation: HTC Sensation
+        play: Blackberry Playbook
+      htc:
+        sensation: Sensation
+      huawei:
+        ideos:
+          x3: Ideos X3
+      samsung:
+        galaxy:
+          ace: Galaxy Ace
+          s: Galaxy S
+          s2: Galaxy S2
+          tab7: Galaxy Tab 7
+          tab77: Galaxy Tab 7.7
+          tab9: Galaxy Tab 8.9
+          tab10: Galaxy Tab 10.1
       jqt: 
         name: "<i>(Ben\xC3\xB6tigt einen WebKit-Engine)</i>"
         default: jQTouch Demonstration
         home: "&beta;@jqtouch.com"
-      galaxys: Galaxy S
       port: Hochformat
       land: Querformat
-      os: 
-        webos: webOS
-        ios: iOS
-        android: Android
-        bos: BlackBerry OS
-      iphone3: iPhone 3
       jqm: 
         name: jQuery Mobile Framework
         experiments: Weitere Demos
         default: jQuery Mobile Demonstration
         home: "&beta;3@jquerymobile.com"
-      galaxyace: Galaxy Ace
-      iphone4: iPhone 4
-      galaxy7: Galaxy Tab 7
-      galaxy10: Galaxy Tab 10.1
-      galaxys2: Galaxy S2
-      palm: Pre 2
-      galaxy9: Galaxy Tab 8.9
-      galaxy77: Galaxy Tab 7,7
     haml: 
       name: Javascript und Haml.
       jhaml: jQuery-haml-Plugin

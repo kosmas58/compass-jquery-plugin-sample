@@ -276,40 +276,42 @@ en:
       example12: Safari History Bug
     emu: 
       name: jQuery on mobile devices
-      ipad: iPad
       os:
         ios: iOS
         bos: BlackBerry OS
         android: Android
-        webos: webOS
+      apple:
+        ipad: iPad
+        iphone3: iPhone 3
+        iphone4: iPhone 4
       bb:
         torch: BlackBerry Torch
         play: Blackberry Playbook
-      galaxyace: Galaxy Ace
-      galaxys: Galaxy S
-      galaxys2: Galaxy S2
-      galaxy7: Galaxy Tab 7
-      galaxy77: Galaxy Tab 7.7
-      galaxy9: Galaxy Tab 8.9
-      galaxy10: Galaxy Tab 10.1
-      ideosx3: Ideos X3
       htc:
-        sensation: HTC Sensation
-      jqt: 
+        sensation: Sensation
+      huawei:
+        ideos:
+          x3: Ideos X3
+      samsung:
+        galaxy:
+          ace: Galaxy Ace
+          s: Galaxy S
+          s2: Galaxy S2
+          tab7: Galaxy Tab 7
+          tab77: Galaxy Tab 7.7
+          tab9: Galaxy Tab 8.9
+          tab10: Galaxy Tab 10.1
+      port: Portrait
+      land: Landscape
+      jqt:
         name: <i>(needs a WebKit engine)</i>
         default: jQTouch Demo
         home: "&beta;@jqtouch.com"
-      port: Portrait
-      land: Landscape
       jqm: 
         name: jQuery Mobile framework
         experiments: Additional Demos
         default: jQuery Mobile Demo
         home: "&beta;3@jquerymobile.com"
-      iphone3: iPhone 3
-      iphone4: iPhone 4
-      palm: Pre 2
-      touchpad: Touchpad
     jqgrid: 
       simple: 
         name: Simple Data Grids
