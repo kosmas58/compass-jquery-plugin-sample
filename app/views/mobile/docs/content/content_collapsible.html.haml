@@ -24,11 +24,11 @@
           :preserve
             &lt;div data-role=&quot;collapsible&quot;&gt;
               &lt;h3&gt;I&#x27;m a header&lt;/h3&gt;
-              &lt;p&gt;I&#x27;m the collapsible content. By default I'm open and displayed on the page, but you can click the header to hide me.&lt;/p&gt;
+              &lt;p&gt;I&#x27;m the collapsible content. By default I'm closed, but you can click the header to open me.&lt;/p&gt;
             &lt;/div&gt;
       %div{"data-role" => "collapsible"}
         %h3 I'm a header
-        %p I'm the collapsible content. By default I'm open and displayed on the page, but you can click the header to hide me.
+        %p I'm the collapsible content. By default I'm closed, but you can click the header to open me
       %p
         As the example notes, by default the content will be collapsed. To expand the content when the page loads, add the
         %code data-collapsed="false"
@@ -39,7 +39,7 @@
       %p This code will create a collapsible widget like this:
       %div{"data-collapsed" => "false", "data-role" => "collapsible"}
         %h3 I'm a header
-        %p I'm the collapsible content. I'm expanded by default because I have the "collapsed" state set to false; you need to expand the header to see me.
+        %p I'm the collapsible content. I'm expanded by default because I have the "collapsed" state set to false.
       %p Collapsible content is minimally styled &mdash; we add only a bit of margin between the bar and content, and the header adopts the default Theme styles of the container it sits within.
       %h2 Collapsible example
       %p This page has 4 collapsible containers with different types of content inside.
