@@ -1,0 +1,21 @@
+-@title = "#{t('txt.graphics.qrcode.name')} - #{t('txt.graphics.qrcode.demo')}"
+= render :partial => "demo.js.haml", :format => :js
+
+.demo
+  %h3
+    =image_tag("icons/22x22/qrcode.png", :border => 0)
+    =@title
+  %p
+    TODO make a nice looking pure client qrcode generator even allow download of the image.
+  #qrcode
+/ End demo
+.demo-description
+  #greybox
+  %p
+    The plugin was written by
+    %a{:href => "http://jeromeetienne.github.com/jquery-qrcode/", :class => :greybox  } Jerome Etienne
+    and released under the
+    = succeed "." do
+      %a{ :href => "http://www.opensource.org/licenses/mit-license.php", :class => :greybox } MIT License
+/ End demo-description
+

@@ -200,7 +200,7 @@ To use the javascripts include:
 Graphics
 --------
 
-Use compass to install the jquery.ganttView, jquery.highcharts and jquery.sparklines javascript libraries into your project.
+Use compass to install the jquery.ganttView, jquery.highcharts, jquery.qrcode and jquery.sparklines javascript libraries into your project.
 
 <pre>compass install [-r jquery] jquery/graphics <project name></pre>
 
@@ -302,6 +302,7 @@ jQuery Plugins included:
 * Brandon Aaron and Fabrizio Balliano for [jQuery Mousewheel Plugin][35]
 * Yehuda Katz for [jQuery Offline Plugin][34]
 * Andreas Eberhard for [jQuery PngFix Plugin][22] (for IE)
+* Jerome Etienne for [jQuery Code plugin][45]
 * "Cowboy" Ben Alman for [jQuery replaceText Plugin][36]
 * Mikael Soederstroem for [jQuery Ribbon Plugin][23]
 * Gareth Watts from Splunk Inc for [jQuery Sparklines plugin][24]
@@ -314,7 +315,6 @@ jQuery Plugins included:
 * Steven Wittens for [Farbtastic Colorpicker plugin][30]
 * Adam Shaw for [FullCalendar][31]
 * Moxiecode Systems AB for [TinyMCE][40]
-
 
 Other stuff included:
 ---------------------
@@ -383,4 +383,5 @@ Copyright &copy; 2009-2011 Kosmas Schuetz. See LICENSE for details.
   [41]: http://github.com/loopj/jquery-tokeninput
   [42]: http://http://www.highcharts.com
   [43]: http://github.com/scottjehl/jQuery-Media-Helpers
-  [44]: https://github.com/markitup/1.x
+  [44]: http://github.com/markitup/1.x
+  [45]: http://jeromeetienne.github.com/jquery-qrcode/

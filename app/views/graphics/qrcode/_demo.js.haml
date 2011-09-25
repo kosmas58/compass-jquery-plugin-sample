@@ -1,0 +1,7 @@
+- content_for :head_scripts do
+  = javascript_include_tag :qrcode
+  :javascript
+    $(function(){
+      $('#qrcode').qrcode("http://jetienne.com");
+    })
+    

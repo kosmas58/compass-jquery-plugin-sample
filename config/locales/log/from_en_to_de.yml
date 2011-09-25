@@ -22,10 +22,10 @@ date:
     long: "%B %d, %Y"
 txt: 
   graphics: 
-    highstock: 
-      general: 
-        multiple-series: Multiple series and axes
-        data-grouping: 52,000 points with data grouping
+    qrcode: 
+      basic: Basic Example
+  emu: 
+    name: jQuery on mobile devices
   tools: 
     form: 
       stylable: 
