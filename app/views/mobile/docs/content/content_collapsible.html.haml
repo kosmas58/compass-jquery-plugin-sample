@@ -13,16 +13,19 @@
         To create a collapsible blocks of content, create a container and add the
         %code data-role="collapsible"
         attribute.
+      %p
+        Using
+        %code data-content-theme
+        attribute allows you to set a theme for the content of the collapsible.
       %p Directly inside this container, add any header element (H1-H6). The framework will style the header to look like a clickable button and add a "+" icon to the left to indicate it's expandable.
       %p After the header, add any HTML markup you want to be collapsible. The framework will wrap this markup in a container that will be hidden/shown when the heading is clicked.
       %pre
         %code
           :preserve
-              &lt;div data-role=&quot;collapsible&quot;&gt;
-                &lt;h3&gt;I&#x27;m a header&lt;/h3&gt;
-                &lt;p&gt;I&#x27;m the collapsible content. By default I'm open and displayed on the page, but you can click the header to hide me.
-                &lt;/p&gt;
-              &lt;/div&gt;
+            &lt;div data-role=&quot;collapsible&quot;&gt;
+              &lt;h3&gt;I&#x27;m a header&lt;/h3&gt;
+              &lt;p&gt;I&#x27;m the collapsible content. By default I'm open and displayed on the page, but you can click the header to hide me.&lt;/p&gt;
+            &lt;/div&gt;
       %div{"data-role" => "collapsible"}
         %h3 I'm a header
         %p I'm the collapsible content. By default I'm open and displayed on the page, but you can click the header to hide me.
@@ -40,12 +43,9 @@
       %p Collapsible content is minimally styled &mdash; we add only a bit of margin between the bar and content, and the header adopts the default Theme styles of the container it sits within.
       %h2 Collapsible example
       %p This page has 4 collapsible containers with different types of content inside.
-      %div{"data-collapsed" => "true", "data-role" => "collapsible"}
+      %div{"data-role" => "collapsible"}
         %h3 Section 1: Collapsed text block
-        %p
-          I'm closed when the page loads because I have the
-          %code data-collapsed="true"
-          attribute on my container.
+        %p I'm closed when the page loads because that's the default state of a collapsible.
         %p I'm the collapsible content. I'm the collapsible content. I'm the collapsible content. I'm the collapsible content. I'm the collapsible content. I'm the collapsible content. I'm the collapsible content.
       / /section 1
       %div{"data-role" => "collapsible"}
@@ -91,6 +91,13 @@
           %li
             %a{:href => "/mobile/docs/content"} Ford
       / /section 4
+      %div{"data-content-theme" => "c", "data-role" => "collapsible", "data-theme" => "c"}
+        %h3 Section 5: themed content
+        %p
+          I have
+          %code data-content-theme
+          attribute set manually on my container to set the color to match the content block I'm in.
+      / /section 5
       %h2 Nested Collapsibles
       %div{"data-role" => "collapsible"}
         %h3 I'm a header
