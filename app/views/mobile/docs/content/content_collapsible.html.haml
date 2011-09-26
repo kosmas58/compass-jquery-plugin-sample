@@ -10,7 +10,7 @@
     .content-primary
       %h2 Collapsible content markup
       %p
-        To create a collapsible blocks of content, create a container and add the
+        To create a collapsible block of content, create a container and add the
         %code data-role="collapsible"
         attribute.
       %p
@@ -28,30 +28,30 @@
             &lt;/div&gt;
       %div{"data-role" => "collapsible"}
         %h3 I'm a header
-        %p I'm the collapsible content. By default I'm closed, but you can click the header to open me
+        %p I'm the collapsible content. By default I'm closed, but you can click the header to open me.
       %p
         As the example notes, by default the content will be collapsed. To expand the content when the page loads, add the
         %code data-collapsed="false"
         attribute to the wrapper.
       %code
-        \&lt;div data-role=&quot;collapsible&quot;
-        %strong data-collapsed=&quot;true&quot;&gt;
+        &lt;div data-role=&quot;collapsible&quot;
+        %strong data-collapsed=&false;true&quot;&gt;
       %p This code will create a collapsible widget like this:
       %div{"data-collapsed" => "false", "data-role" => "collapsible"}
         %h3 I'm a header
         %p I'm the collapsible content. I'm expanded by default because I have the "collapsed" state set to false.
       %p Collapsible content is minimally styled &mdash; we add only a bit of margin between the bar and content, and the header adopts the default Theme styles of the container it sits within.
       %h2 Collapsible example
-      %p This page has 4 collapsible containers with different types of content inside.
+      %p This page has 5 collapsible containers with different types of content inside.
       %div{"data-role" => "collapsible"}
         %h3 Section 1: Collapsed text block
         %p I'm closed when the page loads because that's the default state of a collapsible.
         %p I'm the collapsible content. I'm the collapsible content. I'm the collapsible content. I'm the collapsible content. I'm the collapsible content. I'm the collapsible content. I'm the collapsible content.
       / /section 1
-      %div{"data-role" => "collapsible"}
+      %div{"data-collapsed" => "false", "data-role" => "collapsible"}
         %h3 Section 2: Expanded on load
         %p
-          I'm closed when the page loads because I don't have the
+          I'm opened when the page loads because I have the
           %code data-collapsed="false"
           attribute on my container.
         %p I'm the collapsible content. I'm the collapsible content. I'm the collapsible content. I'm the collapsible content. I'm the collapsible content. I'm the collapsible content.
@@ -99,12 +99,12 @@
           attribute set manually on my container to set the color to match the content block I'm in.
       / /section 5
       %h2 Nested Collapsibles
-      %div{"data-role" => "collapsible"}
+      %div{"data-collapsed" => "false", "data-role" => "collapsible"}
         %h3 I'm a header
         %p I'm the collapsible content. By default I'm open and displayed on the page, but you can click the header to hide me.
-        %div{"data-role" => "collapsible"}
+        %div{"data-collapsed" => "false", "data-role" => "collapsible"}
           %h3 I'm a nested collapsible header
-          %p I'm the collapsible content. By default I'm open and displayed on the page, but you can click the header to hide me.
+          %p I'm the collapsible content in a nested collapsible. By default I'm open and displayed on the page, but you can click the header to hide me.
       %h2 Collapsible sets
       %p
         It's possible to combine multiple collapsibles into a grouped sets that acts like an accordion widget.
