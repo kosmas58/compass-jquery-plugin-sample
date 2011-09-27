@@ -12,34 +12,32 @@
         %h2 Text inputs
         %ul.localnav{"data-role" => "controlgroup", "data-type" => "horizontal"}
           %li
-            %a{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/texts/selects"} Basics
+            %a{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/textinputs/selects"} Basics
           %li
-            %a{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/forms/texts/options"} Options
+            %a{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/forms/textinputs/options"} Options
           %li
-            %a{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/forms/texts/methods"} Methods
+            %a.ui-btn-active{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/forms/textinputs/methods"} Methods
           %li
-            %a.ui-btn-active{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/forms/texts/events"} Events
-        %p Since the native text inputs and textareas are used as a proxy for the custom text inputs, you can watch for events on the original, native text input and textareas instead of needing to go through the text input plugin. Bind to the change event by type: change, blur, focus, keypress, click, etc.
-        %pre
-          %code
-            :preserve
+            %a{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/forms/textinputs/events"} Events
 
-              $( ".selector" ).bind( "change", function(event, ui) {
-                ...
-              });
-        %p The text input plugin has the following custom events:
+        %p The text input plugin has the following methods:
         %dl
           %dt
-            %code create
-            triggered when a text input is created
+            %code enable
+            enable a disabled text input.
           %dd
-            %p This event is used to find out when a custom text input was created. It is not used to create a custom text input. The text input create event can be used like this:
             %pre
               %code
                 :preserve
-                  $( ".selector" ).textinput({
-                     create: function(event, ui) { ... }
-                  });
+                  $('.selector').textinput('enable');
+          %dt
+            %code disable
+            disable a text input.
+          %dd
+            %pre
+              %code
+                :preserve
+                  $('.selector').textinput('disable');
     / /content-primary
     .content-secondary
       .ui-body-b
@@ -52,7 +50,7 @@
             %li
               %a{:href => "/mobile/docs/forms/forms_all"} Form element gallery
             %li{"data-theme" => "a"}
-              %a{:href => "/mobile/docs/forms/texts"} Text inputs
+              %a{:href => "/mobile/docs/forms/textinputs"} Text inputs
             %li
               %a{:href => "/mobile/docs/forms/forms_search"} Search inputs
             %li

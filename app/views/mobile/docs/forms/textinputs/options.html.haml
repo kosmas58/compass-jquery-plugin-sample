@@ -12,32 +12,29 @@
         %h2 Text inputs
         %ul.localnav{"data-role" => "controlgroup", "data-type" => "horizontal"}
           %li
-            %a{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/texts/selects"} Basics
+            %a{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/textinputs/selects"} Basics
           %li
-            %a{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/forms/texts/options"} Options
+            %a.ui-btn-active{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/forms/textinputs/options"} Options
           %li
-            %a.ui-btn-active{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/forms/texts/methods"} Methods
+            %a{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/forms/textinputs/methods"} Methods
           %li
-            %a{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/forms/texts/events"} Events
+            %a{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/forms/textinputs/events"} Events
 
-        %p The text input plugin has the following methods:
+        %p The text input plugin has the following options:
         %dl
           %dt
-            %code enable
-            enable a disabled text input.
+            %code theme
+            %em string
           %dd
+            %p.default default: null, inherited from parent
+            %p
+              Sets the theme swatch color scheme for the text input element. This is a single letter from a-z that maps to the swatches included in your theme. By default, a text input will inherit the same swatch color as it's parent container if not explicitly set. This option is also exposed as a data attribute:
+              %code data-theme=&quot;a&quot;
             %pre
               %code
-                :preserve
-                  $('.selector').textinput('enable');
-          %dt
-            %code disable
-            disable a text input.
-          %dd
-            %pre
-              %code
-                :preserve
-                  $('.selector').textinput('disable');
+                $('.selector').textinput(
+                %strong> { theme: "a" }
+                );
     / /content-primary
     .content-secondary
       .ui-body-b
@@ -50,7 +47,7 @@
             %li
               %a{:href => "/mobile/docs/forms/forms_all"} Form element gallery
             %li{"data-theme" => "a"}
-              %a{:href => "/mobile/docs/forms/texts"} Text inputs
+              %a{:href => "/mobile/docs/forms/textinputs"} Text inputs
             %li
               %a{:href => "/mobile/docs/forms/forms_search"} Search inputs
             %li

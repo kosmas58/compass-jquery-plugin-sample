@@ -337,7 +337,7 @@ if (!JSON) {
           }
         }
 
-// Join all of the member texts together, separated with commas,
+// Join all of the member textinputs together, separated with commas,
 // and wrap them in braces.
 
         v = partial.length === 0 ? '{}' : gap ?

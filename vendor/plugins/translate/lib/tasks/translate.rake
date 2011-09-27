@@ -88,7 +88,7 @@ namespace :translate do
     puts missing.present? ? missing.join("\n") : "No missing translations in the default locale file"
   end
 
-  desc "Remove all translation texts that are no longer present in the locale they were translated from"
+  desc "Remove all translation textinputs that are no longer present in the locale they were translated from"
   task :remove_obsolete_keys => :environment do
     I18n.backend.send(:init_translations)
     master_locale = ENV['LOCALE'] || I18n.default_locale
@@ -129,7 +129,7 @@ namespace :translate do
     end
   end
 
-  desc "Apply Google translate to auto translate all texts in locale ENV['FROM'] to locale ENV['TO']"
+  desc "Apply Google translate to auto translate all textinputs in locale ENV['FROM'] to locale ENV['TO']"
   task :google => :environment do
     raise "Please specify FROM and TO locales as environment variables" if ENV['FROM'].blank? || ENV['TO'].blank?
 
@@ -185,7 +185,7 @@ namespace :translate do
     Translate::Storage.new(ENV['TO'].to_sym).write_to_file
   end
   
-  desc "List keys that have changed I18n texts between YAML file ENV['FROM_FILE'] and YAML file ENV['TO_FILE']. Set ENV['VERBOSE'] to see changes"
+  desc "List keys that have changed I18n textinputs between YAML file ENV['FROM_FILE'] and YAML file ENV['TO_FILE']. Set ENV['VERBOSE'] to see changes"
   task :changed => :environment do
     from_hash = Translate::Keys.to_shallow_hash(Translate::File.new(ENV['FROM_FILE']).read)
     to_hash = Translate::Keys.to_shallow_hash(Translate::File.new(ENV['TO_FILE']).read)

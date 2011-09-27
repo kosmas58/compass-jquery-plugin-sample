@@ -16,14 +16,14 @@ describe Translate::Log do
       FileUtils.rm_f file_path
     end
 
-    it "writes new log file with from texts" do
+    it "writes new log file with from textinputs" do
       File.exists?(file_path).should be_false
       @log.write_to_file
       File.exists?(file_path).should be_true
       Translate::File.new(file_path).read.should == Translate::File.deep_stringify_keys(from_texts)
     end
   
-    it "merges from texts with current texts in log file and re-writes the log file" do
+    it "merges from textinputs with current textinputs in log file and re-writes the log file" do
       @log.write_to_file
       I18n.backend.store_translations(:sv, {:category => "Kategori ny"})
       @log.keys = ['category']
