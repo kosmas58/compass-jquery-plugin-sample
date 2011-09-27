@@ -22,19 +22,18 @@
         attribute to the heading of the section you want expanded.
       %pre
         %code
-          %strong &lt;div data-role="collapsible-set"&gt;
-          \&lt;div data-role=&quot;collapsible&quot;
-          = succeed "&amp;gt;" do
-            %strong data-collapsed=&quot;false&quot;
-          \&lt;h3&gt;Section 1&lt;/h3&gt;
-          \&lt;p&gt;I&#x27;m the collapsible set content for section B.&lt;/p&gt;
-          \&lt;/div&gt;
+          :preserve
+            &lt;div data-role="collapsible-set"&gt;
+              &lt;div data-role=&quot;collapsible&quot; data-collapsed=&quot;false&quot;&gt;
+                &lt;h3&gt;Section 1&lt;/h3&gt;
+                &lt;p&gt;I&#x27;m the collapsible set content for section B.&lt;/p&gt;
+              &lt;/div&gt;
 
-          \&lt;div data-role=&quot;collapsible&quot;&gt;
-          \&lt;h3&gt;Section 2&lt;/h3&gt;
-          \&lt;p&gt;I&#x27;m the collapsible set content for section B.&lt;/p&gt;
-          \&lt;/div&gt;
-          %strong &lt;/div&gt;
+              &lt;div data-role=&quot;collapsible&quot;&gt;
+                &lt;h3&gt;Section 2&lt;/h3&gt;
+                &lt;p&gt;I&#x27;m the collapsible set content for section B.&lt;/p&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
       %p Here is an example of a collapsible set with 5 sections.
       %div{"data-role" => "collapsible-set"}
         %div{"data-collapsed" => "false", "data-role" => "collapsible"}
@@ -64,9 +63,8 @@
         attribute with a swatch letter. This adds a themed background color and border to the content block. For consistent theming, add these attributes to the parent collapsible set.
       %pre
         %code
-          \&lt;div data-role=&quot;collapsible-set&quot;
-          = succeed "&amp;gt;" do
-            %strong data-theme=&quot;c&quot; data-content-theme=&quot;d&quot;
+          :preserve
+            &lt;div data-role=&quot;collapsible-set&quot;data-theme=&quot;c&quot; data-content-theme=&quot;d&quot;&gt;
       %div{"data-content-theme" => "d", "data-role" => "collapsible-set", "data-theme" => "c"}
         %div{"data-role" => "collapsible"}
           %h3 Section 1

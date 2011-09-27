@@ -22,12 +22,11 @@
       %p By default, the content will be collapsed.
       %pre
         %code
-          \&lt;div
-          = succeed "&amp;gt;" do
-            %strong data-role=&quot;collapsible&quot;
-          \&lt;h3&gt;I&#x27;m a header&lt;/h3&gt;
-          \&lt;p&gt;I&#x27;m the collapsible content. By default I'm closed, but you can click the header to open me.&lt;/p&gt;
-          \&lt;/div&gt;
+          :preserve
+            &lt;div data-role=&quot;collapsible&quot;&gt;
+              &lt;h3&gt;I&#x27;m a header&lt;/h3&gt;
+              &lt;p&gt;I&#x27;m the collapsible content. By default I'm closed, but you can click the header to open me.&lt;/p&gt;
+            &lt;/div&gt;
       %div{"data-role" => "collapsible"}
         %h3 I'm a header
         %p I'm the collapsible content. By default I'm closed, but you can click the header to open me.
@@ -37,8 +36,7 @@
         %code data-collapsed="false"
         attribute to the wrapper.
       %code
-        \&lt;div data-role=&quot;collapsible&quot;
-        %strong data-collapsed=&quot;false&quot;&gt;
+        &lt;div data-role=&quot;collapsible&quot; data-collapsed=&quot;false&quot;&gt;
       %p This code will create a collapsible widget like this:
       %div{"data-collapsed" => "false", "data-role" => "collapsible"}
         %h3 I'm a header
@@ -53,12 +51,11 @@
         background color (not the gradient) to the content block and changes the corner rounding to square off the bottom of the header and round the bottom of the content block instead to visually group these elements.
       %pre
         %code
-          \&lt;div data-role=&quot;collapsible&quot;
-          = succeed "&amp;gt;" do
-            %strong data-content-theme=&quot;c&quot;
-          \&lt;h3&gt;Header swatch A&lt;/h3&gt;
-          \&lt;p&gt;I&#x27;m the collapsible content with a themed content block set to "C".&lt;/p&gt;
-          \&lt;/div&gt;
+          :preserve
+            &lt;div data-role=&quot;collapsible&quot; data-content-theme=&quot;c&quot;&gt;
+              &lt;h3&gt;Header swatch A&lt;/h3&gt;
+              &lt;p&gt;I&#x27;m the collapsible content with a themed content block set to "C".&lt;/p&gt;
+            &lt;/div&gt;
       %div{"data-content-theme" => "c", "data-role" => "collapsible"}
         %h3 Header swatch
         %p I'm the collapsible content with a themed content block set to "C".
@@ -69,12 +66,11 @@
         attribute to the wrapper and specify a swatch letter. Note that you can mix and match swatch letters between the header and content with these theme attributes.
       %pre
         %code
-          \&lt;div data-role=&quot;collapsible&quot;
-          = succeed "&amp;gt;" do
-            %strong data-theme=&quot;a&quot; data-content-theme=&quot;a&quot;
-          \&lt;h3&gt;Header swatch A&lt;/h3&gt;
-          \&lt;p&gt;I&#x27;m the collapsible content with a themed content block set to "A".&lt;/p&gt;
-          \&lt;/div&gt;
+          :preserve
+            &lt;div data-role=&quot;collapsible&quot; data-theme=&quot;a&quot; data-content-theme=&quot;a&quot;&gt;
+              &lt;h3&gt;Header swatch A&lt;/h3&gt;
+              &lt;p&gt;I&#x27;m the collapsible content with a themed content block set to "A".&lt;/p&gt;
+            &lt;/div&gt;
       %div{"data-content-theme" => "a", "data-role" => "collapsible", "data-theme" => "a"}
         %h3 Header swatch A
         %p I'm the collapsible content with a themed content block set to "A".
