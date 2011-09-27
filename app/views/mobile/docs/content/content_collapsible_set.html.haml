@@ -22,51 +22,78 @@
         attribute to the heading of the section you want expanded.
       %pre
         %code
-          :preserve
-            &lt;div data-role="collapsible-set"&gt;
+          %strong &lt;div data-role="collapsible-set"&gt;
+          \&lt;div data-role=&quot;collapsible&quot;
+          = succeed "&amp;gt;" do
+            %strong data-collapsed=&quot;false&quot;
+          \&lt;h3&gt;Section 1&lt;/h3&gt;
+          \&lt;p&gt;I&#x27;m the collapsible set content for section B.&lt;/p&gt;
+          \&lt;/div&gt;
 
-              &lt;div data-role=&quot;collapsible&quot; data-collapsed=&quot;false&quot;&gt;
-              &lt;h3&gt;Section A&lt;/h3&gt;
-              &lt;p&gt;I&#x27;m the collapsible set content for section B.&lt;/p&gt;
-              &lt;/div&gt;
-
-              &lt;div data-role=&quot;collapsible&quot;&gt;
-              &lt;h3&gt;Section B&lt;/h3&gt;
-              &lt;p&gt;I&#x27;m the collapsible set content for section B.&lt;/p&gt;
-              &lt;/div&gt;
-
-            &lt;/div&gt;
+          \&lt;div data-role=&quot;collapsible&quot;&gt;
+          \&lt;h3&gt;Section 2&lt;/h3&gt;
+          \&lt;p&gt;I&#x27;m the collapsible set content for section B.&lt;/p&gt;
+          \&lt;/div&gt;
+          %strong &lt;/div&gt;
       %p Here is an example of a collapsible set with 5 sections.
       %div{"data-role" => "collapsible-set"}
         %div{"data-collapsed" => "false", "data-role" => "collapsible"}
-          %h3 Section A
+          %h3 Section 1
+          %p
+            I'm the collapsible content in a set so this feels like an accordion. I'm open by default because I have the
+            %code data-collapsed="false"
+            attribute.
+        %div{"data-role" => "collapsible"}
+          %h3 Section 2
           %p I'm the collapsible content in a set so this feels like an accordion. I'm hidden by default because I have the "collapsed" state; you need to expand the header to see me.
         %div{"data-role" => "collapsible"}
-          %h3 Section B
+          %h3 Section 3
           %p I'm the collapsible content in a set so this feels like an accordion. I'm hidden by default because I have the "collapsed" state; you need to expand the header to see me.
         %div{"data-role" => "collapsible"}
-          %h3 Section C
+          %h3 Section 4
           %p I'm the collapsible content in a set so this feels like an accordion. I'm hidden by default because I have the "collapsed" state; you need to expand the header to see me.
         %div{"data-role" => "collapsible"}
-          %h3 Section D
+          %h3 Section 5
           %p I'm the collapsible content in a set so this feels like an accordion. I'm hidden by default because I have the "collapsed" state; you need to expand the header to see me.
-        %div{"data-role" => "collapsible"}
-          %h3 Section E
-          %p I'm the collapsible content in a set so this feels like an accordion. I'm hidden by default because I have the "collapsed" state; you need to expand the header to see me.
+      %h2 Theming collapsible content
       %p
-        Here is an example of a collapsible with 3 sections and
+        The standard
+        %code data-theme
+        attribute can be used to set the color of each collapsible in a set. To provide a clearer visual grouping of the content with the headers, add the
         %code data-content-theme
-        set
+        attribute with a swatch letter. This adds a themed background color and border to the content block. For consistent theming, add these attributes to the parent collapsible set.
+      %pre
+        %code
+          \&lt;div data-role=&quot;collapsible-set&quot;
+          = succeed "&amp;gt;" do
+            %strong data-theme=&quot;c&quot; data-content-theme=&quot;d&quot;
+      %div{"data-content-theme" => "d", "data-role" => "collapsible-set", "data-theme" => "c"}
+        %div{"data-role" => "collapsible"}
+          %h3 Section 1
+          %p Collapsible content
+        %div{"data-role" => "collapsible"}
+          %h3 Section 2
+          %p Collapsible content
+        %div{"data-role" => "collapsible"}
+          %h3 Section 3
+          %p Collapsible content
+      %h2 Theming individual sections
+      %p
+        To have individual sections in a group styled differently, add
+        %code data-theme
+        and
+        %code data-content-theme
+        attributes to specific collapsibles.
       %div{"data-content-theme" => "c", "data-role" => "collapsible-set"}
-        %div{"data-collapsed" => "false", "data-role" => "collapsible"}
-          %h3 Section F
-          %p I'm the collapsible content in a set so this feels like an accordion. I'm hidden by default because I have the "collapsed" state; you need to expand the header to see me.
-        %div{"data-role" => "collapsible"}
-          %h3 Section G
-          %p I'm the collapsible content in a set so this feels like an accordion. I'm hidden by default because I have the "collapsed" state; you need to expand the header to see me.
-        %div{"data-role" => "collapsible"}
-          %h3 Section H
-          %p I'm the collapsible content in a set so this feels like an accordion. I'm hidden by default because I have the "collapsed" state; you need to expand the header to see me.
+        %div{"data-content-theme" => "b", "data-role" => "collapsible", "data-theme" => "b"}
+          %h3 Section header, swatch B
+          %p Collapsible content, swatch B
+        %div{"data-content-theme" => "a", "data-role" => "collapsible", "data-theme" => "a"}
+          %h3 Section header, swatch A
+          %p Collapsible content, swatch A
+        %div{"data-content-theme" => "d", "data-role" => "collapsible", "data-theme" => "e"}
+          %h3 Section header, swatch E
+          %p Collapsible content, swatch D
     / /content-primary
     .content-secondary
       .ui-body-b
