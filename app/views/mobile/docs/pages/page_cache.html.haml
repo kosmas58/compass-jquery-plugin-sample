@@ -29,7 +29,7 @@
       %pre
         %code
           :preserve
-            $.mobile.loadPage(pageUrl);
+            $.mobile.loadPage( <var>pageUrl</var>, { showLoadMsg: false } );
       %p Another advantage of prefetching a page is that the user doesn't see the Ajax loading message when visiting the prefetched page. The Ajax loading message only appears if the framework hasn't finished prefetching the page by the time the link is followed.
       %p Prefetching pages naturally creates additional HTTP requests and uses bandwidth, so it's wise to use this feature only in situations where it's highly likely that the prefetched page will be visited. A common scenario is a photo gallery, where you can prefetch the "previous" and "next" photo pages so that the user can move quickly between photos.
       %h2 DOM size management
@@ -66,7 +66,7 @@
     / /content-primary
     .content-secondary
       .ui-body-b
-        %div{"data-collapsed" => "true", "data-role" => "collapsible", "data-theme" => "b"}
+        %div{"data-collapsed" => "true", "data-content-theme" => "d", "data-role" => "collapsible", "data-theme" => "b"}
           %h3 More in this section
           %ul{"data-dividertheme" => "d", "data-role" => "listview", "data-theme" => "c"}
             %li{"data-role" => "list-divider"} Pages &amp; Dialogs

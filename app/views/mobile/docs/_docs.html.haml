@@ -67,16 +67,12 @@
       padding-bottom: 0;
     }
     .content-secondary .ui-collapsible {
-      padding: 10px 15px;
+      padding: 0 10px 15px;
 
-    }
-    .content-secondary .ui-collapsible-heading {
-      margin: 0 0 30px;
-    }
-    .content-secondary .ui-collapsible-heading-collapsed,
     .content-secondary .ui-collapsible-content {
-      padding:0;
-      margin: 0;
+	    padding: 0;
+	    background: none;
+	    border-bottom: none;
     }
 
     /* new API additions */
@@ -182,16 +178,23 @@
         float: left;
         width: 45%;
         background: none;
-        border-top: 0;
       }
       .content-secondary,
       .type-interior .content-secondary {
         margin: 30px 0 20px 2%;
         padding: 20px 4% 0 0;
-          background: none;
+        background: none;
+			  border-top: none;
       }
       .type-index .content-secondary {
         padding: 0;
+      }
+      .content-secondary .ui-collapsible {
+        margin: 0;
+        padding: 0;
+      }
+      .content-secondary .ui-collapsible-content {
+        border: none;
       }
       .type-index .content-secondary .ui-listview {
         margin: 0;
