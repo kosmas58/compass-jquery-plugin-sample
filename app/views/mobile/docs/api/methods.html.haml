@@ -7,6 +7,7 @@
     %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile"} Home
   / /header
   %div{"data-role" => "content"}
+
     .content-primary
       %p jQuery Mobile exposes several methods and properties on the $.mobile object for use in your applications.
       %dl
@@ -42,35 +43,15 @@
                   Properties:
                   %ul
                     %li
-                      %code transition
-                      (
-                      %em> string
-                      ,	default:	$.mobile.defaultPageTransition)	The transition to use when showing the page.
-                    %li
-                      %code reverse
+                      %code allowSamePageTransition
                       (
                       %em> boolean
-                      ,	default:	false) Decides what direction the transition will run when showing the page.
+                      ,	default:	false) By default, changePage() ignores requests to change to the current active page. Setting this option to true, allows the request to execute. Developers should note that some of the page transitions assume that the fromPage and toPage of a changePage request are different, so they may not animate as expected. Developers are responsible for either providing a proper transition, or turning it off for this specific case.
                     %li
                       %code changeHash
                       (
                       %em> boolean
                       ,	default:	true) Decides if the hash in the location bar should be updated.
-                    %li
-                      %code role
-                      (
-                      %em> string
-                      ,	default:	undefined) The data-role value to be used when displaying the page. By default this is undefined which means rely on the value of the @data-role attribute defined on the element.
-                    %li
-                      %code pageContainer
-                      (jQuery collection,	default:	$.mobile.pageContainer) Specifies the element that should contain the page.
-                    %li
-                      %code type
-                      (
-                      %em> string
-                      , default: &quot;get&quot;) Specifies the method ("get" or "post") to use when making a page request.
-                      %ul
-                        %li Used only when the 'to' argument of changePage() is a URL.
                     %li
                       %code data
                       (
@@ -79,10 +60,44 @@
                       %ul
                         %li Used only when the 'to' argument of changePage() is a URL.
                     %li
+                      %code data-url
+                      (string,	default: undefined) The URL to use when updating the browser location upon changePage completion.
+                      If not specified, the value of the data-url attribute of the page element is used.
+                    %li
+                      %code pageContainer
+                      (jQuery collection,	default:	$.mobile.pageContainer) Specifies the element that should contain the page.
+                    %li
                       %code reloadPage
                       (
                       %em> boolean
                       , default: false) Forces a reload of a page, even if it is already in the DOM of the page container.
+                      %ul
+                        %li Used only when the 'to' argument of changePage() is a URL.
+                    %li
+                      %code reverse
+                      (
+                      %em> boolean
+                      ,	default:	false) Decides what direction the transition will run when showing the page.
+                    %li
+                      %code showLoadMsg
+                      (
+                      %em> boolean
+                      ,	default:	true) Decides whether or not to show the loading message when loading external pages.
+                    %li
+                      %code role
+                      (
+                      %em> string
+                      ,	default:	undefined) The data-role value to be used when displaying the page. By default this is undefined which means rely on the value of the @data-role attribute defined on the element.
+                    %li
+                      %code transition
+                      (
+                      %em> string
+                      ,	default:	$.mobile.defaultPageTransition)	The transition to use when showing the page.
+                    %li
+                      %code type
+                      (
+                      %em> string
+                      , default: &quot;get&quot;) Specifies the method ("get" or "post") to use when making a page request.
                       %ul
                         %li Used only when the 'to' argument of changePage() is a URL.
         %dd
@@ -92,11 +107,12 @@
               :preserve
                 //transition to the "about us" page with a slideup transition
                 $.mobile.changePage( "about/us.html", { transition: "slideup"} );
-                //transition to the "search results" page, using data from a form with an ID of "search""
+                %strong //transition to the "search results" page, using data from a form with an ID of "search""
                 $.mobile.changePage( "searchresults.php", {
                   type: "post",
                   data: $("form#search").serialize()
                 });
+
                 //transition to the "confirm" page with a "pop" transition without tracking it in history
                 $.mobile.changePage( "../alerts/confirm.html", {
                   transition: "pop",
@@ -129,33 +145,33 @@
                   Properties:
                   %ul
                     %li
-                      %code role
-                      (
-                      %em> string
-                      ,	default:	undefined) The data-role value to be used when displaying the page. By default this is undefined which means rely on the value of the @data-role attribute defined on the element.
-                    %li
-                      %code pageContainer
-                      (jQuery collection,	default:	$.mobile.pageContainer) Specifies the element that should contain the page after it is loaded.
-                    %li
-                      %code type
-                      (
-                      %em> string
-                      , default: &quot;get&quot;) Specifies the method ("get" or "post") to use when making a page request.
-                    %li
                       %code data
                       (
                       %em object
                       or	string,	default: undefined) The data to send with an Ajax page request.
+                    %li
+                      %code loadMsgDelay
+                      (
+                      %em> number (in ms)
+                      , default: 50) Forced delay before the loading message is shown. This is meant to allow time for a page that has already been visited to be fetched from cache without a loading message.
+                    %li
+                      %code pageContainer
+                      (jQuery collection,	default:	$.mobile.pageContainer) Specifies the element that should contain the page after it is loaded.
                     %li
                       %code reloadPage
                       (
                       %em> boolean
                       , default: false) Forces a reload of a page, even if it is already in the DOM of the page container.
                     %li
-                      %code loadMsgDelay
+                      %code role
                       (
-                      %em> number (in ms)
-                      , default: 50) Forced delay before the loading message is shown. This is meant to allow time for a page that has already been visited to be fetched from cache without a loading message.
+                      %em> string
+                      ,	default:	undefined) The data-role value to be used when displaying the page. By default this is undefined which means rely on the value of the @data-role attribute defined on the element.
+                    %li
+                      %code type
+                      (
+                      %em> string
+                      , default: &quot;get&quot;) Specifies the method ("get" or "post") to use when making a page request.
         %dd
           Examples:
           %pre
@@ -163,6 +179,7 @@
               :preserve
                 //load the "about us" page into the DOM
                 $.mobile.loadPage( "about/us.html" );
+
                 //load a "search results" page, using data from a form with an ID of "search""
                 $.mobile.loadPage( "searchresults.php", {
                   type: "post",
@@ -286,7 +303,7 @@
                   %code protocol
                 %dd The protocol for the URL including the trailing ':' character.
                 %dt
-                  %code> search
+                  %code search
                 %dd The query component of the URL including the leading '?' character.
               %p But it also contains additional properties that provide access to additional components as well as some common forms of the URL developers access:
               %dl
@@ -338,6 +355,7 @@
                 //  obj.filename:     inbox
                 //  obj.search:       ?msg=1234&amp;type=unread
                 //  obj.hash:         #msg-content
+
                 var obj = $.mobile.path.parseUrl("http://jblas:password@mycompany.com:8080/mail/inbox?msg=1234");
         %dt
           %code $.mobile.path.makePathAbsolute
@@ -371,6 +389,7 @@
               :preserve
                 // Returns: /a/b/c/file.html
                 var absPath = $.mobile.path.makePathAbsolute("file.html", "/a/b/c/bar.html");
+
                 // Returns: /a/foo/file.html
                 var absPath = $.mobile.path.makePathAbsolute("../../foo/file.html", "/a/b/c/bar.html");
         %dt
@@ -401,12 +420,16 @@
               :preserve
                 // Returns: http://foo.com/a/b/c/file.html
                 var absUrl = $.mobile.path.makeUrlAbsolute("file.html", "http://foo.com/a/b/c/test.html");
+
                 // Returns: http://foo.com/a/foo/file.html
                 var absUrl = $.mobile.path.makeUrlAbsolute("../../foo/file.html", "http://foo.com/a/b/c/test.html");
+
                 // Returns: http://foo.com/bar/file.html
                 var absUrl = $.mobile.path.makeUrlAbsolute("//foo.com/bar/file.html", "http://foo.com/a/b/c/test.html");
+
                 // Returns: http://foo.com/a/b/c/test.html?a=1&amp;b=2
                 var absUrl = $.mobile.path.makeUrlAbsolute("?a=1&amp;b=2", "http://foo.com/a/b/c/test.html");
+
                 // Returns: http://foo.com/a/b/c/test.html#bar
                 var absUrl = $.mobile.path.makeUrlAbsolute("#bar", "http://foo.com/a/b/c/test.html");
         %dt
@@ -439,10 +462,13 @@
               :preserve
                 // Returns: true
                 var same = $.mobile.path.isSameDomain("http://foo.com/a/file.html", "http://foo.com/a/b/c/test.html");
+
                 // Returns: false
                 var same = $.mobile.path.isSameDomain("file://foo.com/a/file.html", "http://foo.com/a/b/c/test.html");
+
                 // Returns: false
                 var same = $.mobile.path.isSameDomain("https://foo.com/a/file.html", "http://foo.com/a/b/c/test.html");
+
                 // Returns: false
                 var same = $.mobile.path.isSameDomain("http://foo.com/a/file.html", "http://bar.com/a/b/c/test.html");
         %dt
@@ -472,14 +498,19 @@
               :preserve
                 // Returns: false
                 var isRel = $.mobile.path.isRelativeUrl("http://foo.com/a/file.html");
+
                 // Returns: true
                 var isRel = $.mobile.path.isRelativeUrl("//foo.com/a/file.html");
+
                 // Returns: true
                 var isRel = $.mobile.path.isRelativeUrl("/a/file.html");
+
                 // Returns: true
                 var isRel = $.mobile.path.isRelativeUrl("file.html");
+
                 // Returns: true
                 var isRel = $.mobile.path.isRelativeUrl("?a=1&amp;b=2");
+
                 // Returns: true
                 var isRel = $.mobile.path.isRelativeUrl("#foo");
         %dt
@@ -509,14 +540,19 @@
               :preserve
                 // Returns: true
                 var isAbs = $.mobile.path.isAbsoluteUrl("http://foo.com/a/file.html");
+
                 // Returns: false
                 var isAbs = $.mobile.path.isAbsoluteUrl("//foo.com/a/file.html");
+
                 // Returns: false
                 var isAbs = $.mobile.path.isAbsoluteUrl("/a/file.html");
+
                 // Returns: false
                 var isAbs = $.mobile.path.isAbsoluteUrl("file.html");
+
                 // Returns: false
                 var isAbs = $.mobile.path.isAbsoluteUrl("?a=1&amp;b=2");
+
                 // Returns: false
                 var isAbs = $.mobile.path.isAbsoluteUrl("#foo");
         %dt
@@ -549,36 +585,6 @@
                 //scroll to Y 100px
                 $.mobile.silentScroll(100);
         %dt
-          %code $.mobile.addResolutionBreakpoints
-          (
-          %em> method
-          )
-        %dd
-          %p.ui-bar-e.ui-body
-            %strong Note: This feature is deprecated in beta, and will be removed after that. We recommend using CSS3 Media Queries instead.
-          Add width breakpoints to the min/max width classes that are added to the HTML element.
-        %dd
-          %dl
-            %dt
-              %code ·
-              Arguments:
-            %dd
-              %code values
-              (
-              %em> number or array
-              ). Pass any number or array of numbers to add to the resolution classes. Read more about this feature here:
-              = succeed "." do
-                %a{:href => "/mobile/docs/api/mediahelpers"} Orientation &amp; resolution targeting
-        %dd
-          Examples:
-          %pre
-            %code
-              :preserve
-                //add a 400px breakpoint
-                $.mobile.addResolutionBreakpoints(400);
-                //add 2 more breakpoints
-                $.mobile.addResolutionBreakpoints([600,800]);
-        %dt
           %code $.mobile.activePage
           (
           %em> property
@@ -587,7 +593,7 @@
     / /content-secondary
     .content-secondary
       .ui-body-b
-        %div{"data-collapsed" => "true", "data-role" => "collapsible", "data-theme" => "b"}
+        %div{"data-collapsed" => "true", "data-content-theme" => "d", "data-role" => "collapsible", "data-theme" => "b"}
           %h3 More in this section
           %ul{"data-dividertheme" => "d", "data-role" => "listview", "data-theme" => "c"}
             %li{"data-role" => "list-divider"} API
@@ -597,8 +603,6 @@
               %a{:href => "/mobile/docs/api/events"} Events
             %li{"data-theme" => "a"}
               %a{:href => "/mobile/docs/api/methods"} Methods &amp; Utilities
-            %li
-              %a{:href => "/mobile/docs/api/mediahelpers"} Responsive Layout
             %li
               %a{:href => "/mobile/docs/api/themes"} Theme framework
   / /content
