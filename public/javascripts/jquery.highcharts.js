@@ -8933,7 +8933,7 @@
       }
     },
     /**
-     * Memoize tooltip textinputs and positions
+     * Memoize tooltip texts and positions
      */
     setTooltipPoints: function (renew) {
       var series = this,
@@ -20737,7 +20737,7 @@
       series.getSegments();
     },
     /**
-     * Memoize tooltip textinputs and positions
+     * Memoize tooltip texts and positions
      */
     setTooltipPoints: function (renew) {
       var series = this,
