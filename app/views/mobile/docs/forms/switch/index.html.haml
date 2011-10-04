@@ -1,0 +1,100 @@
+-@title = "jQuery Mobile Docs - Flip Toggle Switch"
+= render :partial => "/mobile/index.js.haml", :format => :js
+
+.type-interior{"data-role" => "page"}
+  %div{"data-role" => "header", "data-theme" => "f"}
+    %h1 Flip Toggle Switch
+    %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile"} Home
+  / /header
+  %div{"data-role" => "content"}
+    .content-primary
+      %form{:action => "#", :method => "get"}
+        %h2 Flip Toggle Switch
+        %ul.localnav{"data-role" => "controlgroup", "data-type" => "horizontal"}
+          %li
+            %a.ui-btn-active{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/forms/switch"} Basics
+          %li
+            %a{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/forms/switch/options"} Options
+          %li
+            %a{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/forms/switch/methods"} Methods
+          %li
+            %a{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/forms/switch/events"} Events
+      %p A binary "flip" switch is a common UI element on mobile devices that is used for binary on/off or true/false data input. You can either drag the flip handle like a slider or tap one side of the switch.
+      %p
+        To create a flip toggle, start with a
+        %code select
+        with two options. The first option will be styled as the "on" state switch and the second will be styled as the "off" state so write your options accordingly. Set the
+        %code for
+        attribute of the
+        %code label
+        to match the ID of the
+        %code input
+        so they are semantically associated and wrap them in a
+        %code div
+        with the
+        %code data-role="fieldcontain"
+        attribute to group them.
+      %pre
+        %code
+          :preserve
+            &lt;div data-role=&quot;fieldcontain&quot;&gt;
+              &lt;label for=&quot;slider&quot;&gt;Select slider:&lt;/label&gt;
+              &lt;select name=&quot;slider&quot; id=&quot;slider&quot; data-role=&quot;slider&quot;&gt;
+                &lt;option value=&quot;off&quot;&gt;Off&lt;/option&gt;
+                &lt;option value=&quot;on&quot;&gt;On&lt;/option&gt;
+              &lt;/select&gt;
+            &lt;/div&gt;
+      %p The flip toggle switch is displayed like this:
+      %div{"data-role" => "fieldcontain"}
+        %label{:for => "slider"} Flip switch:
+        %select#slider{"data-role" => "slider", :name => "slider"}
+          %option{:value => "off"} Off
+          %option{:value => "on"} On
+      %h2 Calling the switch plugin
+      %p
+        This plugin will auto initialize on any page that contains a
+        %code select
+        with the
+        %code data-role="slider"
+        attribute. However, if needed you can directly call the
+        %code slider
+        plugin on any selector, just like any jQuery plugin:
+      %pre
+        %code
+          :preserve
+            $('select').slider();
+    / /content-primary
+    .content-secondary
+      .ui-body-b
+        %div{"data-collapsed" => "true", "data-content-theme" => "d", "data-role" => "collapsible", "data-theme" => "b"}
+          %h3 More in this section
+          %ul{"data-dividertheme" => "d", "data-role" => "listview", "data-theme" => "c"}
+            %li{"data-role" => "list-divider"} Form elements
+            %li
+              %a{:href => "/mobile/docs/forms/docs_forms"} Form basics
+            %li
+              %a{:href => "/mobile/docs/forms/forms_all"} Form element gallery
+            %li
+              %a{:href => "/mobile/docs/forms/textinputs"} Text inputs
+            %li
+              %a{:href => "/mobile/docs/forms/search"} Search input
+            %li
+              %a{:href => "/mobile/docs/forms/slider"} Slider
+            %li{"data-theme" => "a"}
+              %a{:href => "/mobile/docs/forms/switch"} Flip toggle switch
+            %li
+              %a{:href => "/mobile/docs/forms/radiobuttons"} Radio buttons
+            %li
+              %a{:href => "/mobile/docs/forms/checkboxes"} Checkboxes
+            %li
+              %a{:href => "/mobile/docs/forms/selects"} Select menus
+            %li
+              %a{:href => "/mobile/docs/forms/forms_themes"} Theming forms
+            %li
+              %a{:href => "/mobile/docs/forms/forms_all_native"} Native form elements
+            %li
+              %a{:href => "/mobile/docs/forms/forms_sample"} Submitting forms
+  / /content
+  .footer-docs{"data-role" => "footer", "data-theme" => "c"}
+    %p &copy; 2011 The jQuery Project
+/ /page

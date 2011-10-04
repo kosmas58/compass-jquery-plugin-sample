@@ -1,0 +1,112 @@
+-@title = "jQuery Mobile Docs - Flip Toggle Switch options"
+= render :partial => "/mobile/index.js.haml", :format => :js
+
+.type-interior{"data-role" => "page"}
+  %div{"data-role" => "header", "data-theme" => "f"}
+    %h1 Flip Toggle Switch
+    %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile"} Home
+  / /header
+  %div{"data-role" => "content"}
+    .content-primary
+      %form{:action => "#", :method => "get"}
+        %h2 Flip Toggle Switch
+        %ul.localnav{"data-role" => "controlgroup", "data-type" => "horizontal"}
+          %li
+            %a{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/forms/switch"} Basics
+          %li
+            %a.ui-btn-active{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/forms/switch/options"} Options
+          %li
+            %a{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/forms/switch/methods"} Methods
+          %li
+            %a{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/forms/switch/events"} Events
+        %p The slider plugin has the following options:
+        %dl
+          %dt
+            %code disabled
+            %em string
+          %dd
+            %p.default default: false
+            %p Sets the default state of the slider to disabled when "true".
+            %pre
+              %code
+                $('.selector').slider(
+                %strong> { disabled: "true" }
+                );
+          %dt
+            %code initSelector
+            %em CSS selector string
+          %dd
+            %p.default default: "input[type='range'], :jqmData(type='range'), :jqmData(role='slider')"
+            %p
+              This is used to define the selectors (element types, data roles, etc.) that will automatically be initialized as sliders. To change which elements are initialized, bind this option to the
+              = succeed ":" do
+                %a{:href => "/mobile/docs/api/globalconfig"} mobileinit event
+            %pre
+              %code
+                :preserve
+                  $( document ).bind( "mobileinit", function(){
+                    $.mobile.slider.prototype.options.initSelector = ".myslider";
+                  });
+          %dt
+            %code theme
+            %em string
+          %dd
+            %p.default default: null, inherited from parent
+            %p
+              Sets the color scheme (swatch) for all instances of this widget. It accepts a single letter from a-z that maps to the swatches included in your theme. By default, it will inherit the same swatch color as it's parent container if not explicitly set. This option is also exposed as a data attribute:
+              %code data-theme=&quot;a&quot;
+            %pre
+              %code
+                $('.selector').slider(
+                %strong> { theme: "a" }
+                );
+          %dt
+            %code trackTheme
+            %em string
+          %dd
+            %p.default default: null, inherited from parent
+            %p Sets the color scheme (swatch) for the slider's track, specifically. It accepts a single letter from a-z that maps to the swatches included in your theme.
+            %pre
+              %code
+                $('.selector').slider(
+                %strong> { theme: "a" }
+                );
+            %p
+              This option can be overridden in the markup by assigning a data attribute to the input, e.g.
+              = succeed "." do
+                %code data-track-theme=&quot;a&quot;
+    / /content-primary
+    .content-secondary
+      .ui-body-b
+        %div{"data-collapsed" => "true", "data-content-theme" => "d", "data-role" => "collapsible", "data-theme" => "b"}
+          %h3 More in this section
+          %ul{"data-dividertheme" => "d", "data-role" => "listview", "data-theme" => "c"}
+            %li{"data-role" => "list-divider"} Form elements
+            %li
+              %a{:href => "/mobile/docs/forms/docs_forms"} Form basics
+            %li
+              %a{:href => "/mobile/docs/forms/forms_all"} Form element gallery
+            %li
+              %a{:href => "/mobile/docs/forms/textinputs"} Text inputs
+            %li
+              %a{:href => "/mobile/docs/forms/search"} Search input
+            %li
+              %a{:href => "/mobile/docs/forms/slider"} Slider
+            %li{"data-theme" => "a"}
+              %a{:href => "/mobile/docs/forms/switch"} Flip toggle switch
+            %li
+              %a{:href => "/mobile/docs/forms/radiobuttons"} Radio buttons
+            %li
+              %a{:href => "/mobile/docs/forms/checkboxes"} Checkboxes
+            %li
+              %a{:href => "/mobile/docs/forms/selects"} Select menus
+            %li
+              %a{:href => "/mobile/docs/forms/forms_themes"} Theming forms
+            %li
+              %a{:href => "/mobile/docs/forms/forms_all_native"} Native form elements
+            %li
+              %a{:href => "/mobile/docs/forms/forms_sample"} Submitting forms
+  / /content
+  .footer-docs{"data-role" => "footer", "data-theme" => "c"}
+    %p &copy; 2011 The jQuery Project
+/ /page

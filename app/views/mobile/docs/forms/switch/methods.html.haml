@@ -1,0 +1,83 @@
+-@title = "jQuery Mobile Docs - Flip Toggle Switch methods"
+= render :partial => "/mobile/index.js.haml", :format => :js
+
+.type-interior{"data-role" => "page"}
+  %div{"data-role" => "header", "data-theme" => "f"}
+    %h1 Flip Toggle Switch
+    %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile"} Home
+  / /header
+  %div{"data-role" => "content"}
+    .content-primary
+      %form{:action => "#", :method => "get"}
+        %h2 Flip Toggle Switch
+        %ul.localnav{"data-role" => "controlgroup", "data-type" => "horizontal"}
+          %li
+            %a{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/forms/switch"} Basics
+          %li
+            %a{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/forms/switch/options"} Options
+          %li
+            %a.ui-btn-active{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/forms/switch/methods"} Methods
+          %li
+            %a{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/forms/switch/events"} Events
+        %p The slider plugin has the following methods:
+        %dl
+          %dt
+            %code enable
+            enable a disabled slider
+          %dd
+            %pre
+              %code
+                :preserve
+                  $('.selector').slider('enable');
+          %dt
+            %code disable
+            disable a slider
+          %dd
+            %pre
+              %code
+                :preserve
+                  $('.selector').slider('disable');
+          %dt
+            %code refresh
+            update the slider
+          %dd
+            %p If you manipulate a slider via JavaScript, you must call the refresh method on it to update the visual styling.
+            %pre
+              %code
+                :preserve
+                  $('.selector').slider('refresh');
+    / /content-primary
+    .content-secondary
+      .ui-body-b
+        %div{"data-collapsed" => "true", "data-content-theme" => "d", "data-role" => "collapsible", "data-theme" => "b"}
+          %h3 More in this section
+          %ul{"data-dividertheme" => "d", "data-role" => "listview", "data-theme" => "c"}
+            %li{"data-role" => "list-divider"} Form elements
+            %li
+              %a{:href => "/mobile/docs/forms/docs_forms"} Form basics
+            %li
+              %a{:href => "/mobile/docs/forms/forms_all"} Form element gallery
+            %li
+              %a{:href => "/mobile/docs/forms/textinputs"} Text inputs
+            %li
+              %a{:href => "/mobile/docs/forms/search"} Search input
+            %li
+              %a{:href => "/mobile/docs/forms/slider"} Slider
+            %li{"data-theme" => "a"}
+              %a{:href => "/mobile/docs/forms/switch"} Flip toggle switch
+            %li
+              %a{:href => "/mobile/docs/forms/radiobuttons"} Radio buttons
+            %li
+              %a{:href => "/mobile/docs/forms/checkboxes"} Checkboxes
+            %li
+              %a{:href => "/mobile/docs/forms/selects"} Select menus
+            %li
+              %a{:href => "/mobile/docs/forms/forms_themes"} Theming forms
+            %li
+              %a{:href => "/mobile/docs/forms/forms_all_native"} Native form elements
+            %li
+              %a{:href => "/mobile/docs/forms/forms_sample"} Submitting forms
+  / /content
+  .footer-docs{"data-role" => "footer", "data-theme" => "c"}
+    %p &copy; 2011 The jQuery Project
+/ /page
