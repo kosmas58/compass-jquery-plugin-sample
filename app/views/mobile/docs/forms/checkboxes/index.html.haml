@@ -64,6 +64,7 @@
         %pre
           %code
             :preserve
+
               &lt;div data-role=&quot;fieldcontain&quot;&gt;
                 &lt;fieldset data-role=&quot;controlgroup&quot;&gt;
                   &lt;legend&gt;Agree to the terms:&lt;/legend&gt;
@@ -74,7 +75,7 @@
         %div{"data-role" => "fieldcontain"}
           %fieldset{"data-role" => "controlgroup"}
             %legend Agree to the terms:
-            %input#checkbox-1.custom{:name => "checkbox-1", :type => "checkbox"}/
+            %input#checkbox-1.custom{:name => "checkbox-1", :type => "checkbox"}
             %label{:for => "checkbox-1"} I agree
         %h2 Vertically grouped checkboxes
         %p
@@ -84,13 +85,13 @@
         %div{"data-role" => "fieldcontain"}
           %fieldset{"data-role" => "controlgroup"}
             %legend Choose as many snacks as you'd like:
-            %input#checkbox-1a.custom{:name => "checkbox-1a", :type => "checkbox"}/
+            %input#checkbox-1a.custom{:name => "checkbox-1a", :type => "checkbox"}
             %label{:for => "checkbox-1a"} Cheetos
-            %input#checkbox-2a.custom{:name => "checkbox-2a", :type => "checkbox"}/
+            %input#checkbox-2a.custom{:name => "checkbox-2a", :type => "checkbox"}
             %label{:for => "checkbox-2a"} Doritos
-            %input#checkbox-3a.custom{:name => "checkbox-3a", :type => "checkbox"}/
+            %input#checkbox-3a.custom{:name => "checkbox-3a", :type => "checkbox"}
             %label{:for => "checkbox-3a"} Fritos
-            %input#checkbox-4a.custom{:name => "checkbox-4a", :type => "checkbox"}/
+            %input#checkbox-4a.custom{:name => "checkbox-4a", :type => "checkbox"}
             %label{:for => "checkbox-4a"} Sun Chips
         %h2 Horizontal toggle sets
         %p
@@ -107,21 +108,17 @@
         %div{"data-role" => "fieldcontain"}
           %fieldset{"data-role" => "controlgroup", "data-type" => "horizontal"}
             %legend Font styling:
-            %input#checkbox-6.custom{:name => "checkbox-6", :type => "checkbox"}/
+            %input#checkbox-6.custom{:name => "checkbox-6", :type => "checkbox"}
             %label{:for => "checkbox-6"} b
-            %input#checkbox-7.custom{:name => "checkbox-7", :type => "checkbox"}/
+            %input#checkbox-7.custom{:name => "checkbox-7", :type => "checkbox"}
             %label{:for => "checkbox-7"}
               %em i
-            %input#checkbox-8.custom{:name => "checkbox-8", :type => "checkbox"}/
+            %input#checkbox-8.custom{:name => "checkbox-8", :type => "checkbox"}
             %label{:for => "checkbox-8"} u
-        %h2 Refreshing a checkbox
-        %p If you manipulate a radiobutton via JavaScript, you must call the refresh   method on it to update the visual styling. Here is an example:
-        %code
-          $("input[type='checkbox']").attr("checked",true).checkboxradio("refresh");
     / /content-primary
     .content-secondary
       .ui-body-b
-        %div{"data-collapsed" => "true", "data-role" => "collapsible", "data-theme" => "b"}
+        %div{"data-collapsed" => "true", "data-content-theme" => "d", "data-role" => "collapsible", "data-theme" => "b"}
           %h3 More in this section
           %ul{"data-dividertheme" => "d", "data-role" => "listview", "data-theme" => "c"}
             %li{"data-role" => "list-divider"} Form elements
@@ -132,11 +129,11 @@
             %li
               %a{:href => "/mobile/docs/forms/textinputs"} Text inputs
             %li
-              %a{:href => "/mobile/docs/forms/forms_search"} Search inputs
+              %a{:href => "/mobile/docs/forms/search"} Search input
             %li
-              %a{:href => "/mobile/docs/forms/sliders"} Sliders
+              %a{:href => "/mobile/docs/forms/slider"} Slider
             %li
-              %a{:href => "/mobile/docs/forms/forms_switch"} Flip toggle switch
+              %a{:href => "/mobile/docs/forms/switch"} Flip toggle switch
             %li
               %a{:href => "/mobile/docs/forms/radiobuttons"} Radio buttons
             %li{"data-theme" => "a"}
@@ -149,8 +146,6 @@
               %a{:href => "/mobile/docs/forms/forms_all_native"} Native form elements
             %li
               %a{:href => "/mobile/docs/forms/forms_sample"} Submitting forms
-            %li
-              %a{:href => "/mobile/docs/forms/plugin_eventsmethods"} Plugin methods
   / /content
   .footer-docs{"data-role" => "footer", "data-theme" => "c"}
     %p &copy; 2011 The jQuery Project

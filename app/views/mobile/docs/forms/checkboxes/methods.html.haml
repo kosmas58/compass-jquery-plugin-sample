@@ -42,6 +42,7 @@
             update the custom select
           %dd
             If you manipulate a checkbox via JavaScript, you must call the refresh method on it to update the visual styling.
+          %dd
             %pre
               %code
                 :preserve
@@ -49,7 +50,7 @@
     / /content-primary
     .content-secondary
       .ui-body-b
-        %div{"data-collapsed" => "true", "data-role" => "collapsible", "data-theme" => "b"}
+        %div{"data-collapsed" => "true", "data-content-theme" => "d", "data-role" => "collapsible", "data-theme" => "b"}
           %h3 More in this section
           %ul{"data-dividertheme" => "d", "data-role" => "listview", "data-theme" => "c"}
             %li{"data-role" => "list-divider"} Form elements
@@ -58,29 +59,26 @@
             %li
               %a{:href => "/mobile/docs/forms/forms_all"} Form element gallery
             %li
-              %a{:href => "/mobile/docs/forms/forms/textinputs"} Text inputs
+              %a{:href => "/mobile/docs/forms/textinputs"} Text inputs
             %li
-              %a{:href => "/mobile/docs/forms/forms_search"} Search inputs
+              %a{:href => "/mobile/docs/forms/search"} Search input
             %li
-              %a{:href => "/mobile/docs/forms/sliders"} Sliders
+              %a{:href => "/mobile/docs/forms/slider"} Slider
             %li
-              %a{:href => "/mobile/docs/forms/forms_switch"} Flip toggle switch
+              %a{:href => "/mobile/docs/forms/switch"} Flip toggle switch
             %li
-              %a{:href => "/mobile/docs/forms/forms/radiobuttons"} Radio buttons
+              %a{:href => "/mobile/docs/forms/radiobuttons"} Radio buttons
             %li{"data-theme" => "a"}
-              %a{:href => "/mobile/docs/forms/forms/checkboxes"} Checkboxes
+              %a{:href => "/mobile/docs/forms/checkboxes"} Checkboxes
             %li
-              %a{:href => "/mobile/docs/forms/forms/selects"} Select menus
+              %a{:href => "/mobile/docs/forms/selects"} Select menus
             %li
               %a{:href => "/mobile/docs/forms/forms_themes"} Theming forms
             %li
               %a{:href => "/mobile/docs/forms/forms_all_native"} Native form elements
             %li
               %a{:href => "/mobile/docs/forms/forms_sample"} Submitting forms
-            %li
-              %a{:href => "/mobile/docs/forms/plugin_eventsmethods"} Plugin methods
   / /content
   .footer-docs{"data-role" => "footer", "data-theme" => "c"}
     %p &copy; 2011 The jQuery Project
 / /page
-

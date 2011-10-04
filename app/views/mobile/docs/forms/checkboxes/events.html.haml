@@ -19,10 +19,17 @@
             %a{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/forms/checkboxes/methods"} Methods
           %li
             %a.ui-btn-active{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/forms/checkboxes/events"} Events
-        %p Since the native  checkbox is used as a proxy for the custom checkbox, you can watch for events on the original, native checkbox instead of needing to go through the checkbox plugin. Bind to the change event by type: change, blur, focus, keypress, click, etc.
+        %p
+          Bind events directly to the
+          %code input
+          element.  Use jQuery Mobile's
+          = succeed "," do
+            %a{:href => "/mobile/docs/api/events"} virtual events
+          or bind standard JavaScript events, like change, focus, blur, etc.:
         %pre
           %code
             :preserve
+
               $("input[type='checkbox']").bind( "change", function(event, ui) {
                 ...
               });
@@ -32,7 +39,6 @@
             %code create
             triggered when a checkbox is created
           %dd
-            %p This event is used to find out when a custom checkbox was created. It is not used to create a custom checkbox. The checkbox create event can be used like this:
             %pre
               %code
                 :preserve
@@ -42,7 +48,7 @@
     / /content-primary
     .content-secondary
       .ui-body-b
-        %div{"data-collapsed" => "true", "data-role" => "collapsible", "data-theme" => "b"}
+        %div{"data-collapsed" => "true", "data-content-theme" => "d", "data-role" => "collapsible", "data-theme" => "b"}
           %h3 More in this section
           %ul{"data-dividertheme" => "d", "data-role" => "listview", "data-theme" => "c"}
             %li{"data-role" => "list-divider"} Form elements
@@ -51,27 +57,25 @@
             %li
               %a{:href => "/mobile/docs/forms/forms_all"} Form element gallery
             %li
-              %a{:href => "/mobile/docs/forms/forms/textinputs"} Text inputs
+              %a{:href => "/mobile/docs/forms/textinputs"} Text inputs
             %li
-              %a{:href => "/mobile/docs/forms/forms_search"} Search inputs
+              %a{:href => "/mobile/docs/forms/search"} Search input
             %li
-              %a{:href => "/mobile/docs/forms/sliders"} Sliders
+              %a{:href => "/mobile/docs/forms/slider"} Slider
             %li
-              %a{:href => "/mobile/docs/forms/forms_switch"} Flip toggle switch
+              %a{:href => "/mobile/docs/forms/switch"} Flip toggle switch
             %li
-              %a{:href => "/mobile/docs/forms/forms/radiobuttons"} Radio buttons
+              %a{:href => "/mobile/docs/forms/radiobuttons"} Radio buttons
             %li{"data-theme" => "a"}
-              %a{:href => "/mobile/docs/forms/forms/checkboxes"} Checkboxes
+              %a{:href => "/mobile/docs/forms/checkboxes"} Checkboxes
             %li
-              %a{:href => "/mobile/docs/forms/forms/selects"} Select menus
+              %a{:href => "/mobile/docs/forms/selects"} Select menus
             %li
               %a{:href => "/mobile/docs/forms/forms_themes"} Theming forms
             %li
               %a{:href => "/mobile/docs/forms/forms_all_native"} Native form elements
             %li
               %a{:href => "/mobile/docs/forms/forms_sample"} Submitting forms
-            %li
-              %a{:href => "/mobile/docs/forms/plugin_eventsmethods"} Plugin methods
   / /content
   .footer-docs{"data-role" => "footer", "data-theme" => "c"}
     %p &copy; 2011 The jQuery Project

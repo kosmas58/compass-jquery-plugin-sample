@@ -1,59 +1,53 @@
--@title = "jQuery Mobile Docs - Sliders"
+-@title = "jQuery Mobile Docs - Search input events"
 = render :partial => "/mobile/index.js.haml", :format => :js
 
 .type-interior{"data-role" => "page"}
   %div{"data-role" => "header", "data-theme" => "f"}
-    %h1 Sliders
+    %h1 Search input
     %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile"} Home
   / /header
   %div{"data-role" => "content"}
     .content-primary
       %form{:action => "#", :method => "get"}
-        %h2 Sliders
+        %h2 Search input
         %ul.localnav{"data-role" => "controlgroup", "data-type" => "horizontal"}
           %li
-            %a{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/forms/sliders"} Basics
+            %a{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/forms/search"} Basics
           %li
-            %a{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/forms/sliders/options"} Options
+            %a{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/forms/search/options"} Options
           %li
-            %a.ui-btn-active{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/forms/sliders/methods"} Methods
+            %a{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/forms/search/methods"} Methods
           %li
-            %a{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/forms/sliders/events"} Events
-        %p The slider plugin has the following methods:
+            %a.ui-btn-active{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/forms/search/events"} Events
+        %p
+          Bind events directly to the
+          %code input
+          element.  Use jQuery Mobile's
+          = succeed "," do
+            %a{:href => "/mobile/docs/api/events"} virtual events
+          or bind standard JavaScript events, like change, focus, blur, etc.:
+        %pre
+          %code
+            :preserve
+              $(".mySearchInput").bind( "change", function(event, ui) {
+                ...
+              });
+        %p The text input plugin has the following custom events:
         %dl
           %dt
-            %code enable
-            enable a disabled select
+            %code create
+            triggered when a text input is created
           %dd
             %pre
               %code
                 :preserve
-                  $('select').slider('enable');
-          %dt
-            %code disable
-            disable a select.
-          %dd
-            %pre
-              %code
-                :preserve
-                  $('select').slider('disable');
-          %dt
-            %code refresh
-            update the slider
-          %dd
-            This is used to update the slider to reflect the native input element's value. Also, if you pass a true argument you can force the rebuild to happen.
-            %pre
-              %code
-                :preserve
-                  //refresh value
-                  $('select').slider('refresh');
-
-                  //refresh and force rebuild
-                  $('select').slider('refresh', true);
+                  $( ".selector" ).textinput({
+                     create: function(event, ui) { ... }
+                  });
     / /content-primary
     .content-secondary
       .ui-body-b
-        %div{"data-collapsed" => "true", "data-role" => "collapsible", "data-theme" => "b"}
+        %div{"data-collapsed" => "true", "data-content-theme" => "d", "data-role" => "collapsible", "data-theme" => "b"}
           %h3 More in this section
           %ul{"data-dividertheme" => "d", "data-role" => "listview", "data-theme" => "c"}
             %li{"data-role" => "list-divider"} Form elements
@@ -63,12 +57,12 @@
               %a{:href => "/mobile/docs/forms/forms_all"} Form element gallery
             %li
               %a{:href => "/mobile/docs/forms/textinputs"} Text inputs
-            %li
-              %a{:href => "/mobile/docs/forms/forms_search"} Search inputs
             %li{"data-theme" => "a"}
-              %a{:href => "/mobile/docs/forms/sliders"} Sliders
+              %a{:href => "/mobile/docs/forms/search"} Search input
             %li
-              %a{:href => "/mobile/docs/forms/forms_switch"} Flip toggle switch
+              %a{:href => "/mobile/docs/forms/slider"} Slider
+            %li
+              %a{:href => "/mobile/docs/forms/switch"} Flip toggle switch
             %li
               %a{:href => "/mobile/docs/forms/radiobuttons"} Radio buttons
             %li
@@ -81,8 +75,6 @@
               %a{:href => "/mobile/docs/forms/forms_all_native"} Native form elements
             %li
               %a{:href => "/mobile/docs/forms/forms_sample"} Submitting forms
-            %li
-              %a{:href => "/mobile/docs/forms/plugin_eventsmethods"} Plugin methods
   / /content
   .footer-docs{"data-role" => "footer", "data-theme" => "c"}
     %p &copy; 2011 The jQuery Project

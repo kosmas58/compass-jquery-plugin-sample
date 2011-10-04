@@ -128,11 +128,11 @@
             var myswitch = $("select#bar");
             myswitch[0].selectedIndex = 1;
             myswitch .slider("refresh");
-      %p We're considering adding a refresh method to forms to let the framework refresh all the individual elemnts withing but that is a future enhancement.
+      %p We're considering adding a refresh method to an entire form to let the framework refresh all the child elements as a future enhancement.
     / /content-primary
     .content-secondary
       .ui-body-b
-        %div{"data-collapsed" => "true", "data-role" => "collapsible", "data-theme" => "b"}
+        %div{"data-collapsed" => "true", "data-content-theme" => "d", "data-role" => "collapsible", "data-theme" => "b"}
           %h3 More in this section
           %ul{"data-dividertheme" => "d", "data-role" => "listview", "data-theme" => "c"}
             %li{"data-role" => "list-divider"} Form elements
@@ -143,7 +143,7 @@
             %li
               %a{:href => "/mobile/docs/forms/textinputs"} Text inputs
             %li
-              %a{:href => "/mobile/docs/forms/search"} Search inputs
+              %a{:href => "/mobile/docs/forms/search"} Search input
             %li
               %a{:href => "/mobile/docs/forms/slider"} Slider
             %li
