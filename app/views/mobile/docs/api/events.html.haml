@@ -84,7 +84,21 @@
         %dd
           Triggers when a device orientation changes (by turning it vertically or horizontally). When bound to this event, your callback function can leverage a second argument, which contains an
           %code orientation
-          property equal to either "portrait" or "landscape". These values are also added as classes to the HTML element, allowing you to leverage them in your CSS selectors. Note that we currently bind to the resize event when orientationChange is not natively supported.
+          property equal to either "portrait" or "landscape". These values are also added as classes to the HTML element, allowing you to leverage them in your CSS selectors. Note that we currently bind to the resize event when orientationChange is not natively supported, or when
+          %code $.mobile.orientationChangeEnabled
+          is set to false.
+        .ui-body.ui-body-e
+          %h4 orientationchange timing
+          The timing of the
+          %code orientationchange
+          with relation to the change of the client height and width is different between browsers, though the current implementation will give you the correct value for
+          %code event.orientation
+          derived from
+          = succeed "." do
+            %code window.orientation
+          This means that if your bindings are dependent on the height and width values you may want to disable orientationchange all together with
+          %code $.mobile.orientationChangeEnabled = false
+          to let the fallback resize code trigger your bindings.
       %h2 Scroll events
       %dl
         %dt

@@ -40,11 +40,21 @@
       %h3 Bars
       %p The default theme contains the following five Bar styles:
       .swatch-preview
-        .ui-bar.ui-bar-a Bar A
-        .ui-bar.ui-bar-b Bar B
-        .ui-bar.ui-bar-c Bar C
-        .ui-bar.ui-bar-d Bar D
-        .ui-bar.ui-bar-e Bar E
+        .ui-bar.ui-bar-a
+          Bar A -
+          %a.ui-link{"data-role" => "none", :href => "#"} Link
+        .ui-bar.ui-bar-b
+          Bar B -
+          %a.ui-link{"data-role" => "none", :href => "#"} Link
+        .ui-bar.ui-bar-c
+          Bar C -
+          %a.ui-link{"data-role" => "none", :href => "#"} Link
+        .ui-bar.ui-bar-d
+          Bar D -
+          %a.ui-link{"data-role" => "none", :href => "#"} Link
+        .ui-bar.ui-bar-e
+          Bar E -
+          %a.ui-link{"data-role" => "none", :href => "#"} Link
       / end swatch-bars
       %p
         By default, the framework assigns the "a" swatch to all headers and footers, because these are typically given high visual priority in an application. To set the color of a bar to a different swatch color, simply add the
@@ -55,11 +65,21 @@
       %h3 Content Blocks
       %p The default theme also includes color swatch values for use in content blocks, designed to coordinate with the header color swatches in the theme.
       .swatch-preview
-        .ui-body.ui-body-a Block A
-        .ui-body.ui-body-b Block B
-        .ui-body.ui-body-c Block C
-        .ui-body.ui-body-d Block D
-        .ui-body.ui-body-e Block E
+        .ui-body.ui-body-a
+          Block A -
+          %a{:href => "#"} Link
+        .ui-body.ui-body-b
+          Block B -
+          %a{:href => "#"} Link
+        .ui-body.ui-body-c
+          Block C -
+          %a{:href => "#"} Link
+        .ui-body.ui-body-d
+          Block D -
+          %a{:href => "#"} Link
+        .ui-body.ui-body-e
+          Block E -
+          %a{:href => "#"} Link
       / end swatch-bars
       %p If a theme isn't specified on a content block, the framework will default to "c" to maximize contrast against the default header "a", as shown here:
       %div{"data-position" => "inline", "data-role" => "header"}
