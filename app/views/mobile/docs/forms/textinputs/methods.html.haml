@@ -1,4 +1,4 @@
--@title = "jQuery Mobile Docs - Text inputs"
+-@title = "jQuery Mobile Docs - Text Input methods"
 = render :partial => "/mobile/index.js.haml", :format => :js
 
 .type-interior{"data-role" => "page"}
@@ -12,19 +12,18 @@
         %h2 Text inputs
         %ul.localnav{"data-role" => "controlgroup", "data-type" => "horizontal"}
           %li
-            %a{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/textinputs/selects"} Basics
+            %a{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/textinputs"} Basics
           %li
             %a{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/forms/textinputs/options"} Options
           %li
             %a.ui-btn-active{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/forms/textinputs/methods"} Methods
           %li
             %a{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/forms/textinputs/events"} Events
-
         %p The text input plugin has the following methods:
         %dl
           %dt
             %code enable
-            enable a disabled text input.
+            enable a disabled text input
           %dd
             %pre
               %code
@@ -32,7 +31,7 @@
                   $('.selector').textinput('enable');
           %dt
             %code disable
-            disable a text input.
+            disable a text input
           %dd
             %pre
               %code
@@ -52,11 +51,11 @@
             %li{"data-theme" => "a"}
               %a{:href => "/mobile/docs/forms/textinputs"} Text inputs
             %li
-              %a{:href => "/mobile/docs/forms/forms_search"} Search inputs
+              %a{:href => "/mobile/docs/forms/search"} Search input
             %li
-              %a{:href => "/mobile/docs/forms/sliders"} Sliders
+              %a{:href => "/mobile/docs/forms/slider"} Slider
             %li
-              %a{:href => "/mobile/docs/forms/forms_switch"} Flip toggle switch
+              %a{:href => "/mobile/docs/forms/switch"} Flip toggle switch
             %li
               %a{:href => "/mobile/docs/forms/radiobuttons"} Radio buttons
             %li
@@ -69,8 +68,6 @@
               %a{:href => "/mobile/docs/forms/forms_all_native"} Native form elements
             %li
               %a{:href => "/mobile/docs/forms/forms_sample"} Submitting forms
-            %li
-              %a{:href => "/mobile/docs/forms/plugin_eventsmethods"} Plugin methods
   / /content
   .footer-docs{"data-role" => "footer", "data-theme" => "c"}
     %p &copy; 2011 The jQuery Project
