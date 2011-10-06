@@ -311,7 +311,7 @@ en:
         name: jQuery Mobile framework
         experiments: Additional Demos
         default: jQuery Mobile Demo
-        home: "&beta;3@jquerymobile.com"
+        home: "demo@jquerymobile.com"
     jqgrid: 
       simple: 
         name: Simple Data Grids

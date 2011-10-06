@@ -4477,6 +4477,7 @@ class Invheader < ActiveRecord::Base
           :width => 700,
           :height => :auto,
           :rows_per_page => 10,
+          :select_rows => true,
           :paging_choices => [10, 20, 30],
           :sort_by => :invdate,
           :sort_order => :desc,

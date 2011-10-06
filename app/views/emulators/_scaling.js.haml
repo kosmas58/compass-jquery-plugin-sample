@@ -6,9 +6,9 @@
       } else {
         scalingValue = 1
       }
-      $("div.emulator").css('-moz-transform', 'scale('+scalingValue+')');
-      $("div.emulator").css('-o-transform', 'scale('+scalingValue+')');
-      $("div.emulator").css('-webkit-transform', 'scale('+scalingValue+')');
+      $("div.emulator").css('-moz-transform', 'scale('+scalingValue+')')
+                       .css('-o-transform', 'scale('+scalingValue+')')
+                       .css('-webkit-transform', 'scale('+scalingValue+')');
       //$("#disp-area").prop("width", Math.round(width/scalingValue));
       //$("#disp-area").prop("height", Math.round(height/scalingValue));
     }
