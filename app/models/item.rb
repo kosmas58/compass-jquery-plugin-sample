@@ -55,7 +55,7 @@ class Item < ActiveRecord::Base
                :width => 100}
           ],
           :row_numbers => 40,
-          :width => 700,
+          :width => 500,
           :height => :auto,
           :rows_per_page => 200,
           :paging_choices => [100, 200, 300],
