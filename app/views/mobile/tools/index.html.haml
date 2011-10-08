@@ -1,0 +1,17 @@
+-@title = "Page Event Logger Bookmarklet"
+= render :partial => "index.js.haml", :format => :js
+
+
+%h1 Page Event Logger Bookmarklet
+%p A simple bookmarklet for logging jQuery Mobile page events. To use, bookmark the following link:
+:javascript
+  document.write('<a id="bookmarklet-link" href="javascript:function loadScript(u){var s=document.createElement(\'script\');s.setAttribute(\'language\',\'javascript\');s.setAttribute(\'src\',u);document.body.appendChild(s);} loadScript(\'' + ( location.href.replace( /\.html/, ".js" ) ) + '\');">Page EventLogger Bookmark');
+%p
+  For platforms that don't allow bookmarking of
+  %code javascript:
+  urls, you can copy/paste the following source for the bookmarklet directly into the browser's location bar then hit enter or hit the &quot;go&quot; button on your keypad:
+%p
+  %textarea#ta{:cols => "50", :rows => "10"}
+%p NOTE: Some browsers like Chrome will strip off the javascript: prefix from the string above when you paste it into the location bar. Make sure what you pasted is prefixed by javascript: before attempting to load the bookmarklet.
+:javascript
+  document.getElementById("ta").value = document.getElementById("bookmarklet-link").href;

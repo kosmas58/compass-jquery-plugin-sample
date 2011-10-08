@@ -77,7 +77,10 @@
       %p
         Since the plugin initializes when the DOM is fully loaded you can enable and disable it manually by setting
         %code $.mobile.pushStateEnabled
-        anytime before.
+        anytime before document ready.
+      .ui-body.ui-body-e
+        %h4{:style => "margin:.5em 0"} Important: rel="external" and $.mobile.ajaxEnabled=false
+        Many browsers have finicky implementations of the (push|replace)State api which can cause odd behvior in some cases (most often when returning to a document onto which state has been pushed or replaced). When building a jQuery Mobile application where the ajax navigation is being explicityly disabled regularly you may wish to disable pushstate support (see above) across the application and fall back to the hash based navigation for more consistent behaviour.
       %h2 changePage
       %p
         Within the framework, page changes - both for pages already in the DOM and for pages that need to be loaded via Ajax - use the
@@ -170,6 +173,11 @@
             The "ui-page" key name used in sub-hash url references can be set to any value you'd like, so as to blend into your URL structure. This value is stored in
             = succeed "." do
               %code jQuery.mobile.subPageUrlKey
+        %li
+          %p
+            When traveling back to a previously loaded jQuery Mobile document from an external
+            %b or
+            internal document with the push state plugin enabled, some browsers load and trigger the popstate event on the wrong document or for the wrong reasons (two edge cases recorded so far). If you are regularly linking to external documents and find the application behaving eratically try disabling pushstate support.
     / /content-primary
     .content-secondary
       .ui-body-b

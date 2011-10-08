@@ -11,6 +11,7 @@ ActionController::Routing::Routes.draw do |map|
     mobile.namespace :experiments do |experiment|
       experiment.resources :list_items
     end
+    mobile.resources :tools
   end
 
   map.resources :navigation,
