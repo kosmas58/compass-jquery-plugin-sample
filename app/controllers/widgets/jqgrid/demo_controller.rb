@@ -108,7 +108,7 @@ class Widgets::Jqgrid::DemoController < ApplicationController
     @this = @object.find(params[:id])
     if request.xhr?
       object_params = @object.grid(@mylist).member_params(params)
-      msg = "success"
+      msg = ""
       unless @this.update_attributes(object_params)
         @this.errors.entries.each do |error|
           msg << "<strong>#{error[0]}</strong> : #{error[1]}<br/>"
@@ -131,7 +131,8 @@ class Widgets::Jqgrid::DemoController < ApplicationController
     @this = @object.find(params[:id])
     @this.destroy
     if request.xhr?
-      render :nothing => true
+      msg = ""
+      render :text => msg
     else
       flash[:notice] = "Successfully destroyed #{@model}."
       redirect_to '#{@model}s_url'
