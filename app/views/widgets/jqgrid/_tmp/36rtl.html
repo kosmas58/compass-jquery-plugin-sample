@@ -1,0 +1,46 @@
+<div style="font-size:12px;">
+    Another great feature in 3.6 version is supporting of Right To Left languages<br>
+    This is done just with one option direction in jqGrid options. <br>
+    Note that in a page one grid can have direction set to rtl, while another can have direction set to ltr.<br>
+    Support of RTL is provided only in FireFox 3.x, Internet Explorer 7/8 and partially in Opera > 9.x browsers. <br>
+    To enjoy the full of this feature we have created a demo page with all the examples <a href="http://www.trirand.com/jqgrid/rtl/jqgrid.html" target="_blank">here</a><br>
+<br />
+<table id="jqrtl"></table>
+<div id="pjqrtl"></div>
+<script src="36rtl.js" type="text/javascript"> </script>
+<br />
+<div style="font-size:12px;">
+<b> HTML </b>
+<XMP>
+<table id="jqrtl"></table>
+<div id="pjqrtl"></div>
+</XMP>
+<b>Java Scrpt code</b>
+<XMP>
+jQuery("#jqrtl").jqGrid({
+    direction: "rtl",
+	recordpos : "left",
+   	url:'server.php?q=2',
+	datatype: "json",
+   	colNames:['Inv No','Date', 'Client', 'Amount','Tax','Total','Notes'],
+   	colModel:[
+   		{name:'id',index:'id', width:55, editable:true},
+   		{name:'invdate',index:'invdate', width:90,editable:true},
+   		{name:'name',index:'name asc, invdate', width:100,editable:true},
+   		{name:'amount',index:'amount', width:80, align:"right",editable:true},
+   		{name:'tax',index:'tax', width:80, align:"right",editable:true},		
+   		{name:'total',index:'total', width:80,align:"right",editable:true},		
+   		{name:'note',index:'note', width:150, sortable:false,editable:true}		
+   	],
+   	rowNum:10,
+   	rowList:[10,20,30],
+   	pager: '#pjqrtl',
+   	sortname: 'invdate',
+    viewrecords: true,
+    sortorder: "desc",
+    caption:"RTL Example",
+	editurl: "server.php?q=dummy"
+});
+jQuery("#jqrtl").jqGrid('navGrid','#pjqrtl',{position:"right"},{reloadAfterSubmit:false},{reloadAfterSubmit:false});
+</XMP>
+</div>

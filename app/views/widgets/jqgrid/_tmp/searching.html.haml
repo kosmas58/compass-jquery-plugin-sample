@@ -1,0 +1,229 @@
+%div{:style => "font-size:12px;"}
+  This example show how we can add dialog for live data search.
+  %br/
+  See below for all available options.
+  %br/
+%br/
+%table#search
+#pagersr
+%input#bsdata{:type => "BUTTON", :value => "Search"}/
+%script{:src => "searching.js", :type => "text/javascript"} %br/
+%br/
+%div{:style => "font-size:12px;"}
+  %b Description
+  %br/
+  This method uses
+  %b colModel
+  names and
+  %b url
+  parameters from jqGrid
+  %br/
+  %code
+    Calling:
+    jQuery("#grid_id").searchGrid( options );
+  %br/
+  %b options
+  %br/
+  %b top : 0
+  the initial top position of search dialog
+  %br/
+  %b left: 0
+  the initinal left position of search dialog
+  %br/
+  If the left and top positions are not set the dialog apper on
+  %br/
+  upper left corner of the grid
+  %br/
+  = succeed "," do
+    %b width: 360
+  the width of serch dialog - default 360
+  %br/
+  = succeed "," do
+    %b height: 70
+  the height of serch dialog default 70
+  %br/
+  = succeed "," do
+    %b modal: false
+  determine if the dialog should be in modal mode default is false
+  %br/
+  = succeed ",determine" do
+    %b drag: true
+  if the dialog is dragable default true
+  %br/
+  = succeed ",the" do
+    %b caption: "Search..."
+  caption of the dialog
+  %br/
+  = succeed "," do
+    %b Find: "Find"
+  the text of the button when you click to search data default Find
+  %br/
+  = succeed ",the" do
+    %b Reset: "Reset"
+  text of the button when you click to clear search string default Reset
+  %br/
+  = succeed "," do
+    %b dirty: false
+  applicable only in navigator see the last example
+  %br/
+  These parameters are passed to the url
+  %br/
+  = succeed "," do
+    %b sField:'searchField'
+  is the name that is passed to url the value is the name from colModel
+  %br/
+  = succeed ",is" do
+    %b sValue:'searchString'
+  the name that is passed to url the value is the entered value
+  %br/
+  = succeed "," do
+    %b sOper: 'searchOper'
+  is the name that is passed to the url the value is the type of search - see sopt array
+  %br/
+  \// translation string for the search options
+  %br/
+  = succeed "," do
+    %b odata : ['equal', 'not equal', 'less', 'less or equal','greater','greater or equal', 'begins with','ends with','contains' ]
+  %br/
+  \// if you want to change or remove the order change it in sopt
+  %br/
+  %b sopt: null // ['bw','eq','ne','lt','le','gt','ge','ew','cn']
+  %br/
+  by default all options are allowed. The codes are as follow:
+  %br/
+  bw - begins with ( LIKE val% )
+  %br/
+  eq - equal ( = )
+  %br/
+  ne - not equal ( <> )
+  %br/
+  lt - little ( < )
+  %br/
+  le - little or equal ( <= )
+  %br/
+  gt - greater ( > )
+  %br/
+  ge - greater or equal ( >= )
+  %br/
+  ew - ends with  (LIKE %val )
+  %br/
+  cn - contain (LIKE %val% )
+  %br/
+  %b HTML
+  %XMP
+    \...
+    %table#search
+    #pagersr
+    %input#bsdata{:type => "BUTTON", :value => "Search"}/
+  %b Java Scrpt code
+  %XMP
+    \...
+    jQuery("#search").jqGrid({
+    url:'server.php?q=1',
+    datatype: "xml",
+    colNames:['Inv No','Date', 'Client', 'Amount','Tax','Total','Notes'],
+    colModel:[
+    {name:'id',index:'id', width:55},
+    {name:'invdate',index:'invdate', width:90},
+    {name:'name',index:'name', width:100},
+    {name:'amount',index:'amount', width:80, align:"right"},
+    {name:'tax',index:'tax', width:80, align:"right"},
+    {name:'total',index:'total', width:80,align:"right"},
+    {name:'note',index:'note', width:150, sortable:false}
+    ],
+    rowNum:10,
+    rowList:[10,20,30],
+    pager: '#pagersr',
+    sortname: 'id',
+    viewrecords: true,
+    sortorder: "desc",
+    caption:"Search Example",
+    editurl:"someurl.php"
+    });
+    $("#bsdata").click(function(){
+    jQuery("#search").jqGrid('searchGrid',
+    {sopt:['cn','bw','eq','ne','lt','gt','ew']}
+    );
+    });
+  %b PHP with MySQL
+  %XMP
+    \...
+    $page = $_GET['page']; // get the requested page
+    $limit = $_GET['rows']; // get how many rows we want to have into the grid
+    $sidx = $_GET['sidx']; // get index row - i.e. user click to sort
+    $sord = $_GET['sord']; // get the direction
+    if(!$sidx) $sidx =1;
+    \// connect to the database
+    $db = mysql_connect($dbhost, $dbuser, $dbpassword)
+    or die("Connection Error: " . mysql_error());
+    
+    mysql_select_db($database) or die("Error conecting to db.");
+    $result = mysql_query("SELECT COUNT(*) AS count FROM invheader a, clients b WHERE a.client_id=b.client_id");
+    $row = mysql_fetch_array($result,MYSQL_ASSOC);
+    $count = $row['count'];
+    
+    if( $count >0 ) {
+    $total_pages = ceil($count/$limit);
+    } else {
+    $total_pages = 0;
+    }
+    if ($page > $total_pages) $page=$total_pages;
+    $start = $limit*$page - $limit; // do not put $limit*($page - 1)
+    $SQL = "SELECT a.id, a.invdate, b.name, a.amount,a.tax,a.total,a.note FROM invheader a, clients b WHERE a.client_id=b.client_id ORDER BY $sidx $sord LIMIT $start , $limit";
+    $result = mysql_query( $SQL ) or die("Couldnt execute query.".mysql_error());
+    
+    if ( stristr($_SERVER["HTTP_ACCEPT"],"application/xhtml+xml") ) {
+    header("Content-type: application/xhtml+xml;charset=utf-8"); } else {
+    header("Content-type: text/xml;charset=utf-8");
+    }
+    $et = ">";
+    
+    echo "
+    <?xml version='1.0' encoding='utf-8'?$et\n";
+    echo "<row?>
+    ";
+    echo "
+    %page> ".$page."
+    ";
+    echo "
+    %total> ".$total_pages."
+    ";
+    echo "
+    %records> ".$count."
+    ";
+    \// be sure to put text data in CDATA
+    while($row = mysql_fetch_array($result,MYSQL_ASSOC)) {
+    echo "
+    %row{:id => "\". $row[id].\""}>
+      ";
+      echo "
+      %cell> ". $row[id]."
+      ";
+      echo "
+      %cell> ". $row[invdate]."
+      ";
+      echo "
+      %cell>
+        :cdata
+          ". $row[name]."
+      ";
+      echo "
+      %cell> ". $row[amount]."
+      ";
+      echo "
+      %cell> ". $row[tax]."
+      ";
+      echo "
+      %cell> ". $row[total]."
+      ";
+      echo "
+      %cell>
+        :cdata
+          ". $row[note]."
+      ";
+      echo "
+    ";
+    }
+    echo "
+    ";
+    \...

@@ -1,0 +1,176 @@
+%div{:style => "font-size:12px;"}
+  This example show how we can add dialog for data editing.
+  %br/
+  See below for all available options.
+  %br/
+  Note: The data is not saved to the server
+  %br/
+%br/
+%table#editgrid
+#pagered
+%input#bedata{:type => "BUTTON", :value => "Edit Selected"}/
+%script{:src => "editing.js", :type => "text/javascript"} %br/
+%br/
+%div{:style => "font-size:12px;"}
+  %b Description
+  %br/
+  This method uses
+  %b colModel
+  and
+  %b editurl
+  parameters from jqGrid
+  %br/
+  %code
+    Calling:
+    jQuery("#grid_id").jqGrid('editGridRow', the_row_id, options );
+  %br/
+  %b the_row_id
+  is the row to edit
+  %br/
+  %b options
+  %br/
+  %b top : 0
+  the initial top position of edit dialog
+  %br/
+  %b left: 0
+  the initinal left position of edit dialog
+  %br/
+  If the left and top positions are not set the dialog apper on
+  %br/
+  upper left corner of the grid
+  %br/
+  = succeed "," do
+    %b width: 0
+  the width of edit dialog - default 300
+  %br/
+  = succeed "," do
+    %b height: 0
+  the height of edit dialog default 200
+  %br/
+  = succeed "," do
+    %b modal: false
+  determine if the dialog should be in modal mode default is false
+  %br/
+  = succeed ",determine" do
+    %b drag: true
+  if the dialog is dragable default true
+  %br/
+  = succeed ",the" do
+    %b addCaption: "Add Record"
+  caption of the dialog if the mode is adding
+  %br/
+  = succeed ",the" do
+    %b editCaption: "Edit Record"
+  caption of the dialog if the mode is editing
+  %br/
+  = succeed "," do
+    %b bSubmit: "Submit"
+  the text of the button when you click to data default Submit
+  %br/
+  = succeed ",the" do
+    %b bCancel: "Cancel"
+  text of the button when you click to close dialog default Cancel
+  %br/
+  = succeed "," do
+    %b url:
+  url where to post data. If set replace the editurl
+  %br/
+  = succeed "," do
+    %b processData: "Processing..."
+  Indicator when posting data
+  %br/
+  = succeed "," do
+    %b closeAfterAdd : false
+  when add mode closes the dialog after add record - default false
+  %br/
+  = succeed "," do
+    %b clearAfterAdd : true
+  when add mode clears the data after adding data - default true
+  %br/
+  = succeed "," do
+    %b closeAfterEdit : false
+  when in edit mode closes the dialog after editing - default false
+  %br/
+  %b reloadAfterSubmit : true
+  reloads grid data after posting default is true
+  %br/
+  \//
+  %i Events
+  %br/
+  %b intializeForm: null
+  fires only once when creating the data for editing and adding.
+  %br/
+  Paramter passed to the event is the id of the constructed form.
+  %br/
+  %b beforeInitData: null
+  fires before initialize the form data.
+  %br/
+  Paramter passed to the event is the id of the constructed form.
+  %br/
+  %b beforeShowForm: null
+  fires before showing the form data.
+  %br/
+  Paramter passed to the event is the id of the constructed form.
+  %br/
+  %b afterShowForm: null
+  fires after the form is shown.
+  %br/
+  Paramter passed to the event is the id of the constructed form.
+  %br/
+  %b beforeSubmit: null
+  fires before the data is submitted to the server
+  %br/
+  Paramter is array of type name:value. When called the event can  return array
+  %br/
+  where the first parameter can be true or false and the second is the message of the error if any
+  %br/
+  Example: [false,"The value is not valid"]
+  %br/
+  %b afterSubmit: null
+  fires after the data is posted to the server. Typical this
+  %br/
+  event is used to recieve status form server if the data is posted with success.
+  %br/
+  Parameters to this event are the returned data from the request and array of the
+  %br/
+  posted values of type name:value
+  %br/
+  %br/
+  %b HTML
+  %XMP
+    \...
+    <
+    %table#editgrid
+    #pagered
+    %input#bedata{:type => "BUTTON", :value => "Edit Selected"}/
+  %b Java Scrpt code
+  %XMP
+    jQuery("#editgrid").jqGrid({
+    url:'editing.php?q=1',
+    datatype: "xml",
+    colNames:['Inv No','Date', 'Client', 'Amount','Tax','Total','Closed','Ship via','Notes'],
+    colModel:[
+    {name:'id',index:'id', width:55,editable:false,editoptions:{readonly:true,size:10}},
+    {name:'invdate',index:'invdate', width:80,editable:true,editoptions:{size:10}},
+    {name:'name',index:'name', width:90,editable:true,editoptions:{size:25}},
+    {name:'amount',index:'amount', width:60, align:"right",editable:true,editoptions:{size:10}},
+    {name:'tax',index:'tax', width:60, align:"right",editable:true,editoptions:{size:10}},
+    {name:'total',index:'total', width:60,align:"right",editable:true,editoptions:{size:10}},
+    {name:'closed',index:'closed',width:55,align:'center',editable:true,edittype:"checkbox",editoptions:{value:"Yes:No"}},
+    {name:'ship_via',index:'ship_via',width:70, editable: true,edittype:"select",editoptions:{value:"FE:FedEx;TN:TNT"}},
+    {name:'note',index:'note', width:100, sortable:false,editable: true,edittype:"textarea", editoptions:{rows:"2",cols:"20"}}
+    ],
+    rowNum:10,
+    rowList:[10,20,30],
+    pager: '#pagered',
+    sortname: 'id',
+    viewrecords: true,
+    sortorder: "desc",
+    caption:"Editing Example",
+    editurl:"someurl.php"
+    });
+    $("#bedata").click(function(){
+    var gr = jQuery("#editgrid").jqGrid('getGridParam','selrow');
+    if( gr != null ) jQuery("#editgrid").jqGrid('editGridRow',gr,{height:280,reloadAfterSubmit:false});
+    else alert("Please Select Row");
+    });

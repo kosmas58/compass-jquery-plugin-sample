@@ -1,0 +1,55 @@
+<div style="font-size:12px;">
+    The groupig also works with remoute data. If the option groupDataSorted is turned on then to the sidx parameter is<br/>
+    added the grouping column name. This way the server know that it should first sort by the grouping column and then <br/>
+    to the sort column.<br/>
+</div>
+<br />
+<table id="48remote"></table>
+<div id="p48remote"></div>
+<script src="38remote1.js" type="text/javascript"></script>
+<br />
+<div style="font-size:12px;">
+<b> HTML </b>
+<XMP>
+...
+<table id="list4"><tr><td>&nbsp;</td></tr></table>
+</XMP>    
+<b>Java Scrpt code</b>
+<XMP>
+jQuery("#48remote").jqGrid({
+   	url:'server.php?q=2',
+	datatype: "json",
+   	colNames:['Inv No','Date', 'Client', 'Amount','Tax','Total','Notes'],
+   	colModel:[
+   		{name:'id',index:'id', width:55, editable:true, sorttype:'int',summaryType:'count', summaryTpl : '({0}) total'},
+   		{name:'invdate',index:'invdate', width:90, sorttype:'date', formatter:'date', datefmt:'d/m/Y'},
+   		{name:'name',index:'name', width:100},
+   		{name:'amount',index:'amount', width:80, align:"right", sorttype:'number',formatter:'number'},
+   		{name:'tax',index:'tax', width:80, align:"right",sorttype:'number',formatter:'number'},		
+   		{name:'total',index:'total', width:80,align:"right",sorttype:'number',formatter:'number', summaryType:'sum'},
+   		{name:'note',index:'note', width:150, sortable:false,editable:true}		
+   	],
+   	rowNum:10,
+   	rowList:[10,20,30],
+   	height: 'auto',
+   	pager: '#p48remote',
+   	sortname: 'invdate',
+    viewrecords: true,
+    sortorder: "desc",
+    caption:"Grouping with remote data",
+    grouping: true,
+   	groupingView : {
+   		groupField : ['name'],
+   		groupColumnShow : [true],
+   		groupText : ['<b>{0}</b>'],
+   		groupCollapse : false,
+		groupOrder: ['asc'],
+		groupSummary : [true],
+		groupDataSorted : true
+   	}
+    
+});
+jQuery("#48remote").jqGrid('navGrid','#p48remote',{add:false,edit:false,del:false});
+
+</XMP>
+</div>

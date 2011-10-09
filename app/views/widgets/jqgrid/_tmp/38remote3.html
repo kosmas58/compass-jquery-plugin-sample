@@ -1,0 +1,97 @@
+<div style="font-size:12px;">
+    In case when the server response can not be controlled, jqGrid can perform grouping too <br/>
+    using his own sorting procedure.<br/><br/>
+</div>
+<br />
+<table id="48remote3"></table>
+<div id="p48remote3"></div>
+<script src="38remote3.js" type="text/javascript"></script>
+<br />
+<div style="font-size:12px;">
+<b> HTML </b>
+<XMP>
+...
+<table id="48remote3"></table>
+<div id="p48remote3"></div>
+</XMP>    
+<b>Java Scrpt code</b>
+<XMP>
+jQuery("#48remote3").jqGrid({
+   	url:'server.php?q=2',
+	datatype: "json",
+   	colNames:['Inv No','Date', 'Client', 'Amount','Tax','Total','Notes'],
+   	colModel:[
+   		{name:'id',index:'id', width:55, editable:true, sorttype:'int',summaryType:'count', summaryTpl : '({0}) total'},
+   		{name:'invdate',index:'invdate', width:90, sorttype:'date', formatter:'date', datefmt:'d/m/Y'},
+   		{name:'name',index:'name', width:100},
+   		{name:'amount',index:'amount', width:80, align:"right", sorttype:'number',formatter:'number',summaryType:'sum'},
+   		{name:'tax',index:'tax', width:80, align:"right",sorttype:'number',formatter:'number',summaryType:'sum'},		
+   		{name:'total',index:'total', width:80,align:"right",sorttype:'number',formatter:'number', summaryType:'sum'},
+   		{name:'note',index:'note', width:150, sortable:false,editable:true}		
+   	],
+   	rowNum:10,
+   	rowList:[10,20,30],
+   	height: 'auto',
+   	pager: '#p48remote3',
+   	sortname: 'invdate',
+    viewrecords: true,
+    sortorder: "desc",
+    caption:"Grouping with remote data - not sorted",
+    grouping: true,
+   	groupingView : {
+   		groupField : ['name'],
+   		groupColumnShow : [true],
+   		groupText : ['<b>{0}</b>'],
+   		groupCollapse : false,
+		groupOrder: ['asc'],
+		groupSummary : [true],
+		groupDataSorted : false
+   	},
+    footerrow: true,
+    userDataOnFooter: true
+});
+jQuery("#48remote3").jqGrid('navGrid','#p48remote3',{add:false,edit:false,del:false});
+</XMP>
+<b>PHP MySQL code</b>
+<XMP>
+examp = $_REQUEST["q"]; //query number
+
+$page = $_REQUEST['page']; // get the requested page
+$limit = $_REQUEST['rows']; // get how many rows we want to have into the grid
+$sidx = $_REQUEST['sidx']; // get index row - i.e. user click to sort
+$sord = $_REQUEST['sord']; // get the direction
+if(!$sidx) $sidx =1;
+...
+
+$result = mysql_query("SELECT COUNT(*) AS count FROM invheader a, clients b WHERE a.client_id=b.client_id".$wh);
+$row = mysql_fetch_array($result,MYSQL_ASSOC);
+$count = $row['count'];
+if( $count >0 ) {
+	$total_pages = ceil($count/$limit);
+} else {
+	$total_pages = 0;
+}
+if ($page > $total_pages) $page=$total_pages;
+$start = $limit*$page - $limit; // do not put $limit*($page - 1)
+if ($start<0) $start = 0;
+$SQL = "SELECT a.id, a.invdate, b.name, a.amount,a.tax,a.total,a.note FROM invheader a, clients b WHERE a.client_id=b.client_id".$wh." ORDER BY ".$sidx." ".$sord. " LIMIT ".$start." , ".$limit;
+$result = mysql_query( $SQL ) or die("Could not execute query.".mysql_error());
+$responce->page = $page;
+$responce->total = $total_pages;
+$responce->records = $count;
+$i=0; $amttot=0; $taxtot=0; $total=0;
+while($row = mysql_fetch_array($result,MYSQL_ASSOC)) {
+	$amttot += $row[amount];
+	$taxtot += $row[tax];
+	$total += $row[total];
+	$responce->rows[$i]['id']=$row[id];
+	$responce->rows[$i]['cell']=array($row[id],$row[invdate],$row[name],$row[amount],$row[tax],$row[total],$row[note]);
+	$i++;
+}
+$responce->userdata['amount'] = $amttot;
+$responce->userdata['tax'] = $taxtot;
+$responce->userdata['total'] = $total;
+$responce->userdata['name'] = 'Totals:';
+echo json_encode($responce);
+</XMP>
+</div>

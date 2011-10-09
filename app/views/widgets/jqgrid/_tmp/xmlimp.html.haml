@@ -1,0 +1,28 @@
+%div{:style => "font-size:12px;"}
+  This example show how we can load XML Grid Configuration from external xml file
+  %br
+    A JSON import is also available. Press a Convert link to perform the conversion
+    %br
+%br/
+%table#xmlist1
+#xmlpager1
+%script{:src => "xmlimp.js", :type => "text/javascript"} %br/
+%a#cnvxml{:href => "#"} convert
+%br
+  %br/
+  %a{:href => "testxml.xml"} The XML example file look like this
+  %br
+    %br
+      %div{:style => "font-size:12px;"}
+        %b HTML
+        %XMP
+          \...
+          %table#xmlist1
+          #xmlpager1
+        %b Java Scrpt code
+        %XMP
+          $("#cnvxml").click(function(){
+          $("#xmlist1").jqGrid('jqGridImport',{impurl:"testxml.xml"});
+          $(this).hide();
+          });
+          \...

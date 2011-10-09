@@ -1,0 +1,51 @@
+<div style="font-size:12px;">
+    Since it is not possible to meat every user requirement in the validation when we use editing<br>
+    we have created a possibility to create one defined from the developer<br>
+    This is done just with two options in colModel - custom:true (which initialize this) and custo_func which should perform validation<br>
+    In our example the amount value should have values between 200 and 300 when we perform editing and adding.
+    <br/>
+<br />
+<table id="custv"></table>
+<div id="pcustv"></div>
+<script src="36custvalid.js" type="text/javascript"> </script>
+<br />
+<div style="font-size:12px;">
+<b> HTML </b>
+<XMP>
+<table id="custv"></table>
+<div id="pcustv"></div>
+</XMP>
+<b>Java Scrpt code</b>
+<XMP>
+function mycheck(value) {
+	if(parseFloat(value) >= 200 && parseFloat(value)<=300) {
+		return [true,"",""];
+	} else {
+		return [false,"The value should be between 200 and 300!",""];
+	}
+}
+jQuery("#custv").jqGrid({
+   	url:'server.php?q=2',
+	datatype: "json",
+   	colNames:['Inv No','Date', 'Client', 'Amount','Tax','Total','Notes'],
+   	colModel:[
+   		{name:'id',index:'id', width:55, editable:true},
+   		{name:'invdate',index:'invdate', width:90,editable:true},
+   		{name:'name',index:'name asc, invdate', width:100,editable:true},
+   		{name:'amount',index:'amount', width:80, align:"right",editable:true,editrules:{custom:true,custom_func:mycheck}},
+   		{name:'tax',index:'tax', width:80, align:"right",editable:true},		
+   		{name:'total',index:'total', width:80,align:"right",editable:true},		
+   		{name:'note',index:'note', width:150, sortable:false,editable:true}		
+   	],
+   	rowNum:10,
+   	rowList:[10,20,30],
+   	pager: '#pcustv',
+   	sortname: 'invdate',
+    viewrecords: true,
+    sortorder: "desc",
+    caption:"Custom Validation",
+	editurl: "server.php?q=dummy"
+});
+jQuery("#custv").jqGrid('navGrid','#pcustv',{del:false},{reloadAfterSubmit:false},{reloadAfterSubmit:false});
+</XMP>
+</div>

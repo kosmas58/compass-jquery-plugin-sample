@@ -1,0 +1,102 @@
+<div style="font-size:12px;">
+With this example we show the new very usefull feature of jqGrid - load all the needed data from server at once and then <br>
+operate on it locally - i.e - pagging, sorting, searching and etc. <br><br>
+For this purpose we introduce a new grid parameter - rowTotal, when set this paramater can instruct the server <br>
+to load the total number of rows needed to work on.<br>
+Note that rowNum determines the total records displayed in the grid, while rowTotal the total rows on wich we operate.<br>
+When this parameter is set we send a aditional parameter to server named totalrows. You can check for this<br>
+parameter and if it is available you can replace the rows parameter with this one.<br>
+You can see how fast is the grid when loading 2000 recs.
+
+</div>
+<br />
+<table id="list27"></table>
+<div id="pager27" ></div>
+<script src="37server.js" type="text/javascript"> </script>
+<br />
+<div style="font-size:12px;">
+<b> HTML </b>
+<XMP>
+...
+<table id="list27"></table>
+<div id="pager27" ></div>
+</XMP>    
+<b>Java Scrpt code</b>
+<XMP>
+...
+jQuery("#list27").jqGrid({
+   	url:'localset.php',
+	datatype: "json",
+	height: 255,
+	width: 600,
+   	colNames:['Index','Name', 'Code'],
+   	colModel:[
+   		{name:'item_id',index:'item_id', width:65, sorttype:'int'},
+   		{name:'item',index:'item', width:150},
+   		{name:'item_cd',index:'item_cd', width:100}
+   	],
+   	rowNum:50,
+	rowTotal: 2000,
+	rowList : [20,30,50],
+	loadonce:true,
+   	mtype: "GET",
+	rownumbers: true,
+	rownumWidth: 40,
+	gridview: true,
+   	pager: '#pager27',
+   	sortname: 'item_id',
+    viewrecords: true,
+    sortorder: "asc",
+	caption: "Loading data from server at once"	
+});
+</XMP>
+<b>PHP with MySQL</b>
+<XMP>
+...
+$page = $_REQUEST['page']; // get the requested page
+$limit = $_REQUEST['rows']; // get how many rows we want to have into the grid
+$sidx = $_REQUEST['sidx']; // get index row - i.e. user click to sort
+$sord = $_REQUEST['sord']; // get the direction
+if(!$sidx) $sidx =1;
+
+$totalrows = isset($_REQUEST['totalrows']) ? $_REQUEST['totalrows']: false;
+if($totalrows) {
+	$limit = $totalrows;
+}
+
+
+// connect to the database
+$db = mysql_pconnect($dbhost, $dbuser, $dbpassword)
+or die("Connection Error: " . mysql_error());
+
+mysql_select_db($database) or die("Error conecting to db.");
+//populateDBRandom();
+$result = mysql_query("SELECT COUNT(*) AS count FROM items");
+$row = mysql_fetch_array($result,MYSQL_ASSOC);
+$count = $row['count'];
+
+if( $count >0 ) {
+	$total_pages = ceil($count/$limit);
+} else {
+	$total_pages = 0;
+}
+if ($page > $total_pages) $page=$total_pages;
+if ($limit<0) $limit = 0;
+$start = $limit*$page - $limit; // do not put $limit*($page - 1)
+if ($start<0) $start = 0;
+$SQL = "SELECT item_id, item, item_cd FROM items ".$where." ORDER BY $sidx $sord LIMIT $start , $limit";
+$result = mysql_query( $SQL ) or die("Couldn’t execute query.".mysql_error());
+$responce->page = $page;
+$responce->total = $total_pages;
+$responce->records = $count;
+$i=0;
+while($row = mysql_fetch_array($result,MYSQL_ASSOC)) {
+	$responce->rows[$i]['id']=$row[item_id];
+    $responce->rows[$i]['cell']=array($row[item_id],$row[item],$row[item_cd]);
+    $i++;
+} 
+echo json_encode($responce);
+mysql_close($db);
+...
+</XMP>
+</div>
