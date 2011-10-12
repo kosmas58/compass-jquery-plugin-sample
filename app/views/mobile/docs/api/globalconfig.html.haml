@@ -72,9 +72,9 @@
           %p
             %strong NOTE:
             if you're using data- namespacing, you'll need to manually update/override one selector in the theme CSS. The following data selectors should incorporate the namespace you're using:
-            %pre
-              %code
-                .ui-mobile [data-mynamespace-role=page], .ui-mobile [data-mynamespace-role=dialog], .ui-page { ...
+          %pre
+            %code
+              .ui-mobile [data-mynamespace-role=page], .ui-mobile [data-mynamespace-role=dialog], .ui-page { ...
         %dt
           %code autoInitializePage
           = succeed "," do
@@ -125,6 +125,17 @@
           default: true
         %dd jQuery Mobile will automatically listen and handle changes to the location.hash. Disabling this will prevent jQuery Mobile from handling hash changes, which allows you to handle them yourself, or simply to use simple deep-links within a document that scroll to a particular ID.
         %dt
+          %code pushStateEnabled
+          = succeed "," do
+            %em boolean
+          default: true
+        %dd
+          Enhancement to use
+          %code history.replaceState
+          in supported browsers, to convert the hash-based Ajax URL into the full document path. Note that we
+          %a{:href => "/mobile/docs/pages/page_navmodel"} recommend
+          disabling this feature if Ajax is disabled or if extensive use of external links are used.
+        %dt
           %code defaultPageTransition
           = succeed "," do
             %em string
@@ -136,9 +147,11 @@
             %em boolean
           default: false
         %dd
-          Enable pages to have self-contained native scrolling and fixed toolbars in devices that support the
+          Enable smoother page transitions and true fixed toolbars in devices that support both the
+          %code overflow:
+          and
           %code overflow-scrolling: touch;
-          property.
+          CSS properties.
         %dt
           %code defaultDialogTransition
           = succeed "," do

@@ -63,24 +63,36 @@
         classes are removed, and the exited page loses its
         %code "ui-page-active"
         class.
-      %h2 replaceState plugin
+      %h2 pushState plugin
       %p
-        For those browsers that support
-        %code history.pushState
-        and
+        There is an optional feature is converts the longer, hash-based URLs mentioned in the previous section into the full document path which is cleaner and makes the Ajax tracking transparent in the URL structure. This is built as an enhancement on top of the hash-based URL system for Ajax links. Note that despite the name, this feature technically converts hash-based urls by using
         %code history.replaceState
-        an additional optional plugin is provided that will convert the hash change urls mentioned in the previous section into the hashless equivelant. It's important to note that it does indeed convert the hash urls by using
-        %code history.replaceState
-        as the
-        %code history.pushState
-        does not produce the desired result in some mobile browsers.
+        (not
+        = succeed ")" do
+          %code history.pushState
+        in the current release because this works more reliably across our target platforms. For browsers that do not support
+        = succeed "," do
+          %code history.replaceState
+        or if this feature is disabled, hash-based URLs will be used instead.
       %p
         Since the plugin initializes when the DOM is fully loaded you can enable and disable it manually by setting
         %code $.mobile.pushStateEnabled
+        global
+        %a{:href => "/mobile/docs/api/globalconfig"} configuration option
+        to
+        %code false
         anytime before document ready.
       .ui-body.ui-body-e
         %h4{:style => "margin:.5em 0"} Important: rel="external" and $.mobile.ajaxEnabled=false
-        Many browsers have finicky implementations of the (push|replace)State api which can cause odd behvior in some cases (most often when returning to a document onto which state has been pushed or replaced). When building a jQuery Mobile application where the ajax navigation is being explicityly disabled regularly you may wish to disable pushstate support (see above) across the application and fall back to the hash based navigation for more consistent behaviour.
+        %p
+          Slightly different implementations of the replaceState API in various browsers can cause odd behavior in specific scenarios. For example, some browser implementations (including desktop browsers) implement the
+          %code popstate
+          event differently when linking externally and moving back to a page onto which state has already been pushed/replaced. When building a jQuery Mobile application where the ajax navigation is being explicitly disabled, either though the frequent use of
+          %code rel="external"
+          on links or by disabling Ajax navigation completely via the
+          = succeed "," do
+            %code $.mobile.ajaxEnabled=false
+          we recommend disabling the pushState feature to fall back to the hash based navigation for more consistent behavior.
       %h2 changePage
       %p
         Within the framework, page changes - both for pages already in the DOM and for pages that need to be loaded via Ajax - use the
@@ -117,7 +129,7 @@
         %code base
         element, which is injected into the
         %code head
-        and modified on every page change to ensure that any assets (css,images,js,etc) referenced on that page will be requested from a proper path. In browsers that don't support dynamic updates to the
+        and modified on every page change to ensure that any assets (images, CSS, JS, etc.) referenced on that page will be requested from a proper path. In browsers that don't support dynamic updates to the
         %code base
         element (such as Firefox 3.6), jQuery Mobile loops through all of the referenced assets on the page and prefixes their href and src attributes with the base path.
       %h2 Developer explanation of base url management:
@@ -128,7 +140,7 @@
       %p
         %strong TODO: update description of internal base and urlHistory objects
       %h2 Data-url storage
-      %p The nav model maintains a data-url attribute on all data-role=”page” elements. This data-url attribute is used to track the origin of the page element. Pages embedded within the main application document all have their data-url parameter set to the ID of the @data-role="page" element. The only exception to this is the first-page in the document. The first-page is special because it can be addressed by its @id if it has one, or by the document or base URL (with no hash fragment).
+      %p The nav model maintains a data-url attribute on all data-role="page" elements. This data-url attribute is used to track the origin of the page element. Pages embedded within the main application document all have their data-url parameter set to the ID of the @data-role="page" element. The only exception to this is the first-page in the document. The first-page is special because it can be addressed by its @id if it has one, or by the document or base URL (with no hash fragment).
       %p Pages that are external to the application document get pulled in dynamically via ajax, their data-url is set to the site relative path to the external page. If you are running in an environment where loading an external page from a different domain is allowed, then the data-url is set to the absolute URL.
       %h2 Auto-generated pages and sub-hash urls
       %p

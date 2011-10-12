@@ -29,11 +29,17 @@
         %code data-ajax="false"
         or
         %code target
-        attributes will not be loaded with Ajax. Instead, these links and will cause a full page refresh with no animated transition. Both attributes have the same effect, but different semanic meaning.
+        attributes will not be loaded with Ajax. Instead, these links and will cause a full page refresh with no animated transition. Both attributes have the same effect, but different semantic meaning:
         %code rel="external"
         should be used when linking to another site or domain, while
         %code data-ajax="false"
         is useful for simply opting a page within your domain from being loaded via Ajax. Because of security restrictions, the framework always opts links to external domains out of the Ajax behavior.
+      %p
+        Note: When building a jQuery Mobile application where the Ajax navigation system is disabled globally or frequently disabled on individual links, we  recommend disabling the
+        %code $.mobile.pushStateEnabled
+        global
+        %a{:href => "/mobile/docs/api/globalconfig"} configuration option
+        to avoid inconsistent navigation behavior in some browsers.
       %h2 Linking within a multi-page document
       %p
         A single HTML document can contain or multiple 'page' containers simply be  stacking multiple divs with a
