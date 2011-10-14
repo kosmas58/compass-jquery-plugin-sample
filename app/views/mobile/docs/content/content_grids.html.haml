@@ -13,18 +13,35 @@
         The jQuery Mobile framework provides a simple way to build CSS-based columns through a  block style class convention called
         = succeed "." do
           %code ui-grid
-      %p
-        There are two preset configurations layouts &mdash; two-column (using the
-        %code class
-        of
-        = succeed ")," do
+      %p There are four preset configurations layouts  that can be used in any situation that requires columns:
+      %ul
+        %li
+          %strong> two
+          \-column (using the
           %code ui-grid-a
-        and three-column (using the
-        %code class
-        of
-        = succeed ")" do
+          class)
+        %li
+          %strong> three
+          \-column (using the
           %code ui-grid-b
-        \&mdash; that can be used in any situation that requires columns. Grids are 100% width, completely invisible (no borders or backgrounds) and don't have padding or margins, so they shouldn't interfere with the styles of elements placed inside them.
+          class)
+        %li
+          %strong> four
+          \-column (using the
+          %code ui-grid-c
+          class)
+        %li
+          %strong> five
+          \-column (using the
+          %code ui-grid-d
+          class)
+      %p Grids are 100% width, completely invisible (no borders or backgrounds) and don't have padding or margins, so they shouldn't interfere with the styles of elements placed inside them.
+      %p
+        Within the grid container, child elements are assigned
+        %code ui-block-a/b/c/d
+        in a sequential manner which makes each "block" element float side-by-side, forming the grid. The
+        %code ui-block-a
+        class essentially clears the floats which will start a new line (see multiple row grids, below).
       %h2 Two column grids
       %p
         To build a two-column (50/50%) layout, start with a container with a
@@ -40,6 +57,7 @@
       %pre
         %code
           :preserve
+
             &lt;div class=&quot;ui-grid-a&quot;&gt;
               &lt;div class=&quot;ui-block-a&quot;&gt;&lt;strong&gt;I'm Block A&lt;/strong&gt; and text inside will wrap&lt;/div&gt;
               &lt;div class=&quot;ui-block-b&quot;&gt;&lt;strong&gt;I'm Block B&lt;/strong&gt; and text inside will wrap&lt;/div&gt;
@@ -66,6 +84,7 @@
       %pre
         %code
           :preserve
+
             &lt;fieldset class=&quot;ui-grid-a&quot;&gt;
               &lt;div class=&quot;ui-block-a&quot;&gt;&lt;button type=&quot;submit&quot; data-theme=&quot;c&quot;&gt;Cancel&lt;/button&gt;&lt;/div&gt;
               &lt;div class=&quot;ui-block-b&quot;&gt;&lt;button type=&quot;submit&quot; data-theme=&quot;b&quot;&gt;Submit&lt;/button&gt;&lt;/div&gt;
@@ -101,6 +120,7 @@
       %pre
         %code
           :preserve
+
             &lt;div class=&quot;ui-grid-b&quot;&gt;
               &lt;div class=&quot;ui-block-a&quot;&gt;Block A&lt;/div&gt;
               &lt;div class=&quot;ui-block-b&quot;&gt;Block B&lt;/div&gt;
@@ -180,6 +200,20 @@
         .ui-block-c
           .ui-bar.ui-bar-e{:style => "height:120px"} C
       / /grid-c
+      %h2 Grids in toolbars
+      %p Grids are helpful for creating layouts within a toolbar. Here's a footer with a 3 column grid.
+      / NOTE: Inline styles are for demo purposes only, please use external styles
+      .ui-bar.ui-grid-c{"data-role" => "footer", "data-theme" => "a"}
+        .ui-block-a
+          %h3{:style => "margin-top:10px;"} Settings
+        .ui-block-b
+          %label{:for => "value", :style => "margin:8px 10px 0 0; text-align:right;"} Price
+        .ui-block-c
+          %input#value{:value => "5,000"}/
+        .ui-block-d
+          %div{:style => "margin:6px 0 0 10px;"}
+            %button{"data-theme" => "b", :type => "submit"} Update
+      / /footer
     / /content-primary
     .content-secondary
       .ui-body-b

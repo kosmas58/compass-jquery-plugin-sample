@@ -16,10 +16,11 @@
       %p The title text is normally an H1 heading element but it's possible to use any heading level (H1-H6) to allow for semantic flexibility. For example, a page containing multiple mobile 'pages' may use a H1 element on the home 'page' and a H2 element on the secondary pages. All heading levels are styled identically by default to maintain visual consistency.
       .highlight
         %pre
-          :preserve
-            &lt;div data-role="header"&gt;
-               &lt;h1&gt;Page Title&lt;/h1&gt;
-            &lt;/div&gt;
+          %code
+            :preserve
+              &lt;div data-role=&quot;header&quot;&gt;
+                &lt;h1&gt;Page Title&lt;/h1&gt;
+              &lt;/div&gt;
       %h2 Default header features
       %p
         The
@@ -34,7 +35,7 @@
         In the standard header configuration, there are slots for buttons on either side of the text heading. Each button is typically an
         %code anchor
         element, but any valid
-        %a{:href => "/mobile/docs/buttons/buttons_types"} button markup
+        %a{:href => "/mobile/docs/buttons/types"} button markup
         will work. To save space, buttons in toolbars are set to
         %a{:href => "/mobile/docs/buttons/buttons_inline"} inline styling
         so the button is only as wide as the text and icons it contains.
@@ -81,7 +82,7 @@
             :preserve
               &lt;div data-role=&quot;header&quot; data-position=&quot;inline&quot;
                 &lt;h1&gt;Page Title&lt;/h1&gt;
-                &lt;a href=&quot;index.html&quot; data-icon=&quot;gear&quot; class=&quot;ui-btn-right&quot;&gt;Options&lt;/a&gt;
+                &lt;a href=&quot;/mobile/docs/toolbars&quot; data-icon=&quot;gear&quot; class=&quot;ui-btn-right&quot;&gt;Options&lt;/a&gt;
               &lt;/div&gt;
       %div{"data-position" => "inline", "data-role" => "header"}
         %h1 Page Title
@@ -120,6 +121,30 @@
           If you need to to create a header that doesn't follow the default configuration, simply wrap your custom styled markup in a container
           %code div
           inside the header container and the plugin won't apply the automatic button logic so you can write custom styles for laying out the content in your header.
+        %p
+          It's also possible to create custom bars without using the header data-role at all. For example, start with any container and add the
+          %code ui-bar
+          class to apply standard bar padding and  add the
+          %code ui-bar-b
+          class to assign the bar swatch styles from your theme (the "b" can be any swatch letter).
+        %pre
+          %code
+            :preserve
+              &lt;div class=&quot;ui-bar ui-bar-b&quot;&gt;
+                &lt;h3&gt;I&#x27;m just a div with bar classes and a &lt;a href=&quot;#&quot; data-role=&quot;button&quot;&gt;Button&lt;/a&gt;&lt;/h3&gt;
+              &lt;/div&gt;
+        %p This will produce this bar:
+        .ui-bar.ui-bar-b
+          %h3
+            I'm just a div with bar classes and a
+            %a{"data-role" => "button", :href => "#"} Button
+        %p By writing some simple styles, it's easy to build little message bars like this:
+        / Yes, the inline styles aren't recommended in a real system but they are used to simply illustrate how to tweak CSS
+        .ui-bar.ui-bar-e
+          %h3{:style => "float:left; margin-top:8px;"} This is an alert message with dismiss button.
+          %div{:style => "float:right; margin-top:4px;"}
+            %a{"data-icon" => "delete", "data-iconpos" => "notext", "data-role" => "button", :href => "#"} Button
+          %p{:style => "clear:both; font-size:85%; margin-bottom:8px;"} And here's some additional text in a paragraph.
     / /content-primary
     .content-secondary
       .ui-body-b

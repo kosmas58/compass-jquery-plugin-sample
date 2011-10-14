@@ -15,10 +15,11 @@
         attribute and specify the letter of the theme swatch (a, b, c, etc.). For example, this will set the bar to swatch "b" (blue in the default theme):
       .highlight
         %pre
-          :preserve
-            &lt;divdata-role="header" data-theme="b"&gt;
-              &lt;h1&gt;Page Title&lt;/h1&gt;
-            &lt;/div&gt;
+          %code
+            :preserve
+              &lt;div data-role=&quot;header&quot; data-theme=&quot;b&quot;&gt;
+                &lt;h1&gt;Page Title&lt;/h1&gt;
+              &lt;/div&gt;
       %h2 Theming buttons in toolbars
       %p
         Any link added inside the header block will be automatically styled as a button that matches the color of the bar's theme swatch. To make a button stand out as a primary call to action, the
@@ -28,8 +29,9 @@
         attribute to "b" (blue in our default theme) on the Save button's anchor.
       .highlight
         %pre
-          :preserve
-            &lt;a href="add-user.php" data-theme="b"&gt;Save&lt;/a&gt;
+          %code
+            :preserve
+              &lt;a href=&quot;add-user.php&quot; data-theme=&quot;b&quot;&gt;Save&lt;/a&gt;
       %h2 Theme variations
       %p This is a demo of the variation that can be achieved by tweaking the theme swatches and buttons inside the headers and footers.
       %h3 Headers
@@ -62,7 +64,10 @@
         %h1 Bar theme "d"
         %a{"data-icon" => "arrow-r", "data-iconpos" => "right", "data-theme" => "b", :href => "/mobile/docs/toolbars"} Save
       %h3 Footers
-      %p These are examples of a footer with link buttons inside.
+      %p
+        These are examples of a footer with link buttons inside. Note that footers do not have the same prescriptive markup contentions as headers with button slots so use layout
+        %a{:href => "../content/content-grids.html"} grids
+        or custom styles to achieve the design you want.
       %div{"data-role" => "footer", "data-theme" => "a"}
         %a{"data-icon" => "arrow-l", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/toolbars"} left
         %a{"data-icon" => "arrow-r", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/toolbars"} right
@@ -87,7 +92,7 @@
         %a{"data-icon" => "arrow-l", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/toolbars"} left
         %a{"data-icon" => "arrow-r", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/toolbars"} right
         %a{"data-icon" => "arrow-u", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/toolbars"} up
-        %a{"data-icon" => "arrow-d", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/toolbars"} down
+        %a{"data-icon" => "arrow-d", "data-iconpos" => "right", "data-role" => "button", :href => "index.html"} down
     / /content-primary
     .content-secondary
       .ui-body-b

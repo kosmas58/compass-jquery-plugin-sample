@@ -1,0 +1,20 @@
+-@title = "jQuery Mobile Docs - Configuration"
+= render :partial => "/mobile/index.js.haml", :format => :js
+
+- content_for :head_scripts_before_mobile do
+  :javascript
+    $(document).bind("mobileinit", function(){
+      $.mobile.loadingMessage = false;
+    });
+
+.type-index{"data-role" => "page"}
+  %div{"data-role" => "header", "data-theme" => "f"}
+    %h1 Config applied
+    %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile"} Home
+  / /header
+  %div{"data-role" => "content"}
+    %h2 loadingMessage is now disabled
+    %p To test, hit the button below and browse the docs. Note that if a link causes a refresh, this setting will be lost and the default settings will be seen.
+    %a{"data-icon" => "arrow-r", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile"} Browse docs
+  / /ui-body wrapper
+/ /page

@@ -1,0 +1,46 @@
+-@title = "jQuery Mobile Docs - Configuration"
+= render :partial => "/mobile/index.js.haml", :format => :js
+
+.type-index{"data-role" => "page"}
+  %div{"data-role" => "header", "data-theme" => "f"}
+    %h1 Pages
+    %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile"} Home
+  / /header
+  %div{"data-role" => "content"}
+    %h2 Global config tests
+    %p The following links will cause a full page refresh so that the global options configuration can take effect. Each link below will tweak a different option for quick testing.
+    %ul{"data-inset" => "true", "data-role" => "listview"}
+      %li
+        %a{"data-ajax" => "false", :href => "/mobile/docs/config/push_state"}
+          %h3 pushStateEnabled - False
+          %p Enhancement to use history.replaceState in supported browsers, to convert the hash-based Ajax URL into the full document path.
+      %li
+        %a{"data-ajax" => "false", :href => "/mobile/docs/config/touch_overflow"}
+          %h3 touchOverflowEnabled - True
+          %p Enable smoother page transitions and true fixed toolbars in devices that support both the overflow: and overflow-scrolling: touch; CSS properties.
+      %li
+        %a{"data-ajax" => "false", :href => "/mobile/docs/config/page_transition"}
+          %h3 defaultPageTransition - Fade
+          %p Set the default transition for page changes that use Ajax. Set to 'none' for no transitions by default.
+      %li
+        %a{"data-ajax" => "false", :href => "/mobile/docs/config/dialog_transition"}
+          %h3 defaultDialogTransition - Flip
+          %p Set the default transition for dialog changes that use Ajax. Set to 'none' for no transitions by default.
+      %li
+        %a{"data-ajax" => "false", :href => "/mobile/docs/config/min_scroll_back"}
+          %h3 minScrollBack - 999
+          %p Minimum scroll distance that will be remembered when returning to a page.
+      %li
+        %a{"data-ajax" => "false", :href => "/mobile/docs/config/loading_message"}
+          %h3 loadingMessage - false
+          %p Set the text that appears when a page is loading. If set to false, the message will not appear at all.
+      %li
+        %a{"data-ajax" => "false", :href => "/mobile/docs/config/page_load_error_message"}
+          %h3 pageLoadErrorMessage - "Yikes, we broke the internet!"
+          %p Set the text that appears when a page fails to load through Ajax.
+      %li
+        %a{"data-ajax" => "false", :href => "http://jquerymobile.com/test/docs/config/jq17b1.html"}
+          %h3 jQuery core version 1.7 Beta 1
+          %p Test the docs with the latest jQuery core version
+  / /ui-body wrapper
+/ /page

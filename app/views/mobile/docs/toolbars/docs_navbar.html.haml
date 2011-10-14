@@ -21,12 +21,13 @@
         to the anchor. In this example, we have a two-button navbar in the footer with the "One" item set to active:
       %pre
         %code
-          %strong &lt;div data-role=&quot;navbar&quot;&gt;
-          \&lt;ul&gt;
-          \&lt;li&gt;&lt;a href=&quot;a.html&quot; class=&quot;ui-btn-active&quot;&gt;One&lt;/a&gt;&lt;/li&gt;
-          \&lt;li&gt;&lt;a href=&quot;b.html&quot;&gt;Two&lt;/a&gt;&lt;/li&gt;
-          \&lt;/ul&gt;
-          %strong &lt;/div&gt;&lt;!-- /navbar --&gt;
+          :preserve
+            &lt;div data-role=&quot;navbar&quot;&gt;
+              &lt;ul&gt;
+                &lt;li&gt;&lt;a href=&quot;a.html&quot; class=&quot;ui-btn-active&quot;&gt;One&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=&quot;b.html&quot;&gt;Two&lt;/a&gt;&lt;/li&gt;
+              &lt;/ul&gt;
+            &lt;/div&gt;&lt;!-- /navbar --&gt;
       %p The navbar items are set to divide the space evenly so in this case, each button is 1/2 the width of the browser window:
       %div{"data-role" => "navbar"}
         %ul
@@ -123,7 +124,6 @@
       %pre
         %code
           :preserve
-
             &lt;div data-role=&quot;footer&quot;&gt;
               &lt;div data-role=&quot;navbar&quot;&gt;
                 &lt;ul&gt;
@@ -172,9 +172,8 @@
         attribute to navbar container.
       %pre
         %code
-          \&lt;div data-role=&quot;navbar&quot;
-          = succeed "&amp;gt;" do
-            %strong data-iconpos=&quot;bottom&quot;
+          :preserve
+            &lt;div data-role=&quot;navbar&quot; data-iconpos=&quot;bottom&quot;&gt;
       %p This will result in a bottom icon alignment:
       %div{"data-role" => "footer"}
         %div{"data-iconpos" => "bottom", "data-role" => "navbar"}

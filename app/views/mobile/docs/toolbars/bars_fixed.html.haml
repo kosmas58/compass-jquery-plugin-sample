@@ -7,107 +7,124 @@
     %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile"} Home
   %div{"data-role" => "content"}
     .content-primary
-      %h2 Fixed toolbars will re-appear after you scroll
-      %p This is a demo of the "fixed" headers and footers used in the jQuery Mobile framework. The page content flows naturally, allowing us to take advantage of native scrolling instead of a scripting a faux-scrolling workaround. The header and footer divs are right in the flow of the document, but whenever they are out of view, you can tap the screen to make them appear. Tapping again or scrolling the page will cause them to appear back in the flow of the page (at the top and bottom).
+      %h2 Fixed toolbars
+      %p This is a demo of the "fixed" headers and footers used in the jQuery Mobile framework. The page content flows naturally, allowing us to take advantage of native scrolling instead of a scripting a faux-scrolling workaround. The header and footer divs are right in the flow of the document, but whenever they are out of view the framework will dynamically re-position them into view if the browser supports this feature, otherwise they will simply stay inline.
       %p
-        To set this behavior on a header or footer, add the
+        To enable this behavior on a header or footer, add the
         %code data-position="fixed"
         attribute to the toolbar container.
       %pre
         %code
           :preserve
             &lt;div data-role=&quot;header&quot; data-position=&quot;fixed&quot;&gt;
-              &lt;h1&gt;Fixed toolbars&lt;/h1&gt;
-            &lt;/div&gt;
-      %h3 Some text to make the page very long
+              Header content goes here
+            &lt;/div&gt;&lt;!-- end header --&gt;
+      %h2 Tap to toggle visibility
+      %p To toggle the visibility of fixed toolbars, tap the screen. For example, if the fixed toolbars are visible, tap the screen to hide the toolbars and take full advantage of the screen real estate for content. Tapping again will bring the toolbars back into view.
       %p
-        Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.
-        %em Aenean ultricies mi vitae est.
-        Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed,
-        = succeed "," do
-          %code commodo vitae
-        ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui.Donec non enim in turpis pulvinar facilisis. Ut felis.
+        It's possible to turn off the the tap to toggle visibility behavior like this:
+        %code $.fixedToolbars.setTouchToggleEnabled(false)
+      %h2 Known limitations
+      %p jQuery Mobile uses dynamically re-positioned toolbars for the fixed header effect because very few mobile browsers support the position:fixed CSS property. Although our fixed toolbar feature works fairly well, there are a number of technical limitations that can cause the toolbars to appear to scroll with the page. Most of these rendering issues are due to the fact many mobile platforms (iOS, Android, etc.) essentially take a static screenshot of the page and display this image during scrolling instead of the actual rendered HTML. This improves scrolling performance, but when scrolling happens quickly, the toolbars will be "burned" into the page screenshot before our script can hide them so they appear to scroll with the page. We have optimized this as much as we possibly can, but there are going to be situations where fixed toolbars won't work perfectly due to browser limitations so this si important to note when considering whether to use this feature.
+      %h2 True fixed toolbars: touchOverflowEnabled
       %p
-        Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.
-        %em Aenean ultricies mi vitae est.
-        Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed,
-        = succeed "," do
-          %code commodo vitae
-        ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui.Donec non enim in turpis pulvinar facilisis. Ut felis.
-      %h3 And an inset list
-      %ul{"data-inset" => "true", "data-role" => "listview"}
-        %li
-          %a{:href => "/mobile/docs/toolbars"}
-            Inbox
-            %span.ui-li-count 12
-        %li
-          %a{:href => "/mobile/docs/toolbars"}
-            Outbox
-            %span.ui-li-count 0
-        %li
-          %a{:href => "/mobile/docs/toolbars"}
-            Drafts
-            %span.ui-li-count 4
-        %li
-          %a{:href => "/mobile/docs/toolbars"}
-            Sent
-            %span.ui-li-count 328
-        %li
-          %a{:href => "/mobile/docs/toolbars"}
-            Trash
-            %span.ui-li-count 62
-      %br/
-      %p
-        Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.
-        %em Aenean ultricies mi vitae est.
-        Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed,
-        = succeed "," do
-          %code commodo vitae
-        ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui.Donec non enim in turpis pulvinar facilisis. Ut felis.
-      %p
-        Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.
-        %em Aenean ultricies mi vitae est.
-        Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed,
-        = succeed "," do
-          %code commodo vitae
-        ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui.Donec non enim in turpis pulvinar facilisis. Ut felis.
-      %h3 Embedded form
-      %form{:action => "#", :method => "get"}
-        %div{"data-role" => "fieldcontain"}
-          %label{:for => "name"} Text Input:
-          %input#name{:name => "name", :type => "text", :value => ""}/
-        %div{"data-role" => "fieldcontain"}
-          %label{:for => "textarea"} Textarea:
-          %textarea#textarea{:cols => "40", :name => "textarea", :rows => "8"}
-        %div{"data-role" => "fieldcontain"}
-          %label{:for => "slider2"} Flip switch:
-          %select#slider2{"data-role" => "slider", :name => "slider2"}
-            %option{:value => "off"} Off
-            %option{:value => "on"} On
-        %div{"data-role" => "fieldcontain"}
-          %label{:for => "slider"} Slider:
-          %input#slider{:max => "100", :min => "0", :name => "slider", :type => "range", :value => "0"}/
-        %div{"data-role" => "fieldcontain"}
-          %label.select{:for => "select-choice-1"} Choose shipping method:
-          %select#select-choice-1{:name => "select-choice-1"}
-            %option{:value => "standard"} Standard: 7 day
-            %option{:value => "rush"} Rush: 3 days
-            %option{:value => "express"} Express: next day
-            %option{:value => "overnight"} Overnight
-        .ui-body.ui-body-b
-          %fieldset.ui-grid-a
-            .ui-block-a
-              %button{"data-theme" => "d", :type => "submit"} Cancel
-            .ui-block-b
-              %button{"data-theme" => "b", :type => "submit"} Submit
-      %h3 A bit more text
-      %p
-        Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.
-        %em Aenean ultricies mi vitae est.
-        Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed,
-        = succeed "," do
-          %code commodo vitae
-        ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui.Donec non enim in turpis pulvinar facilisis. Ut felis.
+        In order to achieve true fixed toolbars, a browser needs to either support position:fixed or overflow:auto. Fortunately, this support is coming to mobile platforms so we can achieve, this with web standards. In jQuery Mobile, we have added a global feature called
+        %code touchOverflowEnabled
+        that leverages the overflow:auto CSS property on supported platforms like iOS5. When enabled, the framework wraps each page in a container with it's own internal scrolling. This allows up to position the toolbars outside the scrolling body so they truly stay fixed in place at all times. Learn more about this feature on the
+        %a{:href => "/mobile/docs/api/globalconfig"} global options
+        page or
+        %a{:href => "/mobile/docs/config/touch_overflow"} demo
+        this feature (currently iOS5 only, other browsers will fall back to dynamically re-positioned fixed toolbars).
+      %hr
+        %h2 The rest of the page is just sample content to make the page very long
+        %p
+          Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.
+          %em Aenean ultricies mi vitae est.
+          Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed,
+          = succeed "," do
+            %code commodo vitae
+          ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui.Donec non enim in turpis pulvinar facilisis. Ut felis.
+        %p
+          Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.
+          %em Aenean ultricies mi vitae est.
+          Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed,
+          = succeed "," do
+            %code commodo vitae
+          ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui.Donec non enim in turpis pulvinar facilisis. Ut felis.
+        %h3 And an inset list
+        %ul{"data-inset" => "true", "data-role" => "listview"}
+          %li
+            %a{:href => "/mobile/docs/toolbars"}
+              Inbox
+              %span.ui-li-count 12
+          %li
+            %a{:href => "/mobile/docs/toolbars"}
+              Outbox
+              %span.ui-li-count 0
+          %li
+            %a{:href => "/mobile/docs/toolbars"}
+              Drafts
+              %span.ui-li-count 4
+          %li
+            %a{:href => "/mobile/docs/toolbars"}
+              Sent
+              %span.ui-li-count 328
+          %li
+            %a{:href => "/mobile/docs/toolbars"}
+              Trash
+              %span.ui-li-count 62
+        %br/
+        %p
+          Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.
+          %em Aenean ultricies mi vitae est.
+          Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed,
+          = succeed "," do
+            %code commodo vitae
+          ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui.Donec non enim in turpis pulvinar facilisis. Ut felis.
+        %p
+          Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.
+          %em Aenean ultricies mi vitae est.
+          Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed,
+          = succeed "," do
+            %code commodo vitae
+          ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui.Donec non enim in turpis pulvinar facilisis. Ut felis.
+        %h3 Embedded form
+        %form{:action => "#", :method => "get"}
+          %div{"data-role" => "fieldcontain"}
+            %label{:for => "name"} Text Input:
+            %input#name{:name => "name", :type => "text", :value => ""}/
+          %div{"data-role" => "fieldcontain"}
+            %label{:for => "textarea"} Textarea:
+            %textarea#textarea{:cols => "40", :name => "textarea", :rows => "8"}
+          %div{"data-role" => "fieldcontain"}
+            %label{:for => "slider2"} Flip switch:
+            %select#slider2{"data-role" => "slider", :name => "slider2"}
+              %option{:value => "off"} Off
+              %option{:value => "on"} On
+          %div{"data-role" => "fieldcontain"}
+            %label{:for => "slider"} Slider:
+            %input#slider{:max => "100", :min => "0", :name => "slider", :type => "range", :value => "0"}/
+          %div{"data-role" => "fieldcontain"}
+            %label.select{:for => "select-choice-1"} Choose shipping method:
+            %select#select-choice-1{:name => "select-choice-1"}
+              %option{:value => "standard"} Standard: 7 day
+              %option{:value => "rush"} Rush: 3 days
+              %option{:value => "express"} Express: next day
+              %option{:value => "overnight"} Overnight
+          .ui-body.ui-body-b
+            %fieldset.ui-grid-a
+              .ui-block-a
+                %button{"data-theme" => "d", :type => "submit"} Cancel
+              .ui-block-b
+                %button{"data-theme" => "b", :type => "submit"} Submit
+        %h3 A bit more text
+        %p
+          Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.
+          %em Aenean ultricies mi vitae est.
+          Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed,
+          = succeed "," do
+            %code commodo vitae
+          ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui.Donec non enim in turpis pulvinar facilisis. Ut felis.
     / /content-primary
     .content-secondary
       .ui-body-b
