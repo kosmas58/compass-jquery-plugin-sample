@@ -7,7 +7,6 @@
     %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile"} Home
   / /header
   %div{"data-role" => "content"}
-
     .content-primary
       %p jQuery Mobile exposes several methods and properties on the $.mobile object for use in your applications.
       %dl
@@ -107,12 +106,11 @@
               :preserve
                 //transition to the "about us" page with a slideup transition
                 $.mobile.changePage( "about/us.html", { transition: "slideup"} );
-                %strong //transition to the "search results" page, using data from a form with an ID of "search""
+                //transition to the "search results" page, using data from a form with an ID of "search""
                 $.mobile.changePage( "searchresults.php", {
                   type: "post",
                   data: $("form#search").serialize()
                 });
-
                 //transition to the "confirm" page with a "pop" transition without tracking it in history
                 $.mobile.changePage( "../alerts/confirm.html", {
                   transition: "pop",
@@ -179,7 +177,6 @@
               :preserve
                 //load the "about us" page into the DOM
                 $.mobile.loadPage( "about/us.html" );
-
                 //load a "search results" page, using data from a form with an ID of "search""
                 $.mobile.loadPage( "searchresults.php", {
                   type: "post",
@@ -259,6 +256,56 @@
               :preserve
                 //cue the page loader
                 $.mobile.hidePageLoadingMsg();
+        %dt
+          %code $.mobile.fixedToolbars.show
+          (
+          %em> method
+          )
+        %dd Utility method for displaying the fixed header and/or footer of the current active page within the viewport. Note that fixed headers/footers are never really hidden. Toggling the show/hide state of a toolbar is really toggling whether or not they are inline within the page content, or displayed within the viewport as if they were fixed.
+        %dd
+          %dl
+            %dt
+              %code ·
+              Arguments
+            %dd
+              %code immediately
+              (
+              %em> boolean
+              , optional) If true, any fixed header or footer for the current active page is displayed immediately within the viewport. If false or unspecified, the fixed header/footer will fade-in after a 100 millisecond delay. Note that other events such as a document resize or scroll event can result in an additional delay before the start of the header/footer display animation.
+        %dd
+          Example:
+          %pre
+            %code
+              :preserve
+                // Show fixed header/footer with a fade animation.
+                $.mobile.fixedToolbars.show();
+                // Show fixed header/footer immediately.
+                $.mobile.fixedToolbars.show(true);
+        %dt
+          %code $.mobile.fixedToolbars.hide
+          (
+          %em> method
+          )
+        %dd Utility method for hiding the fixed header and/or footer of the current active page.
+        %dd
+          %dl
+            %dt
+              %code ·
+              Arguments
+            %dd
+              %code immediately
+              (
+              %em> boolean
+              , optional) If true, any fixed header or footer for the current active page is immediately placed inline (back in flow) with the page content, which means it will scroll along with the content and will only be visible when viewing the top or bottom of the page within the viewport. If false or unspecified, the fixed header/footer will fade-out after a 100 millisecond delay. Note that other events such as a document resize or scroll event can result in the header/footer being immediately hidden.
+        %dd
+          Example:
+          %pre
+            %code
+              :preserve
+                // Hide fixed header/footer with a fade animation.
+                $.mobile.fixedToolbars.hide();
+                // Hide fixed header/footer immediately.
+                $.mobile.fixedToolbars.hide(true);
         %dt
           %code $.mobile.path.parseUrl
           (
@@ -355,7 +402,6 @@
                 //  obj.filename:     inbox
                 //  obj.search:       ?msg=1234&amp;type=unread
                 //  obj.hash:         #msg-content
-
                 var obj = $.mobile.path.parseUrl("http://jblas:password@mycompany.com:8080/mail/inbox?msg=1234");
         %dt
           %code $.mobile.path.makePathAbsolute
@@ -389,7 +435,6 @@
               :preserve
                 // Returns: /a/b/c/file.html
                 var absPath = $.mobile.path.makePathAbsolute("file.html", "/a/b/c/bar.html");
-
                 // Returns: /a/foo/file.html
                 var absPath = $.mobile.path.makePathAbsolute("../../foo/file.html", "/a/b/c/bar.html");
         %dt
@@ -420,16 +465,12 @@
               :preserve
                 // Returns: http://foo.com/a/b/c/file.html
                 var absUrl = $.mobile.path.makeUrlAbsolute("file.html", "http://foo.com/a/b/c/test.html");
-
                 // Returns: http://foo.com/a/foo/file.html
                 var absUrl = $.mobile.path.makeUrlAbsolute("../../foo/file.html", "http://foo.com/a/b/c/test.html");
-
                 // Returns: http://foo.com/bar/file.html
                 var absUrl = $.mobile.path.makeUrlAbsolute("//foo.com/bar/file.html", "http://foo.com/a/b/c/test.html");
-
                 // Returns: http://foo.com/a/b/c/test.html?a=1&amp;b=2
                 var absUrl = $.mobile.path.makeUrlAbsolute("?a=1&amp;b=2", "http://foo.com/a/b/c/test.html");
-
                 // Returns: http://foo.com/a/b/c/test.html#bar
                 var absUrl = $.mobile.path.makeUrlAbsolute("#bar", "http://foo.com/a/b/c/test.html");
         %dt
@@ -462,13 +503,10 @@
               :preserve
                 // Returns: true
                 var same = $.mobile.path.isSameDomain("http://foo.com/a/file.html", "http://foo.com/a/b/c/test.html");
-
                 // Returns: false
                 var same = $.mobile.path.isSameDomain("file://foo.com/a/file.html", "http://foo.com/a/b/c/test.html");
-
                 // Returns: false
                 var same = $.mobile.path.isSameDomain("https://foo.com/a/file.html", "http://foo.com/a/b/c/test.html");
-
                 // Returns: false
                 var same = $.mobile.path.isSameDomain("http://foo.com/a/file.html", "http://bar.com/a/b/c/test.html");
         %dt
@@ -498,19 +536,14 @@
               :preserve
                 // Returns: false
                 var isRel = $.mobile.path.isRelativeUrl("http://foo.com/a/file.html");
-
                 // Returns: true
                 var isRel = $.mobile.path.isRelativeUrl("//foo.com/a/file.html");
-
                 // Returns: true
                 var isRel = $.mobile.path.isRelativeUrl("/a/file.html");
-
                 // Returns: true
                 var isRel = $.mobile.path.isRelativeUrl("file.html");
-
                 // Returns: true
                 var isRel = $.mobile.path.isRelativeUrl("?a=1&amp;b=2");
-
                 // Returns: true
                 var isRel = $.mobile.path.isRelativeUrl("#foo");
         %dt
@@ -540,19 +573,14 @@
               :preserve
                 // Returns: true
                 var isAbs = $.mobile.path.isAbsoluteUrl("http://foo.com/a/file.html");
-
                 // Returns: false
                 var isAbs = $.mobile.path.isAbsoluteUrl("//foo.com/a/file.html");
-
                 // Returns: false
                 var isAbs = $.mobile.path.isAbsoluteUrl("/a/file.html");
-
                 // Returns: false
                 var isAbs = $.mobile.path.isAbsoluteUrl("file.html");
-
                 // Returns: false
                 var isAbs = $.mobile.path.isAbsoluteUrl("?a=1&amp;b=2");
-
                 // Returns: false
                 var isAbs = $.mobile.path.isAbsoluteUrl("#foo");
         %dt
@@ -590,7 +618,7 @@
           %em> property
           )
         %dd Reference to the page currently in view.
-    / /content-secondary
+    / /content-primary
     .content-secondary
       .ui-body-b
         %div{"data-collapsed" => "true", "data-content-theme" => "d", "data-role" => "collapsible", "data-theme" => "b"}

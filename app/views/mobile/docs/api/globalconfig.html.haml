@@ -8,6 +8,7 @@
   / /header
   %div{"data-role" => "content", "data-theme" => "c"}
     .content-primary
+    .content-primary
       %h2 Working with jQuery Mobile's Auto-initialization
       %p Unlike other jQuery projects, such as jQuery and jQuery UI, jQuery Mobile automatically applies many markup enhancements as soon as it loads (long before document.ready event fires). These enhancements are applied based on jQuery Mobile's default configuration, which is designed to work with common scenarios, but may or may not match your particular needs. Fortunately, these settings are easy to configure.
       %h3 The mobileinit event
@@ -76,9 +77,13 @@
           %p
             %strong NOTE:
             if you're using data- namespacing, you'll need to manually update/override one selector in the theme CSS. The following data selectors should incorporate the namespace you're using:
-          %pre
-            %code
-              .ui-mobile [data-mynamespace-role=page], .ui-mobile [data-mynamespace-role=dialog], .ui-page { ...
+            %pre
+              %code
+                \.ui-mobile [data-
+                %strong> mynamespace-
+                role=page], .ui-mobile [data-
+                %strong> mynamespace-
+                role=dialog], .ui-page { ...
         %dt
           %code autoInitializePage
           = succeed "," do
@@ -122,6 +127,15 @@
             %em boolean
           default: true
         %dd jQuery Mobile will automatically handle link clicks and form submissions through Ajax, when possible. If false, url hash listening will be disabled as well, and urls will load as regular http requests.
+        %dt
+          %code linkBindingEnabled
+          = succeed "," do
+            %em boolean
+          default: true
+        %dd
+          jQuery Mobile will automatically bind the clicks on anchor tags in your document. Setting this options to false will prevent all anchor click handling
+          %em including
+          the addition of active button state and alternate link bluring. This should only be used when attempting to delegate the click management to another library or custom code.
         %dt
           %code hashListeningEnabled
           = succeed "," do
@@ -186,7 +200,7 @@
             %em function that returns a boolean
           default: a function returning the value of $.support.mediaquery
         %dd Any support conditions that must be met in order to proceed.
-    / /content-secondary
+    / /content-primary
     .content-secondary
       .ui-body-b
         %div{"data-collapsed" => "true", "data-content-theme" => "d", "data-role" => "collapsible", "data-theme" => "b"}

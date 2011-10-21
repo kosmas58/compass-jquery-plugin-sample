@@ -1,0 +1,24 @@
+-@title = "jQuery Mobile Docs - Configuration"
+= render :partial => "/mobile/index.js.haml", :format => :js
+
+- content_for :head_stylesheets do
+  %link{:href => "/images/demo/mobile/ios_icon.png", :rel => "apple-touch-icon"}/
+  %link{:href => "/images/demo/mobile/ios_startup.png", :rel => "apple-touch-startup-image"}/
+
+- content_for :head_scripts_before_mobile do
+  :javascript
+    $(document).bind("mobileinit", function() {
+      if (!!window.navigator.standalone) {
+        $.mobile.page.prototype.options.addBackBtn = true;
+      }
+    });
+
+.type-index{"data-role" => "page"}
+  %div{"data-role" => "header", "data-theme" => "f"}
+    %h1 jQuery Mobile
+    %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile"} Home
+  %div{"data-role" => "content"}
+    %h2 Fullscreen docs in iOS
+    %p First, hit Add to Home Screen to create a new shortcut icon on the home screen.  Next, open the new shortcut and hit the button below to browse the docs as a fullscreen web app.
+    %a{"data-icon" => "arrow-r", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile"} Browse docs
+/ /page

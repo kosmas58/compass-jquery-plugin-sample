@@ -23,7 +23,25 @@
       %p To toggle the visibility of fixed toolbars, tap the screen. For example, if the fixed toolbars are visible, tap the screen to hide the toolbars and take full advantage of the screen real estate for content. Tapping again will bring the toolbars back into view.
       %p
         It's possible to turn off the the tap to toggle visibility behavior like this:
-        %code $.fixedToolbars.setTouchToggleEnabled(false)
+        = succeed "." do
+          %code $.fixedToolbars.setTouchToggleEnabled(false)
+      %h2 Updating toolbar positioning
+      %p
+        If the height of the page changes, either through dynamic injection of markup, or by widgets that hide or collapse content, it can throw off the dynamic positioning of the toolbars. To manually tell the toolbars to re-position themselves then fade in, use
+        = succeed "." do
+          %code $.mobile.fixedToolbars.show();
+        To have them appear immediately without the fade, use
+        = succeed "." do
+          %code $.mobile.fixedToolbars.show(true);
+      %p
+        There is also a
+        %code updatelayout
+        event that can be used to trigger the toolbars to re-position. Developers who are building dynamic applications that inject content into the current page can also manually trigger this
+        %code
+          %a{:href => "/mobile/docs/api/events"} updatelayout
+        event to ensure components on the page update in response to the new content that was just added. This event is used internally in the collapsible and listview filter plugins and is powerful because it's not toolbar-specific -- any widget can be built to listen for the
+        %code updatelayout
+        event to update the widget in response.
       %h2 Known limitations
       %p jQuery Mobile uses dynamically re-positioned toolbars for the fixed header effect because very few mobile browsers support the position:fixed CSS property. Although our fixed toolbar feature works fairly well, there are a number of technical limitations that can cause the toolbars to appear to scroll with the page. Most of these rendering issues are due to the fact many mobile platforms (iOS, Android, etc.) essentially take a static screenshot of the page and display this image during scrolling instead of the actual rendered HTML. This improves scrolling performance, but when scrolling happens quickly, the toolbars will be "burned" into the page screenshot before our script can hide them so they appear to scroll with the page. We have optimized this as much as we possibly can, but there are going to be situations where fixed toolbars won't work perfectly due to browser limitations so this si important to note when considering whether to use this feature.
       %h2 True fixed toolbars: touchOverflowEnabled
