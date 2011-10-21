@@ -32,26 +32,36 @@
           %code label
           to match the ID of the
           %code input
-          so they are semantically associated and wrap them in a
-          %code div
-          with the
+          so they are semantically associated. It's possible to
+          %a{:href => "/mobile/docs/forms/docs_forms"} accessibly hide the label
+          if it's not desired in the page layout, but we require that it is present in the markup for semantic and accessibility reasons.
+        %pre
+          %code
+            :preserve
+              &lt;label for=&quot;search-basic&quot;&gt;Search Input:&lt;/label&gt;
+              &lt;input type=&quot;search&quot; name=&quot;search&quot; id=&quot;searc-basic&quot; value=&quot;&quot;/&gt;
+        %p This will produce a basic search input. The default styles set the width of the input to 100% of the parent container and stacks the label on a separate line.
+        %label{:for => "search-basic"} Search Input:
+        %input#search-basic{:name => "search", :type => "search", :value => ""}
+        %p
+          Optionally wrap the search input in a container with the
           %code data-role="fieldcontain"
-          attribute to group them.
+          attribute to help visually group it in a longer form.
         %pre
           %code
             :preserve
               &lt;div data-role=&quot;fieldcontain&quot;&gt;
                 &lt;label for=&quot;search&quot;&gt;Search Input:&lt;/label&gt;
-                &lt;input type=&quot;search&quot; name=&quot;password&quot; id=&quot;search&quot; value=&quot;&quot; /&gt;
+                &lt;input type=&quot;search&quot; name=&quot;password&quot; id=&quot;search&quot; value=&quot;&quot;/&gt;
               &lt;/div&gt;
-        %p The search input is displayed like this:
+        %p The search input is now displayed like this:
         %div{"data-role" => "fieldcontain"}
           %label{:for => "search"} Search Input:
-          %input#search{:name => "password", :type => "search", :value => ""}
+          %input#search{:name => "search2", :type => "search", :value => ""}/
         %p Themed variation:
         %div{"data-role" => "fieldcontain"}
           %label{:for => "searchA"} Search Input:
-          %input#searchA{"data-theme" => "a", :name => "searchA", :type => "search", :value => ""}
+          %input#searchA{"data-theme" => "a", :name => "search3", :type => "search", :value => ""}/
         %h2 Calling the textinput plugin
         %p
           This plugin will auto initialize on any page that contains a text input with the

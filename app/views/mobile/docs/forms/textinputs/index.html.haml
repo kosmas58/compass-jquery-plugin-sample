@@ -20,22 +20,33 @@
           %li
             %a{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/forms/textinputs/events"} Events
         %p Text inputs and textareas are coded with standard HTML elements, then enhanced by jQuery Mobile to make them more attractive and useable on a mobile device.
+        %h2 Text inputs
         %p
-          To collect standard alphanmeric text, use an
+          To collect standard alphanumeric text, use an
           %code input
           with a
           %code type="text"
-          attribute. It's important to  set the
+          attribute. Set the
           %code for
           attribute of the
           %code label
           to match the ID of the
           %code input
-          so they are semantically associated and wrap them in a
-          %code div
-          with the
+          so they are semantically associated. It's possible to
+          %a{:href => "../docs-forms.html"} accessibly hide the label
+          if it's not desired in the page layout, but we require that it is present in the markup for semantic and accessibility reasons.
+        %pre
+          %code
+            :preserve
+              &lt;label for=&quot;basic&quot;&gt;Text Input:&lt;/label&gt;
+              &lt;input type=&quot;text&quot; name=&quot;name&quot; id=&quot;basic&quot; value=&quot;&quot;/&gt;
+        %p This will produce a basic text input. The default styles set the width of the input to 100% of the parent container and stacks the label on a separate line.
+        %label{:for => "basic"} Text Input:
+        %input#basic{:name => "name", :type => "text", :value => ""}/
+        %p
+          Optionally wrap the text input in a container with the
           %code data-role="fieldcontain"
-          attribute to group them.
+          attribute to help visually group it in a longer form.
         %pre
           %code
             :preserve
@@ -43,11 +54,11 @@
                 &lt;label for=&quot;name&quot;&gt;Text Input:&lt;/label&gt;
                 &lt;input type=&quot;text&quot; name=&quot;name&quot; id=&quot;name&quot; value=&quot;&quot;  /&gt;
               &lt;/div&gt;
-        %p The text input is displayed like this:
+        %p The text input is now displayed like this:
         %div{"data-role" => "fieldcontain"}
           %label{:for => "name"} Text Input:
           %input#name{:name => "name", :type => "text", :value => ""}/
-        %h3 Standard text input types
+        %h3 More text input types
         %p
           In jQuery Mobile, you can use existing and new HTML5 input types such as
           = succeed "," do
@@ -72,6 +83,7 @@
           with the
           %code page
           plugin's options.
+        %p One major advantage of using these more specific input types if that on mobile devices, specialized keyboards that speed data entry are offered in place of the standard text keyboard. Try the followin inputs on a mobile device to see which display custom keyboards on various platforms.
         %div{"data-role" => "fieldcontain"}
           %label{:for => "password"} Password:
           %input#password{:name => "password", :type => "password", :value => ""}/
@@ -87,18 +99,27 @@
         %div{"data-role" => "fieldcontain"}
           %label{:for => "tel"} Tel:
           %input#tel{:name => "tel", :type => "tel", :value => ""}/
-        %h3 Degraded input types
-        %p jQuery Mobile degrades several HTML5 input types back to type=text, or type=number after adding enhanced controls. For example, inputs with a type of range are enhanced with a custom slider control, and their type is set to number to offer a usable form input alongside that slider. Inputs with a type of search are degraded back to type=text after we add our own themable search input styling.
-        %p The page plugin contains a list of input types that are set to either true which means they'll degrade to type=text, false which means they'll be left alone, or a string such as "number", which means they'll be converted to that type (such as the case of type=range).
-        %p
-          You can configure which types are changed via the page plugin's
-          %code degradeInputs
-          option, which can be manipulated externally via
-          = succeed "," do
-            %code $.mobile.page.prototype.options.degradeInputs
-          which has properties: color, date, datetime, "datetime-local", email, month, number, range, search, tel, time, url, and week. Be sure to configure this inside an event handler bound to the
-          %code mobileinit
-          event, so that it applies to the first page as well as subsequent pages that are loaded.
+        %div{"data-role" => "fieldcontain"}
+          %label{:for => "time"} Time:
+          %input#time{:name => "time", :type => "time", :value => ""}/
+        %div{"data-role" => "fieldcontain"}
+          %label{:for => "date"} Date:
+          %input#date{:name => "date", :type => "date", :value => ""}/
+        %div{"data-role" => "fieldcontain"}
+          %label{:for => "month"} Month:
+          %input#month{:name => "month", :type => "month", :value => ""}/
+        %div{"data-role" => "fieldcontain"}
+          %label{:for => "week"} Week:
+          %input#week{:name => "week", :type => "week", :value => ""}/
+        %div{"data-role" => "fieldcontain"}
+          %label{:for => "datetime"} Datetime:
+          %input#datetime{:name => "datetime", :type => "datetime", :value => ""}/
+        %div{"data-role" => "fieldcontain"}
+          %label{:for => "datetime-l"} Datetime local:
+          %input#datetime-l{:name => "datetime-l", :type => "datetime-local", :value => ""}/
+        %div{"data-role" => "fieldcontain"}
+          %label{:for => "color"} Color:
+          %input#color{:name => "color", :type => "color", :value => ""}/
         %h2 Textareas
         %p
           For multi-line text inputs, use a
@@ -119,17 +140,29 @@
         %pre
           %code
             :preserve
+              &lt;label for=&quot;textarea-a&quot;&gt;Textarea:&lt;/label&gt;
+              &lt;textarea name=&quot;textarea&quot; id=&quot;textarea-a&quot;&gt;
+              I&#x27;m a basic textarea. If this is pre-populated with content, the height will be automatically adjusted to fit without needing to scroll. That is a pretty handy usability feature.
+              &lt;/textarea&gt;
+        %p This will produce a basic textarea with the width set to 100% of the parent container and the label stacked on a separate line.The textarea will grow to fit new lines as you type:
+        %label{:for => "textarea-a"} Textarea:
+        %textarea#textarea-a{:name => "textarea"}
+          :preserve
+            I'm a basic textarea. If this is pre-populated with content, the height will be automatically adjusted to fit without needing to scroll. That is a pretty handy usability feature.
+        %pre
+          %code
+            :preserve
               &lt;div data-role=&quot;fieldcontain&quot;&gt;
                 &lt;label for=&quot;textarea&quot;&gt;Textarea:&lt;/label&gt;
-                &lt;textarea cols=&quot;40&quot; rows=&quot;8&quot; name=&quot;textarea&quot; id=&quot;textarea&quot;&gt;&lt;/textarea&gt;
+                &lt;textarea name=&quot;textarea&quot; id=&quot;textarea&quot;&gt;&lt;/textarea&gt;
               &lt;/div&gt;
         %p The textarea is displayed like this and will grow to fit new lines as you type:
         %div{"data-role" => "fieldcontain"}
           %label{:for => "textarea"} Textarea:
-          %textarea#textarea{:cols => "40", :name => "textarea", :rows => "8"}
+          %textarea#textarea{:name => "textarea"}
         %h2 Calling the textinput plugin
         %p
-          This plugin will auto initialize on any page that contains a text input, no need for a
+          This plugin will auto initialize on any page that contains a textarea or any of the text input types listed above, no need for a
           %code data-role
           attribute in the markup. However, if needed you can directly call the
           %code textinput
@@ -138,6 +171,18 @@
           %code
             :preserve
               $('input').textinput();
+        %h2 Degraded input types
+        %p jQuery Mobile degrades several HTML5 input types back to type=text, or type=number after adding enhanced controls. For example, inputs with a type of range are enhanced with a custom slider control, and their type is set to number to offer a usable form input alongside that slider. Inputs with a type of search are degraded back to type=text after we add our own themable search input styling.
+        %p The page plugin contains a list of input types that are set to either true which means they'll degrade to type=text, false which means they'll be left alone, or a string such as "number", which means they'll be converted to that type (such as the case of type=range).
+        %p
+          You can configure which types are changed via the page plugin's
+          %code degradeInputs
+          option, which can be manipulated externally via
+          = succeed "," do
+            %code $.mobile.page.prototype.options.degradeInputs
+          which has properties: color, date, datetime, "datetime-local", email, month, number, range, search, tel, time, url, and week. Be sure to configure this inside an event handler bound to the
+          %code mobileinit
+          event, so that it applies to the first page as well as subsequent pages that are loaded.
     / /content-primary
     .content-secondary
       .ui-body-b

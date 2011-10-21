@@ -35,28 +35,53 @@
           %code label
           to match the ID of the
           %code select
-          so they are semantically associated. Wrap them in a
-          %code div
-          with the
-          %code data-role="fieldcontain"
-          attribute to help visually group it in a longer form.
+          so they are semantically associated. It's possible to
+          %a{:href => "/mobile/docs/forms/docs_forms"} accessibly hide the label
+          if it's not desired in the page layout, but we require that it is present in the markup for semantic and accessibility reasons.
         %p
           The framework will find all
           %code select
-          elements and automatically enhance them into select menus. The markup for a select grouped in a field container:
+          elements and automatically enhance them into select menus, no need to apply a
+          %code data-role
+          attribute. To prevent the automatic enhancement of a select, add
+          %code data-role="none"
+          attribute to the
+          = succeed "." do
+            %code select
+        %pre
+          %code
+            :preserve
+              &lt;label for=&quot;select-choice-0&quot; class=&quot;select&quot;&gt;Shipping method:&lt;/label&gt;
+              &lt;select name=&quot;select-choice-0&quot; id=&quot;select-choice-1&quot;&gt;
+                &lt;option value=&quot;standard&quot;&gt;Standard: 7 day&lt;/option&gt;
+                &lt;option value=&quot;rush&quot;&gt;Rush: 3 days&lt;/option&gt;
+                &lt;option value=&quot;express&quot;&gt;Express: next day&lt;/option&gt;
+                &lt;option value=&quot;overnight&quot;&gt;Overnight&lt;/option&gt;
+              &lt;/select&gt;
+        %p This will produce a basic select menu. The default styles set the width of the input to 100% of the parent container and stacks the label on a separate line.
+        %label.select{:for => "select-choice-0"} Shipping method:
+        %select#select-choice-1{:name => "select-choice-0"}
+          %option{:value => "standard"} Standard: 7 day
+          %option{:value => "rush"} Rush: 3 days
+          %option{:value => "express"} Express: next day
+          %option{:value => "overnight"} Overnight
+        %p
+          Optionally wrap the selects in a container with the
+          %code data-role="fieldcontain"
+          attribute to help visually group it in a longer form.
         %pre
           %code
             :preserve
               &lt;div data-role=&quot;fieldcontain&quot;&gt;
-                 &lt;label for=&quot;select-choice-1&quot; class=&quot;select&quot;&gt;Shipping method:&lt;/label&gt;
-                 &lt;select name=&quot;select-choice-1&quot; id=&quot;select-choice-1&quot;&gt;
-                    &lt;option value=&quot;standard&quot;&gt;Standard: 7 day&lt;/option&gt;
-                    &lt;option value=&quot;rush&quot;&gt;Rush: 3 days&lt;/option&gt;
-                    &lt;option value=&quot;express&quot;&gt;Express: next day&lt;/option&gt;
-                    &lt;option value=&quot;overnight&quot;&gt;Overnight&lt;/option&gt;
-                 &lt;/select&gt;
+                &lt;label for=&quot;select-choice-1&quot; class=&quot;select&quot;&gt;Shipping method:&lt;/label&gt;
+                &lt;select name=&quot;select-choice-1&quot; id=&quot;select-choice-1&quot;&gt;
+                  &lt;option value=&quot;standard&quot;&gt;Standard: 7 day&lt;/option&gt;
+                  &lt;option value=&quot;rush&quot;&gt;Rush: 3 days&lt;/option&gt;
+                  &lt;option value=&quot;express&quot;&gt;Express: next day&lt;/option&gt;
+                  &lt;option value=&quot;overnight&quot;&gt;Overnight&lt;/option&gt;
+                &lt;/select&gt;
               &lt;/div&gt;
-        %p produces this select menu:
+        %p The select input is now displayed like this:
         %div{"data-role" => "fieldcontain"}
           %label.select{:for => "select-choice-1"} Shipping method:
           %select#select-choice-1{:name => "select-choice-1"}
@@ -66,8 +91,8 @@
             %option{:value => "overnight"} Overnight
         %p An example of a select with a long list of options:
         %div{"data-role" => "fieldcontain"}
-          %label.select{:for => "select-choice-3"} Your state:
-          %select#select-choice-3{:name => "select-choice-3"}
+          %label.select{:for => "select-choice-2"} Your state:
+          %select#select-choice-2{:name => "select-choice-2"}
             %option{:value => "AL"} Alabama
             %option{:value => "AK"} Alaska
             %option{:value => "AZ"} Arizona
@@ -142,6 +167,156 @@
           </optgroup>
           </select>
           </div>
+        %h2 Vertically grouped select inputs
+        %p
+          To create a grouped set of select inputs, first add
+          %code select
+          and a corresponding
+          = succeed "." do
+            %code label
+          Set the
+          %code for
+          attribute of the
+          %code label
+          to match the ID of the
+          %code select
+          so they are semantically associated.
+        %p
+          Because the
+          %code label
+          element will be associated with each individual select input, we recommend wrapping the selects in a
+          %code fieldset
+          element that has a
+          %code legend
+          which acts as the combined label for the grouped inputs.
+        %p
+          Lastly, one needs to wrap the
+          %code fieldset
+          in a
+          %code div
+          with
+          %code data-role="controlgroup"
+          attribute, so it can be styled as a group.
+        %pre
+          %code
+            :preserve
+              &lt;div data-role=&quot;fieldcontain&quot;&gt;
+                &lt;fieldset data-role=&quot;controlgroup&quot;&gt;
+                  &lt;legend&gt;Date of Birth:&lt;/legend&gt;
+
+                  &lt;label for="select-choice-month">Month&lt;/label&gt;
+                  &lt;select name="select-choice-month" id="select-choice-month"&gt;
+                    &lt;option&gt;Month&lt;/option&gt;
+                    &lt;option value="jan"&gt;January&lt;/option&gt;
+                    &lt;!-- etc. --&gt;
+                  &lt;/select&gt;
+
+                  &lt;label for="select-choice-day">Day&lt;/label&gt;
+                  &lt;select name="select-choice-day" id="select-choice-day"&gt;
+                    &lt;option&gt;Day&lt;/option&gt;
+                    &lt;option value="1"&gt;1&lt;/option&gt;
+                    &lt;!-- etc. --&gt;
+                  &lt;/select&gt;
+
+                  &lt;label for="select-choice-year">Year&lt;/label&gt;
+                  &lt;select name="select-choice-year" id="select-choice-year"&gt;
+                    &lt;option&gt;Year&lt;/option&gt;
+                    &lt;option value="2011"&gt;2011&lt;/option&gt;
+                    &lt;!-- etc. --&gt;
+                  &lt;/select&gt;
+                &lt;/fieldset&gt;
+              &lt;/div&gt;
+        %div{"data-role" => "fieldcontain"}
+          %fieldset{"data-role" => "controlgroup"}
+            %legend Date of Birth:
+            %label{:for => "select-choice-month"} Month
+            %select#select-choice-month{:name => "select-choice-month"}
+              %option Month
+              %option{:value => "jan"} January
+              %option{:value => "dec"} December
+              %option{:value => "feb"} February
+              %option{:value => "mar"} March
+              %option{:value => "apr"} April
+              %option{:value => "may"} May
+              %option{:value => "jun"} June
+              %option{:value => "jul"} July
+              %option{:value => "aug"} August
+              %option{:value => "sep"} September
+              %option{:value => "oct"} October
+              %option{:value => "nov"} November
+              %option{:value => "dec"} December
+            %label{:for => "select-choice-day"} Day
+            %select#select-choice-day{:name => "select-choice-day"}
+              %option Day
+              %option{:value => "1"} 1
+              %option{:value => "2"} 2
+              %option{:value => "3"} 3
+              %option{:value => "4"} 4
+              %option{:value => "5"} 5
+              %option{:value => "6"} 6
+              %option{:value => "7"} 7
+            %label{:for => "select-choice-year"} Year
+            %select#select-choice-year{:name => "select-choice-year"}
+              %option Year
+              %option{:value => "2011"} 2011
+              %option{:value => "2010"} 2010
+              %option{:value => "2009"} 2009
+              %option{:value => "2008"} 2008
+              %option{:value => "2007"} 2007
+              %option{:value => "2006"} 2006
+              %option{:value => "2005"} 2005
+              %option{:value => "2004"} 2004
+        %h2 Horizontally grouped select inputs
+        %p
+          Select inputs can also be used for grouped sets with more than one related selections. To make a horizontal button set, add the
+          %code data-type="horizontal"
+          to the fieldset. Note that the buttons which trigger the select will resize depending on the currently selected option’s value. Note that browsers without support for
+          %code display: inline-block;
+          will group the selects vertically, as above.
+        %code
+          \&lt;fieldset data-role="controlgroup"
+          = succeed "&amp;gt;" do
+            %strong data-type="horizontal"
+        %div{"data-role" => "fieldcontain"}
+          %fieldset{"data-role" => "controlgroup", "data-type" => "horizontal"}
+            %legend Date of Birth:
+            %label{:for => "select-choice-month"} Month
+            %select#select-choice-month{:name => "select-choice-month"}
+              %option Month
+              %option{:value => "jan"} January
+              %option{:value => "dec"} December
+              %option{:value => "feb"} February
+              %option{:value => "mar"} March
+              %option{:value => "apr"} April
+              %option{:value => "may"} May
+              %option{:value => "jun"} June
+              %option{:value => "jul"} July
+              %option{:value => "aug"} August
+              %option{:value => "sep"} September
+              %option{:value => "oct"} October
+              %option{:value => "nov"} November
+              %option{:value => "dec"} December
+            %label{:for => "select-choice-day"} Day
+            %select#select-choice-day{:name => "select-choice-day"}
+              %option Day
+              %option{:value => "1"} 1
+              %option{:value => "2"} 2
+              %option{:value => "3"} 3
+              %option{:value => "4"} 4
+              %option{:value => "5"} 5
+              %option{:value => "6"} 6
+              %option{:value => "7"} 7
+            %label{:for => "select-choice-year"} Year
+            %select#select-choice-year{:name => "select-choice-year"}
+              %option Year
+              %option{:value => "2011"} 2011
+              %option{:value => "2010"} 2010
+              %option{:value => "2009"} 2009
+              %option{:value => "2008"} 2008
+              %option{:value => "2007"} 2007
+              %option{:value => "2006"} 2006
+              %option{:value => "2005"} 2005
+              %option{:value => "2004"} 2004
         %h2 Using custom menus
         %p
           the framework builds a custom menu based on the
@@ -184,7 +359,7 @@
             %option{:value => "overnight"} Overnight
         %p
           When it has too many options to show on the device's screen, the framework will automatically create a new &quot;page&quot; populated with a standard
-          %a{:href => "/mobile/docs/lists/docs_lists"} list view
+          %a{:href => "../../lists/docs-lists.html"} list view
           for the options. This allows us to use the native scrolling included on the device for moving through a long list. The text inside the
           %code label
           is used as the title for this page.

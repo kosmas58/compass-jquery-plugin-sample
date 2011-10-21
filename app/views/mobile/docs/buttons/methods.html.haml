@@ -18,37 +18,37 @@
           %a.ui-btn-active{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/buttons/methods"} Methods
         %li
           %a{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/buttons/events"} Events
-        %p
-          The following methods apply only to
-          = succeed "." do
-            %strong form buttons
-          Link-based buttons do not have any associated methods.
-        %dl
-          %dt
-            %code enable
-            enable a disabled form button
-          %dd
-            %pre
-              %code
-                :preserve
-                  $('[type='submit']').button('enable');
-          %dt
-            %code disable
-            disable a form button
-          %dd
-            %pre
-              %code
-                :preserve
-                  $('[type='submit']').button('disable');
-          %dt
-            %code refresh
-            update the form button
-          %dd
-            %p If you manipulate a form button via JavaScript, you must call the refresh method on it to update the visual styling.
-            %pre
-              %code
-                :preserve
-                  $('[type='submit']').button('refresh');
+      %p
+        The following methods apply only to
+        = succeed "." do
+          %strong form buttons
+        Link-based buttons do not have any associated methods.
+      %dl
+        %dt
+          %code enable
+          enable a disabled form button
+        %dd
+          %pre
+            %code
+              :preserve
+                $('[type='submit']').button('enable');
+        %dt
+          %code disable
+          disable a form button
+        %dd
+          %pre
+            %code
+              :preserve
+                $('[type='submit']').button('disable');
+        %dt
+          %code refresh
+          update the form button
+        %dd
+          %p If you manipulate a form button via JavaScript, you must call the refresh method on it to update the visual styling.
+          %pre
+            %code
+              :preserve
+                $('[type='submit']').button('refresh');
     / /content-primary
     .content-secondary
       .ui-body-b

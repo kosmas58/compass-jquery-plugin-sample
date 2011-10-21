@@ -22,7 +22,7 @@
         \&lt;form action=&quot;form.php&quot; method=&quot;post&quot;&gt;
         \...
         \&lt;/form&gt;
-      %h2 Markup Conventions
+      %h2 Markup conventions
       %p
         When constructing forms to be used in jQuery Mobile, most of the standard guidelines used to create forms that submit via normal HTTP post or get still apply. However, one thing to keep in mind is that the
         %code id
@@ -33,6 +33,105 @@
         elements via the
         %code for
         attribute).
+      %h2 Hiding labels accessibly
+      %p
+        For the sake of accessibility, jQuery Mobile requires that all form elements be paired with a meaningful
+        = succeed "." do
+          %code label
+        To hide labels in a way that leaves them visible to assistive technologies—for example, when letting an element’s
+        %code placeholder
+        attribute serve as a label—apply the helper class
+        %code ui-hidden-accessible
+        to the label itself:
+      %code
+        %pre
+          :preserve
+            &lt;label for="username" class="ui-hidden-accessible"&gt;Username:&lt;/label&gt;
+            &lt;input type="text" name="username" id="username" value="" placeholder="Username"/&gt;
+      %p
+        To hide labels within a field container and adjust the layout accordingly, add the class
+        %code ui-hide-label
+        to the field container as in the following:
+      %code
+        %pre
+          :preserve
+            &lt;div data-role="fieldcontain" class="ui-hide-label"&gt;
+              &lt;label for="username">Username:&lt;/label&gt;
+              &lt;input type="text" name="username" id="username" value="" placeholder="Username"/&gt;
+            &lt;/div&gt;
+      %p Both of the above examples will render as:
+      .ui-hide-label{"data-role" => "fieldcontain"}
+        %label{:for => "username"} Username:
+        %input#username{:name => "username", :placeholder => "Username", :type => "text", :value => ""}/
+      %p While the label will no longer be visible, it will be available to assisitive technologies such as screen readers.
+      %h2 Disabling form elements
+      %p
+        All jQuery Mobile widgets can be disabled in the markup by adding the standard
+        %code disabled
+        attribute to the element, just like you would with native controls. Each form widget also has standard
+        %code disable
+        and
+        %code enable
+        methods that are documented with each form widget. Here are a few examples of disabled widgets. Note that you can disable form buttons, but not links with a role of button because links don't have a parallel disabled feature in HTML. If you need to disable a link-based button, it's possible to apply the same disabled class
+        %code ui-disabled
+        with JavaScript to the enhanced button markup generated to achieve this effect.
+      %div{"data-role" => "fieldcontain"}
+        %label{:for => "foo"} Text Input:
+        %input#foo{:disabled => "", :name => "name", :type => "text", :value => ""}/
+      %div{"data-role" => "fieldcontain"}
+        %fieldset{"data-role" => "controlgroup"}
+          %legend Gender:
+          %input#radio-female{:disabled => "", :name => "gender", :type => "radio", :value => "f"}/
+          %label{:for => "radio-female"} Female
+          %input#radio-male{:disabled => "", :name => "gender", :type => "radio", :value => "m"}/
+          %label{:for => "radio-male"} Male
+      %div{"data-role" => "fieldcontain"}
+        %label{:for => "flip-s"} Server status:
+        %select#flip-s{"data-role" => "slider", :disabled => "", :name => "slider"}
+          %option{:value => "off"} Off
+          %option{:value => "on"} On
+      %div{"data-role" => "fieldcontain"}
+        %label.select{:for => "select-choice-x"} Shipping:
+        %select#select-choice-x{:disabled => "", :name => "select-shipper"}
+          %option
+          %option{:value => "standard"} Standard
+          %option{:value => "rush"} Rush
+          %option{:value => "express"} Express
+          %option{:value => "overnight"} Overnight
+      %p
+        Note that you can disable buttons created from
+        %code button
+        or
+        = succeed "-based" do
+          %code input
+        markup, but not links with a role of button. Links don't have a parallel disabled feature in HTML, but if you need to disable a link-based button (or any element), it's possible to apply the disabled class
+        %code ui-disabled
+        yourself with JavaScript to achieve the same effect.
+      %h2 Field containers
+      %p
+        To improve the styling to labels and form elements on wider screens, we recommend wrapping a
+        %code div
+        or
+        = succeed "with" do
+          %code fieldset
+        the
+        %code data-role="fieldcontain"
+        attribute around each label/form element. This framework aligns the input and associated label side-by-side, and breaks to stacked block-level elements below ~480px. The framework will also add a thin bottom border to act as a field separator.
+      %p For example:
+      %pre
+        %code
+          :preserve
+            &lt;div data-role=&quot;fieldcontain&quot;&gt;
+              &lt;label for="name">Text Input:&lt;/label&gt;
+              &lt;input type="text" name="name" id="name" value="" /&gt;
+            &lt;/div&gt;
+      %p Will render as:
+      %div{"data-role" => "fieldcontain"}
+        %label{:for => "name"} Text Input:
+        %input#name{:name => "name", :type => "text", :value => ""}/
+      %p
+        For additional examples, see the
+        %a{:href => "/mobile/docs/forms/forms_all"} form elements gallery
       %h2 Auto-initialization of form elements
       %p
         By default, jQuery Mobile will automatically enhance certain native form controls into rich touch-friendly components. This is handled internally by finding form elements by tag name and running a plugin method on them, so for instance, a
@@ -41,9 +140,45 @@
         %code input
         element with a
         %code type="checkbox"
-        will be enhanced with the "checkboxradio" plugin. Once initialized, you can address these enhanced components programmatically through their jQuery UI widget API methods (see documentation on available methods here:
-        = succeed ")." do
-          %a{:href => "/mobile/docs/forms/plugin_eventsmethods"} Form Plugin Methods
+        will be enhanced with the "checkboxradio" plugin. Once initialized, you can address these enhanced components programmatically through their jQuery UI widget API methods - see options, methods and events listed on each form plugin's documentation page for details.
+      %h2 Initializing groups of dynamically-injected form elements
+      %p
+        If you should generate new markup client-side or load in content via AJAX and inject it into a page, you can trigger the
+        %code create
+        event to handle the auto-initialization for all the plugins contained within the new markup. This can be triggered on any element (even the page div itself), saving you the task of manually initializing each plugin (see below).
+      %p For example, if a block of HTML markup (say a login form) was loaded in through Ajax, trigger the create event to automatically transform all the widgets it contains (inputs and buttons in this case) into the enhanced versions. The code for this scenario would be:
+      %code
+        $( ...new markup that contains widgets... ).appendTo( ".ui-page" ).trigger( "create" );
+      %h2 Refreshing form elements
+      %p
+        In jQuery Mobile, some enhanced form controls are simply styled (inputs), but others are custom controls (selects, sliders) built from, and kept in sync with, the native control. To programmatically update a form control with JavaScript, first manipulate the native control, then use the
+        %code refresh
+        method to tell the enhanced control to update itself to match the new state. Here are some examples of how to update common form controls, then call the
+        %code refresh
+        method:
+      %h4 Checkboxes:
+      %code
+        $("input[type='checkbox']").attr("checked",true).checkboxradio("refresh");
+      %h4 Radios:
+      %code
+        $("input[type='radio']").attr("checked",true).checkboxradio("refresh");
+      %h4 Selects:
+      %code
+        %pre
+          :preserve
+            var myselect = $("select#foo");
+            myselect[0].selectedIndex = 3;
+            myselect.selectmenu("refresh");
+      %h4 Sliders:
+      %code
+        $("input[type=range]").val(60).slider("refresh");
+      %h4 Flip switches (they use slider):
+      %code
+        %pre
+          :preserve
+            var myswitch = $("select#bar");
+            myswitch[0].selectedIndex = 1;
+            myswitch.slider("refresh");
       %h2 Preventing auto-initialization of form elements
       %p
         If you'd prefer that a particular form control be left untouched by jQuery Mobile, simply give that element the attribute
@@ -82,53 +217,6 @@
         callback as a global setting or use
         %code data-native="true"
         on a case by case basis.
-      %h2 Dynamic form layout
-      %p In jQuery Mobile, all form elements are designed to be a flexible width so they will comfortably fit the width of any mobile device. One optimization built into the framework is that we present labels and form elements differently based on screen width.
-      %p If a page is fairly narrow (~480px), the labels are styled as block-level elements so they will stack on top of the form element to save horizontal space.
-      %p On wider screens, the labels and form elements are styled to be on the same line in a 2-column layout to take advantage of the screen real estate.
-      %h2 Field containers
-      %p
-        To improve the styling to labels and form elements on wider screens, we recommend wrapping a
-        %code div
-        or
-        = succeed "with" do
-          %code fieldset
-        the
-        %code data-role="fieldcontain"
-        attribute around each label/form element. The framework will add a thin vertical bottom border on this container to act as a field separator and visually align the label and form elements for quick scanning.
-      %pre
-        %code
-          :preserve
-
-            &lt;div data-role=&quot;fieldcontain&quot;&gt;
-              ...label/input code goes here...
-            &lt;/div&gt;
-      %h2 Refreshing form elements
-      %p Every form control -- where applicable -- has a refresh method. Here are some examples:
-      %p Checkboxes:
-      %code
-        $("input[type='checkbox']").attr("checked",true).checkboxradio("refresh");
-      %p Radios:
-      %code
-        $("input[type='radio']").attr("checked",true).checkboxradio("refresh");
-      %p Selects:
-      %code
-        %pre
-          :preserve
-            var myselect = $("select#foo");
-            myselect[0].selectedIndex = 3;
-            myselect.selectmenu("refresh");
-      %p Sliders:
-      %code
-        $("input[type=range]").val(60).slider("refresh");
-      %p Flip switches (they use slider):
-      %code
-        %pre
-          :preserve
-            var myswitch = $("select#bar");
-            myswitch[0].selectedIndex = 1;
-            myswitch .slider("refresh");
-      %p We're considering adding a refresh method to an entire form to let the framework refresh all the child elements as a future enhancement.
     / /content-primary
     .content-secondary
       .ui-body-b

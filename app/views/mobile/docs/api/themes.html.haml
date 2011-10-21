@@ -232,22 +232,85 @@
         There a core set of
         %a{:href => "/mobile/docs/buttons/buttons_icons"} standard icons
         included in the framework that can be assigned to any button. To minimize the download size of the core icons, jQuery Mobile only includes these icons in white and automatically adds a semi-transparent black circle behind the icon to make sure it has good contrast on all background colors.
+      %h3 Theme classes
+      %p
+        Assigning color swatches through the
+        %code data-theme
+        attribute is one way to leverage the theme system, but it's also possible to apply any of the theme swatches directly to your markup through classes to apply the colors, textures and font formatting of your theme to any markup. This is especially useful when creating your own custom layout elements or UI widgets. Here are a few common theme classes, but many more are available in the theme stylesheet:
+      %dl
+        %dt
+          %code ui-bar-(a-z)
+        %dd
+          Applies the toolbar theme styles for the selected swatch letter. Commonly used in conjunction with
+          %code ui-bar
+          structural class to add the standard bar padding styles.<>/dd>
+          %dt
+            %code ui-body-(a-z)
+          %dd
+            Applies the content body theme styles for the selected swatch letter. Commonly used in conjunction with
+            %code ui-body
+            structural class to add the standard content block padding styles.
+          %dt
+            %code ui-btn-up-(a-z)
+          %dd
+            Applies the button/clickable element theme styles for the selected swatch letter. Commonly used in with the
+            %code ui-btn-hover-(a-z)
+            and
+            %code ui-btn-down-(a-z)
+            interaction class states to provide visual feedback and
+            %code ui-btn-active
+            to indicate the selected or "on" state.
+          %dt
+            %code ui-corner-all
+          %dd
+            Applies the theme's global border-radius for rounded corners and is used for container or grouped items in the framework (inset lists, radiobutton sets). There are additional classes for all the possible combinations of rounded corners, for example:
+            %code ui-corner-tl
+            (top left only),
+            %code -top
+            (both top corners),
+            %code -left
+            (both left corners),  etc. A second full set of corner classes is provided for buttons so these can have a different corner radius. These use classes with a similar naming convention, but with "btn" instead of "corner", like this:
+            = succeed "." do
+              %code
+                \.ui-
+                %strong> btn
+                \-corner-all
+          %dt
+            %code ui-shadow
+          %dd
+            Applies the theme's global drop shadow to any element using CSS
+            %code box-shadow
+            property.
+          %dt
+            %code ui-disabled
+          %dd
+            Applies the disabled look and feel which essentially reduces the opacity of any element with this class to 30%, hides the cursor, and sets
+            %code pointer-events: none;
+            which prevents any interaction in many modern browsers.
+      %h3 Overriding themes
+      %p
+        The themes are meant as a solid starting point, but are meant to be customized to add the custom design elements that make your site or app unique. Since everything is controlled by CSS, it's easy to use a web inspector tool to identify the style properties you want to modify. The set of of theme classes (global) and semantic structural classes (widget-specific) added to elements provide a rich set of possible selectors to target style overrides against. We recommend adding an external stylesheet to the
+        = succeed "," do
+          %code head
+        placed
+        %strong after
+        the structure and theme stylesheet references, that contain all your style overrides. This allows you to easily update to newer versions of the library because overrides are kept separate from the library code.
       %p
         %strong Learn more
         about theming individual components:
-      %ul{"data-inset" => "true", "data-role" => "listview"}
-        %li
-          %a{:href => "/mobile/docs/pages/pages_themes"} Page theming
-        %li
-          %a{:href => "/mobile/docs/toolbars/bars_themes"} Toolbar theming
-        %li
-          %a{:href => "/mobile/docs/content/content_themes"} Content theming
-        %li
-          %a{:href => "/mobile/docs/buttons/buttons_themes"} Button theming
-        %li
-          %a{:href => "/mobile/docs/forms/forms_themes"} Form theming
-        %li
-          %a{:href => "/mobile/docs/lists/lists_themes"} List theming
+        %ul{"data-inset" => "true", "data-role" => "listview"}
+          %li
+            %a{:href => "/mobile/docs/pages/pages_themes"} Page theming
+          %li
+            %a{:href => "/mobile/docs/toolbars/bars_themes"} Toolbar theming
+          %li
+            %a{:href => "/mobile/docs/content/content_themes"} Content theming
+          %li
+            %a{:href => "/mobile/docs/buttons/buttons_themes"} Button theming
+          %li
+            %a{:href => "/mobile/docs/forms/forms_themes"} Form theming
+          %li
+            %a{:href => "/mobile/docs/lists/lists_themes"} List theming
     / /content-secondary
     .content-secondary
       .ui-body-d

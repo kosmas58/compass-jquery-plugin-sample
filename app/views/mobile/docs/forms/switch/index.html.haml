@@ -19,50 +19,94 @@
             %a{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/forms/switch/methods"} Methods
           %li
             %a{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/forms/switch/events"} Events
-      %p A binary "flip" switch is a common UI element on mobile devices that is used for binary on/off or true/false data input. You can either drag the flip handle like a slider or tap one side of the switch.
-      %p
-        To create a flip toggle, start with a
-        %code select
-        with two options. The first option will be styled as the "on" state switch and the second will be styled as the "off" state so write your options accordingly. Set the
-        %code for
-        attribute of the
-        %code label
-        to match the ID of the
-        %code input
-        so they are semantically associated and wrap them in a
-        %code div
-        with the
-        %code data-role="fieldcontain"
-        attribute to group them.
-      %pre
-        %code
-          :preserve
-            &lt;div data-role=&quot;fieldcontain&quot;&gt;
-              &lt;label for=&quot;slider&quot;&gt;Select slider:&lt;/label&gt;
-              &lt;select name=&quot;slider&quot; id=&quot;slider&quot; data-role=&quot;slider&quot;&gt;
+        %p A binary "flip" switch is a common UI element on mobile devices that is used for binary on/off or true/false data input. You can either drag the flip handle like a slider or tap one side of the switch.
+        %p
+          To create a flip toggle, start with a
+          %code select
+          with two options. The first option will be styled as the "on" state switch and the second will be styled as the "off" state so write your options accordingly.
+        %p
+          Set the
+          %code for
+          attribute of the
+          %code label
+          to match the ID of the
+          %code input
+          so they are semantically associated. It's possible to
+          %a{:href => "/mobile/docs/forms/docs_forms"} accessibly hide the label
+          if it's not desired in the page layout, but we require that it is present in the markup for semantic and accessibility reasons.
+        %pre
+          %code
+            :preserve
+              &lt;label for=&quot;flip-a&quot;&gt;Select slider:&lt;/label&gt;
+              &lt;select name=&quot;slider&quot; id=&quot;flip-a&quot; data-role=&quot;slider&quot;&gt;
                 &lt;option value=&quot;off&quot;&gt;Off&lt;/option&gt;
                 &lt;option value=&quot;on&quot;&gt;On&lt;/option&gt;
               &lt;/select&gt;
-            &lt;/div&gt;
-      %p The flip toggle switch is displayed like this:
-      %div{"data-role" => "fieldcontain"}
-        %label{:for => "slider"} Flip switch:
-        %select#slider{"data-role" => "slider", :name => "slider"}
+        %p This will produce a basic flip toggle switch input. The default styles set the width of the switch to 100% of the parent container and stacks the label on a separate line.
+        %label{:for => "flip-a"} Flip switch:
+        %select#flip-a{"data-role" => "slider", :name => "slider"}
           %option{:value => "off"} Off
           %option{:value => "on"} On
-      %h2 Calling the switch plugin
-      %p
-        This plugin will auto initialize on any page that contains a
-        %code select
-        with the
-        %code data-role="slider"
-        attribute. However, if needed you can directly call the
-        %code slider
-        plugin on any selector, just like any jQuery plugin:
-      %pre
-        %code
-          :preserve
-            $('select').slider();
+        %p
+          Optionally wrap the switch markup in a container with the
+          %code data-role="fieldcontain"
+          attribute to help visually group it in a longer form.
+        %pre
+          %code
+            :preserve
+              &lt;div data-role=&quot;fieldcontain&quot;&gt;
+                &lt;label for=&quot;flip-b&quot;&gt;Flip switch:&lt;/label&gt;
+                &lt;select name=&quot;slider&quot; id=&quot;flip-b&quot; data-role=&quot;slider&quot;&gt;
+                  &lt;option value=&quot;no&quot;&gt;No&lt;/option&gt;
+                  &lt;option value=&quot;yes&quot;&gt;Yes&lt;/option&gt;
+                &lt;/select&gt;
+              &lt;/div&gt;
+        %p The flip toggle switch is now displayed like this:
+        %div{"data-role" => "fieldcontain"}
+          %label{:for => "flip-b"} Flip switch:
+          %select#flip-b{"data-role" => "slider", :name => "slider"}
+            %option{:value => "no"} No
+            %option{:value => "yes"} Yes
+        %h2 Theming the flip switch
+        %p
+          Like all form elements, this widget will automatically inherit the theme from it's parent container. TO choose a specific theme color swatch, specify the
+          %code data-theme
+          attribute on the select and specify a swatch letter.
+        %pre
+          %code
+            :preserve
+              &lt;div data-role=&quot;fieldcontain&quot;&gt;
+                &lt;label for=&quot;flip-c&quot;&gt;Flip switch:&lt;/label&gt;
+                &lt;select name=&quot;slider&quot; id=&quot;flip-c&quot; data-role=&quot;slider&quot; data-theme=&quot;a&quot;&gt;
+                  &lt;option value=&quot;no&quot;&gt;No&lt;/option&gt;
+                  &lt;option value=&quot;yes&quot;&gt;Yes&lt;/option&gt;
+                &lt;/select&gt;
+              &lt;/div&gt;
+        %p This results in a switch with the A swatch colors for the handle. Note that the lefthand "on" state gets the active state color.
+        %div{"data-role" => "fieldcontain"}
+          %label{:for => "flip-c"} Flip switch:
+          %select#flip-c{"data-role" => "slider", "data-theme" => "a", :name => "slider"}
+            %option{:value => "no"} No
+            %option{:value => "yes"} Yes
+        %p Here is a E swatch variation:
+        %div{"data-role" => "fieldcontain"}
+          %label{:for => "flip-d"} Flip switch:
+          %select#flip-d{"data-role" => "slider", "data-theme" => "e", :name => "slider"}
+            %option{:value => "no"} No
+            %option{:value => "yes"} Yes
+        %h2 Calling the switch plugin
+        %p
+          This plugin will auto initialize on any page that contains a
+          %code select
+          with the
+          %code data-role="slider"
+          attribute. However, if needed you can directly call the
+          %code slider
+          plugin on any selector, just like any jQuery plugin:
+        %pre
+          %code
+            :preserve
+              $('select').slider();
     / /content-primary
     .content-secondary
       .ui-body-b

@@ -38,6 +38,12 @@
         %strong link-based
         button:
       %a{"data-role" => "button", :href => "/mobile/docs/buttons"} Link button
+      %p
+        Links styled like buttons have all the same visual options as true form-based buttons below, but there are a few important differences. Link-based buttons aren't part of the
+        %code button
+        plugin and only just use the underlying
+        %code buttonMarkup
+        plugin to generate the button styles so the form button methods (enable, disable, refresh) aren't supported. If you need to disable a link-based button (or any element), it's possible to apply the disabled class ui-disabled yourself with JavaScript to achieve the same effect.
       %h2 Form buttons
       %p
         For ease of styling, the framework automatically converts any
@@ -55,16 +61,20 @@
           %code button
         or
         %code image
-        into a custom styled, link-based button &mdash; there is no need to add the
+        into a custom styled button &mdash; there is no need to add the
         %code data-role="button"
-        attribute.
+        attribute. However, if needed, you can directly call the button plugin on any selector, just like any jQuery plugin:
+      %code
+        $('[type='submit']').button();
       %p
         To preserve events bound to the original
         %code button
         or
         = succeed "," do
           %code input
-        the framework hides the original element by making it transparent and positioning it over the new button markup.  When a user clicks on the the custom-styled button, they're actually clicking on the original element.
+        the framework hides the original element by making it transparent and positioning it over the new button markup.  When a user clicks on the the custom-styled button, they're actually clicking on the original element. To prevent a form button from being converted into an enhanced button, add the
+        %code data-role="none"
+        attribute and hte native control will be rendered.
       %p
         %strong Button
         based button:

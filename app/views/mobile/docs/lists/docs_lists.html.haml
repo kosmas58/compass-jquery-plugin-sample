@@ -16,13 +16,15 @@
       %pre
         %code
           :preserve
-
             &lt;ul data-role=&quot;listview&quot; data-theme=&quot;g&quot;&gt;
               &lt;li&gt;&lt;a href=&quot;acura.html&quot;&gt;Acura&lt;/a&gt;&lt;/li&gt;
               &lt;li&gt;&lt;a href=&quot;audi.html&quot;&gt;Audi&lt;/a&gt;&lt;/li&gt;
               &lt;li&gt;&lt;a href=&quot;bmw.html&quot;&gt;BMW&lt;/a&gt;&lt;/li&gt;
             &lt;/ul&gt;
       %a{"data-icon" => "arrow-r", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/lists/lists_ul"} Basic list example
+      %p
+        %strong> Style note
+        \: all standard, non-inset lists have a -15px margin to negate the 15px of padding on the content area to make lists fill to the edges of the screen. If you add other widgets above or below a list, the negative margin may make these elements overlap so you'll need to add additional spacing in your custom CSS.
       %h2 Nested lists
       %p
         By nesting child

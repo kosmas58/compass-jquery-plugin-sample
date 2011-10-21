@@ -57,7 +57,16 @@
       %a{"data-inline" => "true", "data-rel" => "dialog", "data-role" => "button", "data-transition" => "pop", :href => "/mobile/docs/pages/dialog_alt"} An alternate color scheme
       %p And dialogs can be can used more like a control sheet to offer multiple buttons by removing the header:
       %a{"data-inline" => "true", "data-rel" => "dialog", "data-role" => "button", "data-transition" => "slidedown", :href => "/mobile/docs/pages/dialog_buttons"} Share photos...
-
+      %p
+        For the sake of readability, dialogs have a default
+        %code max-width
+        of 500 pixels (plus 15px padding on each side). To override this, use the following CSS in your theme:
+      %code
+        \.ui-dialog .ui-header,
+        \.ui-dialog .ui-content,
+        \.ui-dialog .ui-footer {
+        %strong max-width: 100%;
+        }
     / /content-primary
     .content-secondary
       .ui-body-b

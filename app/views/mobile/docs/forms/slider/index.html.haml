@@ -39,11 +39,38 @@
           %code label
           to match the ID of the
           %code input
-          so they are semantically associated and wrap them in a
-          %code div
-          with the
+          so they are semantically associated. It's possible to
+          %a{:href => "/mobile/docs/forms/docs_forms"} accessibly hide the label
+          if it's not desired in the page layout, but we require that it is present in the markup for semantic and accessibility reasons.
+        %p
+          The framework will find all
+          %code inputs
+          elements with a
+          %code type="range"
+          and automatically enhance them into a slider with an accompanying input, no need to apply a
+          %code data-role
+          attribute. To prevent the automatic enhancement of this input into a slider, add
+          %code data-role="none"
+          attribute to the
+          = succeed "." do
+            %code input
+        and wrap them in a
+        %code div
+        with the
+        %code data-role="fieldcontain"
+        attribute to group them.
+        %pre
+          %code
+            :preserve
+               &lt;label for=&quot;slider-0&quot;&gt;Input slider:&lt;/label&gt;
+               &lt;input type=&quot;range&quot; name=&quot;slider&quot; id=&quot;slider-0&quot; value=&quot;25&quot; min=&quot;0&quot; max=&quot;100&quot;  /&gt;
+        %p The default slider is displayed like this:
+        %label{:for => "slider-0"} Input slider:
+        %input#slider-0{:max => "100", :min => "0", :name => "slider-1", :type => "range", :value => "25"}/
+        %p
+          Optionally wrap the slider markup in a container with the
           %code data-role="fieldcontain"
-          attribute to group them.
+          attribute to help visually group it in a longer form.
         %pre
           %code
             :preserve
@@ -51,10 +78,10 @@
                 &lt;label for=&quot;slider&quot;&gt;Input slider:&lt;/label&gt;
                 &lt;input type=&quot;range&quot; name=&quot;slider&quot; id=&quot;slider&quot; value=&quot;25&quot; min=&quot;0&quot; max=&quot;100&quot;  /&gt;
               &lt;/div&gt;
-        %p The default slider is displayed like this:
+        %p The slider is now be is displayed like this:
         %div{"data-role" => "fieldcontain"}
           %label{:for => "slider-1"} Input slider:
-          %input#slider-1{"data-theme" => "b", "data-track-theme" => "a", :max => "100", :min => "0", :name => "slider-1", :type => "range", :value => "25"}/
+          %input#slider-1{:max => "100", :min => "0", :name => "slider-1", :type => "range", :value => "25"}/
         %p Sliders also respond to key commands. Right Arrow, Up Arrow, and Page Up keys increase the value; Left Arrow, Down Arrow, and Page Down keys decrease it. To move the slider to its minimum or maximum value, use the Home or End key, respectively.
         %h2 Calling the slider plugin
         %p
@@ -69,6 +96,26 @@
           %code
             :preserve
               $('input').slider();
+        %h2 Theming the slider
+        %p
+          To set the theme swatch for the slider, add a
+          %code data-theme
+          attribute to the
+          %code input
+          which will apply the theme to both the input, handle and track. The track swatch can be set separately by adding the
+          %code data-track-theme
+          attribute to apply the down state version of the selected button swatch.
+        %pre
+          %code
+            :preserve
+              &lt;div data-role=&quot;fieldcontain&quot;&gt;
+                &lt;label for=&quot;slider-2&quot;&gt;Input slider:&lt;/label&gt;
+                &lt;input type=&quot;range&quot; name=&quot;slider-2&quot; id=&quot;slider-1&quot; value=&quot;25&quot; min=&quot;0&quot; max=&quot;100&quot; data-theme=&quot;a&quot; data-track-theme=&quot;b&quot;/&gt;
+              &lt;/div&gt;
+        %p This will produce a themed slider:
+        %div{"data-role" => "fieldcontain"}
+          %label{:for => "slider-2"} Input slider:
+          %input#slider-1{"data-theme" => "a", "data-track-theme" => "b", :max => "100", :min => "0", :name => "slider-2", :type => "range", :value => "25"}/
     / /content-primary
     .content-secondary
       .ui-body-b
