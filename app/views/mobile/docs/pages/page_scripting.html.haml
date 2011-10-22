@@ -73,7 +73,7 @@
       %pre
         %code
           :preserve
-            $( document ).delegate( "pagecreate", "#aboutPage", function() {
+            $( document ).delegate("#aboutPage", "pagecreate", function() {
               alert('A page with an ID of "aboutPage" was just created by jQuery Mobile!');
             });
       %p
@@ -85,7 +85,7 @@
       %pre
         %code
           :preserve
-            $( document ).delegate( "pagebeforecreate", "#aboutPage", function() {
+            $( document ).delegate("#aboutPage", "pagebeforecreate", function() {
               alert('A page with an ID of "aboutPage" is about to be created by jQuery Mobile!');
             });
       %h2 Changing pages
