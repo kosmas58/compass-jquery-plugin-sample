@@ -24,7 +24,7 @@
       %p
         It's possible to turn off the the tap to toggle visibility behavior like this:
         = succeed "." do
-          %code $.fixedToolbars.setTouchToggleEnabled(false)
+          %code $.mobile.fixedToolbars.setTouchToggleEnabled(false)
       %h2 Updating toolbar positioning
       %p
         If the height of the page changes, either through dynamic injection of markup, or by widgets that hide or collapse content, it can throw off the dynamic positioning of the toolbars. To manually tell the toolbars to re-position themselves then fade in, use

@@ -10,11 +10,9 @@
       - cache("#{@siteName}_cache", :time_to_live => 3.hours) do
         - @feed.each do |item|
           %li
-            %h2
-              %a{:href => "/mobile/tuts/tuts/article?siteName=#{@siteName}&origLink=#{item[:uri]}"}
-                #{item[:title]}
-            %span.ui-li-count
-              #{item[:comments]}
+            %a{:href => "/mobile/tuts/tuts/article?siteName=#{@siteName}&origLink=#{item[:uri]}", :style => "font-size: 0.7em;" }
+              #{item[:title]}
+            %span.ui-li-count #{item[:comments]}
   / /content
   %footer{:class => [@siteName], "data-role" => "footer"}
     %h4

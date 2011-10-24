@@ -1,9 +1,10 @@
 -@title = "Tuts+"
 
+= render :partial => "/mobile/docs/docs.html.haml"
 = render :partial => "index.css.haml"
 
 .type-interior{"data-role" => "page"}
-  %header.tuts{"data-backbtn" => "false", "data-position" => "inline", "data-role" => "header"}
+  .tuts{"data-backbtn" => "false", "data-position" => "inline", "data-role" => "header"}
     %h1
       %img{:alt => "Tuts+", :src => "/images/demo/mobile/tuts/TLogo.png"}
     %a.ui-btn-left{"data-direction" => "reverse",
@@ -20,7 +21,7 @@
       }
       Info
   / /header
-  %div{"data-role" => "content"}
+  %div{"data-role" => "content", :name => "contentMain"}
     .content-primary
       %ul{"data-counttheme" => "e", "data-dividertheme" => "d", "data-role" => "listview", "data-theme" => "c"}
         %li
@@ -64,22 +65,23 @@
             %img.ui-li-icon{:alt => "Webdesigntuts+", :src => "/images/demo/mobile/tuts/wdLogo.jpg"}
               Webdesigntuts+
     .content-secondary
-      %div{"data-collapsed" => "true", "data-role" => "collapsible", "data-theme" => "c"}
-        %h3 More tuts+ experiments in this section
-        %ul{"data-dividertheme" => "d", "data-role" => "listview", "data-theme" => "c"}
-          %li{"data-role" => "list-divider"} Tuts+ experiments
-          %li{"data-theme" => "a"}
-            %a{:href => "/mobile/tuts/tuts", :rel => "external"}
-              %img.ui-li-icon{:alt => "Tuts+", :src => "/images/icons/16x16/tuts.png"}
-                Tuts+ reader
-          %li
-            %a{:href => "/mobile/tuts/news", :rel => "external"}
-              %img.ui-li-icon{:alt => "Tuts+", :src => "/images/icons/16x16/working.png"}
-                News reader
-          %li
-            %a{:href => "/mobile/tuts/new_claim", :rel => "external"}
-              %img.ui-li-icon{:alt => "HTML5", :src =>  "/images/icons/16x16/mobileTuts.png"}
-                New Claim
+      .ui-body-b
+        %div{"data-collapsed" => "true", "data-role" => "collapsible", "data-theme" => "c"}
+          %h3 More tuts+ experiments in this section
+          %ul{"data-dividertheme" => "d", "data-role" => "listview", "data-theme" => "c"}
+            %li{"data-role" => "list-divider"} Tuts+ experiments
+            %li{"data-theme" => "a"}
+              %a{:href => "/mobile/tuts/tuts", :rel => "external"}
+                %img.ui-li-icon{:alt => "Tuts+", :src => "/images/icons/16x16/tuts.png"}
+                  Tuts+ reader
+            %li
+              %a{:href => "/mobile/tuts/news", :rel => "external"}
+                %img.ui-li-icon{:alt => "Tuts+", :src => "/images/icons/16x16/working.png"}
+                  News reader
+            %li
+              %a{:href => "/mobile/tuts/new_claim", :rel => "external"}
+                %img.ui-li-icon{:alt => "HTML5", :src =>  "/images/icons/16x16/mobileTuts.png"}
+                  New Claim
   %footer.tuts{"data-role" => "footer"}
     %h4 www.tutsplus.com
 / /page
