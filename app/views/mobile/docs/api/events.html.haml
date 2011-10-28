@@ -252,6 +252,20 @@
               (object)
               %ul
                 %li This object contains the options that were passed into $.mobile.loadPage().
+            %li
+              %code xhr
+              (object)
+              %ul
+                %li The jQuery XMLHttpRequest object used when attempting to load the page. This is what gets passed as the 3rd argument to the framework's $.ajax() success callback.
+            %li
+              %code textStatus
+              (null or string)
+              %ul
+                %li
+                  According to the jQuery Core
+                  = succeed "," do
+                    %a{:href => "http://api.jquery.com/jQuery.ajax/"} documentation
+                  this will be a string describing the status. This is what gets passed as the 2nd argument to the framework's $.ajax() error callback.
         %dt
           %code pageloadfailed
         %dd
@@ -321,6 +335,29 @@
               (object)
               %ul
                 %li This object contains the options that were passed into $.mobile.loadPage().
+            %li
+              %code xhr
+              (object)
+              %ul
+                %li The jQuery XMLHttpRequest object used when attempting to load the page. This is what gets passed as the first argument to the framework's $.ajax() error callback.
+            %li
+              %code textStatus
+              (null or string)
+              %ul
+                %li
+                  According to the jQuery Core
+                  = succeed "," do
+                    %a{:href => "http://api.jquery.com/jQuery.ajax/"} documentation
+                  possible values for this property, aside from null, are &quot;timeout&quot;, &quot;error&quot;, &quot;abort&quot;, and &quot;parsererror&quot;. This is what gets passed as the 2nd argument to the framework's $.ajax() error callback.
+            %li
+              %code errorThrown
+              (null, string, object)
+              %ul
+                %li
+                  According to the jQuery Core
+                  = succeed "," do
+                    %a{:href => "http://api.jquery.com/jQuery.ajax/"} documentation
+                  this property may be an exception object if one occured, or if an HTTP error occured this will be set to the textual portion of the HTTP status. This is what gets passed as the 3rd argument to the framework's $.ajax() error callback.
       %h2 Page change events
       %p
         Navigating between pages in the application is usually accomplished through a call to
@@ -441,7 +478,7 @@
         Also, for these handlers to be invoked during the initial page load, you must bind them before jQuery Mobile executes.  This can be done in the
         %code mobileinit
         handler, as described on the
-        %a{:href => "/mobile/docs/api/globalconfig"} global config
+        %a{:href => "globalconfig.html"} global config
         page.
         %h2 Page initialization events
         %p
@@ -461,7 +498,6 @@
             %pre
               %code
                 :preserve
-
                   $( '#aboutPage' ).live( 'pagebeforecreate',function(event){
                     alert( 'This page was just inserted into the dom!' );
                   });
@@ -473,7 +509,6 @@
             %pre
               %code
                 :preserve
-
                   $( '#aboutPage' ).live( 'pagebeforecreate',function(event){
                     // manipulate this page before its widgets are auto-initialized
                   });

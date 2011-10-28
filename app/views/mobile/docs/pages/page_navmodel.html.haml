@@ -163,6 +163,38 @@
           %p target (with any value, such as "_blank")
       %h2 Form submissions
       %p Form submissions are handled automatically through the navigation model as well. Visit the forms section for more information.
+      %h2 Using the Application Cache
+      %p
+        When using the application cache with jQuery Mobile there is at least one important issue to consider. Some browsers, when making requests to the cache will report an http status of 0 on success. This causes jQuery Core's
+        %code $.ajax
+        to trigger error handlers. The suggested workaround for users leveraging the application cache is to use a jQuery ajax pre-filter. Something like the following (credit to
+        %a{:href => "https://github.com/jquery/jquery-mobile/issues/1579#issuecomment-1209338", :rel => "external"} jammus
+        for the snippet):
+      %pre
+        %code
+          :preserve
+            $.ajaxPrefilter( function(options, originalOptions, jqXHR) {
+              if ( applicationCache &&
+                 applicationCache.status != applicationCache.UNCACHED &&
+                 applicationCache.status != applicationCache.OBSOLETE ) {
+                 // the important bit
+                 options.isLocal = true;
+              }
+            });
+      %p
+        Setting
+        %code isLocal
+        to true for your ajax requests will alert jQuery Core that it should handle the 0 return values differently. Local requests exhibit similar behavior (ie 0 statuses), and Core will then fall back to determining success based on the presence of content in the xhr
+        %code responseText
+        attribute.
+      %p
+        One important issue to note with the above is that it will set
+        %code isLocal
+        to true for all requests made via ajax regardless of whether they are in the manifest or not so long as the cache is valid. This works for now because Core only consults the
+        %code isLocal
+        value when the status is in fact 0 which doesn't affect uncached results. There is no long term guarantee that
+        %code isLocal
+        will remain isolated in its purpose for handling 0 status values. If that changes it may break your application.
       %h2 Known limitations
       %p The non-standard environment created by jQuery Mobile's page navigation model introduces some conditions for which you should be aware when building pages:
       %ul
