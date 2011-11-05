@@ -12,12 +12,12 @@ gem "popen4", :platforms => :ruby
 gem "win32-open3", :platforms => :mswin
 
 gem "manifesto", ">= 0.6.0"
-gem "compass-jquery-plugin", "= 0.3.3.2.pre.3", :require => 'jquery'
+gem "compass-jquery-plugin", "= 0.3.3.2.pre.4", :require => 'jquery'
 # gem "sass"
 
 # for markItUp!
 gem "RedCloth", "4.2.7", :require => "redcloth"
-gem "bluecloth"
+gem "bluecloth", "2.1.0"
 gem "wikicloth"
 
 # bundler requires these gems in all environments
