@@ -221,7 +221,22 @@
           %p
             When traveling back to a previously loaded jQuery Mobile document from an external
             %b or
-            internal document with the push state plugin enabled, some browsers load and trigger the popstate event on the wrong document or for the wrong reasons (two edge cases recorded so far). If you are regularly linking to external documents and find the application behaving eratically try disabling pushstate support.
+            internal document with the push state plugin enabled, some browsers load and trigger the popstate event on the wrong document or for the wrong reasons (two edge cases recorded so far). If you are regularly linking to external documents and find the application behaving erratically try disabling pushstate support.
+        %li
+          %p
+            jQuery Mobile does not support query parameter passing to internal/embedded pages but there are two plugins that you can add to your project to support this feature. There is a lightweight
+            %a{:href => "https://github.com/jblas/jquery-mobile-plugins/tree/master/page-params", :rel => "external"} page params plugin
+            and a more fully featured
+            %a{:href => "https://github.com/azicchetti/jquerymobile-router", :rel => "external"} jQuery Mobile router plugin
+            for use with backbone.js or spine.js.
+        %li
+          %p
+            Since we use the URL hash to preserve Back button behavior, using page anchors to jump down to a position on the page isn't supported by using the traditional anchor link (#foo). Use the
+            %a{:href => "/mobile/docs/api/methods"}
+              %code silentScroll
+            method to scroll to a particular Y position without triggering scroll event listeners. You can pass in a
+            %code yPos
+            arguments to scroll to that Y location.
     / /content-primary
     .content-secondary
       .ui-body-b
