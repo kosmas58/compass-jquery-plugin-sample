@@ -45,22 +45,20 @@
         to the label itself:
       %code
         %pre
-          \&lt;label for="username"
-          = succeed "&amp;gt;Username:&amp;lt;/label&amp;gt;" do
-            %strong class="ui-hidden-accessible"
-          \&lt;input type="text" name="username" id="username" value="" placeholder="Username"/&gt;
+          :preserve
+            &lt;label for="username" class="ui-hidden-accessible"&gt;Username:&lt;/label&gt;
+            &lt;input type="text" name="username" id="username" value="" placeholder="Username"/&gt;
       %p
         To hide labels within a field container and adjust the layout accordingly, add the class
         %code ui-hide-label
         to the field container as in the following:
       %code
         %pre
-          \&lt;div data-role="fieldcontain"
-          = succeed "&amp;gt;" do
-            %strong class="ui-hide-label"
-          \&lt;label for="username"&gt;Username:&lt;/label&gt;
-          \&lt;input type="text" name="username" id="username" value="" placeholder="Username"/&gt;
-          \&lt;/div&gt;
+          :preserve
+            &lt;div data-role="fieldcontain" class="ui-hide-label"&gt;
+              &lt;label for="username"&gt;Username:&lt;/label&gt;
+              &lt;input type="text" name="username" id="username" value="" placeholder="Username"/&gt;
+            &lt;/div&gt;
       %p Both of the above examples will render as:
       .ui-hide-label{"data-role" => "fieldcontain"}
         %label{:for => "username"} Username:
@@ -121,10 +119,9 @@
       %pre
         %code
           :preserve
-
             &lt;div data-role=&quot;fieldcontain&quot;&gt;
-            &lt;label for="name"&gt;Text Input:&lt;/label&gt;
-            &lt;input type="text" name="name" id="name" value="" /&gt;
+              &lt;label for="name"&gt;Text Input:&lt;/label&gt;
+              &lt;input type="text" name="name" id="name" value="" /&gt;
             &lt;/div&gt;
       %p Will render as:
       %div{"data-role" => "fieldcontain"}
@@ -178,7 +175,6 @@
       %code
         %pre
           :preserve
-
             var myswitch = $("#selectbar");
             myswitch[0].selectedIndex = 1;
             myswitch.slider("refresh");
@@ -190,14 +186,13 @@
         For example:
       %pre
         %code
-          \&lt;label for=&quot;foo&quot;&gt;
-          \&lt;select name=&quot;foo&quot; id=&quot;foo&quot;
-          = succeed "&amp;gt;" do
-            %strong data-role=&quot;none&quot;
-          \&lt;option value="a" &gt;A&lt;/option&gt;
-          \&lt;option value="b" &gt;B&lt;/option&gt;
-          \&lt;option value="c" &gt;C&lt;/option&gt;
-          \&lt;/select&gt;
+          :preserve
+            &lt;label for=&quot;foo&quot;&gt;
+            &lt;select name=&quot;foo&quot; id=&quot;foo&quot; data-role=&quot;none&quot;&gt;
+              &lt;option value="a" &gt;A&lt;/option&gt;
+              &lt;option value="b" &gt;B&lt;/option&gt;
+              &lt;option value="c" &gt;C&lt;/option&gt;
+            &lt;/select&gt;
       %p
         Or, if you'd like to prevent auto-initialization without adding attributes to your markup, you can customize the selector that is used for preventing auto-initialization by setting the page plugin's
         %code keepNative
@@ -209,9 +204,10 @@
         event, so that it applies to the first page as well as subsequent pages that are loaded.
       %pre
         %code
-          $(document).bind('mobileinit',function(){
-          %strong $.mobile.page.prototype.options.keepNative = "select, input.foo, textarea.bar";
-          });
+          :preserve
+            $(document).bind('mobileinit',function(){
+              $.mobile.page.prototype.options.keepNative = "select, input.foo, textarea.bar";
+            });
       %p
         One special case is that of selects. The above sample will prevent any and all augmentation from taking place on select elements in the page if
         %code select
