@@ -1,0 +1,18 @@
+-@title = "jQuery Mobile Framework - Dialog Example"
+= render :partial => "/mobile/index.js.haml", :format => :js
+
+
+%div{"data-overlay-theme" => "e", "data-role" => "page"}
+  %div{"data-role" => "header", "data-theme" => "b"}
+    %h1 Dialog
+  %div{"data-role" => "content", "data-theme" => "d"}
+    %h1 Custom overlay
+    %p
+      This dialog adds
+      %code data-overlay-theme="e"
+      to the page container to set the overlay swatch color.
+    %a{"data-inline" => "true", "data-rel" => "back", "data-role" => "button", "data-theme" => "a", :href => "/mobile/docs/pages/docs_dialogs"} I like it
+  %div{"data-role" => "footer", "data-theme" => "c"}
+    %form{:style => "padding-top:4px;"}
+      %input#checkbox-0.custom{:name => "checkbox-0", :type => "checkbox"}/
+      %label{:for => "checkbox-0"} Don't show this message again

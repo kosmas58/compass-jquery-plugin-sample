@@ -11,7 +11,7 @@
       %h2 Simple navbar
       %p
         jQuery Mobile has a very basic navbar widget that is useful for providing up to 5 buttons with optional icons in a bar, typically within a header or footer. There is also a
-        %a{:href => "/mobile/docs/toolbars/footer_persist_a"} persistent nav bar
+        %a{:href => "/mobile/docs/toolbars/footer_persist_a"} persistent navbar
         variation that works more like a tab bar that stays fixed as you navigate across pages.
       %p
         A navbar is coded as an unordered list of links wrapped in a container element that has the
@@ -150,7 +150,7 @@
         %code data-icon
         attribute specifying a
         %a{:href => "/mobile/docs/buttons/buttons_icons"} standard mobile icon
-        to each anchor. By default icons are added above the text (
+        to each anchor. By default, icons are added above the text (
         %code> data-iconpos="top"
         ). The following examples add icons to a navbar in a footer.
       %div{"data-role" => "footer"}
@@ -169,7 +169,7 @@
         %em on the navbar container
         instead of for individual links within for visual consistency. For example, to place the icons below the labels, add the
         %code data-iconpos="bottom"
-        attribute to navbar container.
+        attribute to the navbar container.
       %pre
         %code
           :preserve
@@ -220,7 +220,7 @@
       %p
         You can add any of the popular icon libraries like
         %a{:href => "http://glyphish.com/"} Glyphish
-        to achieve the iOS style tab tab that has large icons stacked on top of text labels. All that is required is a bit of custom styles to link to the icons and position them in the navbar. Here is an example using Glyphish icons and custom styles (view page source for styles) in our navbar:
+        to achieve the iOS style tab that has large icons stacked on top of text labels. All that is required is a bit of custom styles to link to the icons and position them in the navbar. Here is an example using Glyphish icons and custom styles (view page source for styles) in our navbar:
       :css
         .nav-glyphish-example .ui-btn .ui-btn-inner { padding-top: 40px !important; }
         .nav-glyphish-example .ui-btn .ui-icon { width: 30px!important; height: 30px!important; margin-left: -15px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }
@@ -293,7 +293,7 @@
       %p
         To set to the theme color for a navbar item, add the
         %code data-theme
-        attribute to the individual links and specify a theme swatch. Note that applying a theme swatch at the navbar container is
+        attribute to the individual links and specify a theme swatch. Note that applying a theme swatch to the navbar container is
         %em not
         supported.
       %div{"data-role" => "footer"}
@@ -331,7 +331,7 @@
             %li
               %a{:href => "/mobile/docs/toolbars/bars_fullscreen"} Fullscreen positioning
             %li
-              %a{:href => "/mobile/docs/toolbars/footer_persist_a"} Persistent footer nav bar
+              %a{:href => "/mobile/docs/toolbars/footer_persist_a"} Persistent footer navbar
             %li
               %a{:href => "/mobile/docs/toolbars/bars_themes"} Theming toolbars
   / /content

@@ -568,16 +568,80 @@
               %option{:value => "firstOvernight"} First Overnight
               %option{:value => "expressSaver"} Express Saver
               %option{:value => "ground"} Ground
-        %h2 Styling with data attributes
+        %h2 Theming selects
         %p
           You can specify any jQuery Mobile button
           %code data-
           attribute on a select element, too. In this example, we're setting the theme, icon and inline properties:
         %div{"data-role" => "fieldcontain"}
           %label.select{:for => "select-choice-11"} Actions
-          %select#select-choice-11{"data-icon" => "gear", "data-inline" => "true", "data-native-menu" => "false", "data-theme" => "a", :name => "select-choice-11"}
+          %select#select-choice-11{"data-icon" => "gear", "data-inline" => "true", "data-native-menu" => "false", "data-theme" => "e", :name => "select-choice-11"}
             %option{:value => "edit"} Edit user
             %option{:value => "delete"} Delete user
+        %p
+          The
+          %code data-overlay-theme
+          attribute can be added a select element to set the color of the overlay layer that the dialog-based custom select menus and the outer border of the smaller custom menus. By default, the content block colors for swatch A will be used for the overlays.
+        %div{"data-role" => "fieldcontain"}
+          %label.select{:for => "select-choice-15"} Size
+          %select#select-choice-15{"data-native-menu" => "false", "data-overlay-theme" => "d", "data-theme" => "b", :name => "select-choice-15"}
+            %option{:value => "t"} Tall
+            %option{:value => "g"} Grande
+            %option{:value => "v"} Vente
+        %div{"data-role" => "fieldcontain"}
+          %label.select{:for => "select-choice-13"} Choose state(s):
+          %select#select-choice-13{"data-native-menu" => "false", "data-overlay-theme" => "e", "data-theme" => "a", :name => "select-choice-13"}
+            %option Choose options
+            %option{:value => "AL"} Alabama
+            %option{:value => "AK"} Alaska
+            %option{:value => "AZ"} Arizona
+            %option{:value => "AR"} Arkansas
+            %option{:value => "CA"} California
+            %option{:value => "CO"} Colorado
+            %option{:value => "CT"} Connecticut
+            %option{:value => "DE"} Delaware
+            %option{:value => "FL"} Florida
+            %option{:value => "GA"} Georgia
+            %option{:value => "HI"} Hawaii
+            %option{:value => "ID"} Idaho
+            %option{:value => "IL"} Illinois
+            %option{:value => "IN"} Indiana
+            %option{:value => "IA"} Iowa
+            %option{:value => "KS"} Kansas
+            %option{:value => "KY"} Kentucky
+            %option{:value => "LA"} Louisiana
+            %option{:value => "ME"} Maine
+            %option{:value => "MD"} Maryland
+            %option{:value => "MA"} Massachusetts
+            %option{:value => "MI"} Michigan
+            %option{:value => "MN"} Minnesota
+            %option{:value => "MS"} Mississippi
+            %option{:value => "MO"} Missouri
+            %option{:value => "MT"} Montana
+            %option{:value => "NE"} Nebraska
+            %option{:value => "NV"} Nevada
+            %option{:value => "NH"} New Hampshire
+            %option{:value => "NJ"} New Jersey
+            %option{:value => "NM"} New Mexico
+            %option{:value => "NY"} New York
+            %option{:value => "NC"} North Carolina
+            %option{:value => "ND"} North Dakota
+            %option{:value => "OH"} Ohio
+            %option{:value => "OK"} Oklahoma
+            %option{:value => "OR"} Oregon
+            %option{:value => "PA"} Pennsylvania
+            %option{:value => "RI"} Rhode Island
+            %option{:value => "SC"} South Carolina
+            %option{:value => "SD"} South Dakota
+            %option{:value => "TN"} Tennessee
+            %option{:value => "TX"} Texas
+            %option{:value => "UT"} Utah
+            %option{:value => "VT"} Vermont
+            %option{:value => "VA"} Virginia
+            %option{:value => "WA"} Washington
+            %option{:value => "WV"} West Virginia
+            %option{:value => "WI"} Wisconsin
+            %option{:value => "WY"} Wyoming
         %h2 Calling the select menu plugin
         %p
           The select menu plugin will auto initialize on any page that contains a select menu, no need for a
