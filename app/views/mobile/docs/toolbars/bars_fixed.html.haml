@@ -34,7 +34,7 @@
         = succeed "." do
           %code $.mobile.fixedToolbars.show(true);
       %p
-        There is also a
+        There is also an
         %code updatelayout
         event that can be used to trigger the toolbars to re-position. Developers who are building dynamic applications that inject content into the current page can also manually trigger this
         %code
@@ -43,15 +43,25 @@
         %code updatelayout
         event to update the widget in response.
       %h2 Known limitations
-      %p jQuery Mobile uses dynamically re-positioned toolbars for the fixed header effect because very few mobile browsers support the position:fixed CSS property. Although our fixed toolbar feature works fairly well, there are a number of technical limitations that can cause the toolbars to appear to scroll with the page. Most of these rendering issues are due to the fact many mobile platforms (iOS, Android, etc.) essentially take a static screenshot of the page and display this image during scrolling instead of the actual rendered HTML. This improves scrolling performance, but when scrolling happens quickly, the toolbars will be "burned" into the page screenshot before our script can hide them so they appear to scroll with the page. We have optimized this as much as we possibly can, but there are going to be situations where fixed toolbars won't work perfectly due to browser limitations so this si important to note when considering whether to use this feature.
+      %p
+        jQuery Mobile uses dynamically re-positioned toolbars for the fixed header effect because very few mobile browsers support the
+        %code position:fixed
+        CSS property. Although our fixed toolbar feature works fairly well, there are a number of technical limitations that can cause the toolbars to appear to scroll with the page. Most of these rendering issues are due to the fact many mobile platforms (iOS, Android, etc.) essentially take a static screenshot of the page and display this image during scrolling instead of the actual rendered HTML. This improves scrolling performance, but when scrolling happens quickly, the toolbars will be "burned" into the page screenshot before our script can hide them so they appear to scroll with the page. We have optimized this as much as we possibly can, but there are going to be situations where fixed toolbars won't work perfectly due to browser limitations, so this is important to note when considering whether to use this feature.
       %h2 True fixed toolbars: touchOverflowEnabled
       %p
-        In order to achieve true fixed toolbars, a browser needs to either support position:fixed or overflow:auto. Fortunately, this support is coming to mobile platforms so we can achieve, this with web standards. In jQuery Mobile, we have added a global feature called
+        In order to achieve true fixed toolbars, a browser needs to either support
+        %code position:fixed
+        or
+        = succeed "." do
+          %code overflow:auto
+        Fortunately, this support is coming to mobile platforms so we can achieve this with web standards. In jQuery Mobile, we have added a global feature called
         %code touchOverflowEnabled
-        that leverages the overflow:auto CSS property on supported platforms like iOS5. When enabled, the framework wraps each page in a container with it's own internal scrolling. This allows up to position the toolbars outside the scrolling body so they truly stay fixed in place at all times. Learn more about this feature on the
+        that leverages the
+        %code overflow:auto
+        CSS property on supported platforms like iOS5. When enabled, the framework wraps each page in a container with it's own internal scrolling. This allows us to position the toolbars outside the scrolling body so they truly stay fixed in place at all times. Learn more about this feature on the
         %a{:href => "/mobile/docs/api/globalconfig"} global options
         page or
-        %a{:href => "/mobile/docs/config/touch_overflow"} demo
+        %a{:href => "/mobile/docs/config/touchOverflow"} demo
         this feature (currently iOS5 only, other browsers will fall back to dynamically re-positioned fixed toolbars).
       %hr
         %h2 The rest of the page is just sample content to make the page very long
@@ -163,7 +173,7 @@
             %li
               %a{:href => "/mobile/docs/toolbars/bars_fullscreen"} Fullscreen positioning
             %li
-              %a{:href => "/mobile/docs/toolbars/footer_persist_a"} Persistent footer nav bar
+              %a{:href => "/mobile/docs/toolbars/footer_persist_a"} Persistent footer navbar
             %li
               %a{:href => "/mobile/docs/toolbars/bars_themes"} Theming toolbars
   / /content

@@ -8,14 +8,15 @@
   %div{"data-role" => "content"}
     .content-primary
       %p
-        This page is a demo of a persistent footer navigation bar. At the foot of the page, you'll see a persistent horizontal navigation bar. Click on any of the links, and you'll see the page content transition but the footer remain fixed: The footer sticks persistently even when transitioning to a new HTML page, because the footer on all four HTML pages has the same
+        This page is a demo of a persistent footer navigation bar. At the foot of the page, you'll see a persistent horizontal navigation bar. Click on any of the links, and you'll see the page content transition but the footer remains fixed: The footer sticks persistently even when transitioning to a new HTML page, because the footer on all four HTML pages has the same
         %code data-id
         attribute.
         %strong Note:
-        If you'd like an active button in your navbar to remain active when you return to it again, add a class of
+        If you'd like an active button in your navbar to remain active when you return to the page displaying this active button, add a class of
         %code ui-state-persist
         in addition to
         %code ui-btn-active
+        to the corresponding anchor.
       %ul{"data-dividertheme" => "d", "data-role" => "listview", :style => "margin-top: 0;"}
         %li{"data-role" => "list-divider"} A
         %li
@@ -96,7 +97,7 @@
             %li
               %a{:href => "/mobile/docs/toolbars/bars_fullscreen"} Fullscreen positioning
             %li{"data-theme" => "a"}
-              %a{:href => "/mobile/docs/toolbars/footer_persist_a"} Persistent footer nav bar
+              %a{:href => "/mobile/docs/toolbars/footer_persist_a"} Persistent footer navbar
             %li
               %a{:href => "/mobile/docs/toolbars/bars_themes"} Theming toolbars
   / /content
