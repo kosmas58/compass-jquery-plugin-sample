@@ -1,0 +1,134 @@
+-@title = "jQuery Mobile Docs - Phonegap"
+= render :partial => "/mobile/index.js.haml", :format => :js
+
+.type-interior{"data-role" => "page"}
+  %div{"data-role" => "header", "data-theme" => "f"}
+    %h1 Building PhoneGap apps with jQuery Mobile
+    %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile"} Home
+  / /header
+  %div{"data-role" => "content"}
+    .content-primary
+      %h2 Building PhoneGap apps with jQuery Mobile
+      %p
+        %a{:href => "http://phonegap.com/", :rel => "external"} PhoneGap
+        is an HTML5 app platform that allows developers to author native applications with web technologies and get access to APIs and app stores. Applications are built as normal HTML pages and packaged up to run as a native application within a Web View (a chrome-less browser). PhoneGap commonly used in conjunction with to jQuery Mobile so we wanted to offer a few things to keep in mind to avoid common issues.
+      %p First, your initial application document is loaded by the PhoneGap application by a file:// URL. This means that if you want to pull in pages from your company's remote server (phone home) you will have to refer to them with absolute URLs to your server. Because your document originates from a file:// URL, loading pages or assets from your remote server is considered a cross-domain request.
+      %p
+        Your ability to access cross-domain pages from within a Phone Gap jQuery Mobile application is controlled by 2 key things:
+        %code $.support.cors
+        and
+        = succeed "," do
+          %code $.mobile.allowCrossDomainPages
+        and can also be influenced by the white list fueature in later builds of PhoneGap.
+      %h2 $.support.cors
+      %p
+        In jQuery core, there is a
+        %a{:href => "http://api.jquery.com/jQuery.support/", :rel => "external"} $.support.cors
+        boolean that indicates whether or not jQuery thinks the browser supports the W3C "
+        %a{:href => "http://www.w3.org/TR/cors/", :rel => "external"}> Cross-Origin Resource Sharing
+        " feature to support cross-domain requests.
+      %p
+        Since jQuery Mobile relies on jQuery core's $.ajax() functionality,
+        %code $.support.cors
+        must be set to
+        %code true
+        to tell
+        %code $.ajax
+        to load cross-domain pages. We've heard reports that Web Views on some platforms, like BlackBerry, support cross-domain loading, but that jQuery core incorrectly sets
+        %code $.support.cors
+        value to
+        %code false
+        which disables cross-domain $.ajax() requests and will cause the page or assets to fail to load.
+      %h2 $.mobile.allowCrossDomainPages
+      %p
+        When jQuery Mobile attempts to load an external page, the request runs through
+        = succeed "." do
+          %code $.mobile.loadPage()
+        This will only allow cross-domain requests if the
+        %code $.mobile.allowCrossDomainPages
+        configuration option is set to
+        = succeed "." do
+          %code true
+        Because the jQuery Mobile framework tracks what page is being viewed within the browser's location hash, it is possible for an XSS attack to occur if the XSS code in question can manipulate the hash and set it to a cross-domain URL of it's choice. This is the main reason that the default setting for
+        %code $.mobile.allowCrossDomainPages
+        is set to
+        = succeed "." do
+          %code false
+      %p
+        So PhoneGap apps that must "phone home" by loading assets off a remote server, both the
+        %code $.support.cors
+        AND
+        %code $.mobile.allowCrossDomainPages
+        must be set to
+        = succeed "." do
+          %code true
+        The
+        %code $.mobile.allowCrossDomainPages
+        option must set before any cross-domain request is made so we recommend wrapping this in a
+        %code mobileinit
+        handler:
+      %pre
+        %code
+          :preserve
+            $( document ).bind( "mobileinit", function() {
+              // Make your jQuery Mobile framework configuration changes here!
+
+              $.mobile.allowCrossDomainPages = true;
+            });
+      %h2 PhoneGap White Listing
+      %p
+        PhoneGap 1.0 introduced the idea of white-listing servers that it's internal WebView is allowed to make cross-domain requests to. You can find info about it here on the
+        = succeed ":" do
+          %a{:href => "http://wiki.phonegap.com/w/page/40796976/Install%20the%20latest%20%28trunk%29%20source%20of%20iOS%20PhoneGap"} PhoneGap wiki
+      %p However, not all platforms support this whitelisting feature so check the PhoneGap documentation for details. Older versions of PhoneGap prior to 1.0 defaulted to allowing cross-domain requests to any server.
+      %h2 Still having issues?
+      %p Here are a few more tips that aren't specifically related to PhoneGap but are good to know:
+      %p
+        %strong>
+          We recommend disabling the
+          %a{:href => "/mobile/docs/api/globalconfig"} pushState feature
+          for installed apps
+        because there are edge cases where this feature can cause unexpected navigation behavior and since URLs aren't visible in a WebView, it's not worth keeping this active in these situations.
+      %p
+        %strong Android enforces a timeout when loading URLs in a webview
+        which may be too short for your needs. You can change this timeout by editing a Java class generated by the Eclipse plugin for Android:
+      %code super.setIntegerProperty("loadUrlTimeoutValue", 60000);
+    / /content-primary
+    .content-secondary
+      .ui-body-b
+        %div{"data-collapsed" => "true", "data-content-theme" => "d", "data-role" => "collapsible", "data-theme" => "b"}
+          %h3 More in this section
+          %ul{"data-dividertheme" => "d", "data-role" => "listview", "data-theme" => "c"}
+            %li{"data-role" => "list-divider"} Pages &amp; Dialogs
+            %li
+              %a{:href => "/mobile/docs/pages/anatomy"} Anatomy of a page
+            %li
+              %a{"data-ajax" => "false", :href => "/mobile/docs/pages/template"} Single page template
+            %li
+              %a{"data-ajax" => "false", :href => "/mobile/docs/pages/multipage_template"} Multi-page template
+            %li
+              %a{:href => "/mobile/docs/pages/titles"} Page titles
+            %li
+              %a{:href => "/mobile/docs/pages/links"} Linking pages
+            %li
+              %a{"data-ajax" => "false", :href => "/mobile/docs/pages/transitions"} Page transitions
+            %li
+              %a{:href => "/mobile/docs/pages/dialogs"} Dialogs
+            %li
+              %a{:href => "/mobile/docs/pages/cache"} Prefetching &amp; caching pages
+            %li
+              %a{:href => "/mobile/docs/pages/navmodel"} Ajax, hashes &amp; history
+            %li
+              %a{:href => "/mobile/docs/pages/dynamics"} Dynamically injecting Pages
+            %li
+              %a{:href => "/mobile/docs/pages/scripting"} Scripting pages
+            %li{"data-theme" => "a"}
+              %a{:href => "/mobile/docs/pages/phonegap"} PhoneGap apps
+            %li
+              %a{:href => "/mobile/docs/pages/touchoverflow"} touchOverflow feature
+            %li
+              %a{:href => "/mobile/docs/pages/themes"} Theming pages
+  / /content
+  .footer-docs{"data-role" => "footer", "data-theme" => "c"}
+    %p &copy; 2011 The jQuery Project
+  / /page

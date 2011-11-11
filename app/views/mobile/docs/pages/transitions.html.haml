@@ -9,38 +9,271 @@
   %div{"data-role" => "content"}
     .content-primary
       %h2 Page transitions
-      %p The jQuery Mobile framework includes a set of six CSS-based transition effects that can be applied to any object or page change event, which apply the chosen transition when navigating to a new page and the reverse transition for the Back button. By default, the framework applies the right to left slide transition.
+      %p The jQuery Mobile framework includes a set of six CSS-based transition effects that can be applied to any page link or form submission with Ajax navigation:
+      .ui-grid-a
+        .ui-block-a
+          %a{"data-rel" => "dialog", "data-role" => "button", "data-transition" => "slide", :href => "#dialog"} slide
+          %a{"data-rel" => "dialog", "data-role" => "button", "data-transition" => "slideup", :href => "#dialog"} slideup
+          %a{"data-rel" => "dialog", "data-role" => "button", "data-transition" => "slidedown", :href => "#dialog"} slidedown
+        .ui-block-b
+          %a{"data-rel" => "dialog", "data-role" => "button", "data-transition" => "pop", :href => "#dialog"} pop
+          %a{"data-rel" => "dialog", "data-role" => "button", "data-transition" => "fade", :href => "#dialog"} fade
+          %a{"data-rel" => "dialog", "data-role" => "button", "data-transition" => "flip", :href => "#dialog"} flip*
+      / /grid-a
       %p
-        To set a custom transition effect, add the
+        %strong
+          Transitions from
+          %a{:href => "http://www.jqtouch.com/"} jQtouch
+        (
+        %em> with small modifications
+        ): Built by David Kaneda and maintained by Jonathan Stark.
+      %p NOTE: The flip transition isn't rendered correctly on most versions of Android because it lacks 3D CSS transform capabilities. Unfortunately, instead of ignoring the flip, Android makes the page "cartwheel" away by rotating instead of flipping. We recommend using this transition sparingly until support improves.
+      %h2 Setting a transition on a link or form submit
+      %p
+        By default, the framework applies the right to left
+        %strong slide
+        transition. To set a custom transition effect, add the
         %code data-transition
-        attribute to the link. Possible values include:
+        attribute to the link.
       %code
         %code
-          \&lt;a href=&quot;index.html&quot; data-transition=&quot;pop&quot;&gt;I'll pop&lt;/a&gt;
+          &lt;a href=&quot;index.html&quot;
+          data-transition=&quot;pop&quot;&gt;I'll pop&lt;/a&gt;
       %p
-        %a{"data-rel" => "dialog", "data-role" => "button", "data-transition" => "slide", :href => "#dialog"} slide
-        %a{"data-rel" => "dialog", "data-role" => "button", "data-transition" => "slideup", :href => "#dialog"} slideup
-        %a{"data-rel" => "dialog", "data-role" => "button", "data-transition" => "slidedown", :href => "#dialog"} slidedown
-        %a{"data-rel" => "dialog", "data-role" => "button", "data-transition" => "pop", :href => "#dialog"} pop
-        %a{"data-rel" => "dialog", "data-role" => "button", "data-transition" => "fade", :href => "#dialog"} fade
-        %a{"data-rel" => "dialog", "data-role" => "button", "data-transition" => "flip", :href => "#dialog"} flip *
-      %p NOTE: The flip transition isn't rendered correctly on most versions of Android because it lacks 3D CSS transform capabilities. Unfortunately, instead of ignoring the flip, Android makes the page "cartwheel" away by rotating instead of flipping. We recommend using this transition sparingly until support improves.
-      %p
-        In addition, you can also force a "backwards" transition by specifying
+        When the Back button is pressed, the framework will automatically apply the reverse version of the transition that was used to show the page. To specify that the reverse version of a transition should be used, add the
         %code data-direction="reverse"
-        on your link. Note: (this was formerly
+        attribute to a link. Note: (this was formerly
         = succeed "," do
           %code data-back="true"
         which will remain supported until 1.0)
-      .ui-body.ui-body-e
-        %p
-          %strong
-            Transitions from
-            %a{:href => "http://www.jqtouch.com/"} jQtouch
-          (
-          %em> with small modifications
-          ): Built by David Kaneda and maintained by Jonathan Stark.
+      %p
+        For smoother page transitions, consider enabling the
+        %a{:href => "/mobile/docs/pages/touchoverflow"} touchOverflow
+        feature.
+      %h2 Global configuration of transitions
+      %p
+        Set the
+        %code defaultPageTransition
+        %a{:href => "/mobile/docs/api/globalconfig"} global option
+        if you'd prefer a different default transition. Dialogs have a different option called
+        %code defaultDialogTransition
+        that can also set configured.
+      %h2 Creating custom CSS-based transitions
+      %p To create a custom CSS transition, select a class name that corresponds to the name of your transition, for example "slide", and then define your "in" and "out" CSS rules to take advantage of transitions or animation keyframes:
+      %pre
+        %code
+          :preserve
+            .slide.in {
+              -webkit-transform: translateX(0);
+              -webkit-animation-name: slideinfromright;
+            }
 
+            .slide.out {
+              -webkit-transform: translateX(-100%);
+              -webkit-animation-name: slideouttoleft;
+            }
+
+            @-webkit-keyframes slideinfromright {
+              from { -webkit-transform: translateX(100%); }
+              to { -webkit-transform: translateX(0); }
+            }
+            @-webkit-keyframes slideouttoleft {
+              from { -webkit-transform: translateX(0); }
+              to { -webkit-transform: translateX(-100%); }
+            }
+      %p During a CSS-based page transition, jQuery Mobile will place the class name of the transition on both the "from" and "to" pages involved in the transition. It then places an "out" class on the "from" page, and "in" class on the "to" page. The presence of these classes on the "from" and "to" page elements then triggers the animation CSS rules defined above.
+      %p
+        If your transition supports a reverse direction, you need to create CSS rules that use the
+        %code reverse
+        class in addition to the transition class name and the "in" and "out" classes:
+      %pre
+        %code
+          :preserve
+            .slide.in.reverse {
+              -webkit-transform: translateX(0);
+              -webkit-animation-name: slideinfromleft;
+            }
+
+            .slide.out.reverse {
+              -webkit-transform: translateX(100%);
+              -webkit-animation-name: slideouttoright;
+            }
+
+            @-webkit-keyframes slideinfromleft {
+              from { -webkit-transform: translateX(-100%); }
+              to { -webkit-transform: translateX(0); }
+            }
+
+            @-webkit-keyframes slideouttoright {
+              from { -webkit-transform: translateX(0); }
+              to { -webkit-transform: translateX(100%); }
+            }
+      %p After the CSS rules are in place, you simply specify the name of your transition within the @data-transition attribute of a navigation link:
+      %pre
+        %code
+          :preserve
+            &lt;a href="#page2" data-transition="slide"&gt;Page 2&lt;/a&gt;
+      %p When the user clicks on the navigation link, jQuery Mobile will invoke your transition when it navigates to the page mentioned within the link.
+      %p In case you were wondering why none of the CSS rules above specified any easing or duration, it's because the CSS for jQuery Mobile defines the default easing and duration in the following rules:
+      %pre
+        %code
+          :preserve
+
+            .in, .out {
+              -webkit-animation-timing-function: ease-in-out;
+              -webkit-animation-duration: 350ms;
+            }
+      %p If you need to specify a different easing or duration, simply add the appropriate CSS3 property to your custom page transition rules.
+      %h2 Creating custom JavaScript-based transitions
+      %p
+        When a user clicks on a link within a page, jQuery Mobile checks if the link specifies a
+        %code @data-transition
+        attribute. The value of this attribute is the name of the transition to use when displaying the page referred to by the link. If there is no
+        %code @data-transition
+        attribute, the transition name specified by the configuration option
+        %code $.mobile.defaultPageTransition
+        is used for pages, and
+        %code $.mobile.defaultDialogTransition
+        is used for dialogs.
+      %p
+        After the new page is loaded, the
+        %code $.mobile.transitionHandlers
+        dictionary is used to see if any transition handler function is registered for the given transition name. If a handler is found, that handler is invoked to start and manage the transition. If no handler is found the handler specified by the configuration option
+        %code $.mobile.defaultTransitionHandler
+        is invoked.
+      %p
+        By default, the
+        %code $.mobile.transitionHandlers
+        dictionary is only populated with a single handler entry called "none". This handler simply removes the
+        %code "ui-page-active"
+        class from the page we are transitioning "from", and places it on the page we are transitioning "to". The transition is instantaneous; no animation, no fanfare.
+      %p
+        The
+        %code $.defaultTransitionHandler
+        points to a handler function that assumes the name is a CSS class name, and implements the "Pure CSS3 Based Transitions" section above.
+      %p Both the "none" and "css3" transition handlers are available off of the $.mobile namespace:
+      %pre
+        %code
+          :preserve
+
+            $.mobile.noneTransitionHandler
+            $.mobile.css3TransitionHandler
+      %h3 Transition Handlers
+      %p A transition handler is a function with the following call signature:
+      %pre
+        %code
+          :preserve
+            function myTransitionHandler(name, reverse, $to, $from)
+            {
+              var deferred = new $.Deferred();
+
+              // Perform any actions or set-up necessary to kick-off
+              // your transition here. The only requirement is that
+              // whenever the transition completes, your code calls
+              // deferred.resolve(name, reverse, $to, $from).
+
+              // Return a promise.
+              return deferred.promise();
+            }
+      %p
+        Your handler must create a Deferred object and return a promise to the caller. The promise is used to communicate to the caller when your transition is actually complete. It is up to you to call
+        %code deferred.resolve()
+        at the correct time. If you are new to Deferred objects, you can find documentation
+        = succeed "." do
+          %a{:href => "http://api.jquery.com/category/deferred-object/", :rel => "nofollow"} here
+      %h3 Registering and Invoking Your Transition Handler
+      %p
+        Once you have created a transition handler function, you need to tell jQuery Mobile about it. To do this, simply add your handler to the
+        %code $.mobile.transitionHandlers
+        dictionary. Remember, the key used should be the name of your transition. This name is also the same name that will be used within the
+        %code @data-transition
+        attribute of any navigation links.
+      %pre
+        %code
+          :preserve
+            // Define your transition handler:
+
+            function myTransitionHandler(name, reverse, $to, $from)
+            {
+              var deferred = new $.Deferred();
+
+              // Perform any actions or set-up necessary to kick-off
+              // your transition here. The only requirement is that
+              // whenever the transition completes, your code calls
+              // deferred.resolve(name, reverse, $to, $from).
+
+              // Return a promise.
+              return deferred.promise();
+            }
+
+            // Register it with jQuery Mobile:
+
+            $.mobile.transitionHandlers["myTransition"] = myTransitionHandler;
+      %p
+        Once you've registered your handler, you can invoke your transition by placing a
+        %code data-transition
+        attribute on a link:
+      %pre
+        %code
+          :preserve
+            &lt;a href="#page2" data-transition="myTransition"&gt;Page 2&lt;/a&gt;
+      %p When the user clicks the link above, your transition handler will be invoked after the page is loaded and it is ready to be shown.
+      %h3 Overriding a CSS Transition With Your Own Handler
+      %p As previously mentioned the default transition handler assumes that any transition name other than "none" is a CSS class to be placed on the "from" and "to" elements to kick off a CSS3 animation. If you would like to override one of these built-in CSS transitions, you simply register your own handler with the same name as the CSS page transition you want to override. So for example, if I wanted to override the built-in "slide" CSS transition with my own JavaScript based transition, I would simply do the following:
+      %pre
+        %code
+          :preserve
+            // Define your transition handler:
+
+            function myTransitionHandler(name, reverse, $to, $from)
+            {
+              var deferred = new $.Deferred();
+
+              // Perform any actions or set-up necessary to kick-off
+              // your transition here. The only requirement is that
+              // whenever the transition completes, your code calls
+              // deferred.resolve(name, reverse, $to, $from).
+
+              // Return a promise.
+              return deferred.promise();
+            }
+
+            // Register it with jQuery Mobile:
+
+            $.mobile.transitionHandlers["slide"] = myTransitionHandler;
+      %p Once you do this, anytime the "slide" transition is invoked, your handler, instead of the default one, will be called to perform the transition.
+      %h3 Overriding the Default Transition Handler
+      %p
+        The
+        %code $.mobile.css3TransitionHandler
+        function is the default transition handler that gets invoked when a transition name is used and not found in the
+        %code $.mobile.transitionHandlers
+        dictionary. If you want to install your own custom default handler, you simply set the
+        %code $.mobile.defaultTransitionHandler
+        to your handler:
+      %pre
+        %code
+          :preserve
+            // Define your default transition handler:
+
+            function myTransitionHandler(name, reverse, $to, $from)
+            {
+              var deferred = new $.Deferred();
+
+              // Perform any actions or set-up necessary to kick-off
+              // your transition here. The only requirement is that
+              // whenever the transition completes, your code calls
+              // deferred.resolve(name, reverse, $to, $from).
+
+              // Return a promise.
+              return deferred.promise();
+            }
+
+            $.mobile.defaultTransitionHandler = myTransitionHandler;
+      %p
+        Once you do this, your handler will be invoked any time a transition name is used but not found within the
+        %code $.mobile.transitionHandlers
+        dictionary.
     / /content-primary
     .content-secondary
       .ui-body-b
