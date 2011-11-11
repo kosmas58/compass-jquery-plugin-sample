@@ -1,0 +1,26 @@
+<?php include('includes/header.php'); ?>
+%body
+  %div{"data-role" => "page"}
+    %header.echo{:class => "<?php $siteName; ?>", "data-role" => "header"}
+      %h1
+        <?php echo ucwords($siteName).'+'; ?>
+    / /header
+    %div{"data-role" => "content"}
+      %ul{"data-counttheme" => "e", "data-dividertheme" => "d", "data-role" => "listview", "data-theme" => "c"}
+        <?php foreach($feed?>
+        query->results->item as $item) {
+        if ( $siteName === 'psdtuts' ) $comments = $item->comments->content;
+        else $comments = $item->comments[1];
+        ?>
+        %li
+          %h2
+            %a{:href => "article.php?siteName=<?php echo $siteName;?>&origLink=<?php echo urlencode($item->guid->content);?>"}
+              <?php echo $item?>
+              title; ?>
+          %span.ui-li-count
+            <?php echo $comments; ?>
+        <?php } ?>
+    / /content
+    %footer.echo{:class => "<?php $siteName; ?>", "data-role" => "footer"}
+      %h4 www.tutsplus.com
+  / /page

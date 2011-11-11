@@ -3,11 +3,11 @@ class Mobile::Docs::FormsController < ApplicationController
 
   protect_from_forgery
 
-  def forms_sample_response
+  def sample_response
     @shipping = params[:shipping]
   end
 
-  def forms_sample_selfsubmit
+  def sample_selfsubmit
     @gender = params[:gender]
   end
 end

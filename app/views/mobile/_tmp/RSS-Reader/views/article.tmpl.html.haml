@@ -1,0 +1,29 @@
+<?php include('includes/header.php'); ?>
+%body
+  %div{"data-role" => "page"}
+    %header.echo{:class => "<?php $siteName; ?>", "data-role" => "header"}
+      %h1
+        <?php echo ucWords($siteName).'+'; ?>
+    / /header
+    %div{"data-role" => "content"}
+      %h1
+        <?php echo $feed?>
+        title; ?>
+      %div
+        <?php echo $feed?>
+        description; ?>
+    / /content
+    %footer.echo{:class => "<?php $siteName; ?>", "data-position" => "fixed", "data-role" => "footer"}
+      %h4
+        %a{"data-icon" => "forward", :href => "<?php echo $feed->guid->content;?>"}
+          Read on
+          <?php echo ucWords($siteName); ?>
+          +
+  / /page
+  %script.javascript{:src => "http://net.tutsplus.com/wp-content/plugins/google-syntax-highlighter/Scripts/shCore.js"}
+  %script.javascript{:src => "http://net.tutsplus.com/wp-content/plugins/google-syntax-highlighter/Scripts/shBrushAll.js"}
+  %script.javascript
+    dp.SyntaxHighlighter.ClipboardSwf = 'http://net.tutsplus.com/wp-content/plugins/google-syntax-highlighter/Scripts/clipboard.swf';
+    dp.SyntaxHighlighter.HighlightAll('code');
+  :javascript
+    $('img, embed, object').removeAttr('height').removeAttr('width');

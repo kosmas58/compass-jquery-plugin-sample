@@ -1,0 +1,237 @@
+-@title = "jQuery Mobile Docs - Content Grids"
+= render :partial => "/mobile/index.js.haml", :format => :js
+
+.type-interior{"data-role" => "page"}
+  %div{"data-role" => "header", "data-theme" => "f"}
+    %h1 Layout grids
+    %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile"} Home
+  / /header
+  %div{"data-role" => "content"}
+    .content-primary
+      %p Using multiple column layouts isn't generally recommended on a mobile device because of the narrow screen width, but there are times where you may need to place small elements side-by-side (like buttons or navigation tabs, for example).
+      %p
+        The jQuery Mobile framework provides a simple way to build CSS-based columns through a  block style class convention called
+        = succeed "." do
+          %code ui-grid
+      %p There are four preset configurations layouts  that can be used in any situation that requires columns:
+      %ul
+        %li
+          %strong> two
+          \-column (using the
+          %code ui-grid-a
+          class)
+        %li
+          %strong> three
+          \-column (using the
+          %code ui-grid-b
+          class)
+        %li
+          %strong> four
+          \-column (using the
+          %code ui-grid-c
+          class)
+        %li
+          %strong> five
+          \-column (using the
+          %code ui-grid-d
+          class)
+      %p Grids are 100% width, completely invisible (no borders or backgrounds) and don't have padding or margins, so they shouldn't interfere with the styles of elements placed inside them.
+      %p
+        Within the grid container, child elements are assigned
+        %code ui-block-a/b/c/d
+        in a sequential manner which makes each "block" element float side-by-side, forming the grid. The
+        %code ui-block-a
+        class essentially clears the floats which will start a new line (see multiple row grids, below).
+      %h2 Two column grids
+      %p
+        To build a two-column (50/50%) layout, start with a container with a
+        %code class
+        of
+        = succeed "," do
+          %code ui-grid-a
+        and add two child containers inside it classed with
+        %code ui-block-a
+        for the first column and
+        %code ui-block-b
+        for the second:
+      %pre
+        %code
+          :preserve
+
+            &lt;div class=&quot;ui-grid-a&quot;&gt;
+              &lt;div class=&quot;ui-block-a&quot;&gt;&lt;strong&gt;I'm Block A&lt;/strong&gt; and text inside will wrap&lt;/div&gt;
+              &lt;div class=&quot;ui-block-b&quot;&gt;&lt;strong&gt;I'm Block B&lt;/strong&gt; and text inside will wrap&lt;/div&gt;
+            &lt;/div&gt;&lt;!-- /grid-a --&gt;
+      %p The above markup produces the following content layout:
+      .ui-grid-a
+        .ui-block-a
+          %strong I'm Block A
+          and text inside will wrap.
+        .ui-block-b
+          %strong I'm Block B
+          and text inside will wrap.
+      / /grid-a
+      %p As you see above, by default grid blocks have no visual styling; they simply present content side-by-side.
+      %p
+        Grid classes can be applied to any container. In this next example, we add
+        %code ui-grid-a
+        to a
+        = succeed "," do
+          %code fieldset
+        and apply the
+        %code ui-block
+        classes to the two buttons inside to stretch them each to 50% of the screen width:
+      %pre
+        %code
+          :preserve
+
+            &lt;fieldset class=&quot;ui-grid-a&quot;&gt;
+              &lt;div class=&quot;ui-block-a&quot;&gt;&lt;button type=&quot;submit&quot; data-theme=&quot;c&quot;&gt;Cancel&lt;/button&gt;&lt;/div&gt;
+              &lt;div class=&quot;ui-block-b&quot;&gt;&lt;button type=&quot;submit&quot; data-theme=&quot;b&quot;&gt;Submit&lt;/button&gt;&lt;/div&gt;
+            &lt;/fieldset&gt;
+      %fieldset.ui-grid-a
+        .ui-block-a
+          %button{"data-theme" => "c", :type => "submit"} Cancel
+        .ui-block-b
+          %button{"data-theme" => "b", :type => "submit"} Submit
+      %p
+        Theme classes (not data-theme attributes) from the
+        %a{:href => "../api/themes.html"} theming system
+        can be added to an element, including grids. On the blocks below, we're adding two classes:
+        %code ui-bar
+        to add the default bar padding and
+        %code ui-bar-e
+        to apply the background gradient and font styling for the "e" toolbar theme swatch. For illustration purposes, an inline
+        %code style="height:120px"
+        attribute is also added to each grid to set each to a standard height.
+      .ui-grid-a
+        .ui-block-a
+          .ui-bar.ui-bar-e{:style => "height:120px"} Block A
+        .ui-block-b
+          .ui-bar.ui-bar-e{:style => "height:120px"} Block B
+      / /grid-a
+      %h2 Three-column grids
+      %p
+        The other grid layout configuration uses
+        %code class=ui-grid-b
+        on the parent, and 3 child container elements, each with its respective
+        %code ui-block-a/b/c
+        class, to create a three-column layout (33/33/33%). Note: These blocks are also styled with theme classes so the grid layout is clearly visible.
+      %pre
+        %code
+          :preserve
+
+            &lt;div class=&quot;ui-grid-b&quot;&gt;
+              &lt;div class=&quot;ui-block-a&quot;&gt;Block A&lt;/div&gt;
+              &lt;div class=&quot;ui-block-b&quot;&gt;Block B&lt;/div&gt;
+              &lt;div class=&quot;ui-block-c&quot;&gt;Block C&lt;/div&gt;
+            &lt;/div&gt;&lt;!-- /grid-b --&gt;
+      %p This will produce a 33/33/33% grid for our content.
+      .ui-grid-b
+        .ui-block-a
+          .ui-bar.ui-bar-e{:style => "height:120px"} Block A
+        .ui-block-b
+          .ui-bar.ui-bar-e{:style => "height:120px"} Block B
+        .ui-block-c
+          .ui-bar.ui-bar-e{:style => "height:120px"} Block C
+      / /grid-b
+      %p And an example of a 3 column grid with buttons inside:
+      %fieldset.ui-grid-b
+        .ui-block-a
+          %button{"data-theme" => "c", :type => "submit"} Hmm
+        .ui-block-b
+          %button{"data-theme" => "a", :type => "submit"} No
+        .ui-block-b
+          %button{"data-theme" => "b", :type => "submit"} Yes
+      %h2 Four-column grids
+      %p
+        A four-column, 25/25/25/25% grid is created by specifying
+        %code class=ui-grid-c
+        on the parent and adding a fourth block. Note: These blocks are also styled with theme classes so the grid layout is clearly visible.
+      .ui-grid-c
+        .ui-block-a
+          .ui-bar.ui-bar-e{:style => "height:120px"} A
+        .ui-block-b
+          .ui-bar.ui-bar-e{:style => "height:120px"} B
+        .ui-block-c
+          .ui-bar.ui-bar-e{:style => "height:120px"} C
+        .ui-block-d
+          .ui-bar.ui-bar-e{:style => "height:120px"} D
+      / /grid-c
+      %h2 Five-column grids
+      %p
+        A five-column, 20/20/20/20/20% grid is created by specifying
+        %code class=ui-grid-d
+        on the parent and adding a fourth block. Note: These blocks are also styled with theme classes so the grid layout is clearly visible.
+      .ui-grid-d
+        .ui-block-a
+          .ui-bar.ui-bar-e{:style => "height:120px"} A
+        .ui-block-b
+          .ui-bar.ui-bar-e{:style => "height:120px"} B
+        .ui-block-c
+          .ui-bar.ui-bar-e{:style => "height:120px"} C
+        .ui-block-d
+          .ui-bar.ui-bar-e{:style => "height:120px"} D
+        .ui-block-e
+          .ui-bar.ui-bar-e{:style => "height:120px"} E
+      / /grid-c
+      %h2 Multiple row grids
+      %p
+        Grids are designed to wrap to multiple rows of items. For example, if you specify a 3-column grid (ui-grid-b) on a container that has nine child blocks, it will wrap to 3 rows of 3 items each. There is a CSS rule to clear the floats and start a new line when the
+        %code class=ui-block-a
+        is seen so make sure to assign block classes in a repeating sequence (a, b, c, a, b, c, etc.) that maps to the grid type:
+      .ui-grid-b
+        .ui-block-a
+          .ui-bar.ui-bar-e{:style => "height:120px"} A
+        .ui-block-b
+          .ui-bar.ui-bar-e{:style => "height:120px"} B
+        .ui-block-c
+          .ui-bar.ui-bar-e{:style => "height:120px"} C
+        .ui-block-a
+          .ui-bar.ui-bar-e{:style => "height:120px"} A
+        .ui-block-b
+          .ui-bar.ui-bar-e{:style => "height:120px"} B
+        .ui-block-c
+          .ui-bar.ui-bar-e{:style => "height:120px"} C
+        .ui-block-a
+          .ui-bar.ui-bar-e{:style => "height:120px"} A
+        .ui-block-b
+          .ui-bar.ui-bar-e{:style => "height:120px"} B
+        .ui-block-c
+          .ui-bar.ui-bar-e{:style => "height:120px"} C
+      / /grid-c
+      %h2 Grids in toolbars
+      %p Grids are helpful for creating layouts within a toolbar. Here's a footer with a 3 column grid.
+      / NOTE: Inline styles are for demo purposes only, please use external styles
+      .ui-bar.ui-grid-c{"data-role" => "footer", "data-theme" => "a"}
+        .ui-block-a
+          %h3{:style => "margin-top:10px;"} Settings
+        .ui-block-b
+          %label{:for => "value", :style => "margin:8px 10px 0 0; text-align:right;"} Price
+        .ui-block-c
+          %input#value{:value => "5,000"}/
+        .ui-block-d
+          %div{:style => "margin:6px 0 0 10px;"}
+            %button{"data-theme" => "b", :type => "submit"} Update
+      / /footer
+    / /content-primary
+    .content-secondary
+      .ui-body-b
+        %div{"data-collapsed" => "true", "data-content-theme" => "d", "data-role" => "collapsible", "data-theme" => "b"}
+          %h3 More in this section
+          %ul{"data-dividertheme" => "d", "data-role" => "listview", "data-theme" => "c"}
+            %li{"data-role" => "list-divider"} Content Formatting
+            %li
+              %a{:href => "/mobile/docs/content/basic_html"} Basic HTML styles
+            %li{"data-theme" => "a"}
+              %a{:href => "/mobile/docs/content/grids"} Layout grids (columns)
+            %li
+              %a{:href => "/mobile/docs/content/collapsible"} Collapsible content blocks
+            %li
+              %a{:href => "/mobile/docs/content/collapsible_set"} Collapsible sets (accordions)
+            %li
+              %a{:href => "/mobile/docs/content/themes"} Theming content
+  / /content
+  .footer-docs{"data-role" => "footer", "data-theme" => "c"}
+    %p &copy; 2011 The jQuery Project
+/ /page

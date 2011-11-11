@@ -1,0 +1,256 @@
+-@title = "jQuery Mobile Docs - Scripting pages"
+= render :partial => "/mobile/index.js.haml", :format => :js
+
+.type-interior{"data-role" => "page"}
+  %div{"data-role" => "header", "data-theme" => "f"}
+    %h1 Scripting pages
+    %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile"} Home
+  / /header
+  %div{"data-role" => "content"}
+    .content-primary
+      %p
+        Since jQuery Mobile uses an Ajax-powered navigation system, there are a few helpful things to know when writing scripts that manipulate your content. You can explore the mobile API in more detail by reading up on
+        = succeed "," do
+          %a{:href => "/mobile/docs/api/globalconfig"} global configuration options
+        = succeed "," do
+          %a{:href => "/mobile/docs//api/events"} events
+        and
+        %a{:href => "/mobile/docs/api/methods"} methods
+        or dig into the technical details of the
+        = succeed "." do
+          %a{:href => "/mobile/docs/pages/navmodel"} Ajax navigation model
+      %h2 Scripts &amp; styles in the head
+      %p
+        When the user clicks a link in a jQuery Mobile-driven site, the default behavior of the navigation system is to use that link's
+        %code href
+        to formulate an Ajax request (instead of allowing the browser's default link behavior of requesting that
+        %code href
+        with full page load). When that Ajax request goes out, the framework will receive its entire text content, but it will only inject the
+        = succeed "," do
+          %em
+            contents of the response's
+            %code body
+            element (or more specifically the
+            %code data-role="page"
+            element, if it's provided)
+        meaning nothing in the
+        %code head
+        of the page will be used (with the exception of the page title, which is fetched specifically).
+      %p
+        This means that any scripts and styles referenced the
+        %code head
+        of a page won't have any effect
+        = succeed "," do
+          %em when a page is loaded via Ajax
+        but they
+        = succeed "." do
+          %strong will execute if the page is requested normally via HTTP
+        When scripting jQuery Mobile sites, both scenarios need to be considered. The reason that the
+        %code head
+        of a page is ignored when requested via Ajax is that the potential of re-executing the same JavaScript is very high (it's common to reference the same scripts in every page of a site). Due to the complexity of attempting to work around that issue, we leave the task of executing page-specific scripts to the developer, and assume
+        %code head
+        scripts are only expected to execute once per browsing session.
+      %p
+        The simplest approach when building a jQuery Mobile site is to reference the same set of stylesheets and scripts in the head of every page. If you need to load in specific scripts or styles for a particular page, we recommend binding logic to the
+        %code pagecreate
+        event (details below) to run  necessary code when a specific page is created (which can be determined by its
+        %code id
+        attribute, or a number of other ways). Following this approach will ensure that the code executes if the page is loaded directly or is pulled in and shown via Ajax.
+      %p
+        Another approach for page-specific scripting would be to include scripts at the end of the
+        %code body
+        element. If you include your custom scripting this way, be aware that these scripts will execute when that page is loaded via Ajax or regular HTTP, so if these scripts are the same on every page, you'll likely run into problems. If you're including scripts this way, we'd recommend enclosing your page content in a
+        %code data-role="page"
+        element, and placing scripts that are referenced on every page outside of that element. Scripts that are unique to that page can be placed in that element, to ensure that they execute when the page is fetched via Ajax.
+      %h2 pagecreate = DOM ready
+      %p
+        One of the first things people learn in jQuery is to use the
+        %code $(document).ready()
+        function for executing DOM-specific code as soon as the DOM is ready (which often occurs long before the
+        %code onload
+        event). However, in jQuery Mobile site and apps, pages are requested and injected into the same DOM as the user navigates, so the DOM ready event is not as useful, as it only executes for the first page. To execute code whenever a new page is loaded and created in jQuery Mobile, you can bind to the
+        %a{:href => "/mobile/docs/api/events"}
+          %code pagecreate
+        event.
+      %p
+        The
+        %code pagecreate
+        event is triggered on a page when it is initialized, right after initialization occurs. Most of jQuery Mobile's official widgets auto-initialize themselves based on this event, and you can set up your code to do the same.
+      %pre
+        %code
+          :preserve
+            $( document ).delegate("#aboutPage", "pagecreate", function() {
+              alert('A page with an ID of "aboutPage" was just created by jQuery Mobile!');
+            });
+      %p
+        If you'd like to manipulate a page's contents
+        %em before
+        the pagecreate event fires and widgets are auto-initialized, you can instead bind to the
+        %code pagebeforecreate
+        event:
+      %pre
+        %code
+          :preserve
+            $( document ).delegate("#aboutPage", "pagebeforecreate", function() {
+              alert('A page with an ID of "aboutPage" is about to be created by jQuery Mobile!');
+            });
+      %h2 Changing pages
+      %p
+        If you want to change the current active page with JavaScript, you can use the
+        %a{:href => "/mobile/docs/api/methods"}
+          %code changePage
+        method. There are a lot of methods and properties that you can set when changing pages, but here are two simple examples:
+      %pre
+        %code
+          :preserve
+            //transition to the "about us" page with a slideup transition
+            $.mobile.changePage( "about/us.html", { transition: "slideup"} );
+
+            //transition to the "search results" page, using data from a form with an ID of "search""
+            $.mobile.changePage( "searchresults.php", {
+              type: "post",
+              data: $("form#search").serialize()
+            });
+      %h2 Loading pages
+      %p
+        To load an external page, enhance its content, and insert it into the DOM, use the
+        = succeed "." do
+          %a{:href => "/mobile/docs/api/methods"}
+            %code loadPage
+            method
+        There are a lot of methods and properties that you can set when loading pages, but here is a simple example:
+      %pre
+        %code
+          :preserve
+            //load the "about us" page into the DOM
+            $.mobile.loadPage( "about/us.html" );
+      %h2 Enhancing new markup
+      %p
+        The page plugin dispatches a
+        %code pagecreate
+        event, which most widgets use to auto-initialize themselves. As long as a widget plugin script is referenced, it will automatically enhance any instances of the widgets it finds on the page.
+      %p
+        However, if you generate new markup client-side or load in content via Ajax and inject it into a page, you can trigger the
+        %code create
+        event to handle the auto-initialization for all the plugins contained within the new markup. This can be triggered on any element (even the page
+        %code div
+        itself), saving you the task of manually initializing each plugin (listview button, select, etc.).
+      %p
+        For example, if a block of HTML markup (say a login form) was loaded in through Ajax, trigger the
+        %code create
+        event to automatically transform all the widgets it contains (
+        %a{:href => "http://jquerymobile.com/test/docs/forms/textinputs/index.html"} inputs
+        and
+        %a{:href => "http://jquerymobile.com/test/docs/buttons/index.html"} buttons
+        in this case) into the enhanced versions. The code for this scenario would be:
+      %pre{:style => "margin: 25px 0;"}
+        %code{:style => "font-size: 12px;"}
+          :preserve
+            $( ...new markup that contains widgets... ).appendTo( ".ui-page" ).trigger( "create" );
+      %h2 Create vs. refresh: An important distinction
+      %p
+        Note that there is an important difference between the
+        %code create
+        event and
+        %code refresh
+        method that some widgets have. The
+        %code create
+        event is suited for enhancing
+        %em raw markup
+        that contains one or more widgets. The
+        %code refresh
+        method should be used on existing (already enhanced) widgets that have been manipulated programmatically and need the UI be updated to match.
+      %p
+        For example, if you had a page where you dynamically appended a new unordered list with
+        %code data-role=listview
+        attribute after page creation, triggering
+        %code create
+        on a parent element of that list would transform it into a
+        %a{:href => "http://jquerymobile.com/test/docs/lists/index.html"} listview
+        styled widget. If more list items were then programmatically added, calling the listview’s
+        %code refresh
+        method would update just those new list items to the enhanced state and leave the existing list items untouched.
+      %h2 Scrolling to a position within a page
+      %p
+        Since we use the URL hash to preserve Back button behavior, using page anchors to jump down to a position on the page isn't supported by using the traditional anchor link (#foo). Use the
+        %a{:href => "/mobile/docs/api/methods"}
+          %code silentScroll
+        method to scroll to a particular Y position without triggering scroll event listeners. You can pass in a
+        %code yPos
+        arguments to scroll to that Y location. For example:
+      %pre
+        %code
+          :preserve
+            //scroll to Y 300px
+            $.mobile.silentScroll(300);
+      %h2 Binding to mouse and touch events
+      %p
+        One inportant consideration in mobile is handling mouse and touch events. These events differ significantly across mobile platforms, but the common denominator is that click events will work everywhere, but usually after a significant delay of 500-700ms. This delay is necessary for the browser to wait for double tap, scroll and extended hold tap events to potentially occur. To avoid this delay, it's possible to bind to touch events (ex. touchstart) but the issue with this approach is that some mobile platforms (WP7, Blackberry) don't support touch. To compound this issue, some platforms will emit
+        %em both
+        touch and mouse events so if you bind to both types, duplicate events will be fired for a single interaction.
+      %p
+        Our solution is to create a set of
+        %a{:href => "/mobile/docs/api/events"} virtual events
+        that normalize mouse and touch events. This allows the developer to register listeners for the basic mouse events, such as mousedown, mousemove, mouseup, and click, and the plugin will take care of registering the correct listeners behind the scenes to invoke the listener at the fastest possible time for that device. This still retains the order of event firing in the traditional mouse environment, should multiple handlers be registered on the same element for different events. The virtual mouse system exposes the following virtual events to jQuery bind methods:
+        = succeed "," do
+          %code vmouseover
+        = succeed "," do
+          %code vmousedown
+        = succeed "," do
+          %code vmousemove
+        = succeed "," do
+          %code vmouseup
+        = succeed "," do
+          %code vclick
+        and
+        %code vmousecancel
+      %h2 Passing parameters between pages
+      %p
+        jQuery Mobile does not support query parameter passing to internal/embedded pages. For example, if the framework sees a link to "#somePage?someId=1" it  interpret that as "#somePage" and navigate to the internal page div with an ID of
+        %code somePage
+        and apply a data-url of
+        %code #somePage?someId=1
+        to that page container. Subsequent calls to other params such as "#somePage?someId=2" will find the same div because jQuery Mobile refers to the data-url on the div which is only set once and will remain at
+        = succeed "." do
+          %code #somePage?someId=1
+      %p
+        There are two plugins that you can add to your project if query parameters are needed between pages. There is a lightweight
+        %a{:href => "https://github.com/jblas/jquery-mobile-plugins/tree/master/page-params", :rel => "external"} page params plugin
+        and a more fully featured
+        %a{:href => "https://github.com/azicchetti/jquerymobile-router", :rel => "external"} jQuery Mobile router plugin
+        for use with backbone.js or spine.js.
+    / /content-primary
+    .content-secondary
+      .ui-body-b
+        %div{"data-collapsed" => "true", "data-content-theme" => "d", "data-role" => "collapsible", "data-theme" => "b"}
+          %h3 More in this section
+          %ul{"data-dividertheme" => "d", "data-role" => "listview", "data-theme" => "c"}
+            %li{"data-role" => "list-divider"} Pages &amp; Dialogs
+            %li
+              %a{:href => "/mobile/docs/pages/anatomy"} Anatomy of a page
+            %li
+              %a{"data-ajax" => "false", :href => "/mobile/docs/pages/template"} Single page template
+            %li
+              %a{"data-ajax" => "false", :href => "/mobile/docs/pages/multitemplate"} Multi-page template
+            %li
+              %a{:href => "/mobile/docs/pages/titles"} Page titles
+            %li
+              %a{:href => "/mobile/docs/pages/links"} Linking pages
+            %li
+              %a{"data-ajax" => "false", :href => "/mobile/docs/pages/transitions"} Page transitions
+            %li
+              %a{:href => "/mobile/docs/pages/dialogs"} Dialogs
+            %li
+              %a{:href => "/mobile/docs/pages/cache"} Prefetching &amp; caching pages
+            %li
+              %a{:href => "/mobile/docs/pages/navmodel"} Ajax, hashes &amp; history
+            %li
+              %a{:href => "/mobile/docs/pages/dynamics"} Dynamically Injecting Pages
+            %li{"data-theme" => "a"}
+              %a{:href => "/mobile/docs/pages/scripting"} Scripting pages
+            %li
+              %a{:href => "/mobile/docs/pages/themes"} Theming pages
+  / /content
+  .footer-docs{"data-role" => "footer", "data-theme" => "c"}
+    %p &copy; 2011 The jQuery Project
+  / /page

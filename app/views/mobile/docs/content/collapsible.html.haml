@@ -1,0 +1,153 @@
+-@title = "jQuery Mobile Docs - Collapsible Content"
+= render :partial => "/mobile/index.js.haml", :format => :js
+
+.type-interior{"data-role" => "page"}
+  %div{"data-role" => "header", "data-theme" => "f"}
+    %h1 Collapsible content
+    %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile"} Home
+  / /header
+  %div{"data-role" => "content"}
+    .content-primary
+      %h2 Collapsible content markup
+      %p
+        To create a collapsible block of content, create a container and add the
+        %code data-role="collapsible"
+        attribute.
+      %p
+        Using
+        %code data-content-theme
+        attribute allows you to set a theme for the content of the collapsible.
+      %p Directly inside this container, add any header element (H1-H6). The framework will style the header to look like a clickable button and add a "+" icon to the left to indicate it's expandable.
+      %p After the header, add any HTML markup you want to be collapsible. The framework will wrap this markup in a container that will be hidden/shown when the heading is clicked.
+      %p By default, the content will be collapsed.
+      %pre
+        %code
+          :preserve
+            &lt;div data-role=&quot;collapsible&quot;&gt;
+              &lt;h3&gt;I&#x27;m a header&lt;/h3&gt;
+              &lt;p&gt;I&#x27;m the collapsible content. By default I'm closed, but you can click the header to open me.&lt;/p&gt;
+            &lt;/div&gt;
+      %div{"data-role" => "collapsible"}
+        %h3 I'm a header
+        %p I'm the collapsible content. By default I'm closed, but you can click the header to open me.
+      %h2 Expanding collapsibles on load
+      %p
+        To expand the content when the page loads, add the
+        %code data-collapsed="false"
+        attribute to the wrapper.
+      %code
+        &lt;div data-role=&quot;collapsible&quot; data-collapsed=&quot;false&quot;&gt;
+      %p This code will create a collapsible widget like this:
+      %div{"data-collapsed" => "false", "data-role" => "collapsible"}
+        %h3 I'm a header
+        %p I'm the collapsible content. I'm expanded by default because I have the "collapsed" state set to false.
+      %h2 Theming collapsible content
+      %p Collapsible content is minimally styled &mdash; we add only a bit of margin between the bar and content, and the header adopts the default Theme styles of the container it sits within.
+      %p
+        To provide a stronger visual connection between the collapsible header and content, add the
+        %code data-content-theme
+        attribute to the wrapper and specify a theme swatch letter. This will apply the swatch's border and
+        %em flat
+        background color (not the gradient) to the content block and changes the corner rounding to square off the bottom of the header and round the bottom of the content block instead to visually group these elements.
+      %pre
+        %code
+          :preserve
+            &lt;div data-role=&quot;collapsible&quot; data-content-theme=&quot;c&quot;&gt;
+              &lt;h3&gt;Header swatch A&lt;/h3&gt;
+              &lt;p&gt;I&#x27;m the collapsible content with a themed content block set to "C".&lt;/p&gt;
+            &lt;/div&gt;
+      %div{"data-content-theme" => "c", "data-role" => "collapsible"}
+        %h3 Header swatch
+        %p I'm the collapsible content with a themed content block set to "C".
+      %h2 Theming collapsible headers
+      %p
+        To set the theme on a collapsible header button, add the
+        %code data-theme
+        attribute to the wrapper and specify a swatch letter. Note that you can mix and match swatch letters between the header and content with these theme attributes.
+      %pre
+        %code
+          :preserve
+            &lt;div data-role=&quot;collapsible&quot; data-theme=&quot;a&quot; data-content-theme=&quot;a&quot;&gt;
+              &lt;h3&gt;Header swatch A&lt;/h3&gt;
+              &lt;p&gt;I&#x27;m the collapsible content with a themed content block set to "A".&lt;/p&gt;
+            &lt;/div&gt;
+      %div{"data-content-theme" => "a", "data-role" => "collapsible", "data-theme" => "a"}
+        %h3 Header swatch A
+        %p I'm the collapsible content with a themed content block set to "A".
+      %div{"data-content-theme" => "d", "data-role" => "collapsible", "data-theme" => "b"}
+        %h3 Header swatch B
+        %p I'm the collapsible content with a themed content block set to "D".
+      %h2 Nested Collapsibles
+      %p Collapsibles can be nested inside each other if needed. In this example, we're setting the content theme to provide clearer visual connection between the levels.
+      %div{"data-collapsed" => "false", "data-content-theme" => "c", "data-role" => "collapsible", "data-theme" => "e"}
+        %h3 I'm a header
+        %p I'm the collapsible content. By default I'm open and displayed on the page, but you can click the header to hide me.
+        %div{"data-content-theme" => "c", "data-role" => "collapsible", "data-theme" => "c"}
+          %h3 I'm a nested collapsible with a child collapsible
+          %p I'm a child collapsible.
+          %div{"data-content-theme" => "d", "data-role" => "collapsible", "data-theme" => "d"}
+            %h3 Nested inside again.
+            %p Three levels deep now.
+          / /section 1A
+        / /section 1
+        %div{"data-content-theme" => "c", "data-role" => "collapsible"}
+          %h3 Section 3: Form elements
+          %form{:action => "#", :method => "get"}
+            %div{"data-role" => "fieldcontain"}
+              %label{:for => "textarea"} Textarea:
+              %textarea#textarea{:cols => "40", :name => "textarea", :rows => "8"}
+            %div{"data-role" => "fieldcontain"}
+              %label{:for => "slider"} Input slider:
+              %input#slider{:max => "100", :min => "0", :name => "slider", :type => "range", :value => "0"}/
+            %fieldset.ui-grid-a
+              .ui-block-a
+                %button{"data-theme" => "c", :type => "submit"} Cancel
+              .ui-block-b
+                %button{"data-theme" => "b", :type => "submit"} Submit
+        / /section 2
+        %div{"data-content-theme" => "c", "data-role" => "collapsible"}
+          %h3 Section 4: Collapsed list
+          %p Here is an inset list:
+          %ul{"data-inset" => "true", "data-role" => "listview", "data-theme" => "d"}
+            %li
+              %a{:href => "/mobile/docs/content"} Acura
+            %li
+              %a{:href => "/mobile/docs/content"} Audi
+            %li
+              %a{:href => "/mobile/docs/content"} BMW
+            %li
+              %a{:href => "/mobile/docs/content"} Cadillac
+            %li
+              %a{:href => "/mobile/docs/content"} Chrysler
+            %li
+              %a{:href => "/mobile/docs/content"} Dodge
+            %li
+              %a{:href => "/mobile/docs/content"} Ferrari
+            %li
+              %a{:href => "/mobile/docs/content"} Ford
+        / /section 3
+      %h2 Collapsible sets (accordions)
+      %p
+        It's possible to combine multiple collapsibles into a grouped sets that acts like an accordion widget.
+        %a{:href => "/mobile/docs/content/collapsible_set"} Learn more
+    / /content-primary
+    .content-secondary
+      .ui-body-b
+        %div{"data-collapsed" => "true", "data-content-theme" => "d", "data-role" => "collapsible", "data-theme" => "b"}
+          %h3 More in this section
+          %ul{"data-dividertheme" => "d", "data-role" => "listview", "data-theme" => "c"}
+            %li{"data-role" => "list-divider"} Content Formatting
+            %li
+              %a{:href => "/mobile/docs/content/basic_html"} Basic HTML styles
+            %li
+              %a{:href => "/mobile/docs/content/grids"} Layout grids (columns)
+            %li{"data-theme" => "a"}
+              %a{:href => "/mobile/docs/content/collapsible"} Collapsible content blocks
+            %li
+              %a{:href => "/mobile/docs/content/collapsible_set"} Collapsible sets (accordions)
+            %li
+              %a{:href => "/mobile/docs/content/themes"} Theming content
+  / /content
+  .footer-docs{"data-role" => "footer", "data-theme" => "c"}
+    %p &copy; 2011 The jQuery Project
+/ /page

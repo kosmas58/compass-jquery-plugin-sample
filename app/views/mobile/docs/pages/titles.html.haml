@@ -1,0 +1,68 @@
+-@title = "jQuery Mobile Docs - Page titles"
+= render :partial => "/mobile/index.js.haml", :format => :js
+
+.type-interior{"data-role" => "page"}
+  %div{"data-role" => "header", "data-theme" => "f"}
+    %h1 Page titles
+    %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile"} Home
+  / /header
+  %div{"data-role" => "content"}
+    .content-primary
+      %h2 Titles in Ajax navigation
+      %p When you load the first page of a jQuery Mobile based site, then click a link or submit a form, Ajax is used to pull in the content of the requested page. Having both pages in the DOM is essential to enable the animated page transitions, but one downside of this approach is that the page title is always that of the first page, not the subsequent page you’re viewing.
+      %p
+        To remedy this, jQuery Mobile automatically parses the
+        %code title
+        of the page pulled via Ajax and changes the
+        %code title
+        attribute of the parent document to match.
+      %h2 Titles in multi-page templates
+      %p
+        On multi-page documents, we follow a similiar convention, but since all the pages share a common
+        = succeed "," do
+          %code title
+        we have a
+        %code data-title
+        attribute that can be added to each page container within a multi-page template to manually define a title. The title of the HTML document will be automatically updated to match the
+        %code data-title
+        of the page currently in view.
+      %pre
+        %code
+          :preserve
+            &lt;div data-role=&quot;page&quot; id=&quot;foo&quot; data-title=&quot;Page Foo&quot;&gt;
+            &lt;/div&gt;&lt;!-- /page --&gt;
+    / /content-primary
+    .content-secondary
+      .ui-body-b
+        %div{"data-collapsed" => "true", "data-content-theme" => "d", "data-role" => "collapsible", "data-theme" => "b"}
+          %h3 More in this section
+          %ul{"data-dividertheme" => "d", "data-role" => "listview", "data-theme" => "c"}
+            %li{"data-role" => "list-divider"} Pages &amp; Dialogs
+            %li
+              %a{:href => "/mobile/docs/pages/anatomy"} Anatomy of a page
+            %li
+              %a{"data-ajax" => "false", :href => "/mobile/docs/pages/template"} Single page template
+            %li
+              %a{"data-ajax" => "false", :href => "/mobile/docs/pages/multitemplate"} Multi-page template
+            %li{"data-theme" => "a"}
+              %a{:href => "/mobile/docs/pages/titles"} Page titles
+            %li
+              %a{:href => "/mobile/docs/pages/links"} Linking pages
+            %li
+              %a{"data-ajax" => "false", :href => "/mobile/docs/pages/transitions"} Page transitions
+            %li
+              %a{:href => "/mobile/docs/pages/dialogs"} Dialogs
+            %li
+              %a{:href => "/mobile/docs/pages/cache"} Prefetching &amp; caching pages
+            %li
+              %a{:href => "/mobile/docs/pages/navmodel"} Ajax, hashes &amp; history
+            %li
+              %a{:href => "/mobile/docs/pages/dynamics"} Dynamically Injecting Pages
+            %li
+              %a{:href => "/mobile/docs/pages/scripting"} Scripting pages
+            %li
+              %a{:href => "/mobile/docs/pages/themes"} Theming pages
+  / /content
+  .footer-docs{"data-role" => "footer", "data-theme" => "c"}
+    %p &copy; 2011 The jQuery Project
+  / /page

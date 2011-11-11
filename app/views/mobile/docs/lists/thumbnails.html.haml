@@ -1,0 +1,117 @@
+-@title = "jQuery Mobile Docs - Lists with Thumbnails"
+= render :partial => "/mobile/index.js.haml", :format => :js
+
+.type-interior{"data-role" => "page"}
+  %div{"data-role" => "header", "data-theme" => "f"}
+    %h1 Thumbnails
+    %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile"} Home
+  / /header
+  %div{"data-role" => "content"}
+    .content-primary
+      %ul{"data-role" => "listview"}
+        %li
+          %a{:href => "/mobile/docs/lists"}
+            %img{:src => "/images/demo/mobile/album/album-bb.jpg"}/
+            %h3 Broken Bells
+            %p Broken Bells
+        %li
+          %a{:href => "/mobile/docs/lists"}
+            %img{:src => "/images/demo/mobile/album/album-hc.jpg"}/
+            %h3 Warning
+            %p Hot Chip
+        %li
+          %a{:href => "/mobile/docs/lists"}
+            %img{:src => "/images/demo/mobile/album/album-p.jpg"}/
+            %h3 Wolfgang Amadeus Phoenix
+            %p Phoenix
+        %li
+          %a{:href => "/mobile/docs/lists"}
+            %img{:src => "/images/demo/mobile/album/album-ok.jpg"}/
+            %h3 Of The Blue Colour Of The Sky
+            %p Ok Go
+        %li
+          %a{:href => "/mobile/docs/lists"}
+            %img{:src => "/images/demo/mobile/album/album-ws.jpg"}/
+            %h3 Elephant
+            %p The White Stripes
+        %li
+          %a{:href => "/mobile/docs/lists"}
+            %img{:src => "/images/demo/mobile/album/album-rh.jpg"}/
+            %h3 Kid A
+            %p Radiohead
+        %li
+          %a{:href => "/mobile/docs/lists"}
+            %img{:src => "/images/demo/mobile/album/album-xx.jpg"}/
+            %h3 XX
+            %p XX
+        %li
+          %a{:href => "/mobile/docs/lists"}
+            %img{:src => "/images/demo/mobile/album/album-mg.jpg"}/
+            %h3 Congratulations
+            %p MGMT
+        %li
+          %a{:href => "/mobile/docs/lists"}
+            %img{:src => "/images/demo/mobile/album/album-ag.jpg"}/
+            %h3 Ashes Grammar
+            %p A Sunny Day in Glasgow
+        %li
+          %a{:href => "/mobile/docs/lists"}
+            %img{:src => "/images/demo/mobile/album/album-k.jpg"}/
+            %h3 Hot Fuss
+            %p Killers
+        %li
+          %a{:href => "/mobile/docs/lists"}
+            %img{:src => "/images/demo/mobile/album/album-af.jpg"}/
+            %h3 The Suburbs
+            %p Arcade Fire
+    / /content-primary
+    .content-secondary
+      .ui-body-b
+        %div{"data-collapsed" => "true", "data-content-theme" => "d", "data-role" => "collapsible", "data-theme" => "b"}
+          %h3 More in this section
+          %ul{"data-dividertheme" => "d", "data-role" => "listview", "data-theme" => "c"}
+            %li{"data-role" => "list-divider"} List views
+            %li
+              %a{:href => "/mobile/docs/lists/docs_lists"} List markup conventions
+            %li
+              %a{:href => "/mobile/docs/lists/ul"} Basic linked list
+            %li
+              %a{:href => "/mobile/docs/lists/nested"} Nested list
+            %li
+              %a{:href => "/mobile/docs/lists/ol"} Numbered list
+            %li
+              %a{:href => "/mobile/docs/lists/split"} Split button list
+            %li
+              %a{:href => "/mobile/docs/lists/divider"} List dividers
+            %li
+              %a{:href => "/mobile/docs/lists/count"} Count bubble
+            %li{"data-theme" => "a"}
+              %a{:href => "/mobile/docs/lists/thumbnails"} Thumbnails
+            %li
+              %a{:href => "/mobile/docs/lists/icons"} Icons
+            %li
+              %a{:href => "/mobile/docs/lists/formatting"} Content formatting
+            %li
+              %a{:href => "/mobile/docs/lists/search"} Search filter bar
+            %li
+              %a{:href => "/mobile/docs/lists/search_inset"} Inset search filter bar
+            %li
+              %a{:href => "/mobile/docs/lists/search_with_dividers"} Search filter bar with dividers
+            %li
+              %a{:href => "/mobile/docs/lists/readonly"} Read-only lists
+            %li
+              %a{:href => "/mobile/docs/lists/readonly_inset"} Read-only inset lists
+            %li
+              %a{:href => "/mobile/docs/lists/forms"} Lists with forms
+            %li
+              %a{:href => "/mobile/docs/lists/forms_inset"} Inset lists with forms
+            %li
+              %a{:href => "/mobile/docs/lists/inset"} Inset styled lists
+            %li
+              %a{:href => "/mobile/docs/lists/performance"} List performance test
+            %li
+              %a{:href => "/mobile/docs/lists/themes"} Theming lists
+  / /content
+  .footer-docs{"data-role" => "footer", "data-theme" => "c"}
+    %p &copy; 2011 The jQuery Project
+/ /page

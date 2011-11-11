@@ -1,0 +1,105 @@
+-@title = "jQuery Mobile Docs - HTML formatting"
+= render :partial => "/mobile/index.js.haml", :format => :js
+= render :partial => "content.css.haml"
+
+.type-interior{"data-role" => "page"}
+  %div{"data-role" => "header", "data-theme" => "f"}
+    %h1 HTML Formatting
+    %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile"} Home
+  / /header
+  %div{"data-role" => "content"}
+    .content-primary
+      :css
+        table { width:100%; }
+        table caption { text-align:left;  }
+        table thead th { text-align:left; border-bottom-width:1px; border-top-width:1px; }
+        table th, td { text-align:left; padding:6px;}
+          %p
+        The default approach to styling content in jQuery Mobile is simple: Use a light hand.  Our goal is to let the browser's native rendering take precedence; we add a bit of padding for more comfortable readability, and use the
+        %a{:href => "../api/themes.html"} theming system
+        to apply the font family and colors.
+      %p Taking a light hand with content styling gives designers and developers a clean slate to work with, instead of fighting against a lot of complex style overhead.
+      %h2 Default HTML markup styling
+      %p By default, jQuery Mobile themes use standard HTML styles and sizes for standard markup elements like headers, paragraph content, block quotes, anchor links, standard ordered, unordered and definition lists, and tables &mdash; as shown in the examples below:
+      %hr
+        %h1 H1 Heading
+        %h2 H2 Heading
+        %h3 H3 Heading
+        %h4 H4 Heading
+        %h5 H5 Heading
+        %h6 H6 Heading
+        %p
+          This is a paragraph that contains
+          = succeed "," do
+            %strong strong
+          %em emphasized
+          and
+          %a{:href => "/mobile/docs/content"} linked
+          text. Here is more text so you can see how HTML markup works in content. Here is more text so you can see how HTML markup works in content.
+        %blockquote
+          How about some blockquote action with a
+          %cite cite
+        %p This is another paragraph of text so you can see how HTML markup works in content. This is another paragraph of text so you can see how HTML markup works in content. This is another paragraph of text so you can see how HTML markup works in content.
+        %p
+          We add a few styles to
+          %code tables
+          and
+          %code fieldsets
+          to make them more legible, which are easily overridden with customs styles.
+        %ul
+          %li Unordered list item 1
+          %li Unordered list item 1
+          %li Unordered list item 1
+        %ol
+          %li Ordered list item 1
+          %li Ordered list item 1
+          %li Ordered list item 1
+        %dl{:title => "Definition list"}
+          %dt Definition term
+          %dd I'm the definition text
+          %dt Definition term
+          %dd I'm the definition text
+        %table{:summary => "This table lists all the JetBlue flights."}
+          %caption Travel Itinerary
+          %thead
+            %tr
+              %th{:scope => "col"} Flight:
+              %th{:scope => "col"} From:
+              %th{:scope => "col"} To:
+          %tfoot
+            %tr
+              %td{:colspan => "5"} Total: 3 flights
+          %tbody
+            %tr
+              %th{:scope => "row"} JetBlue 983
+              %td Boston (BOS)
+              %td New York (JFK)
+            %tr
+              %th{:scope => "row"} JetBlue 354
+              %td San Francisco (SFO)
+              %td Los Angeles (LAX)
+            %tr
+              %th{:scope => "row"} JetBlue 465
+              %td New York (JFK)
+              %td Portland (PDX)
+    / /content-primary
+    .content-secondary
+      .ui-body-b
+        %div{"data-collapsed" => "true", "data-content-theme" => "d", "data-role" => "collapsible", "data-theme" => "b"}
+          %h3 More in this section
+          %ul{"data-dividertheme" => "d", "data-role" => "listview", "data-theme" => "c"}
+            %li{"data-role" => "list-divider"} Content Formatting
+            %li{"data-theme" => "a"}
+              %a{:href => "/mobile/docs/content/basic_html"} Basic HTML styles
+            %li
+              %a{:href => "/mobile/docs/content/grids"} Layout grids (columns)
+            %li
+              %a{:href => "/mobile/docs/content/collapsible"} Collapsible content blocks
+            %li
+              %a{:href => "/mobile/docs/content/collapsible_set"} Collapsible sets (accordions)
+            %li
+              %a{:href => "/mobile/docs/content/themes"} Theming content
+  / /content
+  .footer-docs{"data-role" => "footer", "data-theme" => "c"}
+    %p &copy; 2011 The jQuery Project
+/ /page
