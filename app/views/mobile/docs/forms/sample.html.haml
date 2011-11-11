@@ -66,7 +66,7 @@
         attribute to the form element. You can also turn of Ajax form handling completely via the
         %code ajaxEnabled
         = succeed "." do
-          %a{:href => "/mobile/docs/api/globalconfig"} global config option
+          %a{:href => "../api/globalconfig.html"} global config option
       %p
         The form below is identical to the one above except for the addition of the
         %code data-ajax="false"
@@ -80,13 +80,13 @@
               %option{:value => "Rush shipping"} Rush: 3 days
               %option{:value => "Express shipping"} Express: next day
               %option{:value => "Overnight shipping"} Overnight
-      %button{"data-theme" => "b", :name => "submit", :type => "submit", :value => "submit-value"} Submit
+          %button{"data-theme" => "b", :name => "submit", :type => "submit", :value => "submit-value"} Submit
       %h2 Self-submitting Forms
       %p
         Just like in ordinary HTML, can also submit forms to the same URL you're currently viewing by setting the form's
         %code action
         attribute to that URL.
-        %A{:href => "/mobile/docs/forms/sample_selfsubmit"}
+        %a{:href => "/mobile/docs/forms/sample_selfsubmit"}
           This page demonstrates.
       %p
         When a

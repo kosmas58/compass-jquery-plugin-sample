@@ -10,7 +10,7 @@
     .content-primary
       %h2 Prefetching pages
       %p Usually, it's a good idea to store your app's pages in several single-page templates instead of one large multi-page template. This minimizes the size of the page's DOM.
-        %p
+      %p
         When using single-page templates, you can prefetch pages into the DOM so that they're available instantly when the user visits them. To prefetch a page, add the
         %code data-prefetch
         attribute to a link that points to the page. jQuery Mobile then loads the target page in the background after the primary page has loaded and the
@@ -80,7 +80,7 @@
             %li
               %a{"data-ajax" => "false", :href => "/mobile/docs/pages/template"} Single page template
             %li
-              %a{"data-ajax" => "false", :href => "/mobile/docs/pages/multitemplate"} Multi-page template
+              %a{"data-ajax" => "false", :href => "/mobile/docs/pages/multipage_template"} Multi-page template
             %li
               %a{:href => "/mobile/docs/pages/titles"} Page titles
             %li
