@@ -26,7 +26,7 @@
           %code type="range"
           attribute.  The input's
           %code value
-          is used to configure the starting position of the handle and the value populated in the text input. Specify
+          is used to configure the starting position of the handle and the value is populated in the text input. Specify
           %code min
           and
           %code max
@@ -44,7 +44,7 @@
           if it's not desired in the page layout, but we require that it is present in the markup for semantic and accessibility reasons.
         %p
           The framework will find all
-          %code inputs
+          %code input
           elements with a
           %code type="range"
           and automatically enhance them into a slider with an accompanying input, no need to apply a
@@ -52,18 +52,17 @@
           attribute. To prevent the automatic enhancement of this input into a slider, add
           %code data-role="none"
           attribute to the
-          = succeed "." do
-            %code input
-        and wrap them in a
-        %code div
-        with the
-        %code data-role="fieldcontain"
-        attribute to group them.
+          %code input
+          and wrap them in a
+          %code div
+          with the
+          %code data-role="fieldcontain"
+          attribute to group them.
         %pre
           %code
             :preserve
-               &lt;label for=&quot;slider-0&quot;&gt;Input slider:&lt;/label&gt;
-               &lt;input type=&quot;range&quot; name=&quot;slider&quot; id=&quot;slider-0&quot; value=&quot;25&quot; min=&quot;0&quot; max=&quot;100&quot;  /&gt;
+              &lt;label for=&quot;slider-0&quot;&gt;Input slider:&lt;/label&gt;
+              &lt;input type=&quot;range&quot; name=&quot;slider&quot; id=&quot;slider-0&quot; value=&quot;25&quot; min=&quot;0&quot; max=&quot;100&quot;/&gt;
         %p The default slider is displayed like this:
         %label{:for => "slider-0"} Input slider:
         %input#slider-0{:max => "100", :min => "0", :name => "slider-1", :type => "range", :value => "25"}/
@@ -76,13 +75,13 @@
             :preserve
               &lt;div data-role=&quot;fieldcontain&quot;&gt;
                 &lt;label for=&quot;slider&quot;&gt;Input slider:&lt;/label&gt;
-                &lt;input type=&quot;range&quot; name=&quot;slider&quot; id=&quot;slider&quot; value=&quot;25&quot; min=&quot;0&quot; max=&quot;100&quot;  /&gt;
+                &lt;input type=&quot;range&quot; name=&quot;slider&quot; id=&quot;slider&quot; value=&quot;25&quot; min=&quot;0&quot; max=&quot;100&quot;/&gt;
               &lt;/div&gt;
-        %p The slider is now be is displayed like this:
+        %p The slider is now displayed like this:
         %div{"data-role" => "fieldcontain"}
           %label{:for => "slider-1"} Input slider:
           %input#slider-1{:max => "100", :min => "0", :name => "slider-1", :type => "range", :value => "25"}/
-        %p Sliders also respond to key commands. Right Arrow, Up Arrow, and Page Up keys increase the value; Left Arrow, Down Arrow, and Page Down keys decrease it. To move the slider to its minimum or maximum value, use the Home or End key, respectively.
+        %p Sliders also respond to key commands. Right Arrow, Up Arrow and Page Up keys increase the value; Left Arrow, Down Arrow and Page Down keys decrease it. To move the slider to its minimum or maximum value, use the Home or End key, respectively.
         %h2 Calling the slider plugin
         %p
           This plugin will auto initialize on any page that contains a text
@@ -110,12 +109,12 @@
             :preserve
               &lt;div data-role=&quot;fieldcontain&quot;&gt;
                 &lt;label for=&quot;slider-2&quot;&gt;Input slider:&lt;/label&gt;
-                &lt;input type=&quot;range&quot; name=&quot;slider-2&quot; id=&quot;slider-1&quot; value=&quot;25&quot; min=&quot;0&quot; max=&quot;100&quot; data-theme=&quot;a&quot; data-track-theme=&quot;b&quot;/&gt;
+                &lt;input type=&quot;range&quot; name=&quot;slider-2&quot; id=&quot;slider-2&quot; value=&quot;25&quot; min=&quot;0&quot; max=&quot;100&quot; data-theme=&quot;a&quot; data-track-theme=&quot;b&quot;/&gt;
               &lt;/div&gt;
         %p This will produce a themed slider:
         %div{"data-role" => "fieldcontain"}
           %label{:for => "slider-2"} Input slider:
-          %input#slider-1{"data-theme" => "a", "data-track-theme" => "b", :max => "100", :min => "0", :name => "slider-2", :type => "range", :value => "25"}/
+          %input#slider-2{"data-theme" => "a", "data-track-theme" => "b", :max => "100", :min => "0", :name => "slider-2", :type => "range", :value => "25"}/
     / /content-primary
     .content-secondary
       .ui-body-b
