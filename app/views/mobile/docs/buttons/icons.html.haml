@@ -145,11 +145,46 @@
         %code myapp-email
         and the button plugin will generate a class by prefixing
         %code ui-icon-
-        to the
+        to
+        the
         %code data-icon
-        value and apply it to the button. You can then write a CSS rule that targets the
+        value and apply it to the button:
+        = succeed "." do
+          %code ui-icon-myapp-email
+      %p
+        You can then write a CSS rule in your stylesheet that targets the
         %code ui-icon-myapp-email
-        class to specify the icon background source. To maintain visual consistency, create a white icon 18x18 pixels saved as a PNG-8 with alpha transparency.
+        class to
+        specify the icon background source. To maintain visual consistency with the rest of the icons, create a
+        white icon 18x18 pixels saved as a PNG-8 with alpha transparency.
+      %p
+        In this example, we're just pointing to a standalone icon image, but you could just as easily use an icon
+        sprite and specify the positioning instead, just like the icon sprite we use in the framework.
+      %pre
+        %code
+          :preserve
+            .ui-icon-myapp-email {
+              background-image: url("app-icon-email.png");
+            }
+      %p
+        This will create the standard resolution icon, but many devices now have very high resolution displays, like
+        the retina display on the iPhone 4. To add a HD icon, create an icon that is 36x36 pixels (exactly double
+        the 18 pixel size), and add second rule that uses the
+        %code -webkit-min-device-pixel-ratio: 2
+        media
+        query to target a rule only to high resolution displays. Specify the background image for the HD icon file
+        and set the background size to 18x18 pixels which will fit the 36 pixel icon into the same 18 pixel space.
+        The media query block can wrap multiple icon rules:
+      %pre
+        %code
+          :preserve
+            @media only screen and (-webkit-min-device-pixel-ratio: 2) {
+              .ui-icon-myapp-email {
+                background-image: url("app-icon-email-highres.png");
+                background-size: 18px 18px;
+              }
+              ...more HD icon rules go here...
+            }
       %h2 Icons and themes
       %p The semi-transparent black circle behind the white icon ensures good contrast on any background color so it works well with the jQuery Mobile theming system. Here are examples of the same icons sitting on top of a range of different color swatches in out theme.
       / A themed

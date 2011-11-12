@@ -1,0 +1,148 @@
+-@title = "jQuery Mobile Docs - Theming Pages"
+= render :partial => "/mobile/index.js.haml", :format => :js
+
+.type-interior{"data-role" => "page", "data-theme" => "a"}
+  %div{"data-role" => "header"}
+    %h1 Theming pages
+    %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile"} Home
+  / /header
+  %div{"data-role" => "content"}
+    .content-primary
+      %ul.localnav{"data-role" => "controlgroup", "data-type" => "horizontal"}
+        %li
+          %a{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/pages/themes"} Theme Overview
+        %li
+          %a.ui-btn-active{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/pages/theme/a"} A
+        %li
+          %a{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/pages/theme/b"} B
+        %li
+          %a{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/pages/theme/c"} C
+        %li
+          %a{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/pages/theme/d"} D
+        %li
+          %a{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/pages/theme/e"} E
+      %h2 Theme A Sample Page
+      %p
+        This is an example of
+        %code data-theme="a"
+        applied to the same element as
+        = succeed "," do
+          %code data-role="page"
+        showing how the theme is inherited by widgets throughout the page.
+      %div{"data-role" => "fieldcontain"}
+        %label{:for => "name-a"} Text Input:
+        %input#name-a{:name => "name", :type => "text", :value => ""}/
+      %div{"data-role" => "fieldcontain"}
+        %label{:for => "switch-a"} Flip switch:
+        %select#switch-a{"data-role" => "slider", :name => "switch-a"}
+          %option{:value => "off"} Off
+          %option{:value => "on"} On
+      %div{"data-role" => "fieldcontain"}
+        %label{:for => "slider-a"} Slider:
+        %input#slider-a{:max => "100", :min => "0", :name => "slider", :type => "range", :value => "0"}/
+      %div{"data-role" => "fieldcontain"}
+        %fieldset{"data-role" => "controlgroup", "data-type" => "horizontal"}
+          %legend Font styling:
+          %input#checkbox-6a.custom{:name => "checkbox-6a", :type => "checkbox"}/
+          %label{:for => "checkbox-6a"} b
+          %input#checkbox-7a.custom{:name => "checkbox-7a", :type => "checkbox"}/
+          %label{:for => "checkbox-7a"}
+            %em i
+          %input#checkbox-8a.custom{:name => "checkbox-8a", :type => "checkbox"}/
+          %label{:for => "checkbox-8a"} u
+      %div{"data-role" => "fieldcontain"}
+        %fieldset{"data-role" => "controlgroup"}
+          %legend Choose a pet:
+          %input#radio-choice-1a{:name => "radio-choice-1", :type => "radio", :value => "choice-1"}/
+          %label{:for => "radio-choice-1a"} Cat
+          %input#radio-choice-2a{:name => "radio-choice-1", :type => "radio", :value => "choice-2"}/
+          %label{:for => "radio-choice-2a"} Dog
+          %input#radio-choice-3a{:name => "radio-choice-1", :type => "radio", :value => "choice-3"}/
+          %label{:for => "radio-choice-3a"} Hamster
+          %input#radio-choice-4a{:name => "radio-choice-1", :type => "radio", :value => "choice-4"}/
+          %label{:for => "radio-choice-4a"} Lizard
+      %div{"data-role" => "fieldcontain"}
+        %label.select{:for => "select-choice-a"} Choose shipping method:
+        %select#select-choice-a{:name => "select-choice-a"}
+          %option{:value => "standard"} Standard: 7 day
+          %option{:value => "rush"} Rush: 3 days
+          %option{:value => "express"} Express: next day
+          %option{:value => "overnight"} Overnight
+      %h2 Collapsible Sets
+      %div{"data-role" => "collapsible-set"}
+        %div{"data-collapsed" => "false", "data-role" => "collapsible"}
+          %h3 Section 1
+          %p
+            I'm the collapsible content in a set so this feels like an accordion. I'm hidden by default
+            because I have the "collapsed" state; you need to expand the header to see me.
+        %div{"data-role" => "collapsible"}
+          %h3 Section 2
+          %p
+            I'm the collapsible content in a set so this feels like an accordion. I'm hidden by default
+            because I have the "collapsed" state; you need to expand the header to see me.
+        %div{"data-role" => "collapsible"}
+          %h3 Section 3
+          %p
+            I'm the collapsible content in a set so this feels like an accordion. I'm hidden by default
+            because I have the "collapsed" state; you need to expand the header to see me.
+      %h2 Inset List
+      %ul{"data-inset" => "true", "data-role" => "listview"}
+        %li
+          %a{:href => "/mobile/docs/pages"}
+            Inbox
+            %span.ui-li-count 12
+        %li
+          %a{:href => "/mobile/docs/pages"}
+            Outbox
+            %span.ui-li-count 0
+        %li
+          %a{:href => "/mobile/docs/pages"}
+            Drafts
+            %span.ui-li-count 4
+        %li
+          %a{:href => "/mobile/docs/pages"}
+            Sent
+            %span.ui-li-count 328
+        %li
+          %a{:href => "/mobile/docs/pages"}
+            Trash
+            %span.ui-li-count 62
+    / /content-primary
+    .content-secondary
+      .ui-body-b
+        %div{"data-collapsed" => "true", "data-content-theme" => "d", "data-role" => "collapsible", "data-theme" => "b"}
+          %h3 More in this section
+          %ul{"data-dividertheme" => "d", "data-role" => "listview", "data-theme" => "c"}
+            %li{"data-role" => "list-divider"} Pages &amp; Dialogs
+            %li
+              %a{:href => "/mobile/docs/pages/anatomy"} Anatomy of a page
+            %li
+              %a{"data-ajax" => "false", :href => "/mobile/docs/pages/template"} Single page template
+            %li
+              %a{"data-ajax" => "false", :href => "/mobile/docs/pages/multipage_template"} Multi-page template
+            %li
+              %a{:href => "/mobile/docs/pages/titles"} Page titles
+            %li
+              %a{:href => "/mobile/docs/pages/links"} Linking pages
+            %li
+              %a{"data-ajax" => "false", :href => "/mobile/docs/pages/transitions"} Page transitions
+            %li
+              %a{:href => "/mobile/docs/pages/dialogs"} Dialogs
+            %li
+              %a{:href => "/mobile/docs/pages/cache"} Prefetching &amp; caching pages
+            %li
+              %a{:href => "/mobile/docs/pages/navmodel"} Ajax, hashes &amp; history
+            %li
+              %a{:href => "/mobile/docs/pages/dynamics"} Dynamically injecting Pages
+            %li{"data-theme" => "a"}
+              %a{:href => "/mobile/docs/pages/scripting"} Scripting pages
+            %li
+              %a{:href => "/mobile/docs/pages/phonegap"} PhoneGap apps
+            %li
+              %a{:href => "/mobile/docs/pages/touchoverflow"} touchOverflow feature
+            %li{"data-theme" => "a"}
+              %a{:href => "/mobile/docs/pages/themes"} Theming pages
+  / /content
+  .footer-docs{"data-role" => "footer", "data-theme" => "c"}
+    %p &copy; 2011 The jQuery Project
+  / /page
