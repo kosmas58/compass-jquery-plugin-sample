@@ -9,18 +9,18 @@
   %div{"data-role" => "content"}
     .content-primary
       %h2#ios5 touchOverflow: Dramatically improved page transitions and true fixed toolbars
-      %p Currently, both the page you're viewing and the one you're navigating to are both sitting next to each other in the viewport which lets us leverage native scrolling for the broadest possible device support. The downside to this approach is that since both pages share the same viewport, when a page transition stars, we must first scroll to the top of the document, then start animating to ensure that the pages are lined up vertically. If you hit the Back button, we need to scroll up, transition, then restore the previous scroll position. Since mobile browsers are pretty slow, these scroll movements can detract from the flow of the experience.
+      %p Currently, both the page you're viewing and the one you're navigating to are sitting next to each other in the viewport, which lets us leverage native scrolling for the broadest possible device support. The downside to this approach is that since both pages share the same viewport, when a page transition starts, we must first scroll to the top of the document, then start animating to ensure that the pages are lined up vertically. If you hit the Back button, we need to scroll up, transition, then restore the previous scroll position. Since mobile browsers are pretty slow, these scroll movements can detract from the flow of the experience.
       %p
-        The way to really improve this situation is to have both pages in separate containers, each with it's own internal scroll bar. The means no more scrolling the document or needing to restore scroll positions for a smoother experience. It also has the benefit of making fixed toolbars very easy to implement by simply placing them outside the containers with internal scrolling.
+        The way to really improve this situation is to have both pages in separate containers, each with its own internal scroll bar. The means no more scrolling the document or needing to restore scroll positions for a smoother experience. It also has the benefit of making fixed toolbars very easy to implement by simply placing them outside the containers with internal scrolling.
       %h2 How it works
       %p
         To leverage iOS5′s support for a touch-targeted version of
         %code overflow:auto
-        which allows for internal scrolling regions with the native momentum scrolling, we've added an feature called touchOverflow that leverages these new CSS capabilities to  enable us to bring both true “fixed” toolbars and super smooth transitions in iOS5, all by using web standards and very little additional code.
+        which allows for internal scrolling regions with the native momentum scrolling, we've added a feature called touchOverflow that leverages these new CSS capabilities to  enable us to bring both true “fixed” toolbars and super smooth transitions to iOS5, all by using web standards and very little additional code.
       %p
         A feature called
         %code touchOverflowEnabled
-        is designed to leverage the upcoming wave of browsers that support overflow scrolling in CSS. Note that this feature is off by default to give us more time to test and debug this for best performance but we hope to turn it on by default at a later point. Here's to to enable this
+        is designed to leverage the upcoming wave of browsers that support overflow scrolling in CSS. Note that this feature is off by default to give us more time to test and debug this for best performance but we hope to turn it on by default at a later point. Here's how to enable this
         = succeed ":" do
           %a{:href => "/mobile/docs/api/globalconfig"} global option
       %pre
@@ -36,27 +36,38 @@
         %code overflow:
         and
         %code -webkit-overflow-scrolling:touch
-        CSS properties. In browsers that support both, it switches to a dual page container model with native overflow: scrolling within each which brings true fixed toolbars smooth transitions. Coupled with iOS’s already-excellent hardware-accelerated transitions, it's now possible to build interfaces that are very close to native performance.
+        CSS properties. In browsers that support both, it switches to a dual page container model with native overflow: scrolling within each, which brings true fixed toolbars smooth transitions. Coupled with iOS’s already excellent hardware-accelerated transitions, it's now possible to build interfaces that are very close to native performance.
       %p
         To demo this feature, check out
-        %a{:href => "/mobile/docs/config/touchOverflow"} this page
-        in iOS5
+        %a{:href => "/mobile/docs/config/touch_overflow"} this page
+        in iOS5.
       %h2 A few downsides
-      %p Nothing is perfect, especially a new feature so there are a few downsides to keep in mind.
+      %p Nothing is perfect, especially a new feature, so there are a few downsides to keep in mind.  When activating this feature:
       %ul
         %li
           Sometimes child elements like lists and forms wouldn't render when embedded in a page with
           %code overflow:
-          in iOS5. This was a pretty random phenomenon but is not acceptable so we've added a translate-z CSS property which forces iOS to render the contents. The downside with this fix is that when a transform is applied, all elements are set to position:relative which can cause issues in your layout.
+          in iOS5. This was a pretty random phenomenon but is not acceptable so we've added a
+          %code translate-z
+          CSS property which forces iOS to render the contents. The downside with this fix is that when a transform is applied, all elements are set to position:relative which can cause issues in your layout.
         %li
           The
           %code -webkit-overflow-scrolling:touch
           property seems to disable the events to scroll you to the top of the page when the time is tapped in the status bar. We hope Apple fixes this because it's a very useful feature.
+        %li
+          When
+          %code overflow:
+          and
+          %code -webkit-overflow-scrolling:touch
+          properties are set, iOS appears to ignore any overflow:hidden properties on the parent, which is the page in our case. So if you have an image or code block that is wider than the viewport, horizontal scrolling will be seen.
+        %li When this feature is active, we are disabling user zoom by manipulating the meta viewport tag because both the toolbars and page content can easily be zoomed to an odd size and it's very difficult to zoom back out. Even though we believe in allowing users to zoom the page, alleviating the usability concerns we have with fixed toolbars and overflow containers is more important.
+        %li Scroll position can be lost when going back to a page that has been re-loaded. If DOM caching is on, this shouldn't be as much of an issue.
+        %li This is still an experimental feature, so not all the kinks have been worked out yet. Use with caution and test thoroughly.
       %h2 Don’t other mobile platforms already support overflow?
       %p
         Yes, but there’s a catch. Both Android Honeycomb and the Blackberry PlayBook support
         %code overflow:
-        properties, but we found in testing that their implementation of overflow was't smooth enough so pages would stutter and hang during scrolling, leading to an unusable experience. We're working with device makers to ensure that they are included when performance improves.
+        properties, but we found in testing that their implementation of overflow wasn't smooth enough, so pages would stutter and hang during scrolling, leading to an unusable experience. We're working with device makers to ensure that they are included when performance improves.
       %p
         More importantly, targeting overflow correctly is a major issue. If we simply placed an
         %code overflow: auto

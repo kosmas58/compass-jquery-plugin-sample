@@ -41,15 +41,31 @@
           %code location.hash
         Whenever possible, page changes will use a smooth transition between the current "page" and the next, whether it is either already present in the DOM, or is automatically loaded via Ajax.
       %p Hash values created by jQuery Mobile are normalized as full paths relative to the URL of the first "real" page that was loaded.	The hash is always maintained as a valid URL, so any "page" in jQuery mobile can be bookmarked or referenced in a link. To retrieve a non-hash-based URL, simply remove the # from the address and refresh the page.
-      %p In general, hash changes are created whenever a link is clicked in jQuery mobile. When a link is clicked, jQuery mobile will make sure the link is referencing a local URL, and if so, it'll prevent the link's default click behavior from occurring and request the referenced url via Ajax instead. When the page returns successfully, it will set the location.hash to the new page's relative url.
       %p
-        Hash changes that occur independently of a click, such as when a user clicks the back button, are handled through the hashchange event, which is bound to the window object using Ben Alman's hashchange special event plugin (included in jQuery Mobile). When a hash change occurs (and also when the first page loads), the hashchange event handler will send the location.hash to the
+        In general, hash changes are created whenever a link is clicked in jQuery mobile. When a link is clicked, jQuery mobile will make sure that the link is referencing a local URL, and if so, it'll prevent the link's default click behavior from occurring and request the referenced url via Ajax instead. When the page returns successfully, it will set the
+        %code location.hash
+        to the new page's relative url.
+      %p
+        Hash changes that occur independently of a click, such as when a user clicks the back button, are handled through the
+        %code hashchange
+        event, which is bound to the window object using Ben Alman's
+        %code hashchange
+        special event plugin (included in jQuery Mobile). When a hash change occurs (and also when the first page loads), the
+        %code hashchange
+        event handler will send the
+        %code location.hash
+        to the
         %code $.mobile.changePage()
         function, which in turn either loads or reveals the referenced page.
       %p
         Once the referenced page is present in the DOM, the
         %code $.mobile.changePage()
-        function applies a transition between the current active page and the new page. Page transitions happen through adding and removing classes that apply CSS animations. For example, in a slide-left transition, the exiting page is given the classes "slideleft" and "out", and the entering page is given the classes
+        function applies a transition between the current active page and the new page. Page transitions happen through adding and removing classes that apply CSS animations. For example, in a slide-left transition, the exiting page is given the classes
+        %code "slideleft"
+        and
+        = succeed "," do
+          %code "out"
+        and the entering page is given the classes
         %code "slideleft"
         and
         = succeed "," do
@@ -87,7 +103,7 @@
         %p
           Slightly different implementations of the replaceState API in various browsers can cause odd behavior in specific scenarios. For example, some browser implementations (including desktop browsers) implement the
           %code popstate
-          event differently when linking externally and moving back to a page onto which state has already been pushed/replaced. When building a jQuery Mobile application where the ajax navigation is being explicitly disabled, either though the frequent use of
+          event differently when linking externally and moving back to a page onto which state has already been pushed/replaced. When building a jQuery Mobile application where the ajax navigation is being explicitly disabled, either through the frequent use of
           %code rel="external"
           on links or by disabling Ajax navigation completely via the
           = succeed "," do
@@ -115,7 +131,9 @@
       %p
         The
         %code $.mobile.changePage()
-        function is used in a number of places in jQuery Mobile. For example, when a link is clicked, its href attribute is normalized and then
+        function is used in a number of places in jQuery Mobile. For example, when a link is clicked, its
+        %code href
+        attribute is normalized and then
         %code $.mobile.changePage()
         handles the rest. When forms are submitted, jQuery Mobile simply gathers a few of the form's attributes, serializes its data, and once again,
         %code $.mobile.changePage()
@@ -131,7 +149,11 @@
         %code head
         and modified on every page change to ensure that any assets (images, CSS, JS, etc.) referenced on that page will be requested from a proper path. In browsers that don't support dynamic updates to the
         %code base
-        element (such as Firefox 3.6), jQuery Mobile loops through all of the referenced assets on the page and prefixes their href and src attributes with the base path.
+        element (such as Firefox 3.6), jQuery Mobile loops through all of the referenced assets on the page and prefixes their
+        %code href
+        and
+        %code src
+        attributes with the base path.
       %h2 Developer explanation of base url management:
       %p
         jQuery Mobile manages http requests using a combination of generated absolute URL paths and manipulating a generated
@@ -140,27 +162,60 @@
       %p
         %strong TODO: update description of internal base and urlHistory objects
       %h2 Data-url storage
-      %p The nav model maintains a data-url attribute on all data-role="page" elements. This data-url attribute is used to track the origin of the page element. Pages embedded within the main application document all have their data-url parameter set to the ID of the @data-role="page" element. The only exception to this is the first-page in the document. The first-page is special because it can be addressed by its @id if it has one, or by the document or base URL (with no hash fragment).
-      %p Pages that are external to the application document get pulled in dynamically via ajax, their data-url is set to the site relative path to the external page. If you are running in an environment where loading an external page from a different domain is allowed, then the data-url is set to the absolute URL.
+      %p
+        The navigation model maintains a
+        %code data-url
+        attribute on all
+        %code data-role="page"
+        elements. This
+        %code data-url
+        attribute is used to track the origin of the page element. Pages embedded within the main application document all have their
+        %code data-url
+        parameter set to the ID of their element with
+        = succeed "." do
+          %code data-role="page"
+        The only exception to this is the first-page in the document. The first-page is special because it can be addressed by its
+        %code id
+        if it has one, or by the document or base URL (with no hash fragment).
+      %p Pages that are external to the application document get pulled in dynamically via ajax, and their data-url is set to the site relative path to the external page. If you are running in an environment where loading an external page from a different domain is allowed, then the data-url is set to the absolute URL.
       %h2 Auto-generated pages and sub-hash urls
       %p
-        Some plugins may choose to dynamically break a page's content into separate navigable pages, which can then be reached via deep links. One example of this would be the Listview plugin, which will break a nested UL (or OL) into separate pages, which are each given a data-url attribute so they can be linked to like any normal "page" in jQuery Mobile. However, in order to link to these pages, the page that generates them must first be requested from the server. To make this work, pages that are auto-generated by plugins use the following special data-url structure:
+        Some plugins may choose to dynamically break a page's content into separate navigable pages, which can then be reached via deep links. One example of this would be the Listview plugin, which will break a nested UL (or OL) into separate pages, which are each given a
+        %code data-url
+        attribute so they can be linked to like any normal "page" in jQuery Mobile. However, in order to link to these pages, the page that generates them must first be requested from the server. To make this work, pages that are auto-generated by plugins use the following special data-url structure:
         %code &lt;div data-url="page.html&amp;subpageidentifier"&gt;
       %p
-        So, for example, a page generated by the listview plugin may have an data-url attribute like this:
+        So, for example, a page generated by the listview plugin may have a
+        %code data-url
+        attribute like this:
         %code data-url="artists.html&amp;ui-page=listview-1"
       %p
         When a page is requested, jQuery Mobile knows to split the URL at "&amp;ui-page" and make an HTTP request to the portion of the URL before that key. In the case of the listview example mentioned above, the URL would look like this: http://example.com/artists.html&amp;ui-page=listview-1
-        \...and jQuery Mobile would request artists.html, which would then generate its sub-pages, creating the div with data-url="artists.html&amp;ui-page=listview-1", which it will then display as the active page.
+        \...and jQuery Mobile would request artists.html, which would then generate its sub-pages, creating the
+        %code div
+        with
+        = succeed "," do
+          %code data-url="artists.html&amp;ui-page=listview-1"
+        which it will then display as the active page.
       %p
-        %em Note that the data-url attribute of the element contains the full URL path, not just the portion after &amp;ui-page=. This allows jQuery Mobile to use a single consistent mechanism that matches URLs to page data-url attributes.
+        %em
+          Note that the
+          %code data-url
+          attribute of the element contains the full URL path, not just the portion after &amp;ui-page=. This allows jQuery Mobile to use a single consistent mechanism that matches URLs to page
+          %code data-url
+          attributes.
       %h2 Cases when Ajax navigation will not be used
       %p Under certain conditions, normal http requests will be used instead of Ajax requests. One case where this is true is when linking to pages on external websites. You can also specify that a normal http request be made through the following link attributes:
       %ul
         %li
-          %p rel=external
+          %p
+            %code rel=external
         %li
-          %p target (with any value, such as "_blank")
+          %p
+            %code target
+            (with any value, such as
+            = succeed ")" do
+              %code "_blank"
       %h2 Form submissions
       %p
         Form submissions are handled automatically through the navigation model as well. Visit the
@@ -184,6 +239,7 @@
                  options.isLocal = true;
               }
             });
+
       %p
         Setting
         %code isLocal
@@ -193,23 +249,41 @@
       %p
         One important issue to note with the above is that it will set
         %code isLocal
-        to true for all requests made via ajax regardless of whether they are in the manifest or not so long as the cache is valid. This works for now because Core only consults the
+        to
+        %code true
+        for all requests made via ajax regardless of whether they are in the manifest or not so long as the cache is valid. This works for now because Core only consults the
         %code isLocal
         value when the status is in fact 0 which doesn't affect uncached results. There is no long term guarantee that
         %code isLocal
         will remain isolated in its purpose for handling 0 status values. If that changes it may break your application.
       %h2 Known limitations
-      %p The non-standard environment created by jQuery Mobile's page navigation model introduces some conditions for which you should be aware when building pages:
+      %p The non-standard environment created by jQuery Mobile's page navigation model introduces some conditions of which you should be aware when building pages:
       %ul
         %li
-          %p When linking to directories, without a filename url, (such as href="typesofcats/" instead of href="typesofcats/index.html"), you must provide a trailing slash. This is because jQuery Mobile assumes the section after the last "/" character in a url is a filename, and it will remove that section when creating base urls from which future pages will be referenced.
+          %p
+            When linking to directories, without a filename url, (such as
+            %code href="typesofcats/"
+            instead of
+            = succeed ")," do
+              %code href="typesofcats/index.html"
+            you must provide a trailing slash. This is because jQuery Mobile assumes the section after the last "/" character in a url is a filename, and it will remove that section when creating base urls from which future pages will be referenced.
         %li
           %p Documents loaded via Ajax will select the first page in the DOM of that document to be loaded as a JQM page element. As a result the developer must make sure to manage the ID attributes of the loaded page and child elements to prevent confusion when manipulating the DOM.
         %li
           %p
-            Any unique assets referenced by pages in a jQuery Mobile-driven site should be placed inside the "page" element (the element with a data-role attribute of "page"). For example, links to styles and scripts that are specific to a particular page can be referenced inside that div. However, a better approach is to use jQuery Mobile's page events to trigger specific scripting when certain pages load.
+            Any unique assets referenced by pages in a jQuery Mobile-driven site should be placed inside the "page" element (the element with a
+            %code data-role
+            attribute of
+            = succeed ")." do
+              %code "page"
+            For example, links to styles and scripts that are specific to a particular page can be referenced inside that
+            = succeed "." do
+              %code div
+            However, a better approach is to use jQuery Mobile's page events to trigger specific scripting when certain pages load.
             %strong Note:
-            you can return a page from the server with a data-url already specified in the markup, and jQuery Mobile will use that for the hash update. This allows you to ensure directory paths resolve with a trailing slash and will therefore be used in the base url path for future requests.
+            you can return a page from the server with a
+            %code data-url
+            already specified in the markup, and jQuery Mobile will use that for the hash update. This allows you to ensure directory paths resolve with a trailing slash and will therefore be used in the base url path for future requests.
         %li
           %p
             Conversely, any non-unique assets (those used site-wide) should be referenced in the
@@ -217,14 +291,18 @@
             section of an HTML document, or at the very least, outside of the "page" element, to prevent running scripts more than once.
         %li
           %p
-            The "ui-page" key name used in sub-hash url references can be set to any value you'd like, so as to blend into your URL structure. This value is stored in
+            The
+            %code "ui-page"
+            key name used in sub-hash url references can be set to any value you'd like, so as to blend into your URL structure. This value is stored in
             = succeed "." do
               %code jQuery.mobile.subPageUrlKey
         %li
           %p
             When traveling back to a previously loaded jQuery Mobile document from an external
             %b or
-            internal document with the push state plugin enabled, some browsers load and trigger the popstate event on the wrong document or for the wrong reasons (two edge cases recorded so far). If you are regularly linking to external documents and find the application behaving erratically try disabling pushstate support.
+            internal document with the push state plugin enabled, some browsers load and trigger the
+            %code popstate
+            event on the wrong document or for the wrong reasons (two edge cases recorded so far). If you are regularly linking to external documents and find the application behaving erratically try disabling pushstate support.
         %li
           %p
             jQuery Mobile does not support query parameter passing to internal/embedded pages but there are two plugins that you can add to your project to support this feature. There is a lightweight
@@ -240,6 +318,7 @@
             method to scroll to a particular Y position without triggering scroll event listeners. You can pass in a
             %code yPos
             arguments to scroll to that Y location.
+
     / /content-primary
     .content-secondary
       .ui-body-b

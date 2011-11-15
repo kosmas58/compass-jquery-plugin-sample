@@ -12,15 +12,15 @@
         %li
           %a{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/pages/themes"} Theme Overview
         %li
-          %a{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/pages/theme/a"} A
+          %a{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/pages/theme/a"} A&nbsp;
         %li
-          %a{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/pages/theme/b"} B
+          %a{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/pages/theme/b"} B&nbsp;
         %li
-          %a{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/pages/theme/c"} C
+          %a{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/pages/theme/c"} C&nbsp;
         %li
-          %a{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/pages/theme/d"} D
+          %a{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/pages/theme/d"} D&nbsp;
         %li
-          %a.ui-btn-active{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/pages/theme/e"} E
+          %a.ui-btn-active{"data-role" => "button", "data-transition" => "fade", :href => "/mobile/docs/pages/theme/e"} E&nbsp;
       %h2 Theme E Sample Page
       %p
         This is an example of
@@ -73,8 +73,9 @@
         %div{"data-collapsed" => "false", "data-role" => "collapsible"}
           %h3 Section 1
           %p
-            I'm the collapsible content in a set so this feels like an accordion. I'm hidden by default
-            because I have the "collapsed" state; you need to expand the header to see me.
+            I'm the collapsible content in a set so this feels like an accordion. I'm visible by default because I have the
+            %code data-collapsed="false"
+            attribute; to collapse me, either click my header or expand another header in my set.
         %div{"data-role" => "collapsible"}
           %h3 Section 2
           %p

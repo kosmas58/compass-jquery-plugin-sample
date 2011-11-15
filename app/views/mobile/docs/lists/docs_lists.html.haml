@@ -12,7 +12,10 @@
       %p
         A list view is coded as a simple unordered list containing linked list items with a
         %code data-role="listview"
-        attribute. jQuery Mobile will apply all the necessary styles to transform the list into a mobile-friendly list view with right arrow indicator that fills the full width of the browser window. When you tap on the list item, the framework will trigger a click on the first link inside the list item, issue an AJAX request for the URL in the link, create the new page in the DOM, then kick off a page transition. Here is the HTML markup for a basic linked list.
+        attribute. jQuery Mobile will apply all the necessary styles to transform the list into a mobile-friendly list view with right arrow indicator that fills the full width of the browser window. When you tap on the list item, the framework will trigger a click on the first link inside the list item, issue an AJAX request for the URL in the link, create the new page in the DOM, then kick off a page transition. View the
+        %a{:href => "/mobile/docs/api/data_attributes"} data- attribute reference
+        to see all the possible attributes you can add to listviews.
+      %p Here is the HTML markup for a basic linked list.
       %pre
         %code
           :preserve
@@ -46,8 +49,8 @@
         which is useful when presenting items that are in a sequence such as search results or a movie queue. When the enhanced markup is applied to the list view, jQuery Mobile will try to first use CSS to add numbers to the list and, if not supported, will fall back to injecting numbers with JavaScript.
       %a{"data-icon" => "arrow-r", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/lists/ol"} Numbered list example
       %h2 Read-only lists
-      %p List views can also be used to display a non-interactive list of items, usually as an inset list. This list is built from an unordered or ordered list that don't have linked list items. The framework defaults to styling these list with the "c" theme swatch (flat white in the default theme) and sets the text size to a smaller size than the clickable lists to save a bit of space.
-      %a{"data-icon" => "arrow-r", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/lists/lists-readonly_inset"} Read-only list example
+      %p List views can also be used to display a non-interactive list of items, usually as an inset list. This list is built from an unordered or ordered list that don't have linked list items. The framework defaults to styling these list with the "c" theme swatch and sets the text size to a smaller size than the clickable lists to save a bit of space.
+      %a{"data-icon" => "arrow-r", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/lists/readonly_inset"} Read-only list example
       %h2 Split button lists
       %p
         In cases where there is more than one possible action per list item, a split button can be used to offer two independently clickable items -- the list item and a small arrow icon in the far right. To make a split list item, simply add a second link inside the
@@ -76,7 +79,7 @@
         = succeed ")" do
           %code ol
         and specifying a theme swatch letter.
-      %a{"data-icon" => "arrow-r", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/lists/lists-divider"} List divider example
+      %a{"data-icon" => "arrow-r", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/lists/divider"} List divider example
       %h2 Search filter
       %p
         jQuery Mobile provides a very easy way to filter a list with a simple client-side search feature. To make a list filterable, simply add the
@@ -93,7 +96,7 @@
         on your listview. By default the search box will inherit its theme from its parent. The search box theme can be configured using the data-attribute
         %code data-filter-theme
         on your listview.
-      %a{"data-icon" => "arrow-r", "data-iconpos" => "right", "data-role" => "button", :href => "lists-search.html"} Search filter example
+      %a{"data-icon" => "arrow-r", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/lists/search"} Search filter example
       %p
         If you want to change the way in which list items are filtered, ie fuzzy search or matching from the beginning of the string, you can configure the callback used internally by defining
         %code $.mobile.listview.prototype.options.filterCallback
@@ -108,7 +111,6 @@
       %pre
         %code
           :preserve
-
             function( text, searchValue ){
               return text.toLowerCase().indexOf( searchValue ) === -1;
             };
@@ -137,13 +139,21 @@
         %code data-inset="true"
         attribute to the list (ul or ol), applies the inset appearance.
       %a{"data-icon" => "arrow-r", "data-iconpos" => "right", "data-role" => "button", :href => "/mobile/docs/lists/inset"} Inset list example
+      %h2 Calling the listview plugin
+      %p You can directly call the listview plugin on any selector, just like any jQuery plugin:
+      %code $('#mylist').listview();
       %h2 Updating lists
       %p
         If you add items to a listview, you'll need to call the
         %code refresh()
-        method on it to update the styles and create any nested lists that are added. For example,
-        %code $('ul').listview('refresh');
-      %p We're currently working on a few improvements to the refresh method, so keep your eye on Github for updates.
+        method on it to update the styles and create any nested lists that are added. For example:
+      %code $('#mylist').listview('refresh');
+      %p
+        Note that the
+        %code refresh()
+        method only affects
+        %strong new nodes
+        appended to a list. This is done for performance reasons.  Any list items already enhanced will be ignored by the refresh process. This means that if you change the contents or attributes on an already enhanced list item, these won't be reflected. If you want a list item to be updated, replace it with fresh markup before calling refresh.
     / /content-primary
     .content-secondary
       .ui-body-b

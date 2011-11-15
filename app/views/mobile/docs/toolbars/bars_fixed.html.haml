@@ -13,26 +13,23 @@
         To enable this behavior on a header or footer, add the
         %code data-position="fixed"
         attribute to the toolbar container.
+      %h2 Tap to toggle visibility
+      %p To toggle the visibility of fixed toolbars, tap the screen. For example, if the fixed toolbars are visible, tap the screen to hide the toolbars and take full advantage of the screen real estate for content. Tapping again will bring the toolbars back into view.
+      %p It's possible to turn off the the tap to toggle visibility behavior like this:
       %pre
         %code
           :preserve
-            &lt;div data-role=&quot;header&quot; data-position=&quot;fixed&quot;&gt;
-              Header content goes here
-            &lt;/div&gt;&lt;!-- end header --&gt;
-      %h2 Tap to toggle visibility
-      %p To toggle the visibility of fixed toolbars, tap the screen. For example, if the fixed toolbars are visible, tap the screen to hide the toolbars and take full advantage of the screen real estate for content. Tapping again will bring the toolbars back into view.
-      %p
-        It's possible to turn off the the tap to toggle visibility behavior like this:
-        = succeed "." do
-          %code $.mobile.fixedToolbars.setTouchToggleEnabled(false)
+            $.mobile.fixedToolbars.setTouchToggleEnabled(false);
       %h2 Updating toolbar positioning
       %p
         If the height of the page changes, either through dynamic injection of markup, or by widgets that hide or collapse content, it can throw off the dynamic positioning of the toolbars. To manually tell the toolbars to re-position themselves then fade in, use
         = succeed "." do
           %code $.mobile.fixedToolbars.show();
-        To have them appear immediately without the fade, use
-        = succeed "." do
-          %code $.mobile.fixedToolbars.show(true);
+        To have them appear immediately without the fade:
+      %pre
+        %code
+          :preserve
+            $.mobile.fixedToolbars.show(true);
       %p
         There is also an
         %code updatelayout
@@ -61,7 +58,7 @@
         CSS property on supported platforms like iOS5. When enabled, the framework wraps each page in a container with it's own internal scrolling. This allows us to position the toolbars outside the scrolling body so they truly stay fixed in place at all times. Learn more about this feature on the
         %a{:href => "/mobile/docs/api/globalconfig"} global options
         page or
-        %a{:href => "/mobile/docs/config/touchOverflow"} demo
+        %a{:href => "/mobile/docs/config/touch_overflow"} demo
         this feature (currently iOS5 only, other browsers will fall back to dynamically re-positioned fixed toolbars).
       %hr
         %h2 The rest of the page is just sample content to make the page very long
