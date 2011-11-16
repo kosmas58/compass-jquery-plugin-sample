@@ -21,6 +21,13 @@
         If the Ajax request fails, the framework will display a small error message overlay (styled in the "e" swatch) that disappears after a brief time so this doesn't break the navigation flow. View an
         = succeed "." do
           %a{:href => "notapage.html"} example of the error message
+      %p
+        %strong Note:
+        that you cannot link
+        %strong to
+        multipage document with Ajax navigation active because the framework will only load the first page it finds, not the full set of internal pages. In these cases, you must link without Ajax (see next section) for a full page refresh to prevent potential hash collisions. There is currently a
+        %a{:href => "https://github.com/ToddThomson/jQuery-Mobile-Subpage-Widget", :rel => "external"} subpage plugin
+        that makes it possible to load in multi-page documents.
       %h2 Linking without Ajax
       %p
         Links that point to other domains or that have

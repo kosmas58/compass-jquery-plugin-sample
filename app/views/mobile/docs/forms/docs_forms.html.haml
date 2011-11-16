@@ -85,9 +85,12 @@
           %label{:for => "radio-male"} Male
       %div{"data-role" => "fieldcontain"}
         %label{:for => "flip-s"} Server status:
-        %select#flip-s{"data-role" => "slider", :disabled => "", :name => "slider"}
+        %select#flip-s{"data-role" => "slider", :disabled => "", :name => "flip-s"}
           %option{:value => "off"} Off
           %option{:value => "on"} On
+      %div{"data-role" => "fieldcontain"}
+        %label{:for => "slider"} Max bandwidth:
+        %input#slider{:disabled => "", :max => "100", :min => "0", :name => "slider", :type => "range", :value => "0"}/
       %div{"data-role" => "fieldcontain"}
         %label.select{:for => "select-choice-x"} Shipping:
         %select#select-choice-x{:disabled => "", :name => "select-shipper"}

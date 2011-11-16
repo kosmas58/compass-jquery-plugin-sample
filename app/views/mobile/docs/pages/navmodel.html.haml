@@ -271,6 +271,13 @@
           %p Documents loaded via Ajax will select the first page in the DOM of that document to be loaded as a JQM page element. As a result the developer must make sure to manage the ID attributes of the loaded page and child elements to prevent confusion when manipulating the DOM.
         %li
           %p
+            If you link to multipage document, you must use a
+            %code data-ajax="false"
+            attribute on the link to cause a full page refresh due to the limitation above where we only load the first page node in an Ajax request due to potential hash collisions. There is currently a
+            %a{:href => "https://github.com/ToddThomson/jQuery-Mobile-Subpage-Widget", :rel => "external"} subpage plugin
+            that makes it possible to load in multi-page documents.
+        %li
+          %p
             Any unique assets referenced by pages in a jQuery Mobile-driven site should be placed inside the "page" element (the element with a
             %code data-role
             attribute of
