@@ -33,6 +33,22 @@
       %p
         The
         %code data-theme
+        attribute can be applied to the header and footer containers to apply any of the lettered theme color swatches. While the
+        %code data-theme
+        attribute could be added to the content container, we recommend adding it instead to
+        %code div
+        or container that has been assigned the
+        %code data-role="page"
+        attribute to ensure that the background color is applied to the full page. When this is done, all widgets on the page will also inherit the theme specified in the page container. However, headers and footers will default to theme "a". If you want to have a page with, for example, only theme "b" for all its elements, including its header and footer, you will need to specify
+        %code data-theme="b"
+        to the page
+        %code div
+        as well as the header and footer
+        = succeed "." do
+          %code divs
+      %p
+        The
+        %code data-theme
         attribute can be applied to the header and footer containers to apply any of
         the lettered theme color swatches. While the
         %code data-theme
