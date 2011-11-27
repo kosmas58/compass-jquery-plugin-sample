@@ -30,7 +30,13 @@
           %code min
           and
           %code max
-          attribute values to set the slider's range. The framework will parse these attributes to configure the slider widget.
+          attribute values to set the slider's range. If you want to constrain input to specific increments, add the
+          %code step
+          attribute. Set the
+          %code value
+          attribute to define the initial value. The framework will parse these attributes to configure the slider widget. View the
+          %a{:href => "/mobile/docs/api/data_attributes"} data- attribute reference
+          to see all the possible attributes you can add to sliders.
         %p As you drag the slider's handle, the framework will update the native input's value (and vice-versa) so they are always in sync; this ensures that the value is submitted with the form.
         %p
           Set the
@@ -57,25 +63,27 @@
           %code div
           with the
           %code data-role="fieldcontain"
-          attribute to group them.
+          attribute to group them. In this example, the acceptable range is 0-100 and the step increment is 5.
         %pre
           %code
             :preserve
               &lt;label for=&quot;slider-0&quot;&gt;Input slider:&lt;/label&gt;
-              &lt;input type=&quot;range&quot; name=&quot;slider&quot; id=&quot;slider-0&quot; value=&quot;25&quot; min=&quot;0&quot; max=&quot;100&quot;/&gt;
-        %p The default slider is displayed like this:
+              &lt;input type=&quot;range&quot; name=&quot;slider&quot; id=&quot;slider-0&quot; value=&quot;25&quot; min=&quot;0&quot; max=&quot;100&quot; step=&quot;5&quot; /&gt;
+        %p The default slider with these settings is displayed like this:
         %label{:for => "slider-0"} Input slider:
-        %input#slider-0{:max => "100", :min => "0", :name => "slider-1", :type => "range", :value => "25"}/
+        %input#slider-0{:max => "100", :min => "0", :name => "slider-1", :step => "5", :type => "range", :value => "25"}/
         %p
           Optionally wrap the slider markup in a container with the
           %code data-role="fieldcontain"
-          attribute to help visually group it in a longer form.
+          attribute to help visually group it in a longer form. In this example, the
+          %code step
+          attribute is omitted to allow any whole number value to be selected.
         %pre
           %code
             :preserve
               &lt;div data-role=&quot;fieldcontain&quot;&gt;
                 &lt;label for=&quot;slider&quot;&gt;Input slider:&lt;/label&gt;
-                &lt;input type=&quot;range&quot; name=&quot;slider&quot; id=&quot;slider&quot; value=&quot;25&quot; min=&quot;0&quot; max=&quot;100&quot;/&gt;
+                &lt;input type=&quot;range&quot; name=&quot;slider&quot; id=&quot;slider&quot; value=&quot;25&quot; min=&quot;0&quot; max=&quot;100&quot;  /&gt;
               &lt;/div&gt;
         %p The slider is now displayed like this:
         %div{"data-role" => "fieldcontain"}
@@ -109,7 +117,8 @@
             :preserve
               &lt;div data-role=&quot;fieldcontain&quot;&gt;
                 &lt;label for=&quot;slider-2&quot;&gt;Input slider:&lt;/label&gt;
-                &lt;input type=&quot;range&quot; name=&quot;slider-2&quot; id=&quot;slider-2&quot; value=&quot;25&quot; min=&quot;0&quot; max=&quot;100&quot; data-theme=&quot;a&quot; data-track-theme=&quot;b&quot;/&gt;
+                &lt;input type=&quot;range&quot; name=&quot;slider-2&quot; id=&quot;slider-2&quot; value=&quot;25&quot; min=&quot;0&quot; max=&quot;100&quot;
+                data-theme=&quot;a&quot; data-track-theme=&quot;b&quot;/&gt;
               &lt;/div&gt;
         %p This will produce a themed slider:
         %div{"data-role" => "fieldcontain"}

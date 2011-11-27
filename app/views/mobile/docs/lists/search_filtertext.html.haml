@@ -1,73 +1,40 @@
--@title = "jQuery Mobile Docs - List Dividers"
+-@title = "jQuery Mobile Docs - Filtered Lists Using Hidden Data"
 = render :partial => "/mobile/index.js.haml", :format => :js
 
 .type-interior{"data-role" => "page"}
   %div{"data-role" => "header", "data-theme" => "f"}
-    %h1 List dividers
+    %h1 Search hidden data
     %a.ui-btn-right.jqm-home{"data-direction" => "reverse", "data-icon" => "home", "data-iconpos" => "notext", :href => "/mobile"} Home
   / /header
   %div{"data-role" => "content"}
     .content-primary
-      %ul{"data-role" => "listview"}
-        %li{"data-role" => "list-divider"} A
-        %li
-          %a{:href => "/mobile/docs/lists"} Adam Kinkaid
-        %li
-          %a{:href => "/mobile/docs/lists"} Alex Wickerham
-        %li
-          %a{:href => "/mobile/docs/lists"} Avery Johnson
-        %li{"data-role" => "list-divider"} B
-        %li
-          %a{:href => "/mobile/docs/lists"} Bob Cabot
-        %li{"data-role" => "list-divider"} C
-        %li
-          %a{:href => "/mobile/docs/lists"} Caleb Booth
-        %li
-          %a{:href => "/mobile/docs/lists"} Christopher Adams
-        %li
-          %a{:href => "/mobile/docs/lists"} Culver James
-        %li{"data-role" => "list-divider"} D
-        %li
-          %a{:href => "/mobile/docs/lists"} David Walsh
-        %li
-          %a{:href => "/mobile/docs/lists"} Drake Alfred
-        %li{"data-role" => "list-divider"} E
-        %li
-          %a{:href => "/mobile/docs/lists"} Elizabeth Bacon
-        %li
-          %a{:href => "/mobile/docs/lists"} Emery Parker
-        %li
-          %a{:href => "/mobile/docs/lists"} Enid Voldon
-        %li{"data-role" => "list-divider"} F
-        %li
-          %a{:href => "/mobile/docs/lists"} Francis Wall
-        %li{"data-role" => "list-divider"} G
-        %li
-          %a{:href => "/mobile/docs/lists"} Graham Smith
-        %li
-          %a{:href => "/mobile/docs/lists"} Greta Peete
-        %li{"data-role" => "list-divider"} H
-        %li
-          %a{:href => "/mobile/docs/lists"} Harvey Walls
-        %li{"data-role" => "list-divider"} M
-        %li
-          %a{:href => "/mobile/docs/lists"} Mike Farnsworth
-        %li
-          %a{:href => "/mobile/docs/lists"} Murray Vanderbuilt
-        %li{"data-role" => "list-divider"} N
-        %li
-          %a{:href => "/mobile/docs/lists"} Nathan Williams
-        %li{"data-role" => "list-divider"} P
-        %li
-          %a{:href => "/mobile/docs/lists"} Paul Baker
-        %li
-          %a{:href => "/mobile/docs/lists"} Pete Mason
-        %li{"data-role" => "list-divider"} R
-        %li
-          %a{:href => "/mobile/docs/lists"} Rod Tarker
-        %li{"data-role" => "list-divider"} S
-        %li
-          %a{:href => "/mobile/docs/lists"} Sawyer Wakefield
+      %p
+        By default, the listview filter simply searches against the content in each list item. If you want the filter to search against different content, add the
+        %code data-filtertext
+        attribute to the item and populate it with one or many keywords and phrases that should be used to match against. Note that if this attribute is added, the contents of the list item are ignored.
+      %p This attribute is useful for dealing with allowing for ticker symbols and full company names to be searched, or for covering common spellings and abbreviations for countries.
+      %pre
+        %code
+          :preserve
+            &lt;li data-filtertext=&quot;NASDAQ:AAPL Apple Inc.&quot;&gt;&lt;a href=&quot;#&quot;&gt;Apple&lt;/a&gt;&lt;/li&gt;
+            &lt;li data-filtertext=&quot;USA U.S.A. United States of America&quot;&gt;&lt;a href=&quot;#&quot;&gt;United States&lt;/a&gt;&lt;/li&gt;
+      %ul{"data-filter" => "true", "data-filter-placeholder" => "Search ticker or firm name...", "data-inset" => "true", "data-role" => "listview"}
+        %li{"data-filtertext" => "NASDAQ:ADBE Adobe Systems Incorporated"}
+          %a{:href => "#"} Adobe
+        %li{"data-filtertext" => "NASDAQ:AMZNL Amazon.com, Inc."}
+          %a{:href => "#"} Amazon
+        %li{"data-filtertext" => "NASDAQ:AAPL Apple Inc."}
+          %a{:href => "#"} Apple
+        %li{"data-filtertext" => "NASDAQ:GOOG Google Inc."}
+          %a{:href => "#"} Google
+        %li{"data-filtertext" => "NYSE:IBM Intl. International Business Machines Corp."}
+          %a{:href => "index.html"} IBM
+        %li{"data-filtertext" => "NASDAQ:MSFT Microsoft Corporation"}
+          %a{:href => "#"} Microsoft
+        %li{"data-filtertext" => "NASDAQ:YHOO Yahoo! Inc."}
+          %a{:href => "#"} Yahoo
+        %li{"data-filtertext" => "USA U.S.A. United States of America"}
+          %a{:href => "#"} United States
     / /content-primary
     .content-secondary
       .ui-body-b
@@ -85,7 +52,7 @@
               %a{:href => "/mobile/docs/lists/ol"} Numbered list
             %li
               %a{:href => "/mobile/docs/lists/split"} Split button list
-            %li{"data-theme" => "a"}
+            %li
               %a{:href => "/mobile/docs/lists/divider"} List dividers
             %li
               %a{:href => "/mobile/docs/lists/count"} Count bubble
@@ -101,7 +68,7 @@
               %a{:href => "/mobile/docs/lists/search_inset"} Inset search filter bar
             %li
               %a{:href => "/mobile/docs/lists/search_with_dividers"} Search filter bar with dividers
-            %li
+            %li{"data-theme" => "a"}
               %a{:href => "/mobile/docs/lists/search_filtertext"} Search filter hidden data
             %li
               %a{:href => "/mobile/docs/lists/readonly"} Read-only lists
