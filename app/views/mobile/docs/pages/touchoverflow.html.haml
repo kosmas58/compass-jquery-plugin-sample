@@ -71,7 +71,7 @@
       %p
         More importantly, targeting overflow correctly is a major issue. If we simply placed an
         %code overflow: auto
-        CSS rule on the pages, other popular mobile platforms like older versions of Android and iOS would essentially just clip off the content and make it effectively inaccessible (yes, you can can do a two-finger scroll gesture in iOS but nobody knows that). The smart thing about Apple’s implementation for iOS5 is that they added an additional CSS property
+        CSS rule on the pages, other popular mobile platforms like older versions of Android and iOS would essentially just clip off the content and make it effectively inaccessible (yes, you can do a two-finger scroll gesture in iOS but nobody knows that). The smart thing about Apple’s implementation for iOS5 is that they added an additional CSS property
         %code -webkit-overflow-scrolling:touch
         that allows us to test for this touch scrolling property and, if supported, add in the
         %code overflow
