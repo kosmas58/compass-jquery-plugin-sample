@@ -80,6 +80,18 @@
         We will be working with device and browser makers to encourage support for
         %em both
         these CSS-based properties because we strongly believe that this a critical piece needed to build rich mobile web apps. The project will add any vendor-prefixed additions to touch scrolling property if, for example, Opera, Firefox or Microsoft added this support. Once people see how much better page transitions and fixed toolbars are on iOS5, we’re hoping this will be supported quickly by other browsers. JS-based scroller scripts may still have a place in this new world as a polyfill for browsers that don’t yet support these new CSS capabilities but we see this as a brief, interim tool in the evolution of the mobile web.
+      %h2 Debugging touchOverflow
+      %p
+        Generally touchOverflow is only enabled on devices that support touch-scrolling of overflow areas, not desktop browsers.  This can make it difficult to debug problems with the touchOverflow feature.  To enable touchOverflow on all browsers, use the following code:
+        %pre
+          %code
+            :preserve
+              &lt;script&gt;
+                $(document).bind(&quot;mobileinit&quot;, function() {
+                  $.support.touchOverflow = true;
+                  $.mobile.touchOverflowEnabled = true;
+                });
+              &lt;/script&gt;
     / /content-primary
     .content-secondary
       .ui-body-b

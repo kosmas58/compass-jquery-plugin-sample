@@ -16,7 +16,7 @@ gem "compass-jquery-plugin", "= 0.3.3.2.pre.4", :require => 'jquery'
 # gem "sass"
 
 # for markItUp!
-gem "RedCloth", "4.2.7", :require => "redcloth"
+gem "RedCloth", "4.2.9", :require => "redcloth"
 gem "bluecloth", "2.1.0"
 gem "wikicloth"
 
