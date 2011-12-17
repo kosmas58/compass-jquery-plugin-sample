@@ -119,6 +119,18 @@
                 %strong> { nativeMenu: "false" }
                 );
           %dt
+            %code overlayTheme
+            %em string
+          %p.default default: a
+          %p
+            Sets the color of the overlay layer for the dialog-based custom select menus and the outer border of the smaller custom menus. It accepts a single letter from a-z that maps to the swatches included in your theme. By default, the content block colors for swatch A will be used for the overlays. This option is also exposed as a data attribute:
+            %code ui-body-d
+          %pre
+            %code
+              $('select').selectmenu(
+              %strong> { overlayTheme: "d" }
+              );
+          %dt
             %code shadow
             %em boolean
           %dd
