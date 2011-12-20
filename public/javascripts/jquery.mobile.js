@@ -513,7 +513,8 @@
           touchTargetPropertyName = "virtualTouchID",
           virtualEventNames = "vmouseover vmousedown vmousemove vmouseup vclick vmouseout vmousecancel".split(" "),
           touchEventProps = "clientX clientY pageX pageY screenX screenY".split(" "),
-          mouseEventProps = $.event.props.concat($.event.mouseHooks.props),
+          mouseHookProps = $.event.mouseHooks ? $.event.mouseHooks.props : [],
+          mouseEventProps = $.event.props.concat(mouseHookProps),
           activeDocHandlers = {},
           resetTimerID = 0,
           startX = 0,
@@ -6060,8 +6061,8 @@
                 menuWidth = self.list.parent().outerWidth(),
                 activePage = $(".ui-page-active"),
                 tOverflow = $.support.touchOverflow && $.mobile.touchOverflowEnabled,
-                tScrollElem = activePage.is(".ui-native-fixed") ? activePage.find(".ui-content") : activePage;
-        scrollTop = tOverflow ? tScrollElem.scrollTop() : $(window).scrollTop(),
+                tScrollElem = activePage.is(".ui-native-fixed") ? activePage.find(".ui-content") : activePage,
+                scrollTop = tOverflow ? tScrollElem.scrollTop() : $(window).scrollTop(),
                 btnOffset = self.button.offset().top,
                 screenHeight = window.innerHeight,
                 screenWidth = window.innerWidth;
